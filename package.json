@@ -1,0 +1,70 @@
+{
+  "name": "metronic-extension",
+  "version": "1.0.0",
+  "description": "Extension package for the Metronic WEB theme.",
+  "main": "dist/build.esm.js",
+  "module": "dist/build.esm.js",
+  "browser": "dist/build.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "watch": "rollup -c --watch",
+    "prewatch": "rm -rf dist types",
+    "build": "rollup -c",
+    "prebuild": "rm -rf dist types",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takuya-motoshima/metronic-extension.git"
+  },
+  "files": [
+    "dist/*.js",
+    "types/*.d.ts",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "theme",
+    "bootstrap",
+    "metronic"
+  ],
+  "author": "Takuya Motoshima <developer.takuyamotoshima@gmail.com> (https://twitter.com/TakuyaMotoshima)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/takuya-motoshima/metronic-extension/issues",
+    "email": "developer.takuyamotoshima@gmail.com"
+  },
+  "homepage": "https://github.com/takuya-motoshima/metronic-extension#readme",
+  "devDependencies": {
+    "@rollup/plugin-replace": "^2.3.1",
+    "@types/bootstrap": "^5.2.5",
+    "@types/datatables.net": "^1.10.24",
+    "@types/daterangepicker": "^3.1.4",
+    "@types/jest": "^24.0.23",
+    "@types/jquery": "^3.5.14",
+    "fetch-mock": "^8.0.0",
+    "jest": "^24.9.0",
+    "rollup": "^2.60.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "axios": "^1.1.2",
+    "bootstrap": "^5.2.2",
+    "clipboard": "^2.0.11",
+    "compare-img": "^1.0.3",
+    "daterangepicker": "^3.1.0",
+    "deep-fusion": "^1.0.0",
+    "handlebars-extd": "^1.0.4",
+    "moment": "^2.29.4",
+    "sweetalert2": "^11.5.1"
+  }
+}
