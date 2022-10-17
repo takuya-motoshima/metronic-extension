@@ -10,6 +10,7 @@
   <!--end::Fonts-->
   <!--begin::Vendor Stylesheets(used for this page only)-->
   <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Vendor Stylesheets-->
   <!--begin::Global Stylesheets Bundle(used by all pages)-->
   <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -242,6 +243,50 @@
               <!--begin::Heading-->
               <h1 id="restClient" class="mb-5">REST Client</h1>
               <!--end::Heading-->
+              <!--begin::Description-->
+              <div class="pt-5">If you want to run the REST Client demo locally, you will need to start a local server. <br>Start the local server (http://localhost:8080) by following these steps.  </div>
+              <!--end::Description-->
+              <!--begin::List-->
+              <ol class="py-5">
+                <li class="pt-0 pb-3">Download the server code archive from <a href="server.zip" class="fw-semibold">here</a>.</li>
+                <li class="py-3">Start a terminal and change the directory to <code>[unpacked path]/</code>.
+                  <div class="py-5">
+                    <!--begin::Highlight-->
+                    <div class="highlight">
+                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                      <div class="highlight-code">
+                        <pre class="language-bash"><code class="language-bash">cd server/</code></pre>
+                      </div>
+                    </div>
+                    <!--end::Highlight-->
+                  </div>
+                </li>
+                <li class="py-3">Install dependencies.
+                  <div class="py-5">
+                    <!--begin::Highlight-->
+                    <div class="highlight">
+                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                      <div class="highlight-code">
+                        <pre class="language-bash"><code class="language-bash">npm install</code></pre>
+                      </div>
+                    </div>
+                    <!--end::Highlight-->
+                  </div>
+                </li>
+                <li class="py-3">Start Server.
+                  <div class="py-5">
+                    <!--begin::Highlight-->
+                    <div class="highlight">
+                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                      <div class="highlight-code">
+                        <pre class="language-bash"><code class="language-bash">npm start</code></pre>
+                      </div>
+                    </div>
+                    <!--end::Highlight-->
+                  </div>
+                </li>
+              </ol>
+              <!--end::List-->
               <!--begin::Block-->
               <div class="rounded border p-10">
                 <!--begin::Form-->
@@ -639,6 +684,7 @@
   <!--end::Global Javascript Bundle-->
   <!--begin::Vendors Javascript(used for this page only)-->
   <script src="build/theme/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
   <!--end::Vendors Javascript-->
   <!--begin::Custom Javascript(used by this page)-->
   <script src="build/index.js"></script>

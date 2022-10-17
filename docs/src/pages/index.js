@@ -26,8 +26,31 @@ import DemoModal from '~/pages/DemoModal';
 import DemoApi from '~/pages/DemoApi';
 import persons from '~/pages/persons.json';
 
-window.fetchDataUrl = fetchDataUrl;
-
+function initCodeCopyButton() {
+  for (let highlight of $('.highlight')) {
+    console.log('highlight=', highlight);
+    const copy = highlight.querySelector('.highlight-copy');
+    if (!copy)
+      continue;
+    const clipboard = new ClipboardJS(copy, {
+      target: trigger => {
+        const highlight = trigger.closest('.highlight');
+        let el = highlight.querySelector('.tab-pane.active');
+        if (!el)
+          el = highlight.querySelector('.highlight-code');
+        return el;
+      }
+    });
+    clipboard.on('success', function(e) {
+      const caption = e.trigger.innerHTML;
+      e.trigger.innerHTML = 'copied';
+      e.clearSelection();
+      setTimeout(() => {
+        e.trigger.innerHTML = caption;
+      }, 2000);
+    });
+  }
+}
 function initBlockUI() {
   const blockUI = new BlockUI(ref.blockUiTarget, 'Loading...', false);
   $('body').on('click', '[data-on-block]', () => {
@@ -305,7 +328,9 @@ function initSelectRefAttributeNodes() {
 const ref = selectRef();
 const isLocalServer = !location.host;
 const demoModal = new DemoModal();
-const demoApi = new DemoApi(isLocalServer ? 'http://localhost:8080/' : undefined);
+const demoApi = new DemoApi('http://localhost:8080/');
+
+initCodeCopyButton();
 initBlockUI();
 initDatatable();
 initDialog();
