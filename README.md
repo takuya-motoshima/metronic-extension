@@ -8,8 +8,6 @@ The demonstration is [here](https://takuya-motoshima.github.io/metronic-extensio
 ## Installation
 ```sh
 npm install --save metronic-extension
-# PAT=ghp_lEk*********************************
-# npm install --save https://${PAT}:x-oauth-basic@github.com/takuya-motoshima/metronic-extension.git
 ```
 <!-- ```sh
 PAT=ghp_lEk*********************************
