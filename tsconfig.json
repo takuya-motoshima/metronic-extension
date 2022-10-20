@@ -18,7 +18,8 @@
     "esModuleInterop": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "node_modules/clipboard/src/*.ts"
   ],
   "exclude": [
     "node_modules",

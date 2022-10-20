@@ -1,4 +1,3 @@
-import "bootstrap";
 import $ from 'jquery';
 import fusion from 'deep-fusion';
 import initTooltip from '~/components/initTooltip';

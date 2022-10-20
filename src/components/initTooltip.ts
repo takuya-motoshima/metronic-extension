@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import bootstrap from 'bootstrap';
+import bootstrap from '~/misc/bootstrap';
 
 /**
  * Initialize the tooltip.

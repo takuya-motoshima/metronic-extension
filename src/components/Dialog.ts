@@ -23,7 +23,7 @@ export default class {
       didOpen: (popup: HTMLElement): void => {},
       preConfirm: () => {}
     }, options);
-    return (await Swal.fire({
+    return (await window.Swal.fire({
       html: message,
       showCancelButton: true,
       buttonsStyling: false,
@@ -41,7 +41,7 @@ export default class {
         confirmButton: `btn btn-primary fw-bolder`,
       }
     }, options);
-    return Swal.fire({
+    return window.Swal.fire({
       html: message,
       icon: 'success',
       buttonsStyling: false,
@@ -56,7 +56,7 @@ export default class {
     options = fusion({
       confirmButtonText: 'OK',
     }, options);
-    return Swal.fire({
+    return window.Swal.fire({
       html: message,
       icon: 'error',
       buttonsStyling: false,
@@ -74,7 +74,7 @@ export default class {
     options = fusion({
       confirmButtonText: 'OK'
     }, options);
-    return Swal.fire({
+    return window.Swal.fire({
       html: message,
       icon: 'warning',
       buttonsStyling: false,
@@ -92,7 +92,7 @@ export default class {
     options = fusion({
       confirmButtonText: 'OK'
     }, options);
-    return Swal.fire({
+    return window.Swal.fire({
       html: message,
       icon: 'info',
       buttonsStyling: false,
@@ -115,12 +115,12 @@ export default class {
    * Show loading.
    */
   static async loading(message: string, options: DialogOptions.Loading|undefined = undefined): Promise<void> {
-    return Swal.fire({
+    return window.Swal.fire({
       html: message,
       allowEscapeKey: false,
       allowOutsideClick: false,
       didOpen: () => {
-        Swal.showLoading()
+        window.Swal.showLoading()
       },
       ...options
     });
@@ -130,6 +130,6 @@ export default class {
    * Close.
    */
   static close(): void {
-    Swal.close();
+    window.Swal.close();
   }
 }

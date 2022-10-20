@@ -24,7 +24,7 @@ import getExtensionFromDataUrl from '~/misc/getExtensionFromDataUrl';
  * @see {@link https://preview.keenthemes.com/metronic8/demo1/documentation/forms/image-input.html} Custom Bootstrap Image Input with Preview Component by Keenthemes.
  */
 export default class {
-  #imageInput: typeof KTImageInput;
+  #imageInput: typeof window.KTImageInput;
   #changeHandler: (dataUrl: string|null) => void = (dataUrl: string|null) => {};
   #imgDataUrl: string|undefined;
 
@@ -148,7 +148,7 @@ export default class {
         <i class="bi bi-x fs-2"></i>
       </span>`)(options));
     initTooltip(context);
-    const imageInput = new KTImageInput(context);
+    const imageInput = new window.KTImageInput(context);
     if (options.current && !options.cancelable)
       imageInput.removeElement.style.display = 'flex';
 
@@ -163,12 +163,12 @@ export default class {
    * Initialize event listeners.
    */
   #initEventListeners(options: ImageInputOptions, defaultImg: string|undefined): void {
-    this.#imageInput.on('kt.imageinput.changed', async (input: typeof KTImageInput) => {
+    this.#imageInput.on('kt.imageinput.changed', async (input: typeof window.KTImageInput) => {
       // If cancellation is disabled, the delete button is forcibly displayed when editing the image.
       if (!options.cancelable)
         input.removeElement.style.display = 'flex';
     });
-    this.#imageInput.on('kt.imageinput.removed', async (input: typeof KTImageInput) => {
+    this.#imageInput.on('kt.imageinput.removed', async (input: typeof window.KTImageInput) => {
       if (defaultImg) {
         // Set the default image when the image is canceled.
         if (options.hiddenEl)

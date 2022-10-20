@@ -14,7 +14,8 @@ module.exports = {
     ]
   },
   entry: {
-    index: './src/pages/index.js'
+    index: './src/pages/index.js',
+    test: './src/pages/test.js',
   },
 
   // File output settings.

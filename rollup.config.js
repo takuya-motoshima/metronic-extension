@@ -8,7 +8,7 @@ import pkg from './package.json';
 export default {
   external: [
     'jquery',
-    'bootstrap',
+    // 'bootstrap',
     'sweetalert2',
     'clipboard',
     'daterangepicker'

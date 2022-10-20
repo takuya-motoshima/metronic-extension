@@ -1,7 +1,7 @@
 import hbs from 'handlebars-extd';
 import $ from 'jquery';
 import moment from 'moment';
-import bootstrap from 'bootstrap';
+import bootstrap from '~/misc/bootstrap';
 
 /**
  * Type of toast.

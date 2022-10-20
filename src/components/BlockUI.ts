@@ -5,7 +5,7 @@ import $ from 'jquery';
  * Display loading indicator on the block.
  */
 export default class BlockUI {
-  #blockUI: typeof KTBlockUI;
+  #blockUI: typeof window.KTBlockUI;
 
   /**
    * Initialization.
@@ -13,9 +13,9 @@ export default class BlockUI {
   constructor(target: JQuery|HTMLElement, message: string, executeBlock = true) {
     if (target instanceof $)
       target = (target as JQuery).get(0)!;
-    this.#blockUI = KTBlockUI.getInstance(target);
+    this.#blockUI = window.KTBlockUI.getInstance(target);
     if (!this.#blockUI)
-      this.#blockUI = new KTBlockUI(target, {
+      this.#blockUI = new window.KTBlockUI(target, {
         message: hbs.compile(
           `<div class="blockui-message fw-bolder">
             <span class="spinner-border text-primary me-3"></span>

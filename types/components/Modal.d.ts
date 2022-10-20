@@ -1,4 +1,3 @@
-import bootstrap from 'bootstrap';
 /**
  * base class of modal.
  */

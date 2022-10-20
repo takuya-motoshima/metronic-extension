@@ -1,5 +1,5 @@
 import hbs from 'handlebars-extd';
-import bootstrap from 'bootstrap';
+import bootstrap from '~/misc/bootstrap';
 import isAsyncFunction from '~/misc/isAsyncFunction';
 
 /**
@@ -10,7 +10,7 @@ export default class {
   instance: bootstrap.Modal|undefined;
   resolve: ((res: any) => void)|undefined;
   res: any = false;
-  #blockUICallStack: typeof KTBlockUI[] = [];
+  #blockUICallStack: typeof window.KTBlockUI[] = [];
 
   /**
    * Show Modal.
@@ -89,7 +89,7 @@ export default class {
   showBlockUI(message: string): void {
     if (!this.node)
       return;
-    const blockUI = new KTBlockUI(this.node.find('.modal-content').get(0), {
+    const blockUI = new window.KTBlockUI(this.node.find('.modal-content').get(0), {
       message: hbs.compile(
         `<div class="blockui-message fw-bolder">
           <span class="spinner-border text-primary me-3"></span>

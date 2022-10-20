@@ -1,5 +1,4 @@
 /// <reference types="datatables.net" />
-import "bootstrap";
 /**
  * DataTable.
  */

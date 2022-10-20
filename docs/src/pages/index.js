@@ -13,8 +13,8 @@ import {
   selectRef,
 
   // http
-  fetchDataUrl,
-  fetchDataUrlUsingCanvas,
+  // fetchDataUrl,
+  // fetchDataUrlUsingCanvas,
 
   // misc
   isPlainObject,
