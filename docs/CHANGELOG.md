@@ -1,6 +1,50 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2022/10/24
+- Added Japanese phone number custom validation to form validation.  
+    HTML:
+    ```html
+    <!--begin::Form-->
+    <form data-ref="customValidationForm" autocomplete="off">
+      <!--begin::Input group-->
+      <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="fw-semibold fs-6 mb-2">Integer from 1 to 99</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <input name="betweenValues" class="form-control" placeholder="99" value="99">
+        <!--end::Input-->
+      </div>
+      <!--end::Input group-->
+      <!--begin::Actions-->
+      <button type="submit" class="btn btn-primary">Validation Form</button>
+      <!--end::Actions-->
+    </form>
+    <!--end::Form-->
+    ```
+
+    JS:
+    ```js
+    import {selectRef, Validation} from 'metronic-extension';
+
+    const ref = selectRef();
+    const validation = new Validation(ref.customValidationForm, {
+      betweenValues: {
+        validators: {
+          isIntegersBetween: {
+            message: 'This is not correct.',
+            min: 1,
+            max: 99
+          }
+        }
+      }
+    });
+    validation.onValid(() => {
+      alert('Form has been successfully submitted!');
+    });
+    ```
+
 ## [1.0.4] - 2022/10/24
 - Added event handlers that fire when each field is valid or invalid.
     ```js
@@ -129,3 +173,4 @@ All notable changes to this project will be documented in this file.
 [1.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.1...v1.0.2
 [1.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.2...v1.0.3
 [1.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.3...v1.0.4
+[1.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.4...v1.0.5

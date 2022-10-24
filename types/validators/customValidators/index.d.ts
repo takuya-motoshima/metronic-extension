@@ -24,6 +24,11 @@ declare const _default: {
             valid: boolean;
         };
     };
+    isIntegersBetween: () => {
+        validate: (input: FormValidation.core.ValidateInput<import("../../interfaces/BetweenIntegersValidateOption").default, FormValidation.core.Localization>) => {
+            valid: boolean;
+        };
+    };
     isIp: () => {
         validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {
             valid: boolean;

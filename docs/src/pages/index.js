@@ -289,6 +289,16 @@ function initCustomValidation() {
         isPhoneNumberJp: {message: 'This is not correct.'}
       }
     },
+    betweenValues: {
+      validators: {
+        notEmpty: {message: 'Enter here.'},
+        isIntegersBetween: {
+          message: 'This is not correct.',
+          min: 1,
+          max: 99
+        }
+      }
+    },
     html: {
       validators: {
         notEmpty: {message: 'Enter here.'},
