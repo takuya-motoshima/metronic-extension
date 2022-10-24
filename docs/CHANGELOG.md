@@ -1,6 +1,48 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2022/10/24
+### Fixed
+- Added Japanese phone number custom validation to form validation.  
+    HTML:
+    ```html
+    <!--begin::Form-->
+    <form data-ref="customValidationForm" autocomplete="off">
+      <!--begin::Input group-->
+      <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="fw-semibold fs-6 mb-2 required">Japanese phone number</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <input name="phoneNumberJp" class="form-control" placeholder="06-6012-3456" value="06-6012-3456">
+        <!--end::Input-->
+      </div>
+      <!--end::Input group-->
+      <!--begin::Actions-->
+      <button type="submit" class="btn btn-primary">Validation Form</button>
+      <!--end::Actions-->
+    </form>
+    <!--end::Form-->
+    ```
+
+    JS:
+    ```js
+    import {selectRef, Validation} from 'metronic-extension';
+
+    const ref = selectRef();
+    const validation = new Validation(ref.customValidationForm, {
+      phoneNumberJp: {
+        validators: {
+          notEmpty: {message: 'Enter here.'},
+          isPhoneNumberJp: {message: 'This is not correct.'}
+        }
+      }
+    });
+    validation.onValid(() => {
+      alert('Form has been successfully submitted!');
+    });
+    ```
+
 ## [1.0.2] - 2022/10/24
 ### Fixed
 - Add request error hook method to API class.

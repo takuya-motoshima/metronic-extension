@@ -5,6 +5,7 @@ import isHostOrIp from '~/validators/customValidators/isHostOrIp';
 import isHTML from '~/validators/customValidators/isHTML';
 import isIp from '~/validators/customValidators/isIp';
 import isKana from '~/validators/customValidators/isKana';
+import isPhoneNumberJp from '~/validators/customValidators/isPhoneNumberJp';
 import isPort from '~/validators/customValidators/isPort';
 import isUnixUserName from '~/validators/customValidators/isUnixUserName';
 
@@ -16,6 +17,7 @@ export default {
   isHTML,
   isIp,
   isKana,
+  isPhoneNumberJp,
   isPort,
   isUnixUserName
 }

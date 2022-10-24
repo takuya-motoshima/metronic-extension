@@ -229,7 +229,7 @@ function initRestClient() {
 }
 
 function initCustomValidation() {
-  const validation = new Validation(ref.customValidationForm.get(0), {
+  const validation = new Validation(ref.customValidationForm, {
     cidr: {
       validators: {
         notEmpty: {message: 'Enter here.'},
@@ -276,6 +276,12 @@ function initCustomValidation() {
       validators: {
         notEmpty: {message: 'Enter here.'},
         isUnixUserName: {message: 'This is not correct.'}
+      }
+    },
+    phoneNumberJp: {
+      validators: {
+        notEmpty: {message: 'Enter here.'},
+        isPhoneNumberJp: {message: 'This is not correct.'}
       }
     },
     html: {
