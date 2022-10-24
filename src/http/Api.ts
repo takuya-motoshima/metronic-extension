@@ -2,12 +2,26 @@ import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError, Can
 
 /**
  * REST client.
+ *
+ * Example of error handling in a subclass.
+ * @example
+ * import {Api} from 'metronic-extension';
+ *
+ * export default class extends Api {
+ *   requestErrorHook(code) {
+ *     if (code === 403) {
+ *       // Redirect in case of authentication error (403).
+ *       alert('The session has expired');
+ *       location.replace('/');
+ *     }
+ *   }
+ * }
  */
 export default class Api {
   client: AxiosInstance;
   #beforeRequestHandler: (config: AxiosRequestConfig) => void = (config: AxiosRequestConfig) => {};
   #afterResponseHandler: (res: AxiosResponse) => void = (res: AxiosResponse) => {};
-  #responseErrorHandler: (err: AxiosError, status: number) => void = (err: AxiosError, status: number) => {};
+  #responseErrorHandler: (code: number, err: AxiosError) => void = (code: number, err: AxiosError) => {};
 
   /**
    * Initialization.
@@ -54,9 +68,10 @@ export default class Api {
         return res;
       },
       (err: AxiosError) => {
-        const status = err.response?.status || 0;
-        console.error(`Response error. Status: ${status}`);
-        this.#responseErrorHandler(err, status);
+        const code = err.response?.status || 0;
+        console.error(`Response error. Status: ${code}`);
+        this.#responseErrorHandler(code, err);
+        this.requestErrorHook(code, err);
         return Promise.reject(err);
       });
   }
@@ -95,8 +110,27 @@ export default class Api {
   /**
    * Set response error event listeners.
    */
-  onResponseError(handler: (err: AxiosError, status: number) => void): Api {
+  onResponseError(handler: (code: number, err: AxiosError) => void): Api {
     this.#responseErrorHandler = handler;
     return this;
   }
+
+  /**
+   * Request error hook.
+   * This function should be defined in a subclass.
+   * For example, to redirect in case of a 403 error, use the following
+   * @example
+   * import {Api} from 'metronic-extension';
+   *
+   * export default class extends Api {
+   *   requestErrorHook(code) {
+   *     if (code === 403) {
+   *       // Redirect in case of authentication error (403).
+   *       alert('The session has expired');
+   *       location.replace('/');
+   *     }
+   *   }
+   * }
+   */
+  requestErrorHook(code: number, err: AxiosError): void {}
 }

@@ -1,6 +1,20 @@
 /// <reference types="datatables.net" />
 /**
  * DataTable.
+ *
+ * Example of error handling in a subclass.
+ * @example
+ * import {Datatable} from 'metronic-extension';
+ *
+ * export default class extends Datatable {
+ *   requestErrorHook(code) {
+ *     if (code === 403) {
+ *       // Redirect in case of authentication error (403).
+ *       alert('The session has expired');
+ *       location.replace('/');
+ *     }
+ *   }
+ * }
  */
 export default class {
     #private;
@@ -63,4 +77,22 @@ export default class {
      * Get a row object.
      */
     getRowObject(rowSelector: any): DataTables.RowsMethods;
+    /**
+     * Request error hook.
+     * This function should be defined in a subclass.
+     * For example, to redirect in case of a 403 error, use the following
+     * @example
+     * import {Datatable} from 'metronic-extension';
+     *
+     * export default class extends Datatable {
+     *   requestErrorHook(code) {
+     *     if (code === 403) {
+     *       // Redirect in case of authentication error (403).
+     *       alert('The session has expired');
+     *       location.replace('/');
+     *     }
+     *   }
+     * }
+     */
+    requestErrorHook(code: number, xhr: XMLHttpRequest): void;
 }

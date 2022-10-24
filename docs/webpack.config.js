@@ -15,7 +15,8 @@ module.exports = {
   },
   entry: {
     index: './src/pages/index.js',
-    test: './src/pages/test.js',
+    collapse: './src/pages/collapse.js',
+    tooltip: './src/pages/tooltip.js',
   },
 
   // File output settings.

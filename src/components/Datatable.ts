@@ -5,6 +5,20 @@ import isString from '~/misc/isString';
 
 /**
  * DataTable.
+ *
+ * Example of error handling in a subclass.
+ * @example
+ * import {Datatable} from 'metronic-extension';
+ *
+ * export default class extends Datatable {
+ *   requestErrorHook(code) {
+ *     if (code === 403) {
+ *       // Redirect in case of authentication error (403).
+ *       alert('The session has expired');
+ *       location.replace('/');
+ *     }
+ *   }
+ * }
  */
 export default class {
   #table: JQuery;
@@ -156,8 +170,10 @@ export default class {
    * Initialize options.
    */
   #initOptions(options: DataTables.Settings): DataTables.Settings {
+    const isAjax = !!options.ajax;
+
     // Whether the data acquisition method is Ajax
-    if (options.ajax) {
+    if (isAjax) {
       // For Ajax, send a cookie to the server.
       (options.ajax as DataTables.AjaxSettings).xhrFields = {
         withCredentials: true
@@ -174,12 +190,9 @@ export default class {
       }
 
       // Error Handling.
-      (options.ajax as DataTables.AjaxSettings).error = xhr => {
+      (options.ajax as DataTables.AjaxSettings).error = (xhr: any) => {
         console.log(`Response error. Status: ${xhr.status}`);
-        if (xhr.status === 403) {
-          alert('The session has expired');
-          location.replace('/');
-        }
+        this.requestErrorHook(xhr.status, xhr as XMLHttpRequest);
       };
     }
 
@@ -268,4 +281,23 @@ export default class {
       }
     }, options);
   }
+
+  /**
+   * Request error hook.
+   * This function should be defined in a subclass.
+   * For example, to redirect in case of a 403 error, use the following
+   * @example
+   * import {Datatable} from 'metronic-extension';
+   *
+   * export default class extends Datatable {
+   *   requestErrorHook(code) {
+   *     if (code === 403) {
+   *       // Redirect in case of authentication error (403).
+   *       alert('The session has expired');
+   *       location.replace('/');
+   *     }
+   *   }
+   * }
+   */
+  requestErrorHook(code: number, xhr: XMLHttpRequest): void {}
 }

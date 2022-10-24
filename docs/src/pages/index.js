@@ -28,7 +28,6 @@ import persons from '~/pages/persons.json';
 
 function initCodeCopyButton() {
   for (let highlight of $('.highlight')) {
-    console.log('highlight=', highlight);
     const copy = highlight.querySelector('.highlight-copy');
     if (!copy)
       continue;

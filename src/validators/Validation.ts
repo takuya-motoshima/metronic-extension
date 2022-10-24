@@ -215,7 +215,7 @@ export default class Validation {
    * Register custom validators.
    */
   #registerCustomValidators() {
-    for(let [name, func] of Object.entries(customValidators))
+    for (let [name, func] of Object.entries(customValidators))
       // @ts-ignore Ignore the error assigning undefined keys to FormValidation.validators because we want to add arbitrary keys to FormValidation.validators.
       FormValidation.validators[name] = func;
   }
