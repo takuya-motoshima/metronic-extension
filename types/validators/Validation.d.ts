@@ -44,6 +44,11 @@ export default class Validation {
      */
     constructor(form: string | HTMLFormElement | JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger?: boolean);
     /**
+     * Validate all fields.
+     * If it is valid, it returns true, if invalid, it returns false.
+     */
+    validate(): Promise<boolean>;
+    /**
      * Triggered when the form is completely validated, and all fields are valid.
      */
     onValid(handler: any): Validation;
@@ -51,6 +56,14 @@ export default class Validation {
      * Triggered when the form is completely validated, and all fields are invalid.
      */
     onInvalid(handler: any): Validation;
+    /**
+     * Sets the event handler when the field becomes valid.
+     */
+    onFieldValid(handler: (name: string) => void): Validation;
+    /**
+     * Sets the event handler when the field becomes invalid.
+     */
+    onFieldInvalid(handler: (name: string) => void): Validation;
     /**
      * Show loading indication.
      */
@@ -71,6 +84,16 @@ export default class Validation {
      * Disable particular validator for given field.
      */
     disableValidator(field: string, validator?: string | undefined): Validation;
+    /**
+     * Validate a particular field.
+     * If it is valid, it returns true, if invalid, it returns false.
+     */
+    validateField(name: string): Promise<boolean>;
+    /**
+      * Clear field messages.
+      * @see {@link https://formvalidation.io/guide/api/reset-field/|resetField() method - FormValidation}
+      */
+    resetField(name: string, reset?: boolean): Validation;
     /**
      * Added items to verify.
      *
@@ -116,12 +139,7 @@ export default class Validation {
       */
     addRule(name: string, func: () => FormValidation.core.ValidateFunction<FormValidation.core.ValidateOptions>): Validation;
     /**
-      * Clear field messages.
-      * @see {@link https://formvalidation.io/guide/api/reset-field/|resetField() method - FormValidation}
-      */
-    resetField(name: string, reset?: boolean): Validation;
-    /**
-     * Validate all fields.
+     * Destroy validation.
      */
-    validate(): Promise<boolean>;
+    destroy(): void;
 }

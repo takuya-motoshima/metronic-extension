@@ -291,9 +291,16 @@ function initCustomValidation() {
       }
     }
   });
-  validation.onValid(async () => {
-    Dialog.success('Form has been successfully submitted!', {confirmButtonText: 'OK, got it!'});
-  });
+  validation
+    .onValid(async () => {
+      Dialog.success('Form has been successfully submitted!', {confirmButtonText: 'OK, got it!'});
+    })
+    .onFieldValid(name => {
+      console.log(`${name} field is valid`);
+    })
+    .onFieldInvalid(name => {
+      console.log(`${name} field is invalid`);
+    });
 }
 
 function initSelectRefAttributeNodes() {

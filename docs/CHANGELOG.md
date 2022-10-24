@@ -1,6 +1,47 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2022/10/24
+- Added event handlers that fire when each field is valid or invalid.
+    ```js
+    import {Validation} from 'metronic-extension';
+
+    const validation = new Validation(document.getElementById('demoForm'), {
+      userName: {
+        validators: {
+          notEmpty: {message: 'Enter here.'}
+        }
+      }
+    });
+    validation
+      .onValid(async () => {
+        // All fields are valid.
+      })
+      .onFieldValid(name => {
+        console.log(`${name} field is valid`);
+        // =>userName field is valid
+      })
+      .onFieldInvalid(name => {
+        console.log(`${name} field is invalid`);
+        // =>userName field is invalid
+      });
+    ```
+- Add a method to immediately validate the specified field.
+    ```js
+    import {Validation} from 'metronic-extension';
+
+    const validation = new Validation(document.getElementById('demoForm'), {
+      userName: {
+        validators: {
+          notEmpty: {message: 'Enter here.'}
+        }
+      }
+    });
+
+    // Returns true if userName is valid, false if invalid.
+    const isValid =await validation.validateField('userName');
+    ```
+
 ## [1.0.3] - 2022/10/24
 ### Fixed
 - Added Japanese phone number custom validation to form validation.  
@@ -86,3 +127,5 @@ All notable changes to this project will be documented in this file.
 
 [1.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.0...v1.0.1
 [1.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.1...v1.0.2
+[1.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.2...v1.0.3
+[1.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.3...v1.0.4

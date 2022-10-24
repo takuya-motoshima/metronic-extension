@@ -71,6 +71,14 @@ export default class Validation {
   }
 
   /**
+   * Validate all fields.
+   * If it is valid, it returns true, if invalid, it returns false.
+   */
+  async validate(): Promise<boolean> {
+    return await this.fv.validate()  === 'Valid';
+  }
+
+  /**
    * Triggered when the form is completely validated, and all fields are valid.
    */
   onValid(handler: any): Validation {
@@ -83,6 +91,26 @@ export default class Validation {
    */
   onInvalid(handler: any): Validation {
     this.fv.on('core.form.invalid', handler);
+    return this;
+  }
+
+  /**
+   * Sets the event handler when the field becomes valid.
+   */
+  onFieldValid(handler: (name: string) => void): Validation {
+    this.fv.on('core.field.valid', (...arg: unknown[]) => {
+      handler(arg[0] as string);
+    });
+    return this;
+  }
+
+  /**
+   * Sets the event handler when the field becomes invalid.
+   */
+  onFieldInvalid(handler: (name: string) => void): Validation {
+    this.fv.on('core.field.invalid', (...arg: unknown[]) => {
+      handler(arg[0] as string);
+    });
     return this;
   }
 
@@ -133,6 +161,23 @@ export default class Validation {
   }
 
   /**
+   * Validate a particular field.
+   * If it is valid, it returns true, if invalid, it returns false.
+   */
+  async validateField(name: string): Promise<boolean> {
+    return await this.fv.validateField(name)  === 'Valid';
+  }
+
+  /**
+    * Clear field messages.
+    * @see {@link https://formvalidation.io/guide/api/reset-field/|resetField() method - FormValidation}
+    */
+  resetField(name: string, reset: boolean = false): Validation {
+    this.fv.resetField(name, reset);
+    return this;
+  }
+
+  /**
    * Added items to verify.
    * 
    * @example
@@ -144,7 +189,7 @@ export default class Validation {
    * })
    * @see {@link https://formvalidation.io/guide/api/add-field|FormValidation • addField() method}
    */
-   addField(field: string, validators: {[validatorName: string]: FormValidation.core.ValidatorOptions}): Validation {
+  addField(field: string, validators: {[validatorName: string]: FormValidation.core.ValidatorOptions}): Validation {
     this.fv.addField(field, {validators});
     return this;
   }
@@ -196,19 +241,10 @@ export default class Validation {
   }
 
   /**
-    * Clear field messages.
-    * @see {@link https://formvalidation.io/guide/api/reset-field/|resetField() method - FormValidation}
-    */
-  resetField(name: string, reset: boolean = false): Validation {
-    this.fv.resetField(name, reset);
-    return this;
-  }
-
-  /**
-   * Validate all fields.
+   * Destroy validation.
    */
-  async validate(): Promise<boolean> {
-    return await this.fv.validate()  === 'Valid';
+  destroy() {
+    this.fv.destroy();
   }
 
   /**
