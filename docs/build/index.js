@@ -1300,7 +1300,12 @@ function initToast() {
     })
     .on('click', '[data-on-error-toast]', () => {
       build.Toast.error('Hello, world! This is a toast message.');
-    });
+    })
+    .on('click', '[data-on-toast-with-title]', () => {
+      build.Toast.success('Hello, world! This is a toast message.', 'Title test.');
+    })
+
+    ;
 }
 
 function initRestClient() {

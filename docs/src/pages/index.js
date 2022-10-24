@@ -177,7 +177,12 @@ function initToast() {
     })
     .on('click', '[data-on-error-toast]', () => {
       Toast.error('Hello, world! This is a toast message.');
-    });
+    })
+    .on('click', '[data-on-toast-with-title]', () => {
+      Toast.success('Hello, world! This is a toast message.', 'Title test.');
+    })
+
+    ;
 }
 
 function initRestClient() {
