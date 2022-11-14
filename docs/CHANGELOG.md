@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.8] - 2022/11/14
+### Changed
+- Add docs/ to .npmignore.
+
 ## [1.0.7] - 2022/11/14
 ### Fixed
 - Remove node_modules in docs that were accidentally included in the package.
