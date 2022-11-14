@@ -92,7 +92,7 @@ export default class Api {
   }
 
   /**
-   * Set before request event listeners.
+   * Set before request event handler.
    */
   onBeforeRequest(handler: (config: AxiosRequestConfig) => void): Api {
     this.#beforeRequestHandler = handler;
@@ -100,7 +100,7 @@ export default class Api {
   }
 
   /**
-   * Set after response event listeners.
+   * Set after response event handler.
    */
   onAfterResponse(handler: (res: AxiosResponse) => void): Api {
     this.#afterResponseHandler = handler;
@@ -108,7 +108,7 @@ export default class Api {
   }
 
   /**
-   * Set response error event listeners.
+   * Set response error event handler.
    */
   onResponseError(handler: (code: number, err: AxiosError) => void): Api {
     this.#responseErrorHandler = handler;

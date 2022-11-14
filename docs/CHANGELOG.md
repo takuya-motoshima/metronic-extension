@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.6] - 2022/11/14
+### Added
+- Add Tagify (src/components/Tagify) component.
+    ![tagify](../screencaps/tagify.png)
+
 ## [1.0.5] - 2022/10/24
+###  Added
 - Added Japanese phone number custom validation to form validation.  
     HTML:
     ```html
@@ -46,7 +52,8 @@ All notable changes to this project will be documented in this file.
     ```
 
 ## [1.0.4] - 2022/10/24
-- Added event handlers that fire when each field is valid or invalid.
+### Added
+- Added event handler that fire when each field is valid or invalid.
     ```js
     import {Validation} from 'metronic-extension';
 
@@ -87,7 +94,7 @@ All notable changes to this project will be documented in this file.
     ```
 
 ## [1.0.3] - 2022/10/24
-### Fixed
+### Added
 - Added Japanese phone number custom validation to form validation.  
     HTML:
     ```html
@@ -129,7 +136,7 @@ All notable changes to this project will be documented in this file.
     ```
 
 ## [1.0.2] - 2022/10/24
-### Fixed
+### Added
 - Add request error hook method to API class.
     ```js
     import {Api} from 'metronic-extension';
@@ -158,6 +165,7 @@ All notable changes to this project will be documented in this file.
       }
     }
     ```
+### Fixed
 - Fix to prevent tooltip elements from being double instantiated. (src/components/initTooltip.ts)
 
 
@@ -166,7 +174,7 @@ All notable changes to this project will be documented in this file.
 - Removed boostrap from this package which conflicts with metronic's bootstrap.
 
 ## [1.0.0] - 2022/10/17
-### Fixed
+### Added
 - Released.
 
 [1.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.0...v1.0.1
@@ -174,3 +182,4 @@ All notable changes to this project will be documented in this file.
 [1.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.2...v1.0.3
 [1.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.3...v1.0.4
 [1.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.4...v1.0.5
+[1.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.5...v1.0.6

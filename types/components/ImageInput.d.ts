@@ -21,9 +21,9 @@ export default class {
      */
     constructor(context: HTMLDivElement | JQuery, options: ImageInputOptions);
     /**
-     * Set change event listeners.
+     * Set change event handler.
      */
-    onchange(hdndler: (dataUrl: string | null) => void): void;
+    onchange(handler: (dataUrl: string | null) => void): void;
     /**
      * Get the data URL of the current image.
      */

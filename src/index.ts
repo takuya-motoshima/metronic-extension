@@ -7,6 +7,7 @@ import initClipboard from '~/components/initClipboard';
 import initDatepicker from '~/components/initDatepicker';
 import initTooltip from '~/components/initTooltip';
 import Modal from '~/components/Modal';
+import Tagify from '~/components/Tagify';
 import Toast from '~/components/Toast';
 
 // dom
@@ -45,6 +46,7 @@ export {
   initDatepicker,
   initTooltip,
   Modal,
+  Tagify,
   Toast,
   selectRef,
   escapeHtml,

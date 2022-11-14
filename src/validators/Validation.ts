@@ -48,7 +48,6 @@ export default class Validation {
    * Initialization.
    */
   constructor(form: string|HTMLFormElement|JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean = true) {
-    debugger;
     if (isString(form)) {
       const formEl = document.querySelector<HTMLFormElement>(form as string);
       if (!formEl)

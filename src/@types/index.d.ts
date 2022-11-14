@@ -9,6 +9,6 @@ declare global {
     KTBlockUI: any;
     KTImageInput: any;
     Swal: any;
-
+    Tagify: any;
   }
 }

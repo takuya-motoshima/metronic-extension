@@ -7,6 +7,7 @@ import {
   initClipboard,
   initDatepicker,
   initTooltip,
+  Tagify,
   Toast,
 
   // dom
@@ -352,6 +353,23 @@ function initSelectRefAttributeNodes() {
   validation.validate();
 }
 
+function initTagify() {
+  new Tagify(ref.basicTagify);
+  new Tagify(ref.readonlyTagify, {readonly: true});
+  new Tagify(ref.maxlenLimitTagify, {maxChars: 10});
+  new Tagify(ref.inlineSuggestionsTagify, {
+    whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
+    dropdown: {
+      maxItems: 20,
+      classname: 'tagify__inline__suggestions'
+    }
+  });
+  new Tagify(ref.listSuggestionsTagify, {
+    whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
+    dropdown: {maxItems: 20}
+  });
+}
+
 const ref = selectRef();
 const isLocalServer = !location.host;
 const demoModal = new DemoModal();
@@ -377,3 +395,4 @@ initToast();
 initRestClient();
 initCustomValidation();
 initSelectRefAttributeNodes();
+initTagify();

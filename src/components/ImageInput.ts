@@ -67,7 +67,7 @@ export default class {
       // Rendering image input UI.
       this.#imageInput = this.#render(context as HTMLDivElement, options);
 
-      // Initialize event listeners.
+      // Initialize event handler.
       this.#initEventListeners(options, defaultImg);
 
       // Initialize Observer.
@@ -77,10 +77,10 @@ export default class {
 
 
   /**
-   * Set change event listeners.
+   * Set change event handler.
    */
-  onchange(hdndler: (dataUrl: string|null) => void) {
-    this.#changeHandler = hdndler;
+  onchange(handler: (dataUrl: string|null) => void) {
+    this.#changeHandler = handler;
   }
 
   /**
@@ -160,7 +160,7 @@ export default class {
   }
 
   /**
-   * Initialize event listeners.
+   * Initialize event handler.
    */
   #initEventListeners(options: ImageInputOptions, defaultImg: string|undefined): void {
     this.#imageInput.on('kt.imageinput.changed', async (input: typeof window.KTImageInput) => {

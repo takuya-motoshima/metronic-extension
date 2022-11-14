@@ -32,15 +32,15 @@ export default class Api {
      */
     isCancel(thrown: any): any;
     /**
-     * Set before request event listeners.
+     * Set before request event handler.
      */
     onBeforeRequest(handler: (config: AxiosRequestConfig) => void): Api;
     /**
-     * Set after response event listeners.
+     * Set after response event handler.
      */
     onAfterResponse(handler: (res: AxiosResponse) => void): Api;
     /**
-     * Set response error event listeners.
+     * Set response error event handler.
      */
     onResponseError(handler: (code: number, err: AxiosError) => void): Api;
     /**
