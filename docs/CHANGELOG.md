@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.7] - 2022/11/14
+### Fixed
+- Remove node_modules in docs that were accidentally included in the package.
+
 ## [1.0.6] - 2022/11/14
 ### Added
 - Add Tagify (src/components/Tagify) component.
