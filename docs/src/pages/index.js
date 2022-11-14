@@ -3,6 +3,7 @@ import {
   BlockUI,
   Datatable,
   Dialog,
+  Dropzone,
   ImageInput,
   initClipboard,
   initDatepicker,
@@ -370,6 +371,17 @@ function initTagify() {
   });
 }
 
+function initDropzone() {
+  const dropzone = new Dropzone(ref.dropzone, {
+    hiddenInputContent: ref.hiddenInputContent.get(0),
+    maxFilesize: 10,
+    dictDescriptionMessage: 'Files up to 10 MB can be uploaded',
+  });
+  dropzone.onAddFile(file => {
+    alert(`From additional handlers. Select "${file.name}"`);
+  });
+}
+
 const ref = selectRef();
 const isLocalServer = !location.host;
 const demoModal = new DemoModal();
@@ -396,3 +408,4 @@ initRestClient();
 initCustomValidation();
 initSelectRefAttributeNodes();
 initTagify();
+initDropzone();

@@ -11,6 +11,9 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
   #addTagHandler: (evnt: Tagify.AddEventData) => void = (evnt: Tagify.AddEventData) => {};
   #removeTagHandler: (evnt: Tagify.RemoveEventData) => void = (evnt: Tagify.RemoveEventData) => {};
 
+  /**
+   * Initialization.
+   */
   constructor(input: HTMLInputElement|HTMLTextAreaElement|JQuery, options: TagifyOptions) {
     if (input instanceof $)
       input = (input as JQuery).get(0) as HTMLInputElement|HTMLTextAreaElement;
@@ -52,7 +55,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
         transformTag(tagData);
     };
 
-    // Initialize tags.
+    // Initialize tagify.
     this.#tagify = new window.Tagify(input, options);
 
     // Make it read-only.

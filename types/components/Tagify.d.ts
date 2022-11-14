@@ -5,6 +5,9 @@ import TagifyOptions from '~/interfaces/TagifyOptions';
  */
 export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     #private;
+    /**
+     * Initialization.
+     */
     constructor(input: HTMLInputElement | HTMLTextAreaElement | JQuery, options: TagifyOptions);
     /**
       * Parse and add tags.

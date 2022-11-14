@@ -1,6 +1,7 @@
 import BlockUI from '~/components/BlockUI';
 import Datatable from '~/components/Datatable';
 import Dialog from '~/components/Dialog';
+import Dropzone from '~/components/Dropzone';
 import ImageInput from '~/components/ImageInput';
 import initClipboard from '~/components/initClipboard';
 import initDatepicker from '~/components/initDatepicker';
@@ -27,4 +28,4 @@ import numberFormat from '~/misc/numberFormat';
 import trim from '~/misc/trim';
 import urlToMime from '~/misc/urlToMime';
 import Validation from '~/validators/Validation';
-export { BlockUI, Datatable, Dialog, ImageInput, initClipboard, initDatepicker, initTooltip, Modal, Tagify, Toast, selectRef, escapeHtml, Api, fetchDataUrl, fetchDataUrlUsingCanvas, fetchImg, formatBytes, getExtensionFromDataUrl, getType, isAsyncFunction, isDataUrl, isEmpty, isPlainObject, isString, isSymbol, numberFormat, trim, urlToMime, Validation };
+export { BlockUI, Datatable, Dialog, Dropzone, ImageInput, initClipboard, initDatepicker, initTooltip, Modal, Tagify, Toast, selectRef, escapeHtml, Api, fetchDataUrl, fetchDataUrlUsingCanvas, fetchImg, formatBytes, getExtensionFromDataUrl, getType, isAsyncFunction, isDataUrl, isEmpty, isPlainObject, isString, isSymbol, numberFormat, trim, urlToMime, Validation };

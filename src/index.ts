@@ -2,6 +2,7 @@
 import BlockUI from '~/components/BlockUI';
 import Datatable from '~/components/Datatable';
 import Dialog from '~/components/Dialog';
+import Dropzone from '~/components/Dropzone';
 import ImageInput from '~/components/ImageInput';
 import initClipboard from '~/components/initClipboard';
 import initDatepicker from '~/components/initDatepicker';
@@ -41,6 +42,7 @@ export {
   BlockUI,
   Datatable,
   Dialog,
+  Dropzone,
   ImageInput,
   initClipboard,
   initDatepicker,

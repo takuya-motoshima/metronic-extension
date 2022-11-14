@@ -10,5 +10,6 @@ declare global {
     KTImageInput: any;
     Swal: any;
     Tagify: any;
+    Dropzone: any;
   }
 }
