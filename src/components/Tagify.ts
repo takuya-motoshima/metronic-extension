@@ -10,6 +10,8 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
   #tagify: typeof window.Tagify;
   #addTagHandler: (evnt: Tagify.AddEventData) => void = (evnt: Tagify.AddEventData) => {};
   #removeTagHandler: (evnt: Tagify.RemoveEventData) => void = (evnt: Tagify.RemoveEventData) => {};
+  #changeTagHandler: (evnt: Tagify.AddEventData|Tagify.RemoveEventData) => void = (evnt: Tagify.AddEventData|Tagify.RemoveEventData) => {};
+
 
   /**
    * Initialization.
@@ -65,11 +67,13 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     // The tag has been added.
     this.#tagify.on('add', (evnt: Tagify.AddEventData) => {
       this.#addTagHandler(evnt);
+      this.#changeTagHandler(evnt);
     });
 
     // The tag is removed.
     this.#tagify.on('remove', (evnt: Tagify.RemoveEventData) => {
       this.#removeTagHandler(evnt);
+      this.#changeTagHandler(evnt);
     });
   }
 
@@ -108,6 +112,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
    */
   onAddTag(handler: (evnt: Tagify.AddEventData) => void) {
     this.#addTagHandler = handler;
+    return this;
   }
 
   /**
@@ -115,6 +120,15 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
    */
   onRemoveTag(handler: (evnt: Tagify.RemoveEventData) => void) {
     this.#removeTagHandler = handler;
+    return this;
+  }
+
+  /**
+   * Set the tag change event handler.
+   */
+  onChangeTag(handler: (evnt: Tagify.AddEventData|Tagify.RemoveEventData) => void) {
+    this.#changeTagHandler = handler;
+    return this;
   }
 
   /**

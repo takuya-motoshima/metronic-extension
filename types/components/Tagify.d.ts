@@ -31,11 +31,15 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     /**
      * Set the tag addition event handler.
      */
-    onAddTag(handler: (evnt: Tagify.AddEventData) => void): void;
+    onAddTag(handler: (evnt: Tagify.AddEventData) => void): this;
     /**
      * Set the tag remove event handler.
      */
-    onRemoveTag(handler: (evnt: Tagify.RemoveEventData) => void): void;
+    onRemoveTag(handler: (evnt: Tagify.RemoveEventData) => void): this;
+    /**
+     * Set the tag change event handler.
+     */
+    onChangeTag(handler: (evnt: Tagify.AddEventData | Tagify.RemoveEventData) => void): this;
     /**
      * Reverts the input element back as it was before Tagify was applied.
      */

@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.10] - 2022/11/15
+### Added
+- Added a tag change event (fired when a tag is added or removed) to the Tagify component.
+    HTML:
+    ```html
+    <input id="tagify" class="form-control" value="tag1,tag2,tag3" />
+    ```
+
+    JS:
+    ```js
+    import {Tagify} from 'metronic-extension';
+    const tagify = new Tagify(document.querySelector('#tagify'), {
+      whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
+      dropdown: {maxItems: 20}
+    });
+    tagify
+      .onAddTag(evnt => alert('Add tags'))
+      .onRemoveTag(evnt => alert('Delete tag'))
+      .onChangeTag(evnt => alert('Change (add or remove) a tag'));
+    ```
+
 ## [1.0.9] - 2022/11/14
 ### Added
 - Added Dropzone component.

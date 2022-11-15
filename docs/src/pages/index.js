@@ -369,6 +369,14 @@ function initTagify() {
     whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
     dropdown: {maxItems: 20}
   });
+  const tagify = new Tagify(ref.handleEventsTagify, {
+    whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
+    dropdown: {maxItems: 20}
+  });
+  tagify
+    .onAddTag(evnt => alert('Add tags'))
+    .onRemoveTag(evnt => alert('Delete tag'))
+    .onChangeTag(evnt => alert('Change (add or remove) a tag'));
 }
 
 function initDropzone() {
