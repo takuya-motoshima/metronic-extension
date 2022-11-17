@@ -7,6 +7,7 @@ import {
   ImageInput,
   initClipboard,
   initDatepicker,
+  initShowPasswordToggle,
   initTooltip,
   Tagify,
   Toast,
@@ -417,3 +418,4 @@ initCustomValidation();
 initSelectRefAttributeNodes();
 initTagify();
 initDropzone();
+initShowPasswordToggle(ref.password);

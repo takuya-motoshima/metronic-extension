@@ -1,6 +1,43 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.11] - 2022/11/17
+### Added
+- Add a component to toggle password visibility (initShowPasswordToggle).  
+    The component is applied to input elements with the &quot;[data-show-password-toggle=&quot;true&quot;]&quot; attribute.  
+    ![password-show-toggle](../screencaps/password-show-toggle.png)
+
+    HTML:
+    ```html
+    <!--begin::Input group-->
+    <div class="d-flex flex-column mb-7 fv-row">
+      <!--begin::Label-->
+      <label class="required fs-6 fw-bolder mb-2">Password</label>
+      <!--end::Label-->
+      <!--begin::Input group-->
+      <div class="input-group input-group-solid">
+        <!--begin::Input-->
+        <input id="input" data-show-password-toggle="true" class="form-control" type="password" placeholder="Enter password..." />
+        <!--end::Input-->
+        <!--begin::Button-->
+        <button type="button" class="btn btn-icon btn-light"></button>
+        <!--end::Button-->
+      </div>
+      <!--end::Input group-->
+    </div>
+    <!--begin::Input group-->
+    ```
+
+    JS:
+    ```js
+    import {initShowPasswordToggle} from 'metronic-extension';
+
+    initShowPasswordToggle(document.querySelector('#input'));
+    
+    //  or context is specified, the component is applied to the target of the child element.
+    initShowPasswordToggle(document.body);
+    ```
+
 ## [1.0.10] - 2022/11/15
 ### Added
 - Added a tag change event (fired when a tag is added or removed) to the Tagify component.
@@ -221,3 +258,4 @@ All notable changes to this project will be documented in this file.
 [1.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.7...v1.0.8
 [1.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.8...v1.0.9
 [1.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.9...v1.0.10
+[1.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.10...v1.0.11

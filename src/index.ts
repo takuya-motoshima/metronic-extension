@@ -6,6 +6,7 @@ import Dropzone from '~/components/Dropzone';
 import ImageInput from '~/components/ImageInput';
 import initClipboard from '~/components/initClipboard';
 import initDatepicker from '~/components/initDatepicker';
+import initShowPasswordToggle from '~/components/initShowPasswordToggle';
 import initTooltip from '~/components/initTooltip';
 import Modal from '~/components/Modal';
 import Tagify from '~/components/Tagify';
@@ -46,6 +47,7 @@ export {
   ImageInput,
   initClipboard,
   initDatepicker,
+  initShowPasswordToggle,
   initTooltip,
   Modal,
   Tagify,
