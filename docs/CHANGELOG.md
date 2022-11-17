@@ -1,9 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.0.12] - We will not release it yet.
+## [1.0.12] - 2022/11/18
 ### Changed
 - Added support for build scripts on Windows OS.
+
+### Fixed
+- Fixed a bug that the DataURL of the current image specified in the image input component (ImageInput.ts) was not set to the hidden element.
 
 ## [1.0.11] - 2022/11/17
 ### Added
@@ -263,3 +266,4 @@ All notable changes to this project will be documented in this file.
 [1.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.8...v1.0.9
 [1.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.9...v1.0.10
 [1.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.10...v1.0.11
+[1.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.11...v1.0.12

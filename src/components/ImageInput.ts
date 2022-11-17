@@ -37,6 +37,9 @@ export default class {
     else if (!(context instanceof HTMLDivElement))
       throw new TypeError('The context parameter specifies an HTMLDivElement or a JQuery object of HTMLDivElement');
     options = fusion({
+      current: undefined,
+      default: undefined,
+      hiddenEl: undefined,
       width: 125,
       height: 125,
       readonly: false,
@@ -58,11 +61,19 @@ export default class {
 
       // Set the current image to the hidden element.
       if (options.hiddenEl && (defaultImg || currentImg))
-        options.hiddenEl.value = (defaultImg || currentImg) as string;
+        // The currernt optional image takes precedence over default.
+        if (currentImg)
+          options.hiddenEl.value = currentImg as string;
+        else 
+          options.hiddenEl.value = defaultImg as string;
 
       // Set the data URL of the current image.
       if (defaultImg || currentImg)
-        this.#imgDataUrl = (defaultImg || currentImg) as string;
+        // The currernt optional image takes precedence over default.
+        if (currentImg)
+          this.#imgDataUrl = currentImg as string;
+        else 
+          this.#imgDataUrl = defaultImg as string;
 
       // Rendering image input UI.
       this.#imageInput = this.#render(context as HTMLDivElement, options);
