@@ -8,9 +8,9 @@
   "types": "types/index.d.ts",
   "scripts": {
     "watch": "rollup -c --watch",
-    "prewatch": "rm -rf dist types",
+    "prewatch": "rimraf dist types",
     "build": "rollup -c",
-    "prebuild": "rm -rf dist types",
+    "prebuild": "rimraf dist types",
     "test": "jest"
   },
   "repository": {
@@ -50,6 +50,7 @@
     "@types/yaireo__tagify": "^4.16.0",
     "fetch-mock": "^8.0.0",
     "jest": "^24.9.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.60.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",

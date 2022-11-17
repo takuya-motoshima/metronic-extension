@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.12] - We will not release it yet.
+### Changed
+- Added support for build scripts on Windows OS.
+
 ## [1.0.11] - 2022/11/17
 ### Added
 - Add a component to toggle password visibility (initShowPasswordToggle).  
