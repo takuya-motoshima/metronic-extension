@@ -1,6 +1,34 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.13] - 2022/11/18
+### Changed
+- The default and current images for the image input component (ImageInput) options can now be initially set with the data attribute.  
+    HTML:
+    ```html
+    <div id="imageInput"
+      data-image-input-current="img/current.jpg"
+      data-image-input-default="img/default.jpg"></div>
+    <input type="hidden" id="selectedImageDataUrl">
+    ```
+
+    JS:
+    ```js
+    import {ImageInput} from 'metronic-extension';
+
+    const imageInput1 = new ImageInput(document.getElementById('imageInput'), {
+      // The current and default image is specified by the data attribute. Of course, you can optionally specify it.
+      // current: 'img/current.jpg',
+      // default: 'img/default.jpg',
+      hiddenEl: document.getElementById('selectedImageDataUrl'),
+      language: {
+        change: 'Change',
+        remove: 'Delete',
+        cancel: 'Cancel change'
+      }
+    });
+    ```
+
 ## [1.0.12] - 2022/11/18
 ### Changed
 - Added support for build scripts on Windows OS.
@@ -12,7 +40,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Add a component to toggle password visibility (initShowPasswordToggle).  
     The component is applied to input elements with the &quot;[data-show-password-toggle=&quot;true&quot;]&quot; attribute.  
-    ![password-show-toggle](../screencaps/password-show-toggle.png)
+    ![password-show-toggle](screencaps/password-show-toggle.png)
 
     HTML:
     ```html
@@ -39,7 +67,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {initShowPasswordToggle} from 'metronic-extension';
 
-    initShowPasswordToggle(document.querySelector('#input'));
+    initShowPasswordToggle(document.getElementById('input'));
     
     //  or context is specified, the component is applied to the target of the child element.
     initShowPasswordToggle(document.body);
@@ -56,7 +84,7 @@ All notable changes to this project will be documented in this file.
     JS:
     ```js
     import {Tagify} from 'metronic-extension';
-    const tagify = new Tagify(document.querySelector('#tagify'), {
+    const tagify = new Tagify(document.getElementById('tagify'), {
       whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
       dropdown: {maxItems: 20}
     });
@@ -69,7 +97,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.9] - 2022/11/14
 ### Added
 - Added Dropzone component.
-    ![dropzone](../screencaps/dropzone.png)
+    ![dropzone](screencaps/dropzone.png)
 
 ## [1.0.8] - 2022/11/14
 ### Changed
@@ -82,7 +110,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.6] - 2022/11/14
 ### Added
 - Add Tagify (src/components/Tagify) component.
-    ![tagify](../screencaps/tagify.png)
+    ![tagify](screencaps/tagify.png)
 
 ## [1.0.5] - 2022/10/24
 ###  Added
@@ -267,3 +295,4 @@ All notable changes to this project will be documented in this file.
 [1.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.9...v1.0.10
 [1.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.10...v1.0.11
 [1.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.11...v1.0.12
+[1.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.12...v1.0.13

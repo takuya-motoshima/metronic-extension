@@ -37,8 +37,8 @@ export default class {
     else if (!(context instanceof HTMLDivElement))
       throw new TypeError('The context parameter specifies an HTMLDivElement or a JQuery object of HTMLDivElement');
     options = fusion({
-      current: undefined,
-      default: undefined,
+      current: context.dataset.imageInputCurrent,
+      default: context.dataset.imageInputDefault,
       hiddenEl: undefined,
       width: 125,
       height: 125,

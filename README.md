@@ -3,7 +3,7 @@ Extension package for the Metronic WEB theme.
 The demonstration is [here](https://takuya-motoshima.github.io/metronic-extension/).
 
 ## Documentation
-* [Changelog](docs/CHANGELOG.md)
+* [Changelog](CHANGELOG.md)
 
 ## Installation
 ```sh
