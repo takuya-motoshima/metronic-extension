@@ -41,6 +41,10 @@ export default class {
      */
     hideBlockUI(): void;
     /**
+     * If the modal is shown, return true.
+     */
+    isShowing(): boolean;
+    /**
      * The event after the modal showed. Implementation is done in a subclass.
      */
     afterShown(): void;

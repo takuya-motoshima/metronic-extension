@@ -1,6 +1,65 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.14] - 2022/11/21
+### Changed
+- Added a method to the modal class to determine if the modal is currently visible (Modal#isShowing(): boolean).
+    ```js
+    import {Modal} from 'metronic-extension';
+
+    class DemoModal extends Modal {
+      init() {
+        const node = this.#render();
+        const instance = new bootstrap.Modal(node);
+        return [node, instance];
+      }
+
+      #render() {
+        return $(
+          `<div class="modal fade" tabindex="-1" aria-hidden="true">
+            <!--begin::Modal dialog-->
+            <div class="modal-dialog modal-dialog-centered mw-650px">
+              <!--begin::Modal content-->
+              <div class="modal-content">
+                <!--begin::Modal header-->
+                <div class="modal-header">
+                  <!--begin::Modal title-->
+                  <h2>Demo Modal</h2>
+                  <!--end::Modal title-->
+                  <!--begin::Close-->
+                  <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                    <span class="svg-icon svg-icon-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                      <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+                    </svg></span>
+                    <!--end::Svg Icon-->
+                  </div>
+                  <!--end::Close-->
+                </div>
+                <!--end::Modal header-->
+                <!--begin::Modal body-->
+                <div class="modal-body py-lg-10 px-lg-10">Hello, world</div>
+                <!--end::Modal body-->
+                <!--begin::Modal footer-->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+                <!--end::Modal footer-->
+              </div>
+              <!--end::Modal content-->
+            </div>
+            <!--end::Modal dialog-->
+          </div>`).appendTo('body');
+      }
+    }
+
+    const demoModal = new DemoModal();
+    demoModal.isShowing();// =>false
+    demoModal.show();
+    demoModal.isShowing();// =>true
+    ```
+
 ## [1.0.13] - 2022/11/18
 ### Changed
 - The default and current images for the image input component (ImageInput) options can now be initially set with the data attribute.  
@@ -296,3 +355,4 @@ All notable changes to this project will be documented in this file.
 [1.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.10...v1.0.11
 [1.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.11...v1.0.12
 [1.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.12...v1.0.13
+[1.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.13...v1.0.14

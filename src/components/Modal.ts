@@ -11,6 +11,7 @@ export default class {
   resolve: ((res: any) => void)|undefined;
   res: any = false;
   #blockUICallStack: typeof window.KTBlockUI[] = [];
+  #isShowing: boolean = false;
 
   /**
    * Show Modal.
@@ -22,8 +23,14 @@ export default class {
        // @ts-ignore In some cases, the init function is not asynchronous (async), but it will result in a Typescript syntax check error, so the check is ignored.
       [this.node, this.instance] = <[JQuery<HTMLDivElement>, bootstrap.Modal]>this.init.apply(this, params);
     this.node
+      .on('show.bs.modal', () => {
+        this.#isShowing = true;
+      })
       .on('shown.bs.modal', () => {
         this.afterShown();
+      })
+      .on('hide.bs.modal', () => {
+        this.#isShowing = false;
       })
       .on('hidden.bs.modal', () => {
         this.resolve!(this.res);
@@ -109,6 +116,13 @@ export default class {
     const blockUI = this.#blockUICallStack.pop();
     blockUI.release();
     blockUI.destroy();
+  }
+
+  /**
+   * If the modal is shown, return true.
+   */
+  isShowing() {
+    return this.#isShowing;
   }
 
   /**
