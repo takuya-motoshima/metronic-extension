@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.15] - 2022/11/24
+### Changed
+- Added an event handler to the Dropzone component that fires when a selected file is canceled.
+    HTML:
+    ```html
+    <h1 id="dropzone">Dropzone</h1>
+    ```
+
+    JS:
+    ```js
+    import {Dropzone} from 'metronic-extension';
+    const dropzone = new Dropzone(document.getElementById('dropzone'));
+    dropzone
+      .onAddFile(file => {
+        alert(`From additional handlers. Select "${file.name}"`);
+      })
+      .onCancelFile(() => {
+        alert('Canceled file selection');
+      });
+    ```
+
 ## [1.0.14] - 2022/11/21
 ### Changed
 - Added a method to the modal class to determine if the modal is currently visible (Modal#isShowing(): boolean).
@@ -356,3 +377,4 @@ All notable changes to this project will be documented in this file.
 [1.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.11...v1.0.12
 [1.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.12...v1.0.13
 [1.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.13...v1.0.14
+[1.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.14...v1.0.15

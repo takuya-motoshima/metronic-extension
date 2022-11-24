@@ -6,9 +6,10 @@ import DropzoneOptions from '~/interfaces/DropzoneOptions';
 /**
  * Drag-and-drop file upload component with image preview.
  */
-export default class {
+export default class DropzoneComponent {
   // #dropzone: typeof window.Dropzone;
   #addFileHandler: (file: Dropzone.DropzoneFile) => void = (file: Dropzone.DropzoneFile) => {};
+  #cancelFileHandler: () => void = () => {};
 
   /**
    * Initialization.
@@ -124,6 +125,7 @@ export default class {
               console.log('Clear the hidden elements');
             (options.hiddenInputContent as HTMLInputElement).value = '';
           }
+          self.#cancelFileHandler();
         });
       },
       addRemoveLinks: true,
@@ -136,7 +138,16 @@ export default class {
   /**
    * Set the file addition event handler.
    */
-  onAddFile(handler: (file: Dropzone.DropzoneFile) => void) {
+  onAddFile(handler: (file: Dropzone.DropzoneFile) => void): DropzoneComponent {
     this.#addFileHandler = handler;
+    return this;
+  }
+
+  /**
+   * Set file cancellation event handler.
+   */
+  onCancelFile(handler: () => void): DropzoneComponent {
+    this.#cancelFileHandler = handler;
+    return this;
   }
 }

@@ -386,9 +386,13 @@ function initDropzone() {
     maxFilesize: 10,
     dictDescriptionMessage: 'Files up to 10 MB can be uploaded',
   });
-  dropzone.onAddFile(file => {
-    alert(`From additional handlers. Select "${file.name}"`);
-  });
+  dropzone
+    .onAddFile(file => {
+      alert(`From additional handlers. Select "${file.name}"`);
+    })
+    .onCancelFile(() => {
+      alert('Canceled file selection');
+    });
 }
 
 const ref = selectRef();

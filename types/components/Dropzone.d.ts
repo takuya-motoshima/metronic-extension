@@ -3,7 +3,7 @@ import DropzoneOptions from '~/interfaces/DropzoneOptions';
 /**
  * Drag-and-drop file upload component with image preview.
  */
-export default class {
+export default class DropzoneComponent {
     #private;
     /**
      * Initialization.
@@ -12,5 +12,9 @@ export default class {
     /**
      * Set the file addition event handler.
      */
-    onAddFile(handler: (file: Dropzone.DropzoneFile) => void): void;
+    onAddFile(handler: (file: Dropzone.DropzoneFile) => void): DropzoneComponent;
+    /**
+     * Set file cancellation event handler.
+     */
+    onCancelFile(handler: () => void): DropzoneComponent;
 }
