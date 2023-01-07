@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.17] - 2023/1/8
+### Changed
+- Fixed an error that occurred in the process of extending the ajax option of a DataTable when the ajax option is a URL string.
+
 ## [1.0.16] - 2023/1/8
 ### Fixed
 - Fixed a bug that prevented importing ESM modules directly without using the bundling tool as follows.
@@ -386,3 +390,4 @@ All notable changes to this project will be documented in this file.
 [1.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.13...v1.0.14
 [1.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.14...v1.0.15
 [1.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.15...v1.0.16
+[1.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.16...v1.0.17

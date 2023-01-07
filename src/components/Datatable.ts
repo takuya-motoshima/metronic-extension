@@ -2,6 +2,7 @@
 import fusion from 'deep-fusion';
 import initTooltip from '~/components/initTooltip';
 import isString from '~/misc/isString';
+import isPlainObject from '~/misc/isPlainObject';
 
 /**
  * DataTable.
@@ -173,7 +174,11 @@ export default class {
     const isAjax = !!options.ajax;
 
     // Whether the data acquisition method is Ajax
-    if (isAjax) {
+    if (isAjax && (isString(options.ajax) || isPlainObject(options.ajax))) {
+      // If the ajax option is a URL string, convert it to object format.
+      if (isString(options.ajax))
+        options.ajax = {url: options.ajax as string};
+
       // For Ajax, send a cookie to the server.
       (options.ajax as DataTables.AjaxSettings).xhrFields = {
         withCredentials: true
@@ -181,12 +186,14 @@ export default class {
 
       // Add an element called "actions" corresponding to columns such as edit button and delete button to the record of response data.
       // [caution]An error will occur if there is no data corresponding to the column.
-      const specifiedDataSrc = (options.ajax as DataTables.AjaxSettings).dataSrc||undefined;
+      const dataSrc = (options.ajax as DataTables.AjaxSettings).dataSrc||undefined;
       (options.ajax as DataTables.AjaxSettings).dataSrc = (res: any): any[] => {
-        res.data = res.data.map((row: object) => Object.assign(row, {actions: ''}));
-        if (specifiedDataSrc)
-          res = (specifiedDataSrc as (data: any) => any)(res);
-        return res.data;
+        // Add action field to row data only if data element is present.
+        if (res.data)
+          res.data = res.data.map((row: object) => Object.assign(row, {actions: ''}));
+        if (dataSrc)
+          res = (dataSrc as (data: any) => any)(res);
+        return res.data || res;
       }
 
       // Error Handling.
@@ -197,16 +204,16 @@ export default class {
     }
 
     // Save drawCallback option.
-    let specifiedDrawCallback: DataTables.FunctionDrawCallback|undefined;
+    let drawCallback: DataTables.FunctionDrawCallback|undefined;
     if ('drawCallback' in options) {
-      specifiedDrawCallback = options.drawCallback;
+      drawCallback = options.drawCallback;
       delete options.drawCallback;
     }
 
     // Save createdRow option.
-    let specifiedCreatedRow: DataTables.FunctionCreateRow|undefined;
+    let createdRow: DataTables.FunctionCreateRow|undefined;
     if ('createdRow' in options) {
-      specifiedCreatedRow = options.createdRow;
+      createdRow = options.createdRow;
       delete options.createdRow;
     }
     return fusion({
@@ -225,15 +232,15 @@ export default class {
         // Add the data ID to the tr element.
         if (data.id)
           $(row).attr('data-id', data.id);
-        if (specifiedCreatedRow)
-          specifiedCreatedRow(row, data, dataIndex, cells);
+        if (createdRow)
+          createdRow(row, data, dataIndex, cells);
       },
       drawCallback: (settings: DataTables.SettingsLegacy) => {
         // Initialize the tooltip in the dynamically added line.
         initTooltip(this.#table);
 
-        if (specifiedDrawCallback)
-          specifiedDrawCallback(settings);
+        if (drawCallback)
+          drawCallback(settings);
       },
       fnServerParams: (aoData: any) => {
         const columns = Object.assign({}, aoData.columns);
