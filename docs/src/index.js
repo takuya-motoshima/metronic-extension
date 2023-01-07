@@ -25,9 +25,9 @@ import {
   // validators
   Validation
 } from 'metronic-extension';
-import DemoModal from '~/pages/DemoModal';
-import DemoApi from '~/pages/DemoApi';
-import persons from '~/pages/persons.json';
+import DemoModal from '~/DemoModal';
+import DemoApi from '~/DemoApi';
+import persons from '~/persons.json';
 
 function initCodeCopyButton() {
   for (let highlight of $('.highlight')) {
@@ -79,7 +79,7 @@ function initDatatable() {
     ],
     pageLength: 4
   };
-  if (isLocalServer)
+  if (isLocal)
     options.ajax = {
       url: 'http://localhost:8080/persons',
       data: d => {
@@ -88,14 +88,14 @@ function initDatatable() {
     };
   const dataTable = new Datatable(ref.dataTable, options);
   $('body').on('input', '[data-on-search-persons]', evnt => {
-    if (isLocalServer)
+    if (isLocal)
       dataTable.reload();
     else {
       const nameColumnSelctor = 0;
       dataTable.filter(nameColumnSelctor, ref.searchWord.val());
     }
   });
-  if (!isLocalServer)
+  if (!isLocal)
     for (let row of persons)
       dataTable.createRow(row, false);
 }
@@ -131,7 +131,7 @@ function initDialog() {
 
 function initImageInput() {
   const language = {change: 'Change', remove: 'Delete', cancel: 'Cancel change'};
-  const origin = isLocalServer ? 'http://localhost:8080/' : '';
+  const origin = isLocal ? 'http://localhost:8080/' : '';
   const imageInput1 = new ImageInput(ref.imageInput1, {
     default: `${origin}media/default-avatar.svg`,
     hiddenEl: ref.hiddenImage1.get(0),
@@ -396,7 +396,7 @@ function initDropzone() {
 }
 
 const ref = selectRef();
-const isLocalServer = !location.host;
+const isLocal = !location.host;
 const demoModal = new DemoModal();
 const demoApi = new DemoApi('http://localhost:8080/');
 

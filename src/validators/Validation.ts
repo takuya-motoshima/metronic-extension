@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import customValidators from '~/validators/customValidators/index';
 import ValidationOptions from '~/interfaces/ValidationOptions';
 import isString from '~/misc/isString';

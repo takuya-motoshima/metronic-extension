@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
+    "prebuild": "rimraf build",
     "build:dev": "webpack --mode=development",
+    "prebuild:dev": "rimraf build",
     "watch": "webpack --watch --mode=production",
-    "watch:dev": "webpack --watch --mode=development"
+    "prewatch": "rimraf build",
+    "watch:dev": "webpack --watch --mode=development",
+    "prewatch:dev": "rimraf build"
   },
   "keywords": [],
   "author": "Takuya Motoshima <developer.takuyamotoshima@gmail.com> (https://twitter.com/TakuyaMotoshima)",
   "license": "MIT",
   "dependencies": {
-    "handlebars-extd": "^1.0.4"
+    "handlebars-extd": "^1.0.4",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

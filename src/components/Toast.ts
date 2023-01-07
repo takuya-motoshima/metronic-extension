@@ -1,5 +1,5 @@
 import hbs from 'handlebars-extd';
-import $ from 'jquery';
+// import $ from 'jquery';
 import moment from 'moment';
 import bootstrap from '~/misc/bootstrap';
 

@@ -1,7 +1,7 @@
 import hbs from 'handlebars-extd';
 import fusion from 'deep-fusion';
 import compareImg from 'compare-img';
-import $ from 'jquery';
+// import $ from 'jquery';
 import initTooltip from '~/components/initTooltip';
 import fetchDataUrl from '~/http/fetchDataUrl';
 import ImageInputOptions from '~/interfaces/ImageInputOptions';

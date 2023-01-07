@@ -1,5 +1,5 @@
 import fusion from 'deep-fusion';
-import $ from 'jquery';
+// import $ from 'jquery';
 import ShowPasswordToggleOptions from '~/interfaces/ShowPasswordToggleOptions';
 
 function setToggleEventListener(input: HTMLElement, options: ShowPasswordToggleOptions) {

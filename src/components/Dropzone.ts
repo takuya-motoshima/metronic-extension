@@ -1,6 +1,6 @@
 import fusion from 'deep-fusion';
 import hbs from 'handlebars-extd';
-import $ from 'jquery';
+// import $ from 'jquery';
 import DropzoneOptions from '~/interfaces/DropzoneOptions';
 
 /**

@@ -11,5 +11,6 @@ declare global {
     Swal: any;
     Tagify: any;
     Dropzone: any;
+    ClipboardJS: any;
   }
 }

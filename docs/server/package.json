@@ -2,8 +2,7 @@
   "name": "demo",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "//start": "node ./bin/www"
+    "start": "nodemon --ignore public/ bin/www 8080"
   },
   "dependencies": {
     "express-sweet": "~1",

@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.16] - 2023/1/8
+### Fixed
+- Fixed a bug that prevented importing ESM modules directly without using the bundling tool as follows.
+    ```js
+    import * as extension from './node_modules/metronic-extension/dist/build.esm.js';
+    ```
+
 ## [1.0.15] - 2022/11/24
 ### Changed
 - Added an event handler to the Dropzone component that fires when a selected file is canceled.
@@ -378,3 +385,4 @@ All notable changes to this project will be documented in this file.
 [1.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.12...v1.0.13
 [1.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.13...v1.0.14
 [1.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.14...v1.0.15
+[1.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.15...v1.0.16

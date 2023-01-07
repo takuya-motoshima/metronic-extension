@@ -1,4 +1,4 @@
-import ClipboardJS from 'clipboard';
+// import ClipboardJS from 'clipboard';
 
 /**
  * Initialize the clipboard button.
@@ -9,8 +9,10 @@ export default (context: JQuery|HTMLElement, delayMSec: number = 3000): void => 
   else if (!(context instanceof HTMLElement))
     throw new TypeError('The context parameter specifies an HTMLElement or a JQuery object of HTMLElement');
   for (let button of (context as HTMLElement).querySelectorAll('[data-clipboard-target]')) {
-    const clipboard = new ClipboardJS(button);
-    clipboard.on('success', (evnt: ClipboardJS.Event) => {
+    const clipboard = new window.ClipboardJS(button);
+    // const clipboard = new ClipboardJS(button);
+    clipboard.on('success', (evnt: any) => {
+    // clipboard.on('success', (evnt: ClipboardJS.Event) => {
       const button = evnt.trigger as HTMLElement;
       if (!button.dataset.clipboardTarget)
         throw new Error('The "data-clipboard-target" attribute of the clipboard target element must be set to the destination element');

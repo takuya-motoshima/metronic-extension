@@ -15,7 +15,8 @@ This demo uses metronic_v8.1.2.
     cd server
     npm install
     ```
-1. Start the server.
+1. Start the server.  
+    Execute the following command in the server/ directory.
     ```sh
     npm start
     ```

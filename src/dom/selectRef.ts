@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import isString from '~/misc/isString';
 import isPlainObject from '~/misc/isPlainObject';
 

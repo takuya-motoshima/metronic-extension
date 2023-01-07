@@ -14,9 +14,7 @@ module.exports = {
     ]
   },
   entry: {
-    index: './src/pages/index.js',
-    collapse: './src/pages/collapse.js',
-    tooltip: './src/pages/tooltip.js',
+    index: './src/index.js'
   },
 
   // File output settings.
@@ -77,7 +75,7 @@ module.exports = {
     extensions: ['.js'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      handlebars : 'handlebars/dist/handlebars.js'
+      // handlebars : 'handlebars/dist/handlebars.js'
     }
   },
   performance: {
