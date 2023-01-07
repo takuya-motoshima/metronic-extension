@@ -1,6 +1,6 @@
 {
   "name": "metronic-extension",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Extension package for the Metronic WEB theme.",
   "main": "dist/build.esm.js",
   "module": "dist/build.esm.js",
