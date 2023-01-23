@@ -14,7 +14,8 @@ module.exports = {
     ]
   },
   entry: {
-    index: './src/index.js'
+    index: './src/index.js',
+    'colvis-datatable': './src/colvis-datatable.js'
   },
 
   // File output settings.

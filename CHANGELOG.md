@@ -1,6 +1,73 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [1.0.19] - 2023/1/23
+### Added
+- Added example of data table switching column visibility.  
+    ![colvis-datatable.png](screencaps/colvis-datatable.png)
+
+    HTML:
+    ```html
+    <table data-ref="myDatatable" class="table table-row-bordered gy-5">
+      <thead>
+        <tr class="fw-semibold fs-6 text-muted">
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    ```
+
+    JS:
+    ```js
+    import {Datatable, selectRef} from 'metronic-extension';
+
+    function initDatatable() {
+      new Datatable(ref.myDatatable, {
+        ajax: {
+          url: 'http://localhost:8080/persons'
+        }
+        dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
+        columnDefs: [
+          {targets: 0, data: 'name'},
+          {targets: 1, data: 'position'},
+          {targets: 2, data: 'office'},
+          {targets: 3, data: 'age'},
+          {targets: 4, data: 'startDate'},
+          {targets: 5, data: 'salary'}
+        ],
+        buttons: [
+          {
+            extend: 'colvis',
+            text: 'Show / hide columns',
+            // Columns selector that defines the columns to include in the column visibility button set.
+            columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
+          }
+        ],
+        stateSave: true,// Save the column visibility in the browser.
+        stateSaveParams: (_, data) => {
+          // Remove items not to be saved in the browser.
+          delete data.length;
+          delete data.order;
+          delete data.paging;
+          delete data.scroller;
+          delete data.search;
+          delete data.searchBuilder;
+          delete data.searchPanes;
+          delete data.select;
+        }
+      });
+    }
+
+    const ref = selectRef();
+    initDatatable();
+    ```
+
 ## [1.0.18] - 2023/1/10
 ### Changed
 - The bootstrap tooltip setup function (initTooltip) now returns a tooltip object (bootstrap.Tooltip[]).
@@ -396,3 +463,4 @@ All notable changes to this project will be documented in this file.
 [1.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.15...v1.0.16
 [1.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.16...v1.0.17
 [1.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.17...v1.0.18
+[1.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.18...v1.0.19
