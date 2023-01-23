@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 # [1.0.19] - 2023/1/23
 ### Added
 - Added example of data table switching column visibility.  
+    See the DataTable section of [this page](https://takuya-motoshima.github.io/metronic-extension/) for a demonstration.  
     ![colvis-datatable.png](screencaps/colvis-datatable.png)
 
     HTML:
