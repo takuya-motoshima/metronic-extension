@@ -1,5 +1,4 @@
 import {
-  // components
   BlockUI,
   Datatable,
   Dialog,
@@ -11,23 +10,14 @@ import {
   initTooltip,
   Tagify,
   Toast,
-
-  // dom
   selectRef,
-
-  // http
-  // fetchDataUrl,
-  // fetchDataUrlUsingCanvas,
-
-  // misc
   isPlainObject,
-
-  // validators
   Validation
 } from 'metronic-extension';
 import DemoModal from '~/DemoModal';
 import DemoApi from '~/DemoApi';
 import persons from '~/persons.json';
+import '~/index.css';
 
 function initCodeCopyButton() {
   for (let highlight of $('.highlight')) {
@@ -66,7 +56,7 @@ function initBlockUI() {
   });
 }
 
-function initDatatable() {
+function initBasicDatatable() {
   const options = {
     dom: `<'row'<'col-12 dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
     columnDefs: [
@@ -79,25 +69,86 @@ function initDatatable() {
     ],
     pageLength: 4
   };
-  if (isLocal)
+  if (isLocalServer)
     options.ajax = {
       url: 'http://localhost:8080/persons',
       data: d => {
         d.search = {searchWord: ref.searchWord.val()};
       }
     };
-  const dataTable = new Datatable(ref.dataTable, options);
+  const basicDataTable = new Datatable(ref.basicDataTable, options);
   $('body').on('input', '[data-on-search-persons]', evnt => {
-    if (isLocal)
-      dataTable.reload();
+    if (isLocalServer)
+      basicDataTable.reload();
     else {
       const nameColumnSelctor = 0;
-      dataTable.filter(nameColumnSelctor, ref.searchWord.val());
+      basicDataTable.filter(nameColumnSelctor, ref.searchWord.val());
     }
   });
-  if (!isLocal)
+  if (!isLocalServer)
     for (let row of persons)
-      dataTable.createRow(row, false);
+      basicDataTable.createRow(row, false);
+}
+
+function initColvisDatatable() {
+  const options = {
+    dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
+    columnDefs: [
+      {targets: 0, data: 'name'},
+      {targets: 1, data: 'position'},
+      {targets: 2, data: 'office'},
+      {targets: 3, data: 'age'},
+      {targets: 4, data: 'startDate'},
+      {targets: 5, data: 'salary'}
+    ],
+    pageLength: 4,
+    buttons: [
+      {
+        extend: 'colvis',
+        text: 'Show / hide columns',
+        // Columns selector that defines the columns to include in the column visibility button set.
+        columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
+      }
+    ],
+    stateSave: true,// Save the column visibility in the browser.
+    stateSaveParams: (_, data) => {
+      // This option allows for the saving of the search applied to individual columns to be enabled or disabled.
+      delete data.columns.search;
+
+      // This option allows for the saving of the visibility of the columns to be enabled or disabled.
+      // delete data.columns.visible;
+
+      // This option allows for the saving of the page length to be enabled or disabled.
+      delete data.length;
+
+      // This option allows for the saving of the tables column sorting to be enabled or disabled.
+      delete data.order;
+
+      // This option allows for the saving of the paging to be enabled or disabled.
+      delete data.paging;
+
+      // This option allows for the saving of the scroller position to be enabled or disabled.
+      delete data.scroller;
+
+      // This option allows for the saving of the search to be enabled or disabled.
+      delete data.search;
+
+      // This option allows for the saving of the searchBuilder state to be enabled or disabled. 
+      delete data.searchBuilder;
+
+      // This option allows for the saving of the searchPanes state to be enabled or disabled. 
+      delete data.searchPanes;
+
+      // This option allows for the saving of the select state to be enabled or disabled.
+      delete data.select;
+    }
+  };
+  if (isLocalServer)
+    options.ajax = {url: 'http://localhost:8080/persons'};
+  const colvisDatatable = new Datatable(ref.colvisDatatable, options);
+  if (!isLocalServer)
+    for (let row of persons)
+      colvisDatatable.createRow(row, false);
 }
 
 function initDialog() {
@@ -131,7 +182,7 @@ function initDialog() {
 
 function initImageInput() {
   const language = {change: 'Change', remove: 'Delete', cancel: 'Cancel change'};
-  const origin = isLocal ? 'http://localhost:8080/' : '';
+  const origin = isLocalServer ? 'http://localhost:8080/' : '';
   const imageInput1 = new ImageInput(ref.imageInput1, {
     default: `${origin}media/default-avatar.svg`,
     hiddenEl: ref.hiddenImage1.get(0),
@@ -396,13 +447,14 @@ function initDropzone() {
 }
 
 const ref = selectRef();
-const isLocal = !location.host;
+const isLocalServer = !location.host;
 const demoModal = new DemoModal();
 const demoApi = new DemoApi('http://localhost:8080/');
 
 initCodeCopyButton();
 initBlockUI();
-initDatatable();
+initBasicDatatable();
+initColvisDatatable();
 initDialog();
 initImageInput();
 initClipboard(document.body);

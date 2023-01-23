@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Metronic Extension demo</title>
+  <title>Demo - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -16,6 +16,7 @@
   <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Stylesheets Bundle-->
+  <link href="build/index.css" rel="stylesheet" type="text/css" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -52,22 +53,29 @@
               <h1 id="dataTable" class="mb-5">DataTable</h1>
               <!--end::Heading-->
               <!--begin::Block-->
-              <div class="rounded border p-10">
-                <!--begin::Search-->
-                <div class="d-flex align-items-center position-relative">
-                  <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-                  <span class="svg-icon svg-icon-1 position-absolute ms-4">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
-                      <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
-                    </svg>
-                  </span>
-                  <!--end::Svg Icon-->
-                  <input data-ref="searchWord" data-on-search-persons type="text" data-kt-filter="search" class="form-control w-250px ps-14" placeholder="Search by person's name" maxlength="70" />
+              <div class="rounded border p-10 mb-10">
+                <!--begin::Block heading-->
+                <h4 class="mb-5">Basic DataTable</h4>
+                <!--end::Block heading-->
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-stack flex-wrap mb-5">
+                  <!--begin::Search-->
+                  <div class="d-flex align-items-center position-relative my-1 mb-2 mb-md-0">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                      </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <input data-ref="searchWord" data-on-search-persons type="text" data-kt-filter="search" class="form-control w-250px ps-14" placeholder="Search by person's name" maxlength="70" />
+                  </div>
+                  <!--end::Search-->
                 </div>
-                <!--end::Search-->
-                <!--begin::Table-->
-                <table data-ref="dataTable" class="table table-row-bordered gy-5">
+                <!--end::Wrapper-->
+                <!--begin::Datatable-->
+                <table data-ref="basicDataTable" class="table table-row-bordered gy-5">
                   <thead>
                     <tr class="fw-semibold fs-6 text-muted">
                       <th>Name</th>
@@ -80,7 +88,32 @@
                   </thead>
                   <tbody></tbody>
                 </table>
-                <!--end::Table-->
+                <!--end::Datatable-->
+              </div>
+              <!--end::Block-->
+              <!--begin::Block-->
+              <div class="rounded border p-10">
+                <!--begin::Block heading-->
+                <h4 class="mb-5">DataTable with column visibility control</h4>
+                <!--end::Block heading-->
+                <!--begin::Block-->
+                <div class="py-5">For more info please visit the <a href="https://datatables.net/reference/button/colvis" target="_blank">plugin's site</a>.</div>
+                <!--end::Block-->
+                <!--begin::Datatable-->
+                <table data-ref="colvisDatatable" class="table table-row-bordered gy-5">
+                  <thead>
+                    <tr class="fw-semibold fs-6 text-muted">
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <!--end::Datatable-->
               </div>
               <!--end::Block-->
             </div>
