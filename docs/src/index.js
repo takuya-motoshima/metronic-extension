@@ -107,7 +107,9 @@ function initColvisDatatable() {
         extend: 'colvis',
         text: 'Show / hide columns',
         // Columns selector that defines the columns to include in the column visibility button set.
+        // CSS selectors, column indexes, etc. can be used to specify columns to switch visibility.
         columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
+        // columns: [1,2,3,4],
       }
     ],
     stateSave: true,// Save the column visibility in the browser.

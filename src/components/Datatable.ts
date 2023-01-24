@@ -307,4 +307,11 @@ export default class {
    * }
    */
   requestErrorHook(code: number, xhr: XMLHttpRequest): void {}
+
+  /**
+   * Select the column found by a the column selector
+   */
+  column(columnSelector: any, modifier?: DataTables.ObjectSelectorModifier): DataTables.ColumnMethods {
+    return this.#dt.column(columnSelector, modifier);
+  }
 }

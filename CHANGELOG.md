@@ -1,6 +1,34 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [1.0.20] - 2023/1/24
+### Added
+- Add column reference methods to DataTable class (Datatable.column(columnSelector: any, modifier?: DataTables.ObjectSelectorModifier): DataTables.ColumnMethods).
+    HTML:
+    ```html
+    <table data-ref="myDatatable" class="table table-row-bordered gy-5">
+      <thead>
+        <tr class="fw-semibold fs-6 text-muted">
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    ```
+
+    JS:
+    ```js
+    const myDatatable = new Datatable(ref.myDatatable);
+
+    // Hide the second column.
+    colvisDatatable.column(1).visible(false);
+    ```
+
 # [1.0.19] - 2023/1/23
 ### Added
 - Added example of data table switching column visibility.  
@@ -47,7 +75,9 @@ All notable changes to this project will be documented in this file.
             extend: 'colvis',
             text: 'Show / hide columns',
             // Columns selector that defines the columns to include in the column visibility button set.
+            // CSS selectors, column indexes, etc. can be used to specify columns to switch visibility.
             columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
+            // columns: [1,2,3,4],
           }
         ],
         stateSave: true,// Save the column visibility in the browser.
@@ -437,7 +467,6 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Fix to prevent tooltip elements from being double instantiated. (src/components/initTooltip.ts)
 
-
 ## [1.0.1] - 2022/10/20
 ### Fixed
 - Removed boostrap from this package which conflicts with metronic's bootstrap.
@@ -465,3 +494,4 @@ All notable changes to this project will be documented in this file.
 [1.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.16...v1.0.17
 [1.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.17...v1.0.18
 [1.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.18...v1.0.19
+[1.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.19...v1.0.20
