@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [1.0.22] - 2023/1/30
+### Changed
+- Changed the default value of the reset page of the reload method of the data table component from true to false.
+
 # [1.0.21] - 2023/1/30
 ### Changed
 - Added a page reset parameter to the reload method of the Datatable component.  
@@ -9,7 +13,7 @@ All notable changes to this project will be documented in this file.
     const myDatatable = new Datatable(ref.myDatatable);
 
     // Reload. Page position after reload is 1.
-    colvisDatatable.reload(true);// or "colvisDatatable.reload();"
+    colvisDatatable.reload(true);
 
     // Reload the page while maintaining the current page position.
     colvisDatatable.reload(false);
@@ -509,4 +513,5 @@ All notable changes to this project will be documented in this file.
 [1.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.17...v1.0.18
 [1.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.18...v1.0.19
 [1.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.19...v1.0.20
-[1.0.21s]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.20...v1.0.21
+[1.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.20...v1.0.21
+[1.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.21...v1.0.22
