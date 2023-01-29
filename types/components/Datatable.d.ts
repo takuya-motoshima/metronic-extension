@@ -25,7 +25,7 @@ export default class {
     /**
      * Reload data.
      */
-    reload(): void;
+    reload(resetPaging?: boolean): void;
     /**
      * Adjust column layout.
      */

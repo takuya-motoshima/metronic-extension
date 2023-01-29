@@ -55,9 +55,8 @@ export default class {
   /**
    * Reload data.
    */
-  reload(): void {
+  reload(resetPaging: boolean = true): void {
     const callback = undefined;
-    const resetPaging = false;
     this.#dt.ajax.reload(callback, resetPaging);
   }
 
