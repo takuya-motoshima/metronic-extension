@@ -1,7 +1,7 @@
 const Model = require('express-sweet').database.Model;
 const FolderNotFound = require('../exceptions/FolderNotFound');
 
-module.exports = class FolderModel extends Model {
+module.exports = class extends Model {
   static get table() {
     return 'folder';
   }
@@ -64,11 +64,23 @@ module.exports = class FolderModel extends Model {
   }
 
   static async deleteFolder(folderId) {
-    console.log(`Delete the folder with ID ${folderId}`);
-    const folder = await super.findOne({where: {id: folderId}});
+    // console.log(`Delete the folder with ID ${folderId}`);
+    const folder = await this.#getFolder(folderId);
     if (!folder)
       throw new FolderNotFound();
     return folder.destroy();
     // return super.destroy({where: {id: folderId}});
+  }
+
+  static async renameFolder(folderId, text) {
+    const folder = await this.#getFolder(folderId);
+    if (!folder)
+      throw new FolderNotFound();
+    folder.text = text;
+    await folder.save();
+  }
+
+  static async #getFolder(folderId) {
+    return super.findOne({where: {id: folderId}});
   }
 }

@@ -10,6 +10,8 @@ const tree = new FolderTree(ref.tree, {
     getChildren: '/api/folders/_PARENT_/children',
     createFolder: '/api/folders/_PARENT_',
     deleteFolder: '/api/folders/_CURRENT_',
+    renameFolder: '/api/folders/_CURRENT_',
+    renameFile: '/api/files/_CURRENT_',
   },
 });
 window.tree = tree;

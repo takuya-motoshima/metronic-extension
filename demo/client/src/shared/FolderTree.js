@@ -14,6 +14,12 @@ function isFunction(payload) {
   return toString.call(payload) === '[object Function]';
 }
 
+function trim(payload) {
+  if (payload == null)
+    return payload;
+  return payload.toString().replace(/(^[\s　]+|[\s　]+$)/g, '');
+}
+
 /**
  * Folder and file tree components.
  */
@@ -33,7 +39,7 @@ export default class {
       throw new TypeError('The context parameter specifies an HTMLDivElement or a JQuery object of HTMLDivElement');
 
     // Initialize options.
-    for (let key of ['getChildren', 'createFolder', 'deleteFolder'])
+    for (let key of ['getChildren', 'createFolder', 'deleteFolder', 'renameFolder', 'renameFile'])
       if (isString(options.api[key]))
         options.api[key] = {url: options.api[key]};
     options = fusion({
@@ -62,6 +68,20 @@ export default class {
           data: undefined,
           // data: node => ({parent: node.id}),
         },
+        renameFolder: {
+          type: 'PUT',
+          // The "_CURRENT_" in the string type URL is replaced by the ID of the currently selected folder.
+          url: '/folders/_CURRENT_',
+          data: undefined,
+          // data: node => ({parent: node.id}),
+        },
+        renameFile: {
+          type: 'PUT',
+          // The "_CURRENT_" in the string type URL is replaced by the ID of the currently selected file.
+          url: '/files/_CURRENT_',
+          data: undefined,
+          // data: node => ({parent: node.id}),
+        },
       },
       language: {
         createFolderMenu: 'Create folder',
@@ -77,7 +97,7 @@ export default class {
     }, options);
 
     // Check options.
-    for (let key of ['getChildren', 'createFolder', 'deleteFolder'])
+    for (let key of ['getChildren', 'createFolder', 'deleteFolder', 'renameFolder', 'renameFile'])
       if (!isString(options.api[key].url) && !isFunction(options.api[key].url))
         throw new TypeError(`"api.${key}.url" option must be a string or function`);
       else if (options.api.getChildren.data && !isFunction(options.api[key].data))
@@ -101,7 +121,6 @@ export default class {
         }
       })
       // .on('rename_node.jstree', function (e, data) {
-      //   console.log('rename_node!!!', data.text);
       //   //MAKE AJAX CALL HERE
       // })
       .jstree({
@@ -226,6 +245,39 @@ export default class {
             if (depth > 0) {
               menu.rename = {
                 label: options.language.renameManu,
+                action: async data => {
+                  const node = this.#getNode(data.reference);
+                  const beforeText = trim(node.text);
+                  this.#treeInstance.edit(node, node.text, async () => {
+                    // If there is no change in the name, nothing is done.
+                    if (beforeText === trim(node.text)) {
+                      console.info('The name does not change, so no request is made');
+                      return;
+                    }
+                    if (node.type === NODE_FOLDER)
+                      // Folder renaming quest.
+                      await $.ajax({
+                        type: options.api.renameFolder.type,
+                        url: isString(options.api.renameFolder.url) ?
+                              options.api.renameFolder.url.replace('_CURRENT_', node.id) :
+                              options.api.renameFolder.url(node),
+                        data: options.api.renameFolder.data ?
+                                options.api.renameFolder.data(node) :
+                                {text: node.text}
+                      });
+                    else
+                      // File renaming quest.
+                      await $.ajax({
+                        type: options.api.renameFile.type,
+                        url: isString(options.api.renameFile.url) ?
+                              options.api.renameFile.url.replace('_CURRENT_', node.id.replace(FILE_ID_PREFIX, '')) :
+                              options.api.renameFile.url(node),
+                        data: options.api.renameFile.data ?
+                                options.api.renameFile.data(node) :
+                                {text: node.text}
+                      });
+                  });
+                },
               };
               menu.remove = {
                 label: options.language.removeManu,
