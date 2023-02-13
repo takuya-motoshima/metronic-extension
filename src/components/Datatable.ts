@@ -29,6 +29,7 @@ export default class {
    * Initialization.
    */
   constructor(table: string|HTMLTableElement|JQuery, options: DataTables.Settings) {
+    // Check the argument.
     if (isString(table))
       this.#table = $(table as string);
     else if (table instanceof HTMLTableElement)

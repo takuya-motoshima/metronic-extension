@@ -29,7 +29,7 @@ import isString from '~/misc/isString';
  * validation.onValid(async () => {
  *   try {
  *     validation.onIndicator();
- *     await fetch("http://localhost:8080/persons", {body: new FormData(form), method: 'post'});
+ *     await fetch('/api/persons', {body: new FormData(form), method: 'post'});
  *     validation.offIndicator();
  *     alert('The request was successful.');
  *   } catch (err) {
@@ -48,6 +48,7 @@ export default class Validation {
    * Initialization.
    */
   constructor(form: string|HTMLFormElement|JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean = true) {
+    // Check the argument.
     if (isString(form)) {
       const formEl = document.querySelector<HTMLFormElement>(form as string);
       if (!formEl)

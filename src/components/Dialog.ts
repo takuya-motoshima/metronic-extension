@@ -11,6 +11,7 @@ export default class {
    * Show the confirm dialog.
    */
   static async confirm(message: string, options: DialogOptions.Confirm|undefined = undefined): Promise<boolean> {
+    // Initialize options.
     options = fusion({
       icon: 'question',
       confirmButtonText: 'OK',
@@ -35,6 +36,7 @@ export default class {
    * Show the success dialog.
    */
   static async success(message: string, options: DialogOptions.Success|undefined = undefined): Promise<void> {
+    // Initialize options.
     options = fusion({
       confirmButtonText: 'OK',
       customClass: {
@@ -53,6 +55,7 @@ export default class {
    * Show the error dialog.
    */
   static async error(message: string, options: DialogOptions.Error|undefined = undefined): Promise<void> {
+    // Initialize options.
     options = fusion({
       confirmButtonText: 'OK',
     }, options);
@@ -71,6 +74,7 @@ export default class {
    * Show the warning dialog.
    */
   static async warning(message: string, options: DialogOptions.Warning|undefined = undefined): Promise<void> {
+    // Initialize options.
     options = fusion({
       confirmButtonText: 'OK'
     }, options);
@@ -89,6 +93,7 @@ export default class {
    * Show the info dialog.
    */
   static async info(message: string, options: DialogOptions.Info|undefined = undefined): Promise<void> {
+    // Initialize options.
     options = fusion({
       confirmButtonText: 'OK'
     }, options);
@@ -107,7 +112,10 @@ export default class {
    * Show unknown error.
    */
   static async unknownError(message: string = 'エラーが発生したため処理を中断しました。再度お試し下さい。何度も発生する場合は、お問い合わせ窓口までご連絡下さい。', options: DialogOptions.UnknownError|undefined = undefined): Promise<void> {
-    options = fusion({title: '予期せぬエラーが発生しました。'}, options);
+    // Initialize options.
+    options = fusion({
+      title: '予期せぬエラーが発生しました。'
+    }, options);
     return this.error(message, options);
   }
 

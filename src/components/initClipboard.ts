@@ -4,6 +4,7 @@
  * Initialize the clipboard button.
  */
 export default (context: JQuery|HTMLElement, delayMSec: number = 3000): void => {
+  // Check the argument.
   if (context instanceof $)
     context = (context as JQuery).get(0) as HTMLElement;
   else if (!(context instanceof HTMLElement))

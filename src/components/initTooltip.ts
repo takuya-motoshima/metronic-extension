@@ -5,6 +5,7 @@ import bootstrap from '~/misc/bootstrap';
  * Initialize the tooltip.
  */
 export default (context: JQuery|HTMLElement, tooltipSelector: string = '[data-bs-toggle="tooltip"]'): bootstrap.Tooltip[] => {
+  // Check the argument.
   if (context instanceof HTMLElement)
     context = $(context);
   else if (!(context instanceof $))

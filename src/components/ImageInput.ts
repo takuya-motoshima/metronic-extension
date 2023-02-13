@@ -32,10 +32,13 @@ export default class {
    * Initialization.
    */
   constructor(context: HTMLDivElement|JQuery, options: ImageInputOptions) {
+    // Check the argument.
     if (context instanceof $)
       context = (context as JQuery).get(0) as HTMLDivElement;
     else if (!(context instanceof HTMLDivElement))
       throw new TypeError('The context parameter specifies an HTMLDivElement or a JQuery object of HTMLDivElement');
+
+    // Initialize options.
     options = fusion({
       current: context.dataset.imageInputCurrent,
       default: context.dataset.imageInputDefault,

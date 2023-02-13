@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>DataTable with column visibility control - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+  <link href="build/colvis-datatable.css" rel="stylesheet" type="text/css" />
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Root-->
+  <div class="d-flex flex-column flex-root" id="kt_app_root">
+    <!--begin::Content-->
+    <div class="d-flex flex-column flex-column-fluid">
+      <!--begin::Container-->
+      <div class="container d-flex flex-column flex-lg-row">
+        <!--begin::Card-->
+        <div class="card flex-row-fluid mb-2">
+          <!--begin::Card Body-->
+          <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+            <!--begin::Section-->
+            <div class="py-10">
+              <!--begin::Heading-->
+              <h1 class="mb-5">DataTable with column visibility control</h1>
+              <!--end::Heading-->
+              <!--begin::Block-->
+              <div class="rounded border p-10">
+                <!--begin::Block-->
+                <div class="py-5">For more info please visit the <a href="https://datatables.net/reference/button/colvis" target="_blank">plugin's site</a>.</div>
+                <!--end::Block-->
+                <!--begin::Datatable-->
+                <table data-ref="colvisDatatable" class="table table-row-bordered gy-5">
+                  <thead>
+                    <tr class="fw-semibold fs-6 text-muted">
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <!--end::Datatable-->
+              </div>
+              <!--end::Block-->
+            </div>
+            <!--end::Section-->
+          </div>
+          <!--end::Card Body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Container-->
+    </div>
+    <!--end::Content-->
+  </div>
+  <!--end::Root-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/datatables/datatables.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/colvis-datatable.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

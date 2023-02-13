@@ -15,6 +15,7 @@ export default class DropzoneComponent {
    * Initialization.
    */
   constructor(container: HTMLElement|JQuery, options: DropzoneOptions) {
+    // Check the argument.
     if (container instanceof $)
       container = (container as JQuery).get(0) as HTMLElement;
     else if (!(container instanceof HTMLElement))

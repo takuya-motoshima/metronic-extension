@@ -49,6 +49,7 @@ function resultsToHTMLElements(result: SelectionResults, parentKey?: string): vo
  * Gets nodes with data-ref attribute.
  */
 export default (context: string|JQuery|HTMLElement = 'body', result: SelectionResults|undefined = undefined, additionalKey: string|undefined = undefined, asHTMLElement: boolean = false): SelectionResults | undefined => {
+  // Check the argument.
   if(isString(context))
     context = $(context as string);
   else if (context instanceof HTMLElement)

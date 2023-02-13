@@ -77,7 +77,7 @@ All notable changes to this project will be documented in this file.
     function initDatatable() {
       new Datatable(ref.myDatatable, {
         ajax: {
-          url: 'http://localhost:8080/persons'
+          url: 'http://localhost:8080/api/persons'
         }
         dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
         columnDefs: [

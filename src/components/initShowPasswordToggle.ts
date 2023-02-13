@@ -29,24 +29,27 @@ function setToggleEventListener(input: HTMLElement, options: ShowPasswordToggleO
  * Toggle between showing and hiding passwords.
  */
 export default (context: HTMLElement|JQuery, options?: ShowPasswordToggleOptions) => {
-    if (context instanceof $)
-      context = (context as JQuery).get(0) as HTMLElement;
-    else if (context instanceof HTMLElement)
-      throw new TypeError('For the context parameter, specify HTMLElement, or a JQuery object');
-    options = fusion({
-      showButtonClass: 'bi bi-eye fs-4',
-      hideButtonClass: 'bi bi-eye-slash fs-4'
-    }, options);
-    if (context instanceof HTMLInputElement
-      && context!.getAttribute('data-show-password-toggle')
-      && context!.getAttribute('data-show-password-toggle')!.toLowerCase() === 'true'
-    ) {
-      setToggleEventListener(context, options);
-    } else {
-      for (let input of (context as HTMLElement).querySelectorAll('input[data-show-password-toggle]')) {
-        if (!input.getAttribute('data-show-password-toggle') || input.getAttribute('data-show-password-toggle')!.toLowerCase() !== 'true')
-          continue;
-        setToggleEventListener(input as HTMLInputElement, options);
-      }
+  // Check the argument.
+  if (context instanceof $)
+    context = (context as JQuery).get(0) as HTMLElement;
+  else if (context instanceof HTMLElement)
+    throw new TypeError('For the context parameter, specify HTMLElement, or a JQuery object');
+  
+  // Initialize options.
+  options = fusion({
+    showButtonClass: 'bi bi-eye fs-4',
+    hideButtonClass: 'bi bi-eye-slash fs-4'
+  }, options);
+  if (context instanceof HTMLInputElement
+    && context!.getAttribute('data-show-password-toggle')
+    && context!.getAttribute('data-show-password-toggle')!.toLowerCase() === 'true'
+  ) {
+    setToggleEventListener(context, options);
+  } else {
+    for (let input of (context as HTMLElement).querySelectorAll('input[data-show-password-toggle]')) {
+      if (!input.getAttribute('data-show-password-toggle') || input.getAttribute('data-show-password-toggle')!.toLowerCase() !== 'true')
+        continue;
+      setToggleEventListener(input as HTMLInputElement, options);
     }
+  }
 }
