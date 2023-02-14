@@ -29,6 +29,7 @@ import getType from '~/misc/getType';
 import isAsyncFunction from '~/misc/isAsyncFunction';
 import isDataUrl from '~/misc/isDataUrl';
 import isEmpty from '~/misc/isEmpty';
+import isFunction from '~/misc/isFunction';
 import isPlainObject from '~/misc/isPlainObject';
 import isString from '~/misc/isString';
 import isSymbol from '~/misc/isSymbol';
@@ -64,6 +65,7 @@ export {
   isAsyncFunction,
   isDataUrl,
   isEmpty,
+  isFunction,
   isPlainObject,
   isString,
   isSymbol,

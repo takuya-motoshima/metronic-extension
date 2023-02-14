@@ -4,6 +4,7 @@ import '~/tree.css';
 
 const ref = selectRef();
 const tree = new Tree(ref.tree, {
+  // cacheLoadedChildren: false,
   folderMaxlen: 20,
   fileMaxlen: 20,
   api: {
@@ -16,3 +17,10 @@ const tree = new Tree(ref.tree, {
     renameFile: '/api/files/_CURRENT_FILE_ID_',
   },
 });
+tree
+  .onSelected((evnt, node) => {
+    console.log('Selected node:', node);
+  })
+  .onError(err => {
+    alert(err.message);
+  });

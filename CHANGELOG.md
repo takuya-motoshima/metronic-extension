@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [1.0.23] - 2023/2/14
+### Added
+- Added a function to check if a variable is a function type.
+    ```js
+    import {isFunction} from 'metronic-extension';
+
+    isFunction(function () {}); // true
+    isFunction(() => {});       // true
+    isFunction(setTimeout);     // true
+    isFunction(123);            // false
+    isFunction("foo");          // false
+    isFunction(null);           // false
+    isFunction(undefined);      // false
+    isFunction(true);           // false
+    isFunction(false);          // false
+    ```
+
 # [1.0.22] - 2023/1/30
 ### Changed
 - Changed the default value of the reset page of the reload method of the data table component from true to false.

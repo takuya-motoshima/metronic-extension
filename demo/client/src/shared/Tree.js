@@ -1,5 +1,5 @@
 import fusion from 'deep-fusion';
-import {Dialog, isString, trim, Toast} from 'metronic-extension';
+import {Dialog, isString, trim, Toast, isFunction} from 'metronic-extension';
 
 const FILE_ID_PREFIX = 'f_';
 const NODE_FOLDER = 'folder';
@@ -8,24 +8,6 @@ const MULTIPLE = false;
 const PARENT_FOLDER_VAR = '_PARENT_FOLDER_ID_';
 const CURRENT_FOLDER_VAR = '_CURRENT_FOLDER_ID_';
 const CURRENT_FILE_VAR = '_CURRENT_FILE_ID_';
-
-
-/**
- * Check if it is a function type.
- */
-function isFunction(payload) {
-  if (!payload)
-    return false
-  var string = Object.prototype.toString.call(payload)
-  return string === '[object Function]'
-    || (typeof payload === 'function' && string !== '[object RegExp]')
-    || (typeof window !== 'undefined' &&
-     // IE8 and below
-     (payload === window.setTimeout
-      || payload === window.alert
-      || payload === window.confirm
-      || payload === window.prompt))
-}
 
 /**
  * Tree API.
@@ -120,7 +102,8 @@ class ApiClient {
 export default class Tree {
   #treeInstance;
   #api;
-  // #selectedNodeHandler = (node) => {};
+  #selectedHandler = (evnt, node) => {};
+  #errorHandler = err => {};
 
   /**
    * Initialization.
@@ -163,13 +146,25 @@ export default class Tree {
           break;
         }
       })
-      .on('state_ready.jstree', () => {
+      .on('state_ready.jstree refresh.jstree', evnt => {
+        // // Set the ready flag.
+        // this.#ready = true;
+
         // If there is no first selected node, the root node is made selected.
         if (!this.#getSelectedNodes(true, 0))
           this.#selectNode(this.#getRootNode());
       })
       // .on('after_close.jstree', (evnt, data) => {
+      //   if (!options.cacheLoadedChildren) {
+      //     // Flag it to be reloaded on reopen.
+      //     // FIXME: If the parent folder of a selected folder is closed and opened, the selection is removed.
+      //     data.node.state.loaded = false;
+      //   }
       // })
+      .on('select_node.jstree', (evnt, data) => {
+        if (this.#selectedHandler)
+          this.#selectedHandler(evnt, data.node);
+      })
       .jstree({
         core: {
           themes: {
@@ -268,6 +263,8 @@ export default class Tree {
                             Toast.success(options.language.createFolderSuccessful.replace('_FOLDER_', trim(newNode.text)));
                           } catch (err) {
                             await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                            if (this.#errorHandler)
+                              this.#errorHandler(err);
                             throw err;
                           }
                         });
@@ -295,6 +292,8 @@ export default class Tree {
                           Toast.success(options.language.createFileSuccessful.replace('_FILE_', trim(newNode.text)));
                         } catch (err) {
                           await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                          if (this.#errorHandler)
+                            this.#errorHandler(err);
                           throw err;
                         }
                       });
@@ -322,6 +321,8 @@ export default class Tree {
                       Toast.success(options.language.deleteFolderSuccessful.replace('_FOLDER_', trim(deleteNode.text)));
                     } catch (err) {
                       await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                      if (this.#errorHandler)
+                        this.#errorHandler(err);
                       throw err;
                     }
                   },
@@ -339,6 +340,8 @@ export default class Tree {
                         await this.#api.renameFolder(node);
                       } catch (err) {
                         await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                        if (this.#errorHandler)
+                          this.#errorHandler(err);
                         throw err;
                       }
                     });
@@ -362,6 +365,8 @@ export default class Tree {
                     Toast.success(options.language.deleteFileSuccessful.replace('_FILE_', trim(deleteNode.text)));
                   } catch (err) {
                     await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                    if (this.#errorHandler)
+                      this.#errorHandler(err);
                     throw err;
                   }
                 },
@@ -379,6 +384,8 @@ export default class Tree {
                       await this.#api.renameFile(node);
                     } catch (err) {
                       await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                      if (this.#errorHandler)
+                        this.#errorHandler(err);
                       throw err;
                     }
                   });
@@ -390,6 +397,28 @@ export default class Tree {
         }
       })
       .jstree(true);
+  }
+
+  /**
+   * Set node selection event handler.
+   *
+   * @param {(evnt: MessageEvent,node: any) => void} handler Handle function.
+   * @return {Tree}
+   */
+  onSelected(handler) {
+    this.#selectedHandler = handler;
+    return this;
+  }
+
+  /**
+   * Set error event handler.
+   *
+   * @param {(err: Error) => void} handler Handle function.
+   * @return {Tree}
+   */
+  onError(handler) {
+    this.#errorHandler = handler;
+    return this;
   }
 
   /**
@@ -470,7 +499,7 @@ export default class Tree {
     * @param {undefined|number} position 
     * @return {any}
     */
-  #getSelectedNodes (full = true, position = undefined) {
+  #getSelectedNodes(full = true, position = undefined) {
     const nodes = this.#treeInstance.get_selected(full);
     if (position == null)
       return nodes;
@@ -516,46 +545,94 @@ export default class Tree {
       if (isString(options.api[key]))
         options.api[key] = {url: options.api[key]};
     return fusion({
+      /**
+       * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
+       * @type {number}
+       */
       maxDepth: 2,
-      folderMaxlen: undefined,
-      fileMaxlen: undefined,
+
+      /**
+       * Maximum length of folder name. Default is 20.
+       * @type {number}
+       */
+      folderMaxlen: 20,
+
+      /**
+       * Maximum length of file name. Default is 20.
+       * @type {number}
+       */
+      fileMaxlen: 20,
+
+      // /**
+      //  * If true, children of the folder will be cached and not retrieved from the server.
+      //  * If you want the folder to always be fetched from the server when opened, set to false.
+      //  * Default is true.
+      //  * @type {boolean}
+      //  */
+      // cacheLoadedChildren: true,
+
+      /**
+       * Define folder and file creation, deletion, and rename requests.
+       * @type {object}
+       */
       api: {
+        /**
+         * Get Child Items API.
+         */
         getChildren: {
           type: 'GET',
           // The PARENT_FOLDER_VAR in the string type URL is replaced by the ID of the currently selected folder.
           url: `/folders/${PARENT_FOLDER_VAR}/children`,
           data: undefined,
         },
+        /**
+         * Folder creation API.
+         */
         createFolder: {
           type: 'POST',
           // The PARENT_FOLDER_VAR in the string type URL is replaced by the ID of the currently selected folder.
           url: `/folders/${PARENT_FOLDER_VAR}`,
           data: undefined,
         },
+        /**
+         * Folder deletion API.
+         */
         deleteFolder: {
           type: 'DELETE',
           // The CURRENT_FOLDER_VAR in the string type URL is replaced by the ID of the currently selected folder.
           url: `/folders/${CURRENT_FOLDER_VAR}`,
           data: undefined,
         },
+        /**
+         * Folder Rename API.
+         */
         renameFolder: {
           type: 'PUT',
           // The CURRENT_FOLDER_VAR in the string type URL is replaced by the ID of the currently selected folder.
           url: `/folders/${CURRENT_FOLDER_VAR}`,
           data: undefined,
         },
+        /**
+         * File creation API.
+         */
         createFile: {
           type: 'POST',
           // The PARENT_FOLDER_VAR in the string type URL is replaced by the ID of the currently selected folder.
           url: `/files/${PARENT_FOLDER_VAR}`,
           data: undefined,
         },
+        /**
+         * File deletion API.
+         */
         deleteFile: {
           type: 'DELETE',
           // The CURRENT_FILE_VAR in the string type URL is replaced by the ID of the currently selected file.
           url: `/files/${CURRENT_FILE_VAR}`,
           data: undefined,
         },
+        /**
+         * File Rename API.
+         */
         renameFile: {
           type: 'PUT',
           // The CURRENT_FILE_VAR in the string type URL is replaced by the ID of the currently selected file.
@@ -563,6 +640,9 @@ export default class Tree {
           data: undefined,
         },
       },
+      /**
+       * Text used in the tree.
+       */
       language: {
         // Folder-related text.
         createFolderMenu: 'Create folder',
