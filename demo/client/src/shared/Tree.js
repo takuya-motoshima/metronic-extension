@@ -37,7 +37,6 @@ class ApiClient {
    * Initialization.
    */
   constructor(options) {
-    console.log('options=', options);
     this.#otpions = options;
   }
 
@@ -164,8 +163,12 @@ export default class Tree {
           break;
         }
       })
-      // .on('rename_node.jstree', function (e, data) {
-      //   //MAKE AJAX CALL HERE
+      .on('state_ready.jstree', () => {
+        // If there is no first selected node, the root node is made selected.
+        if (!this.#getSelectedNodes(true, 0))
+          this.#selectNode(this.#getRootNode());
+      })
+      // .on('after_close.jstree', (evnt, data) => {
       // })
       .jstree({
         core: {
@@ -262,6 +265,7 @@ export default class Tree {
                             this
                               .#selectNode(newNode)
                               .#setNodeId(newNode, res.id);
+                            Toast.success(options.language.createFolderSuccessful.replace('_FOLDER_', trim(newNode.text)));
                           } catch (err) {
                             await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
                             throw err;
@@ -288,6 +292,7 @@ export default class Tree {
                           this
                             .#selectNode(newNode)
                             .#setNodeId(newNode, res.id);
+                          Toast.success(options.language.createFileSuccessful.replace('_FILE_', trim(newNode.text)));
                         } catch (err) {
                           await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
                           throw err;
@@ -312,7 +317,9 @@ export default class Tree {
                       await this.#api.deleteFolder(deleteNode);
                       this
                         .#deleteNode(deleteNode)
-                        .#selectNode(this.#getRootNode());
+                        .#selectNode(this.#getParentNode(deleteNode));
+                        // .#selectNode(this.#getRootNode());
+                      Toast.success(options.language.deleteFolderSuccessful.replace('_FOLDER_', trim(deleteNode.text)));
                     } catch (err) {
                       await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
                       throw err;
@@ -351,11 +358,12 @@ export default class Tree {
                     await this.#api.deleteFile(deleteNode);
                     this
                       .#deleteNode(deleteNode)
-                      .#selectNode(this.#getRootNode());
-                    } catch (err) {
-                      await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
-                      throw err;
-                    }
+                      .#selectNode(this.#getParentNode(deleteNode));
+                    Toast.success(options.language.deleteFileSuccessful.replace('_FILE_', trim(deleteNode.text)));
+                  } catch (err) {
+                    await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
+                    throw err;
+                  }
                 },
               };
               menu.renameFile = {
@@ -458,11 +466,11 @@ export default class Tree {
   /**
     * Get an array of all selected nodes.
     *
-    * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned
+    * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
     * @param {undefined|number} position 
     * @return {any}
     */
-  getSelectedNodes (full = true, position = undefined) {
+  #getSelectedNodes (full = true, position = undefined) {
     const nodes = this.#treeInstance.get_selected(full);
     if (position == null)
       return nodes;
@@ -489,6 +497,15 @@ export default class Tree {
    */
   #getRootNode() {
     return this.#getNode(this.#treeInstance.get_json()[0].id);
+  }
+
+  /**
+   * Get parent node.
+   *
+   * @return {any}
+   */
+  #getParentNode(obj) {
+    return this.#getNode(obj.parent);
   }
 
   /**
@@ -549,19 +566,23 @@ export default class Tree {
       language: {
         // Folder-related text.
         createFolderMenu: 'Create folder',
+        createFolderSuccessful: '_FOLDER_ has been created.',// The "_FOLDER_" in the text is set to the name of the created folder.
         deleteFolderMenu: 'Delete folder',
         deleteFolderConfirmation: 'Are you sure you want to delete _FOLDER_?',// The "_FOLDER_" in the text is set to the name of the folder to be deleted.
         deleteFolderButton: 'Delete the folder',
         deleteFolderCancelButton: 'Cancel',
+        deleteFolderSuccessful: '_FOLDER_ has been deleted.',// The "_FOLDER_" in the text is set to the name of the folder to be deleted.
         renameFolderManu: 'Rename folder',
         newFolderName: 'New Folder',
 
         // File-related text.
         createFileMenu: 'Create file',
+        createFileSuccessful: '_FILE_ has been created.',// The "_FILE_" in the text is set to the name of the created file.
         deleteFileMenu: 'Delete file',
         deleteFileConfirmation: 'Are you sure you want to delete _FILE_?',// The "_FILE_" in the text is set to the name of the file to be deleted.
         deleteFileButton: 'Delete file',
         deleteFileCancelButton: 'Cancel',
+        deleteFileSuccessful: '_FILE_ has been deleted.',// The "_FILE_" in the text is set to the name of the file to be deleted.
         renameFileManu: 'Rename file',
         newFileName: 'New File',
 
