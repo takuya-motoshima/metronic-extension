@@ -9,6 +9,7 @@ const PARENT_FOLDER_VAR = '_PARENT_FOLDER_ID_';
 const CURRENT_FOLDER_VAR = '_CURRENT_FOLDER_ID_';
 const CURRENT_FILE_VAR = '_CURRENT_FILE_ID_';
 
+
 /**
  * Check if it is a function type.
  */
@@ -27,10 +28,99 @@ function isFunction(payload) {
 }
 
 /**
+ * Tree API.
+ */
+class ApiClient {
+  #otpions;
+
+  /**
+   * Initialization.
+   */
+  constructor(options) {
+    console.log('options=', options);
+    this.#otpions = options;
+  }
+
+  /**
+   * Create a folder.
+   */
+  async createFolder(newNode) {
+    const {type, url, data} = this.#otpions.createFolder;
+    return $.ajax({
+      type,
+      url: isString(url) ? url.replace(PARENT_FOLDER_VAR, encodeURIComponent(newNode.parent)) : url(newNode),
+      data: data ? data(newNode) : {text: newNode.text}
+    });
+  }
+  
+  /**
+   * Delete a folder.
+   */
+  async deleteFolder(deleteNode) {
+    const {type, url, data} = this.#otpions.deleteFolder;
+    return $.ajax({
+      type,
+      url: isString(url) ? url.replace(CURRENT_FOLDER_VAR, deleteNode.id) : url(deleteNode),
+      data: data ? data(deleteNode) : undefined
+    });
+  }
+
+  /**
+   * Rename a folder.
+   */
+  async renameFolder(node) {
+    const {type, url, data} = this.#otpions.renameFolder;
+    return $.ajax({
+      type,
+      url: isString(url) ? url.replace(CURRENT_FOLDER_VAR, node.id) : url(node),
+      data: data ? data(node) : {text: node.text}
+    });
+
+  }
+
+  /**
+   * Create file
+   */
+  async createFile(newNode) {
+    const {type, url, data} = this.#otpions.createFile;
+    return $.ajax({
+      type,
+      url: isString(url) ? url.replace(PARENT_FOLDER_VAR, encodeURIComponent(newNode.parent)) : url(newNode),
+      data: data ? data(newNode) : {text: newNode.text}
+    });
+  }
+  
+  /**
+   * Delete file
+   */
+  async deleteFile(deleteNode) {
+    const {type, url, data} = this.#otpions.deleteFile;
+    return $.ajax({
+      type,
+      url: isString(url) ? url.replace(CURRENT_FILE_VAR, deleteNode.id.replace(FILE_ID_PREFIX, '')) : url(deleteNode),
+      data: data ? data(deleteNode) : undefined
+    });
+  }
+
+  /**
+   * Rename a file
+   */
+  async renameFile(node) {
+    const {type, url, data} = this.#otpions.renameFile;
+    return $.ajax({
+      type,
+      url: isString(url) ? url.replace(CURRENT_FILE_VAR, node.id.replace(FILE_ID_PREFIX, '')) : url(node),
+      data: data ? data(node) : {text: node.text}
+    });
+  }
+}
+
+/**
  * Folder and file tree components.
  */
 export default class Tree {
   #treeInstance;
+  #api;
   // #selectedNodeHandler = (node) => {};
 
   /**
@@ -53,6 +143,9 @@ export default class Tree {
         throw new TypeError(`"api.${key}.url" option must be a string or function`);
       else if (options.api.getChildren.data && !isFunction(options.api[key].data))
         throw new TypeError(`"api.${key}.data" option must be a function`);
+
+    // Initialize API client.
+    this.#api = new ApiClient(options.api);
 
     // Initialize the tree.
     this.#treeInstance = context
@@ -163,15 +256,7 @@ export default class Tree {
                         this.#treeInstance.edit(newNode, newNode.text, async () => {
                           try {
                             // Folder creation request.
-                            const res = await $.ajax({
-                              type: options.api.createFolder.type,
-                              url: isString(options.api.createFolder.url) ?
-                                    options.api.createFolder.url.replace(PARENT_FOLDER_VAR, encodeURIComponent(newNode.parent)) :
-                                    options.api.createFolder.url(newNode),
-                              data: options.api.createFolder.data ?
-                                      options.api.createFolder.data(newNode) :
-                                      {text: newNode.text}
-                            });
+                            const res = await this.#api.createFolder(newNode);
 
                             // Update the ID of the new folder.
                             this
@@ -197,15 +282,7 @@ export default class Tree {
                       this.#treeInstance.edit(newNode, newNode.text, async () => {
                         try {
                           // File creation request.
-                          const res = await $.ajax({
-                            type: options.api.createFile.type,
-                            url: isString(options.api.createFile.url) ?
-                                  options.api.createFile.url.replace(PARENT_FOLDER_VAR, encodeURIComponent(newNode.parent)) :
-                                  options.api.createFile.url(newNode),
-                            data: options.api.createFile.data ?
-                                    options.api.createFile.data(newNode) :
-                                    {text: newNode.text}
-                          });
+                          const res = await this.#api.createFile(newNode);
 
                           // Update the ID of the new folder.
                           this
@@ -232,15 +309,7 @@ export default class Tree {
                           confirmButtonText: options.language.deleteFolderButton,
                           cancelButtonText: options.language.deleteFolderCancelButton}))
                         return;
-                      await $.ajax({
-                        type: options.api.deleteFolder.type,
-                        url: isString(options.api.deleteFolder.url) ?
-                              options.api.deleteFolder.url.replace(CURRENT_FOLDER_VAR, deleteNode.id) :
-                              options.api.deleteFolder.url(deleteNode),
-                        data: options.api.deleteFolder.data ?
-                                options.api.deleteFolder.data(deleteNode) :
-                                undefined
-                      });
+                      await this.#api.deleteFolder(deleteNode);
                       this
                         .#deleteNode(deleteNode)
                         .#selectNode(this.#getRootNode());
@@ -260,15 +329,7 @@ export default class Tree {
                         // If there is no change in the name, nothing is done.
                         if (beforeText === trim(node.text))
                           return void console.info('The name does not change, so no request is made');
-                        await $.ajax({
-                          type: options.api.renameFolder.type,
-                          url: isString(options.api.renameFolder.url) ?
-                                options.api.renameFolder.url.replace(CURRENT_FOLDER_VAR, node.id) :
-                                options.api.renameFolder.url(node),
-                          data: options.api.renameFolder.data ?
-                                  options.api.renameFolder.data(node) :
-                                  {text: node.text}
-                        });
+                        await this.#api.renameFolder(node);
                       } catch (err) {
                         await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
                         throw err;
@@ -287,15 +348,7 @@ export default class Tree {
                         confirmButtonText: options.language.deleteFileButton,
                         cancelButtonText: options.language.deleteFileCancelButton}))
                       return;
-                    await $.ajax({
-                      type: options.api.deleteFile.type,
-                      url: isString(options.api.deleteFile.url) ?
-                            options.api.deleteFile.url.replace(CURRENT_FILE_VAR, deleteNode.id.replace(FILE_ID_PREFIX, '')) :
-                            options.api.deleteFile.url(deleteNode),
-                      data: options.api.deleteFile.data ?
-                              options.api.deleteFile.data(deleteNode) :
-                              undefined
-                    });
+                    await this.#api.deleteFile(deleteNode);
                     this
                       .#deleteNode(deleteNode)
                       .#selectNode(this.#getRootNode());
@@ -315,15 +368,7 @@ export default class Tree {
                       // If there is no change in the name, nothing is done.
                       if (beforeText === trim(node.text))
                         return void console.info('The name does not change, so no request is made');
-                      await $.ajax({
-                        type: options.api.renameFile.type,
-                        url: isString(options.api.renameFile.url) ?
-                              options.api.renameFile.url.replace(CURRENT_FILE_VAR, node.id.replace(FILE_ID_PREFIX, '')) :
-                              options.api.renameFile.url(node),
-                        data: options.api.renameFile.data ?
-                                options.api.renameFile.data(node) :
-                                {text: node.text}
-                      });
+                      await this.#api.renameFile(node);
                     } catch (err) {
                       await Dialog.unknownError(options.language.unknownErrorMessage, {title: options.language.unknownErrorTitle});
                       throw err;
