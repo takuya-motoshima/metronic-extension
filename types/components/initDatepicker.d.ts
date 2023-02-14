@@ -1,6 +1,6 @@
-import DatePickerOptions from '~/interfaces/DatePickerOptions';
+import DatePickerOption from '~/interfaces/DatePickerOption';
 /**
  * Initialize the date picker.
  */
-declare const _default: (input: HTMLInputElement | JQuery, options?: DatePickerOptions) => daterangepicker;
+declare const _default: (input: HTMLInputElement | JQuery, options?: DatePickerOption) => daterangepicker;
 export default _default;

@@ -1,12 +1,11 @@
 import moment from 'moment';
-// import $ from 'jquery';
 import fusion from 'deep-fusion';
-import DatePickerOptions from '~/interfaces/DatePickerOptions';
+import DatePickerOption from '~/interfaces/DatePickerOption';
 
 /**
  * Initialize the date picker.
  */
-export default (input: HTMLInputElement|JQuery, options?: DatePickerOptions): daterangepicker => {
+export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): daterangepicker => {
   // Check the argument.
   if (input instanceof HTMLInputElement)
     input = $(input);

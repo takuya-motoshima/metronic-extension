@@ -1,4 +1,3 @@
-// import $ from 'jquery';
 import fusion from 'deep-fusion';
 import initTooltip from '~/components/initTooltip';
 import isString from '~/misc/isString';

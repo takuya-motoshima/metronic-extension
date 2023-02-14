@@ -1,7 +1,6 @@
 // import Tagify, {TagData} from '@yaireo/tagify';
-// import $ from 'jquery';
 import fusion from 'deep-fusion';
-import TagifyOptions from '~/interfaces/TagifyOptions';
+import TagifyOption from '~/interfaces/TagifyOption';
 
 /**
  * Tag input UI.
@@ -16,7 +15,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
   /**
    * Initialization.
    */
-  constructor(input: HTMLInputElement|HTMLTextAreaElement|JQuery, options: TagifyOptions) {
+  constructor(input: HTMLInputElement|HTMLTextAreaElement|JQuery, options: TagifyOption) {
     // Check the argument.
     if (input instanceof $)
       input = (input as JQuery).get(0) as HTMLInputElement|HTMLTextAreaElement;

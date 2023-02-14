@@ -1,10 +1,9 @@
 import hbs from 'handlebars-extd';
 import fusion from 'deep-fusion';
 import compareImg from 'compare-img';
-// import $ from 'jquery';
 import initTooltip from '~/components/initTooltip';
 import fetchDataUrl from '~/http/fetchDataUrl';
-import ImageInputOptions from '~/interfaces/ImageInputOptions';
+import ImageInputOption from '~/interfaces/ImageInputOption';
 import isDataUrl from '~/misc/isDataUrl';
 import getExtensionFromDataUrl from '~/misc/getExtensionFromDataUrl';
 
@@ -31,7 +30,7 @@ export default class {
   /**
    * Initialization.
    */
-  constructor(context: HTMLDivElement|JQuery, options: ImageInputOptions) {
+  constructor(context: HTMLDivElement|JQuery, options: ImageInputOption) {
     // Check the argument.
     if (context instanceof $)
       context = (context as JQuery).get(0) as HTMLDivElement;
@@ -123,7 +122,7 @@ export default class {
   /**
    * Rendering image input UI.
    */
-  #render(context: HTMLDivElement, options: ImageInputOptions) {
+  #render(context: HTMLDivElement, options: ImageInputOption) {
     context.classList.add(
       'image-input',
       'image-input-outline',
@@ -176,7 +175,7 @@ export default class {
   /**
    * Initialize event handler.
    */
-  #initEventListeners(options: ImageInputOptions, defaultImg: string|undefined): void {
+  #initEventListeners(options: ImageInputOption, defaultImg: string|undefined): void {
     this.#imageInput.on('kt.imageinput.changed', async (input: typeof window.KTImageInput) => {
       // If cancellation is disabled, the delete button is forcibly displayed when editing the image.
       if (!options.cancelable)

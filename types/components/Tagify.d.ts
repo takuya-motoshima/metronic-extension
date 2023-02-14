@@ -1,5 +1,5 @@
 /// <reference types="yaireo__tagify" />
-import TagifyOptions from '~/interfaces/TagifyOptions';
+import TagifyOption from '~/interfaces/TagifyOption';
 /**
  * Tag input UI.
  */
@@ -8,7 +8,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     /**
      * Initialization.
      */
-    constructor(input: HTMLInputElement | HTMLTextAreaElement | JQuery, options: TagifyOptions);
+    constructor(input: HTMLInputElement | HTMLTextAreaElement | JQuery, options: TagifyOption);
     /**
       * Parse and add tags.
       *

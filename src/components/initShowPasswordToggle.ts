@@ -1,8 +1,7 @@
 import fusion from 'deep-fusion';
-// import $ from 'jquery';
-import ShowPasswordToggleOptions from '~/interfaces/ShowPasswordToggleOptions';
+import ShowPasswordToggleOption from '~/interfaces/ShowPasswordToggleOption';
 
-function setToggleEventListener(input: HTMLElement, options: ShowPasswordToggleOptions) {
+function setToggleEventListener(input: HTMLElement, options: ShowPasswordToggleOption) {
   if (input.hasAttribute('data-show-password-toggle-initialized'))
     return;
   const button = input.nextElementSibling;
@@ -28,7 +27,7 @@ function setToggleEventListener(input: HTMLElement, options: ShowPasswordToggleO
 /**
  * Toggle between showing and hiding passwords.
  */
-export default (context: HTMLElement|JQuery, options?: ShowPasswordToggleOptions) => {
+export default (context: HTMLElement|JQuery, options?: ShowPasswordToggleOption) => {
   // Check the argument.
   if (context instanceof $)
     context = (context as JQuery).get(0) as HTMLElement;

@@ -1,5 +1,5 @@
 /// <reference types="dropzone" />
-import DropzoneOptions from '~/interfaces/DropzoneOptions';
+import DropzoneOption from '~/interfaces/DropzoneOption';
 /**
  * Drag-and-drop file upload component with image preview.
  */
@@ -8,7 +8,7 @@ export default class DropzoneComponent {
     /**
      * Initialization.
      */
-    constructor(container: HTMLElement | JQuery, options: DropzoneOptions);
+    constructor(container: HTMLElement | JQuery, options: DropzoneOption);
     /**
      * Set the file addition event handler.
      */

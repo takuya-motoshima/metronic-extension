@@ -15,43 +15,124 @@
   <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Stylesheets Bundle-->
-  <link href="build/tree.css" rel="stylesheet" type="text/css" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 <body id="kt_body" class="app-blank">
-  <!--begin::Root-->
-  <div class="d-flex flex-column flex-root" id="kt_app_root">
-    <!--begin::Content-->
-    <div class="d-flex flex-column flex-column-fluid">
-      <!--begin::Container-->
-      <div class="container d-flex flex-column flex-lg-row">
+  <!--begin::Container-->
+  <div class="container" id="container">
+    <!--begin::Heading-->
+    <h1 class="mb-5 py-10" id="header">Folder and file tree</h1>
+    <!--end::Heading-->
+    <!--begin::Layout-->
+    <div class="d-flex flex-column flex-lg-row">
+      <!--begin::Sidebar-->
+      <div class="flex-column flex-lg-row-auto w-100 w-lg-300px w-xl-400px mb-10 mb-lg-0">
         <!--begin::Card-->
-        <div class="card flex-row-fluid mb-2">
-          <!--begin::Card Body-->
-          <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->
-              <h1 id="dataTable" class="mb-5">Folder and file tree</h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="rounded border p-10">
-                <div data-ref="tree"></div>
-              </div>
-              <!--end::Block-->
+        <div class="card card-flush">
+          <!--begin::Card body-->
+          <div class="card-body pt-5" id="tree">
+            <!--begin::Scroll-->
+            <div
+              class="scroll-y me-n5 pe-5 h-200px h-lg-auto"
+              data-kt-scroll="true"
+              data-kt-scroll-activate="{default: false, lg: true}"
+              data-kt-scroll-max-height="auto"
+              data-kt-scroll-dependencies="#header"
+              data-kt-scroll-wrappers="#container, #tree"
+              data-kt-scroll-offset="5px">
+              <!--begin::Tree-->
+              <div data-ref="tree"></div>
+              <!--end::Tree-->
             </div>
-            <!--end::Section-->
+            <!--end::Scroll-->
           </div>
-          <!--end::Card Body-->
+          <!--end::Card body-->
         </div>
         <!--end::Card-->
       </div>
-      <!--end::Container-->
+      <!--end::Sidebar-->
+      <!--begin::Content-->
+      <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+        <!--begin::Card-->
+        <div class="card">
+          <!--begin::Card header-->
+          <div class="card-header" id="nodeHeader">
+            <!--begin::Title-->
+            <div class="card-title">Selection Node Details</div>
+            <!--end::Title-->
+          </div>
+          <!--end::Card header-->
+          <!--begin::Card body-->
+          <div class="card-body" id="node">
+            <!--begin::Scroll-->
+            <div class="scroll-y me-n5 pe-5 h-300px h-lg-auto"
+              data-kt-element="messages" data-kt-scroll="true"
+              data-kt-scroll-activate="{default: false, lg: true}"
+              data-kt-scroll-max-height="auto"
+              data-kt-scroll-dependencies="#header, #nodeHeader"
+              data-kt-scroll-wrappers="#container, #node"
+              data-kt-scroll-offset="5px">
+              <!--begin::Row-->
+              <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Node ID</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                  <span data-ref="node.id" class="fw-bold fs-6 text-gray-800"></span>
+                </div>
+                <!--end::Col-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Full path</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                  <span data-ref="node.path" class="fw-bold fs-6 text-gray-800"></span>
+                </div>
+                <!--end::Col-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Display Name</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                  <span data-ref="node.text" class="fw-bold fs-6 text-gray-800"></span>
+                </div>
+                <!--end::Col-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Node type</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                  <span data-ref="node.type" class="fw-bold fs-6 text-gray-800"></span>
+                </div>
+                <!--end::Col-->
+              </div>
+              <!--end::Row-->
+            </div>
+            <!--end::Scroll-->
+          </div>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Content-->
     </div>
-    <!--end::Content-->
+    <!--end::Layout-->
   </div>
-  <!--end::Root-->
+  <!--end::Container-->
   <!--begin::Javascript-->
   <!--begin::Global Javascript Bundle(used by all pages)-->
   <script src="build/theme/plugins/global/plugins.bundle.js"></script>

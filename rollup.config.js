@@ -3,7 +3,9 @@ import {terser} from "rollup-plugin-terser";
 import json from 'rollup-plugin-json';
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve';
+import postcss from 'rollup-plugin-postcss';
 import pkg from './package.json';
+// import path from 'path';
 
 export default {
   external: [
@@ -27,7 +29,12 @@ export default {
     resolve({
       mainFields: ['module', 'main'],
       browser: true
-    })
+    }),
+    postcss({
+      // include: 'src/index.css',
+      // extract: path.resolve(`dist/${pkg.name}.css`),
+      minimize: true,
+    }),
   ],
   output: [
     // ES module (for bundlers) build.

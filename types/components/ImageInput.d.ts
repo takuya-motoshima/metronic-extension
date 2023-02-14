@@ -1,4 +1,4 @@
-import ImageInputOptions from '~/interfaces/ImageInputOptions';
+import ImageInputOption from '~/interfaces/ImageInputOption';
 /**
  * Image input.
  *
@@ -19,7 +19,7 @@ export default class {
     /**
      * Initialization.
      */
-    constructor(context: HTMLDivElement | JQuery, options: ImageInputOptions);
+    constructor(context: HTMLDivElement | JQuery, options: ImageInputOption);
     /**
      * Set change event handler.
      */

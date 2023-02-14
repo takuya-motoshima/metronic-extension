@@ -11,6 +11,7 @@ import initTooltip from '~/components/initTooltip';
 import Modal from '~/components/Modal';
 import Tagify from '~/components/Tagify';
 import Toast from '~/components/Toast';
+import Tree from '~/components/Tree';
 
 // dom
 import selectRef from '~/dom/selectRef';
@@ -40,6 +41,9 @@ import urlToMime from '~/misc/urlToMime';
 // validators
 import Validation from '~/validators/Validation';
 
+// Style.
+import './index.css';
+
 export {
   BlockUI,
   Datatable,
@@ -53,6 +57,7 @@ export {
   Modal,
   Tagify,
   Toast,
+  Tree,
   selectRef,
   escapeHtml,
   Api,

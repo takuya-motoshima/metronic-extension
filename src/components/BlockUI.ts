@@ -1,5 +1,4 @@
 import hbs from 'handlebars-extd';
-// import $ from 'jquery';
 
 /**
  * Display loading indicator on the block.

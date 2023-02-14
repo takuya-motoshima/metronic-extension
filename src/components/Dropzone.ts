@@ -1,7 +1,6 @@
 import fusion from 'deep-fusion';
 import hbs from 'handlebars-extd';
-// import $ from 'jquery';
-import DropzoneOptions from '~/interfaces/DropzoneOptions';
+import DropzoneOption from '~/interfaces/DropzoneOption';
 
 /**
  * Drag-and-drop file upload component with image preview.
@@ -14,7 +13,7 @@ export default class DropzoneComponent {
   /**
    * Initialization.
    */
-  constructor(container: HTMLElement|JQuery, options: DropzoneOptions) {
+  constructor(container: HTMLElement|JQuery, options: DropzoneOption) {
     // Check the argument.
     if (container instanceof $)
       container = (container as JQuery).get(0) as HTMLElement;

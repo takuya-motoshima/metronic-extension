@@ -1,6 +1,5 @@
-// import $ from 'jquery';
 import customValidators from '~/validators/customValidators/index';
-import ValidationOptions from '~/interfaces/ValidationOptions';
+import ValidationOption from '~/interfaces/ValidationOption';
 import isString from '~/misc/isString';
 
 /**
@@ -259,8 +258,8 @@ export default class Validation {
   /**
    * Initialize options.
    */
-  #initOptions(fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean): ValidationOptions {
-    const options: ValidationOptions = {
+  #initOptions(fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean): ValidationOption {
+    const options: ValidationOption = {
       fields,
       plugins: {
         trigger: new FormValidation.plugins.Trigger(),

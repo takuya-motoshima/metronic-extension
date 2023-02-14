@@ -1,6 +1,4 @@
-import {selectRef} from 'metronic-extension';
-import Tree from '~/shared/Tree';
-import '~/tree.css';
+import {selectRef, Tree} from 'metronic-extension';
 
 const ref = selectRef();
 const tree = new Tree(ref.tree, {
@@ -20,6 +18,10 @@ const tree = new Tree(ref.tree, {
 tree
   .onSelected((evnt, node) => {
     console.log('Selected node:', node);
+    ref.node.id.text(node.id);
+    ref.node.path.text(tree.getPath(node, '/'));
+    ref.node.text.text(node.text);
+    ref.node.type.text(node.type);
   })
   .onError(err => {
     alert(err.message);
