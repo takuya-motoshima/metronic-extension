@@ -18,6 +18,18 @@ module.exports = class extends Model {
     };
   }
 
+  static async createFile(folderId, text) {
+    return super.create({folderId, text});
+  }
+
+  static async deleteFile(fileId) {
+    // console.log(`Delete the file with ID ${fileId}`);
+    const file = await this.#getFile(fileId);
+    if (!file)
+      throw new FileNotFound();
+    return file.destroy();
+  }
+
   static async renameFile(fileId, text) {
     const file = await this.#getFile(fileId);
     if (!file)

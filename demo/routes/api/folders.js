@@ -2,9 +2,8 @@ const router = require('express').Router();
 const {body, validationResult} = require('express-validator');
 const FolderModel = require('../../models/FolderModel');
 const FolderNotFound = require('../../exceptions/FolderNotFound');
+const constants = require('../../config/constants');
 
-const FOLDER_NAME_MAXLENGTH = 20;
-  
 // For the root folder, specify "#" for the folder ID in the path parameter.
 router.get('/:parent(\\d+|%23)/children', async (req, res) => {
   const children = await FolderModel.getChildren(req.params.parent);
@@ -12,7 +11,7 @@ router.get('/:parent(\\d+|%23)/children', async (req, res) => {
 });
 
 router.post('/:parent(\\d+)', [
-  body('text').trim().not().isEmpty().isLength({max: FOLDER_NAME_MAXLENGTH})
+  body('text').trim().not().isEmpty().isLength({max: constants.FOLDER_NAME_MAXLENGTH})
 ], async (req, res) => {
   const err = validationResult(req);
   if (!err.isEmpty())
@@ -34,7 +33,7 @@ router.delete('/:folderId(\\d+)', async (req, res) => {
 });
 
 router.put('/:folderId(\\d+)', [
-  body('text').trim().not().isEmpty().isLength({max: FOLDER_NAME_MAXLENGTH})
+  body('text').trim().not().isEmpty().isLength({max: constants.FOLDER_NAME_MAXLENGTH})
 ], async (req, res) => {
   try {
     const err = validationResult(req);

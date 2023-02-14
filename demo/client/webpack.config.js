@@ -16,7 +16,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     'colvis-datatable': './src/colvis-datatable.js',
-    'folder-tree': './src/folder-tree.js',
+    'tree': './src/tree.js',
   },
 
   // File output settings.
