@@ -1,6 +1,10 @@
 # metronic-extension
-Extension package for the Metronic WEB theme.  
-The demonstration is [here](https://takuya-motoshima.github.io/metronic-extension/).
+Extension package for the Metronic WEB theme.   
+
+A demo of this package is included.  
+For more information on how to use the demo, please see this [demo/README.md](https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md).  
+
+Click [here](https://takuya-motoshima.github.io/metronic-extension/) to see a demo now.
 
 ## Documentation
 * [Changelog](CHANGELOG.md)

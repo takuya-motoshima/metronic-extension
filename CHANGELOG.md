@@ -2,7 +2,50 @@
 All notable changes to this project will be documented in this file.
 
 # [1.0.23] - 2023/2/14
+### Changed
+- Fix [demo](https://takuya-motoshima.github.io/metronic-extension/) available on github.io.
+    ![index.png](demo/client/src/media/demos/index.png)
+
 ### Added
+- Added tree component.
+    HTML:
+    ```html
+    <!--begin::Tree-->
+    <div data-ref="tree"></div>
+    <!--end::Tree-->
+    ```
+
+    JS:
+    ```js
+    import {selectRef, Tree} from 'metronic-extension';
+
+    const ref = selectRef();
+    const tree = new Tree(ref.tree, {
+      folderMaxlen: 20,
+      fileMaxlen: 20,
+      api: {
+        getChildren: '/api/folders/_PARENT_FOLDER_ID_/children',
+        createFolder: '/api/folders/_PARENT_FOLDER_ID_',
+        deleteFolder: '/api/folders/_CURRENT_FOLDER_ID_',
+        renameFolder: '/api/folders/_CURRENT_FOLDER_ID_',
+        createFile: '/api/files/_PARENT_FOLDER_ID_',
+        deleteFile: '/api/files/_CURRENT_FILE_ID_',
+        renameFile: '/api/files/_CURRENT_FILE_ID_',
+      },
+    });
+    tree
+      .onSelected((evnt, node) => {
+        alert(`Selected node.
+          id: ${node.id}
+          path: ${tree.getPath(node, '/')}
+          text: ${node.text}
+          type: ${node.type}`);
+      })
+      .onError(err => {
+        alert(err.message);
+      });
+    ```
+    ![tree.png](demo/client/src/media/demos/tree.png)
 - Added a function to check if a variable is a function type.
     ```js
     import {isFunction} from 'metronic-extension';
@@ -68,7 +111,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added example of data table switching column visibility.  
     See the DataTable section of [this page](https://takuya-motoshima.github.io/metronic-extension/) for a demonstration.  
-    ![colvis-datatable.png](screencaps/colvis-datatable.png)
+    ![colvis-datatable.png](screencaps/1.0.19/colvis-datatable.png)
 
     HTML:
     ```html
@@ -268,7 +311,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Add a component to toggle password visibility (initShowPasswordToggle).  
     The component is applied to input elements with the &quot;[data-show-password-toggle=&quot;true&quot;]&quot; attribute.  
-    ![password-show-toggle](screencaps/password-show-toggle.png)
+    ![password-show-toggle](screencaps/1.0.11/password-show-toggle.png)
 
     HTML:
     ```html
@@ -325,7 +368,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.9] - 2022/11/14
 ### Added
 - Added Dropzone component.
-    ![dropzone](screencaps/dropzone.png)
+    ![dropzone](screencaps/1.0.9/dropzone.png)
 
 ## [1.0.8] - 2022/11/14
 ### Changed
@@ -338,7 +381,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.6] - 2022/11/14
 ### Added
 - Add Tagify (src/components/Tagify) component.
-    ![tagify](screencaps/tagify.png)
+    ![tagify](screencaps/1.0.6/tagify.png)
 
 ## [1.0.5] - 2022/10/24
 ###  Added
@@ -346,7 +389,7 @@ All notable changes to this project will be documented in this file.
     HTML:
     ```html
     <!--begin::Form-->
-    <form data-ref="customValidationForm" autocomplete="off">
+    <form data-ref="form" autocomplete="off">
       <!--begin::Input group-->
       <div class="fv-row mb-10">
         <!--begin::Label-->
@@ -369,7 +412,7 @@ All notable changes to this project will be documented in this file.
     import {selectRef, Validation} from 'metronic-extension';
 
     const ref = selectRef();
-    const validation = new Validation(ref.customValidationForm, {
+    const validation = new Validation(ref.form, {
       betweenValues: {
         validators: {
           isIntegersBetween: {
@@ -433,7 +476,7 @@ All notable changes to this project will be documented in this file.
     HTML:
     ```html
     <!--begin::Form-->
-    <form data-ref="customValidationForm" autocomplete="off">
+    <form data-ref="form" autocomplete="off">
       <!--begin::Input group-->
       <div class="fv-row mb-10">
         <!--begin::Label-->
@@ -456,7 +499,7 @@ All notable changes to this project will be documented in this file.
     import {selectRef, Validation} from 'metronic-extension';
 
     const ref = selectRef();
-    const validation = new Validation(ref.customValidationForm, {
+    const validation = new Validation(ref.form, {
       phoneNumberJp: {
         validators: {
           notEmpty: {message: 'Enter here.'},

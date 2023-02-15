@@ -14,9 +14,20 @@ module.exports = {
     ]
   },
   entry: {
-    index: './src/index.js',
-    'colvis-datatable': './src/colvis-datatable.js',
-    'tree': './src/tree.js',
+    'block-ui': './src/block-ui.js',
+    datatable: './src/datatable.js',
+    dialog: './src/dialog.js',
+    'image-input': './src/image-input.js',
+    modal: './src/modal.js',
+    toast: './src/toast.js',
+    'date-range-picker': './src/date-range-picker.js',
+    'custom-validation': './src/custom-validation.js',
+    tagify: './src/tagify.js',
+    dropzone: './src/dropzone.js',
+    'select-elements': './src/select-elements.js',
+    'toggle-password-visibility': './src/toggle-password-visibility.js',
+    'rest-client': './src/rest-client.js',
+    tree: './src/tree.js',
   },
 
   // File output settings.

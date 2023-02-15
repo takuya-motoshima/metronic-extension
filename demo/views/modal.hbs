@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Modal - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">Modal</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <button data-on-modal type="button" class="btn btn-primary">Launch demo modal</button>
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#modalHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#modalJsTabPane" role="tab">JAVASCRIPT</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#modalItselfJsTabPane" role="tab">JAVASCRIPT WITH MODAL</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="modalHtmlTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-html" style="max-height:400px">
+                      <code class="language-html">&lt;button data-on-modal type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Launch demo modal&lt;/button&gt;</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="modalJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import DemoModal from &#039;~/DemoModal&#039;;
+
+const demoModal = new DemoModal();
+$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-modal]&#039;, async () =&gt; {
+  const res = await demoModal.show(&#039;Modal title&#039;, &#039;Modal body text goes here.&#039;);
+  alert(`The modal response is ${res}`);
+});</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="modalItselfJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import hbs from &#039;handlebars-extd&#039;;
+import {Modal} from &#039;metronic-extension&#039;;
+
+export default class extends Modal {
+  async init(title, message) {
+    const node = this.#render(title, message);
+    const instance = new bootstrap.Modal(node);
+    this.#initForm(node);
+    return [node, instance];
+  }
+
+  #initForm(node) {
+    node.on(&#039;click&#039;, &#039;[data-on-save-change]&#039;, () =&gt; {
+      super.hide(true);
+    });
+  }
+
+  #render(title, message) {
+    const html = hbs.compile(
+      `&lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;!--begin::Modal dialog--&gt;
+        &lt;div class=&quot;modal-dialog modal-dialog-centered modal-xl&quot;&gt;
+        {{!-- &lt;div class=&quot;modal-dialog modal-dialog-centered mw-900px&quot;&gt; --}}
+          &lt;!--begin::Modal content--&gt;
+          &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;!--begin::Modal header--&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+              &lt;!--begin::Modal title--&gt;
+              &lt;h2&gt;{{title}}&lt;/h2&gt;
+              &lt;!--end::Modal title--&gt;
+              &lt;!--begin::Close--&gt;
+              &lt;div class=&quot;btn btn-sm btn-icon btn-active-color-primary&quot; data-bs-dismiss=&quot;modal&quot;&gt;
+                &lt;!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg--&gt;
+                &lt;span class=&quot;svg-icon svg-icon-1&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                  &lt;rect opacity=&quot;0.5&quot; x=&quot;6&quot; y=&quot;17.3137&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(-45 6 17.3137)&quot; fill=&quot;currentColor&quot; /&gt;
+                  &lt;rect x=&quot;7.41422&quot; y=&quot;6&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 7.41422 6)&quot; fill=&quot;currentColor&quot; /&gt;
+                &lt;/svg&gt;&lt;/span&gt;
+                &lt;!--end::Svg Icon--&gt;
+              &lt;/div&gt;
+              &lt;!--end::Close--&gt;
+            &lt;/div&gt;
+            &lt;!--end::Modal header--&gt;
+            &lt;!--begin::Modal body--&gt;
+            &lt;div class=&quot;modal-body py-lg-10 px-lg-10&quot;&gt;
+              {{message}}
+            &lt;/div&gt;
+            &lt;!--end::Modal body--&gt;
+            &lt;!--begin::Modal footer--&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+              &lt;button data-on-save-change type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!--end::Modal footer--&gt;
+          &lt;/div&gt;
+          &lt;!--end::Modal content--&gt;
+        &lt;/div&gt;
+        &lt;!--end::Modal dialog--&gt;
+      &lt;/div&gt;`)({title, message});
+    return $(html).appendTo(&#039;body&#039;);
+  }
+}</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/modal.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

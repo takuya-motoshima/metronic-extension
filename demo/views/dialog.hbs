@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Dialog - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">Dialog</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <button data-on-confirm type="button" class="btn btn-primary my-2 me-5">Toggle confirm dialog</button>
+            <button data-on-success type="button" class="btn btn-primary my-2 me-5">Toggle success dialog</button>
+            <button data-on-error type="button" class="btn btn-primary my-2 me-5">Toggle error dialog</button>
+            <button data-on-warning type="button" class="btn btn-primary my-2 me-5">Toggle warning dialog</button>
+            <button data-on-info type="button" class="btn btn-primary my-2 me-5">Toggle info dialog</button>
+            <button data-on-unknown-error type="button" class="btn btn-primary my-2 me-5">Toggle unknown error dialog</button>
+            <button data-on-loading type="button" class="btn btn-primary my-2">Toggle loading dialog</button>
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#dialogHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#dialogJsTabPane" role="tab">JAVASCRIPT</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="dialogHtmlTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-html" style="max-height:400px">
+                      <code class="language-html">&lt;button data-on-confirm type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle confirm dialog&lt;/button&gt;
+&lt;button data-on-success type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle success dialog&lt;/button&gt;
+&lt;button data-on-error type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle error dialog&lt;/button&gt;
+&lt;button data-on-warning type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle warning dialog&lt;/button&gt;
+&lt;button data-on-info type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle info dialog&lt;/button&gt;
+&lt;button data-on-unknown-error type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle unknown error dialog&lt;/button&gt;
+&lt;button data-on-loading type=&quot;button&quot; class=&quot;btn btn-primary my-2&quot;&gt;Toggle loading dialog&lt;/button&gt;</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="dialogJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import {Dialog} from &#039;metronic-extension&#039;;
+
+$(&#039;body&#039;)
+  .on(&#039;click&#039;, &#039;[data-on-confirm]&#039;, async () =&gt; {
+    const res = await Dialog.confirm(&#039;Here\&#039;s a basic example of confirm dialog!&#039;, {confirmButtonText: &#039;Yes&#039;, cancelButtonText: &#039;No&#039;,});
+    Dialog.info(`The return value is ${res}`);
+  })
+  .on(&#039;click&#039;, &#039;[data-on-success]&#039;, () =&gt; {
+    Dialog.success(&#039;Here\&#039;s a basic example of success dialog!&#039;);
+  })
+  .on(&#039;click&#039;, &#039;[data-on-error]&#039;, () =&gt; {
+    Dialog.error(&#039;Here\&#039;s a basic example of error dialog!&#039;);
+  })
+  .on(&#039;click&#039;, &#039;[data-on-warning]&#039;, () =&gt; {
+    Dialog.warning(&#039;Here\&#039;s a basic example of warning dialog!&#039;);
+  })
+  .on(&#039;click&#039;, &#039;[data-on-info]&#039;, () =&gt; {
+    Dialog.info(&#039;Here\&#039;s a basic example of info dialog!&#039;);
+  })
+  .on(&#039;click&#039;, &#039;[data-on-unknown-error]&#039;, () =&gt; {
+    Dialog.unknownError(&#039;The process was interrupted due to an error. Please try again.&#039;, {title: &#039;An unexpected error has occurred.&#039;});
+  })
+  .on(&#039;click&#039;, &#039;[data-on-loading]&#039;, () =&gt; {
+    Dialog.loading(&#039;Here\&#039;s a basic example of loading dialog!&#039;);
+    setTimeout(() =&gt; Dialog.close(), 3000);
+  });</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/dialog.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

@@ -1,8 +1,9 @@
 import {selectRef, Tree} from 'metronic-extension';
+import highlight from '~/shared/highlight';
 
+highlight();
 const ref = selectRef();
 const tree = new Tree(ref.tree, {
-  // cacheLoadedChildren: false,
   folderMaxlen: 20,
   fileMaxlen: 20,
   api: {

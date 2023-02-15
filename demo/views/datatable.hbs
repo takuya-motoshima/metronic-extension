@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>DataTable - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body data-bs-spy="scroll" data-bs-target="#sidebarNav" id="kt_body" class="app-blank">
+  <!--begin::Root-->
+  <div class="d-flex flex-column flex-root" id="kt_app_root">
+    <!--begin::Content-->
+    <div class="d-flex flex-column flex-column-fluid">
+      <!--begin::Container-->
+      <div class="container d-flex flex-column flex-lg-row">
+        <!--begin::Card-->
+        <div class="card flex-row-fluid mb-2">
+          <!--begin::Card Body-->
+          <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+            <!--begin::Section-->
+            <div class="pb-10">
+              <!--begin::Heading-->
+              <h1 class="anchor fw-bold mb-5" id="basicTable" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
+                <a href="#basicTable"></a>Basic Datatable
+              </h1>
+              <!--end::Heading-->
+              <!--begin::Block-->
+              <div class="py-5">
+                <!--begin::Information-->
+                <div class="d-flex align-items-center rounded py-5 px-5 bg-light-warning ">
+                  <!--begin::Icon-->
+                  <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+                  <span class="svg-icon svg-icon-3x svg-icon-warning me-5">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
+                      <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
+                      <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
+                    </svg>
+                  </span>
+                  <!--end::Svg Icon-->
+                  <!--end::Icon-->
+                  <!--begin::Description-->
+                  <div class="text-gray-700 fw-bold fs-6">Server required to run this demo. Please see this <a href="https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md" target="_blank">demo/README.md</a> for more information.</div>
+                  <!--end::Description-->
+                </div>
+                <!--end::Information-->
+              </div>
+              <!--end::Block-->
+              <!--begin::Block-->
+              <div class="my-5">
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-stack flex-wrap mb-5">
+                  <!--begin::Search-->
+                  <div class="d-flex align-items-center position-relative my-1 mb-2 mb-md-0">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                      </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <input data-ref="searchWord" data-on-search-persons type="text" class="form-control form-control-solid w-250px ps-15" placeholder="Search by person's name" maxlength="70" />
+                  </div>
+                  <!--end::Search-->
+                </div>
+                <!--end::Wrapper-->
+                <!--begin::Datatable-->
+                <table data-ref="basicTable" class="table table-row-bordered gy-5">
+                  <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 gs-0">
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <!--end::Datatable-->
+              </div>
+              <!--end::Block-->
+              <!--begin::Code-->
+              <div class="py-5">
+                <!--begin::Highlight-->
+                <div class="highlight">
+                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                  <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicTableJsTabPane" role="tab">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicTableHtmlTab" role="tab">JAVASCRIPT</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="basicTableJsTabPane" role="tabpanel">
+                      <div class="highlight-code">
+                        <pre class="language-html" style="max-height:400px">
+                          <code class="language-html">&lt;!--begin::Wrapper--&gt;
+&lt;div class=&quot;d-flex flex-stack flex-wrap mb-5&quot;&gt;
+  &lt;!--begin::Search--&gt;
+  &lt;div class=&quot;d-flex align-items-center position-relative my-1 mb-2 mb-md-0&quot;&gt;
+    &lt;!--begin::Svg Icon | path: icons/duotune/general/gen021.svg--&gt;
+    &lt;span class=&quot;svg-icon svg-icon-1 position-absolute ms-4&quot;&gt;
+      &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;rect opacity=&quot;0.5&quot; x=&quot;17.0365&quot; y=&quot;15.1223&quot; width=&quot;8.15546&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 17.0365 15.1223)&quot; fill=&quot;currentColor&quot; /&gt;
+        &lt;path d=&quot;M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z&quot; fill=&quot;currentColor&quot; /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;!--end::Svg Icon--&gt;
+    &lt;input data-ref=&quot;searchWord&quot; data-on-search-persons type=&quot;text&quot; class=&quot;form-control form-control-solid w-250px ps-15&quot; placeholder=&quot;Search by person&#039;s name&quot; maxlength=&quot;70&quot; /&gt;
+  &lt;/div&gt;
+  &lt;!--end::Search--&gt;
+&lt;/div&gt;
+&lt;!--end::Wrapper--&gt;
+&lt;!--begin::Datatable--&gt;
+&lt;table data-ref=&quot;basicTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr class=&quot;text-start text-gray-400 fw-bold fs-7 gs-0&quot;&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Position&lt;/th&gt;
+      &lt;th&gt;Office&lt;/th&gt;
+      &lt;th&gt;Age&lt;/th&gt;
+      &lt;th&gt;Start date&lt;/th&gt;
+      &lt;th&gt;Salary&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--end::Datatable--&gt;</code>
+                        </pre>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="basicTableHtmlTab" role="tabpanel">
+                      <div class="highlight-code">
+                        <pre class="language-javascript">
+                          <code class="language-javascript">import {Datatable, selectRef} from &#039;metronic-extension&#039;;
+
+const ref = selectRef();
+const basicTable = new Datatable(ref.basicTable, {
+  ajax: {
+    url: &#039;/api/persons&#039;,
+    data: d =&gt; {
+      d.search = {searchWord: ref.searchWord.val()};
+    }
+  },
+  dom: `&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12&#039;tr&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;`,
+  columnDefs: [
+    {targets: 0, data: &#039;name&#039;},
+    {targets: 1, data: &#039;position&#039;},
+    {targets: 2, data: &#039;office&#039;},
+    {targets: 3, data: &#039;age&#039;},
+    {targets: 4, data: &#039;startDate&#039;},
+    {targets: 5, data: &#039;salary&#039;}
+  ],
+  pageLength: 4
+});
+$(&#039;body&#039;).on(&#039;input&#039;, &#039;[data-on-search-persons]&#039;, () =&gt; basicTable.reload());</code>
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end::Highlight-->
+              </div>
+              <!--end::Code-->
+            </div>
+            <!--end::Section-->
+            <!--begin::Section-->
+            <div class="py-10">
+              <!--begin::Heading-->
+              <h1 class="anchor fw-bold mb-5" id="colvisTable" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
+                <a href="#colvisTable"></a>Column Visible Datatable
+              </h1>
+              <!--end::Heading-->
+              <!--begin::Block-->
+              <div class="py-5">For more info please visit the <a href="https://datatables.net/reference/button/colvis" target="_blank">plugin's site</a>.</div>
+              <!--end::Block-->
+              <!--begin::Block-->
+              <div class="my-5">
+                <!--begin::Datatable-->
+                <table data-ref="colvisTable" class="table table-row-bordered gy-5">
+                  <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 gs-0">
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <!--end::Datatable-->
+              </div>
+              <!--end::Block-->
+              <!--begin::Code-->
+              <div class="py-5">
+                <!--begin::Highlight-->
+                <div class="highlight">
+                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                  <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#colvisTableHtmlTabPane" role="tab">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#colvisTableJsTabPane" role="tab">JAVASCRIPT</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="colvisTableHtmlTabPane" role="tabpanel">
+                      <div class="highlight-code">
+                        <pre class="language-html" style="max-height:400px">
+                          <code class="language-html">&lt;!--begin::Datatable--&gt;
+&lt;table data-ref=&quot;colvisTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr class=&quot;text-start text-gray-400 fw-bold fs-7 gs-0&quot;&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Position&lt;/th&gt;
+      &lt;th&gt;Office&lt;/th&gt;
+      &lt;th&gt;Age&lt;/th&gt;
+      &lt;th&gt;Start date&lt;/th&gt;
+      &lt;th&gt;Salary&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--end::Datatable--&gt;</code>
+                        </pre>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="colvisTableJsTabPane" role="tabpanel">
+                      <div class="highlight-code">
+                        <pre class="language-javascript">
+                          <code class="language-javascript">import {Datatable, selectRef} from &#039;metronic-extension&#039;;
+
+const ref = selectRef();
+new Datatable(ref.colvisTable, {
+  ajax: &#039;/api/persons&#039;,
+  dom: `&lt;&#039;row align-items-center&#039;&lt;&#039;col-auto&#039;B&gt;&lt;&#039;col dataTables_pager&#039;p&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12&#039;tr&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;`,
+  columnDefs: [
+    {targets: 0, data: &#039;name&#039;},
+    {targets: 1, data: &#039;position&#039;},
+    {targets: 2, data: &#039;office&#039;},
+    {targets: 3, data: &#039;age&#039;},
+    {targets: 4, data: &#039;startDate&#039;},
+    {targets: 5, data: &#039;salary&#039;}
+  ],
+  pageLength: 4,
+  buttons: [
+    {
+      extend: &#039;colvis&#039;,
+      text: &#039;Show / hide columns&#039;,
+      // Columns selector that defines the columns to include in the column visibility button set.
+      // CSS selectors, column indexes, etc. can be used to specify columns to switch visibility.
+      columns: &#039;:eq(1),:eq(2),:eq(3),:eq(4)&#039;,
+      // columns: [1,2,3,4],
+    }
+  ],
+  stateSave: true,// Save the column visibility in the browser.
+  stateSaveParams: (_, data) =&gt; {
+    // This option allows for the saving of the search applied to individual columns to be enabled or disabled.
+    delete data.columns.search;
+
+    // This option allows for the saving of the visibility of the columns to be enabled or disabled.
+    // delete data.columns.visible;
+
+    // This option allows for the saving of the page length to be enabled or disabled.
+    delete data.length;
+
+    // This option allows for the saving of the tables column sorting to be enabled or disabled.
+    delete data.order;
+
+    // This option allows for the saving of the paging to be enabled or disabled.
+    delete data.paging;
+
+    // This option allows for the saving of the scroller position to be enabled or disabled.
+    delete data.scroller;
+
+    // This option allows for the saving of the search to be enabled or disabled.
+    delete data.search;
+
+    // This option allows for the saving of the searchBuilder state to be enabled or disabled. 
+    delete data.searchBuilder;
+
+    // This option allows for the saving of the searchPanes state to be enabled or disabled. 
+    delete data.searchPanes;
+
+    // This option allows for the saving of the select state to be enabled or disabled.
+    delete data.select;
+  }
+});</code>
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end::Highlight-->
+              </div>
+              <!--end::Code-->
+            </div>
+            <!--end::Section-->
+          </div>
+          <!--end::Card Body-->
+        </div>
+        <!--end::Card-->
+        <!--begin::Sidebar wrapper-->
+        <div class="ms-7 flex-row-auto w-lg-200px">
+          <!--begin::Sidebar nav-->
+          <div class="card card-flush d-none d-lg-flex" data-kt-sticky="true" data-kt-sticky-name="sidebar-navs" data-kt-sticky-offset="{default: false, lg: 200}" data-kt-sticky-width="200px" data-kt-sticky-animation="false" data-kt-sticky-left="auto" data-kt-sticky-top="25px" data-kt-sticky-zindex="95">
+            <!--begin::Card body-->
+            <div class="card-body px-0 px-3 py-6">
+              <!--begin::Menu-->
+              <ul id="sidebarNav" class="nav nav-flush menu menu-column menu-title-gray-700 menu-bullet-gray-300 menu-state-primary fw-semibold fs-6">
+                <!--begin::Item-->
+                <li class="menu-item py-2 px-3">
+                  <!--begin::Link-->
+                  <a href="#basicTable" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                    <span class="menu-bullet">
+                      <span class="bullet bullet-dot"></span>
+                    </span>
+                    <span class="menu-title">Basic Datatable</span>
+                  </a>
+                  <!--end::Link-->
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="menu-item py-2 px-3">
+                  <!--begin::Link-->
+                  <a href="#colvisTable" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                    <span class="menu-bullet">
+                      <span class="bullet bullet-dot"></span>
+                    </span>
+                    <span class="menu-title">Column Visible Datatable</span>
+                  </a>
+                  <!--end::Link-->
+                </li>
+                <!--end::Item-->
+              </ul>
+              <!--end::Menu-->
+            </div>
+            <!--end::Card body-->
+          </div>
+          <!--end::Sidebar nav-->
+        </div>
+        <!--end::Sidebar wrapper-->
+      </div>
+      <!--end::Container-->
+    </div>
+    <!--end::Content-->
+  </div>
+  <!--end::Root-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/datatable.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>
