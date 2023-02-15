@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-# [1.0.23] - 2023/2/14
+# [1.0.23] - 2023/2/16
 ### Changed
 - Fix [demo](https://takuya-motoshima.github.io/metronic-extension/) available on github.io.
     ![index.png](demo/client/src/media/demos/index.png)
@@ -575,3 +575,4 @@ All notable changes to this project will be documented in this file.
 [1.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.19...v1.0.20
 [1.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.20...v1.0.21
 [1.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.21...v1.0.22
+[1.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.22...v1.0.23
