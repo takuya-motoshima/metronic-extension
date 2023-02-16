@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Custom Validation - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">Custom Validation</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <!--begin::Form-->
+            <form data-ref="form" autocomplete="off">
+              <!--begin::Row-->
+              <div class="row g-9 mb-8">
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">CIDR</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="cidr" class="form-control" placeholder="172.16.0.9, 172.16.0.0/16" value="172.16.0.0/16">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Directory</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="directory" class="form-control" placeholder="/dir" value="/dir">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-9 mb-8">
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Host Name</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="host" class="form-control" placeholder="example.com" value="example.com">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Host name or IP address</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="hostOrIp" class="form-control" placeholder="example.com, 172.16.0.9" value="172.16.0.9">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-9 mb-8">
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">IP address</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="ip" class="form-control" placeholder="172.16.0.9" value="172.16.0.9">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Katakana</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="kana" class="form-control" placeholder="ヤマダ タロウ" value="ヤマダ タロウ">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-9 mb-8">
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Port number</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="port" class="form-control" placeholder="80" value="80">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">UNIX user name</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="unixUserName" class="form-control" placeholder="tiger" value="tiger">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-9 mb-8">
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Japanese phone number</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="phoneNumberJp" class="form-control" placeholder="06-6012-3456" value="06-6012-3456">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="col-md-6 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">Integer from 1 to 99</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <input name="betweenValues" class="form-control" placeholder="99" value="99">
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-9 mb-8">
+                <!--begin::Input group-->
+                <div class="col-md-12 fv-row">
+                  <!--begin::Label-->
+                  <label class="fw-semibold fs-6 mb-2 required">HTML string</label>
+                  <!--end::Label-->
+                  <!--begin::Input-->
+                  <textarea name="html" data-kt-autosize="true" class="form-control">&lt;div&gt;Hello world&lt;/div&gt;</textarea>
+                  <!--end::Input-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Actions-->
+              <button type="submit" class="btn btn-primary">Validation Form</button>
+              <!--end::Actions-->
+            </form>
+            <!--end::Form-->
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#customValidationHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#customValidationJsTabPane" role="tab">JAVASCRIPT</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="customValidationHtmlTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-html" style="max-height:400px">
+                      <code class="language-html">&lt;!--begin::Form--&gt;
+&lt;form data-ref=&quot;form&quot; autocomplete=&quot;off&quot;&gt;
+  &lt;!--begin::Row--&gt;
+  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;CIDR&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;cidr&quot; class=&quot;form-control&quot; placeholder=&quot;172.16.0.9, 172.16.0.0/16&quot; value=&quot;172.16.0.0/16&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Directory&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;directory&quot; class=&quot;form-control&quot; placeholder=&quot;/dir&quot; value=&quot;/dir&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Row--&gt;
+  &lt;!--begin::Row--&gt;
+  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Host Name&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;host&quot; class=&quot;form-control&quot; placeholder=&quot;example.com&quot; value=&quot;example.com&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Host name or IP address&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;hostOrIp&quot; class=&quot;form-control&quot; placeholder=&quot;example.com, 172.16.0.9&quot; value=&quot;172.16.0.9&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Row--&gt;
+  &lt;!--begin::Row--&gt;
+  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;IP address&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;ip&quot; class=&quot;form-control&quot; placeholder=&quot;172.16.0.9&quot; value=&quot;172.16.0.9&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Katakana&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;kana&quot; class=&quot;form-control&quot; placeholder=&quot;ヤマダ タロウ&quot; value=&quot;ヤマダ タロウ&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Row--&gt;
+  &lt;!--begin::Row--&gt;
+  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Port number&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;port&quot; class=&quot;form-control&quot; placeholder=&quot;80&quot; value=&quot;80&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;UNIX user name&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;unixUserName&quot; class=&quot;form-control&quot; placeholder=&quot;tiger&quot; value=&quot;tiger&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Row--&gt;
+  &lt;!--begin::Row--&gt;
+  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Japanese phone number&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;phoneNumberJp&quot; class=&quot;form-control&quot; placeholder=&quot;06-6012-3456&quot; value=&quot;06-6012-3456&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Integer from 1 to 99&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;input name=&quot;betweenValues&quot; class=&quot;form-control&quot; placeholder=&quot;99&quot; value=&quot;99&quot;&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Row--&gt;
+  &lt;!--begin::Row--&gt;
+  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
+    &lt;!--begin::Input group--&gt;
+    &lt;div class=&quot;col-md-12 fv-row&quot;&gt;
+      &lt;!--begin::Label--&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;HTML string&lt;/label&gt;
+      &lt;!--end::Label--&gt;
+      &lt;!--begin::Input--&gt;
+      &lt;textarea name=&quot;html&quot; data-kt-autosize=&quot;true&quot; class=&quot;form-control&quot;&gt;&amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;&lt;/textarea&gt;
+      &lt;!--end::Input--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Input group--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Row--&gt;
+  &lt;!--begin::Actions--&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Validation Form&lt;/button&gt;
+  &lt;!--end::Actions--&gt;
+&lt;/form&gt;
+&lt;!--end::Form--&gt;</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="customValidationJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import {Validation, Dialog, selectRef} from &#039;metronic-extension&#039;;
+
+const ref = selectRef();
+const validation = new Validation(ref.form, {
+  cidr: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isCidr: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  directory: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isDirectory: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  host: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isHost: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  hostOrIp: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isHostOrIp: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  ip: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isIp: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  kana: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isKana: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  port: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isPort: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  unixUserName: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isUnixUserName: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  phoneNumberJp: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isPhoneNumberJp: {message: &#039;This is not correct.&#039;}
+    }
+  },
+  betweenValues: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isIntegersBetween: {
+        message: &#039;This is not correct.&#039;,
+        min: 1,
+        max: 99
+      }
+    }
+  },
+  html: {
+    validators: {
+      notEmpty: {message: &#039;Enter here.&#039;},
+      isHTML: {message: &#039;This is not correct.&#039;}
+    }
+  }
+});
+validation
+  .onValid(async () =&gt; {
+    Dialog.success(&#039;Form has been successfully submitted!&#039;, {confirmButtonText: &#039;OK, got it!&#039;});
+  })
+  .onFieldValid(name =&gt; {
+    console.log(`${name} field is valid`);
+  })
+  .onFieldInvalid(name =&gt; {
+    console.log(`${name} field is invalid`);
+  });</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/custom-validation.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

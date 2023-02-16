@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Tooltip - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">Tooltip</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <button type="button" class="btn btn-primary my-2 me-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Tooltip on top</button>
+            <button type="button" class="btn btn-primary my-2 me-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">Tooltip on right</button>
+            <button type="button" class="btn btn-primary my-2 me-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+            <button type="button" class="btn btn-primary my-2 me-5" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">Tooltip on left</button>
+            <button type="button" class="btn btn-primary my-2" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">Tooltip with HTML</button>
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tooltipHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tooltipJsTabPane" role="tab">JAVASCRIPT</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="tooltipHtmlTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-html" style="max-height:400px">
+                      <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;top&quot; title=&quot;Tooltip on top&quot;&gt;Tooltip on top&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;right&quot; title=&quot;Tooltip on right&quot;&gt;Tooltip on right&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Tooltip on bottom&quot;&gt;Tooltip on bottom&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; title=&quot;Tooltip on left&quot;&gt;Tooltip on left&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary my-2&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-html=&quot;true&quot; title=&quot;&lt;em&gt;Tooltip&lt;/em&gt; &lt;u&gt;with&lt;/u&gt; &lt;b&gt;HTML&lt;/b&gt;&quot;&gt;Tooltip with HTML&lt;/button&gt;</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tooltipJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import {initTooltip} from &#039;metronic-extension&#039;;
+
+// For dynamically added element tooltips, perform the following function
+initTooltip(document.body);</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/tooltip.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

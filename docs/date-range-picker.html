@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Date Range Picker - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">Date Range Picker</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <input data-ref="dateRangePicker" class="form-control" placeholder="Pick date range">
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#dateRangePickerHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#dateRangePickerJsTabPane" role="tab">JAVASCRIPT</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="dateRangePickerHtmlTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-html" style="max-height:400px">
+                      <code class="language-html">&lt;input data-ref=&quot;dateRangePicker&quot; class=&quot;form-control&quot; placeholder=&quot;Pick date range&quot;&gt;</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="dateRangePickerJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import {initDatepicker, selectRef} from &#039;metronic-extension&#039;;
+
+const ref = selectRef();
+initDatepicker(ref.dateRangePicker, {
+  minDate: moment().format(&#039;YYYY/M/D&#039;),
+  locale: &#039;en&#039;,
+  language: {
+    applyLabel: &#039;OK&#039;,
+    cancelLabel: &#039;Cancel&#039;,
+  }
+});</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/date-range-picker.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

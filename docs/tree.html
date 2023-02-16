@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Tree - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/jstree/jstree.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">Tree</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <!--begin::Information-->
+            <div class="d-flex align-items-center rounded py-5 px-5 bg-light-warning ">
+              <!--begin::Icon-->
+              <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+              <span class="svg-icon svg-icon-3x svg-icon-warning me-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
+                  <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
+                  <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+              <!--end::Icon-->
+              <!--begin::Description-->
+              <div class="text-gray-700 fw-bold fs-6">Server required to run this demo. Please see this <a href="https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md" target="_blank">demo/README.md</a> for more information.</div>
+              <!--end::Description-->
+            </div>
+            <!--end::Information-->
+          </div>
+          <!--end::Block-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <!--begin::Layout-->
+            <div class="d-flex flex-column flex-lg-row">
+              <!--begin::Sidebar-->
+              <div class="flex-column flex-lg-row-auto w-100 w-lg-300px w-xl-400px mb-10 mb-lg-0">
+                <!--begin::Card-->
+                <div class="card card-flush">
+                  <!--begin::Card body-->
+                  <div class="card-body pt-5" id="treeBody">
+                    <!--begin::Scroll-->
+                    <div
+                      class="scroll-y me-n5 pe-5 h-200px h-lg-auto"
+                      data-kt-scroll="true"
+                      data-kt-scroll-activate="{default: false, lg: true}"
+                      data-kt-scroll-max-height="auto"
+                      data-kt-scroll-dependencies="#header"
+                      data-kt-scroll-wrappers="#container, #treeBody"
+                      data-kt-scroll-offset="5px">
+                      <!--begin::Tree-->
+                      <div data-ref="tree"></div>
+                      <!--end::Tree-->
+                    </div>
+                    <!--end::Scroll-->
+                  </div>
+                  <!--end::Card body-->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Sidebar-->
+              <!--begin::Content-->
+              <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+                <!--begin::Card-->
+                <div class="card">
+                  <!--begin::Card header-->
+                  <div class="card-header" id="nodeHeader">
+                    <!--begin::Title-->
+                    <div class="card-title">Selection Node Details</div>
+                    <!--end::Title-->
+                  </div>
+                  <!--end::Card header-->
+                  <!--begin::Card body-->
+                  <div class="card-body" id="nodeBody">
+                    <!--begin::Scroll-->
+                    <div class="scroll-y me-n5 pe-5 h-300px h-lg-auto"
+                      data-kt-element="messages" data-kt-scroll="true"
+                      data-kt-scroll-activate="{default: false, lg: true}"
+                      data-kt-scroll-max-height="auto"
+                      data-kt-scroll-dependencies="#header, #nodeHeader"
+                      data-kt-scroll-wrappers="#container, #nodeBody"
+                      data-kt-scroll-offset="5px">
+                      <!--begin::Row-->
+                      <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Node ID</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                          <span data-ref="node.id" class="fw-bold fs-6 text-gray-800"></span>
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+                      <!--begin::Row-->
+                      <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Full path</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                          <span data-ref="node.path" class="fw-bold fs-6 text-gray-800"></span>
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+                      <!--begin::Row-->
+                      <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Display Name</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                          <span data-ref="node.text" class="fw-bold fs-6 text-gray-800"></span>
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+                      <!--begin::Row-->
+                      <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Node type</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                          <span data-ref="node.type" class="fw-bold fs-6 text-gray-800"></span>
+                        </div>
+                        <!--end::Col-->
+                      </div>
+                      <!--end::Row-->
+                    </div>
+                    <!--end::Scroll-->
+                  </div>
+                  <!--end::Card body-->
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Content-->
+            </div>
+            <!--end::Layout-->
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#treeHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#treeJsTabPane" role="tab">JAVASCRIPT</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="treeHtmlTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-html" style="max-height:400px">
+                      <code class="language-html">&lt;!--begin::Tree--&gt;
+&lt;div data-ref=&quot;tree&quot;&gt;&lt;/div&gt;
+&lt;!--end::Tree--&gt;</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="treeJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import {selectRef, Tree} from &#039;metronic-extension&#039;;
+
+const ref = selectRef();
+const tree = new Tree(ref.tree, {
+  folderMaxlen: 20,
+  fileMaxlen: 20,
+  api: {
+    getChildren: &#039;/api/folders/_PARENT_FOLDER_ID_/children&#039;,
+    createFolder: &#039;/api/folders/_PARENT_FOLDER_ID_&#039;,
+    deleteFolder: &#039;/api/folders/_CURRENT_FOLDER_ID_&#039;,
+    renameFolder: &#039;/api/folders/_CURRENT_FOLDER_ID_&#039;,
+    createFile: &#039;/api/files/_PARENT_FOLDER_ID_&#039;,
+    deleteFile: &#039;/api/files/_CURRENT_FILE_ID_&#039;,
+    renameFile: &#039;/api/files/_CURRENT_FILE_ID_&#039;,
+  },
+});
+tree
+  .onSelected((evnt, node) =&gt; {
+    alert(`Selected node.
+      id: ${node.id}
+      path: ${tree.getPath(node, &#039;/&#039;)}
+      text: ${node.text}
+      type: ${node.type}`);
+  })
+  .onError(err =&gt; {
+    alert(err.message);
+  });</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/jstree/jstree.bundle.js"></script>
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/tree.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

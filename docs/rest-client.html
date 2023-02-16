@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>REST Client - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="app-blank">
+  <!--begin::Container-->
+  <div class="container pt-5">
+    <!--begin::Card-->
+    <div class="card flex-row-fluid mb-2">
+      <!--begin::Card Body-->
+      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+        <!--begin::Section-->
+        <div class="pb-10">
+          <!--begin::Heading-->
+          <h1 class="fw-bold mb-5">REST Client</h1>
+          <!--end::Heading-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <!--begin::Information-->
+            <div class="d-flex align-items-center rounded py-5 px-5 bg-light-warning ">
+              <!--begin::Icon-->
+              <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+              <span class="svg-icon svg-icon-3x svg-icon-warning me-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
+                  <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
+                  <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+              <!--end::Icon-->
+              <!--begin::Description-->
+              <div class="text-gray-700 fw-bold fs-6">Server required to run this demo. Please see this <a href="https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md" target="_blank">demo/README.md</a> for more information.</div>
+              <!--end::Description-->
+            </div>
+            <!--end::Information-->
+          </div>
+          <!--end::Block-->
+          <!--begin::Block-->
+          <div class="py-5">
+            <!--begin::Form-->
+            <form data-ref="form" autocomplete="off">
+              <!--begin::Input group-->
+              <div class="mb-10">
+                <!--begin::Label-->
+                <label class="fw-semibold fs-6 mb-2">HTTP Method</label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <select data-ref="method" data-on-change-method class="form-select">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <option value="PUT">PUT</option>
+                  <option value="DELETE">DELETE</option>
+                </select>
+                <!--end::Input-->
+              </div>
+              <!--end::Input group-->
+              <!--begin::Input group-->
+              <div data-ref="name" class="fv-row mb-10 d-none">
+                <!--begin::Label-->
+                <label class="fw-semibold fs-6 mb-2 required">Person's Name</label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <input name="name" class="form-control" value="Tiger Nixon">
+                <!--end::Input-->
+              </div>
+              <!--end::Input group-->
+              <!--begin::Actions-->
+              <button type="submit" class="btn btn-primary">
+                <span class="indicator-label">Send request</span>
+                <span class="indicator-progress">Please wait... 
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+              </button>
+              <!--end::Actions-->
+            </form>
+            <!--end::Form-->
+          </div>
+          <!--end::Block-->
+          <!--begin::Code-->
+          <div class="py-5">
+            <!--begin::Highlight-->
+            <div class="highlight">
+              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#restClientJsTabPane" role="tab">JAVASCRIPT</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#restClientItselfJsTabPane" role="tab">JAVASCRIPT WITH API</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="restClientJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript" style="max-height:400px">
+                      <code class="language-javascript">import DemoApi from &#039;~/DemoApi&#039;;
+
+const demoApi = new DemoApi();
+await demoApi.getPerson(1);
+await demoApi.createPerson({name: &#039;Alice&#039;});
+await demoApi.updatePerson(1, {name: &#039;Smith&#039;});
+await demoApi.deletePerson(1);</code>
+                    </pre>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="restClientItselfJsTabPane" role="tabpanel">
+                  <div class="highlight-code">
+                    <pre class="language-javascript">
+                      <code class="language-javascript">import {Api} from &#039;metronic-extension&#039;;
+
+export default class extends Api {
+  constructor(customOrigin = undefined) {
+    super(&#039;/api/persons&#039;, customOrigin);
+  }
+
+  async createPerson(formData) {
+    return this.client.post(&#039;/&#039;, formData);
+  }
+
+  async updatePerson(personId, formData) {
+    return this.client.put(`/${personId}`, formData);
+  }
+
+  async getPerson(personId) {
+    return this.client.get(`/${personId}`);
+  }
+
+  async deletePerson(personId) {
+    return this.client.delete(`/${personId}`);
+  }
+}</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Highlight-->
+          </div>
+          <!--end::Code-->
+        </div>
+        <!--end::Section-->
+      </div>
+      <!--end::Card Body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script src="build/rest-client.js"></script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>
