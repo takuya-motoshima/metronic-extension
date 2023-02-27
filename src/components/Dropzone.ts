@@ -34,37 +34,7 @@ export default class DropzoneComponent {
     // Container HTML.
     container.classList.add('dropzone');   
     container.innerHTML = hbs.compile(
-      `<style>
-      .dropzone .dz-progress {
-        display: none;
-      }
-
-      .dropzone .dz-preview .dz-details {
-        /* Details (file name and size) should be centered. */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-        .dropzone .dz-preview .dz-details .dz-filename span,
-        .dropzone .dz-preview .dz-details .dz-size span {
-          background-color: transparent;
-          color: var(--kt-text-gray-800);
-        }
-
-        .dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
-          /* The selected file name is displayed without abbreviation. */
-          overflow: visible;
-          text-overflow: clip;
-        }
-
-        .dropzone .dz-preview .dz-details .dz-filename:hover span {
-          /* The background color is not changed when the file name is hovered. */
-          background-color: transparent;
-          border: 0;
-        }
-      </style>
-      <!--begin::Message-->
+      `<!--begin::Message-->
       <div class="dz-message needsclick align-items-center">
         <!--begin::Icon-->
         <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>

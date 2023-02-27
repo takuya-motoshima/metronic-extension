@@ -4,7 +4,7 @@
   "description": "",
   "main": "update-docs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "update-docs": "node update-docs.js"
   },
   "keywords": [],
   "author": "Takuya Motoshima <developer.takuyamotoshima@gmail.com> (https://twitter.com/TakuyaMotoshima)",

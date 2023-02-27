@@ -1,3 +1,15 @@
+/*In the latest version of metronic (8.1.7), the CSS variable prefix has been changed from "--kt-" to "--bs-".
+    However, this package also supports older CSS variables in case they are used in older versions of metronic (less than 8.1.7).
+ */
+:root {
+  --kt-input-solid-bg: var(--bs-input-solid-bg);
+  --kt-input-solid-color: var(--bs-input-solid-color);
+  --kt-menu-dropdown-bg-color: var(--bs-menu-dropdown-bg-color);
+  --kt-menu-dropdown-box-shadow: var(--bs-menu-dropdown-box-shadow);
+  --kt-menu-link-bg-color-active: var(--bs-menu-link-bg-color-active);
+  --kt-menu-link-color-active: var(--bs-menu-link-color-active);
+}
+
 /* Custom styling of jstree. */
 /* Context menu. */
 .vakata-context li > a {
@@ -15,9 +27,9 @@
 
 /* Folder name input field. */
 .jstree-rename-input {
-  background-color: var(--kt-input-solid-bg) !important;
-  border-color: var(--kt-input-solid-bg) !important;
-  color: var(--kt-input-solid-color) !important;
+  background-color: var(--bs-input-solid-bg) !important;
+  border-color: var(--bs-input-solid-bg) !important;
+  color: var(--bs-input-solid-color) !important;
 }
 
   .jstree-rename-input:focus,
@@ -31,21 +43,21 @@
 /* Style of the ColVis drop-down menu for the data table. */
 div.dt-button-collection {
   border-radius: 0.475rem;
-  background-color: var(--kt-menu-dropdown-bg-color);
-  box-shadow: var(--kt-menu-dropdown-box-shadow);
+  background-color: var(--bs-menu-dropdown-bg-color);
+  box-shadow: var(--bs-menu-dropdown-box-shadow);
 }
 
   div.dt-button-collection .dt-button {
     padding-top: 0.65rem;
     padding-bottom: 0.65rem;
-    color: var(--kt-text-gray-700);
+    color: var(--bs-gray-700);
     font-size: 1.075rem;
   }
 
   div.dt-button-collection .dt-button.active,
   div.dt-button-collection .dt-button:active {
-    background-color: var(--kt-menu-link-bg-color-active);
-    color: var(--kt-menu-link-color-active);
+    background-color: var(--bs-menu-link-bg-color-active);
+    color: var(--bs-menu-link-color-active);
   }
 
     div.dt-button-collection .dt-button::before {
@@ -57,12 +69,7 @@ div.dt-button-collection {
     }
 
     div.dt-button-collection .dt-button.active::before {
-      /* content: "";
-      display: inline-block;
-      height: 1.25rem;
-      width: 1.25rem;
-      margin-right: 0.5rem; */
-      background-color: var(--kt-menu-link-color-active);
+      background-color: var(--bs-menu-link-color-active);
       mask-repeat: no-repeat;
       mask-position: center;
       -webkit-mask-repeat: no-repeat;
@@ -73,3 +80,33 @@ div.dt-button-collection {
       -webkit-mask-size: 100%;
       vertical-align: middle;
     }
+
+/* Custom drop zone styling. */
+.dropzone .dz-progress {
+  display: none;
+}
+
+.dropzone .dz-preview .dz-details {
+  /* Details (file name and size) should be centered. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  .dropzone .dz-preview .dz-details .dz-filename span,
+  .dropzone .dz-preview .dz-details .dz-size span {
+    background-color: transparent;
+    color: var(--bs-gray-800);
+  }
+
+  .dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
+    /* The selected file name is displayed without abbreviation. */
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-filename:hover span {
+    /* The background color is not changed when the file name is hovered. */
+    background-color: transparent;
+    border: 0;
+  }

@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
-    "prebuild": "rimraf build",
+    "prebuild": "rimraf ../public/build",
     "build:dev": "webpack --mode=development",
-    "prebuild:dev": "rimraf build",
+    "prebuild:dev": "rimraf ../public/build",
     "watch": "webpack --watch --mode=production",
-    "prewatch": "rimraf build",
+    "prewatch": "rimraf ../public/build",
     "watch:dev": "webpack --watch --mode=development",
-    "prewatch:dev": "rimraf build"
+    "prewatch:dev": "rimraf ../public/build"
   },
   "keywords": [],
   "author": "Takuya Motoshima <developer.takuyamotoshima@gmail.com> (https://twitter.com/TakuyaMotoshima)",

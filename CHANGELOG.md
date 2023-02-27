@@ -1,6 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [2.0.0] - 2023/2/27
+### Changed
+- Updated Metronic version from 8.1.2 to 8.1.7.  
+    - With the version upgrade, the theme attribute name for demo and docs has been changed from "data-theme" to "data-bs-theme".  
+        ```html
+        <html lang="en" data-bs-theme="dark">
+        ```
+    - The CSS variable prefix has been changed from "--kt-" to "--bs-" with the version upgrade.
+- Fix to remove demo/public/build before demo webpack build.  
+    demo/client/package.json:
+    ```json
+    "scripts": {
+      "prebuild": "rimraf ../public/build",
+      "prebuild:dev": "rimraf ../public/build",
+      "prewatch": "rimraf ../public/build",
+      "prewatch:dev": "rimraf ../public/build"
+    },
+    ```
+
 # [1.0.23] - 2023/2/16
 ### Changed
 - Fix [demo](https://takuya-motoshima.github.io/metronic-extension/) available on github.io.
@@ -576,3 +595,4 @@ All notable changes to this project will be documented in this file.
 [1.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.20...v1.0.21
 [1.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.21...v1.0.22
 [1.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.22...v1.0.23
+[2.0.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.23...v2.0.0

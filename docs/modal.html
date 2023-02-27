@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
   <title>Modal - Metronic Extension</title>
@@ -28,7 +28,14 @@
         <!--begin::Section-->
         <div class="pb-10">
           <!--begin::Heading-->
-          <h1 class="fw-bold mb-5">Modal</h1>
+          <div class="d-flex flex-stack">
+            <!--begin::Title-->
+            <h1 class="fw-bold mb-5">Modal</h1>
+            <!--end::Title-->
+            <!--begin::Actions-->
+            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
+            <!--end::Actions-->
+          </div>
           <!--end::Heading-->
           <!--begin::Block-->
           <div class="py-5">
@@ -56,7 +63,7 @@
                 <div class="tab-pane fade" id="modalJsTabPane" role="tabpanel">
                   <div class="highlight-code">
                     <pre class="language-javascript">
-                      <code class="language-javascript">import DemoModal from &#039;~/DemoModal&#039;;
+                      <code class="language-javascript">import DemoModal from &#039;~/modals/DemoModal&#039;;
 
 const demoModal = new DemoModal();
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-modal]&#039;, async () =&gt; {
