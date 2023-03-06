@@ -1,6 +1,91 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [2.0.1] - 2023/3/7
+### Changed
+- Added axios.create option to the Rest client class constructor as a parameter.  
+    The default values of the options are as follows.
+    ```js
+    {
+      baseURL: 'The value of the location.origin+path parameter or the origin parameter+path parameter.',
+      timeout: 60000,
+      responseType: 'json',
+      withCredentials: true,
+    }
+    ```
+
+    Syntax:
+    ```js
+    import {Api} from 'metronic-extension';
+
+    class ExampleApi extends Api {
+      constructor() {
+        super('/api/users');
+      }
+    }
+
+    class ExampleApi extends Api {
+      constructor() {
+        super('/api/users', 'example.com');
+      }
+    }
+
+    class ExampleApi extends Api {
+      constructor() {
+        super('/api/users', 'example.com', {
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+        });
+      }
+    }
+    ```
+
+    Type of axios.create option:
+    ```js
+    export interface AxiosRequestConfig<D = any> {
+      url?: string;
+      method?: Method | string;
+      baseURL?: string;
+      transformRequest?: AxiosRequestTransformer | AxiosRequestTransformer[];
+      transformResponse?: AxiosResponseTransformer | AxiosResponseTransformer[];
+      headers?: RawAxiosRequestHeaders;
+      params?: any;
+      paramsSerializer?: ParamsSerializerOptions;
+      data?: D;
+      timeout?: Milliseconds;
+      timeoutErrorMessage?: string;
+      withCredentials?: boolean;
+      adapter?: AxiosAdapter;
+      auth?: AxiosBasicCredentials;
+      responseType?: ResponseType;
+      responseEncoding?: responseEncoding | string;
+      xsrfCookieName?: string;
+      xsrfHeaderName?: string;
+      onUploadProgress?: (progressEvent: AxiosProgressEvent) => void;
+      onDownloadProgress?: (progressEvent: AxiosProgressEvent) => void;
+      maxContentLength?: number;
+      validateStatus?: ((status: number) => boolean) | null;
+      maxBodyLength?: number;
+      maxRedirects?: number;
+      maxRate?: number | [MaxUploadRate, MaxDownloadRate];
+      beforeRedirect?: (options: Record<string, any>, responseDetails: {headers: Record<string, string>}) => void;
+      socketPath?: string | null;
+      httpAgent?: any;
+      httpsAgent?: any;
+      proxy?: AxiosProxyConfig | false;
+      cancelToken?: CancelToken;
+      decompress?: boolean;
+      transitional?: TransitionalOptions;
+      signal?: GenericAbortSignal;
+      insecureHTTPParser?: boolean;
+      env?: {
+        FormData?: new (...args: any[]) => object;
+      };
+      formSerializer?: FormSerializerOptions;
+    }
+    ```
+
 # [2.0.0] - 2023/2/27
 ### Changed
 - Updated Metronic version from 8.1.2 to 8.1.7.  

@@ -1,4 +1,5 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError, CancelTokenSource} from 'axios';
+import fusion from 'deep-fusion';
 
 /**
  * REST client.
@@ -26,29 +27,28 @@ export default class Api {
   /**
    * Initialization.
    */
-  constructor(path: string, customOrigin: string|undefined = undefined) {
-    let origin: string = location.origin;
-    if (customOrigin)
-      origin = customOrigin;
-    origin = origin.replace(/\/$/, '');
-    const options: AxiosRequestConfig = {
-      baseURL: `${origin}/${path.replace(/^\//, '')}`,
-      // baseURL: `${origin}/api/${path.replace(/^\//, '')}`,
+  constructor(path: string, origin?: string, options?: AxiosRequestConfig) {
+    if (!origin)
+      origin = location.origin;
+
+    // Initialize options.
+    options = fusion({
+      baseURL: `${origin.replace(/\/$/, '')}/${path.replace(/^\//, '')}`,
       timeout: 60000,
-      // timeout: 5000,
-      headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      },
+      // NOTE: If the request data is FormData, do not specify Content-Type in the header and leave it to Axios because some frameworks cannot receive data if Content-Type is specified in the header.
+      // headers: {
+      //   'accept': 'application/json',
+      //   'Content-Type': 'application/json',
+      //   'X-Requested-With': 'XMLHttpRequest'
+      // },
       responseType: 'json',
       // transformRequest: [
       //   (data, headers) => {
       //     return data;
       //   }
       // ],
-      withCredentials: true
-    };
+      withCredentials: true,
+    }, options);
 
     // Client instance.
     this.client = axios.create(options);

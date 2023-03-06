@@ -1,8 +1,8 @@
 import {Api} from 'metronic-extension';
 
 export default class extends Api {
-  constructor(customOrigin = undefined) {
-    super('/api/persons', customOrigin);
+  constructor(origin = undefined) {
+    super('/api/persons', origin);
   }
 
   async createPerson(formData) {
