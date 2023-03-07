@@ -46,7 +46,12 @@ export default class Validation {
   /**
    * Initialization.
    */
-  constructor(form: string|HTMLFormElement|JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean = true) {
+  constructor(
+    form: string|HTMLFormElement|JQuery,
+    fields: FormValidation.core.FieldsOptions,
+    enableSubmitTrigger: boolean = true,
+    enableSequence: boolean = true
+  ) {
     // Check the argument.
     if (isString(form)) {
       const formEl = document.querySelector<HTMLFormElement>(form as string);
@@ -66,7 +71,7 @@ export default class Validation {
         // If the submit button is outside the form.
         this.submit = document.querySelector<HTMLButtonElement>(`[form="${this.form.id}"]`);
     }
-    this.fv = FormValidation.formValidation(this.form, this.#initOptions(fields, enableSubmitTrigger));
+    this.fv = FormValidation.formValidation(this.form, this.#initOptions(fields, enableSubmitTrigger, enableSequence));
   }
 
   /**
@@ -258,7 +263,7 @@ export default class Validation {
   /**
    * Initialize options.
    */
-  #initOptions(fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean): ValidationOption {
+  #initOptions(fields: FormValidation.core.FieldsOptions, enableSubmitTrigger: boolean, enableSequence: boolean): ValidationOption {
     const options: ValidationOption = {
       fields,
       plugins: {
@@ -272,11 +277,16 @@ export default class Validation {
         excluded: new FormValidation.plugins.Excluded({
           // Condition of the element not to validate.
           excluded: (field, element: any) => element.disabled
-        })
+        }),
       }
     };
+    // Automatically validate the form when pressing its Submit button.
     if (this.submit && enableSubmitTrigger)
       options.plugins!.submitButton = new FormValidation.plugins.SubmitButton();
+
+    // Stop performing remaining validators if there is a validator that the field does not pass.
+    if (enableSequence)
+        options.plugins!.sequence = new FormValidation.plugins.Sequence({enabled: true});
     return options;
   }
 }

@@ -1,7 +1,32 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-# [2.0.1] - 2023/3/7
+# [2.0.2] - 2023/3/7
+- Added an option to the constructor of the form validation class to stop execution of the remaining validators if a field has validators that do not pass.  
+    Default is enabled.
+    
+    Example:
+    ```js
+    import {Validation} from 'metronic-extension';
+
+    // Automatically validate the form when pressing its Submit button.
+    const enableSubmitTrigger = true;
+
+    // Stop performing remaining validators if there is a validator that the field does not pass.
+    const enableSequence = true;
+
+    const validation = new Validation(document.getElementById('myForm'), {
+      username: {
+        validators: {
+          notEmpty: {
+            message: 'The username is required'
+          },
+        }
+      }
+    }, enableSubmitTrigger, enableSequence);
+    ```
+
+# [2.0.1] - 2023/3/6
 ### Changed
 - Added axios.create option to the Rest client class constructor as a parameter.  
     The default values of the options are as follows.
@@ -681,3 +706,5 @@ All notable changes to this project will be documented in this file.
 [1.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.21...v1.0.22
 [1.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.22...v1.0.23
 [2.0.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.23...v2.0.0
+[2.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.0...v2.0.1
+[2.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.0...v2.0.2
