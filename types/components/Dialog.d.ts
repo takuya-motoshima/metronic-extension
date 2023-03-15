@@ -10,7 +10,7 @@ export default class {
     /**
      * Show the success dialog.
      */
-    static success(message: string, options?: DialogOptions.Success | undefined): Promise<void>;
+    static success(message: string, options?: DialogOptions.Success | undefined): Promise<boolean>;
     /**
      * Show the error dialog.
      */

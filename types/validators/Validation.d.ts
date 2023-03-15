@@ -42,7 +42,7 @@ export default class Validation {
     /**
      * Initialization.
      */
-    constructor(form: string | HTMLFormElement | JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger?: boolean);
+    constructor(form: string | HTMLFormElement | JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger?: boolean, enableSequence?: boolean);
     /**
      * Validate all fields.
      * If it is valid, it returns true, if invalid, it returns false.

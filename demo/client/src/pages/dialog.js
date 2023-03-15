@@ -25,4 +25,11 @@ $('body')
   .on('click', '[data-on-loading]', () => {
     Dialog.loading('Here\'s a basic example of loading dialog!');
     setTimeout(() => Dialog.close(), 3000);
+  })
+  .on('click', '[data-on-success-with-cancel-button]', async () => {
+    const res = await Dialog.success('Here\'s a basic example of success dialog!', {
+      showCancelButton: true,
+      cancelButtonText: 'Cancel',
+    });
+    Dialog.info(`The return value is ${res}`);
   });

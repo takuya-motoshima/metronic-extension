@@ -19,7 +19,7 @@ export default class {
       customClass: {
         htmlContainer: 'overflow-hidden',
         confirmButton: `btn btn-primary fw-bolder`,
-        cancelButton: 'btn btn-light fw-bolder'
+        cancelButton: 'btn btn-light fw-bolder',
       },
       didOpen: (popup: HTMLElement): void => {},
       preConfirm: () => {}
@@ -35,20 +35,23 @@ export default class {
   /**
    * Show the success dialog.
    */
-  static async success(message: string, options: DialogOptions.Success|undefined = undefined): Promise<void> {
+  static async success(message: string, options: DialogOptions.Success|undefined = undefined): Promise<boolean> {
     // Initialize options.
     options = fusion({
       confirmButtonText: 'OK',
+      showCancelButton: false,
+      cancelButtonText: '取り消し',
       customClass: {
         confirmButton: `btn btn-primary fw-bolder`,
+        cancelButton: 'btn btn-light fw-bolder',
       }
     }, options);
-    return window.Swal.fire({
+    return (await window.Swal.fire({
       html: message,
       icon: 'success',
       buttonsStyling: false,
       ...options
-    });
+    })).isConfirmed;
   }
 
   /**

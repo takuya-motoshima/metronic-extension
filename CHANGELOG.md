@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+# [2.0.3] - 2023/3/15
+- Added option to show Cancel button in Success dialog.
+    Also, the return value of the success dialog has been fixed to return true if the OK button is clicked and false if the Cancel button is clicked.  
+    The cancel button is not shown by default (showCancelButton: false).
+
+    Example:
+    ```js
+    import {Dialog} from 'metronic-extension';
+
+    // Show success dialog with cancel button.
+    const res = await Dialog.success('Here\'s a basic example of success dialog!', {
+      showCancelButton: true,
+      cancelButtonText: 'Cancel',
+    });
+    ```
+    ![success-dialog-with-cancel-button](screencaps/2.0.3/success-dialog-with-cancel-button.png)
+
 # [2.0.2] - 2023/3/7
 - Added an option to the constructor of the form validation class to stop execution of the remaining validators if a field has validators that do not pass.  
     Default is enabled.
@@ -707,4 +724,5 @@ All notable changes to this project will be documented in this file.
 [1.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.22...v1.0.23
 [2.0.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v1.0.23...v2.0.0
 [2.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.0...v2.0.1
-[2.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.0...v2.0.2
+[2.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.1...v2.0.2
+[2.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.2...v2.0.3

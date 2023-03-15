@@ -22,7 +22,7 @@ export default class Api {
     /**
      * Initialization.
      */
-    constructor(path: string, customOrigin?: string | undefined);
+    constructor(path: string, origin?: string, options?: AxiosRequestConfig);
     /**
      * Get a token to cancel the request.
      */
