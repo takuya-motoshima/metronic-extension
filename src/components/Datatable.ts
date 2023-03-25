@@ -313,4 +313,12 @@ export default class {
   column(columnSelector: any, modifier?: DataTables.ObjectSelectorModifier): DataTables.ColumnMethods {
     return this.#dt.column(columnSelector, modifier);
   }
+
+  // /**
+  //  * Clear the table of all data.
+  //  */
+  // clear() {
+  //   this.#dt.clear().draw();
+  //   return this;
+  // }
 }

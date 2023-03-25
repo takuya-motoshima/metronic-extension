@@ -1,7 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-# [2.0.3] - 2023/3/15
+## [2.0.4] - Next
+### Changed
+- Fixed a typo in the change log.
+
+<!-- ### Added
+- Added a method to clear all rows to the Datatable class.
+    ```js
+    const myDatatable = new Datatable(ref.myDatatable);
+
+    // All rows are cleared.
+    myDatatable.clear();
+    ``` -->
+
+## [2.0.3] - 2023/3/15
+### Added
 - Added option to show Cancel button in Success dialog.
     Also, the return value of the success dialog has been fixed to return true if the OK button is clicked and false if the Cancel button is clicked.  
     The cancel button is not shown by default (showCancelButton: false).
@@ -18,7 +32,8 @@ All notable changes to this project will be documented in this file.
     ```
     ![success-dialog-with-cancel-button](screencaps/2.0.3/success-dialog-with-cancel-button.png)
 
-# [2.0.2] - 2023/3/7
+## [2.0.2] - 2023/3/7
+### Added
 - Added an option to the constructor of the form validation class to stop execution of the remaining validators if a field has validators that do not pass.  
     Default is enabled.
     
@@ -43,7 +58,7 @@ All notable changes to this project will be documented in this file.
     }, enableSubmitTrigger, enableSequence);
     ```
 
-# [2.0.1] - 2023/3/6
+## [2.0.1] - 2023/3/6
 ### Changed
 - Added axios.create option to the Rest client class constructor as a parameter.  
     The default values of the options are as follows.
@@ -128,7 +143,7 @@ All notable changes to this project will be documented in this file.
     }
     ```
 
-# [2.0.0] - 2023/2/27
+## [2.0.0] - 2023/2/27
 ### Changed
 - Updated Metronic version from 8.1.2 to 8.1.7.  
     - With the version upgrade, the theme attribute name for demo and docs has been changed from "data-theme" to "data-bs-theme".  
@@ -147,7 +162,7 @@ All notable changes to this project will be documented in this file.
     },
     ```
 
-# [1.0.23] - 2023/2/16
+## [1.0.23] - 2023/2/16
 ### Changed
 - Fix [demo](https://takuya-motoshima.github.io/metronic-extension/) available on github.io.
     ![index.png](demo/client/src/media/demos/index.png)
@@ -207,11 +222,11 @@ All notable changes to this project will be documented in this file.
     isFunction(false);          // false
     ```
 
-# [1.0.22] - 2023/1/30
+## [1.0.22] - 2023/1/30
 ### Changed
 - Changed the default value of the reset page of the reload method of the data table component from true to false.
 
-# [1.0.21] - 2023/1/30
+## [1.0.21] - 2023/1/30
 ### Changed
 - Added a page reset parameter to the reload method of the Datatable component.  
     The default value for page reset is true.
@@ -219,13 +234,13 @@ All notable changes to this project will be documented in this file.
     const myDatatable = new Datatable(ref.myDatatable);
 
     // Reload. Page position after reload is 1.
-    colvisDatatable.reload(true);
+    myDatatable.reload(true);
 
     // Reload the page while maintaining the current page position.
-    colvisDatatable.reload(false);
+    myDatatable.reload(false);
     ```
 
-# [1.0.20] - 2023/1/24
+## [1.0.20] - 2023/1/24
 ### Added
 - Add column reference methods to DataTable class (Datatable.column(columnSelector: any, modifier?: DataTables.ObjectSelectorModifier): DataTables.ColumnMethods).
     HTML:
@@ -250,10 +265,10 @@ All notable changes to this project will be documented in this file.
     const myDatatable = new Datatable(ref.myDatatable);
 
     // Hide the second column.
-    colvisDatatable.column(1).visible(false);
+    myDatatable.column(1).visible(false);
     ```
 
-# [1.0.19] - 2023/1/23
+## [1.0.19] - 2023/1/23
 ### Added
 - Added example of data table switching column visibility.  
     See the DataTable section of [this page](https://takuya-motoshima.github.io/metronic-extension/) for a demonstration.  
@@ -726,3 +741,4 @@ All notable changes to this project will be documented in this file.
 [2.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.0...v2.0.1
 [2.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.1...v2.0.2
 [2.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.2...v2.0.3
+[2.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.3...v2.0.4
