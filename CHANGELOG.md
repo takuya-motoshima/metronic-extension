@@ -1,18 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.0.4] - Next
+## [2.0.4] - 2023/3/26
 ### Changed
 - Fixed a typo in the change log.
 
-<!-- ### Added
+### Added
 - Added a method to clear all rows to the Datatable class.
     ```js
     const myDatatable = new Datatable(ref.myDatatable);
 
     // All rows are cleared.
     myDatatable.clear();
-    ``` -->
+    ```
+- Add getter for DataTables API object to Datatable class.
+    ```js
+    const myDatatable = new Datatable(ref.myDatatable);
+
+    // Object of the DataTables API.
+    myDatatable.api;
+    ```
 
 ## [2.0.3] - 2023/3/15
 ### Added

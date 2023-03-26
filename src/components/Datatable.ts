@@ -20,9 +20,9 @@ import isPlainObject from '~/misc/isPlainObject';
  *   }
  * }
  */
-export default class {
+export default class Datatable {
   #table: JQuery;
-  #dt: DataTables.Api; 
+  #dt: DataTables.Api;
 
   /**
    * Initialization.
@@ -50,6 +50,13 @@ export default class {
 
     // Readjust the column widths once the window is resized.
     $(window).on('resize', () => this.adjustColumns());
+  }
+
+  /**
+   * Object of the DataTables API.
+   */
+  get api(): DataTables.Api {
+    return this.#dt;
   }
 
   /**
@@ -314,11 +321,11 @@ export default class {
     return this.#dt.column(columnSelector, modifier);
   }
 
-  // /**
-  //  * Clear the table of all data.
-  //  */
-  // clear() {
-  //   this.#dt.clear().draw();
-  //   return this;
-  // }
+  /**
+   * Clear the table of all data.
+   */
+  clear(): Datatable {
+    this.#dt.clear().draw();
+    return this;
+  }
 }
