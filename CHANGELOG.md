@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.5] - 2023/3/26
+### Changed
+- Changed the return value of the reload method of Datatable from <code>void</code> to <code>Promise&lt;any&gt;</code>.  
+    You can use await to wait until after the data has been reloaded and the table has been completely redrawn.  
+    Promise returns JSON data that will be returned by the server.
+    ```js
+    const myDatatable = new Datatable(ref.myDatatable);
+
+    // Reload while maintaining the current page position.
+    let resetPaging = false;
+    const json = await myDatatable.reload(resetPaging);
+
+    // Reload with the current page position back to the first page.
+    resetPaging = true;
+    const json = await myDatatable.reload(resetPaging);
+    ```
+
 ## [2.0.4] - 2023/3/26
 ### Changed
 - Fixed a typo in the change log.
@@ -749,3 +766,4 @@ All notable changes to this project will be documented in this file.
 [2.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.1...v2.0.2
 [2.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.2...v2.0.3
 [2.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.3...v2.0.4
+[2.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.4...v2.0.5

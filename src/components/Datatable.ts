@@ -60,11 +60,17 @@ export default class Datatable {
   }
 
   /**
-   * Reload data.
+   * Reload the table data from the Ajax data source.
+   *
+   * @param {boolean} resetPaging Reset (default action or true) or hold the current paging position (false).
+   * @return {Promise<any>} JSON data returned by the server.
    */
-  reload(resetPaging: boolean = false): void {
-    const callback = undefined;
-    this.#dt.ajax.reload(callback, resetPaging);
+  async reload(resetPaging: boolean = false): Promise<any> {
+    return new Promise<any>(resolve => {
+      this.#dt.ajax.reload(((json: any) => {
+        resolve(json);
+      }), resetPaging);
+    });
   }
 
   /**
