@@ -1,11 +1,11 @@
 import fusion from 'deep-fusion';
+import TreeApi from '~/components/TreeApi';
 import Dialog from '~/components/Dialog';
 import Toast from '~/components/Toast';
 import isString from '~/misc/isString';
 import isFunction from '~/misc/isFunction';
 import trim from '~/misc/trim';
 import TreeOption from '~/interfaces/TreeOption';
-import TreeApiOption from '~/interfaces/TreeApiOption';
 
 const FILE_NODE_ID_PREFIX = 'f_';
 const MULTIPLE = false;
@@ -14,100 +14,14 @@ const CURRENT_FOLDER_VAR = '_CURRENT_FOLDER_ID_';
 const CURRENT_FILE_VAR = '_CURRENT_FILE_ID_';
 
 /**
- * Tree API.
- */
-class ApiClient {
-  #otpions: Record<string, TreeApiOption>;
-
-  /**
-   * Initialization.
-   */
-  constructor(options: Record<string, TreeApiOption>) {
-    this.#otpions = options;
-  }
-
-  /**
-   * Create a folder.
-   */
-  async createFolder(newNode: any) {
-    const {type, url, data} = this.#otpions.createFolder;
-    return $.ajax({
-      type,
-      url: isString(url) ? (url as string).replace(PARENT_FOLDER_VAR, encodeURIComponent(newNode.parent)) : (url as (node: any) => string)(newNode),
-      data: data ? data(newNode) : {text: newNode.text}
-    });
-  }
-  
-  /**
-   * Delete a folder.
-   */
-  async deleteFolder(deleteNode: any) {
-    const {type, url, data} = this.#otpions.deleteFolder;
-    return $.ajax({
-      type,
-      url: isString(url) ? (url as string).replace(CURRENT_FOLDER_VAR, deleteNode.id) : (url as (node: any) => string)(deleteNode),
-      data: data ? data(deleteNode) : undefined
-    });
-  }
-
-  /**
-   * Rename a folder.
-   */
-  async renameFolder(node: any) {
-    const {type, url, data} = this.#otpions.renameFolder;
-    return $.ajax({
-      type,
-      url: isString(url) ? (url as string).replace(CURRENT_FOLDER_VAR, node.id) : (url as (node: any) => string)(node),
-      data: data ? data(node) : {text: node.text}
-    });
-
-  }
-
-  /**
-   * Create file
-   */
-  async createFile(newNode: any) {
-    const {type, url, data} = this.#otpions.createFile;
-    return $.ajax({
-      type,
-      url: isString(url) ? (url as string).replace(PARENT_FOLDER_VAR, encodeURIComponent(newNode.parent)) : (url as (node: any) => string)(newNode),
-      data: data ? data(newNode) : {text: newNode.text}
-    });
-  }
-  
-  /**
-   * Delete file
-   */
-  async deleteFile(deleteNode: any) {
-    const {type, url, data} = this.#otpions.deleteFile;
-    return $.ajax({
-      type,
-      url: isString(url) ? (url as string).replace(CURRENT_FILE_VAR, deleteNode.id.replace(FILE_NODE_ID_PREFIX, '')) : (url as (node: any) => string)(deleteNode),
-      data: data ? data(deleteNode) : undefined
-    });
-  }
-
-  /**
-   * Rename a file
-   */
-  async renameFile(node: any) {
-    const {type, url, data} = this.#otpions.renameFile;
-    return $.ajax({
-      type,
-      url: isString(url) ? (url as string).replace(CURRENT_FILE_VAR, node.id.replace(FILE_NODE_ID_PREFIX, '')) : (url as (node: any) => string)(node),
-      data: data ? data(node) : {text: node.text}
-    });
-  }
-}
-
-/**
  * Folder and file tree components.
  */
 export default class Tree {
   #treeInstance: any;
-  #api: ApiClient;
+  #api: TreeApi;
   #selectedHandler = (evnt: any, node: any) => {};
   #errorHandler = (err: any) => {};
+  #fetchHandler = (nodeData: any) => {};
 
   /**
    * Initialization.
@@ -130,7 +44,7 @@ export default class Tree {
         throw new TypeError(`"api.${key}.data" option must be a function`);
 
     // Initialize API client.
-    this.#api = new ApiClient(options.api);
+    this.#api = new TreeApi(options.api);
 
     // Initialize the tree.
     this.#treeInstance = context
@@ -154,7 +68,7 @@ export default class Tree {
         // this.#ready = true;
 
         // If there is no first selected node, the root node is made selected.
-        if (!this.#getSelectedNodes(true, 0))
+        if (!this.getSelectedNodes(true, 0))
           this.#selectNode(this.#getRootNode());
       })
       // .on('after_close.jstree', (evnt, data) => {
@@ -195,20 +109,27 @@ export default class Tree {
             },
             data: options.api.getChildren.data,
             success: (data: any) => {
-              for (let item of data) {
-                switch (item.type) {
+              for (let nodeData of data) {
+                // Call node fetch event.
+                this.#fetchHandler(nodeData);
+
+                // Per node type.
+                switch (nodeData.type) {
                 case options!.nodeTypes.folder.type:
                   // The children property, which determines whether there are children, must be of type bool, so a string or numeric 1 or 0 is converted to a bool type.
-                  if (typeof item?.children !== 'boolean')
-                    item.children = item.children == 1 || item?.children.toString().toLowerCase() === 'true';
+                  if (typeof nodeData?.children !== 'boolean')
+                    nodeData.children = nodeData.children == 1 || nodeData?.children.toString().toLowerCase() === 'true';
                   break;
                 case options!.nodeTypes.file.type:
                   // The "children" property is not needed for file nodes, so it is removed.
-                  delete item.children;
+                  delete nodeData.children;
+
+                  // Set the original ID before the prefix is assigned.
+                  nodeData.raw_id = nodeData.id;
 
                   // File IDs are not displayed correctly in jstree if they overlap with folder IDs.
                   // Prefix file IDs with folder IDs to avoid duplication.
-                  item.id = `${FILE_NODE_ID_PREFIX}${item.id}`;
+                  nodeData.id = `${FILE_NODE_ID_PREFIX}${nodeData.id}`;
                   break;
                 default:
                   alert(`Incorrect node type. Use "${options!.nodeTypes.folder.type}" or "${options!.nodeTypes.file.type}" for the node type.`);
@@ -421,6 +342,63 @@ export default class Tree {
   }
 
   /**
+   * Set node fetch event handler.
+   *
+   * @param {(nodeData: any) => void} handler Handle function.
+   * @return {Tree}
+   */
+  onFetch(handler: (nodeData: any) => void): Tree {
+    this.#fetchHandler = handler;
+    return this;
+  }
+
+  /**
+    * Get an array of all selected nodes.
+    *
+    * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+    * @param {undefined|number} index Index of the node to be acquired. Default is none and all nodes are retrieved.
+    * @return {any|null}
+    */
+  getSelectedNodes(full: boolean = true, index?: number): any|null {
+    const nodes = this.#treeInstance.get_selected(full);
+    if (index == null)
+      return nodes;
+    return nodes[index] || null;
+  }
+
+  /**
+    * Get the first selected node.
+    *
+    * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+    * @return {any|null}
+    */
+  getSelectedNode(full: boolean = true): any|null {
+    return this.getSelectedNodes(full, 0);
+  }
+
+  /**
+   * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
+   *
+   * @example
+   * import {Tree} from 'metronic-extension';
+   * 
+   * const tree = new Tree(document.getElementById('tree'));
+   * tree.onSelected((evnt, node) => {
+   *   tree.getPath(node);            // ['Root node', 'Folder#1', 'Folder#1_1']
+   *   tree.getPath(node, '/');       // 'Root node/Folder#1/Folder#1_1'
+   *   tree.getPath(node, '/', true); // '1/2/3'
+   * });
+   *
+   * @param  {any} obj The node.
+   * @param  {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
+   * @param  {boolean} ids If set to true build the path using ID, otherwise node text is used.
+   * @return {string[]|string}
+   */
+  getPath(obj: any, glue: string|undefined = undefined, ids: boolean = false) {
+    return this.#treeInstance.get_path(obj, glue, ids);
+  }
+
+  /**
    * Select a node.
    *
    * @param {any} obj An array can be used to select multiple nodes.
@@ -494,20 +472,6 @@ export default class Tree {
   }
 
   /**
-    * Get an array of all selected nodes.
-    *
-    * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
-    * @param {undefined|number} position 
-    * @return {any}
-    */
-  #getSelectedNodes(full: boolean = true, position?: number) {
-    const nodes = this.#treeInstance.get_selected(full);
-    if (position == null)
-      return nodes;
-    return nodes[position] || null;
-  }
-
-  /**
     * Delete a node.
     *
     * @param  {any} obj The node, you can pass an array to delete multiple nodes.
@@ -537,28 +501,6 @@ export default class Tree {
    */
   getParentNode(obj: any): any {
     return this.#getNode(obj.parent);
-  }
-
-  /**
-   * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
-   *
-   * @example
-   * import {Tree} from 'metronic-extension';
-   * 
-   * const tree = new Tree(document.getElementById('tree'));
-   * tree.onSelected((evnt, node) => {
-   *   tree.getPath(node);            // ['Root node', 'Folder#1', 'Folder#1_1']
-   *   tree.getPath(node, '/');       // 'Root node/Folder#1/Folder#1_1'
-   *   tree.getPath(node, '/', true); // '1/2/3'
-   * });
-   *
-   * @param  {any} obj The node.
-   * @param  {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
-   * @param  {boolean} ids If set to true build the path using ID, otherwise node text is used.
-   * @return {string[]|string}
-   */
-  getPath(obj: any, glue: string|undefined = undefined, ids: boolean = false) {
-    return this.#treeInstance.get_path(obj, glue, ids);
   }
 
   /**

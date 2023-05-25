@@ -34,6 +34,9 @@ tree
     ref.node.text.text(node.text);
     ref.node.type.text(node.type);
   })
+  .onFetch(nodeData => {
+    console.log('Fetched node data:', nodeData);
+  })
   .onError(err => {
     alert(err.message);
   });

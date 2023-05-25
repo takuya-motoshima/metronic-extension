@@ -23,12 +23,27 @@ export default class Tree {
      */
     onError(handler: (err: any) => void): Tree;
     /**
-     * Get parent node.
+     * Set node fetch event handler.
      *
-     * @param  {any} obj The node, you can pass an array to delete multiple nodes.
-     * @return {any}
+     * @param {(nodeData: any) => void} handler Handle function.
+     * @return {Tree}
      */
-    getParentNode(obj: any): any;
+    onFetch(handler: (nodeData: any) => void): Tree;
+    /**
+      * Get an array of all selected nodes.
+      *
+      * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+      * @param {undefined|number} index Index of the node to be acquired. Default is none and all nodes are retrieved.
+      * @return {any|null}
+      */
+    getSelectedNodes(full?: boolean, index?: number): any | null;
+    /**
+      * Get the first selected node.
+      *
+      * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+      * @return {any|null}
+      */
+    getSelectedNode(full?: boolean): any | null;
     /**
      * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
      *
@@ -48,4 +63,11 @@ export default class Tree {
      * @return {string[]|string}
      */
     getPath(obj: any, glue?: string | undefined, ids?: boolean): any;
+    /**
+     * Get parent node.
+     *
+     * @param  {any} obj The node, you can pass an array to delete multiple nodes.
+     * @return {any}
+     */
+    getParentNode(obj: any): any;
 }

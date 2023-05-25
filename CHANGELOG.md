@@ -1,6 +1,66 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.7] - 2023/5/25
+### Changed
+- Added functionality to the tree class.  
+    - Added an event that is called immediately after node information is fetched from the server.  
+        It takes the fetched node data as a parameter.
+        ```js
+        import {Tree} from 'metronic-extension';
+
+        const tree = new Tree(document.querySelector('#tree'));
+        tree.onFetch(nodeData => {
+          console.log(nodeData);
+          // {
+          //   children: true,
+          //   id: 1,
+          //   parent: "#",
+          //   text: "Root node",
+          //   type: "folder"
+          // }
+        });
+        ```
+    - Get an array of all selected nodes.  
+        Syntax:  
+        ```js
+        getSelectedNodes(full: boolean = true, index?: number): any|null
+        ```
+
+        Parameters:  
+        - full: if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+        - index: Index of the node to be acquired. Default is none and all nodes are retrieved.
+
+        Return:  
+        - Returns an array of selected nodes.
+
+        Example:  
+        ```js
+        import {Tree} from 'metronic-extension';
+
+        const tree = new Tree(document.querySelector('#tree'));
+        const nodes = tree.getSelectedNodes();
+        ```
+    - Get the first selected node.  
+        Syntax:  
+        ```js
+        getSelectedNode(full: boolean = true): any|null
+        ```
+
+        Parameters:  
+        - full: if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+
+        Return:  
+        - Returns selected nodes.
+
+        Example:  
+        ```js
+        import {Tree} from 'metronic-extension';
+
+        const tree = new Tree(document.querySelector('#tree'));
+        const node = tree.getSelectedNode();
+        ```
+
 ## [2.0.6] - 2023/5/25
 ### Changed
 - Added node type options (options.nodeTypes) to the folder tree.
@@ -824,3 +884,4 @@ All notable changes to this project will be documented in this file.
 [2.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.3...v2.0.4
 [2.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.4...v2.0.5
 [2.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.5...v2.0.6
+[2.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.6...v2.0.7
