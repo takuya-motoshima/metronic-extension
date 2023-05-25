@@ -7,9 +7,7 @@ import trim from '~/misc/trim';
 import TreeOption from '~/interfaces/TreeOption';
 import TreeApiOption from '~/interfaces/TreeApiOption';
 
-const FILE_ID_PREFIX = 'f_';
-const NODE_FOLDER = 'folder';
-const NODE_FILE = 'file';
+const FILE_NODE_ID_PREFIX = 'f_';
 const MULTIPLE = false;
 const PARENT_FOLDER_VAR = '_PARENT_FOLDER_ID_';
 const CURRENT_FOLDER_VAR = '_CURRENT_FOLDER_ID_';
@@ -84,7 +82,7 @@ class ApiClient {
     const {type, url, data} = this.#otpions.deleteFile;
     return $.ajax({
       type,
-      url: isString(url) ? (url as string).replace(CURRENT_FILE_VAR, deleteNode.id.replace(FILE_ID_PREFIX, '')) : (url as (node: any) => string)(deleteNode),
+      url: isString(url) ? (url as string).replace(CURRENT_FILE_VAR, deleteNode.id.replace(FILE_NODE_ID_PREFIX, '')) : (url as (node: any) => string)(deleteNode),
       data: data ? data(deleteNode) : undefined
     });
   }
@@ -96,7 +94,7 @@ class ApiClient {
     const {type, url, data} = this.#otpions.renameFile;
     return $.ajax({
       type,
-      url: isString(url) ? (url as string).replace(CURRENT_FILE_VAR, node.id.replace(FILE_ID_PREFIX, '')) : (url as (node: any) => string)(node),
+      url: isString(url) ? (url as string).replace(CURRENT_FILE_VAR, node.id.replace(FILE_NODE_ID_PREFIX, '')) : (url as (node: any) => string)(node),
       data: data ? data(node) : {text: node.text}
     });
   }
@@ -141,11 +139,11 @@ export default class Tree {
         const input = evnt.currentTarget;
         const li = input.closest('li[data-node-type]');
         switch (li.dataset.nodeType) {
-        case NODE_FOLDER:
+        case options!.nodeTypes.folder.type:
           if (options!.folderMaxlen)
             input.setAttribute('maxlength', options!.folderMaxlen);
           break;
-        case NODE_FILE:
+        case options!.nodeTypes.file.type:
           if (options!.fileMaxlen)
             input.setAttribute('maxlength', options!.fileMaxlen);
           break;
@@ -199,22 +197,22 @@ export default class Tree {
             success: (data: any) => {
               for (let item of data) {
                 switch (item.type) {
-                case NODE_FOLDER:
+                case options!.nodeTypes.folder.type:
                   // The children property, which determines whether there are children, must be of type bool, so a string or numeric 1 or 0 is converted to a bool type.
                   if (typeof item?.children !== 'boolean')
                     item.children = item.children == 1 || item?.children.toString().toLowerCase() === 'true';
                   break;
-                case NODE_FILE:
+                case options!.nodeTypes.file.type:
                   // The "children" property is not needed for file nodes, so it is removed.
                   delete item.children;
 
                   // File IDs are not displayed correctly in jstree if they overlap with folder IDs.
                   // Prefix file IDs with folder IDs to avoid duplication.
-                  item.id = `${FILE_ID_PREFIX}${item.id}`;
+                  item.id = `${FILE_NODE_ID_PREFIX}${item.id}`;
                   break;
                 default:
-                  alert('Incorrect node type. Use "folder" or "file" for the node type.');
-                  throw new Error('Incorrect node type. Use "folder" or "file" for the node type.');
+                  alert(`Incorrect node type. Use "${options!.nodeTypes.folder.type}" or "${options!.nodeTypes.file.type}" for the node type.`);
+                  throw new Error(`Incorrect node type. Use "${options!.nodeTypes.folder.type}" or "${options!.nodeTypes.file.type}" for the node type.`);
                 }
               }
             },
@@ -232,14 +230,13 @@ export default class Tree {
         ],
         // Settings for each node type.
         types: {
-          [NODE_FOLDER]: {
-            icon: 'fa fa-folder text-warning',
-            li_attr: {'data-node-type': NODE_FOLDER},
+          [options!.nodeTypes.folder.type]: {
+            icon: options!.nodeTypes.folder.icon,// Folder node icons.
+            li_attr: {'data-node-type': options!.nodeTypes.folder.type},// Attribute set to the li element of the folder node.
           },
-          [NODE_FILE]: {
-            icon: 'fa fa-file text-white',
-            // icon: 'fa fa-file text-warning',
-            li_attr: {'data-node-type': NODE_FILE},
+          [options!.nodeTypes.file.type]: {
+            icon: options!.nodeTypes.file.icon,// File node icons.
+            li_attr: {'data-node-type': options!.nodeTypes.file.type},// Attributes to be set on the li element of a file node.
           }
         },
         // Customize the state to be saved in the browser.
@@ -251,13 +248,13 @@ export default class Tree {
           items: (node: any) => {
             const depth = node.parents.length - 1;
             const menu: Record<string, any> = {};
-            if (node.type === NODE_FOLDER) {
+            if (node.type === options!.nodeTypes.folder.type) {
               if (depth < options!.maxDepth)
                 menu.createFolder = {
                   label: options!.language.createFolderMenu,
                   action: (data: any) => {
                     const parent = this.#getNode(data.reference);
-                    this.#treeInstance.create_node(parent, {text: options!.language.newFolderName, 'type': NODE_FOLDER} , 'last', (newNode: any) => {
+                    this.#treeInstance.create_node(parent, {text: options!.language.newFolderName, 'type': options!.nodeTypes.folder.type} , 'last', (newNode: any) => {
                       // try{
                         this.#treeInstance.edit(newNode, newNode.text, async () => {
                           try {
@@ -285,7 +282,7 @@ export default class Tree {
                 label: options!.language.createFileMenu,
                 action: (data: any) => {
                   const parent = this.#getNode(data.reference);
-                  this.#treeInstance.create_node(parent, {text: options!.language.newFileName, 'type': NODE_FILE} , 'last', (newNode: any) => {
+                  this.#treeInstance.create_node(parent, {text: options!.language.newFileName, 'type': options!.nodeTypes.file.type} , 'last', (newNode: any) => {
                     // try{
                       this.#treeInstance.edit(newNode, newNode.text, async () => {
                         try {
@@ -352,7 +349,7 @@ export default class Tree {
                   },
                 };
               }
-            } else if (node.type === NODE_FILE) {
+            } else if (node.type === options!.nodeTypes.file.type) {
               menu.deleteFile = {
                 label: options!.language.deleteFileMenu,
                 action: async (data: any) => {
@@ -572,36 +569,43 @@ export default class Tree {
       if (options && options.api && isString(options.api[key]))
         options.api[key] = {url: options.api[key].toString()};
     return fusion({
-      /**
-       * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
-       * @type {number}
-       */
       maxDepth: 2,
-
-      /**
-       * Maximum length of folder name. Default is 20.
-       * @type {number}
-       */
       folderMaxlen: 20,
-
-      /**
-       * Maximum length of file name. Default is 20.
-       * @type {number}
-       */
       fileMaxlen: 20,
-
-      // /**
-      //  * If true, children of the folder will be cached and not retrieved from the server.
-      //  * If you want the folder to always be fetched from the server when opened, set to false.
-      //  * Default is true.
-      //  * @type {boolean}
-      //  */
+      nodeTypes: {
+        folder: {
+          type: 'folder',
+          icon: 'fa fa-folder text-warning',
+        },
+        file: {
+          type: 'file',
+          icon: 'fa fa-file text-white',
+          // icon: 'fa fa-file text-warning',
+        },
+      },
       // cacheLoadedChildren: true,
-
-      /**
-       * Define folder and file creation, deletion, and rename requests.
-       * @type {object}
-       */
+      language: {
+        createFolderMenu: 'Create folder',
+        createFolderSuccessful: '_FOLDER_ has been created.',// The "_FOLDER_" in the text is set to the name of the created folder.
+        deleteFolderMenu: 'Delete folder',
+        deleteFolderConfirmation: 'Are you sure you want to delete _FOLDER_?',// The "_FOLDER_" in the text is set to the name of the folder to be deleted.
+        deleteFolderButton: 'Delete the folder',
+        deleteFolderCancelButton: 'Cancel',
+        deleteFolderSuccessful: '_FOLDER_ has been deleted.',// The "_FOLDER_" in the text is set to the name of the folder to be deleted.
+        renameFolderManu: 'Rename folder',
+        newFolderName: 'New Folder',
+        createFileMenu: 'Create file',
+        createFileSuccessful: '_FILE_ has been created.',// The "_FILE_" in the text is set to the name of the created file.
+        deleteFileMenu: 'Delete file',
+        deleteFileConfirmation: 'Are you sure you want to delete _FILE_?',// The "_FILE_" in the text is set to the name of the file to be deleted.
+        deleteFileButton: 'Delete file',
+        deleteFileCancelButton: 'Cancel',
+        deleteFileSuccessful: '_FILE_ has been deleted.',// The "_FILE_" in the text is set to the name of the file to be deleted.
+        renameFileManu: 'Rename file',
+        newFileName: 'New File',
+        unknownErrorTitle: 'An unexpected error has occurred.',
+        unknownErrorMessage: 'The process was interrupted due to an error. Please try again.',
+      },
       api: {
         /**
          * Get Child Items API.
@@ -667,36 +671,6 @@ export default class Tree {
           data: undefined,
         },
       },
-      /**
-       * Text used in the tree.
-       */
-      language: {
-        // Folder-related text.
-        createFolderMenu: 'Create folder',
-        createFolderSuccessful: '_FOLDER_ has been created.',// The "_FOLDER_" in the text is set to the name of the created folder.
-        deleteFolderMenu: 'Delete folder',
-        deleteFolderConfirmation: 'Are you sure you want to delete _FOLDER_?',// The "_FOLDER_" in the text is set to the name of the folder to be deleted.
-        deleteFolderButton: 'Delete the folder',
-        deleteFolderCancelButton: 'Cancel',
-        deleteFolderSuccessful: '_FOLDER_ has been deleted.',// The "_FOLDER_" in the text is set to the name of the folder to be deleted.
-        renameFolderManu: 'Rename folder',
-        newFolderName: 'New Folder',
-
-        // File-related text.
-        createFileMenu: 'Create file',
-        createFileSuccessful: '_FILE_ has been created.',// The "_FILE_" in the text is set to the name of the created file.
-        deleteFileMenu: 'Delete file',
-        deleteFileConfirmation: 'Are you sure you want to delete _FILE_?',// The "_FILE_" in the text is set to the name of the file to be deleted.
-        deleteFileButton: 'Delete file',
-        deleteFileCancelButton: 'Cancel',
-        deleteFileSuccessful: '_FILE_ has been deleted.',// The "_FILE_" in the text is set to the name of the file to be deleted.
-        renameFileManu: 'Rename file',
-        newFileName: 'New File',
-
-        // Error message.
-        unknownErrorTitle: 'An unexpected error has occurred.',
-        unknownErrorMessage: 'The process was interrupted due to an error. Please try again.',
-      }
     }, options);
   }
 }

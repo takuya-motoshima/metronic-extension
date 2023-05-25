@@ -5,22 +5,61 @@ import TreeApiOption from '~/interfaces/TreeApiOption';
  */
 export default interface {
   /**
-    * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
-    * @type {number}
-    */
+   * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
+   * @type {number}
+   */
   maxDepth: number,
 
   /**
-    * Maximum length of folder name. Default is 20.
-    * @type {number}
-    */
+   * Maximum length of folder name. Default is 20.
+   * @type {number}
+   */
   folderMaxlen: number,
 
   /**
-    * Maximum length of file name. Default is 20.
-    * @type {number}
-    */
+   * Maximum length of file name. Default is 20.
+   * @type {number}
+   */
   fileMaxlen: number,
+
+  /**
+   * Options per node type.
+   * @type {object}
+   */
+  nodeTypes: {
+    /**
+     * Folder node options.
+     */
+    folder: {
+      // Folder node identifier.
+      type: string,
+
+      // Folder node icons. Default is 'fa fa-folder text-warning'.
+      icon: string,
+    },
+    /**
+     * File node options.
+     */
+    file: {
+      // File node identifier.
+      type: string,
+
+      // File node icons. Default is 'fa fa-file text-white'.
+      icon: string,
+    },
+  }
+
+  /**
+   * The node type name of the folder. Default is 'folder'.
+   * @type {string}
+   */
+  folderNodeType: string,
+
+  /**
+   * The node type name of the file. Defaults to 'file'.
+   * @type {string}
+   */
+  fileNodeType: string,
 
   // /**
   //  * If true, children of the folder will be cached and not retrieved from the server.
@@ -31,14 +70,14 @@ export default interface {
   // cacheLoadedChildren: true,
 
   /**
-    * Define folder and file creation, deletion, and rename requests.
-    * @type {object}
-    */
+   * Define folder and file creation, deletion, and rename requests.
+   * @type {object}
+   */
   api: Record<string, TreeApiOption>,
  
   /**
-    * Text used in the tree.
-    */
+   * Text used in the tree.
+   */
   language: {
     // Folder-related text.
     createFolderMenu: string,

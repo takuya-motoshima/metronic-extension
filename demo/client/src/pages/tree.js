@@ -6,6 +6,16 @@ const ref = selectRef();
 const tree = new Tree(ref.tree, {
   folderMaxlen: 20,
   fileMaxlen: 20,
+  nodeTypes: {
+    // folder: {
+    //   type: 'folder',
+    //   icon: 'fa fa-folder text-warning',
+    // },
+    file: {
+      // type: 'file',
+      icon: 'fa-solid fa-computer text-white',
+    },
+  },
   api: {
     getChildren: '/api/folders/_PARENT_FOLDER_ID_/children',
     createFolder: '/api/folders/_PARENT_FOLDER_ID_',

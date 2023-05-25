@@ -4,28 +4,58 @@ import TreeApiOption from '~/interfaces/TreeApiOption';
  */
 export default interface  {
     /**
-      * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
-      * @type {number}
-      */
+     * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
+     * @type {number}
+     */
     maxDepth: number;
     /**
-      * Maximum length of folder name. Default is 20.
-      * @type {number}
-      */
+     * Maximum length of folder name. Default is 20.
+     * @type {number}
+     */
     folderMaxlen: number;
     /**
-      * Maximum length of file name. Default is 20.
-      * @type {number}
-      */
+     * Maximum length of file name. Default is 20.
+     * @type {number}
+     */
     fileMaxlen: number;
     /**
-      * Define folder and file creation, deletion, and rename requests.
-      * @type {object}
-      */
+     * Options per node type.
+     * @type {object}
+     */
+    nodeTypes: {
+        /**
+         * Folder node options.
+         */
+        folder: {
+            type: string;
+            icon: string;
+        };
+        /**
+         * File node options.
+         */
+        file: {
+            type: string;
+            icon: string;
+        };
+    };
+    /**
+     * The node type name of the folder. Default is 'folder'.
+     * @type {string}
+     */
+    folderNodeType: string;
+    /**
+     * The node type name of the file. Defaults to 'file'.
+     * @type {string}
+     */
+    fileNodeType: string;
+    /**
+     * Define folder and file creation, deletion, and rename requests.
+     * @type {object}
+     */
     api: Record<string, TreeApiOption>;
     /**
-      * Text used in the tree.
-      */
+     * Text used in the tree.
+     */
     language: {
         createFolderMenu: string;
         createFolderSuccessful: string;

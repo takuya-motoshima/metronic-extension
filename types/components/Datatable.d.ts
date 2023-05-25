@@ -16,16 +16,23 @@
  *   }
  * }
  */
-export default class {
+export default class Datatable {
     #private;
     /**
      * Initialization.
      */
     constructor(table: string | HTMLTableElement | JQuery, options: DataTables.Settings);
     /**
-     * Reload data.
+     * Object of the DataTables API.
      */
-    reload(resetPaging?: boolean): void;
+    get api(): DataTables.Api;
+    /**
+     * Reload the table data from the Ajax data source.
+     *
+     * @param {boolean} resetPaging Reset (default action or true) or hold the current paging position (false).
+     * @return {Promise<any>} JSON data returned by the server.
+     */
+    reload(resetPaging?: boolean): Promise<any>;
     /**
      * Adjust column layout.
      */
@@ -99,4 +106,8 @@ export default class {
      * Select the column found by a the column selector
      */
     column(columnSelector: any, modifier?: DataTables.ObjectSelectorModifier): DataTables.ColumnMethods;
+    /**
+     * Clear the table of all data.
+     */
+    clear(): Datatable;
 }

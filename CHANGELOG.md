@@ -1,6 +1,62 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.6] - 2023/5/25
+### Changed
+- Added node type options (options.nodeTypes) to the folder tree.
+    HTML:
+    ```html
+    <!--begin::Tree-->
+    <div data-ref="tree"></div>
+    <!--end::Tree-->
+    ```
+
+    JS:
+    ```js
+    import {selectRef, Tree} from 'metronic-extension';
+
+    const ref = selectRef();
+    const tree = new Tree(ref.tree, {
+      /**
+      * Options per node type.
+      * @type {object}
+      */
+      nodeTypes: {
+        /**
+        * Folder node options.
+        */
+        folder: {
+          // Folder node identifier.
+          type: 'folder',
+
+          // Folder node icons. Default is 'fa fa-folder text-warning'.
+          icon: 'fa fa-folder text-warning',
+        },
+        /**
+        * File node options.
+        */
+        file: {
+          // File node identifier.
+          type: 'file',
+
+          // File node icons. Default is 'fa fa-file text-white'.
+          icon: 'fa-solid fa-computer text-white',
+        },
+      },
+      api: {
+        getChildren: '/api/folders/_PARENT_FOLDER_ID_/children',
+        createFolder: '/api/folders/_PARENT_FOLDER_ID_',
+        deleteFolder: '/api/folders/_CURRENT_FOLDER_ID_',
+        renameFolder: '/api/folders/_CURRENT_FOLDER_ID_',
+        createFile: '/api/files/_PARENT_FOLDER_ID_',
+        deleteFile: '/api/files/_CURRENT_FILE_ID_',
+        renameFile: '/api/files/_CURRENT_FILE_ID_',
+      },
+    });
+    ```
+
+    ![tree.png](screencaps/2.0.6/tree.png)
+
 ## [2.0.5] - 2023/3/26
 ### Changed
 - Changed the return value of the reload method of Datatable from <code>void</code> to <code>Promise&lt;any&gt;</code>.  
@@ -54,7 +110,7 @@ All notable changes to this project will be documented in this file.
       cancelButtonText: 'Cancel',
     });
     ```
-    ![success-dialog-with-cancel-button](screencaps/2.0.3/success-dialog-with-cancel-button.png)
+    ![success-dialog-with-cancel-button.png](screencaps/2.0.3/success-dialog-with-cancel-button.png)
 
 ## [2.0.2] - 2023/3/7
 ### Added
@@ -496,7 +552,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Add a component to toggle password visibility (initShowPasswordToggle).  
     The component is applied to input elements with the &quot;[data-show-password-toggle=&quot;true&quot;]&quot; attribute.  
-    ![password-show-toggle](screencaps/1.0.11/password-show-toggle.png)
+    ![password-show-toggle.png](screencaps/1.0.11/password-show-toggle.png)
 
     HTML:
     ```html
@@ -553,7 +609,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.9] - 2022/11/14
 ### Added
 - Added Dropzone component.
-    ![dropzone](screencaps/1.0.9/dropzone.png)
+    ![dropzone.png](screencaps/1.0.9/dropzone.png)
 
 ## [1.0.8] - 2022/11/14
 ### Changed
@@ -566,7 +622,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.6] - 2022/11/14
 ### Added
 - Add Tagify (src/components/Tagify) component.
-    ![tagify](screencaps/1.0.6/tagify.png)
+    ![tagify.png](screencaps/1.0.6/tagify.png)
 
 ## [1.0.5] - 2022/10/24
 ###  Added
@@ -767,3 +823,4 @@ All notable changes to this project will be documented in this file.
 [2.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.2...v2.0.3
 [2.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.3...v2.0.4
 [2.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.4...v2.0.5
+[2.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.5...v2.0.6
