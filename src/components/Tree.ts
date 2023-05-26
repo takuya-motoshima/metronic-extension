@@ -22,6 +22,7 @@ export default class Tree {
   #selectedHandler = (evnt: any, node: any) => {};
   #errorHandler = (err: any) => {};
   #fetchHandler = (nodeData: any) => {};
+  #readyhHandler = (evnt: any) => {};
 
   /**
    * Initialization.
@@ -63,13 +64,13 @@ export default class Tree {
           break;
         }
       })
-      .on('state_ready.jstree refresh.jstree', () => {
-        // // Set the ready flag.
-        // this.#ready = true;
-
+      .on('state_ready.jstree refresh.jstree', (evnt: any) => {
         // If there is no first selected node, the root node is made selected.
         if (!this.getSelectedNodes(true, 0))
           this.#selectNode(this.#getRootNode());
+
+        // Triggers a ready event.
+        this.#readyhHandler(evnt);
       })
       // .on('after_close.jstree', (evnt, data) => {
       //   if (!options.cacheLoadedChildren) {
@@ -320,7 +321,7 @@ export default class Tree {
   }
 
   /**
-   * Set node selection event handler.
+   * Triggered when a node is selected.
    *
    * @param {(evnt: any, node: any) => void} handler Handle function.
    * @return {Tree}
@@ -331,7 +332,7 @@ export default class Tree {
   }
 
   /**
-   * Set error event handler.
+   * Triggered on error.
    *
    * @param {(err: any) => void} handler Handle function.
    * @return {Tree}
@@ -342,13 +343,24 @@ export default class Tree {
   }
 
   /**
-   * Set node fetch event handler.
+   * Triggered when a node is fetched from the server side.
    *
    * @param {(nodeData: any) => void} handler Handle function.
    * @return {Tree}
    */
   onFetch(handler: (nodeData: any) => void): Tree {
     this.#fetchHandler = handler;
+    return this;
+  }
+
+  /**
+   * Triggered when all nodes have been loaded and the previously selected node's selection state has been restored.
+   *
+   * @param {(evnt: any) => void} handler Handle function.
+   * @return {Tree}
+   */
+  onReady(handler: (evnt: any) => void): Tree {
+    this.#readyhHandler = handler;
     return this;
   }
 

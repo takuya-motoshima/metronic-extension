@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.8] - 2023/5/26
+### Changed
+- Added ready event to Tree class.  
+    This event is triggered when all nodes have been loaded and the previously selected node's selection state has been restored.
+    ```js
+    import {Tree} from 'metronic-extension';
+
+    const tree = new Tree(document.querySelector('#tree'));
+    tree.onReady(evnt => {
+      console.log('ready event fires.');
+    });
+    ```
+
 ## [2.0.7] - 2023/5/25
 ### Changed
 - Added functionality to the tree class.  
@@ -885,3 +898,4 @@ All notable changes to this project will be documented in this file.
 [2.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.4...v2.0.5
 [2.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.5...v2.0.6
 [2.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.6...v2.0.7
+[2.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.7...v2.0.8

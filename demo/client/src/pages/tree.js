@@ -27,16 +27,20 @@ const tree = new Tree(ref.tree, {
   },
 });
 tree
+  .onReady(evnt => {
+    // console.log('ready event fires. evnt=', evnt);
+    console.log('ready event fires. evnt=', evnt, ', tree.getSelectedNode()=', tree.getSelectedNode());
+  })
   .onSelected((evnt, node) => {
-    console.log('Selected node:', node);
+    console.log('selected event fires. node=', node);
     ref.node.id.text(node.id);
     ref.node.path.text(tree.getPath(node, '/'));
     ref.node.text.text(node.text);
     ref.node.type.text(node.type);
   })
-  .onFetch(nodeData => {
-    console.log('Fetched node data:', nodeData);
-  })
+  // .onFetch(nodeData => {
+  //   console.log('Fetched node data:', nodeData);
+  // })
   .onError(err => {
     alert(err.message);
   });

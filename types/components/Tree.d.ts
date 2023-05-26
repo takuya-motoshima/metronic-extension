@@ -9,26 +9,33 @@ export default class Tree {
      */
     constructor(context: HTMLDivElement | JQuery, options?: TreeOption);
     /**
-     * Set node selection event handler.
+     * Triggered when a node is selected.
      *
      * @param {(evnt: any, node: any) => void} handler Handle function.
      * @return {Tree}
      */
     onSelected(handler: (evnt: any, node: any) => void): Tree;
     /**
-     * Set error event handler.
+     * Triggered on error.
      *
      * @param {(err: any) => void} handler Handle function.
      * @return {Tree}
      */
     onError(handler: (err: any) => void): Tree;
     /**
-     * Set node fetch event handler.
+     * Triggered when a node is fetched from the server side.
      *
      * @param {(nodeData: any) => void} handler Handle function.
      * @return {Tree}
      */
     onFetch(handler: (nodeData: any) => void): Tree;
+    /**
+     * Triggered when all nodes have been loaded and the previously selected node's selection state has been restored.
+     *
+     * @param {(evnt: any) => void} handler Handle function.
+     * @return {Tree}
+     */
+    onReady(handler: (evnt: any) => void): Tree;
     /**
       * Get an array of all selected nodes.
       *
