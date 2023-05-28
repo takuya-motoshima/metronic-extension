@@ -183,6 +183,10 @@ export default class Tree {
                             // Folder creation request.
                             const res = await this.#api.createFolder(newNode);
 
+                            // If the response does not contain the ID of the created node, an error is returned.
+                            if (!res.id)
+                              throw new Error('The ID of the created node is required in the folder creation API response');
+
                             // Update the ID of the new folder.
                             this
                               .#selectNode(newNode)
@@ -210,6 +214,10 @@ export default class Tree {
                         try {
                           // File creation request.
                           const res = await this.#api.createFile(newNode);
+
+                          // If the response does not contain the ID of the created node, an error is returned.
+                          if (!res.id)
+                            throw new Error('The ID of the created node is required in the file creation API response');
 
                           // Update the ID of the new folder.
                           this

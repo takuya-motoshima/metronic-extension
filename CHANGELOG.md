@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.9] - Undecided
+### Changed
+- Tree class folder and file creation API now returns an error if the response data does not have the ID of the created node.
+
 ## [2.0.8] - 2023/5/26
 ### Changed
 - Added ready event to Tree class.  
@@ -899,3 +903,4 @@ All notable changes to this project will be documented in this file.
 [2.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.5...v2.0.6
 [2.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.6...v2.0.7
 [2.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.7...v2.0.8
+[2.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.8...v2.0.9
