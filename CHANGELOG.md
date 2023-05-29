@@ -1,9 +1,32 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.0.9] - Undecided
+## [2.0.9] - 2023/5/29
 ### Changed
 - Tree class folder and file creation API now returns an error if the response data does not have the ID of the created node.
+- Added file creation hook function to the tree class.  
+    Hooks can be used to incorporate your own file creation logic.  
+
+    This is an example of file creation on a modal.  
+    Refer to the modal code [here](demo/client/src/modals/NodeCreateModal.js).
+    ```js
+    import {Tree} from 'metronic-extension';
+    import NodeCreateModal from '~/modals/NodeCreateModal';
+
+    // File creation modal.
+    const nodeCreateModal = new NodeCreateModal();
+
+    // Initialize the tree.
+    const tree = new Tree(document.querySelector('#tree'));
+    tree.onCreateFileHook(async parent => {
+      // Create a new file on the modal.
+      // NOTE:If a node is created, the ID and text of the created node must be returned.
+      //      If the creation of a node is canceled, a false value (null, false, undefined) should be returned.
+      return await nodeCreateModal.show(parent.id);
+    });
+    ```
+
+    ![tree-folder-creation-hook.png](screencaps/2.0.9/tree-folder-creation-hook.png)
 
 ## [2.0.8] - 2023/5/26
 ### Changed

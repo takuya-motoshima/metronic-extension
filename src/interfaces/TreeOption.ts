@@ -49,18 +49,6 @@ export default interface {
     },
   }
 
-  /**
-   * The node type name of the folder. Default is 'folder'.
-   * @type {string}
-   */
-  folderNodeType: string,
-
-  /**
-   * The node type name of the file. Defaults to 'file'.
-   * @type {string}
-   */
-  fileNodeType: string,
-
   // /**
   //  * If true, children of the folder will be cached and not retrieved from the server.
   //  * If you want the folder to always be fetched from the server when opened, set to false.
@@ -74,7 +62,7 @@ export default interface {
    * @type {object}
    */
   api: Record<string, TreeApiOption>,
- 
+
   /**
    * Text used in the tree.
    */

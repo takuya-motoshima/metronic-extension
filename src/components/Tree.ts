@@ -19,10 +19,11 @@ const CURRENT_FILE_VAR = '_CURRENT_FILE_ID_';
 export default class Tree {
   #treeInstance: any;
   #api: TreeApi;
-  #selectedHandler = (evnt: any, node: any) => {};
-  #errorHandler = (err: any) => {};
-  #fetchHandler = (nodeData: any) => {};
-  #readyhHandler = (evnt: any) => {};
+  #selectedHandler: (evnt: any, node: any) => void = (evnt: any, node: any) => {};
+  #errorHandler: (err: any) => void = (err: any) => {};
+  #fetchHandler: (nodeData: any) => void = (nodeData: any) => {};
+  #readyhHandler: (evnt: any) => void = (evnt: any) => {};
+  #createFileHook: ((parent: any) => Promise<{id: string|number, text: string}|null|undefined|false>)|null = null;
 
   /**
    * Initialization.
@@ -175,6 +176,7 @@ export default class Tree {
                 menu.createFolder = {
                   label: options!.language.createFolderMenu,
                   action: (data: any) => {
+                    // Get parent folder node.
                     const parent = this.#getNode(data.reference);
                     this.#treeInstance.create_node(parent, {text: options!.language.newFolderName, 'type': options!.nodeTypes.folder.type} , 'last', (newNode: any) => {
                       // try{
@@ -206,34 +208,55 @@ export default class Tree {
                 };
               menu.createFile = {
                 label: options!.language.createFileMenu,
-                action: (data: any) => {
+                action: async (data: any) => {
+                  // Get parent folder node.
                   const parent = this.#getNode(data.reference);
-                  this.#treeInstance.create_node(parent, {text: options!.language.newFileName, 'type': options!.nodeTypes.file.type} , 'last', (newNode: any) => {
-                    // try{
-                      this.#treeInstance.edit(newNode, newNode.text, async () => {
-                        try {
-                          // File creation request.
-                          const res = await this.#api.createFile(newNode);
+                  if (!this.#createFileHook) {
+                    // Add a new node to the tree.
+                    this.#treeInstance.create_node(parent, {text: options!.language.newFileName, 'type': options!.nodeTypes.file.type} , 'last', (newNode: any) => {
+                      // try{
+                        // After entering the name of the new node, send a request to the server.
+                        this.#treeInstance.edit(newNode, newNode.text, async () => {
+                          try {
+                            // File creation request.
+                            const res = await this.#api.createFile(newNode);
 
-                          // If the response does not contain the ID of the created node, an error is returned.
-                          if (!res.id)
-                            throw new Error('The ID of the created node is required in the file creation API response');
+                            // If the response does not contain the ID of the created node, an error is returned.
+                            if (!res.id)
+                              throw new Error('The ID of the created node is required in the file creation API response');
 
-                          // Update the ID of the new folder.
-                          this
-                            .#selectNode(newNode)
-                            .#setNodeId(newNode, res.id);
-                          Toast.success(options!.language.createFileSuccessful.replace('_FILE_', trim(newNode.text) as string));
-                        } catch (err) {
-                          await Dialog.unknownError(options!.language.unknownErrorMessage, {title: options!.language.unknownErrorTitle});
-                          this.#errorHandler(err);
-                          throw err;
-                        }
-                      });
-                    // } catch (err) {
-                    //   setTimeout(() => this.#treeInstance.edit(newNode), 0);
-                    // }
-                  });
+                            // Update the ID of the new folder.
+                            this
+                              .#selectNode(newNode)
+                              .#setNodeId(newNode, res.id);
+                            Toast.success(options!.language.createFileSuccessful.replace('_FILE_', trim(newNode.text) as string));
+                          } catch (err) {
+                            await Dialog.unknownError(options!.language.unknownErrorMessage, {title: options!.language.unknownErrorTitle});
+                            this.#errorHandler(err);
+                            throw err;
+                          }
+                        });
+                      // } catch (err) {
+                      //   setTimeout(() => this.#treeInstance.edit(newNode), 0);
+                      // }
+                    });
+                  } else {
+                    // Call node creation hook.
+                    const newNode = await this.#createFileHook(parent);
+                    
+                    // If the hook process cancels the creation of a node, nothing is done.
+                    if (!newNode)
+                      return;
+
+                    // Add a new node to the tree.
+                    this.#treeInstance.create_node(parent, {text: newNode.text, 'type': options!.nodeTypes.file.type} , 'last', (newNode: any) => {
+                      // Update the ID of the new folder.
+                      this
+                        .#selectNode(newNode)
+                        .#setNodeId(newNode, newNode.id);
+                      Toast.success(options!.language.createFileSuccessful.replace('_FILE_', trim(newNode.text) as string));
+                    });
+                  }
                 }
               };
               if (depth > 0) {
@@ -369,6 +392,22 @@ export default class Tree {
    */
   onReady(handler: (evnt: any) => void): Tree {
     this.#readyhHandler = handler;
+    return this;
+  }
+
+  /**
+   * Hook file creation process.
+   * If the hook is not set, the node is simply added to the folder and after entering the node name, the node is sent to the server.
+   * If you want to have your own node creation logic, use the hook.
+   *
+   * If a node is created by the hook function, return the ID and text of the created node.
+   * If the creation is canceled, return a value(null, false, or undefined)  that causes the judgment to be false.
+   *
+   * @param {(parent: any) => Promise<{id: string|number, text: string}|null|undefined|false>} hook Hook function.
+   * @return {Tree}
+   */
+  onCreateFileHook(hook: (parent: any) => Promise<{id: string|number, text: string}|null|undefined|false>): Tree {
+    this.#createFileHook = hook;
     return this;
   }
 

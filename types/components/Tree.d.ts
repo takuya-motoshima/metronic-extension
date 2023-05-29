@@ -37,6 +37,21 @@ export default class Tree {
      */
     onReady(handler: (evnt: any) => void): Tree;
     /**
+     * Hook file creation process.
+     * If the hook is not set, the node is simply added to the folder and after entering the node name, the node is sent to the server.
+     * If you want to have your own node creation logic, use the hook.
+     *
+     * If a node is created by the hook function, return the ID and text of the created node.
+     * If the creation is canceled, return a value(null, false, or undefined)  that causes the judgment to be false.
+     *
+     * @param {(parent: any) => Promise<{id: string|number, text: string}|null|undefined|false>} hook Hook function.
+     * @return {Tree}
+     */
+    onCreateFileHook(hook: (parent: any) => Promise<{
+        id: string | number;
+        text: string;
+    } | null | undefined | false>): Tree;
+    /**
       * Get an array of all selected nodes.
       *
       * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.

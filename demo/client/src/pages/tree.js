@@ -1,8 +1,10 @@
 import {selectRef, Tree} from 'metronic-extension';
 import highlight from '~/shared/highlight';
+import NodeCreateModal from '~/modals/NodeCreateModal';
 
 highlight();
 const ref = selectRef();
+const nodeCreateModal = new NodeCreateModal();
 const tree = new Tree(ref.tree, {
   folderMaxlen: 20,
   fileMaxlen: 20,
@@ -27,6 +29,9 @@ const tree = new Tree(ref.tree, {
   },
 });
 tree
+  .onCreateFileHook(async parent => {
+    return await nodeCreateModal.show(parent.id);
+  })
   .onReady(evnt => {
     // console.log('ready event fires. evnt=', evnt);
     console.log('ready event fires. evnt=', evnt, ', tree.getSelectedNode()=', tree.getSelectedNode());

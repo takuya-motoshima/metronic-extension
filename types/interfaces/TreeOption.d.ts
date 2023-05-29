@@ -39,16 +39,6 @@ export default interface  {
         };
     };
     /**
-     * The node type name of the folder. Default is 'folder'.
-     * @type {string}
-     */
-    folderNodeType: string;
-    /**
-     * The node type name of the file. Defaults to 'file'.
-     * @type {string}
-     */
-    fileNodeType: string;
-    /**
      * Define folder and file creation, deletion, and rename requests.
      * @type {object}
      */
