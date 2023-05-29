@@ -4,6 +4,7 @@ import FileApi from '~/api/FileApi';
 
 export default class extends Modal {
   #fileApi = new FileApi();
+  #ref;
 
   /**
    * @param {string} parent Parent folder ID.
@@ -11,10 +12,18 @@ export default class extends Modal {
   async init(parent) {
     const node = this.#render();
     const instance = new bootstrap.Modal(node);
-    const ref = selectRef(node);
-    const validation = this.#initValidation(ref);
+    this.#ref = selectRef(node);
+    const validation = this.#initValidation();
     this.#initForm(validation, parent);
     return [node, instance];
+  }
+
+  /**
+   * The event after the modal showed. Implementation is done in a subclass.
+   */
+  afterShown() {
+    // Focus on the node name input field.
+    this.#ref.text.focus();
   }
 
   #initForm(validation, parent) {
@@ -32,8 +41,8 @@ export default class extends Modal {
     });
   }
 
-  #initValidation(ref) {
-    return new Validation(ref.form.get(0), {
+  #initValidation() {
+    return new Validation(this.#ref.form.get(0), {
       text: {
         validators: {
           notEmpty: {message: 'Node name is required'},
@@ -77,7 +86,7 @@ export default class extends Modal {
                   <label class="fs-5 fw-semibold mb-2 required">Node Name</label>
                   <!--end::Label-->
                   <!--begin::Input-->
-                  <input type="text" class="form-control form-control-lg form-control-solid" name="text" maxlength="20">
+                  <input data-ref="text" type="text" class="form-control form-control-lg form-control-solid" name="text" maxlength="20">
                   <!--end::Input-->
                 </div>
                 <!--end::Input group-->

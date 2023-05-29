@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.10] - 2023/5/29
+### Fixed
+- Fixed a bug in the tree class where the node ID received by the file node selection event handler immediately after creation was incorrect.
+
 ## [2.0.9] - 2023/5/29
 ### Changed
 - Tree class folder and file creation API now returns an error if the response data does not have the ID of the created node.
@@ -927,3 +931,4 @@ All notable changes to this project will be documented in this file.
 [2.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.6...v2.0.7
 [2.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.7...v2.0.8
 [2.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.8...v2.0.9
+[2.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.9...v2.0.10

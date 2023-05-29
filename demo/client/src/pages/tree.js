@@ -30,11 +30,10 @@ const tree = new Tree(ref.tree, {
 });
 tree
   .onCreateFileHook(async parent => {
-    return await nodeCreateModal.show(parent.id);
+    return nodeCreateModal.show(parent.id);
   })
   .onReady(evnt => {
-    // console.log('ready event fires. evnt=', evnt);
-    console.log('ready event fires. evnt=', evnt, ', tree.getSelectedNode()=', tree.getSelectedNode());
+    console.log('ready event fires');
   })
   .onSelected((evnt, node) => {
     console.log('selected event fires. node=', node);
