@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.11] - 2023/5/30
+### Changed
+- Added a method for renaming nodes to the tree class.
+    ```js
+    import {Tree} from 'metronic-extension';
+
+    // Initialize the tree.
+    const tree = new Tree(document.querySelector('#tree'));
+
+    // Get the currently selected node.
+    const node = tree.getSelectedNode();
+
+    // Rename node.
+    tree.renameNode(node, 'New Name');
+    ```
+
 ## [2.0.10] - 2023/5/29
 ### Fixed
 - Fixed a bug in the tree class where the node ID received by the file node selection event handler immediately after creation was incorrect.
@@ -932,3 +948,4 @@ All notable changes to this project will be documented in this file.
 [2.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.7...v2.0.8
 [2.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.8...v2.0.9
 [2.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.9...v2.0.10
+[2.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.10...v2.0.11

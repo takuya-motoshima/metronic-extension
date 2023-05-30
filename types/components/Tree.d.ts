@@ -93,4 +93,12 @@ export default class Tree {
      * @return {any}
      */
     getParentNode(obj: any): any;
+    /**
+     * Set the text value of a node.
+     *
+     * @param  {any} obj The node, you can pass an array to rename multiple nodes to the same name.
+     * @param  {string} text The new text value.
+     * @return {Tree}
+     */
+    renameNode(obj: any, text: string): Tree;
 }

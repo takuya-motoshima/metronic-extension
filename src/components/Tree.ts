@@ -469,6 +469,28 @@ export default class Tree {
   }
 
   /**
+   * Get parent node.
+   *
+   * @param  {any} obj The node, you can pass an array to delete multiple nodes.
+   * @return {any}
+   */
+  getParentNode(obj: any): any {
+    return this.#getNode(obj.parent);
+  }
+
+  /**
+   * Set the text value of a node.
+   *
+   * @param  {any} obj The node, you can pass an array to rename multiple nodes to the same name.
+   * @param  {string} text The new text value.
+   * @return {Tree}
+   */
+  renameNode(obj: any, text: string): Tree {
+    this.#treeInstance.rename_node(obj, text);
+    return this;
+  }
+
+  /**
    * Select a node.
    *
    * @param {any} obj An array can be used to select multiple nodes.
@@ -561,16 +583,6 @@ export default class Tree {
    */
   #getRootNode(): any {
     return this.#getNode(this.#treeInstance.get_json()[0].id);
-  }
-
-  /**
-   * Get parent node.
-   *
-   * @param  {any} obj The node, you can pass an array to delete multiple nodes.
-   * @return {any}
-   */
-  getParentNode(obj: any): any {
-    return this.#getNode(obj.parent);
   }
 
   /**
