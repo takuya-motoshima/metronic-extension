@@ -363,6 +363,29 @@ export default class Tree {
   }
 
   /**
+   * Refreshes the tree - all nodes are reloaded with calls to load_node.
+   *
+   * @param {boolean} skipLoading An option to skip showing the loading indicator. Default is false.
+   * @param {boolean} forgetState If set to true state will not be reapplied, if set to a function (receiving the current state as argument) the result of that function will be used as state. Default is false.
+   * @return {Tree}
+   */
+  refresh(skipLoading: boolean = false, forgetState: boolean = false): Tree {
+    this.#treeInstance.refresh(skipLoading, forgetState);
+    return this;
+  }
+
+  /**
+   * Refreshes a node in the tree (reload its children) all opened nodes inside that node are reloaded with calls to load_node.
+   *
+   * @param {any} obj The node.
+   * @return {Tree}
+   */
+  refreshNode(obj: any): Tree {
+    this.#treeInstance.refresh_node(obj);
+    return this;
+  }
+
+  /**
    * Triggered when a node is selected.
    *
    * @param {(evnt: any, node: any) => void} handler Handle function.
@@ -459,9 +482,9 @@ export default class Tree {
    *   tree.getPath(node, '/', true); // '1/2/3'
    * });
    *
-   * @param  {any} obj The node.
-   * @param  {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
-   * @param  {boolean} ids If set to true build the path using ID, otherwise node text is used.
+   * @param {any} obj The node.
+   * @param {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
+   * @param {boolean} ids If set to true build the path using ID, otherwise node text is used.
    * @return {string[]|string}
    */
   getPath(obj: any, glue: string|undefined = undefined, ids: boolean = false) {
@@ -471,7 +494,7 @@ export default class Tree {
   /**
    * Get parent node.
    *
-   * @param  {any} obj The node, you can pass an array to delete multiple nodes.
+   * @param {any} obj The node, you can pass an array to delete multiple nodes.
    * @return {any}
    */
   getParentNode(obj: any): any {
@@ -481,8 +504,8 @@ export default class Tree {
   /**
    * Set the text value of a node.
    *
-   * @param  {any} obj The node, you can pass an array to rename multiple nodes to the same name.
-   * @param  {string} text The new text value.
+   * @param {any} obj The node, you can pass an array to rename multiple nodes to the same name.
+   * @param {string} text The new text value.
    * @return {Tree}
    */
   renameNode(obj: any, text: string): Tree {
@@ -529,18 +552,6 @@ export default class Tree {
   }
 
   /**
-   * Refreshes the tree - all nodes are reloaded with calls to `load_node`.
-   *
-   * @param {boolean} skipLoading An option to skip showing the loading indicator.
-   * @param {boolean} forgetState If set to `true` state will not be reapplied.
-   * @return {Tree}
-   */
-  #refresh(skipLoading: boolean = false, forgetState: boolean = false): Tree {
-    this.#treeInstance.refresh(skipLoading, forgetState);
-    return this;
-  }
-
-  /**
     * Get the JSON representation of a node (or the actual jQuery extended DOM node) by using any input (child DOM element, ID string, selector, etc).
     *
     * @param {any} obj An array can be used to deselect multiple nodes.
@@ -566,7 +577,7 @@ export default class Tree {
   /**
     * Delete a node.
     *
-    * @param  {any} obj The node, you can pass an array to delete multiple nodes.
+    * @param {any} obj The node, you can pass an array to delete multiple nodes.
     * @return {boolean}
     */
   #deleteNode(obj: any): Tree {

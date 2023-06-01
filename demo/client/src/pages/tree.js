@@ -48,3 +48,6 @@ tree
   .onError(err => {
     alert(err.message);
   });
+
+// Set a tree instance to a global variable for testing in the Developer Tools.
+globalThis.tree = tree;

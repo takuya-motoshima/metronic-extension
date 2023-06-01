@@ -9,6 +9,21 @@ export default class Tree {
      */
     constructor(context: HTMLDivElement | JQuery, options?: TreeOption);
     /**
+     * Refreshes the tree - all nodes are reloaded with calls to load_node.
+     *
+     * @param {boolean} skipLoading An option to skip showing the loading indicator. Default is false.
+     * @param {boolean} forgetState If set to true state will not be reapplied, if set to a function (receiving the current state as argument) the result of that function will be used as state. Default is false.
+     * @return {Tree}
+     */
+    refresh(skipLoading?: boolean, forgetState?: boolean): Tree;
+    /**
+     * Refreshes a node in the tree (reload its children) all opened nodes inside that node are reloaded with calls to load_node.
+     *
+     * @param {any} obj The node.
+     * @return {Tree}
+     */
+    refreshNode(obj: any): Tree;
+    /**
      * Triggered when a node is selected.
      *
      * @param {(evnt: any, node: any) => void} handler Handle function.
@@ -80,24 +95,24 @@ export default class Tree {
      *   tree.getPath(node, '/', true); // '1/2/3'
      * });
      *
-     * @param  {any} obj The node.
-     * @param  {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
-     * @param  {boolean} ids If set to true build the path using ID, otherwise node text is used.
+     * @param {any} obj The node.
+     * @param {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
+     * @param {boolean} ids If set to true build the path using ID, otherwise node text is used.
      * @return {string[]|string}
      */
     getPath(obj: any, glue?: string | undefined, ids?: boolean): any;
     /**
      * Get parent node.
      *
-     * @param  {any} obj The node, you can pass an array to delete multiple nodes.
+     * @param {any} obj The node, you can pass an array to delete multiple nodes.
      * @return {any}
      */
     getParentNode(obj: any): any;
     /**
      * Set the text value of a node.
      *
-     * @param  {any} obj The node, you can pass an array to rename multiple nodes to the same name.
-     * @param  {string} text The new text value.
+     * @param {any} obj The node, you can pass an array to rename multiple nodes to the same name.
+     * @param {string} text The new text value.
      * @return {Tree}
      */
     renameNode(obj: any, text: string): Tree;

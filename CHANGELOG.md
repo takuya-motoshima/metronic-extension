@@ -1,6 +1,33 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.12] - 2023/6/1
+### Changed
+- Added tree refresh and node refresh methods to the tree class.
+    - Tree Refresh API.  
+        Syntax:  
+        ```js
+        refresh(skipLoading: boolean = false, forgetState: boolean = true): Tree
+        ```
+
+        Parameters:  
+        - skipLoading: An option to skip showing the loading indicator. Default is false.
+        - forgetState: If set to true state will not be reapplied, if set to a function (receiving the current state as argument) the result of that function will be used as state. Default is false.
+
+        Return:  
+        - Tree instance.
+    - Node refresh API.  
+        Syntax:  
+        ```js
+        refreshNode(obj: any): Tree
+        ```
+
+        Parameters:  
+        - obj: The node.
+
+        Return:  
+        - Tree instance.
+
 ## [2.0.11] - 2023/5/30
 ### Changed
 - Added a method for renaming nodes to the tree class.
@@ -949,3 +976,4 @@ All notable changes to this project will be documented in this file.
 [2.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.8...v2.0.9
 [2.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.9...v2.0.10
 [2.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.10...v2.0.11
+[2.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.11...v2.0.12
