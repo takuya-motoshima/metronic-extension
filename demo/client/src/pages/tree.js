@@ -30,7 +30,9 @@ const tree = new Tree(ref.tree, {
 });
 tree
   .onCreateFileHook(async parent => {
-    return nodeCreateModal.show(parent.id);
+    const newNode = await nodeCreateModal.show(parent.id);
+    console.log('newNode=', newNode);
+    return newNode;
   })
   .onReady(evnt => {
     console.log('ready event fires');
