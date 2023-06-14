@@ -1,6 +1,32 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.13] - 2023/6/2
+### Changed
+- Added auto-scroll option (shouldFocus: boolean) for invalid elements to form validation.  
+    The default value of the option is true.
+    ```js
+    import {Validation} from 'metronic-extension';
+
+    // Automatically validate the form when pressing its Submit button.
+    const enableSubmitTrigger = true;
+
+    // Stop performing remaining validators if there is a validator that the field does not pass.
+    const enableSequence = true;
+
+    // Scroll to invalid element on submit.
+    const shouldFocus = true;
+    const validation = new Validation(document.getElementById('myForm'), {
+      username: {
+        validators: {
+          notEmpty: {
+            message: 'The username is required'
+          },
+        }
+      }
+    }, enableSubmitTrigger, enableSequence, shouldFocus);
+    ```
+
 ## [2.0.12] - 2023/6/1
 ### Changed
 - Added tree refresh and node refresh methods to the tree class.
@@ -273,7 +299,6 @@ All notable changes to this project will be documented in this file.
 
     // Stop performing remaining validators if there is a validator that the field does not pass.
     const enableSequence = true;
-
     const validation = new Validation(document.getElementById('myForm'), {
       username: {
         validators: {
@@ -797,10 +822,9 @@ All notable changes to this project will be documented in this file.
 
     JS:
     ```js
-    import {selectRef, Validation} from 'metronic-extension';
+    import {Validation} from 'metronic-extension';
 
-    const ref = selectRef();
-    const validation = new Validation(ref.form, {
+    const validation = new Validation(document.getElementById('myForm'), {
       betweenValues: {
         validators: {
           isIntegersBetween: {
@@ -884,10 +908,9 @@ All notable changes to this project will be documented in this file.
 
     JS:
     ```js
-    import {selectRef, Validation} from 'metronic-extension';
+    import {Validation} from 'metronic-extension';
 
-    const ref = selectRef();
-    const validation = new Validation(ref.form, {
+    const validation = new Validation(document.getElementById('myForm'), {
       phoneNumberJp: {
         validators: {
           notEmpty: {message: 'Enter here.'},

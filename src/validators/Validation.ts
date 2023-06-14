@@ -42,6 +42,11 @@ export default class Validation {
   form: HTMLFormElement;
   submit: HTMLButtonElement|null = null;
   fv: FormValidation.core.Core;
+  #shouldFocus: boolean;
+  #formInvalidHandler: (evnt: any) => void = (evnt: any) => {};
+  #formValidHandler: (evnt: any) => void = (evnt: any) => {};
+  #fieldValidHandler: (name: string) => void = (name: string) => {};
+  #fieldInvalidHandler: (name: string) => void = (name: string) => {};
 
   /**
    * Initialization.
@@ -50,7 +55,8 @@ export default class Validation {
     form: string|HTMLFormElement|JQuery,
     fields: FormValidation.core.FieldsOptions,
     enableSubmitTrigger: boolean = true,
-    enableSequence: boolean = true
+    enableSequence: boolean = true,
+    shouldFocus: boolean = true
   ) {
     // Check the argument.
     if (isString(form)) {
@@ -64,14 +70,53 @@ export default class Validation {
       this.form = (form as JQuery).get(0) as HTMLFormElement;
     else
       throw new TypeError('For the form parameter, specify a character string, HTMLFormElement, or a JQuery object of HTMLFormElement');
+
+    // Save autoscroll option to invalid elements.
+    this.#shouldFocus = shouldFocus;
+
+    // Set custom validation.
     this.#registerCustomValidators();
+
+    // Get submit button element.
     if (enableSubmitTrigger) {
       this.submit = this.form.querySelector<HTMLButtonElement>('[type="submit"]');
       if (!this.submit && this.form.id)
         // If the submit button is outside the form.
         this.submit = document.querySelector<HTMLButtonElement>(`[form="${this.form.id}"]`);
     }
+
+    // Initialize form validation.
     this.fv = FormValidation.formValidation(this.form, this.#initOptions(fields, enableSubmitTrigger, enableSequence));
+
+    // Set event handler.
+    this.fv
+      .on('core.form.valid', (evnt: any) => {
+        // Triggered when the form is completely validated, and all fields are valid.
+        this.#formValidHandler(evnt);
+      })
+      .on('core.form.invalid', (evnt: any) => {
+        // Triggered when the form is completely validated, and all fields are invalid.
+        if (this.#shouldFocus) {
+          // Scroll to invalid element on submit.
+          const plugin: any = this.fv.getPlugin('bootstrap');
+          if (plugin.opts.rowInvalidClass) {
+            const invalidField: JQuery = $(this.form).find(`.${plugin.opts.rowInvalidClass}:first`);
+            if (invalidField.length > 0)
+              (invalidField.get(0) as HTMLElement).scrollIntoView();
+          }
+        }
+
+        // Invoke callback function.
+        this.#formInvalidHandler(evnt);
+      })
+      .on('core.field.valid', (...arg: unknown[]) => {
+        // Triggered after validating a field, and it is a valid field.
+        this.#fieldValidHandler(arg[0] as string);
+      })
+      .on('core.field.invalid', (...arg: unknown[]) => {
+        // Triggered after validating a field, and it is an invalid field.
+        this.#fieldInvalidHandler(arg[0] as string);
+      });
   }
 
   /**
@@ -85,16 +130,16 @@ export default class Validation {
   /**
    * Triggered when the form is completely validated, and all fields are valid.
    */
-  onValid(handler: any): Validation {
-    this.fv.on('core.form.valid', handler);
+  onValid(handler: (evnt: any) => void): Validation {
+    this.#formValidHandler = handler;
     return this;
   }
 
   /**
    * Triggered when the form is completely validated, and all fields are invalid.
    */
-  onInvalid(handler: any): Validation {
-    this.fv.on('core.form.invalid', handler);
+  onInvalid(handler: (evnt: any) => void): Validation {
+    this.#formInvalidHandler = handler;
     return this;
   }
 
@@ -102,9 +147,7 @@ export default class Validation {
    * Sets the event handler when the field becomes valid.
    */
   onFieldValid(handler: (name: string) => void): Validation {
-    this.fv.on('core.field.valid', (...arg: unknown[]) => {
-      handler(arg[0] as string);
-    });
+    this.#fieldValidHandler = handler;
     return this;
   }
 
@@ -112,9 +155,7 @@ export default class Validation {
    * Sets the event handler when the field becomes invalid.
    */
   onFieldInvalid(handler: (name: string) => void): Validation {
-    this.fv.on('core.field.invalid', (...arg: unknown[]) => {
-      handler(arg[0] as string);
-    });
+    this.#fieldInvalidHandler = handler;
     return this;
   }
 
@@ -191,7 +232,7 @@ export default class Validation {
    * validation.addField(`name`, {
    *   notEmpty: {message: 'Enter your name'},
    * })
-   * @see {@link https://formvalidation.io/guide/api/add-field|FormValidation • addField() method}
+   * @see {@link https://formvalidation.io/guide/api/add-field|FormValidation.addField() method}
    */
   addField(field: string, validators: {[validatorName: string]: FormValidation.core.ValidatorOptions}): Validation {
     this.fv.addField(field, {validators});
@@ -237,7 +278,7 @@ export default class Validation {
    *     }
    *   }
    * });
-    * @see {@link https://formvalidation.io/guide/api/register-validator/|FormValidation • registerValidator() method}
+    * @see {@link https://formvalidation.io/guide/api/register-validator/|FormValidation.registerValidator() method}
     */
   addRule(name: string, func: () => FormValidation.core.ValidateFunction<FormValidation.core.ValidateOptions>): Validation {
     this.fv.registerValidator(name, func);

@@ -42,7 +42,7 @@ export default class Validation {
     /**
      * Initialization.
      */
-    constructor(form: string | HTMLFormElement | JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger?: boolean, enableSequence?: boolean);
+    constructor(form: string | HTMLFormElement | JQuery, fields: FormValidation.core.FieldsOptions, enableSubmitTrigger?: boolean, enableSequence?: boolean, shouldFocus?: boolean);
     /**
      * Validate all fields.
      * If it is valid, it returns true, if invalid, it returns false.
@@ -51,11 +51,11 @@ export default class Validation {
     /**
      * Triggered when the form is completely validated, and all fields are valid.
      */
-    onValid(handler: any): Validation;
+    onValid(handler: (evnt: any) => void): Validation;
     /**
      * Triggered when the form is completely validated, and all fields are invalid.
      */
-    onInvalid(handler: any): Validation;
+    onInvalid(handler: (evnt: any) => void): Validation;
     /**
      * Sets the event handler when the field becomes valid.
      */
@@ -104,7 +104,7 @@ export default class Validation {
      * validation.addField(`name`, {
      *   notEmpty: {message: 'Enter your name'},
      * })
-     * @see {@link https://formvalidation.io/guide/api/add-field|FormValidation • addField() method}
+     * @see {@link https://formvalidation.io/guide/api/add-field|FormValidation.addField() method}
      */
     addField(field: string, validators: {
         [validatorName: string]: FormValidation.core.ValidatorOptions;
@@ -135,7 +135,7 @@ export default class Validation {
      *     }
      *   }
      * });
-      * @see {@link https://formvalidation.io/guide/api/register-validator/|FormValidation • registerValidator() method}
+      * @see {@link https://formvalidation.io/guide/api/register-validator/|FormValidation.registerValidator() method}
       */
     addRule(name: string, func: () => FormValidation.core.ValidateFunction<FormValidation.core.ValidateOptions>): Validation;
     /**
