@@ -11,41 +11,55 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): dat
     input = $(input);
   else if (!(input instanceof $))
     throw new TypeError('The input parameter specifies an HTMLInputElement or a JQuery object of HTMLInputElement');
+
+  // Initialize options.
   options = fusion({
     minDate: undefined,
     maxDate: undefined,
-    locale: 'ja',
+    locale: undefined,
+    format: 'YYYY/M/D',
     language: {
-      applyLabel: '決定',
-      cancelLabel: '削除'
-    }
+      applyLabel: 'Apply',
+      cancelLabel: 'Cancel',
+    },
+    autoUpdateInput: true,
   }, options);
+
+  // Set date locales.
   if (options!.locale)
     moment.locale(options?.locale);
+
+  // Initialize Date Range Picker.
   return (input as JQuery)
     .on('apply.daterangepicker', (evnt: Event, picker: daterangepicker.DateRangePicker) => {
+      // Triggered when the apply button is clicked, or when a predefined range is clicked.
       if (!picker)
         return;
-      const format = picker.locale.format;
-      picker.element.val(`${picker.startDate.format(format)} - ${picker.endDate.format(format)}`);
+
+      // If the autoUpdateInput option is false, the selected date is not reflected in the display and the display value must be set manually.
+      if (!options!.autoUpdateInput) {
+        const format = picker.locale.format;
+        picker.element.val(`${picker.startDate.format(format)} - ${picker.endDate.format(format)}`);
+      }
     })
     .on('cancel.daterangepicker', (evnt: Event, picker: daterangepicker.DateRangePicker) => {
+      // After selecting the Cancel button, the input is cleared.
       picker.element.val('').trigger('apply.daterangepicker');
     })
     .daterangepicker({
-      timePicker: false,
-      autoUpdateInput: false,
+      autoUpdateInput: options!.autoUpdateInput,
       // autoApply: true,
-      showDropdowns: false,
       minDate: options!.minDate,
       maxDate: options!.maxDate,
       locale: {
-        format: 'YYYY/M/D',
+        format: options!.format,
         daysOfWeek: moment.weekdaysMin(),
         monthNames: moment.monthsShort(),
         applyLabel: options!.language!.applyLabel,
         cancelLabel: options!.language!.cancelLabel
-      }
+      },
+      showDropdowns: false,
+      timePicker: false,
     })
     .data('daterangepicker') as daterangepicker;
 }

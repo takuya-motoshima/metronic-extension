@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.14] - 2023/6/28
+### Changed
+- Added new option to Date Range Picker initialization method.
+  - autoUpdateInput:  
+    Indicates whether the date range picker should automatically update the value of the &lt;input&gt; element it&#039;s attached to at initialization and when the selected dates change. Default is true.
+  - format:  
+    Date Format. Default is &#039;YYYY/M/D&#039;.
+
 ## [2.0.13] - 2023/6/2
 ### Changed
 - Added auto-scroll option (shouldFocus: boolean) for invalid elements to form validation.  
@@ -1000,3 +1008,5 @@ All notable changes to this project will be documented in this file.
 [2.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.9...v2.0.10
 [2.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.10...v2.0.11
 [2.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.11...v2.0.12
+[2.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.12...v2.0.13
+[2.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.13...v2.0.14
