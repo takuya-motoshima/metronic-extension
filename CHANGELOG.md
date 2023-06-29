@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.15] - 2023/6/29
+### Changed
+- Added new option to Date Range Picker initialization method.
+  - maxDays:  
+    Maximum number of days that can be selected. Default is indefinite (undefined).
+
 ## [2.0.14] - 2023/6/28
 ### Changed
 - Added new option to Date Range Picker initialization method.
@@ -1010,3 +1016,4 @@ All notable changes to this project will be documented in this file.
 [2.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.11...v2.0.12
 [2.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.12...v2.0.13
 [2.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.13...v2.0.14
+[2.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.14...v2.0.15

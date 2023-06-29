@@ -16,6 +16,7 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): dat
   options = fusion({
     minDate: undefined,
     maxDate: undefined,
+    maxDays: undefined,
     locale: undefined,
     format: 'YYYY/M/D',
     language: {
@@ -51,6 +52,7 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): dat
       // autoApply: true,
       minDate: options!.minDate,
       maxDate: options!.maxDate,
+      maxSpan: options!.maxDays ? {days: options!.maxDays} : undefined,
       locale: {
         format: options!.format,
         daysOfWeek: moment.weekdaysMin(),

@@ -13,6 +13,11 @@ export default interface  {
      */
     maxDate?: string;
     /**
+     * Maximum number of days that can be selected. Default is indefinite (undefined).
+     * @type number
+     */
+    maxDays?: number;
+    /**
      * Language Code (ja, en, etc.). Default is none (undefined).
      * @type string
      */
