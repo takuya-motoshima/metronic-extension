@@ -1,4 +1,4 @@
-import moment from 'moment';
+// import moment from 'moment';
 import fusion from 'deep-fusion';
 import DatePickerOption from '~/interfaces/DatePickerOption';
 
@@ -28,7 +28,7 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): dat
 
   // Set date locales.
   if (options!.locale)
-    moment.locale(options?.locale);
+    window.moment.locale(options?.locale);
 
   // Initialize Date Range Picker.
   return (input as JQuery)
@@ -55,8 +55,8 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): dat
       maxSpan: options!.maxDays ? {days: options!.maxDays} : undefined,
       locale: {
         format: options!.format,
-        daysOfWeek: moment.weekdaysMin(),
-        monthNames: moment.monthsShort(),
+        daysOfWeek: window.moment.weekdaysMin(),
+        monthNames: window.moment.monthsShort(),
         applyLabel: options!.language!.applyLabel,
         cancelLabel: options!.language!.cancelLabel
       },

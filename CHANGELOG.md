@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.16] - 2023/6/30
+### Fixed
+- Fixed a bug in the Date range picker initialization function (initDatepicker) where the locale option was not applied.
+
 ## [2.0.15] - 2023/6/29
 ### Changed
 - Added new option to Date Range Picker initialization method.
@@ -1017,3 +1021,4 @@ All notable changes to this project will be documented in this file.
 [2.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.12...v2.0.13
 [2.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.13...v2.0.14
 [2.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.14...v2.0.15
+[2.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.15...v2.0.16

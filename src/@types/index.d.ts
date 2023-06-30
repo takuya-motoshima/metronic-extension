@@ -12,5 +12,6 @@ declare global {
     Tagify: any;
     Dropzone: any;
     ClipboardJS: any;
+    moment: moment;
   }
 }

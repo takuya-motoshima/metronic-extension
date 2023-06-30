@@ -4,10 +4,6 @@ import highlight from '~/shared/highlight';
 highlight();
 const ref = selectRef();
 initDatepicker(ref.dateRangePicker, {
-  minDate: moment().format('YYYY/M/D'),
-  locale: 'en',
-  language: {
-    applyLabel: 'OK',
-    cancelLabel: 'Cancel',
-  }
+  // minDate: moment().format('YYYY/M/D'),
+  // locale: 'ja',
 });
