@@ -36,8 +36,8 @@ export default (context: HTMLElement|JQuery, options?: ShowPasswordToggleOption)
   
   // Initialize options.
   options = fusion({
-    showButtonClass: 'bi bi-eye fs-4',
-    hideButtonClass: 'bi bi-eye-slash fs-4'
+    showButtonClass: 'bi bi-eye fs-2',
+    hideButtonClass: 'bi bi-eye-slash fs-2'
   }, options);
   if (context instanceof HTMLInputElement
     && context!.getAttribute('data-show-password-toggle')

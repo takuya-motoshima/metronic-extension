@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.17] - 2023/7/13
+- The display size of the password toggle icon was increased. From '1.25rem' to 'calc(1.275rem + .3vw)'.
+
 ## [2.0.16] - 2023/6/30
 ### Fixed
 - Fixed a bug in the Date range picker initialization function (initDatepicker) where the locale option was not applied.
@@ -1022,3 +1025,4 @@ All notable changes to this project will be documented in this file.
 [2.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.13...v2.0.14
 [2.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.14...v2.0.15
 [2.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.15...v2.0.16
+[2.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.16...v2.0.17
