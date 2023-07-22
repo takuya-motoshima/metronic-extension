@@ -1,7 +1,29 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.18] - 2023/7/23
+### Added
+- Added a method for acquiring file input elements to the image input component (ImageInput).
+
+    ![image-input-component.jpg](screencaps/2.0.18/image-input-component.jpg)
+
+    HTML:
+    ```html
+    <div id="imageInput"></div>
+    ```
+
+    JS:
+    ```js
+    import {ImageInput} from 'metronic-extension';
+
+    const imageInput = new ImageInput(document.getElementById('imageInput'));
+
+    // Get input element (type="file").
+    const fileInput = imageInput.getInputElement();
+    ```
+
 ## [2.0.17] - 2023/7/13
+### Changed
 - The display size of the password toggle icon was increased. From '1.25rem' to 'calc(1.275rem + .3vw)'.
 
 ## [2.0.16] - 2023/6/30
@@ -1026,3 +1048,4 @@ All notable changes to this project will be documented in this file.
 [2.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.14...v2.0.15
 [2.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.15...v2.0.16
 [2.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.16...v2.0.17
+[2.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.17...v2.0.18

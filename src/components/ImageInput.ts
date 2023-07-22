@@ -120,6 +120,13 @@ export default class {
   }
 
   /**
+   * Returns the selected image input instance input field.
+   */
+  getInputElement(): HTMLInputElement {
+    return this.#imageInput.getInputElement();
+  }
+
+  /**
    * Rendering image input UI.
    */
   #render(context: HTMLDivElement, options: ImageInputOption) {

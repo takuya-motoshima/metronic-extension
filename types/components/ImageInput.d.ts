@@ -32,4 +32,8 @@ export default class {
      * Download the current image.
      */
     download(): void;
+    /**
+     * Returns the selected image input instance input field.
+     */
+    getInputElement(): HTMLInputElement;
 }
