@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.19] - 2023/7/27
+### Changed
+- Add color-scheme CSS to the theme.
+    ```css
+    [data-bs-theme=dark] {
+      color-scheme: dark;
+    }
+    ```
+- Faster loading times when data URLs are set for the current and default images in the image input component (ImageInput).
+
 ## [2.0.18] - 2023/7/23
 ### Added
 - Added a method for acquiring file input elements to the image input component (ImageInput).
@@ -1049,3 +1059,4 @@ All notable changes to this project will be documented in this file.
 [2.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.15...v2.0.16
 [2.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.16...v2.0.17
 [2.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.17...v2.0.18
+[2.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.18...v2.0.19

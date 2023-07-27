@@ -5,8 +5,8 @@ export default async (url: string): Promise<string> => {
   const res = await fetch(url);
   if (!res.ok)
     throw new Error(`${url} cannot be loaded`);
-  const isSVG = /..*\.svg(\?.*)?$/i.test(url);
-  if (!isSVG)
+  const isSvg = /..*\.svg(\?.*)?$/i.test(url);
+  if (!isSvg)
     return new Promise<string>(async (rslv, rej) => {
       const reader = new FileReader();
       reader.onload = () => rslv(reader.result as string);

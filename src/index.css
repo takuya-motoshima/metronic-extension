@@ -10,6 +10,20 @@
   --kt-menu-link-color-active: var(--bs-menu-link-color-active);
 }
 
+[data-bs-theme=dark] {
+  color-scheme: dark;
+}
+
+/* Scroll bars. */
+/* ::-webkit-scrollbar {
+  width: var(--bs-scrollbar-size);
+  height: var(--bs-scrollbar-size);
+}
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--bs-scrollbar-color) !important;
+  } */
+
 /* Custom styling of jstree. */
 /* Context menu. */
 .vakata-context li > a {

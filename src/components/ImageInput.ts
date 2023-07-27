@@ -53,9 +53,18 @@ export default class {
         cancel: '変更を取り消す。'
       }
     }, options);
+
+    // Render the current and default images.
     (async () => {
-      const defaultImg = options.default ? await fetchDataUrl(options.default) : undefined;
-      const currentImg = options.current ? await fetchDataUrl(options.current) : undefined;
+      // If the default image is not a DataURL but a URL, it is loaded remotely.
+      let defaultImg;
+      if (options.default)
+        defaultImg = isDataUrl(options.default) ? options.default : await fetchDataUrl(options.default);
+
+      // If the current image is not a DataURL but a URL, it is loaded remotely.
+      let currentImg;
+      if (options.current)
+        currentImg = isDataUrl(options.current) ? options.current : await fetchDataUrl(options.current);
 
       // If the current and the default image are the same, the image change cancel button is not displayed in the initial display.
       if (options.current && options.default && await compareImg(options.current, options.default))
