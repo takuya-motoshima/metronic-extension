@@ -316,6 +316,72 @@ new Datatable(ref.colvisTable, {
               <!--end::Code-->
             </div>
             <!--end::Section-->
+            <!--begin::Section-->
+            <div class="py-10">
+              <!--begin::Heading-->
+              <h1 class="anchor fw-bold mb-5" id="disableFirstAjaxTable" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
+                <a href="#disableFirstAjaxTable"></a>Asynchronous, does not load data first
+              </h1>
+              <!--end::Heading-->
+              <!--begin::Block-->
+              <div class="my-5">
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-stack flex-wrap mb-5">
+                  <!--begin::Toolbar-->
+                  <div class="d-flex justify-content-end">
+                    <button data-on-reload-disable-first-ajax-table type="button" class="btn btn-primary">Reload</button>
+                  </div>
+                  <!--end::Toolbar-->
+                </div>
+                <!--end::Wrapper-->
+                <!--begin::Datatable-->
+                <table data-ref="disableFirstAjaxTable" class="table table-row-bordered gy-5">
+                  <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 gs-0">
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <!--end::Datatable-->
+              </div>
+              <!--end::Block-->
+              <!--begin::Code-->
+              <div class="py-5">
+                <!--begin::Highlight-->
+                <div class="highlight">
+                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                  <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#disableFirstAjaxTableHtmlTabPane" role="tab">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#disableFirstAjaxTableJsTabPane" role="tab">JAVASCRIPT</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="disableFirstAjaxTableHtmlTabPane" role="tabpanel">
+                      <div class="highlight-code">
+                        <pre class="language-html" style="max-height:400px">
+                          <code class="language-html"></code>
+                        </pre>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="disableFirstAjaxTableJsTabPane" role="tabpanel">
+                      <div class="highlight-code">
+                        <pre class="language-javascript">
+                          <code class="language-javascript"></code>
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end::Highlight-->
+              </div>
+              <!--end::Code-->
+            </div>
+            <!--end::Section-->
           </div>
           <!--end::Card Body-->
         </div>
@@ -348,6 +414,18 @@ new Datatable(ref.colvisTable, {
                       <span class="bullet bullet-dot"></span>
                     </span>
                     <span class="menu-title">Column Visible Datatable</span>
+                  </a>
+                  <!--end::Link-->
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="menu-item py-2 px-3">
+                  <!--begin::Link-->
+                  <a href="#disableFirstAjaxTable" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                    <span class="menu-bullet">
+                      <span class="bullet bullet-dot"></span>
+                    </span>
+                    <span class="menu-title">Asynchronous, does not load data first</span>
                   </a>
                   <!--end::Link-->
                 </li>

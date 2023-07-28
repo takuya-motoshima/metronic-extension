@@ -1,6 +1,68 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.20] - 2023/7/28
+### Changed
+- Added option (options.firstAjax) to not load data first when retrieving Datatable data asynchronously.  
+    If true, data is loaded asynchronously first.  
+    If false, data is not loaded until the reload method is called.  
+    The default for this option (options.firstAjax) is true.
+
+    HTML:
+    ```html
+    <button data-ref="reloadButton" type="button" class="btn btn-primary">Reload</button>
+    <table data-ref="myTable" class="table table-row-bordered gy-5">
+      <thead>
+        <tr class="fw-semibold fs-6 text-muted">
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    ```
+
+    JS:
+    ```js
+    import {Datatable, selectRef} from 'metronic-extension';
+
+    const ref = selectRef();
+    const myTable = new Datatable(ref.myTable, {
+      // If asynchronous mode (options.ajax) is enabled, whether to request table data remotely first.
+      // If true, request table data first; if false, do not request table data until the Datatable.reload method is called.
+      // Default is true.
+      firstAjax: false,
+      ajax: 'http://localhost:8080/api/persons',
+      dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
+      columnDefs: [
+        {targets: 0, data: 'name'},
+        {targets: 1, data: 'position'},
+        {targets: 2, data: 'office'},
+        {targets: 3, data: 'age'},
+        {targets: 4, data: 'startDate'},
+        {targets: 5, data: 'salary'}
+      ],
+    });
+
+    // When the reload button is clicked, the data is loaded asynchronously.
+    ref.reloadButton.on('click', () => {
+      myTable.reload();
+    });
+    ```
+- Added locale option for display text in data tables (options.locale).  
+    English (en) or Japanese (ja) can be specified.  
+    The default is English (en).
+   
+    ```js
+    const myTable = new Datatable(document.getElementById('myTable'), {
+      locale: 'en',
+    });
+    ```
+
 ## [2.0.19] - 2023/7/27
 ### Changed
 - Add color-scheme CSS to the theme.
@@ -289,15 +351,15 @@ All notable changes to this project will be documented in this file.
     You can use await to wait until after the data has been reloaded and the table has been completely redrawn.  
     Promise returns JSON data that will be returned by the server.
     ```js
-    const myDatatable = new Datatable(ref.myDatatable);
+    const myTable = new Datatable(document.getElementById('myTable'));
 
     // Reload while maintaining the current page position.
     let resetPaging = false;
-    const json = await myDatatable.reload(resetPaging);
+    const json = await myTable.reload(resetPaging);
 
     // Reload with the current page position back to the first page.
     resetPaging = true;
-    const json = await myDatatable.reload(resetPaging);
+    const json = await myTable.reload(resetPaging);
     ```
 
 ## [2.0.4] - 2023/3/26
@@ -307,17 +369,17 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added a method to clear all rows to the Datatable class.
     ```js
-    const myDatatable = new Datatable(ref.myDatatable);
+    const myTable = new Datatable(document.getElementById('myTable'));
 
     // All rows are cleared.
-    myDatatable.clear();
+    myTable.clear();
     ```
 - Add getter for DataTables API object to Datatable class.
     ```js
-    const myDatatable = new Datatable(ref.myDatatable);
+    const myTable = new Datatable(document.getElementById('myTable'));
 
     // Object of the DataTables API.
-    myDatatable.api;
+    myTable.api;
     ```
 
 ## [2.0.3] - 2023/3/15
@@ -536,13 +598,13 @@ All notable changes to this project will be documented in this file.
 - Added a page reset parameter to the reload method of the Datatable component.  
     The default value for page reset is true.
     ```js
-    const myDatatable = new Datatable(ref.myDatatable);
+    const myTable = new Datatable(document.getElementById('myTable'));
 
     // Reload. Page position after reload is 1.
-    myDatatable.reload(true);
+    myTable.reload(true);
 
     // Reload the page while maintaining the current page position.
-    myDatatable.reload(false);
+    myTable.reload(false);
     ```
 
 ## [1.0.20] - 2023/1/24
@@ -550,7 +612,7 @@ All notable changes to this project will be documented in this file.
 - Add column reference methods to DataTable class (Datatable.column(columnSelector: any, modifier?: DataTables.ObjectSelectorModifier): DataTables.ColumnMethods).
     HTML:
     ```html
-    <table data-ref="myDatatable" class="table table-row-bordered gy-5">
+    <table id="myTable" class="table table-row-bordered gy-5">
       <thead>
         <tr class="fw-semibold fs-6 text-muted">
           <th>Name</th>
@@ -567,10 +629,10 @@ All notable changes to this project will be documented in this file.
 
     JS:
     ```js
-    const myDatatable = new Datatable(ref.myDatatable);
+    const myTable = new Datatable(document.getElementById('myTable'));
 
     // Hide the second column.
-    myDatatable.column(1).visible(false);
+    myTable.column(1).visible(false);
     ```
 
 ## [1.0.19] - 2023/1/23
@@ -581,7 +643,7 @@ All notable changes to this project will be documented in this file.
 
     HTML:
     ```html
-    <table data-ref="myDatatable" class="table table-row-bordered gy-5">
+    <table data-ref="myTable" class="table table-row-bordered gy-5">
       <thead>
         <tr class="fw-semibold fs-6 text-muted">
           <th>Name</th>
@@ -600,47 +662,43 @@ All notable changes to this project will be documented in this file.
     ```js
     import {Datatable, selectRef} from 'metronic-extension';
 
-    function initDatatable() {
-      new Datatable(ref.myDatatable, {
-        ajax: {
-          url: 'http://localhost:8080/api/persons'
-        }
-        dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
-        columnDefs: [
-          {targets: 0, data: 'name'},
-          {targets: 1, data: 'position'},
-          {targets: 2, data: 'office'},
-          {targets: 3, data: 'age'},
-          {targets: 4, data: 'startDate'},
-          {targets: 5, data: 'salary'}
-        ],
-        buttons: [
-          {
-            extend: 'colvis',
-            text: 'Show / hide columns',
-            // Columns selector that defines the columns to include in the column visibility button set.
-            // CSS selectors, column indexes, etc. can be used to specify columns to switch visibility.
-            columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
-            // columns: [1,2,3,4],
-          }
-        ],
-        stateSave: true,// Save the column visibility in the browser.
-        stateSaveParams: (_, data) => {
-          // Remove items not to be saved in the browser.
-          delete data.length;
-          delete data.order;
-          delete data.paging;
-          delete data.scroller;
-          delete data.search;
-          delete data.searchBuilder;
-          delete data.searchPanes;
-          delete data.select;
-        }
-      });
-    }
-
     const ref = selectRef();
-    initDatatable();
+    const myTable = new Datatable(ref.myTable, {
+      ajax: {
+        url: 'http://localhost:8080/api/persons'
+      }
+      dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
+      columnDefs: [
+        {targets: 0, data: 'name'},
+        {targets: 1, data: 'position'},
+        {targets: 2, data: 'office'},
+        {targets: 3, data: 'age'},
+        {targets: 4, data: 'startDate'},
+        {targets: 5, data: 'salary'}
+      ],
+      buttons: [
+        {
+          extend: 'colvis',
+          text: 'Show / hide columns',
+          // Columns selector that defines the columns to include in the column visibility button set.
+          // CSS selectors, column indexes, etc. can be used to specify columns to switch visibility.
+          columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
+          // columns: [1,2,3,4],
+        }
+      ],
+      stateSave: true,// Save the column visibility in the browser.
+      stateSaveParams: (_, data) => {
+        // Remove items not to be saved in the browser.
+        delete data.length;
+        delete data.order;
+        delete data.paging;
+        delete data.scroller;
+        delete data.search;
+        delete data.searchBuilder;
+        delete data.searchPanes;
+        delete data.select;
+      }
+    });
     ```
 
 ## [1.0.18] - 2023/1/10
@@ -1060,3 +1118,4 @@ All notable changes to this project will be documented in this file.
 [2.0.17]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.16...v2.0.17
 [2.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.17...v2.0.18
 [2.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.18...v2.0.19
+[2.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.19...v2.0.20

@@ -1,7 +1,7 @@
 import fusion from 'deep-fusion';
 // NOTE: Do not import sweetalert2 here to use the Swal object of the Metronic theme.
 // import Swal from 'sweetalert2';
-import * as DialogOptions from '~/interfaces/DialogOptions';
+import * as DialogOption from '~/interfaces/DialogOption';
 
 /**
  * Display various dialogs.
@@ -10,7 +10,7 @@ export default class {
   /**
    * Show the confirm dialog.
    */
-  static async confirm(message: string, options: DialogOptions.Confirm|undefined = undefined): Promise<boolean> {
+  static async confirm(message: string, options: DialogOption.Confirm|undefined = undefined): Promise<boolean> {
     // Initialize options.
     options = fusion({
       icon: 'question',
@@ -35,7 +35,7 @@ export default class {
   /**
    * Show the success dialog.
    */
-  static async success(message: string, options: DialogOptions.Success|undefined = undefined): Promise<boolean> {
+  static async success(message: string, options: DialogOption.Success|undefined = undefined): Promise<boolean> {
     // Initialize options.
     options = fusion({
       confirmButtonText: 'OK',
@@ -57,7 +57,7 @@ export default class {
   /**
    * Show the error dialog.
    */
-  static async error(message: string, options: DialogOptions.Error|undefined = undefined): Promise<void> {
+  static async error(message: string, options: DialogOption.Error|undefined = undefined): Promise<void> {
     // Initialize options.
     options = fusion({
       confirmButtonText: 'OK',
@@ -76,7 +76,7 @@ export default class {
   /**
    * Show the warning dialog.
    */
-  static async warning(message: string, options: DialogOptions.Warning|undefined = undefined): Promise<void> {
+  static async warning(message: string, options: DialogOption.Warning|undefined = undefined): Promise<void> {
     // Initialize options.
     options = fusion({
       confirmButtonText: 'OK'
@@ -95,7 +95,7 @@ export default class {
   /**
    * Show the info dialog.
    */
-  static async info(message: string, options: DialogOptions.Info|undefined = undefined): Promise<void> {
+  static async info(message: string, options: DialogOption.Info|undefined = undefined): Promise<void> {
     // Initialize options.
     options = fusion({
       confirmButtonText: 'OK'
@@ -114,7 +114,7 @@ export default class {
   /**
    * Show unknown error.
    */
-  static async unknownError(message: string = 'エラーが発生したため処理を中断しました。再度お試し下さい。何度も発生する場合は、お問い合わせ窓口までご連絡下さい。', options: DialogOptions.UnknownError|undefined = undefined): Promise<void> {
+  static async unknownError(message: string = 'エラーが発生したため処理を中断しました。再度お試し下さい。何度も発生する場合は、お問い合わせ窓口までご連絡下さい。', options: DialogOption.UnknownError|undefined = undefined): Promise<void> {
     // Initialize options.
     options = fusion({
       title: '予期せぬエラーが発生しました。'
@@ -125,7 +125,7 @@ export default class {
   /**
    * Show loading.
    */
-  static async loading(message: string, options: DialogOptions.Loading|undefined = undefined): Promise<void> {
+  static async loading(message: string, options: DialogOption.Loading|undefined = undefined): Promise<void> {
     return window.Swal.fire({
       html: message,
       allowEscapeKey: false,

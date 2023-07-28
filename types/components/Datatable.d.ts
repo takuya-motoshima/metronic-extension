@@ -1,4 +1,5 @@
 /// <reference types="datatables.net" />
+import DatatableOption from '~/interfaces/DatatableOption';
 /**
  * DataTable.
  *
@@ -21,7 +22,7 @@ export default class Datatable {
     /**
      * Initialization.
      */
-    constructor(table: string | HTMLTableElement | JQuery, options: DataTables.Settings);
+    constructor(table: string | HTMLTableElement | JQuery, options: DatatableOption);
     /**
      * Object of the DataTables API.
      */

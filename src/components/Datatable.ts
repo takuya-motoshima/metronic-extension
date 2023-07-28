@@ -2,6 +2,7 @@ import fusion from 'deep-fusion';
 import initTooltip from '~/components/initTooltip';
 import isString from '~/misc/isString';
 import isPlainObject from '~/misc/isPlainObject';
+import DatatableOption from '~/interfaces/DatatableOption';
 
 /**
  * DataTable.
@@ -24,10 +25,24 @@ export default class Datatable {
   #table: JQuery;
   #dt: DataTables.Api;
 
+  // Whether to read table data asynchronously.
+  #isAjax: boolean = false;
+
+  // If asynchronous mode (options.ajax) is enabled, whether to request table data remotely first.
+  // If true, request table data first; if false, do not request table data until the Datatable.reload method is called.
+  // Default is true.
+  #firstAjax: boolean = true;
+
+  // Finalized data table options.
+  #options: DatatableOption|null = null;
+
+  // Whether to enable the ajax option on reload.
+  #enableAjaxOnReload: boolean = false;
+
   /**
    * Initialization.
    */
-  constructor(table: string|HTMLTableElement|JQuery, options: DataTables.Settings) {
+  constructor(table: string|HTMLTableElement|JQuery, options: DatatableOption) {
     // Check the argument.
     if (isString(table))
       this.#table = $(table as string);
@@ -37,11 +52,35 @@ export default class Datatable {
       this.#table = table as JQuery;
     else
       throw new TypeError('For the table parameter, specify a character string, HTMLTableElement, or a JQuery object of HTMLTableElement');
+
+    // Initialize options.
+    options = this.#initOptions(options);
+    
+    // Do we request table data asynchronously first?
+    this.#firstAjax = options.firstAjax !== false;
+
+    // Save the finalized options.
+    this.#options = {...options} as DatatableOption;
+
+    // Determine if data is read asynchronously first.
+    if (this.#isAjax && !this.#firstAjax) {
+      // Remove the ajax option from the Apply option if you do not want to retrieve data asynchronously first.
+      delete options.ajax;
+
+      // Disable server-side processing.
+      options.serverSide = false;
+
+      // Enable ajax option on reload.
+      this.#enableAjaxOnReload = true;
+    }
+
+    // Initialize data tables.
     this.#dt = this.#table
       .on('draw.dt', () => {
+        // Immediately after drawing the data table, hide the data-reading message.
         $("#table_processing").hide();
       })
-      .DataTable(this.#initOptions(options));
+      .DataTable(options);
 
     // In order to display the loading image in the center, set the "position" of the parent element of the loading image (.dataTables_processing) to "relative".
     $('#table_processing')
@@ -66,6 +105,16 @@ export default class Datatable {
    * @return {Promise<any>} JSON data returned by the server.
    */
   async reload(resetPaging: boolean = false): Promise<any> {
+    if (this.#enableAjaxOnReload) {
+      // If data was not acquired asynchronously at the beginning, data acquisition is enabled asynchronously on reload.
+      // Do not rebuild options on next reload.
+      this.#enableAjaxOnReload = false;
+
+      // Rebuild data tables with asynchronous data acquisition enabled.
+      this.#dt.destroy();
+      this.#dt = this.#table.DataTable(this.#options as DatatableOption);
+    }
+
     return new Promise<any>(resolve => {
       this.#dt.ajax.reload(((json: any) => {
         resolve(json);
@@ -182,11 +231,12 @@ export default class Datatable {
   /**
    * Initialize options.
    */
-  #initOptions(options: DataTables.Settings): DataTables.Settings {
-    const isAjax = !!options.ajax;
+  #initOptions(options: DatatableOption): DatatableOption {
+    // Asynchronous data acquisition.
+    this.#isAjax = !!options.ajax;
 
     // Whether the data acquisition method is Ajax
-    if (isAjax && (isString(options.ajax) || isPlainObject(options.ajax))) {
+    if (this.#isAjax && (isString(options.ajax) || isPlainObject(options.ajax))) {
       // If the ajax option is a URL string, convert it to object format.
       if (isString(options.ajax))
         options.ajax = {url: options.ajax as string};
@@ -228,7 +278,76 @@ export default class Datatable {
       createdRow = options.createdRow;
       delete options.createdRow;
     }
+
+    // Locale of the displayed text.
+    const locale = options.locale || 'en';
+
+    // Display text for each locale.
+    const language = (locale === 'en' || locale !== 'ja') ?
+      {
+        sEmptyTable: 'No data available in table',
+        sInfo: 'Showing _START_ to _END_ of _TOTAL_ entries',
+        sInfoEmpty: 'Showing 0 to 0 of 0 entries',
+        sInfoFiltered: '(filtered from _MAX_ total entries)',
+        sInfoPostFix: '',
+        sInfoThousands: ',',
+        sLengthMenu: 'Show _MENU_ entries',
+        sLoadingRecords: '&nbsp;',
+        sProcessing: '<div class="datatable-spinner"></div>',
+        //sLoadingRecords: Loading...',
+        sSearch: `<span class="svg-icon svg-icon-muted svg-icon-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <rect x="0" y="0" width="24" height="24"/>
+                      <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                      <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/>
+                    </g>
+                  </svg></span>`,
+        sSearchPlaceholder: 'Search...',
+        sZeroRecords: 'No matching records found',
+        // oPaginate: {
+        //   sFirst: 'First',
+        //   sLast: 'Last',
+        //   sNext: 'Next',
+        //   sPrevious: 'Previous'
+        // },
+        oAria: {
+          sSortAscending: ': activate to sort column ascending',
+          sSortDescending: ': activate to sort column descending'
+        }
+      } : {
+        sEmptyTable: '該当データはありません',
+        sInfo: '_TOTAL_ 件中 _START_ から _END_ まで表示',
+        sInfoEmpty: '0 件中 0 から 0 まで表示',
+        sInfoFiltered: '（全 _MAX_ 件より抽出）',
+        sInfoPostFix: '',
+        sInfoThousands: ',',
+        sLengthMenu: '_MENU_ 件表示',
+        sLoadingRecords: '&nbsp;',
+        sProcessing: '<div class="datatable-spinner"></div>',
+        //sLoadingRecords: '読み込み中...',
+        sSearch: `<span class="svg-icon svg-icon-muted svg-icon-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <rect x="0" y="0" width="24" height="24"/>
+                      <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                      <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/>
+                    </g>
+                  </svg></span>`,
+        sSearchPlaceholder: 'キーワードを入力',
+        sZeroRecords: '該当データはありません',
+        // oPaginate: {
+        //   sFirst: '先頭',
+        //   sLast: '最終',
+        //   sNext: '次',
+        //   sPrevious: '前'
+        // },
+        oAria: {
+          sSortAscending: ': 列を昇順に並べ替えるにはアクティブにする',
+          sSortDescending: ': 列を降順に並べ替えるにはアクティブにする'
+        }
+      };
     return fusion({
+      locale: 'en',
+      firstAjax: true,
       // responsive: true,
       // scrollCollapse: true,
       scrollX: true,
@@ -267,37 +386,7 @@ export default class Datatable {
         }
         aoData.search = aoData.search.value;
       },
-      language: {
-        sEmptyTable: '該当データはありません',
-        sInfo: ' _TOTAL_ 件中 _START_ から _END_ まで表示',
-        sInfoEmpty: ' 0 件中 0 から 0 まで表示',
-        sInfoFiltered: '（全 _MAX_ 件より抽出）',
-        sInfoPostFix: '',
-        sInfoThousands: ',',
-        sLengthMenu: '_MENU_ 件表示',
-        sLoadingRecords: '&nbsp;',
-        sProcessing: '<div class="datatable-spinner"></div>',
-        //sLoadingRecords: '読み込み中...',
-        sSearch: `<span class="svg-icon svg-icon-muted svg-icon-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <rect x="0" y="0" width="24" height="24"/>
-                      <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                      <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/>
-                    </g>
-                  </svg></span>`,
-        sSearchPlaceholder: 'キーワードを入力',
-        sZeroRecords: '該当データはありません',
-        // oPaginate: {
-        //   sFirst: '先頭',
-        //   sLast: '最終',
-        //   sNext: '次',
-        //   sPrevious: '前'
-        // },
-        oAria: {
-          sSortAscending: ': 列を昇順に並べ替えるにはアクティブにする',
-          sSortDescending: ': 列を降順に並べ替えるにはアクティブにする'
-        }
-      }
+      language,
     }, options);
   }
 
