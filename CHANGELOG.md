@@ -1,6 +1,24 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.21] - 2023/7/28
+### Changed
+- The image input component (ImageInput) now allows you to select files by clicking on the preview area.
+
+    HTML:
+    ```html
+    <div id="imageInput"></div>
+    ```
+
+    JS:
+    ```js
+    import {ImageInput} from 'metronic-extension';
+
+    const imageInput = new ImageInput(document.getElementById('imageInput'));
+    ```
+
+    ![preview-selection-for-image-input.jpg](screencaps/2.0.21/preview-selection-for-image-input.jpg)
+
 ## [2.0.20] - 2023/7/28
 ### Changed
 - Added option (options.firstAjax) to not load data first when retrieving Datatable data asynchronously.  
@@ -1119,3 +1137,4 @@ All notable changes to this project will be documented in this file.
 [2.0.18]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.17...v2.0.18
 [2.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.18...v2.0.19
 [2.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.19...v2.0.20
+[2.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.20...v2.0.21

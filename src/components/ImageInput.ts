@@ -151,31 +151,51 @@ export default class {
     context.style.backgroundImage = `url(${options.default})`;
     context.setAttribute('data-kt-image-input', 'false');
     context.insertAdjacentHTML('afterbegin', hbs.compile(
-      `<div class="image-input-wrapper bgi-position-center" style="background-size: contain; {{#if current}}background-image: url({{current}});{{/if}} width: {{width}}px; height: {{height}}px;"></div>
+      `<!--begin::Preview existing avatar-->
+      <div
+        {{#unless readonly}}
+          data-bs-toggle="tooltip"
+          data-bs-dismiss="click"
+          title="{{language.change}}"
+        {{/unless}}
+        class="image-input-wrapper bgi-position-center {{#unless readonly}}cursor-pointer{{/unless}}"
+        style="background-size: contain; {{#if current}}background-image: url({{current}});{{/if}} width: {{width}}px; height: {{height}}px;">
+      </div>
+      <!--end::Preview existing avatar-->
+      <!--begin::Edit-->
       <label
         class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow {{ifx readonly 'd-none'}}"
         data-kt-image-input-action="change"
         data-bs-toggle="tooltip"
         data-bs-dismiss="click"
         title="{{language.change}}">
-        <i class="bi bi-pencil-fill fs-7"></i>
+        <i class="bi bi-pencil-fill fs-6"></i>
         <input type="file" name="avatar" accept="{{accept}}" />
         <input type="hidden" name="avatar_remove" />
       </label>
+      <!--end::Edit-->
       {{#if cancelable}}
+        <!--begin::Cancel-->
         <span
           class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow {{ifx readonly 'd-none'}}"
           data-kt-image-input-action="cancel"
-          data-bs-toggle="tooltip" data-bs-dismiss="click" title="{{language.cancel}}">
-          <i class="bi bi-x fs-2"></i>
+          data-bs-toggle="tooltip"
+          data-bs-dismiss="click"
+          title="{{language.cancel}}">
+          <i class="bi bi-x fs-3"></i>
         </span>
+        <!--end::Cancel-->
       {{/if}}
+      <!--begin::Remove-->
       <span
         class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow {{ifx readonly 'd-none'}}"
         data-kt-image-input-action="remove"
-        data-bs-toggle="tooltip" data-bs-dismiss="click" title="{{language.remove}}">
-        <i class="bi bi-x fs-2"></i>
-      </span>`)(options));
+        data-bs-toggle="tooltip"
+        data-bs-dismiss="click"
+        title="{{language.remove}}">
+        <i class="bi bi-x fs-3"></i>
+      </span>
+      <!--end::Remove-->`)(options));
     initTooltip(context);
     const imageInput = new window.KTImageInput(context);
     if (options.current && !options.cancelable)
@@ -214,6 +234,17 @@ export default class {
       if (!options.cancelable)
         input.removeElement.style.display = 'none';
     });
+
+    // Unless it is read-only.
+    if (!options.readonly)
+      // Open file selection dialog when clicking preview.
+      this.#imageInput.wrapperElement.addEventListener('click', () => {
+        // Get edit button element.
+        const editButton = this.#imageInput.getElement().querySelector('[data-kt-image-input-action="change"]');
+
+        // Triggers the click event of the Edit button to open the file selection dialog.
+        editButton.click();
+      }, {passive: true});
   }
 
   /**
