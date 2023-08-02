@@ -10,11 +10,11 @@ import ImageInputOption from '~/interfaces/ImageInputOption';
  *   current: 'current.png',
  *   default: 'default.png'
  * });
- * imageInput.onchange(dataUrl => {});
+ * imageInput.onChange(currentImage => {});
  *
  * @see {@link https://preview.keenthemes.com/metronic8/demo1/documentation/forms/image-input.html} Custom Bootstrap Image Input with Preview Component by Keenthemes.
  */
-export default class {
+export default class ImageInput {
     #private;
     /**
      * Initialization.
@@ -23,11 +23,7 @@ export default class {
     /**
      * Set change event handler.
      */
-    onchange(handler: (dataUrl: string | null) => void): void;
-    /**
-     * Get the data URL of the current image.
-     */
-    getImgDataUrl(): string | undefined;
+    onChange(handler: (currentImage: string | null) => void): ImageInput;
     /**
      * Download the current image.
      */
@@ -36,4 +32,12 @@ export default class {
      * Returns the selected image input instance input field.
      */
     getInputElement(): HTMLInputElement;
+    /**
+     * Get the data URL of the current image.
+     */
+    getImage(): string | null;
+    /**
+     * Returns the hidden field of the selected image input instance.
+     */
+    getHiddenElement(): HTMLInputElement | null;
 }

@@ -3,24 +3,15 @@ import highlight from '~/shared/highlight';
 
 highlight();
 const ref = selectRef();
+
 const basicImageInput = new ImageInput(ref.basicImageInput, {
-  default: '/build/media/default-avatar.svg',
+  // default: '/build/media/default-avatar.svg',
   hiddenEl: ref.hidden.get(0),
-  language: {
-    change: 'Change',
-    remove: 'Delete',
-    cancel: 'Cancel change',
-  },
 });
 
 const registeredImageInput = new ImageInput(ref.registeredImageInput, {
   default: '/build/media/default-avatar.svg',
   current: '/build/media/avatar1.png',
-  language: {
-    change: 'Change',
-    remove: 'Delete',
-    cancel: 'Cancel change',
-  },
 });
 
 const readonlyImageInput = new ImageInput(ref.readonlyImageInput, {
@@ -31,8 +22,7 @@ const readonlyImageInput = new ImageInput(ref.readonlyImageInput, {
 const eventImageInput = new ImageInput(ref.eventImageInput, {
   default: '/build/media/default-avatar.svg',
   current: '/build/media/avatar3.png',
-  language: {change: 'Change', remove: 'Delete', cancel: 'Cancel change'},
 });
-eventImageInput.onchange(dataUrl => {
+eventImageInput.onChange(dataUrl => {
   alert('Changed image');
 });

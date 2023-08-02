@@ -16,7 +16,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
    * Initialization.
    */
   constructor(input: HTMLInputElement|HTMLTextAreaElement|JQuery, options: TagifyOption) {
-    // Check the argument.
+    // Check parameters.
     if (input instanceof $)
       input = (input as JQuery).get(0) as HTMLInputElement|HTMLTextAreaElement;
     else if (!(input instanceof HTMLInputElement) && !(input instanceof HTMLTextAreaElement))

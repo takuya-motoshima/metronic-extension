@@ -21,7 +21,7 @@ import escapeHtml from '~/dom/escapeHtml';
 import Api from '~/http/Api';
 import fetchDataUrl from '~/http/fetchDataUrl';
 import fetchDataUrlUsingCanvas from '~/http/fetchDataUrlUsingCanvas';
-import fetchImg from '~/http/fetchImg';
+import fetchImage from '~/http/fetchImage';
 
 // misc
 import formatBytes from '~/misc/formatBytes';
@@ -63,7 +63,7 @@ export {
   Api,
   fetchDataUrl,
   fetchDataUrlUsingCanvas,
-  fetchImg,
+  fetchImage,
   formatBytes,
   getExtensionFromDataUrl,
   getType,

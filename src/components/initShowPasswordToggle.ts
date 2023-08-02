@@ -28,7 +28,7 @@ function setToggleEventListener(input: HTMLElement, options: ShowPasswordToggleO
  * Toggle between showing and hiding passwords.
  */
 export default (context: HTMLElement|JQuery, options?: ShowPasswordToggleOption) => {
-  // Check the argument.
+  // Check parameters.
   if (context instanceof $)
     context = (context as JQuery).get(0) as HTMLElement;
   else if (context instanceof HTMLElement)

@@ -29,7 +29,7 @@ export default class Tree {
    * Initialization.
    */
   constructor(context: HTMLDivElement|JQuery, options?: TreeOption) {
-    // Check the argument.
+    // Check parameters.
     if (context instanceof HTMLDivElement)
       context = $(context);
     else if (!(context instanceof $))

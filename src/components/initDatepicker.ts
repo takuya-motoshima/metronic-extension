@@ -6,7 +6,7 @@ import DatePickerOption from '~/interfaces/DatePickerOption';
  * Initialize the date picker.
  */
 export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): daterangepicker => {
-  // Check the argument.
+  // Check parameters.
   if (input instanceof HTMLInputElement)
     input = $(input);
   else if (!(input instanceof $))

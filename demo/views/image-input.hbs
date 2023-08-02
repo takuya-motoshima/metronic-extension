@@ -107,11 +107,6 @@ const ref = selectRef();
 const basicImageInput = new ImageInput(ref.basicImageInput, {
   default: &#039;/build/media/default-avatar.svg&#039;,
   hiddenEl: ref.hidden.get(0),
-  language: {
-    change: &#039;Change&#039;,
-    remove: &#039;Delete&#039;,
-    cancel: &#039;Cancel change&#039;,
-  },
 });</code>
                         </pre>
                       </div>
@@ -165,11 +160,6 @@ const ref = selectRef();
 const registeredImageInput = new ImageInput(ref.registeredImageInput, {
   default: &#039;/build/media/default-avatar.svg&#039;,
   current: &#039;/build/media/avatar1.png&#039;,
-  language: {
-    change: &#039;Change&#039;,
-    remove: &#039;Delete&#039;,
-    cancel: &#039;Cancel change&#039;,
-  },
 });</code>
                         </pre>
                       </div>
@@ -276,9 +266,8 @@ const ref = selectRef();
 const eventImageInput = new ImageInput(ref.eventImageInput, {
   default: &#039;/build/media/default-avatar.svg&#039;,
   current: &#039;/build/media/avatar3.png&#039;,
-  language: {change: &#039;Change&#039;, remove: &#039;Delete&#039;, cancel: &#039;Cancel change&#039;},
 });
-eventImageInput.onchange(dataUrl =&gt; {
+eventImageInput.onChange(dataUrl =&gt; {
   alert(&#039;Changed image&#039;);
 });</code>
                         </pre>

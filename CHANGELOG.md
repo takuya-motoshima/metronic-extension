@@ -1,6 +1,34 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.22] - 2023/8/2
+### Changed
+- Changed the method name of the image input component (ImageInput).
+    <table>
+      <thead>
+        <tr>
+          <th>Before change</th>
+          <th>After change</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>getImgDataUrl(): string|null</td>
+          <td>getImage(): string|null</td>
+          <td>Get the data URL of the current image.</td>
+        </tr>
+        <tr>
+          <td>onchange(handler: (currentImage: string|null) =&gt; void): ImageInput</td>
+          <td>onChange(handler: (currentImage: string|null) =&gt; void): ImageInput</td>
+          <td>Set change event handler.</td>
+        </tr>
+      </tbody>
+    </table>
+
+### Fixed
+- Fixed a bug in the image input component (ImageInput) that when an image is deleted, the value of the hidden element is not empty.
+
 ## [2.0.21] - 2023/7/28
 ### Changed
 - The image input component (ImageInput) now allows you to select files by clicking on the preview area.
@@ -1138,3 +1166,4 @@ All notable changes to this project will be documented in this file.
 [2.0.19]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.18...v2.0.19
 [2.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.19...v2.0.20
 [2.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.20...v2.0.21
+[2.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.21...v2.0.22

@@ -58,7 +58,7 @@ export default class Validation {
     enableSequence: boolean = true,
     shouldFocus: boolean = true
   ) {
-    // Check the argument.
+    // Check parameters.
     if (isString(form)) {
       const formEl = document.querySelector<HTMLFormElement>(form as string);
       if (!formEl)

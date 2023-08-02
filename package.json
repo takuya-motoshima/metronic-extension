@@ -68,7 +68,7 @@
     "compare-img": "^1.0.3",
     "daterangepicker": "^3.1.0",
     "deep-fusion": "^1.0.0",
-    "handlebars-extd": "^1.0.4",
+    "handlebars-extd": "^1.0.8",
     "moment": "^2.29.4",
     "sweetalert2": "^11.5.1"
   }
