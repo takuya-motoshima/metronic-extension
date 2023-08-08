@@ -95,6 +95,13 @@ export default class Validation {
       */
     resetField(name: string, reset?: boolean): Validation;
     /**
+      * Clear all field errors.
+      *
+      * @param reset If true, the method resets field value to empty or remove checked, selected attributes. Default is false.
+      * @see {@link https://formvalidation.io/guide/api/reset-form/|resetForm() method - FormValidation}
+      */
+    resetForm(reset?: boolean): Validation;
+    /**
      * Added items to verify.
      *
      * @example

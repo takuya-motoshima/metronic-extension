@@ -1,6 +1,30 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.23] - 2023/8/8
+### Changed
+- Added a reset form method (resetForm) to the form validation class (Validation).
+    ```js
+    import {Validation} from 'metronic-extension';
+
+    // Initialize validation.
+    const validation = new Validation(document.getElementById('myForm'), {
+      username: {
+        validators: {
+          notEmpty: {
+            message: 'The username is required'
+          },
+        }
+      }
+    });
+
+    // Clear all field errors.
+    validation.resetForm();
+
+    // If the first parameter is set to true, the field value will be empty and the selected and checked attributes will be removed. Default is false.
+    validation.resetForm(true);
+    ```
+
 ## [2.0.22] - 2023/8/2
 ### Changed
 - Changed the method name of the image input component (ImageInput).
@@ -177,6 +201,8 @@ All notable changes to this project will be documented in this file.
 
     // Scroll to invalid element on submit.
     const shouldFocus = true;
+
+    // Initialize validation.
     const validation = new Validation(document.getElementById('myForm'), {
       username: {
         validators: {
@@ -460,6 +486,8 @@ All notable changes to this project will be documented in this file.
 
     // Stop performing remaining validators if there is a validator that the field does not pass.
     const enableSequence = true;
+
+    // Initialize validation.
     const validation = new Validation(document.getElementById('myForm'), {
       username: {
         validators: {
@@ -981,6 +1009,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {Validation} from 'metronic-extension';
 
+    // Initialize validation.
     const validation = new Validation(document.getElementById('myForm'), {
       betweenValues: {
         validators: {
@@ -1003,6 +1032,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {Validation} from 'metronic-extension';
 
+    // Initialize validation.
     const validation = new Validation(document.getElementById('demoForm'), {
       userName: {
         validators: {
@@ -1027,6 +1057,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {Validation} from 'metronic-extension';
 
+    // Initialize validation.
     const validation = new Validation(document.getElementById('demoForm'), {
       userName: {
         validators: {
@@ -1067,6 +1098,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {Validation} from 'metronic-extension';
 
+    // Initialize validation.
     const validation = new Validation(document.getElementById('myForm'), {
       phoneNumberJp: {
         validators: {
@@ -1167,3 +1199,4 @@ All notable changes to this project will be documented in this file.
 [2.0.20]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.19...v2.0.20
 [2.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.20...v2.0.21
 [2.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.21...v2.0.22
+[2.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.22...v2.0.23
