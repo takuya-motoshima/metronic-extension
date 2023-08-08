@@ -3,6 +3,7 @@ import * as DialogOption from '~/interfaces/DialogOption';
  * Display various dialogs.
  */
 export default class {
+    #private;
     /**
      * Show the confirm dialog.
      */

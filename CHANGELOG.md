@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.24] - 2023/8/88
+### Changed
+- Play notification sound when success dialog (Dialog.success()) is invoked.
+
 ## [2.0.23] - 2023/8/8
 ### Changed
 - Added a reset form method (resetForm) to the form validation class (Validation).
@@ -1200,3 +1204,4 @@ All notable changes to this project will be documented in this file.
 [2.0.21]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.20...v2.0.21
 [2.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.21...v2.0.22
 [2.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.22...v2.0.23
+[2.0.24]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.23...v2.0.24
