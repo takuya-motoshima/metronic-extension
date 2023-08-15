@@ -1,6 +1,1353 @@
 "use strict";
 
 // Class definition
+var KTCardsWidget1 = function () {
+    // Private methods
+    var initChart = function() {
+        var element = document.getElementById("kt_card_widget_1_chart");
+        
+        if (!element) {
+            return;
+        }
+
+        var color = element.getAttribute('data-kt-chart-color');
+        
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');         
+        var baseColor = KTUtil.isHexColor(color) ? color : KTUtil.getCssVariableValue('--bs-' + color);
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');        
+
+        var options = {
+            series: [{
+                name: 'Sales',
+                data: [30, 75, 55, 45, 30, 60, 75, 50],
+                margin: {
+					left: 5,
+					right: 5
+				}   
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'bar',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: ['35%'],
+                    borderRadius: 6
+                }
+            },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 4,
+                colors: ['transparent']
+            },
+            xaxis: {                
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                },               
+                crosshairs: {
+                    show: false
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            fill: {
+                type: 'solid'
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                x: {
+                    formatter: function (val) {
+                        return "Feb: " + val
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                        return val + "%"  
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor],
+            grid: {
+                borderColor: false,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                },
+                padding: {
+                    top: 10,
+					left: 25,
+					right: 25     
+				}               
+            }
+        };
+
+        // Set timeout to properly get the parent elements width
+        var chart = new ApexCharts(element, options);
+        
+        // Set timeout to properly get the parent elements width
+        setTimeout(function() {
+            chart.render();   
+        }, 300);  
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardsWidget1;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardsWidget1.init();
+});
+   
+        
+        
+        
+           
+"use strict";
+
+// Class definition
+var KTCardsWidget10 = function () {
+    // Private methods
+    var initChart = function() {
+        var el = document.getElementById('kt_card_widget_10_chart'); 
+
+        if (!el) {
+            return;
+        }
+
+        var options = {
+            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
+            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
+            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
+            //percent:  el.getAttribute('data-kt-percent') ,
+        }
+
+        var canvas = document.createElement('canvas');
+        var span = document.createElement('span'); 
+            
+        if (typeof(G_vmlCanvasManager) !== 'undefined') {
+            G_vmlCanvasManager.initElement(canvas);
+        }
+
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = options.size;
+
+        el.appendChild(span);
+        el.appendChild(canvas);
+
+        ctx.translate(options.size / 2, options.size / 2); // change center
+        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+
+        //imd = ctx.getImageData(0, 0, 240, 240);
+        var radius = (options.size - options.lineWidth) / 2;
+
+        var drawCircle = function(color, lineWidth, percent) {
+            percent = Math.min(Math.max(0, percent || 1), 1);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+            ctx.strokeStyle = color;
+            ctx.lineCap = 'round'; // butt, round or square
+            ctx.lineWidth = lineWidth
+            ctx.stroke();
+        };
+
+        // Init 
+        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
+        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 150);
+        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardsWidget10;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardsWidget10.init();
+});
+   
+        
+        
+        
+           
+"use strict";
+
+// Class definition
+var KTCardWidget12 = function () {
+    var chart = {
+        self: null,
+        rendered: false
+    };
+
+    // Private methods
+    var initChart = function(chart) {
+        var element = document.getElementById("kt_card_widget_12_chart");
+
+        if (!element) {
+            return;
+        }
+
+        var height = parseInt(KTUtil.css(element, 'height'));       
+        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
+        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
+        var lightColor = KTUtil.getCssVariableValue('--bs-success');
+
+        var options = {
+            series: [{
+                name: 'Sales',
+                data: [3.5, 5.7, 2.8, 5.9, 4.2, 5.6, 4.3, 4.5, 5.9, 4.5, 5.7, 4.8, 5.7]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                }
+            },             
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 0
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                 
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false
+                },
+                crosshairs: {
+                    position: 'front',
+                    stroke: {
+                        color: baseColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                x: {
+                    formatter: function (val) {
+                        return "Feb " + val;
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                        return val * "10" + "K"
+                    }
+                }
+            },
+            colors: [lightColor],
+            grid: { 
+                borderColor: borderColor,                 
+                strokeDashArray: 4,
+                padding: {
+                    top: 0,
+                    right: -20,
+                    bottom: -20,
+                    left: -20
+                },
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {               
+                strokeColor: baseColor,
+                strokeWidth: 2
+            }
+        }; 
+
+        chart.self = new ApexCharts(element, options);
+
+        // Set timeout to properly get the parent elements width
+        setTimeout(function() {
+            chart.self.render();
+            chart.rendered = true;
+        }, 200);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart(chart);
+
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {                
+                if (chart.rendered) {
+                    chart.self.destroy();
+                }
+
+                initChart(chart);
+            });
+        }     
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardWidget12;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardWidget12.init();
+});
+
+"use strict";
+
+// Class definition
+var KTCardWidget13 = function () {
+    var chart = {
+        self: null,
+        rendered: false
+    };
+
+    // Private methods
+    var initChart = function(chart) {
+        var element = document.getElementById("kt_card_widget_13_chart");
+
+        if (!element) {
+            return;
+        }
+
+        var height = parseInt(KTUtil.css(element, 'height'));       
+        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
+        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
+        var lightColor = KTUtil.getCssVariableValue('--bs-success');
+
+        var options = {
+            series: [{
+                name: 'Shipments',
+                data: [1.5, 4.5, 2, 3, 2, 4, 2.5, 2, 2.5, 4, 3.5, 4.5, 2.5]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                }
+            },             
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 0
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                 
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false
+                },
+                crosshairs: {
+                    position: 'front',
+                    stroke: {
+                        color: baseColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                x: {
+                    formatter: function (val) {
+                        return "Feb " + val;
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                        return val * "10" + "K"
+                    }
+                }
+            },
+            colors: [lightColor],
+            grid: {  
+                borderColor: borderColor,                
+                strokeDashArray: 4,
+                padding: {
+                    top: 0,
+                    right: -20,
+                    bottom: -20,
+                    left: -20
+                },
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {
+                strokeColor: baseColor,
+                strokeWidth: 2
+            }
+        }; 
+
+        chart.self = new ApexCharts(element, options);
+
+        // Set timeout to properly get the parent elements width
+        setTimeout(function() {
+            chart.self.render();
+            chart.rendered = true;
+        }, 200); 
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart(chart);
+
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {                
+                if (chart.rendered) {
+                    chart.self.destroy();
+                }
+
+                initChart(chart);
+            });
+        }     
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardWidget13;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardWidget13.init();
+});
+"use strict";
+
+// Class definition
+var KTCardsWidget17 = function () {
+    // Private methods
+    var initChart = function() {
+        var el = document.getElementById('kt_card_widget_17_chart'); 
+
+        if (!el) {
+            return;
+        }
+
+        var options = {
+            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
+            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
+            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
+            //percent:  el.getAttribute('data-kt-percent') ,
+        }
+
+        var canvas = document.createElement('canvas');
+        var span = document.createElement('span'); 
+            
+        if (typeof(G_vmlCanvasManager) !== 'undefined') {
+            G_vmlCanvasManager.initElement(canvas);
+        }
+
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = options.size;
+
+        el.appendChild(span);
+        el.appendChild(canvas);
+
+        ctx.translate(options.size / 2, options.size / 2); // change center
+        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+
+        //imd = ctx.getImageData(0, 0, 240, 240);
+        var radius = (options.size - options.lineWidth) / 2;
+
+        var drawCircle = function(color, lineWidth, percent) {
+            percent = Math.min(Math.max(0, percent || 1), 1);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+            ctx.strokeStyle = color;
+            ctx.lineCap = 'round'; // butt, round or square
+            ctx.lineWidth = lineWidth
+            ctx.stroke();
+        };
+
+        // Init 
+        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
+        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 150);
+        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardsWidget17;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardsWidget17.init();
+});
+   
+        
+        
+        
+           
+"use strict";
+
+// Class definition
+var KTCardsWidget19 = function () {
+    // Private methods
+    var initChart = function() {
+        var el = document.getElementById('kt_card_widget_19_chart'); 
+
+        if (!el) {
+            return;
+        }
+
+        var options = {
+            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
+            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
+            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
+            //percent:  el.getAttribute('data-kt-percent') ,
+        }
+
+        var canvas = document.createElement('canvas');
+        var span = document.createElement('span'); 
+            
+        if (typeof(G_vmlCanvasManager) !== 'undefined') {
+            G_vmlCanvasManager.initElement(canvas);
+        }
+
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = options.size;
+
+        el.appendChild(span);
+        el.appendChild(canvas);
+
+        ctx.translate(options.size / 2, options.size / 2); // change center
+        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+
+        //imd = ctx.getImageData(0, 0, 240, 240);
+        var radius = (options.size - options.lineWidth) / 2;
+
+        var drawCircle = function(color, lineWidth, percent) {
+            percent = Math.min(Math.max(0, percent || 1), 1);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+            ctx.strokeStyle = color;
+            ctx.lineCap = 'round'; // butt, round or square
+            ctx.lineWidth = lineWidth
+            ctx.stroke();
+        };
+
+        // Init 
+        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
+        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 150);
+        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardsWidget19;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardsWidget19.init();
+});
+   
+        
+        
+        
+           
+"use strict";
+
+// Class definition
+var KTCardsWidget4 = function () {
+    // Private methods
+    var initChart = function() {
+        var el = document.getElementById('kt_card_widget_4_chart'); 
+
+        if (!el) {
+            return;
+        }
+
+        var options = {
+            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
+            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
+            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
+            //percent:  el.getAttribute('data-kt-percent') ,
+        }
+
+        var canvas = document.createElement('canvas');
+        var span = document.createElement('span'); 
+            
+        if (typeof(G_vmlCanvasManager) !== 'undefined') {
+            G_vmlCanvasManager.initElement(canvas);
+        }
+
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = options.size;
+
+        el.appendChild(span);
+        el.appendChild(canvas);
+
+        ctx.translate(options.size / 2, options.size / 2); // change center
+        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+
+        //imd = ctx.getImageData(0, 0, 240, 240);
+        var radius = (options.size - options.lineWidth) / 2;
+
+        var drawCircle = function(color, lineWidth, percent) {
+            percent = Math.min(Math.max(0, percent || 1), 1);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+            ctx.strokeStyle = color;
+            ctx.lineCap = 'round'; // butt, round or square
+            ctx.lineWidth = lineWidth
+            ctx.stroke();
+        };
+
+        // Init 
+        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
+        drawCircle(KTUtil.getCssVariableValue('--bs-danger'), options.lineWidth, 100 / 150);
+        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 250);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardsWidget4;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardsWidget4.init();
+});
+   
+        
+        
+        
+           
+"use strict";
+
+// Class definition
+var KTCardsWidget6 = function () {
+    // Private methods
+    var initChart = function() {
+        var element = document.getElementById("kt_card_widget_6_chart");
+
+        if (!element) {
+            return;
+        }
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
+        var baseColor = KTUtil.getCssVariableValue('--bs-primary');
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
+
+        var options = {
+            series: [{
+                name: 'Sales',
+                data: [30, 60, 53, 45, 60, 75, 53]
+            }, ],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'bar',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: ['55%'],
+                    borderRadius: 6
+                }
+            },
+            legend: {
+                show: false,
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 9,
+                colors: ['transparent']
+            },
+            xaxis: {                
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                    tickPlacement: 'between'
+                },
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                },
+                crosshairs: {
+                    show: false
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            fill: {
+                type: 'solid'
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                x: {
+                    formatter: function (val) {
+                        return 'Feb: ' + val;
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                        return val + "%" 
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor],
+            grid: {
+                padding: {
+                    left: 10,
+                    right: 10
+                },
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }             
+            }
+        }; 
+
+        var chart = new ApexCharts(element, options);
+        
+        // Set timeout to properly get the parent elements width
+        setTimeout(function() {
+            chart.render();   
+        }, 300);     
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardsWidget6;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardsWidget6.init();
+});
+   
+        
+        
+        
+           
+"use strict";
+
+// Class definition
+var KTCardWidget8 = function () {
+    var chart = {
+        self: null,
+        rendered: false
+    };
+
+
+    // Private methods
+    var initChart = function(chart) {
+        var element = document.getElementById("kt_card_widget_8_chart");
+
+        if (!element) {
+            return;
+        }
+
+        var height = parseInt(KTUtil.css(element, 'height'));       
+        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
+        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
+        var lightColor = KTUtil.getCssVariableValue('--bs-success');
+
+        var options = {
+            series: [{
+                name: 'Sales',
+                data: [4.5, 5.7, 2.8, 5.9, 4.2, 5.6, 5.2, 4.5, 5.9, 4.5, 5.7, 4.8, 5.7]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                }
+            },             
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 0
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                 
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false
+                },
+                crosshairs: {
+                    position: 'front',
+                    stroke: {
+                        color: baseColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                x: {
+                    formatter: function (val) {
+                        return "Feb " + val;
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + "K"
+                    }
+                }
+            },
+            colors: [lightColor],
+            grid: {  
+                borderColor: borderColor,               
+                strokeDashArray: 4,
+                padding: {
+                    top: 0,
+                    right: -20,
+                    bottom: -20,
+                    left: -20
+                },
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {
+                strokeColor: baseColor,
+                strokeWidth: 2
+            }
+        }; 
+
+        chart.self = new ApexCharts(element, options);
+
+        // Set timeout to properly get the parent elements width
+        setTimeout(function() {
+            chart.self.render();
+            chart.rendered = true;
+        }, 200);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart(chart);
+
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {                
+                if (chart.rendered) {
+                    chart.self.destroy();
+                }
+
+                initChart(chart);
+            });
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardWidget8;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardWidget8.init();
+});
+
+"use strict";
+
+// Class definition
+var KTCardWidget9 = function () {
+    var chart = {
+        self: null,
+        rendered: false
+    };
+    
+    // Private methods
+    var initChart = function(chart) {
+        var element = document.getElementById("kt_card_widget_9_chart");
+
+        if (!element) {
+            return;
+        }
+
+        var height = parseInt(KTUtil.css(element, 'height'));       
+        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
+        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
+        var lightColor = KTUtil.getCssVariableValue('--bs-success');
+
+        var options = {
+            series: [{
+                name: 'Visitors',
+                data: [1.5, 2.5, 2, 3, 2, 4, 2.5, 2, 2.5, 4, 2.5, 4.5, 2.5]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                }
+            },             
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 0
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                 
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false
+                },
+                crosshairs: {
+                    position: 'front',
+                    stroke: {
+                        color: baseColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                x: {
+                    formatter: function (val) {
+                        return "Feb " + val;
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                        return val + "K"
+                    }
+                }
+            },
+            colors: [lightColor],
+            grid: {  
+                borderColor: borderColor,               
+                strokeDashArray: 4,
+                padding: {
+                    top: 0,
+                    right: -20,
+                    bottom: -20,
+                    left: -20
+                },
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {
+                strokeColor: baseColor,
+                strokeWidth: 2
+            }
+        }; 
+
+        chart.self = new ApexCharts(element, options);
+
+        // Set timeout to properly get the parent elements width
+        setTimeout(function() {
+            chart.self.render();
+            chart.rendered = true;
+        }, 200);   
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initChart(chart);
+
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {                
+                if (chart.rendered) {
+                    chart.self.destroy();
+                }
+
+                initChart(chart);
+            });
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTCardWidget9;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTCardWidget9.init();
+});
+"use strict";
+
+// Class definition
 var KTChartsWidget1 = function () {
     var chart = {
         self: null,
@@ -14286,1441 +15633,6 @@ KTUtil.onDOMContentLoaded(function() {
 "use strict";
 
 // Class definition
-var KTCardsWidget1 = function () {
-    // Private methods
-    var initChart = function() {
-        var element = document.getElementById("kt_card_widget_1_chart");
-        
-        if (!element) {
-            return;
-        }
-
-        var color = element.getAttribute('data-kt-chart-color');
-        
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');         
-        var baseColor = KTUtil.isHexColor(color) ? color : KTUtil.getCssVariableValue('--bs-' + color);
-        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');        
-
-        var options = {
-            series: [{
-                name: 'Sales',
-                data: [30, 75, 55, 45, 30, 60, 75, 50],
-                margin: {
-					left: 5,
-					right: 5
-				}   
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'bar',
-                height: height,
-                toolbar: {
-                    show: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: ['35%'],
-                    borderRadius: 6
-                }
-            },
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 4,
-                colors: ['transparent']
-            },
-            xaxis: {                
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false,
-                    style: {
-                        colors: labelColor,
-                        fontSize: '12px'
-                    }
-                },               
-                crosshairs: {
-                    show: false
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false,
-                    style: {
-                        colors: labelColor,
-                        fontSize: '12px'
-                    }
-                }
-            },
-            fill: {
-                type: 'solid'
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                x: {
-                    formatter: function (val) {
-                        return "Feb: " + val
-                    }
-                },
-                y: {
-                    formatter: function (val) {
-                        return val + "%"  
-                    }
-                }
-            },
-            colors: [baseColor, secondaryColor],
-            grid: {
-                borderColor: false,
-                strokeDashArray: 4,
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                },
-                padding: {
-                    top: 10,
-					left: 25,
-					right: 25     
-				}               
-            }
-        };
-
-        // Set timeout to properly get the parent elements width
-        var chart = new ApexCharts(element, options);
-        
-        // Set timeout to properly get the parent elements width
-        setTimeout(function() {
-            chart.render();   
-        }, 300);  
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardsWidget1;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardsWidget1.init();
-});
-   
-        
-        
-        
-           
-"use strict";
-
-// Class definition
-var KTCardsWidget10 = function () {
-    // Private methods
-    var initChart = function() {
-        var el = document.getElementById('kt_card_widget_10_chart'); 
-
-        if (!el) {
-            return;
-        }
-
-        var options = {
-            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
-            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
-            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
-            //percent:  el.getAttribute('data-kt-percent') ,
-        }
-
-        var canvas = document.createElement('canvas');
-        var span = document.createElement('span'); 
-            
-        if (typeof(G_vmlCanvasManager) !== 'undefined') {
-            G_vmlCanvasManager.initElement(canvas);
-        }
-
-        var ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = options.size;
-
-        el.appendChild(span);
-        el.appendChild(canvas);
-
-        ctx.translate(options.size / 2, options.size / 2); // change center
-        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
-
-        //imd = ctx.getImageData(0, 0, 240, 240);
-        var radius = (options.size - options.lineWidth) / 2;
-
-        var drawCircle = function(color, lineWidth, percent) {
-            percent = Math.min(Math.max(0, percent || 1), 1);
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
-            ctx.strokeStyle = color;
-            ctx.lineCap = 'round'; // butt, round or square
-            ctx.lineWidth = lineWidth
-            ctx.stroke();
-        };
-
-        // Init 
-        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
-        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 150);
-        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardsWidget10;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardsWidget10.init();
-});
-   
-        
-        
-        
-           
-"use strict";
-
-// Class definition
-var KTCardWidget12 = function () {
-    var chart = {
-        self: null,
-        rendered: false
-    };
-
-    // Private methods
-    var initChart = function(chart) {
-        var element = document.getElementById("kt_card_widget_12_chart");
-
-        if (!element) {
-            return;
-        }
-
-        var height = parseInt(KTUtil.css(element, 'height'));       
-        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
-        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
-        var lightColor = KTUtil.getCssVariableValue('--bs-success');
-
-        var options = {
-            series: [{
-                name: 'Sales',
-                data: [3.5, 5.7, 2.8, 5.9, 4.2, 5.6, 4.3, 4.5, 5.9, 4.5, 5.7, 4.8, 5.7]
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                }
-            },             
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 0
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                 
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false
-                },
-                crosshairs: {
-                    position: 'front',
-                    stroke: {
-                        color: baseColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px'
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                x: {
-                    formatter: function (val) {
-                        return "Feb " + val;
-                    }
-                },
-                y: {
-                    formatter: function (val) {
-                        return val * "10" + "K"
-                    }
-                }
-            },
-            colors: [lightColor],
-            grid: { 
-                borderColor: borderColor,                 
-                strokeDashArray: 4,
-                padding: {
-                    top: 0,
-                    right: -20,
-                    bottom: -20,
-                    left: -20
-                },
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                }
-            },
-            markers: {               
-                strokeColor: baseColor,
-                strokeWidth: 2
-            }
-        }; 
-
-        chart.self = new ApexCharts(element, options);
-
-        // Set timeout to properly get the parent elements width
-        setTimeout(function() {
-            chart.self.render();
-            chart.rendered = true;
-        }, 200);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart(chart);
-
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {                
-                if (chart.rendered) {
-                    chart.self.destroy();
-                }
-
-                initChart(chart);
-            });
-        }     
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardWidget12;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardWidget12.init();
-});
-
-"use strict";
-
-// Class definition
-var KTCardWidget13 = function () {
-    var chart = {
-        self: null,
-        rendered: false
-    };
-
-    // Private methods
-    var initChart = function(chart) {
-        var element = document.getElementById("kt_card_widget_13_chart");
-
-        if (!element) {
-            return;
-        }
-
-        var height = parseInt(KTUtil.css(element, 'height'));       
-        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
-        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
-        var lightColor = KTUtil.getCssVariableValue('--bs-success');
-
-        var options = {
-            series: [{
-                name: 'Shipments',
-                data: [1.5, 4.5, 2, 3, 2, 4, 2.5, 2, 2.5, 4, 3.5, 4.5, 2.5]
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                }
-            },             
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 0
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                 
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false
-                },
-                crosshairs: {
-                    position: 'front',
-                    stroke: {
-                        color: baseColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px'
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                x: {
-                    formatter: function (val) {
-                        return "Feb " + val;
-                    }
-                },
-                y: {
-                    formatter: function (val) {
-                        return val * "10" + "K"
-                    }
-                }
-            },
-            colors: [lightColor],
-            grid: {  
-                borderColor: borderColor,                
-                strokeDashArray: 4,
-                padding: {
-                    top: 0,
-                    right: -20,
-                    bottom: -20,
-                    left: -20
-                },
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                }
-            },
-            markers: {
-                strokeColor: baseColor,
-                strokeWidth: 2
-            }
-        }; 
-
-        chart.self = new ApexCharts(element, options);
-
-        // Set timeout to properly get the parent elements width
-        setTimeout(function() {
-            chart.self.render();
-            chart.rendered = true;
-        }, 200); 
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart(chart);
-
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {                
-                if (chart.rendered) {
-                    chart.self.destroy();
-                }
-
-                initChart(chart);
-            });
-        }     
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardWidget13;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardWidget13.init();
-});
-"use strict";
-
-// Class definition
-var KTCardsWidget17 = function () {
-    // Private methods
-    var initChart = function() {
-        var el = document.getElementById('kt_card_widget_17_chart'); 
-
-        if (!el) {
-            return;
-        }
-
-        var options = {
-            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
-            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
-            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
-            //percent:  el.getAttribute('data-kt-percent') ,
-        }
-
-        var canvas = document.createElement('canvas');
-        var span = document.createElement('span'); 
-            
-        if (typeof(G_vmlCanvasManager) !== 'undefined') {
-            G_vmlCanvasManager.initElement(canvas);
-        }
-
-        var ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = options.size;
-
-        el.appendChild(span);
-        el.appendChild(canvas);
-
-        ctx.translate(options.size / 2, options.size / 2); // change center
-        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
-
-        //imd = ctx.getImageData(0, 0, 240, 240);
-        var radius = (options.size - options.lineWidth) / 2;
-
-        var drawCircle = function(color, lineWidth, percent) {
-            percent = Math.min(Math.max(0, percent || 1), 1);
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
-            ctx.strokeStyle = color;
-            ctx.lineCap = 'round'; // butt, round or square
-            ctx.lineWidth = lineWidth
-            ctx.stroke();
-        };
-
-        // Init 
-        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
-        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 150);
-        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardsWidget17;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardsWidget17.init();
-});
-   
-        
-        
-        
-           
-"use strict";
-
-// Class definition
-var KTCardsWidget19 = function () {
-    // Private methods
-    var initChart = function() {
-        var el = document.getElementById('kt_card_widget_19_chart'); 
-
-        if (!el) {
-            return;
-        }
-
-        var options = {
-            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
-            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
-            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
-            //percent:  el.getAttribute('data-kt-percent') ,
-        }
-
-        var canvas = document.createElement('canvas');
-        var span = document.createElement('span'); 
-            
-        if (typeof(G_vmlCanvasManager) !== 'undefined') {
-            G_vmlCanvasManager.initElement(canvas);
-        }
-
-        var ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = options.size;
-
-        el.appendChild(span);
-        el.appendChild(canvas);
-
-        ctx.translate(options.size / 2, options.size / 2); // change center
-        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
-
-        //imd = ctx.getImageData(0, 0, 240, 240);
-        var radius = (options.size - options.lineWidth) / 2;
-
-        var drawCircle = function(color, lineWidth, percent) {
-            percent = Math.min(Math.max(0, percent || 1), 1);
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
-            ctx.strokeStyle = color;
-            ctx.lineCap = 'round'; // butt, round or square
-            ctx.lineWidth = lineWidth
-            ctx.stroke();
-        };
-
-        // Init 
-        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
-        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 150);
-        drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 250);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardsWidget19;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardsWidget19.init();
-});
-   
-        
-        
-        
-           
-"use strict";
-
-// Class definition
-var KTCardsWidget4 = function () {
-    // Private methods
-    var initChart = function() {
-        var el = document.getElementById('kt_card_widget_4_chart'); 
-
-        if (!el) {
-            return;
-        }
-
-        var options = {
-            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
-            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
-            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,            
-            //percent:  el.getAttribute('data-kt-percent') ,
-        }
-
-        var canvas = document.createElement('canvas');
-        var span = document.createElement('span'); 
-            
-        if (typeof(G_vmlCanvasManager) !== 'undefined') {
-            G_vmlCanvasManager.initElement(canvas);
-        }
-
-        var ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = options.size;
-
-        el.appendChild(span);
-        el.appendChild(canvas);
-
-        ctx.translate(options.size / 2, options.size / 2); // change center
-        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
-
-        //imd = ctx.getImageData(0, 0, 240, 240);
-        var radius = (options.size - options.lineWidth) / 2;
-
-        var drawCircle = function(color, lineWidth, percent) {
-            percent = Math.min(Math.max(0, percent || 1), 1);
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
-            ctx.strokeStyle = color;
-            ctx.lineCap = 'round'; // butt, round or square
-            ctx.lineWidth = lineWidth
-            ctx.stroke();
-        };
-
-        // Init 
-        drawCircle('#E4E6EF', options.lineWidth, 100 / 100); 
-        drawCircle(KTUtil.getCssVariableValue('--bs-danger'), options.lineWidth, 100 / 150);
-        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 250);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardsWidget4;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardsWidget4.init();
-});
-   
-        
-        
-        
-           
-"use strict";
-
-// Class definition
-var KTCardsWidget6 = function () {
-    // Private methods
-    var initChart = function() {
-        var element = document.getElementById("kt_card_widget_6_chart");
-
-        if (!element) {
-            return;
-        }
-
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
-        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
-        var baseColor = KTUtil.getCssVariableValue('--bs-primary');
-        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
-
-        var options = {
-            series: [{
-                name: 'Sales',
-                data: [30, 60, 53, 45, 60, 75, 53]
-            }, ],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'bar',
-                height: height,
-                toolbar: {
-                    show: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: ['55%'],
-                    borderRadius: 6
-                }
-            },
-            legend: {
-                show: false,
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 9,
-                colors: ['transparent']
-            },
-            xaxis: {                
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false,
-                    tickPlacement: 'between'
-                },
-                labels: {
-                    show: false,
-                    style: {
-                        colors: labelColor,
-                        fontSize: '12px'
-                    }
-                },
-                crosshairs: {
-                    show: false
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false,
-                    style: {
-                        colors: labelColor,
-                        fontSize: '12px'
-                    }
-                }
-            },
-            fill: {
-                type: 'solid'
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                x: {
-                    formatter: function (val) {
-                        return 'Feb: ' + val;
-                    }
-                },
-                y: {
-                    formatter: function (val) {
-                        return val + "%" 
-                    }
-                }
-            },
-            colors: [baseColor, secondaryColor],
-            grid: {
-                padding: {
-                    left: 10,
-                    right: 10
-                },
-                borderColor: borderColor,
-                strokeDashArray: 4,
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                }             
-            }
-        }; 
-
-        var chart = new ApexCharts(element, options);
-        
-        // Set timeout to properly get the parent elements width
-        setTimeout(function() {
-            chart.render();   
-        }, 300);     
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardsWidget6;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardsWidget6.init();
-});
-   
-        
-        
-        
-           
-"use strict";
-
-// Class definition
-var KTCardWidget8 = function () {
-    var chart = {
-        self: null,
-        rendered: false
-    };
-
-
-    // Private methods
-    var initChart = function(chart) {
-        var element = document.getElementById("kt_card_widget_8_chart");
-
-        if (!element) {
-            return;
-        }
-
-        var height = parseInt(KTUtil.css(element, 'height'));       
-        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
-        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
-        var lightColor = KTUtil.getCssVariableValue('--bs-success');
-
-        var options = {
-            series: [{
-                name: 'Sales',
-                data: [4.5, 5.7, 2.8, 5.9, 4.2, 5.6, 5.2, 4.5, 5.9, 4.5, 5.7, 4.8, 5.7]
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                }
-            },             
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 0
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                 
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false
-                },
-                crosshairs: {
-                    position: 'front',
-                    stroke: {
-                        color: baseColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px'
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                x: {
-                    formatter: function (val) {
-                        return "Feb " + val;
-                    }
-                },
-                y: {
-                    formatter: function (val) {
-                        return "$" + val + "K"
-                    }
-                }
-            },
-            colors: [lightColor],
-            grid: {  
-                borderColor: borderColor,               
-                strokeDashArray: 4,
-                padding: {
-                    top: 0,
-                    right: -20,
-                    bottom: -20,
-                    left: -20
-                },
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                }
-            },
-            markers: {
-                strokeColor: baseColor,
-                strokeWidth: 2
-            }
-        }; 
-
-        chart.self = new ApexCharts(element, options);
-
-        // Set timeout to properly get the parent elements width
-        setTimeout(function() {
-            chart.self.render();
-            chart.rendered = true;
-        }, 200);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart(chart);
-
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {                
-                if (chart.rendered) {
-                    chart.self.destroy();
-                }
-
-                initChart(chart);
-            });
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardWidget8;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardWidget8.init();
-});
-
-"use strict";
-
-// Class definition
-var KTCardWidget9 = function () {
-    var chart = {
-        self: null,
-        rendered: false
-    };
-    
-    // Private methods
-    var initChart = function(chart) {
-        var element = document.getElementById("kt_card_widget_9_chart");
-
-        if (!element) {
-            return;
-        }
-
-        var height = parseInt(KTUtil.css(element, 'height'));       
-        var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
-        var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
-        var lightColor = KTUtil.getCssVariableValue('--bs-success');
-
-        var options = {
-            series: [{
-                name: 'Visitors',
-                data: [1.5, 2.5, 2, 3, 2, 4, 2.5, 2, 2.5, 4, 2.5, 4.5, 2.5]
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                }
-            },             
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 0
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                 
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false
-                },
-                crosshairs: {
-                    position: 'front',
-                    stroke: {
-                        color: baseColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px'
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                x: {
-                    formatter: function (val) {
-                        return "Feb " + val;
-                    }
-                },
-                y: {
-                    formatter: function (val) {
-                        return val + "K"
-                    }
-                }
-            },
-            colors: [lightColor],
-            grid: {  
-                borderColor: borderColor,               
-                strokeDashArray: 4,
-                padding: {
-                    top: 0,
-                    right: -20,
-                    bottom: -20,
-                    left: -20
-                },
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                }
-            },
-            markers: {
-                strokeColor: baseColor,
-                strokeWidth: 2
-            }
-        }; 
-
-        chart.self = new ApexCharts(element, options);
-
-        // Set timeout to properly get the parent elements width
-        setTimeout(function() {
-            chart.self.render();
-            chart.rendered = true;
-        }, 200);   
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            initChart(chart);
-
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {                
-                if (chart.rendered) {
-                    chart.self.destroy();
-                }
-
-                initChart(chart);
-            });
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTCardWidget9;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTCardWidget9.init();
-});
-"use strict";
-
-// Class definition
-var KTFormsWidget1 = (function () {
-    // Private methods
-    var initForm1 = function () {
-        var element = document.querySelector('#kt_forms_widget_1_select_1');
-
-        if ( !element ) {
-            return;
-        }
-
-        var optionFormat = function(item) {
-            if ( !item.id ) {
-                return item.text;
-            }
-
-            var span = document.createElement('span');
-            var template = '';
-
-            template += '<img src="' + item.element.getAttribute('data-kt-select2-icon') + '" class="rounded-circle h-20px me-2" alt="image"/>';
-            template += item.text;
-
-            span.innerHTML = template;
-
-            return $(span);
-        }
-
-        // Init Select2 --- more info: https://select2.org/
-        $(element).select2({
-            placeholder: "Select coin",
-            minimumResultsForSearch: Infinity,
-            templateSelection: optionFormat,
-            templateResult: optionFormat
-        });
-    };
-
-    var initForm2 = function () {
-        var element = document.querySelector('#kt_forms_widget_1_select_2');
-
-        if ( !element ) {
-            return;
-        }
-
-        var optionFormat = function(item) {
-            if ( !item.id ) {
-                return item.text;
-            }
-
-            var span = document.createElement('span');
-            var template = '';
-
-            template += '<img src="' + item.element.getAttribute('data-kt-select2-icon') + '" class="rounded-circle h-20px me-2" alt="image"/>';
-            template += item.text;
-
-            span.innerHTML = template;
-
-            return $(span);
-        }
-
-        // Init Select2 --- more info: https://select2.org/
-        $(element).select2({
-            placeholder: "Select coin",
-            minimumResultsForSearch: Infinity,
-            templateSelection: optionFormat,
-            templateResult: optionFormat
-        });
-    };
-
-    // Public methods
-    return {
-        init: function () {
-            initForm1();
-            initForm2();
-        },
-    };
-})();
-
-// Webpack support
-if (typeof module !== "undefined") {
-    module.exports = KTFormsWidget1;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    KTFormsWidget1.init();
-});
-
-"use strict";
-
-// Class definition
 var KTMapsWidget1 = (function () {
     // Private methods
     var initMap = function () {
@@ -16007,6 +15919,94 @@ if (typeof module !== "undefined") {
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
     KTMapsWidget2.init();
+});
+
+"use strict";
+
+// Class definition
+var KTFormsWidget1 = (function () {
+    // Private methods
+    var initForm1 = function () {
+        var element = document.querySelector('#kt_forms_widget_1_select_1');
+
+        if ( !element ) {
+            return;
+        }
+
+        var optionFormat = function(item) {
+            if ( !item.id ) {
+                return item.text;
+            }
+
+            var span = document.createElement('span');
+            var template = '';
+
+            template += '<img src="' + item.element.getAttribute('data-kt-select2-icon') + '" class="rounded-circle h-20px me-2" alt="image"/>';
+            template += item.text;
+
+            span.innerHTML = template;
+
+            return $(span);
+        }
+
+        // Init Select2 --- more info: https://select2.org/
+        $(element).select2({
+            placeholder: "Select coin",
+            minimumResultsForSearch: Infinity,
+            templateSelection: optionFormat,
+            templateResult: optionFormat
+        });
+    };
+
+    var initForm2 = function () {
+        var element = document.querySelector('#kt_forms_widget_1_select_2');
+
+        if ( !element ) {
+            return;
+        }
+
+        var optionFormat = function(item) {
+            if ( !item.id ) {
+                return item.text;
+            }
+
+            var span = document.createElement('span');
+            var template = '';
+
+            template += '<img src="' + item.element.getAttribute('data-kt-select2-icon') + '" class="rounded-circle h-20px me-2" alt="image"/>';
+            template += item.text;
+
+            span.innerHTML = template;
+
+            return $(span);
+        }
+
+        // Init Select2 --- more info: https://select2.org/
+        $(element).select2({
+            placeholder: "Select coin",
+            minimumResultsForSearch: Infinity,
+            templateSelection: optionFormat,
+            templateResult: optionFormat
+        });
+    };
+
+    // Public methods
+    return {
+        init: function () {
+            initForm1();
+            initForm2();
+        },
+    };
+})();
+
+// Webpack support
+if (typeof module !== "undefined") {
+    module.exports = KTFormsWidget1;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function () {
+    KTFormsWidget1.init();
 });
 
 "use strict";
@@ -16760,1279 +16760,6 @@ KTUtil.onDOMContentLoaded(function() {
         
         
            
-"use strict";
-
-// Class definition
-var KTTablesWidget14 = function () {
-    var chart1 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart2 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart3 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart4 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart5 = {
-        self: null,
-        rendered: false
-    };
-
-    // Private methods
-    var initChart = function(chart, chartSelector, data, initByDefault) {
-        var element = document.querySelector(chartSelector);
-
-        if (!element) {
-            return;
-        }
-        
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var color = element.getAttribute('data-kt-chart-color');
-       
-        var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
-        var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
-        var lightColor = KTUtil.getCssVariableValue('--bs-body-bg');
-
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: data
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {},
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 1
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                 
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false                   
-                },
-                crosshairs: {
-                    show: false,
-                    position: 'front',
-                    stroke: {
-                        color: strokeColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: false
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 60,
-                labels: {
-                    show: false                     
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                enabled: false
-            },
-            colors: [lightColor],
-            markers: {
-                colors: [lightColor],
-                strokeColor: [baseColor],
-                strokeWidth: 3
-            }
-        };
-
-        chart.self = new ApexCharts(element, options);          
-        
-        if (initByDefault === true) {
-            // Set timeout to properly get the parent elements width
-            setTimeout(function() {
-                chart.self.render();  
-                chart.rendered = true;
-            }, 200);
-        }            
-    }
-
-    // Public methods
-    return {
-        init: function () { 
-            var chart1Data = [7, 10, 5, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21,13];            
-            initChart(chart1, '#kt_table_widget_14_chart_1', chart1Data, true);
-
-            var chart2Data = [17, 5, 23, 2, 21, 9, 17, 23, 4, 24, 9, 17, 21,7];            
-            initChart(chart2, '#kt_table_widget_14_chart_2', chart2Data, true);
-
-            var chart3Data = [2, 24, 5, 17, 7, 2, 12, 24, 5, 24, 2, 8, 12,7];            
-            initChart(chart3, '#kt_table_widget_14_chart_3', chart3Data, true);
-
-            var chart4Data = [24, 3, 5, 19, 3, 7, 25, 14, 5, 14, 2, 8, 5,17];            
-            initChart(chart4, '#kt_table_widget_14_chart_4', chart4Data, true);
-
-            var chart5Data = [3, 23, 1, 19, 3, 17, 3, 9, 25, 4, 2, 18, 25,3];            
-            initChart(chart5, '#kt_table_widget_14_chart_5', chart5Data, true); 
-
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {
-                if (chart1.rendered) {
-                    chart1.self.destroy();
-                }
-
-                if (chart2.rendered) {
-                    chart2.self.destroy();
-                }
-
-                if (chart3.rendered) {
-                    chart3.self.destroy();
-                }
-
-                if (chart4.rendered) {
-                    chart4.self.destroy();
-                }
-
-                if (chart5.rendered) {
-                    chart5.self.destroy();
-                }
-
-                initChart(chart1, '#kt_table_widget_14_chart_1', chart1Data, chart1.rendered);
-                initChart(chart2, '#kt_table_widget_14_chart_2', chart2Data, chart2.rendered);  
-                initChart(chart3, '#kt_table_widget_14_chart_3', chart3Data, chart3.rendered);
-                initChart(chart4, '#kt_table_widget_14_chart_4', chart4Data, chart4.rendered); 
-                initChart(chart5, '#kt_table_widget_14_chart_5', chart5Data, chart5.rendered); 
-            });
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTTablesWidget14;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTTablesWidget14.init();
-});
-
-
- 
-"use strict";
-
-// Class definition
-var KTTablesWidget15 = function () {
-    var chart1 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart2 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart3 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart4 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart5 = {
-        self: null,
-        rendered: false
-    };
-
-    // Private methods
-    var initChart = function(chart, chartSelector, data, initByDefault) {
-        var element = document.querySelector(chartSelector);
-
-        if (!element) {
-            return;
-        }
-        
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var color = element.getAttribute('data-kt-chart-color');
-         
-        var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
-        var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
-        var lightColor = KTUtil.getCssVariableValue('--bs-body-bg');
-
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: data
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {},
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 1
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                
-                axisBorder: {
-                    show: false
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false                    
-                },
-                crosshairs: {
-                    show: false,
-                    position: 'front',
-                    stroke: {
-                        color: strokeColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: false
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 60,
-                labels: {
-                    show: false,
-                    ontSize: '12px'                   
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                enabled: false
-            },
-            colors: [lightColor],
-            markers: {
-                colors: [lightColor],
-                strokeColor: [baseColor],
-                strokeWidth: 3
-            }
-        };
-
-        chart.self = new ApexCharts(element, options);          
-        
-        if (initByDefault === true) {
-            // Set timeout to properly get the parent elements width
-            setTimeout(function() {
-                chart.self.render();  
-                chart.rendered = true;
-            }, 200);
-        }              
-    }
-
-    // Public methods
-    return {
-        init: function () { 
-            var chart1Data = [7, 10, 5, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21,13];            
-            initChart(chart1, '#kt_table_widget_15_chart_1', chart1Data, true);
-
-            var chart2Data = [17, 5, 23, 2, 21, 9, 17, 23, 4, 24, 9, 17, 21,7];            
-            initChart(chart2, '#kt_table_widget_15_chart_2', chart2Data, true);
-
-            var chart3Data = [2, 24, 5, 17, 7, 2, 12, 24, 5, 24, 2, 8, 12,7];            
-            initChart(chart3, '#kt_table_widget_15_chart_3', chart3Data, true);
-
-            var chart4Data = [24, 3, 5, 19, 3, 7, 25, 14, 5, 14, 2, 8, 5,17];            
-            initChart(chart4, '#kt_table_widget_15_chart_4', chart4Data, true);
-
-            var chart5Data = [3, 23, 1, 19, 3, 17, 3, 9, 25, 4, 2, 18, 25,3];            
-            initChart(chart5, '#kt_table_widget_15_chart_5', chart5Data, true);
-            
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {
-                if (chart1.rendered) {
-                    chart1.self.destroy();
-                }
-
-                if (chart2.rendered) {
-                    chart2.self.destroy();
-                }
-
-                if (chart3.rendered) {
-                    chart3.self.destroy();
-                }
-
-                if (chart4.rendered) {
-                    chart4.self.destroy();
-                }
-
-                if (chart5.rendered) {
-                    chart5.self.destroy();
-                }
-
-                initChart(chart1, '#kt_table_widget_15_chart_1', chart1Data, chart1.rendered);
-                initChart(chart2, '#kt_table_widget_15_chart_2', chart2Data, chart2.rendered);  
-                initChart(chart3, '#kt_table_widget_15_chart_3', chart3Data, chart3.rendered);
-                initChart(chart4, '#kt_table_widget_15_chart_4', chart4Data, chart4.rendered); 
-                initChart(chart5, '#kt_table_widget_15_chart_5', chart5Data, chart5.rendered); 
-            });
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTTablesWidget15;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTTablesWidget15.init();
-});
-
-
- 
-"use strict";
-
-// Class definition
-var KTTablesWidget16 = function () {
-    var chart1 = {
-        self: null,
-        rendered: false
-    }; 
-
-    var chart2 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart3 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart4 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart5 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart6 = {
-        self: null,
-        rendered: false
-    }; 
-
-    var chart7 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart8 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart9 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart10 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart11 = {
-        self: null,
-        rendered: false
-    }; 
-
-    var chart12 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart13 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart14 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart15 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart16 = {
-        self: null,
-        rendered: false
-    }; 
-
-    var chart17 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart18 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart19 = {
-        self: null,
-        rendered: false
-    };
-
-    var chart20 = {
-        self: null,
-        rendered: false
-    };
-
-    // Private methods
-    var initChart = function(chart, toggle, selector, data, initByDefault) {
-        var element = document.querySelector(selector);
-
-        if ( !element ) {
-            return;
-        }
-        
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var color = element.getAttribute('data-kt-chart-color');
-        var labelColor = KTUtil.getCssVariableValue('--bs-gray-800');
-        var strokeColor = KTUtil.getCssVariableValue('--bs-gray-300');
-        var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
-        var lightColor = KTUtil.getCssVariableValue('--bs-body-bg');
-
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: data
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {},
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 1
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 2,
-                colors: [baseColor]
-            },
-            xaxis: {                
-                axisBorder: {
-                    show: false
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false                    
-                },
-                crosshairs: {
-                    show: false,
-                    position: 'front',
-                    stroke: {
-                        color: strokeColor,
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: false
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 60,
-                labels: {
-                    show: false,
-                    ontSize: '12px'                   
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                enabled: false
-            },
-            colors: [lightColor],
-            markers: {
-                colors: [lightColor],
-                strokeColor: [baseColor],
-                strokeWidth: 3
-            }
-        };
-
-        chart.self = new ApexCharts(element, options);        
-        var tab = document.querySelector(toggle);
-        
-        if (initByDefault === true) {
-            // Set timeout to properly get the parent elements width
-            setTimeout(function() {
-                chart.self.render();  
-                chart.rendered = true;
-            }, 200);
-        }        
-
-        tab.addEventListener('shown.bs.tab', function (event) {
-            if (chart.rendered === false) {
-                chart.self.render();  
-                chart.rendered = true;
-            }
-        });
-    }
-
-    // Public methods
-    return {
-        init: function () {  
-            var chart1Data = [16, 10, 15, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21, 13];  
-            initChart(chart1, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_1', chart1Data, true);        
-             
-            var chart2Data = [8, 5, 16, 3, 23, 16, 11, 15, 3, 11, 15, 7, 17, 9];  
-            initChart(chart2, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_2', chart2Data, true);    
-            
-            var chart3Data = [8, 6, 16, 3, 23, 16, 11, 14, 3, 11, 15, 8, 17, 9];  
-            initChart(chart3, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_3', chart3Data, true);  
-            
-            var chart4Data = [12, 5, 23, 12, 21, 9, 17, 20, 4, 24, 9, 13, 18, 9];  
-            initChart(chart4, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_4', chart4Data, true); 
-
-
-            var chart5Data = [13, 10, 15, 21, 6, 11, 5, 21, 5, 12, 18, 7, 21, 13];  
-            initChart(chart5, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_1', chart5Data, false);        
-             
-            var chart6Data = [13, 5, 21, 12, 21, 9, 17, 20, 4, 23, 9, 17, 21, 7];  
-            initChart(chart6, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_2', chart6Data, false);    
-            
-            var chart7Data = [8, 10, 14, 21, 6, 31, 5, 21, 5, 11, 15, 7, 23, 13];  
-            initChart(chart7, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_3', chart7Data, false);  
-            
-            var chart8Data = [6, 10, 12, 21, 6, 11, 7, 23, 5, 12, 18, 7, 21, 15];  
-            initChart(chart8, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_4', chart8Data, false); 
-
-
-            var chart9Data = [7, 10, 5, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21,13];  
-            initChart(chart9, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_1', chart9Data, false);        
-             
-            var chart10Data = [8, 5, 16, 2, 19, 9, 17, 21, 4, 24, 4, 13, 21,5];  
-            initChart(chart10, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_2', chart10Data, false);    
-            
-            var chart11Data = [15, 10, 12, 21, 6, 11, 23, 11, 5, 12, 18, 7, 21, 15];  
-            initChart(chart11, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_3', chart11Data, false);  
-            
-            var chart12Data = [3, 9, 12, 23, 6, 11, 7, 23, 5, 12, 14, 7, 21, 8];  
-            initChart(chart12, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_4', chart12Data, false);
-
-
-            var chart13Data = [9, 14, 15, 21, 8, 11, 5, 23, 5, 11, 18, 5, 23, 8];  
-            initChart(chart13, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_1', chart13Data, false);        
-             
-            var chart14Data = [7, 5, 23, 12, 21, 9, 17, 15, 4, 24, 9, 17, 21, 7];  
-            initChart(chart14, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_2', chart14Data, false);    
-            
-            var chart15Data = [8, 10, 14, 21, 6, 31, 8, 23, 5, 3, 14, 7, 21, 12];  
-            initChart(chart15, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_3', chart15Data, false);  
-            
-            var chart16Data = [6, 12, 12, 19, 6, 11, 7, 23, 5, 12, 18, 7, 21, 15];  
-            initChart(chart16, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_4', chart16Data, false);
-
-
-            var chart17Data = [5, 10, 15, 21, 6, 11, 5, 23, 5, 11, 17, 7, 21, 13];  
-            initChart(chart17, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_1', chart17Data, false);        
-             
-            var chart18Data = [4, 5, 23, 12, 21, 9, 17, 15, 4, 24, 9, 17, 21, 7];  
-            initChart(chart18, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_2', chart18Data, false);    
-            
-            var chart19Data = [7, 10, 14, 21, 6, 31, 5, 23, 5, 11, 15, 7, 21, 17];  
-            initChart(chart19, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_3', chart19Data, false);  
-            
-            var chart20Data = [3, 10, 12, 23, 6, 11, 7, 22, 5, 12, 18, 7, 21, 14];  
-            initChart(chart20, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_4', chart20Data, false);
-
-            // Update chart on theme mode change
-            KTThemeMode.on("kt.thememode.change", function() {
-                if (chart1.rendered) {
-                    chart1.self.destroy();
-                }
-
-                if (chart2.rendered) {
-                    chart2.self.destroy();
-                }
-
-                if (chart3.rendered) {
-                    chart3.self.destroy();
-                }
-
-                if (chart4.rendered) {
-                    chart4.self.destroy();
-                }
-
-                if (chart5.rendered) {
-                    chart5.self.destroy();
-                }
-
-                if (chart6.rendered) {
-                    chart6.self.destroy();
-                }
-
-                if (chart7.rendered) {
-                    chart7.self.destroy();
-                }
-
-                if (chart8.rendered) {
-                    chart8.self.destroy();
-                }
-
-                if (chart9.rendered) {
-                    chart9.self.destroy();
-                }
-
-                if (chart10.rendered) {
-                    chart10.self.destroy();
-                }
-
-                if (chart11.rendered) {
-                    chart11.self.destroy();
-                }
-
-                if (chart12.rendered) {
-                    chart12.self.destroy();
-                }
-
-                if (chart13.rendered) {
-                    chart13.self.destroy();
-                }
-
-                if (chart14.rendered) {
-                    chart14.self.destroy();
-                }
-
-                if (chart15.rendered) {
-                    chart15.self.destroy();
-                }
-
-                if (chart16.rendered) {
-                    chart16.self.destroy();
-                }
-
-                if (chart17.rendered) {
-                    chart17.self.destroy();
-                }
-
-                if (chart18.rendered) {
-                    chart18.self.destroy();
-                }
-
-                if (chart19.rendered) {
-                    chart19.self.destroy();
-                }
-
-                if (chart20.rendered) {
-                    chart20.self.destroy();
-                }                
-
-                initChart(chart1, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_1', chart1Data, chart1.rendered);
-                initChart(chart2, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_2', chart2Data, chart2.rendered);  
-                initChart(chart3, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_3', chart3Data, chart3.rendered);
-                initChart(chart4, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_4', chart4Data, chart4.rendered); 
-
-                initChart(chart5, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_1', chart5Data, chart5.rendered);
-                initChart(chart6, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_2', chart6Data, chart6.rendered);  
-                initChart(chart7, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_3', chart7Data, chart7.rendered);
-                initChart(chart8, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_4', chart8Data, chart8.rendered); 
-
-                initChart(chart9, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_1', chart9Data, chart9.rendered);
-                initChart(chart10, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_2', chart10Data, chart10.rendered);  
-                initChart(chart11, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_3', chart11Data, chart11.rendered);
-                initChart(chart12, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_4', chart12Data, chart12.rendered); 
-
-                initChart(chart13, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_1', chart13Data, chart13.rendered);
-                initChart(chart14, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_2', chart14Data, chart14.rendered);  
-                initChart(chart15, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_3', chart15Data, chart15.rendered);
-                initChart(chart16, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_4', chart16Data, chart16.rendered); 
-
-                initChart(chart17, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_1', chart17Data, chart17.rendered);
-                initChart(chart18, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_2', chart18Data, chart18.rendered);  
-                initChart(chart19, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_3', chart19Data, chart19.rendered);
-                initChart(chart20, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_4', chart20Data, chart20.rendered);                 
-            });            
-        }   
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTTablesWidget16;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTTablesWidget16.init();
-});
-
-
- 
-"use strict";
-
-// Class definition
-var KTTablesWidget3 = function () {
-    var table;
-    var datatable;
-
-    // Private methods
-    const initDatatable = () => {
-        // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
-            "info": false,
-            'order': [],
-            'paging': false,
-            'pageLength': false,
-        });
-    }
-
-    const handleTabStates = () => {
-        const tabs = document.querySelector('[data-kt-table-widget-3="tabs_nav"]');
-        const tabButtons = tabs.querySelectorAll('[data-kt-table-widget-3="tab"]');
-        const tabClasses = ['border-bottom', 'border-3', 'border-primary'];
-
-        tabButtons.forEach(tab => {
-            tab.addEventListener('click', e => {
-                // Get datatable filter value
-                const value = tab.getAttribute('data-kt-table-widget-3-value');
-                tabButtons.forEach(t => {
-                    t.classList.remove(...tabClasses);
-                    t.classList.add('text-muted');
-                });
-
-                tab.classList.remove('text-muted');
-                tab.classList.add(...tabClasses);
-
-                // Filter datatable
-                if (value === 'Show All') {
-                    datatable.search('').draw();
-                } else {
-                    datatable.search(value).draw();
-                }
-            });
-        });
-    }
-
-    // Handle status filter dropdown
-    const handleStatusFilter = () => {
-        const select = document.querySelector('[data-kt-table-widget-3="filter_status"]');
-
-        $(select).on('select2:select', function (e) {
-            const value = $(this).val();
-            if (value === 'Show All') {
-                datatable.search('').draw();
-            } else {
-                datatable.search(value).draw();
-            }
-        });
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            table = document.querySelector('#kt_widget_table_3');
-
-            if (!table) {
-                return;
-            }
-
-            initDatatable();
-            handleTabStates();
-            handleStatusFilter();
-        }
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTTablesWidget3;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    KTTablesWidget3.init();
-});
-
-"use strict";
-
-// Class definition
-var KTTablesWidget4 = function () {
-    var table;
-    var datatable;
-    var template;
-
-    // Private methods
-    const initDatatable = () => {
-        // Get subtable template
-        const subtable = document.querySelector('[data-kt-table-widget-4="subtable_template"]');
-        template = subtable.cloneNode(true);
-        template.classList.remove('d-none');
-
-        // Remove subtable template
-        subtable.parentNode.removeChild(subtable);
-
-        // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
-            "info": false,
-            'order': [],
-            "lengthChange": false,
-            'pageLength': 6,
-            'ordering': false,
-            'paging': false,
-            'columnDefs': [
-                { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)
-            ]
-        });
-
-        // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
-        datatable.on('draw', function () {
-            resetSubtable();
-            handleActionButton();
-        });
-    }
-
-    // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
-    var handleSearchDatatable = () => {
-        const filterSearch = document.querySelector('[data-kt-table-widget-4="search"]');
-        filterSearch.addEventListener('keyup', function (e) {
-            datatable.search(e.target.value).draw();
-        });
-    }
-
-    // Handle status filter
-    const handleStatusFilter = () => {
-        const select = document.querySelector('[data-kt-table-widget-4="filter_status"]');
-
-        $(select).on('select2:select', function (e) {
-            const value = $(this).val();
-            if (value === 'Show All') {
-                datatable.search('').draw();
-            } else {
-                datatable.search(value).draw();
-            }
-        });
-    }
-
-    // Subtable data sample
-    const data = [
-        {
-            image: '76',
-            name: 'Go Pro 8',
-            description: 'Latest  version of Go Pro.',
-            cost: '500.00',
-            qty: '1',
-            total: '500.00',
-            stock: '12'
-        },
-        {
-            image: '60',
-            name: 'Bose Earbuds',
-            description: 'Top quality earbuds from Bose.',
-            cost: '300.00',
-            qty: '1',
-            total: '300.00',
-            stock: '8'
-        },
-        {
-            image: '211',
-            name: 'Dry-fit Sports T-shirt',
-            description: 'Comfortable sportswear.',
-            cost: '89.00',
-            qty: '1',
-            total: '89.00',
-            stock: '18'
-        },
-        {
-            image: '21',
-            name: 'Apple Airpod 3',
-            description: 'Apple\'s latest earbuds.',
-            cost: '200.00',
-            qty: '2',
-            total: '400.00',
-            stock: '32'
-        },
-        {
-            image: '83',
-            name: 'Nike Pumps',
-            description: 'Apple\'s latest headphones.',
-            cost: '200.00',
-            qty: '1',
-            total: '200.00',
-            stock: '8'
-        }
-    ];
-
-    // Handle action button
-    const handleActionButton = () => {
-        const buttons = document.querySelectorAll('[data-kt-table-widget-4="expand_row"]');
-
-        // Sample row items counter --- for demo purpose only, remove this variable in your project
-        const rowItems = [3, 1, 3, 1, 2, 1];
-
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', e => {
-                e.stopImmediatePropagation();
-                e.preventDefault();
-
-                const row = button.closest('tr');
-                const rowClasses = ['isOpen', 'border-bottom-0'];
-
-                // Get total number of items to generate --- for demo purpose only, remove this code snippet in your project
-                const demoData = [];
-                for (var j = 0; j < rowItems[index]; j++) {
-                    demoData.push(data[j]);
-                }
-                // End of generating demo data
-
-                // Handle subtable expanded state
-                if (row.classList.contains('isOpen')) {
-                    // Remove all subtables from current order row
-                    while (row.nextSibling && row.nextSibling.getAttribute('data-kt-table-widget-4') === 'subtable_template') {
-                        row.nextSibling.parentNode.removeChild(row.nextSibling);
-                    }
-                    row.classList.remove(...rowClasses);
-                    button.classList.remove('active');
-                } else {
-                    populateTemplate(demoData, row);
-                    row.classList.add(...rowClasses);
-                    button.classList.add('active');
-                }
-            });
-        });
-    }
-
-    // Populate template with content/data -- content/data can be replaced with relevant data from database or API
-    const populateTemplate = (data, target) => {
-        data.forEach((d, index) => {
-            // Clone template node
-            const newTemplate = template.cloneNode(true);
-
-            // Stock badges
-            const lowStock = `<div class="badge badge-light-warning">Low Stock</div>`;
-            const inStock = `<div class="badge badge-light-success">In Stock</div>`;
-
-            // Select data elements
-            const image = newTemplate.querySelector('[data-kt-table-widget-4="template_image"]');
-            const name = newTemplate.querySelector('[data-kt-table-widget-4="template_name"]');
-            const description = newTemplate.querySelector('[data-kt-table-widget-4="template_description"]');
-            const cost = newTemplate.querySelector('[data-kt-table-widget-4="template_cost"]');
-            const qty = newTemplate.querySelector('[data-kt-table-widget-4="template_qty"]');
-            const total = newTemplate.querySelector('[data-kt-table-widget-4="template_total"]');
-            const stock = newTemplate.querySelector('[data-kt-table-widget-4="template_stock"]');
-
-            // Populate elements with data
-            const imageSrc = image.getAttribute('data-kt-src-path');
-            image.setAttribute('src', imageSrc + d.image + '.gif');
-            name.innerText = d.name;
-            description.innerText = d.description;
-            cost.innerText = d.cost;
-            qty.innerText = d.qty;
-            total.innerText = d.total;
-            if (d.stock > 10) {
-                stock.innerHTML = inStock;
-            } else {
-                stock.innerHTML = lowStock;
-            }
-
-            // New template border controller
-            // When only 1 row is available
-            if (data.length === 1) {
-                //let borderClasses = ['rounded', 'rounded-end-0'];
-                //newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
-                //borderClasses = ['rounded', 'rounded-start-0'];
-                //newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
-
-                // Remove bottom border
-                //newTemplate.classList.add('border-bottom-0');
-            } else {
-                // When multiple rows detected
-                if (index === (data.length - 1)) { // first row
-                    //let borderClasses = ['rounded-start', 'rounded-bottom-0'];
-                   // newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
-                    //borderClasses = ['rounded-end', 'rounded-bottom-0'];
-                    //newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
-                }
-                if (index === 0) { // last row
-                    //let borderClasses = ['rounded-start', 'rounded-top-0'];
-                    //newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
-                    //borderClasses = ['rounded-end', 'rounded-top-0'];
-                    //newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
-
-                    // Remove bottom border on last row
-                    //newTemplate.classList.add('border-bottom-0');
-                }
-            }
-
-            // Insert new template into table
-            const tbody = table.querySelector('tbody');
-            tbody.insertBefore(newTemplate, target.nextSibling);
-        });
-    }
-
-    // Reset subtable
-    const resetSubtable = () => {
-        const subtables = document.querySelectorAll('[data-kt-table-widget-4="subtable_template"]');
-        subtables.forEach(st => {
-            st.parentNode.removeChild(st);
-        });
-
-        const rows = table.querySelectorAll('tbody tr');
-        rows.forEach(r => {
-            r.classList.remove('isOpen');
-            if (r.querySelector('[data-kt-table-widget-4="expand_row"]')) {
-                r.querySelector('[data-kt-table-widget-4="expand_row"]').classList.remove('active');
-            }
-        });
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            table = document.querySelector('#kt_table_widget_4_table');
-
-            if (!table) {
-                return;
-            }
-
-            initDatatable();
-            handleSearchDatatable();
-            handleStatusFilter();
-            handleActionButton();
-        }
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTTablesWidget4;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    KTTablesWidget4.init();
-});
-
-"use strict";
-
-// Class definition
-var KTTablesWidget5 = function () {
-    var table;
-    var datatable;
-
-    // Private methods
-    const initDatatable = () => {
-        // Set date data order
-        const tableRows = table.querySelectorAll('tbody tr');
-
-        tableRows.forEach(row => {
-            const dateRow = row.querySelectorAll('td');
-            const realDate = moment(dateRow[2].innerHTML, "MMM DD, YYYY").format(); // select date from 3rd column in table
-            dateRow[2].setAttribute('data-order', realDate);
-        });
-
-        // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
-            "info": false,
-            'order': [],
-            "lengthChange": false,
-            'pageLength': 6,
-            'paging': false,
-            'columnDefs': [
-                { orderable: false, targets: 1 }, // Disable ordering on column 1 (product id)
-            ]
-        });
-    }
-
-    // Handle status filter
-    const handleStatusFilter = () => {
-        const select = document.querySelector('[data-kt-table-widget-5="filter_status"]');
-
-        $(select).on('select2:select', function (e) {
-            const value = $(this).val();
-            if (value === 'Show All') {
-                datatable.search('').draw();
-            } else {
-                datatable.search(value).draw();
-            }
-        });
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            table = document.querySelector('#kt_table_widget_5_table');
-
-            if (!table) {
-                return;
-            }
-
-            initDatatable();
-            handleStatusFilter();
-        }
-    }
-}();
-
-// Webpack support
-if (typeof module !== 'undefined') {
-    module.exports = KTTablesWidget5;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    KTTablesWidget5.init();
-});
-
 "use strict";
 
 // Class definition
@@ -19472,4 +18199,1277 @@ if (typeof module !== 'undefined') {
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
     KTTimelineWidget4.init();
+});
+
+"use strict";
+
+// Class definition
+var KTTablesWidget14 = function () {
+    var chart1 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart2 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart3 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart4 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart5 = {
+        self: null,
+        rendered: false
+    };
+
+    // Private methods
+    var initChart = function(chart, chartSelector, data, initByDefault) {
+        var element = document.querySelector(chartSelector);
+
+        if (!element) {
+            return;
+        }
+        
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var color = element.getAttribute('data-kt-chart-color');
+       
+        var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+        var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+        var lightColor = KTUtil.getCssVariableValue('--bs-body-bg');
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: data
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {},
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                 
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false                   
+                },
+                crosshairs: {
+                    show: false,
+                    position: 'front',
+                    stroke: {
+                        color: strokeColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: false
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 60,
+                labels: {
+                    show: false                     
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                enabled: false
+            },
+            colors: [lightColor],
+            markers: {
+                colors: [lightColor],
+                strokeColor: [baseColor],
+                strokeWidth: 3
+            }
+        };
+
+        chart.self = new ApexCharts(element, options);          
+        
+        if (initByDefault === true) {
+            // Set timeout to properly get the parent elements width
+            setTimeout(function() {
+                chart.self.render();  
+                chart.rendered = true;
+            }, 200);
+        }            
+    }
+
+    // Public methods
+    return {
+        init: function () { 
+            var chart1Data = [7, 10, 5, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21,13];            
+            initChart(chart1, '#kt_table_widget_14_chart_1', chart1Data, true);
+
+            var chart2Data = [17, 5, 23, 2, 21, 9, 17, 23, 4, 24, 9, 17, 21,7];            
+            initChart(chart2, '#kt_table_widget_14_chart_2', chart2Data, true);
+
+            var chart3Data = [2, 24, 5, 17, 7, 2, 12, 24, 5, 24, 2, 8, 12,7];            
+            initChart(chart3, '#kt_table_widget_14_chart_3', chart3Data, true);
+
+            var chart4Data = [24, 3, 5, 19, 3, 7, 25, 14, 5, 14, 2, 8, 5,17];            
+            initChart(chart4, '#kt_table_widget_14_chart_4', chart4Data, true);
+
+            var chart5Data = [3, 23, 1, 19, 3, 17, 3, 9, 25, 4, 2, 18, 25,3];            
+            initChart(chart5, '#kt_table_widget_14_chart_5', chart5Data, true); 
+
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {
+                if (chart1.rendered) {
+                    chart1.self.destroy();
+                }
+
+                if (chart2.rendered) {
+                    chart2.self.destroy();
+                }
+
+                if (chart3.rendered) {
+                    chart3.self.destroy();
+                }
+
+                if (chart4.rendered) {
+                    chart4.self.destroy();
+                }
+
+                if (chart5.rendered) {
+                    chart5.self.destroy();
+                }
+
+                initChart(chart1, '#kt_table_widget_14_chart_1', chart1Data, chart1.rendered);
+                initChart(chart2, '#kt_table_widget_14_chart_2', chart2Data, chart2.rendered);  
+                initChart(chart3, '#kt_table_widget_14_chart_3', chart3Data, chart3.rendered);
+                initChart(chart4, '#kt_table_widget_14_chart_4', chart4Data, chart4.rendered); 
+                initChart(chart5, '#kt_table_widget_14_chart_5', chart5Data, chart5.rendered); 
+            });
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTTablesWidget14;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTTablesWidget14.init();
+});
+
+
+ 
+"use strict";
+
+// Class definition
+var KTTablesWidget15 = function () {
+    var chart1 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart2 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart3 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart4 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart5 = {
+        self: null,
+        rendered: false
+    };
+
+    // Private methods
+    var initChart = function(chart, chartSelector, data, initByDefault) {
+        var element = document.querySelector(chartSelector);
+
+        if (!element) {
+            return;
+        }
+        
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var color = element.getAttribute('data-kt-chart-color');
+         
+        var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+        var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+        var lightColor = KTUtil.getCssVariableValue('--bs-body-bg');
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: data
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {},
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false                    
+                },
+                crosshairs: {
+                    show: false,
+                    position: 'front',
+                    stroke: {
+                        color: strokeColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: false
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 60,
+                labels: {
+                    show: false,
+                    ontSize: '12px'                   
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                enabled: false
+            },
+            colors: [lightColor],
+            markers: {
+                colors: [lightColor],
+                strokeColor: [baseColor],
+                strokeWidth: 3
+            }
+        };
+
+        chart.self = new ApexCharts(element, options);          
+        
+        if (initByDefault === true) {
+            // Set timeout to properly get the parent elements width
+            setTimeout(function() {
+                chart.self.render();  
+                chart.rendered = true;
+            }, 200);
+        }              
+    }
+
+    // Public methods
+    return {
+        init: function () { 
+            var chart1Data = [7, 10, 5, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21,13];            
+            initChart(chart1, '#kt_table_widget_15_chart_1', chart1Data, true);
+
+            var chart2Data = [17, 5, 23, 2, 21, 9, 17, 23, 4, 24, 9, 17, 21,7];            
+            initChart(chart2, '#kt_table_widget_15_chart_2', chart2Data, true);
+
+            var chart3Data = [2, 24, 5, 17, 7, 2, 12, 24, 5, 24, 2, 8, 12,7];            
+            initChart(chart3, '#kt_table_widget_15_chart_3', chart3Data, true);
+
+            var chart4Data = [24, 3, 5, 19, 3, 7, 25, 14, 5, 14, 2, 8, 5,17];            
+            initChart(chart4, '#kt_table_widget_15_chart_4', chart4Data, true);
+
+            var chart5Data = [3, 23, 1, 19, 3, 17, 3, 9, 25, 4, 2, 18, 25,3];            
+            initChart(chart5, '#kt_table_widget_15_chart_5', chart5Data, true);
+            
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {
+                if (chart1.rendered) {
+                    chart1.self.destroy();
+                }
+
+                if (chart2.rendered) {
+                    chart2.self.destroy();
+                }
+
+                if (chart3.rendered) {
+                    chart3.self.destroy();
+                }
+
+                if (chart4.rendered) {
+                    chart4.self.destroy();
+                }
+
+                if (chart5.rendered) {
+                    chart5.self.destroy();
+                }
+
+                initChart(chart1, '#kt_table_widget_15_chart_1', chart1Data, chart1.rendered);
+                initChart(chart2, '#kt_table_widget_15_chart_2', chart2Data, chart2.rendered);  
+                initChart(chart3, '#kt_table_widget_15_chart_3', chart3Data, chart3.rendered);
+                initChart(chart4, '#kt_table_widget_15_chart_4', chart4Data, chart4.rendered); 
+                initChart(chart5, '#kt_table_widget_15_chart_5', chart5Data, chart5.rendered); 
+            });
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTTablesWidget15;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTTablesWidget15.init();
+});
+
+
+ 
+"use strict";
+
+// Class definition
+var KTTablesWidget16 = function () {
+    var chart1 = {
+        self: null,
+        rendered: false
+    }; 
+
+    var chart2 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart3 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart4 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart5 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart6 = {
+        self: null,
+        rendered: false
+    }; 
+
+    var chart7 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart8 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart9 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart10 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart11 = {
+        self: null,
+        rendered: false
+    }; 
+
+    var chart12 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart13 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart14 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart15 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart16 = {
+        self: null,
+        rendered: false
+    }; 
+
+    var chart17 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart18 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart19 = {
+        self: null,
+        rendered: false
+    };
+
+    var chart20 = {
+        self: null,
+        rendered: false
+    };
+
+    // Private methods
+    var initChart = function(chart, toggle, selector, data, initByDefault) {
+        var element = document.querySelector(selector);
+
+        if ( !element ) {
+            return;
+        }
+        
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var color = element.getAttribute('data-kt-chart-color');
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-800');
+        var strokeColor = KTUtil.getCssVariableValue('--bs-gray-300');
+        var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+        var lightColor = KTUtil.getCssVariableValue('--bs-body-bg');
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: data
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {},
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [baseColor]
+            },
+            xaxis: {                
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false                    
+                },
+                crosshairs: {
+                    show: false,
+                    position: 'front',
+                    stroke: {
+                        color: strokeColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: false
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 60,
+                labels: {
+                    show: false,
+                    ontSize: '12px'                   
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                enabled: false
+            },
+            colors: [lightColor],
+            markers: {
+                colors: [lightColor],
+                strokeColor: [baseColor],
+                strokeWidth: 3
+            }
+        };
+
+        chart.self = new ApexCharts(element, options);        
+        var tab = document.querySelector(toggle);
+        
+        if (initByDefault === true) {
+            // Set timeout to properly get the parent elements width
+            setTimeout(function() {
+                chart.self.render();  
+                chart.rendered = true;
+            }, 200);
+        }        
+
+        tab.addEventListener('shown.bs.tab', function (event) {
+            if (chart.rendered === false) {
+                chart.self.render();  
+                chart.rendered = true;
+            }
+        });
+    }
+
+    // Public methods
+    return {
+        init: function () {  
+            var chart1Data = [16, 10, 15, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21, 13];  
+            initChart(chart1, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_1', chart1Data, true);        
+             
+            var chart2Data = [8, 5, 16, 3, 23, 16, 11, 15, 3, 11, 15, 7, 17, 9];  
+            initChart(chart2, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_2', chart2Data, true);    
+            
+            var chart3Data = [8, 6, 16, 3, 23, 16, 11, 14, 3, 11, 15, 8, 17, 9];  
+            initChart(chart3, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_3', chart3Data, true);  
+            
+            var chart4Data = [12, 5, 23, 12, 21, 9, 17, 20, 4, 24, 9, 13, 18, 9];  
+            initChart(chart4, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_4', chart4Data, true); 
+
+
+            var chart5Data = [13, 10, 15, 21, 6, 11, 5, 21, 5, 12, 18, 7, 21, 13];  
+            initChart(chart5, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_1', chart5Data, false);        
+             
+            var chart6Data = [13, 5, 21, 12, 21, 9, 17, 20, 4, 23, 9, 17, 21, 7];  
+            initChart(chart6, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_2', chart6Data, false);    
+            
+            var chart7Data = [8, 10, 14, 21, 6, 31, 5, 21, 5, 11, 15, 7, 23, 13];  
+            initChart(chart7, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_3', chart7Data, false);  
+            
+            var chart8Data = [6, 10, 12, 21, 6, 11, 7, 23, 5, 12, 18, 7, 21, 15];  
+            initChart(chart8, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_4', chart8Data, false); 
+
+
+            var chart9Data = [7, 10, 5, 21, 6, 11, 5, 23, 5, 11, 18, 7, 21,13];  
+            initChart(chart9, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_1', chart9Data, false);        
+             
+            var chart10Data = [8, 5, 16, 2, 19, 9, 17, 21, 4, 24, 4, 13, 21,5];  
+            initChart(chart10, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_2', chart10Data, false);    
+            
+            var chart11Data = [15, 10, 12, 21, 6, 11, 23, 11, 5, 12, 18, 7, 21, 15];  
+            initChart(chart11, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_3', chart11Data, false);  
+            
+            var chart12Data = [3, 9, 12, 23, 6, 11, 7, 23, 5, 12, 14, 7, 21, 8];  
+            initChart(chart12, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_4', chart12Data, false);
+
+
+            var chart13Data = [9, 14, 15, 21, 8, 11, 5, 23, 5, 11, 18, 5, 23, 8];  
+            initChart(chart13, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_1', chart13Data, false);        
+             
+            var chart14Data = [7, 5, 23, 12, 21, 9, 17, 15, 4, 24, 9, 17, 21, 7];  
+            initChart(chart14, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_2', chart14Data, false);    
+            
+            var chart15Data = [8, 10, 14, 21, 6, 31, 8, 23, 5, 3, 14, 7, 21, 12];  
+            initChart(chart15, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_3', chart15Data, false);  
+            
+            var chart16Data = [6, 12, 12, 19, 6, 11, 7, 23, 5, 12, 18, 7, 21, 15];  
+            initChart(chart16, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_4', chart16Data, false);
+
+
+            var chart17Data = [5, 10, 15, 21, 6, 11, 5, 23, 5, 11, 17, 7, 21, 13];  
+            initChart(chart17, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_1', chart17Data, false);        
+             
+            var chart18Data = [4, 5, 23, 12, 21, 9, 17, 15, 4, 24, 9, 17, 21, 7];  
+            initChart(chart18, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_2', chart18Data, false);    
+            
+            var chart19Data = [7, 10, 14, 21, 6, 31, 5, 23, 5, 11, 15, 7, 21, 17];  
+            initChart(chart19, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_3', chart19Data, false);  
+            
+            var chart20Data = [3, 10, 12, 23, 6, 11, 7, 22, 5, 12, 18, 7, 21, 14];  
+            initChart(chart20, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_4', chart20Data, false);
+
+            // Update chart on theme mode change
+            KTThemeMode.on("kt.thememode.change", function() {
+                if (chart1.rendered) {
+                    chart1.self.destroy();
+                }
+
+                if (chart2.rendered) {
+                    chart2.self.destroy();
+                }
+
+                if (chart3.rendered) {
+                    chart3.self.destroy();
+                }
+
+                if (chart4.rendered) {
+                    chart4.self.destroy();
+                }
+
+                if (chart5.rendered) {
+                    chart5.self.destroy();
+                }
+
+                if (chart6.rendered) {
+                    chart6.self.destroy();
+                }
+
+                if (chart7.rendered) {
+                    chart7.self.destroy();
+                }
+
+                if (chart8.rendered) {
+                    chart8.self.destroy();
+                }
+
+                if (chart9.rendered) {
+                    chart9.self.destroy();
+                }
+
+                if (chart10.rendered) {
+                    chart10.self.destroy();
+                }
+
+                if (chart11.rendered) {
+                    chart11.self.destroy();
+                }
+
+                if (chart12.rendered) {
+                    chart12.self.destroy();
+                }
+
+                if (chart13.rendered) {
+                    chart13.self.destroy();
+                }
+
+                if (chart14.rendered) {
+                    chart14.self.destroy();
+                }
+
+                if (chart15.rendered) {
+                    chart15.self.destroy();
+                }
+
+                if (chart16.rendered) {
+                    chart16.self.destroy();
+                }
+
+                if (chart17.rendered) {
+                    chart17.self.destroy();
+                }
+
+                if (chart18.rendered) {
+                    chart18.self.destroy();
+                }
+
+                if (chart19.rendered) {
+                    chart19.self.destroy();
+                }
+
+                if (chart20.rendered) {
+                    chart20.self.destroy();
+                }                
+
+                initChart(chart1, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_1', chart1Data, chart1.rendered);
+                initChart(chart2, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_2', chart2Data, chart2.rendered);  
+                initChart(chart3, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_3', chart3Data, chart3.rendered);
+                initChart(chart4, '#kt_stats_widget_16_tab_link_1', '#kt_table_widget_16_chart_1_4', chart4Data, chart4.rendered); 
+
+                initChart(chart5, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_1', chart5Data, chart5.rendered);
+                initChart(chart6, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_2', chart6Data, chart6.rendered);  
+                initChart(chart7, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_3', chart7Data, chart7.rendered);
+                initChart(chart8, '#kt_stats_widget_16_tab_link_2', '#kt_table_widget_16_chart_2_4', chart8Data, chart8.rendered); 
+
+                initChart(chart9, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_1', chart9Data, chart9.rendered);
+                initChart(chart10, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_2', chart10Data, chart10.rendered);  
+                initChart(chart11, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_3', chart11Data, chart11.rendered);
+                initChart(chart12, '#kt_stats_widget_16_tab_link_3', '#kt_table_widget_16_chart_3_4', chart12Data, chart12.rendered); 
+
+                initChart(chart13, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_1', chart13Data, chart13.rendered);
+                initChart(chart14, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_2', chart14Data, chart14.rendered);  
+                initChart(chart15, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_3', chart15Data, chart15.rendered);
+                initChart(chart16, '#kt_stats_widget_16_tab_link_4', '#kt_table_widget_16_chart_4_4', chart16Data, chart16.rendered); 
+
+                initChart(chart17, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_1', chart17Data, chart17.rendered);
+                initChart(chart18, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_2', chart18Data, chart18.rendered);  
+                initChart(chart19, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_3', chart19Data, chart19.rendered);
+                initChart(chart20, '#kt_stats_widget_16_tab_link_5', '#kt_table_widget_16_chart_5_4', chart20Data, chart20.rendered);                 
+            });            
+        }   
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTTablesWidget16;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTTablesWidget16.init();
+});
+
+
+ 
+"use strict";
+
+// Class definition
+var KTTablesWidget3 = function () {
+    var table;
+    var datatable;
+
+    // Private methods
+    const initDatatable = () => {
+        // Init datatable --- more info on datatables: https://datatables.net/manual/
+        datatable = $(table).DataTable({
+            "info": false,
+            'order': [],
+            'paging': false,
+            'pageLength': false,
+        });
+    }
+
+    const handleTabStates = () => {
+        const tabs = document.querySelector('[data-kt-table-widget-3="tabs_nav"]');
+        const tabButtons = tabs.querySelectorAll('[data-kt-table-widget-3="tab"]');
+        const tabClasses = ['border-bottom', 'border-3', 'border-primary'];
+
+        tabButtons.forEach(tab => {
+            tab.addEventListener('click', e => {
+                // Get datatable filter value
+                const value = tab.getAttribute('data-kt-table-widget-3-value');
+                tabButtons.forEach(t => {
+                    t.classList.remove(...tabClasses);
+                    t.classList.add('text-muted');
+                });
+
+                tab.classList.remove('text-muted');
+                tab.classList.add(...tabClasses);
+
+                // Filter datatable
+                if (value === 'Show All') {
+                    datatable.search('').draw();
+                } else {
+                    datatable.search(value).draw();
+                }
+            });
+        });
+    }
+
+    // Handle status filter dropdown
+    const handleStatusFilter = () => {
+        const select = document.querySelector('[data-kt-table-widget-3="filter_status"]');
+
+        $(select).on('select2:select', function (e) {
+            const value = $(this).val();
+            if (value === 'Show All') {
+                datatable.search('').draw();
+            } else {
+                datatable.search(value).draw();
+            }
+        });
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            table = document.querySelector('#kt_widget_table_3');
+
+            if (!table) {
+                return;
+            }
+
+            initDatatable();
+            handleTabStates();
+            handleStatusFilter();
+        }
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTTablesWidget3;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function () {
+    KTTablesWidget3.init();
+});
+
+"use strict";
+
+// Class definition
+var KTTablesWidget4 = function () {
+    var table;
+    var datatable;
+    var template;
+
+    // Private methods
+    const initDatatable = () => {
+        // Get subtable template
+        const subtable = document.querySelector('[data-kt-table-widget-4="subtable_template"]');
+        template = subtable.cloneNode(true);
+        template.classList.remove('d-none');
+
+        // Remove subtable template
+        subtable.parentNode.removeChild(subtable);
+
+        // Init datatable --- more info on datatables: https://datatables.net/manual/
+        datatable = $(table).DataTable({
+            "info": false,
+            'order': [],
+            "lengthChange": false,
+            'pageLength': 6,
+            'ordering': false,
+            'paging': false,
+            'columnDefs': [
+                { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
+                { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)
+            ]
+        });
+
+        // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
+        datatable.on('draw', function () {
+            resetSubtable();
+            handleActionButton();
+        });
+    }
+
+    // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+    var handleSearchDatatable = () => {
+        const filterSearch = document.querySelector('[data-kt-table-widget-4="search"]');
+        filterSearch.addEventListener('keyup', function (e) {
+            datatable.search(e.target.value).draw();
+        });
+    }
+
+    // Handle status filter
+    const handleStatusFilter = () => {
+        const select = document.querySelector('[data-kt-table-widget-4="filter_status"]');
+
+        $(select).on('select2:select', function (e) {
+            const value = $(this).val();
+            if (value === 'Show All') {
+                datatable.search('').draw();
+            } else {
+                datatable.search(value).draw();
+            }
+        });
+    }
+
+    // Subtable data sample
+    const data = [
+        {
+            image: '76',
+            name: 'Go Pro 8',
+            description: 'Latest  version of Go Pro.',
+            cost: '500.00',
+            qty: '1',
+            total: '500.00',
+            stock: '12'
+        },
+        {
+            image: '60',
+            name: 'Bose Earbuds',
+            description: 'Top quality earbuds from Bose.',
+            cost: '300.00',
+            qty: '1',
+            total: '300.00',
+            stock: '8'
+        },
+        {
+            image: '211',
+            name: 'Dry-fit Sports T-shirt',
+            description: 'Comfortable sportswear.',
+            cost: '89.00',
+            qty: '1',
+            total: '89.00',
+            stock: '18'
+        },
+        {
+            image: '21',
+            name: 'Apple Airpod 3',
+            description: 'Apple\'s latest earbuds.',
+            cost: '200.00',
+            qty: '2',
+            total: '400.00',
+            stock: '32'
+        },
+        {
+            image: '83',
+            name: 'Nike Pumps',
+            description: 'Apple\'s latest headphones.',
+            cost: '200.00',
+            qty: '1',
+            total: '200.00',
+            stock: '8'
+        }
+    ];
+
+    // Handle action button
+    const handleActionButton = () => {
+        const buttons = document.querySelectorAll('[data-kt-table-widget-4="expand_row"]');
+
+        // Sample row items counter --- for demo purpose only, remove this variable in your project
+        const rowItems = [3, 1, 3, 1, 2, 1];
+
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', e => {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+
+                const row = button.closest('tr');
+                const rowClasses = ['isOpen', 'border-bottom-0'];
+
+                // Get total number of items to generate --- for demo purpose only, remove this code snippet in your project
+                const demoData = [];
+                for (var j = 0; j < rowItems[index]; j++) {
+                    demoData.push(data[j]);
+                }
+                // End of generating demo data
+
+                // Handle subtable expanded state
+                if (row.classList.contains('isOpen')) {
+                    // Remove all subtables from current order row
+                    while (row.nextSibling && row.nextSibling.getAttribute('data-kt-table-widget-4') === 'subtable_template') {
+                        row.nextSibling.parentNode.removeChild(row.nextSibling);
+                    }
+                    row.classList.remove(...rowClasses);
+                    button.classList.remove('active');
+                } else {
+                    populateTemplate(demoData, row);
+                    row.classList.add(...rowClasses);
+                    button.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // Populate template with content/data -- content/data can be replaced with relevant data from database or API
+    const populateTemplate = (data, target) => {
+        data.forEach((d, index) => {
+            // Clone template node
+            const newTemplate = template.cloneNode(true);
+
+            // Stock badges
+            const lowStock = `<div class="badge badge-light-warning">Low Stock</div>`;
+            const inStock = `<div class="badge badge-light-success">In Stock</div>`;
+
+            // Select data elements
+            const image = newTemplate.querySelector('[data-kt-table-widget-4="template_image"]');
+            const name = newTemplate.querySelector('[data-kt-table-widget-4="template_name"]');
+            const description = newTemplate.querySelector('[data-kt-table-widget-4="template_description"]');
+            const cost = newTemplate.querySelector('[data-kt-table-widget-4="template_cost"]');
+            const qty = newTemplate.querySelector('[data-kt-table-widget-4="template_qty"]');
+            const total = newTemplate.querySelector('[data-kt-table-widget-4="template_total"]');
+            const stock = newTemplate.querySelector('[data-kt-table-widget-4="template_stock"]');
+
+            // Populate elements with data
+            const imageSrc = image.getAttribute('data-kt-src-path');
+            image.setAttribute('src', imageSrc + d.image + '.gif');
+            name.innerText = d.name;
+            description.innerText = d.description;
+            cost.innerText = d.cost;
+            qty.innerText = d.qty;
+            total.innerText = d.total;
+            if (d.stock > 10) {
+                stock.innerHTML = inStock;
+            } else {
+                stock.innerHTML = lowStock;
+            }
+
+            // New template border controller
+            // When only 1 row is available
+            if (data.length === 1) {
+                //let borderClasses = ['rounded', 'rounded-end-0'];
+                //newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
+                //borderClasses = ['rounded', 'rounded-start-0'];
+                //newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
+
+                // Remove bottom border
+                //newTemplate.classList.add('border-bottom-0');
+            } else {
+                // When multiple rows detected
+                if (index === (data.length - 1)) { // first row
+                    //let borderClasses = ['rounded-start', 'rounded-bottom-0'];
+                   // newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
+                    //borderClasses = ['rounded-end', 'rounded-bottom-0'];
+                    //newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
+                }
+                if (index === 0) { // last row
+                    //let borderClasses = ['rounded-start', 'rounded-top-0'];
+                    //newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
+                    //borderClasses = ['rounded-end', 'rounded-top-0'];
+                    //newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
+
+                    // Remove bottom border on last row
+                    //newTemplate.classList.add('border-bottom-0');
+                }
+            }
+
+            // Insert new template into table
+            const tbody = table.querySelector('tbody');
+            tbody.insertBefore(newTemplate, target.nextSibling);
+        });
+    }
+
+    // Reset subtable
+    const resetSubtable = () => {
+        const subtables = document.querySelectorAll('[data-kt-table-widget-4="subtable_template"]');
+        subtables.forEach(st => {
+            st.parentNode.removeChild(st);
+        });
+
+        const rows = table.querySelectorAll('tbody tr');
+        rows.forEach(r => {
+            r.classList.remove('isOpen');
+            if (r.querySelector('[data-kt-table-widget-4="expand_row"]')) {
+                r.querySelector('[data-kt-table-widget-4="expand_row"]').classList.remove('active');
+            }
+        });
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            table = document.querySelector('#kt_table_widget_4_table');
+
+            if (!table) {
+                return;
+            }
+
+            initDatatable();
+            handleSearchDatatable();
+            handleStatusFilter();
+            handleActionButton();
+        }
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTTablesWidget4;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function () {
+    KTTablesWidget4.init();
+});
+
+"use strict";
+
+// Class definition
+var KTTablesWidget5 = function () {
+    var table;
+    var datatable;
+
+    // Private methods
+    const initDatatable = () => {
+        // Set date data order
+        const tableRows = table.querySelectorAll('tbody tr');
+
+        tableRows.forEach(row => {
+            const dateRow = row.querySelectorAll('td');
+            const realDate = moment(dateRow[2].innerHTML, "MMM DD, YYYY").format(); // select date from 3rd column in table
+            dateRow[2].setAttribute('data-order', realDate);
+        });
+
+        // Init datatable --- more info on datatables: https://datatables.net/manual/
+        datatable = $(table).DataTable({
+            "info": false,
+            'order': [],
+            "lengthChange": false,
+            'pageLength': 6,
+            'paging': false,
+            'columnDefs': [
+                { orderable: false, targets: 1 }, // Disable ordering on column 1 (product id)
+            ]
+        });
+    }
+
+    // Handle status filter
+    const handleStatusFilter = () => {
+        const select = document.querySelector('[data-kt-table-widget-5="filter_status"]');
+
+        $(select).on('select2:select', function (e) {
+            const value = $(this).val();
+            if (value === 'Show All') {
+                datatable.search('').draw();
+            } else {
+                datatable.search(value).draw();
+            }
+        });
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            table = document.querySelector('#kt_table_widget_5_table');
+
+            if (!table) {
+                return;
+            }
+
+            initDatatable();
+            handleStatusFilter();
+        }
+    }
+}();
+
+// Webpack support
+if (typeof module !== 'undefined') {
+    module.exports = KTTablesWidget5;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function () {
+    KTTablesWidget5.init();
 });

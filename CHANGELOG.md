@@ -1,7 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.0.24] - 2023/8/88
+## [2.0.25] - 2023/8/15
+### Changed
+- Fixed clipboard copy component to support metronic version 8.1.8.  
+    Instructions and a demo can be found [here](https://takuya-motoshima.github.io/metronic-extension/clipboard.html).
+
+## [2.0.24] - 2023/8/8
 ### Changed
 - Play notification sound when success dialog (Dialog.success()) is invoked.
 
@@ -1205,3 +1210,4 @@ All notable changes to this project will be documented in this file.
 [2.0.22]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.21...v2.0.22
 [2.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.22...v2.0.23
 [2.0.24]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.23...v2.0.24
+[2.0.25]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.24...v2.0.25

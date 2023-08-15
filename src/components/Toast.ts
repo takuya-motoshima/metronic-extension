@@ -28,35 +28,35 @@ export default class {
   /**
    * Show success message.
    */
-  static success(message: string, title: undefined|string = undefined, delayMSec: number = 10000) {
-    this.#show(message, title, 'success', delayMSec);
+  static success(message: string, title: undefined|string = undefined, delay: number = 10000) {
+    this.#show(message, title, 'success', delay);
   }
 
   /**
    * Show info message.
    */
-  static info(message: string, title: undefined|string = undefined, delayMSec: number = 10000) {
-    this.#show(message, title, 'info', delayMSec);
+  static info(message: string, title: undefined|string = undefined, delay: number = 10000) {
+    this.#show(message, title, 'info', delay);
   }
 
   /**
    * Show warning message.
    */
-  static warning(message: string, title: undefined|string = undefined, delayMSec: number = 10000) {
-    this.#show(message, title, 'warning', delayMSec);
+  static warning(message: string, title: undefined|string = undefined, delay: number = 10000) {
+    this.#show(message, title, 'warning', delay);
   }
 
   /**
    * Show error message.
    */
-  static error(message: string, title: undefined|string = undefined, delayMSec: number = 10000) {
-    this.#show(message, title, 'error', delayMSec);
+  static error(message: string, title: undefined|string = undefined, delay: number = 10000) {
+    this.#show(message, title, 'error', delay);
   }
 
   /**
    * Show toast.
    */
-  static async #show(message: string, title: undefined|string = undefined, type: ToastType, delayMSec: number = 10000) {
+  static async #show(message: string, title: undefined|string = undefined, type: ToastType, delay: number = 10000) {
     // Add a wrapper element that surrounds the toasts.
     let container = $('.toast-container');
     if (!container.length)
@@ -142,10 +142,7 @@ export default class {
       })).appendTo(container);
 
     // Create new toast instance.
-    const toast = new bootstrap.Toast(toastEl.get(0) as HTMLElement, {
-      autohide: delayMSec > 0,
-      delay: delayMSec
-    });
+    const toast = new bootstrap.Toast(toastEl.get(0) as HTMLElement, {autohide: delay > 0, delay});
 
     // Play notification sound.
     await this.#playNotificationSound();
@@ -154,7 +151,7 @@ export default class {
     toast.show();
 
     // Delete the element when you close the toast.
-    toastEl.on('hidden.bs.toast', evnt => {
+    toastEl.on('hidden.bs.toast', (evnt: any) => {
       $(evnt.currentTarget).remove();
 
       // Delete the container if there is no toast element.

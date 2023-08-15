@@ -30,6 +30,7 @@ module.exports = {
     'toggle-password-visibility': './src/pages/toggle-password-visibility.js',
     'rest-client': './src/pages/rest-client.js',
     tree: './src/pages/tree.js',
+    clipboard: './src/pages/clipboard.js',
   },
 
   // File output settings.
@@ -45,9 +46,9 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {from: 'src/media', to: 'media'},
-        {from: 'src/theme/metronic_8.1.7', to: 'theme'},
+        {from: 'src/theme/metronic_8.1.8', to: 'theme'},
+        // {from: 'src/theme/metronic_8.1.7', to: 'theme'},
         // {from: 'src/theme/metronic_8.1.2', to: 'theme'},
-        // {from: 'src/theme', to: 'theme'},
       ]
     })
   ],

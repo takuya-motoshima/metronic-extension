@@ -14,17 +14,17 @@ export default class {
     /**
      * Show success message.
      */
-    static success(message: string, title?: undefined | string, delayMSec?: number): void;
+    static success(message: string, title?: undefined | string, delay?: number): void;
     /**
      * Show info message.
      */
-    static info(message: string, title?: undefined | string, delayMSec?: number): void;
+    static info(message: string, title?: undefined | string, delay?: number): void;
     /**
      * Show warning message.
      */
-    static warning(message: string, title?: undefined | string, delayMSec?: number): void;
+    static warning(message: string, title?: undefined | string, delay?: number): void;
     /**
      * Show error message.
      */
-    static error(message: string, title?: undefined | string, delayMSec?: number): void;
+    static error(message: string, title?: undefined | string, delay?: number): void;
 }

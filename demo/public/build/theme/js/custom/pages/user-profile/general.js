@@ -63,7 +63,7 @@ var KTProfileGeneral = function () {
                     followBtn.removeAttribute('data-kt-indicator');
                     followBtn.classList.remove("btn-success");
                     followBtn.classList.add("btn-light");
-                    followBtn.querySelector(".svg-icon").classList.add("d-none");
+                    followBtn.querySelector("i").classList.add("d-none");
                     followBtn.querySelector(".indicator-label").innerHTML = 'Follow';
                     followBtn.disabled = false;
                 }, 1500);   
@@ -72,7 +72,7 @@ var KTProfileGeneral = function () {
                     followBtn.removeAttribute('data-kt-indicator');
                     followBtn.classList.add("btn-success");
                     followBtn.classList.remove("btn-light");
-                    followBtn.querySelector(".svg-icon").classList.remove("d-none");
+                    followBtn.querySelector("i").classList.remove("d-none");
                     followBtn.querySelector(".indicator-label").innerHTML = 'Following';
                     followBtn.disabled = false;
                 }, 1000);   
