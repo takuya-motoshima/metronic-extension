@@ -19,6 +19,13 @@ PAT=ghp_lEk*********************************
 npm install --save https://${PAT}:x-oauth-basic@github.com/takuya-motoshima/metronic-extension.git
 ``` -->
 
+## Testing
+With [npm](http://npmjs.org) do:
+
+```sh
+npm test
+```
+
 ## For developers of this package
 Update docs.
 ```sh

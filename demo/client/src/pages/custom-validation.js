@@ -4,10 +4,10 @@ import highlight from '~/shared/highlight';
 highlight();
 const ref = selectRef();
 const validation = new Validation(ref.form, {
-  cidr: {
+  ipRange: {
     validators: {
       notEmpty: {message: 'Enter here.'},
-      isCidr: {message: 'This is not correct.'}
+      isIP: {message: 'This is not correct.', allowRange: true}
     }
   },
   directory: {
@@ -16,22 +16,22 @@ const validation = new Validation(ref.form, {
       isDirectory: {message: 'This is not correct.'}
     }
   },
-  host: {
+  fqdn: {
     validators: {
       notEmpty: {message: 'Enter here.'},
-      isHost: {message: 'This is not correct.'}
+      isFQDN: {message: 'This is not correct.'}
     }
   },
-  hostOrIp: {
+  fqdnOrIp: {
     validators: {
       notEmpty: {message: 'Enter here.'},
-      isHostOrIp: {message: 'This is not correct.'}
+      isFQDNorIP: {message: 'This is not correct.'}
     }
   },
   ip: {
     validators: {
       notEmpty: {message: 'Enter here.'},
-      isIp: {message: 'This is not correct.'}
+      isIP: {message: 'This is not correct.'}
     }
   },
   kana: {
@@ -58,10 +58,10 @@ const validation = new Validation(ref.form, {
       isPhoneNumberJp: {message: 'This is not correct.'}
     }
   },
-  betweenValues: {
+  numericRange: {
     validators: {
       notEmpty: {message: 'Enter here.'},
-      isIntegersBetween: {
+      isNumericRange: {
         message: 'This is not correct.',
         min: 1,
         max: 99

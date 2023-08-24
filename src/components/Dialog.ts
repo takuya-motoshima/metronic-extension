@@ -1,7 +1,13 @@
-import fusion from 'deep-fusion';
+import {merge} from 'deep-fusion';
 // NOTE: Do not import sweetalert2 here to use the Swal object of the Metronic theme.
 // import Swal from 'sweetalert2';
-import * as DialogOption from '~/interfaces/DialogOption';
+import ConfirmDialogOptions from '~/interfaces/ConfirmDialogOptions';
+import SuccessDialogOptions from '~/interfaces/SuccessDialogOptions';
+import ErrorDialogOptions from '~/interfaces/ErrorDialogOptions';
+import WarningDialogOptions from '~/interfaces/WarningDialogOptions';
+import InfoDialogOptions from '~/interfaces/InfoDialogOptions';
+import LoadingDialogOptions from '~/interfaces/LoadingDialogOptions';
+import UnknownErrorDialogOptions from '~/interfaces/UnknownErrorDialogOptions';
 
 /**
  * Display various dialogs.
@@ -16,9 +22,9 @@ export default class {
   /**
    * Show the confirm dialog.
    */
-  static async confirm(message: string, options: DialogOption.Confirm|undefined = undefined): Promise<boolean> {
+  static async confirm(message: string, options: ConfirmDialogOptions|undefined = undefined): Promise<boolean> {
     // Initialize options.
-    options = fusion({
+    options = merge({
       icon: 'question',
       confirmButtonText: 'OK',
       cancelButtonText: '取り消し',
@@ -43,9 +49,9 @@ export default class {
   /**
    * Show the success dialog.
    */
-  static async success(message: string, options: DialogOption.Success|undefined = undefined): Promise<boolean> {
+  static async success(message: string, options: SuccessDialogOptions|undefined = undefined): Promise<boolean> {
     // Initialize options.
-    options = fusion({
+    options = merge({
       confirmButtonText: 'OK',
       showCancelButton: false,
       cancelButtonText: '取り消し',
@@ -70,9 +76,9 @@ export default class {
   /**
    * Show the error dialog.
    */
-  static async error(message: string, options: DialogOption.Error|undefined = undefined): Promise<void> {
+  static async error(message: string, options: ErrorDialogOptions|undefined = undefined): Promise<void> {
     // Initialize options.
-    options = fusion({
+    options = merge({
       confirmButtonText: 'OK',
     }, options);
 
@@ -91,9 +97,9 @@ export default class {
   /**
    * Show the warning dialog.
    */
-  static async warning(message: string, options: DialogOption.Warning|undefined = undefined): Promise<void> {
+  static async warning(message: string, options: WarningDialogOptions|undefined = undefined): Promise<void> {
     // Initialize options.
-    options = fusion({
+    options = merge({
       confirmButtonText: 'OK'
     }, options);
 
@@ -112,9 +118,9 @@ export default class {
   /**
    * Show the info dialog.
    */
-  static async info(message: string, options: DialogOption.Info|undefined = undefined): Promise<void> {
+  static async info(message: string, options: InfoDialogOptions|undefined = undefined): Promise<void> {
     // Initialize options.
-    options = fusion({
+    options = merge({
       confirmButtonText: 'OK'
     }, options);
 
@@ -133,9 +139,9 @@ export default class {
   /**
    * Show unknown error.
    */
-  static async unknownError(message: string = 'エラーが発生したため処理を中断しました。再度お試し下さい。何度も発生する場合は、お問い合わせ窓口までご連絡下さい。', options: DialogOption.UnknownError|undefined = undefined): Promise<void> {
+  static async unknownError(message: string = 'エラーが発生したため処理を中断しました。再度お試し下さい。何度も発生する場合は、お問い合わせ窓口までご連絡下さい。', options: UnknownErrorDialogOptions|undefined = undefined): Promise<void> {
     // Initialize options.
-    options = fusion({
+    options = merge({
       title: '予期せぬエラーが発生しました。'
     }, options);
     return this.error(message, options);
@@ -144,7 +150,7 @@ export default class {
   /**
    * Show loading.
    */
-  static async loading(message: string, options: DialogOption.Loading|undefined = undefined): Promise<void> {
+  static async loading(message: string, options: LoadingDialogOptions|undefined = undefined): Promise<void> {
     // Show alert.
     return window.Swal.fire({
       html: message,

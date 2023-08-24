@@ -1,4 +1,4 @@
-import TreeApiOption from '~/interfaces/TreeApiOption';
+import TreeApiOptions from '~/interfaces/TreeApiOptions';
 /**
  * Tree API.
  */
@@ -7,7 +7,7 @@ export default class {
     /**
      * Initialization.
      */
-    constructor(options: Record<string, TreeApiOption>);
+    constructor(options: Record<string, TreeApiOptions>);
     /**
      * Create a folder.
      */

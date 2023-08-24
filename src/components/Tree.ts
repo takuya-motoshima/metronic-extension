@@ -1,11 +1,11 @@
-import fusion from 'deep-fusion';
+import {merge} from 'deep-fusion';
 import TreeApi from '~/components/TreeApi';
 import Dialog from '~/components/Dialog';
 import Toast from '~/components/Toast';
 import isString from '~/misc/isString';
 import isFunction from '~/misc/isFunction';
 import trim from '~/misc/trim';
-import TreeOption from '~/interfaces/TreeOption';
+import TreeOptions from '~/interfaces/TreeOptions';
 
 const FILE_NODE_ID_PREFIX = 'f_';
 const MULTIPLE = false;
@@ -28,7 +28,7 @@ export default class Tree {
   /**
    * Initialization.
    */
-  constructor(context: HTMLDivElement|JQuery, options?: TreeOption) {
+  constructor(context: HTMLDivElement|JQuery, options?: TreeOptions) {
     // Check parameters.
     if (context instanceof HTMLDivElement)
       context = $(context);
@@ -599,11 +599,11 @@ export default class Tree {
   /**
    * Initialize options.
    */
-  #initOptions(options?: TreeOption): Required<TreeOption> {
+  #initOptions(options?: TreeOptions): Required<TreeOptions> {
     for (let key of ['getChildren', 'createFolder', 'deleteFolder', 'renameFolder', 'createFile', 'deleteFile', 'renameFile'])
       if (options && options.api && isString(options.api[key]))
         options.api[key] = {url: options.api[key].toString()};
-    return fusion({
+    return merge({
       maxDepth: 2,
       folderMaxlen: 20,
       fileMaxlen: 20,

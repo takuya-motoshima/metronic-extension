@@ -1,4 +1,4 @@
-import TreeApiOption from '~/interfaces/TreeApiOption';
+import TreeApiOptions from '~/interfaces/TreeApiOptions';
 import isString from '~/misc/isString';
 
 const FILE_NODE_ID_PREFIX = 'f_';
@@ -10,12 +10,12 @@ const CURRENT_FILE_VAR = '_CURRENT_FILE_ID_';
  * Tree API.
  */
 export default class {
-  #otpions: Record<string, TreeApiOption>;
+  #otpions: Record<string, TreeApiOptions>;
 
   /**
    * Initialization.
    */
-  constructor(options: Record<string, TreeApiOption>) {
+  constructor(options: Record<string, TreeApiOptions>) {
     this.#otpions = options;
   }
 

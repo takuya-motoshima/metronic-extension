@@ -1,5 +1,11 @@
+/// <reference types="jquery" />
+/// <reference types="jquery" />
 /// <reference types="datatables.net" />
-import DatatableOption from '~/interfaces/DatatableOption';
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
+/// <reference types="dropzone" />
+import DatatableOptions from '~/interfaces/DatatableOptions';
 /**
  * DataTable.
  *
@@ -22,7 +28,7 @@ export default class Datatable {
     /**
      * Initialization.
      */
-    constructor(table: string | HTMLTableElement | JQuery, options: DatatableOption);
+    constructor(table: string | HTMLTableElement | JQuery, options: DatatableOptions);
     /**
      * Object of the DataTables API.
      */

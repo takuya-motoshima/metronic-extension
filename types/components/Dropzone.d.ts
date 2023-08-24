@@ -1,5 +1,11 @@
+/// <reference types="jquery" />
+/// <reference types="jquery" />
+/// <reference types="datatables.net" />
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
 /// <reference types="dropzone" />
-import DropzoneOption from '~/interfaces/DropzoneOption';
+import DropzoneOptions from '~/interfaces/DropzoneOptions';
 /**
  * Drag-and-drop file upload component with image preview.
  */
@@ -8,7 +14,7 @@ export default class DropzoneComponent {
     /**
      * Initialization.
      */
-    constructor(container: HTMLElement | JQuery, options: DropzoneOption);
+    constructor(container: HTMLElement | JQuery, options: DropzoneOptions);
     /**
      * Set the file addition event handler.
      */

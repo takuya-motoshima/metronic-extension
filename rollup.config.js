@@ -1,11 +1,11 @@
+// import typescript from '@rollup/plugin-typescript';
 import typescript from 'rollup-plugin-typescript2';
-import {terser} from "rollup-plugin-terser";
+import {terser} from 'rollup-plugin-terser';
 import json from 'rollup-plugin-json';
-import commonjs from 'rollup-plugin-commonjs'
-import resolve from 'rollup-plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import pkg from './package.json';
-// import path from 'path';
 
 export default {
   external: [
@@ -17,18 +17,21 @@ export default {
   ],
   input: './src/index.ts',
   plugins: [
+    // typescript({
+    //   tsconfig: 'tsconfig.json',
+    // }),
     typescript({
       tsconfigDefaults: {compilerOptions: {}},
-      tsconfig: "tsconfig.json",
+      tsconfig: 'tsconfig.json',
       tsconfigOverride: {compilerOptions: {}},
       useTsconfigDeclarationDir: true
     }),
     terser(),
     json(),
     commonjs(),
-    resolve({
+    nodeResolve({
       mainFields: ['module', 'main'],
-      browser: true
+      browser: true,
     }),
     postcss({
       // include: 'src/index.css',

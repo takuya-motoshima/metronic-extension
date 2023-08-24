@@ -1,6 +1,6 @@
 // import Tagify, {TagData} from '@yaireo/tagify';
-import fusion from 'deep-fusion';
-import TagifyOption from '~/interfaces/TagifyOption';
+import {merge} from 'deep-fusion';
+import TagifyOptions from '~/interfaces/TagifyOptions';
 
 /**
  * Tag input UI.
@@ -11,11 +11,10 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
   #removeTagHandler: (evnt: Tagify.RemoveEventData) => void = (evnt: Tagify.RemoveEventData) => {};
   #changeTagHandler: (evnt: Tagify.AddEventData|Tagify.RemoveEventData) => void = (evnt: Tagify.AddEventData|Tagify.RemoveEventData) => {};
 
-
   /**
    * Initialization.
    */
-  constructor(input: HTMLInputElement|HTMLTextAreaElement|JQuery, options: TagifyOption) {
+  constructor(input: HTMLInputElement|HTMLTextAreaElement|JQuery, options: TagifyOptions) {
     // Check parameters.
     if (input instanceof $)
       input = (input as JQuery).get(0) as HTMLInputElement|HTMLTextAreaElement;
@@ -23,7 +22,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
       throw new TypeError('Only HTMLInputElement, HTMLTextAreaElement, or JQuery objects (HTMLInputElement, HTMLTextAreaElement ) can be specified as input parameters');
 
     // Initialize options.
-    options = fusion({
+    options = merge({
       enforceWhitelist: false,
       maxTags: Infinity,
       editTags: false,
@@ -37,15 +36,15 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
       readonly: false
     }, options);
 
-    // Save maxChars custom option.
+    // Save maxChars custom options.
     const maxChars = options.maxChars;
     delete options.maxChars;
 
-    // Save readonly custom option.
+    // Save readonly custom options.
     const readonly = options.readonly;
     delete options.readonly;
 
-    // Overlaps the specified transformTag option.
+    // Overlaps the specified transformTag options.
     const transformTag = options.transformTag || null;
     options.transformTag = (tagData: Tagify.TagData): void => {
       // Characters exceeding the maximum character length are truncated.

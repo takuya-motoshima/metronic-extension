@@ -1,3 +1,10 @@
+/// <reference types="jquery" />
+/// <reference types="jquery" />
+/// <reference types="datatables.net" />
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
+/// <reference types="dropzone" />
 /**
  * Display loading indicator on the block.
  */

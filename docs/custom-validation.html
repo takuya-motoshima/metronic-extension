@@ -49,7 +49,7 @@
                   <label class="fw-semibold fs-6 mb-2 required">CIDR</label>
                   <!--end::Label-->
                   <!--begin::Input-->
-                  <input name="cidr" class="form-control" placeholder="172.16.0.9, 172.16.0.0/16" value="172.16.0.0/16">
+                  <input name="ipRange" class="form-control" placeholder="172.16.0.9, 172.16.0.0/16" value="172.16.0.0/16">
                   <!--end::Input-->
                 </div>
                 <!--end::Input group-->
@@ -73,7 +73,7 @@
                   <label class="fw-semibold fs-6 mb-2 required">Host Name</label>
                   <!--end::Label-->
                   <!--begin::Input-->
-                  <input name="host" class="form-control" placeholder="example.com" value="example.com">
+                  <input name="fqdn" class="form-control" placeholder="example.com" value="example.com">
                   <!--end::Input-->
                 </div>
                 <!--end::Input group-->
@@ -83,7 +83,7 @@
                   <label class="fw-semibold fs-6 mb-2 required">Host name or IP address</label>
                   <!--end::Label-->
                   <!--begin::Input-->
-                  <input name="hostOrIp" class="form-control" placeholder="example.com, 172.16.0.9" value="172.16.0.9">
+                  <input name="fqdnOrIp" class="form-control" placeholder="example.com, 172.16.0.9" value="172.16.0.9">
                   <!--end::Input-->
                 </div>
                 <!--end::Input group-->
@@ -155,7 +155,7 @@
                   <label class="fw-semibold fs-6 mb-2 required">Integer from 1 to 99</label>
                   <!--end::Label-->
                   <!--begin::Input-->
-                  <input name="betweenValues" class="form-control" placeholder="99" value="99">
+                  <input name="numericRange" class="form-control" placeholder="99" value="99">
                   <!--end::Input-->
                 </div>
                 <!--end::Input group-->
@@ -205,7 +205,7 @@
       &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;CIDR&lt;/label&gt;
       &lt;!--end::Label--&gt;
       &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;cidr&quot; class=&quot;form-control&quot; placeholder=&quot;172.16.0.9, 172.16.0.0/16&quot; value=&quot;172.16.0.0/16&quot;&gt;
+      &lt;input name=&quot;ipRange&quot; class=&quot;form-control&quot; placeholder=&quot;172.16.0.9, 172.16.0.0/16&quot; value=&quot;172.16.0.0/16&quot;&gt;
       &lt;!--end::Input--&gt;
     &lt;/div&gt;
     &lt;!--end::Input group--&gt;
@@ -229,7 +229,7 @@
       &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Host Name&lt;/label&gt;
       &lt;!--end::Label--&gt;
       &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;host&quot; class=&quot;form-control&quot; placeholder=&quot;example.com&quot; value=&quot;example.com&quot;&gt;
+      &lt;input name=&quot;fqdn&quot; class=&quot;form-control&quot; placeholder=&quot;example.com&quot; value=&quot;example.com&quot;&gt;
       &lt;!--end::Input--&gt;
     &lt;/div&gt;
     &lt;!--end::Input group--&gt;
@@ -239,7 +239,7 @@
       &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Host name or IP address&lt;/label&gt;
       &lt;!--end::Label--&gt;
       &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;hostOrIp&quot; class=&quot;form-control&quot; placeholder=&quot;example.com, 172.16.0.9&quot; value=&quot;172.16.0.9&quot;&gt;
+      &lt;input name=&quot;fqdnOrIp&quot; class=&quot;form-control&quot; placeholder=&quot;example.com, 172.16.0.9&quot; value=&quot;172.16.0.9&quot;&gt;
       &lt;!--end::Input--&gt;
     &lt;/div&gt;
     &lt;!--end::Input group--&gt;
@@ -311,7 +311,7 @@
       &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Integer from 1 to 99&lt;/label&gt;
       &lt;!--end::Label--&gt;
       &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;betweenValues&quot; class=&quot;form-control&quot; placeholder=&quot;99&quot; value=&quot;99&quot;&gt;
+      &lt;input name=&quot;numericRange&quot; class=&quot;form-control&quot; placeholder=&quot;99&quot; value=&quot;99&quot;&gt;
       &lt;!--end::Input--&gt;
     &lt;/div&gt;
     &lt;!--end::Input group--&gt;
@@ -346,10 +346,10 @@
 
 const ref = selectRef();
 const validation = new Validation(ref.form, {
-  cidr: {
+  ipRange: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isCidr: {message: &#039;This is not correct.&#039;}
+      isIP: {message: &#039;This is not correct.&#039;, allowRange: true}
     }
   },
   directory: {
@@ -358,22 +358,22 @@ const validation = new Validation(ref.form, {
       isDirectory: {message: &#039;This is not correct.&#039;}
     }
   },
-  host: {
+  fqdn: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isHost: {message: &#039;This is not correct.&#039;}
+      isFQDN: {message: &#039;This is not correct.&#039;}
     }
   },
-  hostOrIp: {
+  fqdnOrIp: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isHostOrIp: {message: &#039;This is not correct.&#039;}
+      isFQDNorIP: {message: &#039;This is not correct.&#039;}
     }
   },
   ip: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isIp: {message: &#039;This is not correct.&#039;}
+      isIP: {message: &#039;This is not correct.&#039;}
     }
   },
   kana: {
@@ -400,7 +400,7 @@ const validation = new Validation(ref.form, {
       isPhoneNumberJp: {message: &#039;This is not correct.&#039;}
     }
   },
-  betweenValues: {
+  numericRange: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
       isIntegersBetween: {

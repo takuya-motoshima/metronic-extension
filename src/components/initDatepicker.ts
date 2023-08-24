@@ -1,11 +1,11 @@
 // import moment from 'moment';
-import fusion from 'deep-fusion';
-import DatePickerOption from '~/interfaces/DatePickerOption';
+import {merge} from 'deep-fusion';
+import DatePickerOptions from '~/interfaces/DatePickerOptions';
 
 /**
  * Initialize the date picker.
  */
-export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): daterangepicker => {
+export default (input: HTMLInputElement|JQuery, options?: DatePickerOptions): daterangepicker => {
   // Check parameters.
   if (input instanceof HTMLInputElement)
     input = $(input);
@@ -13,7 +13,7 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOption): dat
     throw new TypeError('The input parameter specifies an HTMLInputElement or a JQuery object of HTMLInputElement');
 
   // Initialize options.
-  options = fusion({
+  options = merge({
     minDate: undefined,
     maxDate: undefined,
     maxDays: undefined,

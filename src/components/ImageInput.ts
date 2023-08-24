@@ -1,9 +1,9 @@
 import hbs from 'handlebars-extd';
-import fusion from 'deep-fusion';
+import {merge} from 'deep-fusion';
 import compare from 'compare-img';
 import initTooltip from '~/components/initTooltip';
 import fetchDataUrl from '~/http/fetchDataUrl';
-import ImageInputOption from '~/interfaces/ImageInputOption';
+import ImageInputOptions from '~/interfaces/ImageInputOptions';
 import isDataUrl from '~/misc/isDataUrl';
 import getExtensionFromDataUrl from '~/misc/getExtensionFromDataUrl';
 
@@ -31,7 +31,7 @@ export default class ImageInput {
   /**
    * Initialization.
    */
-  constructor(context: HTMLDivElement|JQuery, options: ImageInputOption) {
+  constructor(context: HTMLDivElement|JQuery, options: ImageInputOptions) {
     // Check parameters.
     if (context instanceof $)
       context = (context as JQuery).get(0) as HTMLDivElement;
@@ -39,7 +39,7 @@ export default class ImageInput {
       throw new TypeError('The context parameter specifies an HTMLDivElement or a JQuery object of HTMLDivElement');
 
     // Initialize options.
-    options = fusion({
+    options = merge({
       current: context.dataset.imageInputCurrent,
       default: context.dataset.imageInputDefault,
       hiddenEl: undefined,
@@ -144,7 +144,7 @@ export default class ImageInput {
   /**
    * Rendering image input UI.
    */
-  #render(context: HTMLDivElement, options: ImageInputOption) {
+  #render(context: HTMLDivElement, options: ImageInputOptions) {
     // Context styling.
     context.classList.add(
       'image-input',
@@ -229,7 +229,7 @@ export default class ImageInput {
   /**
    * Initialize event handler.
    */
-  #initEventListeners(options: ImageInputOption, defaultImage: string|undefined): void {
+  #initEventListeners(options: ImageInputOptions, defaultImage: string|undefined): void {
     // This event fires on when the image input has been changed.
     this.#imageInput.on('kt.imageinput.changed', async (input: typeof window.KTImageInput) => {
       // If cancellation is disabled, the delete button is forcibly displayed when editing the image.

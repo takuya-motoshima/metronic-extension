@@ -1,5 +1,5 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError, CancelTokenSource} from 'axios';
-import fusion from 'deep-fusion';
+import {merge} from 'deep-fusion';
 
 /**
  * REST client.
@@ -32,7 +32,7 @@ export default class Api {
       origin = location.origin;
 
     // Initialize options.
-    options = fusion({
+    options = merge({
       baseURL: `${origin.replace(/\/$/, '')}/${path.replace(/^\//, '')}`,
       timeout: 60000,
       // NOTE: If the request data is FormData, do not specify Content-Type in the header and leave it to Axios because some frameworks cannot receive data if Content-Type is specified in the header.

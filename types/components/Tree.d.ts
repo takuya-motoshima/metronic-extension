@@ -1,4 +1,11 @@
-import TreeOption from '~/interfaces/TreeOption';
+/// <reference types="jquery" />
+/// <reference types="jquery" />
+/// <reference types="datatables.net" />
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
+/// <reference types="dropzone" />
+import TreeOptions from '~/interfaces/TreeOptions';
 /**
  * Folder and file tree components.
  */
@@ -7,7 +14,7 @@ export default class Tree {
     /**
      * Initialization.
      */
-    constructor(context: HTMLDivElement | JQuery, options?: TreeOption);
+    constructor(context: HTMLDivElement | JQuery, options?: TreeOptions);
     /**
      * Refreshes the tree - all nodes are reloaded with calls to load_node.
      *

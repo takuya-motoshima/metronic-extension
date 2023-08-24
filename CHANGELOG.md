@@ -1,6 +1,87 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.26] - 2023/8/??
+### Changed
+- Update TypeScript version from 4.5.2 to 5.1.6.
+- Delete unused dependent packages.
+- Fix component name.
+    <table>
+      <thead>
+        <tr>
+          <th>Before</th>
+          <th>After</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>initShowPasswordToggle</td>
+          <td>initPasswordToggle</td>
+          <td>Toggle between showing and hiding passwords.</td>
+        </tr>
+      </tbody>
+    </table>
+- Fix custom validation names for form validation.
+    <table>
+      <thead>
+        <tr>
+          <th>Before</th>
+          <th>After</th>
+          <th>Options</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>isIntegersBetween</td>
+          <td>isNumericRange</td>
+          <td>
+            <ul>
+              <li>min: Minimum value of the range.</li>
+              <li>max: Maximum value of the range.</li>
+            </ul>
+          </td>
+          <td>Validate numerical range.</td>
+        </tr>
+        <tr>
+          <td>isCidr, isIp</td>
+          <td>isIP</td>
+          <td>
+            <ul>
+              <li>version: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li>allowRange: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+            </ul>
+          </td>
+          <td>Validate IP.</td>
+        </tr>
+        <tr>
+          <td>isHost</td>
+          <td>isFQDN</td>
+          <td>
+            <ul>
+              <li>requireTld: If true, the TLD is required. Default is true.</li>
+              <li>allowWildcard: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
+            </ul>
+          </td>
+          <td>Validate domain name (e.g. domain.com).</td>
+        </tr>
+        <tr>
+          <td>isHostOrIp</td>
+          <td>isFQDNorIP</td>
+          <td>
+            <ul>
+              <li>requireTld: If true, the TLD is required. Default is true.</li>
+              <li>allowWildcard: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
+              <li>ipVersion: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li>allowIPRange: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+            </ul>
+          </td>
+          <td>Validate the domain name (e.g. domain.com) or IP.</td>
+        </tr>
+      </tbody>
+    </table>
+
 ## [2.0.25] - 2023/8/15
 ### Changed
 - Fixed clipboard copy component to support metronic version 8.1.8.  
@@ -40,8 +121,8 @@ All notable changes to this project will be documented in this file.
     <table>
       <thead>
         <tr>
-          <th>Before change</th>
-          <th>After change</th>
+          <th>Before</th>
+          <th>After</th>
           <th>Description</th>
         </tr>
       </thead>
@@ -916,7 +997,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.11] - 2022/11/17
 ### Added
-- Add a component to toggle password visibility (initShowPasswordToggle).  
+- Add a component to toggle password visibility (initPasswordToggle).  
     The component is applied to input elements with the &quot;[data-show-password-toggle=&quot;true&quot;]&quot; attribute.  
     ![password-show-toggle.png](screencaps/1.0.11/password-show-toggle.png)
 
@@ -943,12 +1024,12 @@ All notable changes to this project will be documented in this file.
 
     JS:
     ```js
-    import {initShowPasswordToggle} from 'metronic-extension';
+    import {initPasswordToggle} from 'metronic-extension';
 
-    initShowPasswordToggle(document.getElementById('input'));
+    initPasswordToggle(document.getElementById('input'));
     
     //  or context is specified, the component is applied to the target of the child element.
-    initShowPasswordToggle(document.body);
+    initPasswordToggle(document.body);
     ```
 
 ## [1.0.10] - 2022/11/15
@@ -1003,7 +1084,7 @@ All notable changes to this project will be documented in this file.
         <label class="fw-semibold fs-6 mb-2">Integer from 1 to 99</label>
         <!--end::Label-->
         <!--begin::Input-->
-        <input name="betweenValues" class="form-control" placeholder="99" value="99">
+        <input name="numericRange" class="form-control" placeholder="99" value="99">
         <!--end::Input-->
       </div>
       <!--end::Input group-->
@@ -1020,9 +1101,9 @@ All notable changes to this project will be documented in this file.
 
     // Initialize validation.
     const validation = new Validation(document.getElementById('myForm'), {
-      betweenValues: {
+      numericRange: {
         validators: {
-          isIntegersBetween: {
+          isNumericRange: {
             message: 'This is not correct.',
             min: 1,
             max: 99
@@ -1211,3 +1292,4 @@ All notable changes to this project will be documented in this file.
 [2.0.23]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.22...v2.0.23
 [2.0.24]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.23...v2.0.24
 [2.0.25]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.24...v2.0.25
+[2.0.26]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.25...v2.0.26

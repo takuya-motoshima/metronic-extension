@@ -1,4 +1,11 @@
-import ImageInputOption from '~/interfaces/ImageInputOption';
+/// <reference types="jquery" />
+/// <reference types="jquery" />
+/// <reference types="datatables.net" />
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
+/// <reference types="dropzone" />
+import ImageInputOptions from '~/interfaces/ImageInputOptions';
 /**
  * Image input.
  *
@@ -19,7 +26,7 @@ export default class ImageInput {
     /**
      * Initialization.
      */
-    constructor(context: HTMLDivElement | JQuery, options: ImageInputOption);
+    constructor(context: HTMLDivElement | JQuery, options: ImageInputOptions);
     /**
      * Set change event handler.
      */

@@ -1,6 +1,6 @@
-import fusion from 'deep-fusion';
+import {merge} from 'deep-fusion';
 import hbs from 'handlebars-extd';
-import DropzoneOption from '~/interfaces/DropzoneOption';
+import DropzoneOptions from '~/interfaces/DropzoneOptions';
 
 /**
  * Drag-and-drop file upload component with image preview.
@@ -13,7 +13,7 @@ export default class DropzoneComponent {
   /**
    * Initialization.
    */
-  constructor(container: HTMLElement|JQuery, options: DropzoneOption) {
+  constructor(container: HTMLElement|JQuery, options: DropzoneOptions) {
     // Check parameters.
     if (container instanceof $)
       container = (container as JQuery).get(0) as HTMLElement;
@@ -21,7 +21,7 @@ export default class DropzoneComponent {
       throw new TypeError('Only HTMLElement, or JQuery objects (HTMLElement) can be specified as container parameters');
 
     // Initialize options.
-    options = fusion({
+    options = merge({
       hiddenInputContent: undefined,
       acceptedFiles: undefined,
       maxFilesize: undefined,

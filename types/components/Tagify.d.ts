@@ -1,5 +1,12 @@
 /// <reference types="yaireo__tagify" />
-import TagifyOption from '~/interfaces/TagifyOption';
+/// <reference types="jquery" />
+/// <reference types="jquery" />
+/// <reference types="datatables.net" />
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
+/// <reference types="dropzone" />
+import TagifyOptions from '~/interfaces/TagifyOptions';
 /**
  * Tag input UI.
  */
@@ -8,7 +15,7 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     /**
      * Initialization.
      */
-    constructor(input: HTMLInputElement | HTMLTextAreaElement | JQuery, options: TagifyOption);
+    constructor(input: HTMLInputElement | HTMLTextAreaElement | JQuery, options: TagifyOptions);
     /**
       * Parse and add tags.
       *

@@ -1,8 +1,8 @@
-import fusion from 'deep-fusion';
+import {merge} from 'deep-fusion';
 import initTooltip from '~/components/initTooltip';
 import isString from '~/misc/isString';
 import isPlainObject from '~/misc/isPlainObject';
-import DatatableOption from '~/interfaces/DatatableOption';
+import DatatableOptions from '~/interfaces/DatatableOptions';
 
 /**
  * DataTable.
@@ -34,7 +34,7 @@ export default class Datatable {
   #firstAjax: boolean = true;
 
   // Finalized data table options.
-  #options: DatatableOption|null = null;
+  #options: DatatableOptions|null = null;
 
   // Whether to enable the ajax option on reload.
   #enableAjaxOnReload: boolean = false;
@@ -42,7 +42,7 @@ export default class Datatable {
   /**
    * Initialization.
    */
-  constructor(table: string|HTMLTableElement|JQuery, options: DatatableOption) {
+  constructor(table: string|HTMLTableElement|JQuery, options: DatatableOptions) {
     // Check parameters.
     if (isString(table))
       this.#table = $(table as string);
@@ -60,7 +60,7 @@ export default class Datatable {
     this.#firstAjax = options.firstAjax !== false;
 
     // Save the finalized options.
-    this.#options = {...options} as DatatableOption;
+    this.#options = {...options} as DatatableOptions;
 
     // Determine if data is read asynchronously first.
     if (this.#isAjax && !this.#firstAjax) {
@@ -112,7 +112,7 @@ export default class Datatable {
 
       // Rebuild data tables with asynchronous data acquisition enabled.
       this.#dt.destroy();
-      this.#dt = this.#table.DataTable(this.#options as DatatableOption);
+      this.#dt = this.#table.DataTable(this.#options as DatatableOptions);
     }
 
     return new Promise<any>(resolve => {
@@ -231,7 +231,7 @@ export default class Datatable {
   /**
    * Initialize options.
    */
-  #initOptions(options: DatatableOption): DatatableOption {
+  #initOptions(options: DatatableOptions): DatatableOptions {
     // Asynchronous data acquisition.
     this.#isAjax = !!options.ajax;
 
@@ -265,14 +265,14 @@ export default class Datatable {
       };
     }
 
-    // Save drawCallback option.
+    // Save drawCallback options.
     let drawCallback: DataTables.FunctionDrawCallback|undefined;
     if ('drawCallback' in options) {
       drawCallback = options.drawCallback;
       delete options.drawCallback;
     }
 
-    // Save createdRow option.
+    // Save createdRow options.
     let createdRow: DataTables.FunctionCreateRow|undefined;
     if ('createdRow' in options) {
       createdRow = options.createdRow;
@@ -345,7 +345,7 @@ export default class Datatable {
           sSortDescending: ': 列を降順に並べ替えるにはアクティブにする'
         }
       };
-    return fusion({
+    return merge({
       locale: 'en',
       firstAjax: true,
       // responsive: true,

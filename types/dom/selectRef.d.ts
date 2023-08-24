@@ -1,7 +1,14 @@
+/// <reference types="jquery" />
+/// <reference types="jquery" />
+/// <reference types="datatables.net" />
+/// <reference types="jstree" />
+/// <reference types="bootstrap" />
+/// <reference types="daterangepicker" />
+/// <reference types="dropzone" />
 /**
  * An array to store the nodes found.
  */
-declare type SelectionResults = {
+type SelectionResults = {
     [key: string]: any;
 };
 /**
