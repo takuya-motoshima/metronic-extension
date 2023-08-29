@@ -1,0 +1,1 @@
+export type Table = [string, object, boolean];

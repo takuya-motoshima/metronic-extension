@@ -1,121 +1,112 @@
-import path from 'path';
-import fs from 'fs';
-// @ts-ignore
-import {parse} from 'csv-parse/sync';
 import isIP from '~/validators/isIP';
+import getSampleData from '../utils/getSampleData';
+import {Table} from '../utils/types';
 
-// Data type to be passed to test.each.
-type Table = [string, object, boolean];
-
-// Sample data.
-const sampleDir = path.join(__dirname, '../samples');
-const ipv4Valid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv4-valid.csv'))).map((record: string[]) => record[0]);
-const ipv6Valid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv6-valid.csv'))).map((record: string[]) => record[0]);
-const ipv4And6Invalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv4-and-6-invalid.csv'))).map((record: string[]) => record[0]);
-const ipv4Invalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv4-invalid.csv'))).map((record: string[]) => record[0]);
-const ipv6Invalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv6-invalid.csv'))).map((record: string[]) => record[0]);
-const ipv4RangeValid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv4-range-valid.csv'))).map((record: string[]) => record[0]);
-const ipv6RangeValid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv6-range-valid.csv'))).map((record: string[]) => record[0]);
-const ipv4And6RangeInvalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv4-and-6-range-invalid.csv'))).map((record: string[]) => record[0]);
-const ipv4RangeInvalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv4-range-invalid.csv'))).map((record: string[]) => record[0]);
-const ipv6RangeInvalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'ipv6-range-invalid.csv'))).map((record: string[]) => record[0]);
-
-
+const ipv4ValidList = getSampleData('ipv4-valid.csv');
+const ipv6ValidList = getSampleData('ipv6-valid.csv');
+const ipv4Or6InvalidList = getSampleData('ipv4-or-6-invalid.csv');
+const ipv4InvalidList = getSampleData('ipv4-invalid.csv');
+const ipv6InvalidList = getSampleData('ipv6-invalid.csv');
+const ipv4RangeValidList = getSampleData('ipv4-range-valid.csv');
+const ipv6RangeValidList = getSampleData('ipv6-range-valid.csv');
+const ipv4Or6RangeInvalidList = getSampleData('ipv4-or-6-range-invalid.csv');
+const ipv4RangeInvalidList = getSampleData('ipv4-range-invalid.csv');
+const ipv6RangeInvalidList = getSampleData('ipv6-range-invalid.csv');
 
 describe('Valid IPv4, IPv6 should be true', () => {
-  const table: Table[] = [...ipv4Valid, ...ipv6Valid].map(item => ([item, {}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = [...ipv4ValidList, ...ipv6ValidList].map(item => ([item, {}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid IPv4, IPv6 should be false', () => {
-  const table: Table[] = ipv4And6Invalid.map(item => ([item, {}, false]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv4Or6InvalidList.map(item => ([item, {}, false]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv4 should be true', () => {
-  const table: Table[] = ipv4Valid.map(item => ([item, {version: 4}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv4ValidList.map(item => ([item, {ipVersion: 4}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid IPv4 should be false', () => {
-  const table: Table[] = ipv4Invalid.map(item => ([item, {version: 4}, false]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv4InvalidList.map(item => ([item, {ipVersion: 4}, false]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv6 should be true', () => {
-  const table: Table[] = ipv6Valid.map(item => ([item, {version: 6}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv6ValidList.map(item => ([item, {ipVersion: 6}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid IPv6 should be false', () => {
-  const table: Table[] = ipv6Invalid.map(item => ([item, {version: 6}, false]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv6InvalidList.map(item => ([item, {ipVersion: 6}, false]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv4, IPv6 range should be true', () => {
-  const table: Table[] = [...ipv4RangeValid, ...ipv6RangeValid].map(item => ([item, {allowRange: true}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = [...ipv4RangeValidList, ...ipv6RangeValidList].map(item => ([item, {allowIPRange: true}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid IPv4, IPv6 range should be false', () => {
-  const table: Table[] = ipv4And6RangeInvalid.map(item => ([item, {allowRange: true}, false]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv4Or6RangeInvalidList.map(item => ([item, {allowIPRange: true}, false]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv4 range should be true', () => {
-  const table: Table[] = ipv4RangeValid.map(item => ([item, {allowRange: true, version: 4}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv4RangeValidList.map(item => ([item, {allowIPRange: true, ipVersion: 4}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid IPv4 range should be false', () => {
-  const table: Table[] = ipv4RangeInvalid.map(item => ([item, {allowRange: true, version: 4}, false]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv4RangeInvalidList.map(item => ([item, {allowIPRange: true, ipVersion: 4}, false]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv6 range should be true', () => {
-  const table: Table[] = ipv6RangeValid.map(item => ([item, {allowRange: true, version: 6}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv6RangeValidList.map(item => ([item, {allowIPRange: true, ipVersion: 6}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid IPv6 range should be false', () => {
-  const table: Table[] = ipv6RangeInvalid.map(item => ([item, {allowRange: true, version: 6}, false]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = ipv6RangeInvalidList.map(item => ([item, {allowIPRange: true, ipVersion: 6}, false]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv4, IPv4 range should be true', () => {
-  const table: Table[] = [...ipv4Valid, ...ipv4RangeValid].map(item => ([item, {allowRange: true, version: 4}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = [...ipv4ValidList, ...ipv4RangeValidList].map(item => ([item, {allowIPRange: true, ipVersion: 4}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });
 
 describe('Valid IPv6, IPv6 range should be true', () => {
-  const table: Table[] = [...ipv6Valid, ...ipv6RangeValid].map(item => ([item, {allowRange: true, version: 6}, true]));
-  test.each<Table>(table)('isIP("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = [...ipv6ValidList, ...ipv6RangeValidList].map(item => ([item, {allowIPRange: true, ipVersion: 6}, true]));
+  test.each(table)('isIP("%s", %o) = %s', (a, b, expected) => {
     expect(isIP(a, b)).toBe(expected);
   });
 });

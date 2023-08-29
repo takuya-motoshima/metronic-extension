@@ -1,12 +1,6 @@
-/**
- * Numeric Range Validate Option.
- */
-interface Options {
-    min: string;
-    max: string;
-}
+import IsNumericRangeOptions from '~/interfaces/IsNumericRangeOptions';
 /**
  * Validate numerical range.
  */
-declare const _default: (value: string | number, options: Options) => boolean;
+declare const _default: (value: string | number, options: IsNumericRangeOptions) => boolean;
 export default _default;

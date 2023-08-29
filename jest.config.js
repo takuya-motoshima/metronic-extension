@@ -7,4 +7,7 @@ module.exports = {
     '^~/(.+)$': '<rootDir>/src/$1'
   },
   verbose: true,
+  testMatch: [
+    '<rootDir>/__tests__/**/*.test.ts'
+  ],
 };

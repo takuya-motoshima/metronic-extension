@@ -8,3 +8,4 @@ export { default as isNumericRange } from '~/components/custom-validators/isNume
 export { default as isPhoneNumberJp } from '~/components/custom-validators/isPhoneNumberJp';
 export { default as isPort } from '~/components/custom-validators/isPort';
 export { default as isUnixUserName } from '~/components/custom-validators/isUnixUserName';
+export { default as isURL } from '~/components/custom-validators/isURL';

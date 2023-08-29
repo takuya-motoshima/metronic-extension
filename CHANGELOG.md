@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.0.26] - 2023/8/??
+## [2.0.26] - 2023/8/29
 ### Changed
 - Update TypeScript version from 4.5.2 to 5.1.6.
 - Delete unused dependent packages.
@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
         </tr>
       </tbody>
     </table>
-- Fix custom validation names for form validation.
+- Fix custom form validation names for form validation.
     <table>
       <thead>
         <tr>
@@ -38,8 +38,8 @@ All notable changes to this project will be documented in this file.
           <td>isNumericRange</td>
           <td>
             <ul>
-              <li>min: Minimum value of the range.</li>
-              <li>max: Maximum value of the range.</li>
+              <li><code>min</code>: Minimum value of the range. Required.</li>
+              <li><code>max</code>: Maximum value of the range. Required.</li>
             </ul>
           </td>
           <td>Validate numerical range.</td>
@@ -49,8 +49,8 @@ All notable changes to this project will be documented in this file.
           <td>isIP</td>
           <td>
             <ul>
-              <li>version: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
-              <li>allowRange: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+              <li><code>ipVersion</code>: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
             </ul>
           </td>
           <td>Validate IP.</td>
@@ -60,8 +60,8 @@ All notable changes to this project will be documented in this file.
           <td>isFQDN</td>
           <td>
             <ul>
-              <li>requireTld: If true, the TLD is required. Default is true.</li>
-              <li>allowWildcard: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
+              <li><code>requireFQDNTld</code>: If true, the TLD is required. Default is true.</li>
+              <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
             </ul>
           </td>
           <td>Validate domain name (e.g. domain.com).</td>
@@ -71,13 +71,120 @@ All notable changes to this project will be documented in this file.
           <td>isFQDNorIP</td>
           <td>
             <ul>
-              <li>requireTld: If true, the TLD is required. Default is true.</li>
-              <li>allowWildcard: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
-              <li>ipVersion: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
-              <li>allowIPRange: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+              <li><code>requireFQDNTld</code>: If true, the TLD is required. Default is true.</li>
+              <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
+              <li><code>ipVersion</code>: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
             </ul>
           </td>
           <td>Validate the domain name (e.g. domain.com) or IP.</td>
+        </tr>
+      </tbody>
+    </table>
+
+### Added
+- Added validator functions.
+    ```js
+    import {validators} from 'metronic-extension';
+
+    // Validate URLs where wildcards are allowed in the domain.
+    const isValid = validators.isURL('https://*.example.com/', {allowFQDNWildcard: true});
+    ```
+
+    Here is a list of the validators currently available.
+
+    <table>
+      <thead>
+        <tr>
+          <th>Validator</th>
+          <th>Options</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>isDirectory(str)</td>
+          <td>-</td>
+          <td>Validate directory name.</td>
+        </tr>
+        <tr>
+          <td>isFQDNorIP(str [, options])</td>
+          <td>
+            <ul>
+              <li><code>requireFQDNTld</code>: If true, the TLD is required. Default is true.</li>
+              <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
+              <li><code>ipVersion</code>: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+            </ul>
+          </td>
+          <td>Validate the domain name (e.g. domain.com) or IP.</td>
+        </tr>
+        <tr>
+          <td>isFQDN(str [, options])</td>
+          <td>
+            <ul>
+              <li><code>requireFQDNTld</code>: If true, the TLD is required. Default is true.</li>
+              <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
+            </ul>
+          </td>
+          <td>Validate domain name (e.g. domain.com).</td>
+        </tr>
+        <tr>
+          <td>isHTML(str)</td>
+          <td>-</td>
+          <td>Validate HTML strings.</td>
+        </tr>
+        <tr>
+          <td>isIP(str[, options])</td>
+          <td>
+            <ul>
+              <li><code>ipVersion</code>: 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+            </ul>
+          </td>
+          <td>Validate IP.</td>
+        </tr>
+        <tr>
+          <td>isKana(str)</td>
+          <td>-</td>
+          <td>Validate katakana. Half-width and full-width numbers are also allowed.</td>
+        </tr>
+        <tr>
+          <td>isNumericRange(str, options)</td>
+          <td>
+            <ul>
+              <li><code>min</code>: Minimum value of the range. Required.</li>
+              <li><code>max</code>: Maximum value of the range. Required.</li>
+            </ul>
+          </td>
+          <td>Validate numerical range.</td>
+        </tr>
+        <tr>
+          <td>isPhoneNumberJp(str)</td>
+          <td>-</td>
+          <td>Validate a Japanese phone numbe.</td>
+        </tr>
+        <tr>
+          <td>isPort(str)</td>
+          <td>-</td>
+          <td>Validate port number.</td>
+        </tr>
+        <tr>
+          <td>isUnixUserName(str)</td>
+          <td>-</td>
+          <td>Validate unix user name.</td>
+        </tr>
+        <tr>
+          <td>isURL(str [, options])</td>
+          <td>
+            <ul>
+              <li><code>requireFQDNTld</code>: If true, the TLD is required. Default is true.</li>
+              <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
+              <li><code>allowFragments</code>: If true, allow fragment input. Default is false.</li>
+              <li><code>allowQueryComponents</code>: If true, allow input of query string. Default is false.</li>
+            </ul>
+          </td>
+          <td>Validate URL.</td>
         </tr>
       </tbody>
     </table>
@@ -1073,7 +1180,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.5] - 2022/10/24
 ###  Added
-- Added Japanese phone number custom validation to form validation.  
+- Added Japanese phone number custom form validation to form validation.  
     HTML:
     ```html
     <!--begin::Form-->
@@ -1162,7 +1269,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.3] - 2022/10/24
 ### Added
-- Added Japanese phone number custom validation to form validation.  
+- Added Japanese phone number custom form validation to form validation.  
     HTML:
     ```html
     <!--begin::Form-->

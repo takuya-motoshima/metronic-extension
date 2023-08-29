@@ -1,43 +1,36 @@
-import path from 'path';
-import fs from 'fs';
-// @ts-ignore
-import {parse} from 'csv-parse/sync';
 import isFQDN from '~/validators/isFQDN';
+import getSampleData from '../utils/getSampleData';
+import {Table} from '../utils/types';
 
-// Data type to be passed to test.each.
-type Table = [string, object, boolean];
-
-// Sample data.
-const sampleDir = path.join(__dirname, '../samples');
-const fqdnValid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'fqdn-valid.csv'))).map((record: string[]) => record[0]);
-const fqdnInvalid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'fqdn-invalid.csv'))).map((record: string[]) => record[0]);
-const fqdnWithoutTldValid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'fqdn-without-tld-valid.csv'))).map((record: string[]) => record[0]);
-const fqdnWithWildcardValid: string[] = parse(fs.readFileSync(path.join(sampleDir, 'fqdn-with-wildcard-valid.csv'))).map((record: string[]) => record[0]);
+const fqdnValidList = getSampleData('fqdn-valid.csv');
+const fqdnInvalidList = getSampleData('fqdn-invalid.csv');
+const fqdnNoTldValidList = getSampleData('fqdn-no-tld-valid.csv');
+const fqdnWildcardValidList = getSampleData('fqdn-wildcard-valid.csv');
 
 describe('Valid FQDN should be true', () => {
-  const table: Table[] = fqdnValid.map(item => ([item, {}, true]));
-  test.each<Table>(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = fqdnValidList.map(item => ([item, {}, true]));
+  test.each(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
     expect(isFQDN(a, b)).toBe(expected);
   });
 });
 
 describe('Invalid FQDN should be false', () => {
-  const table: Table[] = fqdnInvalid.map(item => ([item, {}, false]));
-  test.each<Table>(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = fqdnInvalidList.map(item => ([item, {}, false]));
+  test.each(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
     expect(isFQDN(a, b)).toBe(expected);
   });
 });
 
 describe('Valid FQDN without TLD should be true', () => {
-  const table: Table[] = fqdnWithoutTldValid.map(item => ([item, {requireTld: false}, true]));
-  test.each<Table>(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = fqdnNoTldValidList.map(item => ([item, {requireFQDNTld: false}, true]));
+  test.each(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
     expect(isFQDN(a, b)).toBe(expected);
   });
 });
 
 describe('Valid FQDN with wildcard should be true', () => { 
-  const table: Table[] = fqdnWithWildcardValid.map(item => ([item, {allowWildcard: true}, true]));
-  test.each<Table>(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
+  const table: Table[] = fqdnWildcardValidList.map(item => ([item, {allowFQDNWildcard: true}, true]));
+  test.each(table)('isFQDN("%s", %o) = %s', (a, b, expected) => {
     expect(isFQDN(a, b)).toBe(expected);
   });
 });

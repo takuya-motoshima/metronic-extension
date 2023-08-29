@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Custom Validation - Metronic Extension</title>
+  <title>Form Validation - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -30,7 +30,7 @@
           <!--begin::Heading-->
           <div class="d-flex flex-stack">
             <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Custom Validation</h1>
+            <h1 class="fw-bold mb-5">Form Validation</h1>
             <!--end::Title-->
             <!--begin::Actions-->
             <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
@@ -188,11 +188,11 @@
             <div class="highlight">
               <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
               <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#customValidationHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#customValidationJsTabPane" role="tab">JAVASCRIPT</a></li>
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#formValidationHtmlTabPane" role="tab">HTML</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#formValidationJsTabPane" role="tab">JAVASCRIPT</a></li>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane fade show active" id="customValidationHtmlTabPane" role="tabpanel">
+                <div class="tab-pane fade show active" id="formValidationHtmlTabPane" role="tabpanel">
                   <div class="highlight-code">
                     <pre class="language-html" style="max-height:400px">
                       <code class="language-html">&lt;!--begin::Form--&gt;
@@ -339,7 +339,7 @@
                     </pre>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="customValidationJsTabPane" role="tabpanel">
+                <div class="tab-pane fade" id="formValidationJsTabPane" role="tabpanel">
                   <div class="highlight-code">
                     <pre class="language-javascript">
                       <code class="language-javascript">import {Validation, Dialog, selectRef} from &#039;metronic-extension&#039;;
@@ -349,7 +349,7 @@ const validation = new Validation(ref.form, {
   ipRange: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isIP: {message: &#039;This is not correct.&#039;, allowRange: true}
+      isIP: {message: &#039;This is not correct.&#039;, allowIPRange: true}
     }
   },
   directory: {
@@ -403,7 +403,7 @@ const validation = new Validation(ref.form, {
   numericRange: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isIntegersBetween: {
+      isNumericRange: {
         message: &#039;This is not correct.&#039;,
         min: 1,
         max: 99
@@ -452,7 +452,7 @@ validation
   <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
   <!--end::Vendors Javascript-->
   <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/custom-validation.js"></script>
+  <script src="build/form-validation.js"></script>
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>

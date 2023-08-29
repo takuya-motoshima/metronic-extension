@@ -1,17 +1,10 @@
 import isString from '~/misc/isString';
-
-/**
- * Numeric Range Validate Option.
- */
-interface Options {
-  min: string;
-  max: string;
-}
+import IsNumericRangeOptions from '~/interfaces/IsNumericRangeOptions';
 
 /**
  * Validate numerical range.
  */
-export default (value: string|number, options: Options): boolean => {
+export default (value: string|number, options: IsNumericRangeOptions): boolean => {
   // If the input is a string, convert to numeric.
   if (isString(value)) {
     value = parseInt(value as string, 10);
@@ -22,6 +15,5 @@ export default (value: string|number, options: Options): boolean => {
   }
 
   // Returns validation results.
-  return (value as number) >= parseInt(options.min, 10)
-          && (value as number) <= parseInt(options.max, 10);
+  return (value as number) >= parseInt(options.min, 10) && (value as number) <= parseInt(options.max, 10);
 }

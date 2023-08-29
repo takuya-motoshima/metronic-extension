@@ -1,21 +1,9 @@
-/**
- * Domain name (e.g. domain.com) validation options.
- */
-interface Options extends FormValidation.core.ValidateOptions {
-    /**
-     * If true, the TLD is required. Default is true.
-     */
-    requireTld?: boolean;
-    /**
-      * If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).
-      */
-    allowWildcard?: boolean;
-}
+import IsFQDNValidateOptions from '~/interfaces/IsFQDNValidateOptions';
 /**
  * Validate domain name (e.g. domain.com).
  */
 declare const _default: () => {
-    validate: (input: FormValidation.core.ValidateInput<Options, FormValidation.core.Localization>) => {
+    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsFQDNValidateOptions, FormValidation.core.Localization>) => {
         valid: boolean;
     };
 };
