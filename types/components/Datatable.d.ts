@@ -69,9 +69,16 @@ export default class Datatable {
      */
     updateRow(rowSelector: any, data: any, redraw?: boolean): void;
     /**
-     * Get row data.
+     * Get single row or all rows of data
+     *
+     * @example
+     * // Get the first row data.
+     * table.getRowData(0);
+     *
+     * // By not specifying a selector, all rows of data can be retrieved.
+     * table.getRowData();
      */
-    getRowData(rowSelector: any): any;
+    getRowData(rowSelector?: any): any;
     /**
      * Get the number of rows.
      *

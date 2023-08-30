@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.27] - 2023/8/30
+### Changed
+- Fix to allow acquisition of all row data in the datatable row data acquisition method.
+    ```js
+    import {Datatable} from 'metronic-extension';
+
+    const myTable = new Datatable(document.getElementById('myTable'));
+
+    // Get the first row data.
+    table.getRowData(0);
+
+    // By not specifying a selector, all rows of data can be retrieved.
+    table.getRowData();
+    ```
+
 ## [2.0.26] - 2023/8/29
 ### Changed
 - Update TypeScript version from 4.5.2 to 5.1.6.
@@ -278,7 +293,7 @@ All notable changes to this project will be documented in this file.
     HTML:
     ```html
     <button data-ref="reloadButton" type="button" class="btn btn-primary">Reload</button>
-    <table data-ref="myTable" class="table table-row-bordered gy-5">
+    <table id="myTable" class="table table-row-bordered gy-5">
       <thead>
         <tr class="fw-semibold fs-6 text-muted">
           <th>Name</th>
@@ -298,7 +313,7 @@ All notable changes to this project will be documented in this file.
     import {Datatable, selectRef} from 'metronic-extension';
 
     const ref = selectRef();
-    const myTable = new Datatable(ref.myTable, {
+    const myTable = new Datatable(document.getElementById('myTable'), {
       // If asynchronous mode (options.ajax) is enabled, whether to request table data remotely first.
       // If true, request table data first; if false, do not request table data until the Datatable.reload method is called.
       // Default is true.
@@ -914,7 +929,7 @@ All notable changes to this project will be documented in this file.
 
     HTML:
     ```html
-    <table data-ref="myTable" class="table table-row-bordered gy-5">
+    <table id="myTable" class="table table-row-bordered gy-5">
       <thead>
         <tr class="fw-semibold fs-6 text-muted">
           <th>Name</th>
@@ -931,10 +946,9 @@ All notable changes to this project will be documented in this file.
 
     JS:
     ```js
-    import {Datatable, selectRef} from 'metronic-extension';
+    import {Datatable} from 'metronic-extension';
 
-    const ref = selectRef();
-    const myTable = new Datatable(ref.myTable, {
+    const myTable = new Datatable(document.getElementById('myTable'), {
       ajax: {
         url: 'http://localhost:8080/api/persons'
       }
@@ -1400,3 +1414,4 @@ All notable changes to this project will be documented in this file.
 [2.0.24]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.23...v2.0.24
 [2.0.25]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.24...v2.0.25
 [2.0.26]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.25...v2.0.26
+[2.0.27]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.26...v2.0.27

@@ -186,12 +186,19 @@ export default class Datatable {
   }
 
   /**
-   * Get row data.
+   * Get single row or all rows of data
+   * 
+   * @example
+   * // Get the first row data.
+   * table.getRowData(0);
+   *
+   * // By not specifying a selector, all rows of data can be retrieved.
+   * table.getRowData();
    */
-  getRowData(rowSelector: any): any {
-    return this.#dt
-      .row(rowSelector)
-      .data();
+  getRowData(rowSelector?: any): any {
+    return rowSelector !== undefined ?
+      this.#dt.row(rowSelector).data() :
+      this.#dt.rows().data().toArray();
   }
 
   /**
