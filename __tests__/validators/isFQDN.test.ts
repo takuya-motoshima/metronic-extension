@@ -1,11 +1,11 @@
 import isFQDN from '~/validators/isFQDN';
-import getSampleData from '../utils/getSampleData';
-import {Table} from '../utils/types';
+import readCSV from '../support/readCSV';
+import {Table} from '../support/types';
 
-const fqdnValidList = getSampleData('fqdn-valid.csv');
-const fqdnInvalidList = getSampleData('fqdn-invalid.csv');
-const fqdnNoTldValidList = getSampleData('fqdn-no-tld-valid.csv');
-const fqdnWildcardValidList = getSampleData('fqdn-wildcard-valid.csv');
+const fqdnValidList = readCSV('fqdn-valid.csv');
+const fqdnInvalidList = readCSV('fqdn-invalid.csv');
+const fqdnNoTldValidList = readCSV('fqdn-no-tld-valid.csv');
+const fqdnWildcardValidList = readCSV('fqdn-wildcard-valid.csv');
 
 describe('Valid FQDN should be true', () => {
   const table: Table[] = fqdnValidList.map(item => ([item, {}, true]));

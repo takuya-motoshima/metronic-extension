@@ -1,11 +1,11 @@
 import isURL from '~/validators/isURL';
-import getSampleData from '../utils/getSampleData';
-import {Table} from '../utils/types';
+import readCSV from '../support/readCSV';
+import {Table} from '../support/types';
 
-const urlValidList = getSampleData('url-valid.csv');
-const urlInvalidList = getSampleData('url-invalid.csv');
-const urlNoTldValidList = getSampleData('url-no-tld-valid.csv');
-const urlWildcardValidList = getSampleData('url-wildcard-valid.csv');
+const urlValidList = readCSV('url-valid.csv');
+const urlInvalidList = readCSV('url-invalid.csv');
+const urlNoTldValidList = readCSV('url-no-tld-valid.csv');
+const urlWildcardValidList = readCSV('url-wildcard-valid.csv');
 
 describe('Valid URL should be true', () => {
   const table: Table[] = urlValidList.map(item => ([item, {}, true]));

@@ -1,16 +1,16 @@
 import isFQDNorIP from '~/validators/isFQDNorIP';
-import getSampleData from '../utils/getSampleData';
-import {Table} from '../utils/types';
+import readCSV from '../support/readCSV';
+import {Table} from '../support/types';
 
-const fqdnValidList = getSampleData('fqdn-valid.csv');
-const ipv4ValidList = getSampleData('ipv4-valid.csv');
-const ipv6ValidList = getSampleData('ipv6-valid.csv');
-const fqdnInvalidList = getSampleData('fqdn-invalid.csv');
-const ipv4Or6InvalidList = getSampleData('ipv4-or-6-invalid.csv');
-const ipv4RangeValidList = getSampleData('ipv4-range-valid.csv');
-const ipv6RangeValidList = getSampleData('ipv6-range-valid.csv');
-const ipv4InvalidList = getSampleData('ipv4-invalid.csv');
-const ipv6InvalidList = getSampleData('ipv6-invalid.csv');
+const fqdnValidList = readCSV('fqdn-valid.csv');
+const ipv4ValidList = readCSV('ipv4-valid.csv');
+const ipv6ValidList = readCSV('ipv6-valid.csv');
+const fqdnInvalidList = readCSV('fqdn-invalid.csv');
+const ipv4Or6InvalidList = readCSV('ipv4-or-6-invalid.csv');
+const ipv4RangeValidList = readCSV('ipv4-range-valid.csv');
+const ipv6RangeValidList = readCSV('ipv6-range-valid.csv');
+const ipv4InvalidList = readCSV('ipv4-invalid.csv');
+const ipv6InvalidList = readCSV('ipv6-invalid.csv');
 
 describe('Valid FQDN, IP should be true', () => {
   const table: Table[] = [...fqdnValidList, ...ipv4ValidList, ...ipv6ValidList].map(item => ([item, {}, true]));
