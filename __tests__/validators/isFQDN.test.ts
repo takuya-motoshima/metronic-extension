@@ -1,7 +1,7 @@
 import isFQDN from '~/validators/isFQDN';
 import readCSV from '../support/readCSV';
 import {Table} from '../support/types';
-4
+
 const validFQDN = readCSV('valid-fqdn.csv');
 const validFQDNNoTld = readCSV('valid-fqdn-no-tld.csv');
 const validFQDNWildcard = readCSV('valid-fqdn-wildcard.csv');
