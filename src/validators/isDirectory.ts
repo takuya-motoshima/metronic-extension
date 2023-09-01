@@ -1,5 +1,5 @@
 /**
- * Validate directory name.
+ * Check if it is a directory name.
  */
 export default (value: string): boolean => {
   // Returns validation results.

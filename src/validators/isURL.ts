@@ -3,7 +3,7 @@ import {merge} from 'deep-fusion';
 import IsURLValidateOptions from '~/interfaces/IsURLValidateOptions'
 
 /**
- * Validate URL.
+ * Check if it is a URL.
  */
 export default (value: string, options?: IsURLValidateOptions): boolean => {
   // Initialize options.

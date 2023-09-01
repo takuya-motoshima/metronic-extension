@@ -2,7 +2,7 @@ import isKana from '~/validators/isKana';
 import isEmpty from '~/misc/isEmpty';
 
 /**
- * Validate katakana. Half-width and full-width numbers are also allowed.
+ * Check if it is katakana (half-width and full-width numbers are also permitted).
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

@@ -3,7 +3,7 @@ import isEmpty from '~/misc/isEmpty';
 import IsFQDNValidateOptions from '~/interfaces/IsFQDNValidateOptions';
 
 /**
- * Validate domain name (e.g. domain.com).
+ * Check if the domain name is fully qualified (e.g. domain.com).
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsFQDNValidateOptions, FormValidation.core.Localization>) => {

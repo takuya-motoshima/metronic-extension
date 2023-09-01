@@ -3,7 +3,7 @@ import isEmpty from '~/misc/isEmpty';
 import IsNumericRangeOptions from '~/interfaces/IsNumericRangeOptions';
 
 /**
- * Validate numerical range.
+ * Check the range of numbers.
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsNumericRangeOptions, FormValidation.core.Localization>) => {

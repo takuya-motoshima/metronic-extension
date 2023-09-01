@@ -3,7 +3,7 @@ import {merge} from 'deep-fusion';
 import IsIPValidateOptions from '~/interfaces/IsIPValidateOptions';
 
 /**
- * Validate IP.
+ * Check for IP (version 4 or 6).
  */
 export default (value: string, options?: IsIPValidateOptions): boolean => {
   // Initialize options.

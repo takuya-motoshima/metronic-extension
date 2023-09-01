@@ -3,7 +3,7 @@ import isEmpty from '~/misc/isEmpty';
 import IsURLValidateOptions from '~/interfaces/IsURLValidateOptions';
 
 /**
- * Validate URL.
+ * Check if it is a URL.
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsURLValidateOptions, FormValidation.core.Localization>) => {

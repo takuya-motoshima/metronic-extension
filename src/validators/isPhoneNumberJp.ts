@@ -1,5 +1,5 @@
 /**
- * Validate a Japanese phone numbe.
+ * Check if it is a Japanese phone number.
  */
 export default (value: string): boolean => {
   // Returns validation results.

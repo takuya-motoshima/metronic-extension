@@ -3,7 +3,7 @@ import {merge} from 'deep-fusion';
 import IsFQDNValidateOptions from '~/interfaces/IsFQDNValidateOptions';
 
 /**
- * Validate domain name (e.g. domain.com).
+ * Check if the domain name is fully qualified (e.g. domain.com).
  */
 export default (value: string, options?: IsFQDNValidateOptions): boolean => {
   // Initialize options.

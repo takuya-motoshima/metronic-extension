@@ -57,7 +57,7 @@ All notable changes to this project will be documented in this file.
               <li><code>max</code>: Maximum value of the range. Required.</li>
             </ul>
           </td>
-          <td>Validate numerical range.</td>
+          <td>Check the range of numbers.</td>
         </tr>
         <tr>
           <td>isCidr, isIp</td>
@@ -68,7 +68,7 @@ All notable changes to this project will be documented in this file.
               <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
             </ul>
           </td>
-          <td>Validate IP.</td>
+          <td>Check for IP (version 4 or 6).</td>
         </tr>
         <tr>
           <td>isHost</td>
@@ -79,7 +79,7 @@ All notable changes to this project will be documented in this file.
               <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`).</li>
             </ul>
           </td>
-          <td>Validate domain name (e.g. domain.com).</td>
+          <td>Check if the domain name is fully qualified (e.g. domain.com).</td>
         </tr>
         <tr>
           <td>isHostOrIp</td>
@@ -92,7 +92,7 @@ All notable changes to this project will be documented in this file.
               <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
             </ul>
           </td>
-          <td>Validate the domain name (e.g. domain.com) or IP.</td>
+          <td>Check for a fully qualified domain name (e.g. domain.com) or IP (version 4 or 6).</td>
         </tr>
       </tbody>
     </table>
@@ -102,7 +102,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {validators} from 'metronic-extension';
 
-    // Validate URLs where wildcards are allowed in the domain.
+    // Check for domain names with wildcards.
     const isValid = validators.isURL('https://*.example.com/', {allowFQDNWildcard: true});
     ```
 
@@ -120,7 +120,7 @@ All notable changes to this project will be documented in this file.
         <tr>
           <td>isDirectory(str)</td>
           <td>-</td>
-          <td>Validate directory name.</td>
+          <td>Check if it is a directory name.</td>
         </tr>
         <tr>
           <td>isFQDNorIP(str [, options])</td>
@@ -132,7 +132,7 @@ All notable changes to this project will be documented in this file.
               <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
             </ul>
           </td>
-          <td>Validate the domain name (e.g. domain.com) or IP.</td>
+          <td>Check for a fully qualified domain name (e.g. domain.com) or IP (version 4 or 6).</td>
         </tr>
         <tr>
           <td>isFQDN(str [, options])</td>
@@ -142,12 +142,12 @@ All notable changes to this project will be documented in this file.
               <li><code>allowFQDNWildcard</code>: If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
             </ul>
           </td>
-          <td>Validate domain name (e.g. domain.com).</td>
+          <td>Check if the domain name is fully qualified (e.g. domain.com).</td>
         </tr>
         <tr>
           <td>isHTML(str)</td>
           <td>-</td>
-          <td>Validate HTML strings.</td>
+          <td>Check if it is HTML.</td>
         </tr>
         <tr>
           <td>isIP(str[, options])</td>
@@ -157,12 +157,12 @@ All notable changes to this project will be documented in this file.
               <li><code>allowIPRange</code>: If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
             </ul>
           </td>
-          <td>Validate IP.</td>
+          <td>Check for IP (version 4 or 6).</td>
         </tr>
         <tr>
           <td>isKana(str)</td>
           <td>-</td>
-          <td>Validate katakana. Half-width and full-width numbers are also allowed.</td>
+          <td>Check if it is katakana (half-width and full-width numbers are also permitted).</td>
         </tr>
         <tr>
           <td>isNumericRange(str, options)</td>
@@ -172,22 +172,22 @@ All notable changes to this project will be documented in this file.
               <li><code>max</code>: Maximum value of the range. Required.</li>
             </ul>
           </td>
-          <td>Validate numerical range.</td>
+          <td>Check the range of numbers.</td>
         </tr>
         <tr>
           <td>isPhoneNumberJp(str)</td>
           <td>-</td>
-          <td>Validate a Japanese phone numbe.</td>
+          <td>Check if it is a Japanese phone number.</td>
         </tr>
         <tr>
           <td>isPort(str)</td>
           <td>-</td>
-          <td>Validate port number.</td>
+          <td>Check if it is a port number.</td>
         </tr>
         <tr>
           <td>isUnixUserName(str)</td>
           <td>-</td>
-          <td>Validate unix user name.</td>
+          <td>Check if it is a unix user name.</td>
         </tr>
         <tr>
           <td>isURL(str [, options])</td>
@@ -199,7 +199,7 @@ All notable changes to this project will be documented in this file.
               <li><code>allowQueryComponents</code>: If true, allow input of query string. Default is false.</li>
             </ul>
           </td>
-          <td>Validate URL.</td>
+          <td>Check if it is a URL.</td>
         </tr>
       </tbody>
     </table>

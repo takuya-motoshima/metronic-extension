@@ -2,7 +2,7 @@ import isPhoneNumberJp from '~/validators/isPhoneNumberJp';
 import isEmpty from '~/misc/isEmpty';
 
 /**
- * Validate a Japanese phone numbe.
+ * Check if it is a Japanese phone number.
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

@@ -2,7 +2,7 @@ import isString from '~/misc/isString';
 import IsNumericRangeOptions from '~/interfaces/IsNumericRangeOptions';
 
 /**
- * Validate numerical range.
+ * Check the range of numbers.
  */
 export default (value: string|number, options: IsNumericRangeOptions): boolean => {
   // If the input is a string, convert to numeric.

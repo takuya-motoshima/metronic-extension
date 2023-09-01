@@ -1,7 +1,7 @@
 import validator from 'validator';
 
 /**
- * Validate port number.
+ * Check if it is a port number.
  */
 export default (value: string): boolean => {
   // Returns validation results.

@@ -3,7 +3,7 @@ import isIP from '~/validators/isIP';
 import IsFQDNorIPValidateOptions from '~/interfaces/IsFQDNorIPValidateOptions';
 
 /**
- * Validate the domain name (e.g. domain.com) or IP.
+ * Check for a fully qualified domain name (e.g. domain.com) or IP (version 4 or 6).
  */
 export default (value: string, options?: IsFQDNorIPValidateOptions): boolean => {
   // Returns validation results.

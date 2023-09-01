@@ -2,7 +2,7 @@ import isHTML from '~/validators/isHTML';
 import isEmpty from '~/misc/isEmpty';
 
 /**
- * Validate HTML strings.
+ * Check if it is HTML.
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

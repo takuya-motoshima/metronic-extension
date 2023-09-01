@@ -3,7 +3,7 @@ import isEmpty from '~/misc/isEmpty';
 import IsIPValidateOptions from '~/interfaces/IsIPValidateOptions';
 
 /**
- * Validate IP.
+ * Check for IP (version 4 or 6).
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsIPValidateOptions, FormValidation.core.Localization>) => {

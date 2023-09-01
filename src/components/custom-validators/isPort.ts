@@ -2,7 +2,7 @@ import isPort from '~/validators/isPort';
 import isEmpty from '~/misc/isEmpty';
 
 /**
- * Validate port number.
+ * Check if it is a port number.
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

@@ -1,5 +1,5 @@
 /**
- * Validate HTML strings.
+ * Check if it is HTML.
  */
 export default (value: string): boolean => {
   // Returns validation results.

@@ -2,7 +2,7 @@ import isUnixUserName from '~/validators/isUnixUserName';
 import isEmpty from '~/misc/isEmpty';
 
 /**
- * Validate unix user name.
+ * Check if it is a unix user name.
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

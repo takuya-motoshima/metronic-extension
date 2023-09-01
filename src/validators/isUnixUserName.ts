@@ -1,5 +1,5 @@
 /**
- * Validate unix user name.
+ * Check if it is a unix user name.
  */
 export default (value: string): boolean => {
   // Returns validation results.
