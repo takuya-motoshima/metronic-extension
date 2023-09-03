@@ -1,5 +1,5 @@
 /**
- * Validate port number.
+ * Check if it is a port number.
  */
 declare const _default: () => {
     validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

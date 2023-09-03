@@ -15,5 +15,6 @@ export default (value: string|number, options: IsNumericRangeOptions): boolean =
   }
 
   // Returns validation results.
-  return (value as number) >= parseInt(options.min, 10) && (value as number) <= parseInt(options.max, 10);
+  return (value as number) >= parseInt(options.min as string, 10)
+    && (value as number) <= parseInt(options.max as string, 10);
 }

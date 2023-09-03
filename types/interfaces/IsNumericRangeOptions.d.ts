@@ -1,5 +1,5 @@
 /**
- * Numeric Range Validate Option.
+ * Numeric range validate option.
  */
 export default interface IsNumericRangeOptions {
     /**

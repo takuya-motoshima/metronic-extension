@@ -1,11 +1,11 @@
 import validator from 'validator';
 import {merge} from 'deep-fusion';
-import IsURLValidateOptions from '~/interfaces/IsURLValidateOptions'
+import IsURLOptions from '~/interfaces/IsURLOptions'
 
 /**
  * Check if it is a URL.
  */
-export default (value: string, options?: IsURLValidateOptions): boolean => {
+export default (value: string, options?: IsURLOptions): boolean => {
   // Initialize options.
   options = merge({
     requireFQDNTld: true,

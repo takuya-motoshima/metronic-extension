@@ -1,11 +1,11 @@
 import validator from 'validator';
 import {merge} from 'deep-fusion';
-import IsFQDNValidateOptions from '~/interfaces/IsFQDNValidateOptions';
+import IsFQDNOptions from '~/interfaces/IsFQDNOptions';
 
 /**
  * Check if the domain name is fully qualified (e.g. domain.com).
  */
-export default (value: string, options?: IsFQDNValidateOptions): boolean => {
+export default (value: string, options?: IsFQDNOptions): boolean => {
   // Initialize options.
   options = merge({
     requireFQDNTld: true,

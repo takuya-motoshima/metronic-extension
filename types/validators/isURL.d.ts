@@ -1,6 +1,6 @@
-import IsURLValidateOptions from '~/interfaces/IsURLValidateOptions';
+import IsURLOptions from '~/interfaces/IsURLOptions';
 /**
- * Validate URL.
+ * Check if it is a URL.
  */
-declare const _default: (value: string, options?: IsURLValidateOptions) => boolean;
+declare const _default: (value: string, options?: IsURLOptions) => boolean;
 export default _default;

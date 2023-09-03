@@ -1,12 +1,12 @@
 import isIP from '~/validators/isIP';
 import isEmpty from '~/misc/isEmpty';
-import IsIPValidateOptions from '~/interfaces/IsIPValidateOptions';
+import IsIPOptions from '~/interfaces/IsIPOptions';
 
 /**
  * Check for IP (version 4 or 6).
  */
 export default () => ({
-  validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsIPValidateOptions, FormValidation.core.Localization>) => {
+  validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsIPOptions, FormValidation.core.Localization>) => {
     // If input is empty, do not validate.
     if (isEmpty(input.value))
       return {valid: true};

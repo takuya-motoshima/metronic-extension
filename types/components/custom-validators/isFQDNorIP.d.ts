@@ -1,9 +1,9 @@
-import IsFQDNorIPValidateOptions from '~/interfaces/IsFQDNorIPValidateOptions';
+import IsFQDNorIPOptions from '~/interfaces/IsFQDNorIPOptions';
 /**
- * Validate the domain name (e.g. domain.com) or IP.
+ * Check for a fully qualified domain name (e.g. domain.com) or IP (version 4 or 6).
  */
 declare const _default: () => {
-    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsFQDNorIPValidateOptions, FormValidation.core.Localization>) => {
+    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsFQDNorIPOptions, FormValidation.core.Localization>) => {
         valid: boolean;
     };
 };

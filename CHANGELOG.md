@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.28] - Undecided
+### Changed
+- Fix interface name of validator (simpler name).
+
 ## [2.0.27] - 2023/8/30
 ### Changed
 - Fix to allow acquisition of all row data in the datatable row data acquisition method.

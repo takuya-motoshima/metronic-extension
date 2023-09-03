@@ -1,7 +1,7 @@
 /**
- * IP Validate Option.
+ * IP validate option.
  */
-export default interface IsIPValidateOptions {
+export default interface IsIPOptions {
   /**
    * 4 or 6. The default is undefind (allows both versions 4 and 6).
    */

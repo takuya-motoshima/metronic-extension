@@ -1,9 +1,9 @@
-import IsURLValidateOptions from '~/interfaces/IsURLValidateOptions';
+import IsURLOptions from '~/interfaces/IsURLOptions';
 /**
- * Validate URL.
+ * Check if it is a URL.
  */
 declare const _default: () => {
-    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsURLValidateOptions, FormValidation.core.Localization>) => {
+    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsURLOptions, FormValidation.core.Localization>) => {
         valid: boolean;
     };
 };

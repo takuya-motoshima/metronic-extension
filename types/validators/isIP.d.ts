@@ -1,6 +1,6 @@
-import IsIPValidateOptions from '~/interfaces/IsIPValidateOptions';
+import IsIPOptions from '~/interfaces/IsIPOptions';
 /**
- * Validate IP.
+ * Check for IP (version 4 or 6).
  */
-declare const _default: (value: string, options?: IsIPValidateOptions) => boolean;
+declare const _default: (value: string, options?: IsIPOptions) => boolean;
 export default _default;

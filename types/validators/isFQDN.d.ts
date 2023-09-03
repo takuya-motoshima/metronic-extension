@@ -1,6 +1,6 @@
-import IsFQDNValidateOptions from '~/interfaces/IsFQDNValidateOptions';
+import IsFQDNOptions from '~/interfaces/IsFQDNOptions';
 /**
- * Validate domain name (e.g. domain.com).
+ * Check if the domain name is fully qualified (e.g. domain.com).
  */
-declare const _default: (value: string, options?: IsFQDNValidateOptions) => boolean;
+declare const _default: (value: string, options?: IsFQDNOptions) => boolean;
 export default _default;

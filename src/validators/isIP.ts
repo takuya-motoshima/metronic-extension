@@ -1,11 +1,11 @@
 import validator from 'validator';
 import {merge} from 'deep-fusion';
-import IsIPValidateOptions from '~/interfaces/IsIPValidateOptions';
+import IsIPOptions from '~/interfaces/IsIPOptions';
 
 /**
  * Check for IP (version 4 or 6).
  */
-export default (value: string, options?: IsIPValidateOptions): boolean => {
+export default (value: string, options?: IsIPOptions): boolean => {
   // Initialize options.
   options = merge({
     ipVersion: undefined,

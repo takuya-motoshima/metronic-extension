@@ -1,5 +1,5 @@
 /**
- * Validate unix user name.
+ * Check if it is a unix user name.
  */
 declare const _default: () => {
     validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {

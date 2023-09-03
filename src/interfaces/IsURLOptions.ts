@@ -1,7 +1,7 @@
 /**
- * URL validation options.
+ * URL validate option.
  */
-export default interface IsURLValidateOptions {
+export default interface IsURLOptions {
   /**
    * If true, the TLD is required. Default is true.
    */

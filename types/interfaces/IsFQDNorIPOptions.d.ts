@@ -1,7 +1,7 @@
 /**
- * Domain name (e.g. domain.com) validation options.
+ * FQDN or IP validate option.
  */
-export default interface IsFQDNorIPValidateOptions {
+export default interface IsFQDNorIPOptions {
     /**
      * If true, the TLD is required. Default is true.
      */

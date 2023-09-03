@@ -1,6 +1,6 @@
 import IsNumericRangeOptions from '~/interfaces/IsNumericRangeOptions';
 /**
- * Validate numerical range.
+ * Check the range of numbers.
  */
 declare const _default: () => {
     validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsNumericRangeOptions, FormValidation.core.Localization>) => {

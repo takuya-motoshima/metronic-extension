@@ -1,9 +1,9 @@
-import IsFQDNValidateOptions from '~/interfaces/IsFQDNValidateOptions';
+import IsFQDNOptions from '~/interfaces/IsFQDNOptions';
 /**
- * Validate domain name (e.g. domain.com).
+ * Check if the domain name is fully qualified (e.g. domain.com).
  */
 declare const _default: () => {
-    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsFQDNValidateOptions, FormValidation.core.Localization>) => {
+    validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions & IsFQDNOptions, FormValidation.core.Localization>) => {
         valid: boolean;
     };
 };
