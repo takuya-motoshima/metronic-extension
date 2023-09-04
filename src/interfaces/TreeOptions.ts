@@ -6,25 +6,21 @@ import TreeApiOptions from '~/interfaces/TreeApiOptions';
 export default interface TreeOptions {
   /**
    * Defines maximum depth of the tree. The default is 2 (up to child and grandchild folders).
-   * @type {number}
    */
   maxDepth: number,
 
   /**
    * Maximum length of folder name. Default is 20.
-   * @type {number}
    */
   folderMaxlen: number,
 
   /**
    * Maximum length of file name. Default is 20.
-   * @type {number}
    */
   fileMaxlen: number,
 
   /**
    * Options per node type.
-   * @type {object}
    */
   nodeTypes: {
     /**
@@ -53,13 +49,11 @@ export default interface TreeOptions {
   //  * If true, children of the folder will be cached and not retrieved from the server.
   //  * If you want the folder to always be fetched from the server when opened, set to false.
   //  * Default is true.
-  //  * @type {boolean}
   //  */
   // cacheLoadedChildren: true,
 
   /**
    * Define folder and file creation, deletion, and rename requests.
-   * @type {object}
    */
   api: Record<string, TreeApiOptions>,
 

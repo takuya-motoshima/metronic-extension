@@ -595,7 +595,6 @@ All notable changes to this project will be documented in this file.
     const tree = new Tree(ref.tree, {
       /**
       * Options per node type.
-      * @type {object}
       */
       nodeTypes: {
         /**

@@ -15,7 +15,6 @@ import UnknownErrorDialogOptions from '~/interfaces/UnknownErrorDialogOptions';
 export default class {
   /** 
    * Audio object.
-   * @type {HTMLAudioElement|undefined}
    */
   static #notifSound: HTMLAudioElement|undefined;
 

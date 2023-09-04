@@ -21,7 +21,6 @@ type ToastType = 'success'|'info'|'warning'|'error';
 export default class {
   /** 
    * Audio object.
-   * @type {HTMLAudioElement|undefined}
    */
   static #notifSound: HTMLAudioElement|undefined;
 
