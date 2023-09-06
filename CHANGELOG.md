@@ -1,7 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.0.28] - Undecided
+## [2.0.29] - 2023/9/6
+### Fixed
+- Fixed a bug in which buttons initialized with the toggle button initialization function (initToggleButton()) did not become active when clicked.
+
+## [2.0.28] - 2023/9/6
 ### Added
 - Added initialization function for the toggle button component.
 
@@ -1486,3 +1490,4 @@ All notable changes to this project will be documented in this file.
 [2.0.26]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.25...v2.0.26
 [2.0.27]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.26...v2.0.27
 [2.0.28]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.27...v2.0.28
+[2.0.29]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.28...v2.0.29

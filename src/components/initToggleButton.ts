@@ -86,7 +86,8 @@ export default (context: JQuery|HTMLElement): void => {
     const activeButtons: HTMLElement[] = [].slice.call(group.querySelectorAll(selector as string));
 
     // Toggle Handler.
-    window.KTUtil.on(group, selector, 'click', (evnt: any) => {
+    $(group).on('click', selector, (evnt: any) => {
+    // window.KTUtil.on(group, selector, 'click', (evnt: any) => {
       // Deactivate all buttons.
       for (let button of activeButtons)
         button.classList.remove('active');

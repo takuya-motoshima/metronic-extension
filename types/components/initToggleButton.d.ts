@@ -12,9 +12,9 @@
  * HTML:
  * ```html
  * <!--begin::Input group-->
- * <div class="fv-row mb-10">
+ * <div>
  *   <!--begin::Label-->
- *   <label class="fs-6 fw-bolder mb-2 required">マスク画像連携方法</label>
+ *   <label class="fs-6 fw-bolder mb-2 required">Gender</label>
  *   <!--End::Label-->
  *   <!--begin::Row-->
  *   <div class="row g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
