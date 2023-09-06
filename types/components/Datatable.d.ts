@@ -11,6 +11,7 @@ import DatatableOptions from '~/interfaces/DatatableOptions';
  *
  * Example of error handling in a subclass.
  * @example
+ * ```js
  * import {Datatable} from 'metronic-extension';
  *
  * export default class extends Datatable {
@@ -22,6 +23,7 @@ import DatatableOptions from '~/interfaces/DatatableOptions';
  *     }
  *   }
  * }
+ * ```
  */
 export default class Datatable {
     #private;
@@ -72,22 +74,26 @@ export default class Datatable {
      * Get single row or all rows of data
      *
      * @example
+     * ```js
      * // Get the first row data.
      * table.getRowData(0);
      *
      * // By not specifying a selector, all rows of data can be retrieved.
      * table.getRowData();
+     * ```
      */
     getRowData(rowSelector?: any): any;
     /**
      * Get the number of rows.
      *
      * @example
+     * ```js
      * // Get the number of selected rows.
      * table.getRowCount('.selected');
      *
      * // Get the number of all rows.
      * table.getRowCount();
+     * ```
      */
     getRowCount(rowSelector?: any): number;
     /**
@@ -102,7 +108,9 @@ export default class Datatable {
      * Request error hook.
      * This function should be defined in a subclass.
      * For example, to redirect in case of a 403 error, use the following
+     *
      * @example
+     * ```js
      * import {Datatable} from 'metronic-extension';
      *
      * export default class extends Datatable {
@@ -114,6 +122,7 @@ export default class Datatable {
      *     }
      *   }
      * }
+     * ```
      */
     requestErrorHook(code: number, xhr: XMLHttpRequest): void;
     /**

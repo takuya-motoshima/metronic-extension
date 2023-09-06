@@ -7,14 +7,19 @@ import isString from '~/misc/isString';
  * Note that the parent element of the input element to be validated must have the fv-row class.
  *
  * @example
- * // HTML:
- * // <form id="myForm">
- * //   <div class="fv-row mb-10">
- * //     <label class="fs-5 fw-bolder form-label mb-2 required">Person's Name</label>
- * //     <input name="name" class="form-control form-control-solid">
- * //   </div>
- * //   <button type="submit" class="btn btn-primary">Send</button>
- * // </form>
+ * HTML:
+ * ```html
+ * <form id="myForm">
+ *   <div class="fv-row mb-10">
+ *     <label class="fs-5 fw-bolder form-label mb-2 required">Person's Name</label>
+ *     <input name="name" class="form-control form-control-solid">
+ *   </div>
+ *   <button type="submit" class="btn btn-primary">Send</button>
+ * </form>
+ * ```
+ * 
+ * JS:
+ * ```js
  * import {Validation} from 'metronic-extension';
  * 
  * const form = document.querySelector('#myForm');
@@ -36,6 +41,7 @@ import isString from '~/misc/isString';
  *     throw err;
  *   }
  * });
+ * ```
  * @see {@link https://formvalidation.io/guide/} FormValidation reference.
  */
 export default class Validation {
@@ -237,12 +243,15 @@ export default class Validation {
    * Added items to verify.
    * 
    * @example
+   * ```js
    * import {Validation} from 'metronic-extension';
    * 
    * const validation = new Validation(document.querySelector('form'), {});
    * validation.addField(`name`, {
    *   notEmpty: {message: 'Enter your name'},
    * })
+   * ```
+   *
    * @see {@link https://formvalidation.io/guide/api/add-field|FormValidation.addField() method}
    */
   addField(field: string, validators: {[validatorName: string]: FormValidation.core.ValidatorOptions}): Validation {
@@ -279,16 +288,19 @@ export default class Validation {
     * Added new validation rule.
     * 
     * @example
-   * import {Validation} from 'metronic-extension';
-   * 
-   * const validation = new Validation(document.querySelector('form'), {});
-   * validation.addRule(`isNumber`, () => {
-   *   return {
-   *     validate: input => {
-   *       return {valid: !isNaN(input.value)};
-   *     }
-   *   }
-   * });
+    * ```js
+    * import {Validation} from 'metronic-extension';
+    * 
+    * const validation = new Validation(document.querySelector('form'), {});
+    * validation.addRule(`isNumber`, () => {
+    *   return {
+    *     validate: input => {
+    *       return {valid: !isNaN(input.value)};
+    *     }
+    *   }
+    * });
+    * ```
+    *
     * @see {@link https://formvalidation.io/guide/api/register-validator/|FormValidation.registerValidator() method}
     */
   addRule(name: string, func: () => FormValidation.core.ValidateFunction<FormValidation.core.ValidateOptions>): Validation {

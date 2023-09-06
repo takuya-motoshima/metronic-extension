@@ -10,7 +10,13 @@ import ImageInputOptions from '~/interfaces/ImageInputOptions';
  * Image input.
  *
  * @example
- * // HTML: <div id="imageInput"></div>
+ * HTML:
+ * ```html
+ * <div id="imageInput"></div>
+ * ```
+ *
+ * JS:
+ * ```js
  * import {ImageInput} from 'metronic-extension';
  *
  * const imageInput =  new ImageInput(document.querySelector('#imageInput'), {
@@ -18,6 +24,7 @@ import ImageInputOptions from '~/interfaces/ImageInputOptions';
  *   default: 'default.png'
  * });
  * imageInput.onChange(currentImage => {});
+ * ```
  *
  * @see {@link https://preview.keenthemes.com/metronic8/demo1/documentation/forms/image-input.html} Custom Bootstrap Image Input with Preview Component by Keenthemes.
  */

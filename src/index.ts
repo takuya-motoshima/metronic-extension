@@ -6,6 +6,7 @@ import ImageInput from '~/components/ImageInput';
 import initClipboard from '~/components/initClipboard';
 import initDatepicker from '~/components/initDatepicker';
 import initPasswordToggle from '~/components/initPasswordToggle';
+import initToggleButton from '~/components/initToggleButton';
 import initTooltip from '~/components/initTooltip';
 import Modal from '~/components/Modal';
 import Tagify from '~/components/Tagify';
@@ -43,6 +44,7 @@ export {
   initClipboard,
   initDatepicker,
   initPasswordToggle,
+  initToggleButton,
   initTooltip,
   Modal,
   Tagify,

@@ -8,6 +8,7 @@ declare global {
     bootstrap: any;
     KTBlockUI: any;
     KTImageInput: any;
+    KTUtil: any;
     Swal: any;
     Tagify: any;
     Dropzone: any;

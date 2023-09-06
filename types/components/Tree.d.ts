@@ -93,6 +93,7 @@ export default class Tree {
      * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
      *
      * @example
+     * ```js
      * import {Tree} from 'metronic-extension';
      *
      * const tree = new Tree(document.getElementById('tree'));
@@ -101,6 +102,7 @@ export default class Tree {
      *   tree.getPath(node, '/');       // 'Root node/Folder#1/Folder#1_1'
      *   tree.getPath(node, '/', true); // '1/2/3'
      * });
+     * ```
      *
      * @param {any} obj The node.
      * @param {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.

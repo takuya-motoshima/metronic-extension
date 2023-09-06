@@ -5,7 +5,9 @@ import {merge} from 'deep-fusion';
  * REST client.
  *
  * Example of error handling in a subclass.
+ *
  * @example
+ * ```js
  * import {Api} from 'metronic-extension';
  *
  * export default class extends Api {
@@ -17,6 +19,7 @@ import {merge} from 'deep-fusion';
  *     }
  *   }
  * }
+ * ```
  */
 export default class Api {
   client: AxiosInstance;
@@ -119,7 +122,9 @@ export default class Api {
    * Request error hook.
    * This function should be defined in a subclass.
    * For example, to redirect in case of a 403 error, use the following
+   *
    * @example
+   * ```js
    * import {Api} from 'metronic-extension';
    *
    * export default class extends Api {
@@ -131,6 +136,7 @@ export default class Api {
    *     }
    *   }
    * }
+   * ```
    */
   requestErrorHook(code: number, err: AxiosError): void {}
 }

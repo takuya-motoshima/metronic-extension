@@ -31,6 +31,7 @@ module.exports = {
     'rest-client': './src/pages/rest-client.js',
     tree: './src/pages/tree.js',
     clipboard: './src/pages/clipboard.js',
+    'toggle-button': './src/pages/toggle-button.js',
   },
 
   // File output settings.

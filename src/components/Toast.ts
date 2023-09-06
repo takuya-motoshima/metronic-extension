@@ -11,12 +11,14 @@ type ToastType = 'success'|'info'|'warning'|'error';
  * Toast display.
  *
  * @example
+ * ```js
  * import {Toast} from 'metronic-extension';
  * 
  * Toast.success('This is a toast message');
  * Toast.info('This is a toast message');
  * Toast.error('This is a toast message');
  * Toast.warning('This is a toast message');
+ * ```
  */
 export default class {
   /** 
