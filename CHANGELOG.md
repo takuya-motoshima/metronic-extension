@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.30] - 2023/9/14
+### Changed
+- Added process to initialize drop-down menu buttons (elements with data-kt-menu=true attribute) for rows dynamically added to the data table component.  
+  ![datatable-drop-down-menu.jpg](screencaps/2.0.30/datatable-drop-down-menu.jpg)
+
 ## [2.0.29] - 2023/9/6
 ### Fixed
 - Fixed a bug in which buttons initialized with the toggle button initialization function (initToggleButton()) did not become active when clicked.
@@ -1491,3 +1496,4 @@ All notable changes to this project will be documented in this file.
 [2.0.27]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.26...v2.0.27
 [2.0.28]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.27...v2.0.28
 [2.0.29]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.28...v2.0.29
+[2.0.30]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.29...v2.0.30

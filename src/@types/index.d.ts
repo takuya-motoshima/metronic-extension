@@ -9,6 +9,7 @@ declare global {
     KTBlockUI: any;
     KTImageInput: any;
     KTUtil: any;
+    KTMenu: any,
     Swal: any;
     Tagify: any;
     Dropzone: any;

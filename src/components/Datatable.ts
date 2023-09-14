@@ -376,6 +376,8 @@ export default class Datatable {
         // Add the data ID to the tr element.
         if (data.id)
           $(row).attr('data-id', data.id);
+
+        // Execute an optional callback function.
         if (createdRow)
           createdRow(row, data, dataIndex, cells);
       },
@@ -383,6 +385,11 @@ export default class Datatable {
         // Initialize the tooltip in the dynamically added line.
         initTooltip(this.#table);
 
+        // Initialize drop-down menu buttons for dynamically added rows.
+        const menuSelector = `#${settings.sTableId} [data-kt-menu="true"]`;
+        window.KTMenu.createInstances(menuSelector);
+
+        // Execute an optional callback function.
         if (drawCallback)
           drawCallback(settings);
       },
