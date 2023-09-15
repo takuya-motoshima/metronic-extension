@@ -1,8 +1,8 @@
-import isDirectory from '~/validators/isDirectory';
+import isPath from '~/validators/isPath';
 import isEmpty from '~/misc/isEmpty';
 
 /**
- * Check if it is a directory name.
+ * Check if it is a file (directory) path
  */
 export default () => ({
   validate: (input: FormValidation.core.ValidateInput<FormValidation.core.ValidateOptions, FormValidation.core.Localization>) => {
@@ -11,6 +11,6 @@ export default () => ({
       return {valid: true};
 
     // Returns validation results.
-    return {valid: isDirectory(input.value)};
+    return {valid: isPath(input.value)};
   }
 })

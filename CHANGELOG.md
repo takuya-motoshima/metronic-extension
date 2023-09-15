@@ -1,6 +1,57 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.31] - 2023/9/15
+- Changed the validate function name for file (directory) paths from "isDirectory" to "isPath".  
+    Also, a bug in regular expressions that prevented path names with subdirectories from being validated correctly has been fixed.
+
+    ```js
+    import {Validation, validators} from 'metronic-extension';
+
+    // Replace "isDirectory" in validators with "isPath".
+    validators.isPath('/usr/lib');
+
+    // Form Validation.
+    const validation = new Validation(document.getElementById('myForm'), {
+      filePath: {
+        validators: {
+          notEmpty: {message: 'Enter here.'},
+          // Replace "isDirectory" in validators with "isPath".
+          isPath: {message: 'This is not correct.'}
+        }
+      },
+    });
+    ```
+
+    Example:  
+    |Value|Result|
+    |--|--|
+    |/|true|
+    |/usr|true|
+    |/usr/lib|true|
+    |/usr/lib/sysctl.d|true|
+    |/usr/lib/yum-plugins|true|
+    |/usr/lib/node_modules|true|
+    |/usr/123|true|
+    |/usr/|true|
+    |/usr/lib/|true|
+    |/usr/lib/sysctl.d/|true|
+    |/usr/lib/yum-plugins/|true|
+    |/usr/lib/node_modules/|true|
+    |/usr/123/|true|
+    |usr/|true|
+    |usr/lib/|true|
+    |usr/lib/sysctl.d/|true|
+    |usr/lib/yum-plugins/|true|
+    |usr/lib/node_modules/|true|
+    |usr/123/|true|
+    |//|false|
+    |//usr|false|
+    |/usr//|false|
+    |/usr//lib|false|
+    |/ドキュメント|false|
+    |/usr/ドキュメント|false|
+
 ## [2.0.30] - 2023/9/14
 ### Changed
 - Added process to initialize drop-down menu buttons (elements with data-kt-menu=true attribute) for rows dynamically added to the data table component.  
@@ -183,7 +234,7 @@ All notable changes to this project will be documented in this file.
     import {validators} from 'metronic-extension';
 
     // Check for domain names with wildcards.
-    const isValid = validators.isURL('https://*.example.com/', {allowFQDNWildcard: true});
+    const isValid = validators.isURL('https://*.example.com/</td><td>{allowFQDNWildcard: true}</td></tr>
     ```
 
     Here is a list of the validators currently available.
@@ -200,7 +251,7 @@ All notable changes to this project will be documented in this file.
         <tr>
           <td>isDirectory(str)</td>
           <td>-</td>
-          <td>Check if it is a directory name.</td>
+          <td>Check if it is a file (directory) path.</td>
         </tr>
         <tr>
           <td>isFQDNorIP(str [, options])</td>
@@ -411,7 +462,7 @@ All notable changes to this project will be documented in this file.
     });
 
     // When the reload button is clicked, the data is loaded asynchronously.
-    ref.reloadButton.on('click', () => {
+    ref.reloadButton.on('click</td><td>() =></td></tr>
       myTable.reload();
     });
     ```
@@ -756,7 +807,7 @@ All notable changes to this project will be documented in this file.
     import {Dialog} from 'metronic-extension';
 
     // Show success dialog with cancel button.
-    const res = await Dialog.success('Here\'s a basic example of success dialog!', {
+    const res = await Dialog.success('Here\'s a basic example of success dialog!</td><td</td></tr>
       showCancelButton: true,
       cancelButtonText: 'Cancel',
     });
@@ -815,13 +866,13 @@ All notable changes to this project will be documented in this file.
 
     class ExampleApi extends Api {
       constructor() {
-        super('/api/users', 'example.com');
+        super('/api/users</td><td>example.com</td></tr>
       }
     }
 
     class ExampleApi extends Api {
       constructor() {
-        super('/api/users', 'example.com', {
+        super('/api/users</td><td>example.com</td><td</td></tr>
           headers: {
             'X-Requested-With': 'XMLHttpRequest'
           },
@@ -1244,7 +1295,7 @@ All notable changes to this project will be documented in this file.
     ```js
     import {Tagify} from 'metronic-extension';
     const tagify = new Tagify(document.getElementById('tagify'), {
-      whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
+      whitelist: ['tag1</td><td>tag2</td><td>tag3</td><td>tag4</td><td>tag5</td><td>tag6</td><td>tag7</td></tr>
       dropdown: {maxItems: 20}
     });
     tagify
@@ -1497,3 +1548,4 @@ All notable changes to this project will be documented in this file.
 [2.0.28]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.27...v2.0.28
 [2.0.29]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.28...v2.0.29
 [2.0.30]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.29...v2.0.30
+[2.0.31]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.30...v2.0.31

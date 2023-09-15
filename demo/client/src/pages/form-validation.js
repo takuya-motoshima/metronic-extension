@@ -1,4 +1,4 @@
-import {Validation, Dialog, selectRef, validators} from 'metronic-extension';
+import {Validation, Dialog, selectRef} from 'metronic-extension';
 import highlight from '~/shared/highlight';
 
 highlight();
@@ -10,10 +10,10 @@ const validation = new Validation(ref.form, {
       isIP: {message: 'This is not correct.', allowIPRange: true}
     }
   },
-  directory: {
+  filePath: {
     validators: {
       notEmpty: {message: 'Enter here.'},
-      isDirectory: {message: 'This is not correct.'}
+      isPath: {message: 'This is not correct.'}
     }
   },
   fqdn: {

@@ -56,10 +56,10 @@
                 <!--begin::Input group-->
                 <div class="col-md-6 fv-row">
                   <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Directory</label>
+                  <label class="fw-semibold fs-6 mb-2 required">File Path</label>
                   <!--end::Label-->
                   <!--begin::Input-->
-                  <input name="directory" class="form-control" placeholder="/dir" value="/dir">
+                  <input name="filePath" class="form-control" placeholder="/dir" value="/dir">
                   <!--end::Input-->
                 </div>
                 <!--end::Input group-->
@@ -212,10 +212,10 @@
     &lt;!--begin::Input group--&gt;
     &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
       &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Directory&lt;/label&gt;
+      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;File Path&lt;/label&gt;
       &lt;!--end::Label--&gt;
       &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;directory&quot; class=&quot;form-control&quot; placeholder=&quot;/dir&quot; value=&quot;/dir&quot;&gt;
+      &lt;input name=&quot;filePath&quot; class=&quot;form-control&quot; placeholder=&quot;/dir&quot; value=&quot;/dir&quot;&gt;
       &lt;!--end::Input--&gt;
     &lt;/div&gt;
     &lt;!--end::Input group--&gt;
@@ -352,10 +352,10 @@ const validation = new Validation(ref.form, {
       isIP: {message: &#039;This is not correct.&#039;, allowIPRange: true}
     }
   },
-  directory: {
+  filePath: {
     validators: {
       notEmpty: {message: &#039;Enter here.&#039;},
-      isDirectory: {message: &#039;This is not correct.&#039;}
+      isPath: {message: &#039;This is not correct.&#039;}
     }
   },
   fqdn: {
