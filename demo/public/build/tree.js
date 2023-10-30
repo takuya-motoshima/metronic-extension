@@ -123,13 +123,13 @@ const basicTree = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.Tree(docum
       // This is an example of simply retrieving tree data in JSON without using the server side.
       if (node.id === '#')
         // If the node ID is "#", the data of the root node itself is returned.
-        return '/json/root-itself.json';
+        return 'json/root-itself.json';
       else if (node.id == 1)
         // If the node ID is "1", the data of the child node associated with the root node (ID=1) is returned.
-        return '/json/roots-children.json';
+        return 'json/roots-children.json';
       else if (node.id == 2)
         // If the node ID is "2", the data of the child node (ID=2) associated with the child1 node is returned.
-        return '/json/child1s-children.json';
+        return 'json/child1s-children.json';
     },
     // children: '/api/tree/_PARENT_NODE_ID_',
     // createFolder: '/api/tree/folder/_PARENT_NODE_ID_',

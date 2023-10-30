@@ -512,7 +512,7 @@ var dist_build_default = /*#__PURE__*/__webpack_require__.n(dist_build);
    */
   async render(...params) {
     // Get display data from the server side.
-    const profile = await (await fetch('/json/profile.json')).json();
+    const profile = await (await fetch('json/profile.json')).json();
 
     // Returns a modal HTML string.
     return dist_build_default().compile(

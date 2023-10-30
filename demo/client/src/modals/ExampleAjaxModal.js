@@ -84,7 +84,7 @@ export default class extends Modal {
    */
   async render(...params) {
     // Get display data from the server side.
-    const profile = await (await fetch('/json/profile.json')).json();
+    const profile = await (await fetch('json/profile.json')).json();
 
     // Returns a modal HTML string.
     return hbs.compile(

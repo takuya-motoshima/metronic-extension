@@ -120,7 +120,7 @@ function initHorizontalBarChart() {
   return new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.charts.BarChart(document.getElementById('horizontalBarChart'), {
     horizontal: true,
     ajax: {
-      url: '/json/barchart.json',
+      url: 'json/barchart.json',
       dataSrc: data => {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -152,7 +152,7 @@ function initVerticalBarChart() {
   return new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.charts.BarChart(document.getElementById('verticalBarChart'), {
     horizontal: false,
     ajax: {
-      url: '/json/barchart.json',
+      url: 'json/barchart.json',
       dataSrc: data => {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.

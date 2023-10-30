@@ -919,7 +919,7 @@ function initHorizontalBarChart() {
   return new charts.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
     horizontal: true,
     ajax: {
-      url: &#039;/json/barchart.json&#039;,
+      url: &#039;json/barchart.json&#039;,
       dataSrc: data =&gt; {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -1089,7 +1089,7 @@ function initVerticalBarChart() {
   return new charts.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
     horizontal: false,
     ajax: {
-      url: &#039;/json/barchart.json&#039;,
+      url: &#039;json/barchart.json&#039;,
       dataSrc: data =&gt; {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
