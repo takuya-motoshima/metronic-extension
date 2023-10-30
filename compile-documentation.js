@@ -22,7 +22,8 @@ function generatePageLinkReplacementRegexp(templates) {
 // Replace page links.
 function replacePageLinks(content, re) {
   return content.replace(re, (match, capture) => {
-    return match.replace(capture, capture + '.html');
+    return match.replace(capture, 'metronic-extension/' + capture + '.html');
+    // return match.replace(capture, capture + '.html');
   });
 }
 
