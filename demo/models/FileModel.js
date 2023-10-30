@@ -1,5 +1,4 @@
 const Model = require('express-sweet').database.Model;
-const FileNotFound = require('../exceptions/FileNotFound');
 
 module.exports = class extends Model {
   static get table() {
@@ -18,27 +17,22 @@ module.exports = class extends Model {
     };
   }
 
-  static async createFile(folderId, text) {
+  static async createNode(folderId, text) {
     return super.create({folderId, text});
   }
 
-  static async deleteFile(fileId) {
-    // console.log(`Delete the file with ID ${fileId}`);
-    const file = await this.#getFile(fileId);
-    if (!file)
-      throw new FileNotFound();
-    return file.destroy();
+  static async deleteNode(id) {
+    const node = await super.findOne({where: {id}});
+    if (!node)
+      throw new Error('Data not found');
+    return node.destroy();
   }
 
-  static async renameFile(fileId, text) {
-    const file = await this.#getFile(fileId);
-    if (!file)
-      throw new FileNotFound();
-    file.text = text;
-    await file.save();
-  }
-
-  static async #getFile(fileId) {
-    return super.findOne({where: {id: fileId}});
+  static async renameNode(id, text) {
+    const node = await super.findOne({where: {id}});
+    if (!node)
+      throw new Error('Data not found');
+    node.text = text;
+    await node.save();
   }
 }

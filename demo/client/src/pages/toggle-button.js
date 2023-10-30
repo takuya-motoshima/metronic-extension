@@ -1,7 +1,4 @@
 import {initToggleButton} from 'metronic-extension';
-import highlight from '~/shared/highlight';
 
-highlight();
-
-// Initializes only the toggle buttons under the specified element.
-initToggleButton(document.querySelector('#kt_body'));
+// Initializes the toggle for button group elements that have the dynamically added [data-kt-buttons="true"] attribute.
+initToggleButton(document.body);

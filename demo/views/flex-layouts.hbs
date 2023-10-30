@@ -1,0 +1,112 @@
+{{!< default}}
+{{#contentFor 'title'}}Flex Layouts{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use responsive-friendly custom flex classes to build nested layouts with fixed and fluid columns. 
+    The classes are named using the format <code>flex-{property}</code> for <code>xs</code> and <code>flex-{breakpoint}-{property}</code> 
+    for <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, and <code>xxl</code>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Where <code>property</code> is one of:
+    <ul class="pt-3">
+      <li class="py-2"><code>root</code> - to define the root node of the flex layout(usually it's used when the layout is placed as a direct child of the body element in order to fully occupy the window height)</li>
+      <li class="py-2"><code>column-auto</code> - to set a flex item with auto height</li>
+      <li class="py-2"><code>column-fluid</code> - to set a flex item with fluid height</li>
+      <li class="py-2"><code>row-auto</code> - to set a flex item with auto width</li>
+      <li class="py-2"><code>row-fluid</code> - to set a flex item with fluid width</li>
+      <li class="py-2"><code>center</code> - to set a flex item's content vertically and horizontally centered</li>
+      <li class="py-2"><code>start</code> - to set a flex item's content alignments to start</li>
+      <li class="py-2"><code>end</code> - to set a flex item's content alignments to end</li>
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="d-flex flex-row h-300px">
+        <div class="d-flex flex-column flex-row-auto w-200px">
+          <div class="d-flex flex-column-auto flex-center h-50px bg-primary">
+            <span class="text-white">Fixed Height</span>
+          </div>
+          <div class="d-flex flex-column-fluid bg-success flex-center">
+            <span class="text-white">Fluid Height</span>
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-row-fluid">
+          <div class="d-flex flex-column-auto h-70px bg-info flex-center">
+            <span class="text-white">Fixed Height</span>
+          </div>
+          <div class="d-flex flex-row flex-column-fluid">
+            <div class="d-flex flex-row-fluid bg-dark flex-center">
+              <span class="text-white">Fluid Width</span>
+            </div>
+            <div class="d-flex flex-row-auto w-200px bg-warning flex-center">
+              <span class="text-white">Fixed Width</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;d-flex flex-row h-300px&quot;&gt;
+  &lt;div class=&quot;d-flex flex-column flex-row-auto w-200px&quot;&gt;
+    &lt;div class=&quot;d-flex flex-column-auto h-50px bg-primary&quot;&gt;
+      &lt;span class=&quot;text-white&quot;&gt;Fixed Height&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;d-flex flex-column-fluid bg-success flex-center&quot;&gt;
+      &lt;span class=&quot;text-white&quot;&gt;Fluid Height&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;d-flex flex-column flex-row-fluid&quot;&gt;
+    &lt;div class=&quot;d-flex flex-column-auto h-70px bg-info flex-center&quot;&gt;
+      &lt;span class=&quot;text-white&quot;&gt;Fixed Height&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;d-flex flex-row flex-column-fluid&quot;&gt;
+      &lt;div class=&quot;d-flex flex-row-fluid bg-dark flex-center&quot;&gt;
+        &lt;span class=&quot;text-white&quot;&gt;Fluid Width&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;d-flex flex-row-auto w-200px bg-warning flex-center&quot;&gt;
+        &lt;span class=&quot;text-white&quot;&gt;Fixed Width&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

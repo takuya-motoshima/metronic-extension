@@ -1,121 +1,315 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Toast - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Toast</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
-          </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <button data-on-success type="button" class="btn btn-primary my-2 me-5">Toggle success toast</button>
-            <button data-on-info type="button" class="btn btn-primary my-2 me-5">Toggle info toast</button>
-            <button data-on-warning type="button" class="btn btn-primary my-2 me-5">Toggle warning toast</button>
-            <button data-on-error type="button" class="btn btn-primary my-2 me-5">Toggle error toast</button>
-            <button data-on-with-title type="button" class="btn btn-primary my-2">Toast with title</button>
-          </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#toastHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#toastJsTabPane" role="tab">JAVASCRIPT</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="toastHtmlTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;button data-on-success type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle success toast&lt;/button&gt;
-&lt;button data-on-info type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle info toast&lt;/button&gt;
-&lt;button data-on-warning type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle warning toast&lt;/button&gt;
-&lt;button data-on-error type=&quot;button&quot; class=&quot;btn btn-primary my-2 me-5&quot;&gt;Toggle error toast&lt;/button&gt;
-&lt;button data-on-with-title type=&quot;button&quot; class=&quot;btn btn-primary my-2&quot;&gt;Toast with title&lt;/button&gt;</code>
-                    </pre>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="toastJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import {Toast} from &#039;metronic-extension&#039;;
-
-$(&#039;body&#039;)
-  .on(&#039;click&#039;, &#039;[data-on-success]&#039;, () =&gt; {
-    Toast.success(&#039;Hello, world! This is a toast message.&#039;);
-  })
-  .on(&#039;click&#039;, &#039;[data-on-info]&#039;, () =&gt; {
-    Toast.info(&#039;Hello, world! This is a toast message.&#039;);
-  })
-  .on(&#039;click&#039;, &#039;[data-on-warning]&#039;, () =&gt; {
-    Toast.warning(&#039;Hello, world! This is a toast message.&#039;);
-  })
-  .on(&#039;click&#039;, &#039;[data-on-error]&#039;, () =&gt; {
-    Toast.error(&#039;Hello, world! This is a toast message.&#039;);
-  })
-  .on(&#039;click&#039;, &#039;[data-on-with-title]&#039;, () =&gt; {
-    Toast.success(&#039;Hello, world! This is a toast message.&#039;, &#039;Title test.&#039;);
-  });</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end::Highlight-->
-          </div>
-          <!--end::Code-->
-        </div>
-        <!--end::Section-->
-      </div>
-      <!--end::Card Body-->
-    </div>
-    <!--end::Card-->
+{{!< default}}
+{{#contentFor 'title'}}Toast{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/toast.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#allStatesExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">All States</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Send push notifications to visitors using toast.
   </div>
-  <!--end::Container-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/toast.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Class methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public static success()</code>
+            </td>
+            <td>
+              Show success toast message.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>message: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Message.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>title?: string|undefined</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Title. Default is no title (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>delay?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Delay in milliseconds before hiding the toast. Default is 5000.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public static info()</code>
+            </td>
+            <td>
+              Show info toast message.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>message: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Message.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>title?: string|undefined</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Title. Default is no title (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>delay?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Delay in milliseconds before hiding the toast. Default is 5000.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public static warning()</code>
+            </td>
+            <td>
+              Show warning toast message.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>message: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Message.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>title?: string|undefined</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Title. Default is no title (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>delay?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Delay in milliseconds before hiding the toast. Default is 5000.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public static error()</code>
+            </td>
+            <td>
+              Show error toast message.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>message: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Message.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>title?: string|undefined</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Toast Title. Default is no title (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>delay?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Delay in milliseconds before hiding the toast. Default is 5000.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="allStatesExample" data-kt-scroll-offset="100">
+    <a href="#allStatesExample"></a>All States
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Here is an example of each dialog.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button data-on-success type="button" class="btn btn-success m-1">Toggle Success</button>
+      <button data-on-error type="button" class="btn btn-danger m-1">Toggle Error</button>
+      <button data-on-warning type="button" class="btn btn-warning m-1">Toggle Warning</button>
+      <button data-on-info type="button" class="btn btn-info m-1">Toggle Info</button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#allStatesExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#allStatesExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="allStatesExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;button data-on-success type=&quot;button&quot; class=&quot;btn btn-success m-1&quot;&gt;Toggle Success&lt;/button&gt;
+&lt;button data-on-error type=&quot;button&quot; class=&quot;btn btn-danger m-1&quot;&gt;Toggle Error&lt;/button&gt;
+&lt;button data-on-warning type=&quot;button&quot; class=&quot;btn btn-warning m-1&quot;&gt;Toggle Warning&lt;/button&gt;
+&lt;button data-on-info type=&quot;button&quot; class=&quot;btn btn-info m-1&quot;&gt;Toggle Info&lt;/button&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="allStatesExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Toast} from &#039;metronic-extension&#039;;
+
+// Toggle Success.
+$(&#039;[data-on-success]&#039;).on(&#039;click&#039;, () =&gt; {
+  Toast.success(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+});
+
+// Toggle Error.
+$(&#039;[data-on-error]&#039;).on(&#039;click&#039;, () =&gt; {
+  Toast.error(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+});
+
+// Toggle Warning.
+$(&#039;[data-on-warning]&#039;).on(&#039;click&#039;, () =&gt; {
+  Toast.warning(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+});
+
+// Toggle Info.
+$(&#039;[data-on-info]&#039;).on(&#039;click&#039;, () =&gt; {
+  Toast.info(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

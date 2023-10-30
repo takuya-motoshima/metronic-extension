@@ -8,29 +8,26 @@ export default interface DropzoneOptions {
      */
     hiddenInputContent?: HTMLInputElement;
     /**
-     * The default implementation of accept checks the file's mime type or extension against this list.
-     * This is a comma separated list of mime types or file extensions.
-     * Eg.: image/*,application/pdf,.psd
+     * A comma-separated list of MIME types or file extensions (e.g., "image/*,application/pdf,.psd") for files that are allowed to be uploaded.
+     * Default is none (undefined).
      */
     acceptedFiles?: string;
     /**
-     * The maximum filesize (in bytes) that is allowed to be uploaded.
+     * The maximum filesize (in bytes) that is allowed to be uploaded. Default is none (undefined).
      */
     maxFilesize?: number;
     /**
-     * Drop zone title text.
+     * Drop zone title text. Default is "Drop files here to upload".
      */
     dictDefaultMessage?: string;
     /**
-     * Drop zone description text.
+     * Drop zone description text. Default is none (undefined).
      */
     dictDescriptionMessage?: string;
     /**
      * Error message to be displayed if the file size exceeds the allowable size.
+     * Default is "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.".
+     * "{{filesize}}" is set to the selected file size, and "{{maxFilesize}}" is set to the file size that can be uploaded.
      */
     dictFileTooBig?: string;
-    /**
-     * If true, debug logs are output to console.
-     */
-    debug?: boolean;
 }

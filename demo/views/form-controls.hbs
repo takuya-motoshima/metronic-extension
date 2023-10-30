@@ -1,0 +1,356 @@
+{{!< default}}
+{{#contentFor 'title'}}Form Controls{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#formControl" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Form Control</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#flushFormControl" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Flush Form Control</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#formLabels" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Form Labels</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#formSelect" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Form Select</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#formRange" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Form Range</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Additional options for form elements that extend <a href="https://getbootstrap.com/docs/5.2/forms/overview/" target="_blank">Bootstrap Forms</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="formControl" data-kt-scroll-offset="100">
+    <a href="#formControl"></a>Form Control
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.form-control-solid</code> class with <code>.form-control</code> to set solid background style for a form control.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-10">
+        <label class="form-label">Default input</label>
+        <input type="email" class="form-control" placeholder="name@example.com" autocomplete="email"/>
+      </div>
+      <div class="mb-10">
+        <label class="form-label">Solid background style</label>
+        <input type="text" class="form-control form-control-solid" placeholder="name@example.com"/>
+      </div>
+      <div class="mb-0">
+        <label class="form-label">Transparent background style</label>
+        <input type="text" class="form-control form-control-transparent" placeholder="name@example.com"/>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;name@example.com&quot;/&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control form-control-solid&quot; placeholder=&quot;name@example.com&quot;/&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control form-control-transparent&quot; placeholder=&quot;name@example.com&quot;/&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="flushFormControl" data-kt-scroll-offset="100">
+    <a href="#flushFormControl"></a>Flush Form Control
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.form-control-flush</code> class with <code>.form-control</code> to remove the default background-color, borders, and rounded corners of a form input.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-0">
+        <label for="exampleFormControlInput1" class="form-label">Example</label>
+        <input type="email" class="form-control form-control-flush" placeholder="Example input"/>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;input type=&quot;email&quot; class=&quot;form-control form-control-flush&quot; placeholder=&quot;Example input&quot;/&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="formLabels" data-kt-scroll-offset="100">
+    <a href="#formLabels"></a>Form Labels
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.required</code> class with <code>.form-label</code> or any custom element to indicate input's mandatory status.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-10">
+        <label for="exampleFormControlInput1" class="required form-label">Symbol in label</label>
+        <input type="email" class="form-control form-control-solid" placeholder="Example input"/>
+      </div>
+      <div class="mb-0">
+        <label for="exampleFormControlInput1" class="form-label">Symbol in input</label>
+        <div class="position-relative">
+          <div class="required position-absolute top-0"></div>
+          <input type="email" class="form-control form-control-solid" placeholder="Example input"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;mb-10&quot;&gt;
+  &lt;label for=&quot;exampleFormControlInput1&quot; class=&quot;required form-label&quot;&gt;Symbol in label&lt;/label&gt;
+  &lt;input type=&quot;email&quot; class=&quot;form-control form-control-solid&quot; placeholder=&quot;Example input&quot;/&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;mb-0&quot;&gt;
+  &lt;label for=&quot;exampleFormControlInput1&quot; class=&quot;form-label&quot;&gt;Symbol in input&lt;/label&gt;
+  &lt;div class=&quot;position-relative&quot;&gt;
+    &lt;div class=&quot;required position-absolute top-0&quot;&gt;&lt;/div&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control form-control-solid&quot; placeholder=&quot;Example input&quot;/&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="formSelect" data-kt-scroll-offset="100">
+    <a href="#formSelect"></a>Form Select
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.form-select-solid</code> class with <code>.form-select</code> to set solid background style for a form select.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-10">
+        <label for="exampleFormControlInput1" class="form-label">Default select</label>
+        <select class="form-select" aria-label="Select example">
+          <option>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+        </select>
+      </div>
+      <div class="mb-10">
+        <label for="exampleFormControlInput1" class="form-label">Solid background style</label>
+        <select class="form-select form-select-solid" aria-label="Select example">
+          <option>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+        </select>
+      </div>
+      <div class="mb-0">
+        <label for="exampleFormControlTextarea1" class="form-label">Transparent background style</label>
+        <select class="form-select form-select-transparent" aria-label="Select example">
+          <option>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;select class=&quot;form-select&quot; aria-label=&quot;Select example&quot;&gt;
+  &lt;option&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select class=&quot;form-select form-select-solid&quot; aria-label=&quot;Select example&quot;&gt;
+  &lt;option&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select class=&quot;form-select form-select-transparent&quot; aria-label=&quot;Select example&quot;&gt;
+  &lt;option&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+&lt;/select&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="formRange" data-kt-scroll-offset="100">
+    <a href="#formRange"></a>Form Range
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.form-range</code> class with <code>.form-select</code> to set solid background style for a form select.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-10">
+        <label for="customRange1" class="form-label">Example range</label>
+        <input type="range" class="form-range rounded" id="customRange1" />
+      </div>
+      <div class="mb-0">
+        <label for="customRange1" class="form-label">Disabled range</label>
+        <input type="range" class="form-range rounded" id="customRange1"disabled />
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;mb-10&quot;&gt;
+  &lt;label for=&quot;customRange1&quot; class=&quot;form-label&quot;&gt;Example range&lt;/label&gt;
+  &lt;input type=&quot;range&quot; class=&quot;form-range&quot; id=&quot;customRange1&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;mb-0&quot;&gt;
+  &lt;label for=&quot;customRange1&quot; class=&quot;form-label&quot;&gt;Disabled range&lt;/label&gt;
+  &lt;input type=&quot;range&quot; class=&quot;form-range&quot; id=&quot;customRange1&quot;disabled /&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

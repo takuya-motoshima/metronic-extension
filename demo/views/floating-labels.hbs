@@ -1,0 +1,413 @@
+{{!< default}}
+{{#contentFor 'title'}}Floating Labels{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#validationStates" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Validation States</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#textareas" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Textareas</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#select" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Select</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#solidStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Solid Style</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Additional options that extend <a href="https://getbootstrap.com/docs/5.2/forms/floating-labels/" target="_blank">Bootstrap Floating Labels</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Basic examples of using floating labels.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="form-floating mb-7">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+        <label for="floatingInput">Email address</label>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="form-floating mb-7">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com"/>
+        <label for="floatingInputValue">Input with value</label>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating mb-7&quot;&gt;
+  &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;floatingInput&quot; placeholder=&quot;name@example.com&quot;/&gt;
+  &lt;label for=&quot;floatingInput&quot;&gt;Email address&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating mb-7&quot;&gt;
+  &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;floatingPassword&quot; placeholder=&quot;Password&quot;/&gt;
+  &lt;label for=&quot;floatingPassword&quot;&gt;Password&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating&quot;&gt;
+  &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;floatingInputValue&quot; placeholder=&quot;name@example.com&quot; value=&quot;test@example.com&quot;/&gt;
+  &lt;label for=&quot;floatingInputValue&quot;&gt;Input with value&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="validationStates" data-kt-scroll-offset="100">
+    <a href="#validationStates"></a>Validation States
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Form validation states work as expected.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="form-floating mb-7">
+        <input type="email" class="form-control is-valid" id="floatingInput2" placeholder="name@example.com" value="test@example.com"/>
+        <label for="floatingInput">Valid input</label>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="form-floating">
+        <input type="password" class="form-control is-invalid" id="floatingPassword2" placeholder="name@example.com" value="test@example.com"/>
+        <label for="floatingPassword">Invalid input</label>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating mb-7&quot;&gt;
+  &lt;input type=&quot;email&quot; class=&quot;form-control is-valid&quot; id=&quot;floatingInput2&quot; placeholder=&quot;name@example.com&quot; value=&quot;test@example.com&quot;/&gt;
+  &lt;label for=&quot;floatingInput&quot;&gt;Valid input&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating&quot;&gt;
+  &lt;input type=&quot;password&quot; class=&quot;form-control is-invalid&quot; id=&quot;floatingPassword2&quot; placeholder=&quot;name@example.com&quot; value=&quot;test@example.com&quot;/&gt;
+  &lt;label for=&quot;floatingPassword&quot;&gt;Invalid input&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="textareas" data-kt-scroll-offset="100">
+    <a href="#textareas"></a>Textareas
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Textares with default and custom height options.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="form-floating mb-7">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Comments</label>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Comments</label>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating mb-7&quot;&gt;
+  &lt;textarea class=&quot;form-control&quot; placeholder=&quot;Leave a comment here&quot; id=&quot;floatingTextarea&quot;&gt;&lt;/textarea&gt;
+  &lt;label for=&quot;floatingTextarea&quot;&gt;Comments&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating&quot;&gt;
+  &lt;textarea class=&quot;form-control&quot; placeholder=&quot;Leave a comment here&quot; id=&quot;floatingTextarea2&quot; style=&quot;height: 100px&quot;&gt;&lt;/textarea&gt;
+  &lt;label for=&quot;floatingTextarea2&quot;&gt;Comments&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="select" data-kt-scroll-offset="100">
+    <a href="#select"></a>Select
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Floating Labels are available on form select elements as well.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <label for="floatingSelect">Works with selects</label>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating&quot;&gt;
+  &lt;select class=&quot;form-select&quot; id=&quot;floatingSelect&quot; aria-label=&quot;Floating label select example&quot;&gt;
+    &lt;option selected&gt;Open this select menu&lt;/option&gt;
+    &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+    &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+    &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label for=&quot;floatingSelect&quot;&gt;Works with selects&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="solidStyle" data-kt-scroll-offset="100">
+    <a href="#solidStyle"></a>Solid Style
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Floating label inputs with solid background style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="form-floating mb-7">
+        <input type="email" class="form-control form-control-solid" id="floatingInput1" placeholder="name@example.com"/>
+        <label for="floatingInput1">Email address</label>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="form-floating mb-7">
+        <select class="form-select form-select-solid" id="floatingSelect1" aria-label="Floating label select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <label for="floatingSelect1">Works with selects</label>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="form-floating">
+        <textarea class="form-control form-control-solid" placeholder="Leave a comment here" id="floatingTextarea1"></textarea>
+        <label for="floatingTextarea1">Comments</label>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating mb-7&quot;&gt;
+  &lt;input type=&quot;email&quot; class=&quot;form-control form-control-solid&quot; id=&quot;floatingInput1&quot; placeholder=&quot;name@example.com&quot;/&gt;
+  &lt;label for=&quot;floatingInput1&quot;&gt;Email address&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating mb-7&quot;&gt;
+  &lt;select class=&quot;form-select form-select-solid&quot; id=&quot;floatingSelect1&quot; aria-label=&quot;Floating label select example&quot;&gt;
+    &lt;option selected&gt;Open this select menu&lt;/option&gt;
+    &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+    &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+    &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label for=&quot;floatingSelect1&quot;&gt;Works with selects&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;form-floating&quot;&gt;
+  &lt;textarea class=&quot;form-control form-control-solid&quot; placeholder=&quot;Leave a comment here&quot; id=&quot;floatingTextarea1&quot;&gt;&lt;/textarea&gt;
+  &lt;label for=&quot;floatingTextarea1&quot;&gt;Comments&lt;/label&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

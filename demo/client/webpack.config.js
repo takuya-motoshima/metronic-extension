@@ -2,8 +2,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const theme = 'metronic_8.1.7';
-// const theme = 'metronic_8.1.2';
 
 module.exports = {
   watchOptions: {
@@ -16,6 +14,9 @@ module.exports = {
     ]
   },
   entry: {
+    docs: './src/pages/docs.js',
+    'select-elements': './src/pages/select-elements.js',
+    'api-client': './src/pages/api-client.js',
     'block-ui': './src/pages/block-ui.js',
     datatable: './src/pages/datatable.js',
     dialog: './src/pages/dialog.js',
@@ -26,12 +27,16 @@ module.exports = {
     'form-validation': './src/pages/form-validation.js',
     tagify: './src/pages/tagify.js',
     dropzone: './src/pages/dropzone.js',
-    'select-elements': './src/pages/select-elements.js',
-    'toggle-password-visibility': './src/pages/toggle-password-visibility.js',
-    'rest-client': './src/pages/rest-client.js',
+    'password-toggle': './src/pages/password-toggle.js',
     tree: './src/pages/tree.js',
     clipboard: './src/pages/clipboard.js',
     'toggle-button': './src/pages/toggle-button.js',
+    barchart: './src/pages/barchart.js',
+    tooltip: './src/pages/tooltip.js',
+    utilities: './src/pages/utilities.js',
+    keenicons: './src/pages/keenicons.js',
+    'form-advanced': './src/pages/form-advanced.js',
+    'no-ui-slider': './src/pages/no-ui-slider.js',
   },
 
   // File output settings.

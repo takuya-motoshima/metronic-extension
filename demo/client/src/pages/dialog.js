@@ -1,35 +1,44 @@
 import {Dialog} from 'metronic-extension';
-import highlight from '~/shared/highlight';
 
-highlight();
-$('body')
-  .on('click', '[data-on-confirm]', async () => {
-    const res = await Dialog.confirm('Here\'s a basic example of confirm dialog!', {confirmButtonText: 'Yes', cancelButtonText: 'No',});
-    Dialog.info(`The return value is ${res}`);
-  })
-  .on('click', '[data-on-success]', () => {
-    Dialog.success('Here\'s a basic example of success dialog!');
-  })
-  .on('click', '[data-on-error]', () => {
-    Dialog.error('Here\'s a basic example of error dialog!');
-  })
-  .on('click', '[data-on-warning]', () => {
-    Dialog.warning('Here\'s a basic example of warning dialog!');
-  })
-  .on('click', '[data-on-info]', () => {
-    Dialog.info('Here\'s a basic example of info dialog!');
-  })
-  .on('click', '[data-on-unknown-error]', () => {
-    Dialog.unknownError('The process was interrupted due to an error. Please try again.', {title: 'An unexpected error has occurred.'});
-  })
-  .on('click', '[data-on-loading]', () => {
-    Dialog.loading('Here\'s a basic example of loading dialog!');
-    setTimeout(() => Dialog.close(), 3000);
-  })
-  .on('click', '[data-on-success-with-cancel-button]', async () => {
-    const res = await Dialog.success('Here\'s a basic example of success dialog!', {
-      showCancelButton: true,
-      cancelButtonText: 'Cancel',
-    });
-    Dialog.info(`The return value is ${res}`);
-  });
+// Toggle Confirm.
+$('[data-on-confirm]').on('click', async() => {
+  const isConfirmed = await Dialog.confirm("Here's an example of confirm dialog.", {confirmButtonText: 'Yes', cancelButtonText: 'No'});
+  alert(`Response is ${isConfirmed}`);
+});
+
+// Toggle Success.
+$('[data-on-success]').on('click', () => {
+  Dialog.success("Here's an example of success dialog.");
+});
+
+// Toggle Success with cancel button.
+$('[data-on-success-with-cancel-button]').on('click', async () => {
+  const isConfirmed = await Dialog.success("Here's an example of success dialog.", {showCancelButton: true});
+  alert(`Response is ${isConfirmed}`);
+});
+
+// Toggle Error.
+$('[data-on-error]').on('click', () => {
+  Dialog.error("Here's an example of error dialog.");
+});
+
+// Toggle Unknown error.
+$('[data-on-unknown-error]').on('click', () => {
+  Dialog.unknownError();
+});
+
+// Toggle Warning.
+$('[data-on-warning]').on('click', () => {
+  Dialog.warning("Here's an example of warning dialog.");
+});
+
+// Toggle Info.
+$('[data-on-info]').on('click', () => {
+  Dialog.info("Here's an example of info dialog.");
+});
+
+// Toggle Loading.
+$('[data-on-loading]').on('click', () => {
+  Dialog.loading("Here's an example of loading dialog.");
+  setTimeout(() => Dialog.close(), 2000);
+});

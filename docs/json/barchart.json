@@ -1,0 +1,12 @@
+[
+  {"category": "Japan", "name": "Series1", "color": "#50cd89", "data": 400},
+  {"category": "Japan", "name": "Series2", "color": "#7239ea", "data": 430},
+  {"category": "United States", "name": "Series1", "color": "#50cd89", "data": 448},
+  {"category": "United States", "name": "Series2", "color": "#7239ea", "data": 470},
+  {"category": "Canada", "name": "Series1", "color": "#50cd89", "data": 540},
+  {"category": "Canada", "name": "Series2", "color": "#7239ea", "data": 580},
+  {"category": "Italy", "name": "Series1", "color": "#50cd89", "data": 690},
+  {"category": "Italy", "name": "Series2", "color": "#7239ea", "data": 1100},
+  {"category": "Germany", "name": "Series1", "color": "#50cd89", "data": 1200},
+  {"category": "Germany", "name": "Series2", "color": "#7239ea", "data": 1380}
+]

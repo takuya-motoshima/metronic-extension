@@ -2,53 +2,100 @@ import hbs from 'handlebars-extd';
 import {merge} from 'deep-fusion';
 import compare from 'compare-img';
 import initTooltip from '~/components/initTooltip';
-import fetchDataUrl from '~/http/fetchDataUrl';
+import fetchDataUrl from '~/utils/fetchDataUrl';
 import ImageInputOptions from '~/interfaces/ImageInputOptions';
-import isDataUrl from '~/misc/isDataUrl';
-import getExtensionFromDataUrl from '~/misc/getExtensionFromDataUrl';
+import isDataURI from '~/validators/isDataURI';
+import getExtensionFromDataUrl from '~/utils/getExtensionFromDataUrl';
+import isString from '~/utils/isString';
 
 /**
- * Image input.
- * 
+ * Image input field component.
  * @example
  * HTML:
  * ```html
- * <div id="imageInput"></div>
- * ```
- *
- * JS:
- * ```js 
- * import {ImageInput} from 'metronic-extension';
- *
- * const imageInput =  new ImageInput(document.querySelector('#imageInput'), {
- *   current: 'current.png',
- *   default: 'default.png'
- * });
- * imageInput.onChange(currentImage => {});
+ * <!--begin::ImageInput-->
+ * <div id="myImageInput"></div>
+ * <!--end::ImageInput-->
+ * <!--begin::Image data URL-->
+ * <input id="myImageDataURL" type="hidden">
+ * <!--end::Image data URL-->
  * ```
  * 
- * @see {@link https://preview.keenthemes.com/metronic8/demo1/documentation/forms/image-input.html} Custom Bootstrap Image Input with Preview Component by Keenthemes.
+ * JS:
+ * ```js
+ * import {ImageInput} from 'metronic-extension';
+ * 
+ * // Initialize ImageInput.
+ * const imageInput =  new ImageInput(document.getElementById('myImageInput'), {
+ *   default: '/img/avatar1.svg',
+ *   current: '/img/avatar2.png',
+ *   width: 125,
+ *   height: 125,
+ *   hiddenEl: document.getElementById('myImageDataURL'),
+ *   language: {
+ *     change: 'Change this image',
+ *     remove: 'Delete this image',
+ *     cancel: 'Cancel changes to this image'
+ *   }
+ * });
+ * 
+ * // Set callbacks for image changes.
+ * imageInput.onChange(dataURL => {});
+ * ```
  */
 export default class ImageInput {
+  /** 
+   * KTImageInput instance.
+   * @type {KTImageInput}
+   */
   #imageInput: typeof window.KTImageInput;
-  #changeHandler: (currentImage: string|null) => void = (currentImage: string|null) => {};
-  #image: string|null = null;
-  #hiddenEl: HTMLInputElement|null = null;
+
+  /** 
+   * Callback function called when image is changed. The callback function receives the Data URL of the selected image.
+   * @type {(dataURL: string|null) => void}
+   */
+  #changeHandler: (dataURL: string|null) => void = (dataURL: string|null) => {};
+
+  /** 
+   * Data URL of the selected image.
+   * @type {string|null}
+   */
+  #imageDataURL: string|null = null;
+
+  /** 
+   * A hidden element that stores the Data URL of the selected image.
+   * @type {HTMLInputElement|null}
+   */
+  #hiddenInput: HTMLInputElement|null = null;
 
   /**
-   * Initialization.
+   * Create a new instance of the ImageInput class.
+   * @param {string|HTMLDivElement|JQuery} element HTMLDivElement selector, element, or JQuery object.
+   * @param {string} options.default? The path or Data URL of the image to display by default if no image is selected; default is none (undefined).
+   * @param {string} options.current? Path or Data URL of the current image, default is none (undefined).
+   * @param {HTMLInputElement} options.hiddenEl? A hidden element that sets the Data URL for the currently selected image. Default is none (undefined).
+   * @param {number} options.width? Width of the image preview area in pixels. Default is 125.
+   * @param {number} options.height? Height of the image preview area in pixels. Default is 125.
+   * @param {boolean} options.readonly? If true, read-only. Default is false (editable).
+   * @param {boolean} options.cancelable? If true, the Cancel Change (Undo) button is displayed. Default is false (cancel button is hidden).
+   * @param {string} options.accept? A comma-separated list of MIME types or file extensions (e.g., "image/*,application/pdf,.psd") for files that are allowed to be uploaded. Default is ".png,.jpg,.jpeg,.svg".
+   * @param {string} options.language.change? Tooltip for the change button. Default is "Change".
+   * @param {string} options.language.remove? Delete button tooltip. Default is "Delete".
+   * @param {string} options.language.cancel? Tooltip for the Cancel Change button. Default is "Cancel and undo changes".
    */
-  constructor(context: HTMLDivElement|JQuery, options: ImageInputOptions) {
+  public constructor(element: string|HTMLDivElement|JQuery, options: ImageInputOptions) {
     // Check parameters.
-    if (context instanceof $)
-      context = (context as JQuery).get(0) as HTMLDivElement;
-    else if (!(context instanceof HTMLDivElement))
-      throw new TypeError('The context parameter specifies an HTMLDivElement or a JQuery object of HTMLDivElement');
+    if (isString(element))
+      element = $(element as string).get(0) as HTMLDivElement;
+    else if (element instanceof $)
+      element = (element as JQuery).get(0) as HTMLDivElement;
+    else if (!(element instanceof HTMLDivElement))
+      throw new TypeError('element parameter should be HTMLDivElement selectors, elements, and JQuery object');
 
     // Initialize options.
     options = merge({
-      current: context.dataset.imageInputCurrent,
-      default: context.dataset.imageInputDefault,
+      default: element.dataset.imageInputDefault,
+      current: element.dataset.imageInputCurrent,
       hiddenEl: undefined,
       width: 125,
       height: 125,
@@ -58,44 +105,44 @@ export default class ImageInput {
       language: {
         change: 'Change',
         remove: 'Delete',
-        cancel: 'Cancel change'
+        cancel: 'Cancel and undo changes'
       }
     }, options);
 
     // Save hidden elements as members.
     if (options.hiddenEl)
-      this.#hiddenEl = options.hiddenEl;
+      this.#hiddenInput = options.hiddenEl;
 
     // Render the current and default images.
     (async () => {
       // If the default image is not a DataURL but a URL, it is loaded remotely.
       let defaultImage;
       if (options.default)
-        defaultImage = isDataUrl(options.default) ? options.default : await fetchDataUrl(options.default);
+        defaultImage = isDataURI(options.default, 'image/*') ? options.default : await fetchDataUrl(options.default);
 
       // If the current image is not a DataURL but a URL, it is loaded remotely.
       if (options.current)
-        this.#image = isDataUrl(options.current) ? options.current : await fetchDataUrl(options.current);
+        this.#imageDataURL = isDataURI(options.current, 'image/*') ? options.current : await fetchDataUrl(options.current);
 
       // If the current and the default image are the same, the image change cancel button is not displayed in the initial display.
       if (options.current && options.default && await compare(options.current, options.default))
         options.current = undefined;
 
       // If the current image and default image are specified, priority is given to saving and displaying the current image.
-      if (defaultImage || this.#image) {
+      if (defaultImage || this.#imageDataURL) {
         // Set images for hidden elements.
-        if (this.#hiddenEl)
-          this.#hiddenEl.value = this.#image || defaultImage as string;
+        if (this.#hiddenInput)
+          this.#hiddenInput.value = this.#imageDataURL || defaultImage as string;
 
         // If no image is currently available, the default image is saved.
-        if (!this.#image)
-          this.#image = defaultImage as string;
+        if (!this.#imageDataURL)
+          this.#imageDataURL = defaultImage as string;
       }
 
-      // Rendering image input UI.
-      this.#imageInput = this.#render(context as HTMLDivElement, options);
+      // Rendering ImageInput UI.
+      this.#imageInput = this.#render(element as HTMLDivElement, options);
 
-      // Initialize event handler.
+      // Initialize image input events.
       this.#initEventListeners(options, defaultImage);
 
       // Initialize Observer.
@@ -104,23 +151,32 @@ export default class ImageInput {
   }
 
   /**
-   * Set change event handler.
+   * Sets the callback function that will be called when an image is modified. The callback function receives the Data URL of the image.
+   * @param {(dataURL: string|null) => void} handler Callback function.
+   * @return {ImageInput}
+   * @example
+   * ```js
+   * // Set callbacks for image changes.
+   * imageInput.onChange(dataURL => {
+   *   alert('Changed image');
+   * });
+   * ```
    */
-  onChange(handler: (currentImage: string|null) => void): ImageInput {
+  public onChange(handler: (dataURL: string|null) => void): ImageInput {
     this.#changeHandler = handler;
     return this;
   }
 
   /**
-   * Download the current image.
+   * Downloading the image under selection.
    */
-  download(): void {
-    if (!this.#image)
+  public download(): void {
+    if (!this.#imageDataURL)
       return;
     let link = document.createElement('a') as HTMLAnchorElement;
-    const extension = getExtensionFromDataUrl(this.#image);
+    const extension = getExtensionFromDataUrl(this.#imageDataURL);
     link.download = `image.${extension}`;
-    link.href = this.#image as string;
+    link.href = this.#imageDataURL as string;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -128,48 +184,52 @@ export default class ImageInput {
   }
 
   /**
-   * Returns the selected image input instance input field.
+   * Get input element.
+   * @return {HTMLInputElement} Input Element.
    */
-  getInputElement(): HTMLInputElement {
+  public getInputElement(): HTMLInputElement {
     return this.#imageInput.getInputElement();
   }
 
   /**
-   * Get the data URL of the current image.
+   * Get Data URL of selected image.
+   * @return {string|null} Data URL.
    */
-  getImage(): string|null {
-    return this.#image;
+  public getImage(): string|null {
+    return this.#imageDataURL;
   }
 
   /**
-   * Returns the hidden field of the selected image input instance.
+   * Get the hidden element that contains the Data URL of the selected image.
+   * @return {HTMLInputElement|null} Hidden Element.
    */
-  getHiddenElement(): HTMLInputElement|null {
-    return this.#hiddenEl;
+  public getHiddenElement(): HTMLInputElement|null {
+    return this.#hiddenInput;
   }
 
   /**
-   * Rendering image input UI.
+   * Rendering ImageInput UI.
+   * @param {HTMLDivElement} element Element to draw the image input element.
+   * @param {ImageInputOptions} options Image input options.
    */
-  #render(context: HTMLDivElement, options: ImageInputOptions) {
+  #render(element: HTMLDivElement, options: ImageInputOptions) {
     // Context styling.
-    context.classList.add(
+    element.classList.add(
       'image-input',
       'image-input-outline',
       options.current ? 'image-input-changed' : 'image-input-empty',
       'bg-light',
       // 'bg-dark'
     );
-    // context.style.backgroundColor = '#babbbe';
-    context.style.width = 'fit-content';
+    element.style.width = 'fit-content';
 
-    // If there is a default image, set it as the context background.
+    // If there is a default image, set it as the element background.
     if (options.default)
-      context.style.backgroundImage = `url(${options.default})`;
-    context.setAttribute('data-kt-image-input', 'false');
+      element.style.backgroundImage = `url(${options.default})`;
+    element.setAttribute('data-kt-image-input', 'false');
 
-    // Render image input HTML to context.
-    context.insertAdjacentHTML('afterbegin', hbs.compile(
+    // Render ImageInput HTML to element.
+    element.insertAdjacentHTML('afterbegin', hbs.compile(
       `<!--begin::Preview-->
       <div
         {{#unless options.readonly}}
@@ -217,10 +277,10 @@ export default class ImageInput {
       <!--end::Remove-->`)({options}));
 
     // Initialize tooltip.
-    initTooltip(context);
+    initTooltip(element);
 
-    // Initialize the image input component.
-    const imageInput = new window.KTImageInput(context);
+    // Initialize the ImageInput component.
+    const imageInput = new window.KTImageInput(element);
 
     // If there is currently an image and the Cancel button is disabled, the Delete Image button is shown.
     if (options.current && !options.cancelable)
@@ -234,34 +294,36 @@ export default class ImageInput {
   }
 
   /**
-   * Initialize event handler.
+   * Initialize image input events.
+   * @param {ImageInputOptions} options Image input options.
+   * @param {string|undefined} defaultImage Data URL of the default image to be displayed when no image is selected.
    */
   #initEventListeners(options: ImageInputOptions, defaultImage: string|undefined): void {
-    // This event fires on when the image input has been changed.
+    // This event fires on when the ImageInput has been changed.
     this.#imageInput.on('kt.imageinput.changed', async (input: typeof window.KTImageInput) => {
       // If cancellation is disabled, the delete button is forcibly displayed when editing the image.
       if (!options.cancelable)
         input.removeElement.style.display = 'flex';
     });
 
-    // This event fires on when the image input has been removed.
+    // This event fires on when the ImageInput has been removed.
     this.#imageInput.on('kt.imageinput.removed', async (input: typeof window.KTImageInput) => {
       if (defaultImage) {
         // If there is a default image.
         // Set default image for hidden elements.
-        if (this.#hiddenEl)
-          this.#hiddenEl.value = defaultImage as string;
+        if (this.#hiddenInput)
+          this.#hiddenInput.value = defaultImage as string;
 
         // Set the data URL of the current image.
-        this.#image = defaultImage as string;
+        this.#imageDataURL = defaultImage as string;
       } else {
         // If there is no default image.
         // Clear hidden elements.
-        if (this.#hiddenEl)
-          this.#hiddenEl.value = '';
+        if (this.#hiddenInput)
+          this.#hiddenInput.value = '';
 
         // Currently clearing the image.
-        this.#image = null;
+        this.#imageDataURL = null;
       }
 
       // If cancellation is disabled, the delete button is forcibly hidden when deleting an image.
@@ -269,7 +331,7 @@ export default class ImageInput {
         input.removeElement.style.display = 'none';
 
       // Invoke change event.
-      this.#changeHandler(this.#image);
+      this.#changeHandler(this.#imageDataURL);
     });
 
     // Unless it is read-only.
@@ -300,14 +362,14 @@ export default class ImageInput {
           continue;
 
         // Get current image.
-        this.#image = isDataUrl(matches[1]) ? matches[1] : await fetchDataUrl(matches[1]);
+        this.#imageDataURL = isDataURI(matches[1], 'image/*') ? matches[1] : await fetchDataUrl(matches[1]);
 
         // Update on hidden elements.
-        if (this.#hiddenEl)
-          this.#hiddenEl.value = this.#image as string;
+        if (this.#hiddenInput)
+          this.#hiddenInput.value = this.#imageDataURL as string;
 
         // Invoke change event.
-        this.#changeHandler(this.#image);
+        this.#changeHandler(this.#imageDataURL);
       }
     });
     observer.observe(this.#imageInput.wrapperElement, {attributes: true, childList: false, characterData: true, attributeFilter: ['style']});

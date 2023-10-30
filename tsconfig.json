@@ -50,7 +50,8 @@
     "paths": {
       "~/*": ["src/*"],
       // NOTE: Added to solve the problem of missing deep-fusion types when running tests in JEST.
-      "deep-fusion": ["node_modules/deep-fusion/types/index.d.ts"]
+      "deep-fusion": ["node_modules/deep-fusion/types/index.d.ts"],
+      "sweetalert2": ["node_modules/sweetalert2/sweetalert2.d.ts"]
     },                                 /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                             /* List of folders to include type definitions from. */

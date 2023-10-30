@@ -11,7 +11,9 @@
     "prewatch": "rimraf dist types",
     "build": "rollup -c",
     "prebuild": "rimraf dist types",
-    "test": "jest"
+    "test": "jest",
+    "compile-documentation": "node compile-documentation",
+    "precompile-documentation": "rimraf docs"
   },
   "repository": {
     "type": "git",
@@ -49,9 +51,11 @@
     "@types/jest": "^29.5.4",
     "@types/jquery": "^3.5.14",
     "@types/jstree": "^3.3.41",
+    "@types/mime": "^3.0.3",
     "@types/validator": "^13.11.1",
     "@types/yaireo__tagify": "^4.16.0",
     "csv-parse": "^5.4.0",
+    "express-hbs-compile": "^1.0.0",
     "fetch-mock": "^8.0.0",
     "jest": "^29.6.3",
     "jest-environment-jsdom": "^29.6.3",
@@ -72,6 +76,7 @@
     "daterangepicker": "^3.1.0",
     "deep-fusion": "^1.0.3",
     "handlebars-extd": "^1.0.8",
+    "mime": "^3.0.0",
     "moment": "^2.29.4",
     "sweetalert2": "^11.5.1",
     "validator": "^13.11.0"

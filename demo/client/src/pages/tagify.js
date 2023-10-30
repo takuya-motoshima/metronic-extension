@@ -1,31 +1,37 @@
-import {Tagify, selectRef} from 'metronic-extension';
-import highlight from '~/shared/highlight';
+import {Tagify} from 'metronic-extension';
 
-highlight();
-const ref = selectRef();
-const basicTagify = new Tagify(ref.basicTagify);
-const readonlyTagify = new Tagify(ref.readonlyTagify, {
-  readonly: true,
-});
-const maxlenTagify = new Tagify(ref.maxlenTagify, {
-  maxChars: 10,
-});
-const inlineSuggestionsTagify = new Tagify(ref.inlineSuggestionsTagify, {
+// Initialize Tagify.
+const basicTagify = new Tagify(document.getElementById('basicTagify'));
+
+// Set callback functions for various operations.
+basicTagify
+  .onAddTag(evnt => {
+    // Tag added.
+    console.log('Tag added');
+  })
+  .onRemoveTag(evnt => {
+    // Tag removed.
+    console.log('Tag has been deleted');
+  })
+  .onChangeTag(evnt => {
+    // Tag was changed.
+    console.log('Tag has been changed');
+  });
+
+// Read-only.
+new Tagify(document.getElementById('readonlyTagify'), {readonly: true});
+
+// Inline Suggestions.
+new Tagify(document.getElementById('inlineSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {
     maxItems: 20,
     classname: 'tagify__inline__suggestions',
   }
 });
-const listSuggestionsTagify = new Tagify(ref.listSuggestionsTagify, {
+
+// List Suggestions.
+new Tagify(document.getElementById('listSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {maxItems: 20},
 });
-const eventTagify = new Tagify(ref.eventTagify, {
-  whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
-  dropdown: {maxItems: 20},
-});
-eventTagify
-  .onAddTag(evnt => alert('Add tag'))
-  .onRemoveTag(evnt => alert('Delete tag'))
-  .onChangeTag(evnt => alert('Change (add or remove) a tag'));

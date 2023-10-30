@@ -1,71 +1,58 @@
-/// <reference types="jquery" />
-/// <reference types="jquery" />
-/// <reference types="datatables.net" />
-/// <reference types="jstree" />
-/// <reference types="bootstrap" />
-/// <reference types="daterangepicker" />
-/// <reference types="dropzone" />
 import TreeOptions from '~/interfaces/TreeOptions';
 /**
- * Folder and file tree components.
+ * <code>jsTree</code> plugin-based interactive tree component.
+ * For more info please visit the plugin's <a class="me-1" href="https://www.jstree.com/" target="_blank">Home</a> or <a href="https://github.com/vakata/jstree" target="_blank">Github Repo</a>.
  */
 export default class Tree {
     #private;
     /**
-     * Initialization.
+     * Create a new instance of the Tree class.
+     * @param {string|HTMLDivElement|JQuery} element HTMLDivElement selector, element, or JQuery object.
+     * @param {TreeOptions} options Tree options.
      */
-    constructor(context: HTMLDivElement | JQuery, options?: TreeOptions);
+    constructor(element: string | HTMLDivElement | JQuery, options: TreeOptions);
     /**
-     * Refreshes the tree - all nodes are reloaded with calls to load_node.
-     *
+     * Refresh the tree.
      * @param {boolean} skipLoading An option to skip showing the loading indicator. Default is false.
      * @param {boolean} forgetState If set to true state will not be reapplied, if set to a function (receiving the current state as argument) the result of that function will be used as state. Default is false.
      * @return {Tree}
      */
     refresh(skipLoading?: boolean, forgetState?: boolean): Tree;
     /**
-     * Refreshes a node in the tree (reload its children) all opened nodes inside that node are reloaded with calls to load_node.
-     *
-     * @param {any} obj The node.
+     * Refresh a node in the tree (reload child nodes).
+     * @param {any} nodeObject The node.
      * @return {Tree}
      */
-    refreshNode(obj: any): Tree;
+    refreshNode(nodeObject: any): Tree;
     /**
-     * Triggered when a node is selected.
-     *
-     * @param {(evnt: any, node: any) => void} handler Handle function.
+     * Sets the callback function to be called when a node is selected. The callback function receives an event object and a node object.
+     * @param {(evnt: any, node: any) => void} handler Callback function.
      * @return {Tree}
      */
     onSelected(handler: (evnt: any, node: any) => void): Tree;
     /**
-     * Triggered on error.
-     *
-     * @param {(err: any) => void} handler Handle function.
+     * Sets the callback function to be called on error. The callback function receives an error object.
+     * @param {(err: any) => void} handler Callback function.
      * @return {Tree}
      */
     onError(handler: (err: any) => void): Tree;
     /**
-     * Triggered when a node is fetched from the server side.
-     *
-     * @param {(nodeData: any) => void} handler Handle function.
+     * Sets the callback function that will be called when a child node of the selected node is retrieved from the server side.
+     * The callback function receives the data retrieved from the server side and can modify or add data.
+     * @param {(nodeData: any) => void} handler Callback function.
      * @return {Tree}
      */
     onFetch(handler: (nodeData: any) => void): Tree;
     /**
-     * Triggered when all nodes have been loaded and the previously selected node's selection state has been restored.
-     *
-     * @param {(evnt: any) => void} handler Handle function.
+     * Sets the callback function that will be called when the tree initialization is complete. The callback function receives an event object.
+     * @param {(evnt: any) => void} handler Callback function.
      * @return {Tree}
      */
     onReady(handler: (evnt: any) => void): Tree;
     /**
-     * Hook file creation process.
-     * If the hook is not set, the node is simply added to the folder and after entering the node name, the node is sent to the server.
-     * If you want to have your own node creation logic, use the hook.
-     *
-     * If a node is created by the hook function, return the ID and text of the created node.
-     * If the creation is canceled, return a value(null, false, or undefined)  that causes the judgment to be false.
-     *
+     * Sets the function that hooks the operation to create a new node.
+     * If the hook is not set, the new node will be added to the tree immediately.
+     * The hook function you set must return the ID and text of the newly created node. Also, return false, null, or undefined if you want to cancel the creation.
      * @param {(parent: any) => Promise<{id: string|number, text: string, [key: string]: any}|null|undefined|false>} hook Hook function.
      * @return {Tree}
      */
@@ -75,54 +62,46 @@ export default class Tree {
         [key: string]: any;
     } | null | undefined | false>): Tree;
     /**
-      * Get an array of all selected nodes.
-      *
-      * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
-      * @param {undefined|number} index Index of the node to be acquired. Default is none and all nodes are retrieved.
-      * @return {any|null}
-      */
+     * Get an array of all selected nodes.
+     * @param {boolean} full if set to true the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+     * @param {undefined|number} index Index of the node to be acquired. Default is none and all nodes are retrieved.
+     * @return {any|null} Selected node.
+     */
     getSelectedNodes(full?: boolean, index?: number): any | null;
     /**
-      * Get the first selected node.
-      *
-      * @param {boolean} full if set to `true` the returned array will consist of the full node objects, otherwise - only IDs will be returned.
-      * @return {any|null}
-      */
+     * Get the first node among the selected.
+     * @param {boolean} full if set to true the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+     * @return {any|null} Selected node.
+     */
     getSelectedNode(full?: boolean): any | null;
     /**
      * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
-     *
      * @example
      * ```js
-     * import {Tree} from 'metronic-extension';
-     *
-     * const tree = new Tree(document.getElementById('tree'));
      * tree.onSelected((evnt, node) => {
-     *   tree.getPath(node);            // ['Root node', 'Folder#1', 'Folder#1_1']
-     *   tree.getPath(node, '/');       // 'Root node/Folder#1/Folder#1_1'
-     *   tree.getPath(node, '/', true); // '1/2/3'
+     *   // Get the path of the node.
+     *   tree.getPath(node);// ['Root', 'Folder#1', 'Folder#1_1']
+     *   tree.getPath(node, '/');// 'Root/Folder#1/Folder#1_1'
+     *   tree.getPath(node, '/', true);// '1/2/3'
      * });
      * ```
-     *
-     * @param {any} obj The node.
+     * @param {any} nodeObject The node.
      * @param {string|undefined} glue If you want the path as a string - pass the glue here (for example '/'), if a falsy value is supplied here, an array is returned.
      * @param {boolean} ids If set to true build the path using ID, otherwise node text is used.
-     * @return {string[]|string}
+     * @return {string[]|string} Path of the node.
      */
-    getPath(obj: any, glue?: string | undefined, ids?: boolean): any;
+    getPath(nodeObject: any, glue?: string | undefined, ids?: boolean): any;
     /**
      * Get parent node.
-     *
-     * @param {any} obj The node, you can pass an array to delete multiple nodes.
-     * @return {any}
+     * @param {any} nodeObject The node.
+     * @return {any} Parent node.
      */
-    getParentNode(obj: any): any;
+    getParentNode(nodeObject: any): any;
     /**
-     * Set the text value of a node.
-     *
-     * @param {any} obj The node, you can pass an array to rename multiple nodes to the same name.
+     * Rename node.
+     * @param {any} nodeObject The node, you can pass an array to rename multiple nodes to the same name.
      * @param {string} text The new text value.
      * @return {Tree}
      */
-    renameNode(obj: any, text: string): Tree;
+    renameNode(nodeObject: any, text: string): Tree;
 }

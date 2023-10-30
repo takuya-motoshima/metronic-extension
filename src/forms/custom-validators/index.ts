@@ -1,0 +1,11 @@
+export {default as isFQDN} from '~/forms/custom-validators/isFQDN';
+export {default as isFQDNorIP} from '~/forms/custom-validators/isFQDNorIP';
+export {default as isHTML} from '~/forms/custom-validators/isHTML';
+export {default as isIP} from '~/forms/custom-validators/isIP';
+export {default as isKana} from '~/forms/custom-validators/isKana';
+export {default as isNumericRange} from '~/forms/custom-validators/isNumericRange';
+export {default as isPath} from '~/forms/custom-validators/isPath';
+export {default as isPhoneNumberJp} from '~/forms/custom-validators/isPhoneNumberJp';
+export {default as isPort} from '~/forms/custom-validators/isPort';
+export {default as isUnixUserName} from '~/forms/custom-validators/isUnixUserName';
+export {default as isURL} from '~/forms/custom-validators/isURL';

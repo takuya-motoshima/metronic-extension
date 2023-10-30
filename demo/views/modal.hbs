@@ -1,104 +1,595 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Modal - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Modal</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
-          </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <button data-on-modal type="button" class="btn btn-primary">Launch demo modal</button>
-          </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#modalHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#modalJsTabPane" role="tab">JAVASCRIPT</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#modalItselfJsTabPane" role="tab">JAVASCRIPT WITH MODAL</a></li>
+{{!< default}}
+{{#contentFor 'title'}}Modal{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/modal.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#fullscreenExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Fullscreen</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#scrollingLongContentExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Scrolling Long Content</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#ajaxExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Ajax</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">Abstract class for a modal that extends <a href="https://getbootstrap.com/docs/5.2/components/modal/" target="_blank">Bootstrap Modal</a>.</div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>protected abstract init()</code>
+            </td>
+            <td>
+              Implement the initial processing required when the modal is opened in a subclass.<br>
+              Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.<br>
+              This is called after the render method is called when showing a modal in a superclass.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>...params: any[]</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The parameters received by the method that opens the modal (show method) are taken over as is.
+                  </div>
+                  <!--end::Block-->
+                </li>
               </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="modalHtmlTabPane" role="tabpanel">
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;void&gt;|void</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">init(...params) {
+// async init(...params) {  // Async can be used if necessary.
+  // Define events.
+  this.element.on(&#039;click&#039;, &#039;[data-on-save-change]&#039;, () =&gt; {
+    // When the save button is clicked, close the modal and return true to the caller.
+    super.hide(true);
+  });
+}</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected abstract render()</code>
+            </td>
+            <td>
+              Implement the process of returning the modal&#039;s HTML in a subclass.<br>
+              This is called first when showing a modal in the superclass.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>...params: any[]</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The parameters received by the method that opens the modal (show method) are taken over as is.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;string&gt;|string</code> Modal HTML.</li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">render(...params) {
+// async render(...params) {  // Async can be used if necessary.
+  
+  // The title and text of the modal as passed by the caller in the show method.
+  const [title, message] = params;
+
+  // Returns a modal HTML string.
+  return `&lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;!--begin::Modal dialog--&gt;
+    &lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;
+      &lt;!--begin::Modal content--&gt;
+      &lt;div class=&quot;modal-content&quot;&gt;
+        &lt;!--begin::Modal header--&gt;
+        &lt;div class=&quot;modal-header&quot;&gt;
+          &lt;!--begin::Modal title--&gt;
+          &lt;h2&gt;${title}&lt;/h2&gt;
+          &lt;!--end::Modal title--&gt;
+          &lt;!--begin::Close--&gt;
+          &lt;div class=&quot;btn btn-sm btn-icon btn-active-color-primary&quot; data-bs-dismiss=&quot;modal&quot;&gt;
+            &lt;!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg--&gt;
+            &lt;span class=&quot;svg-icon svg-icon-1&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+              &lt;rect opacity=&quot;0.5&quot; x=&quot;6&quot; y=&quot;17.3137&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(-45 6 17.3137)&quot; fill=&quot;currentColor&quot; /&gt;
+              &lt;rect x=&quot;7.41422&quot; y=&quot;6&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 7.41422 6)&quot; fill=&quot;currentColor&quot; /&gt;
+            &lt;/svg&gt;&lt;/span&gt;
+            &lt;!--end::Svg Icon--&gt;
+          &lt;/div&gt;
+          &lt;!--end::Close--&gt;
+        &lt;/div&gt;
+        &lt;!--end::Modal header--&gt;
+        &lt;!--begin::Modal body--&gt;
+        &lt;div class=&quot;modal-body&quot;&gt;${message}&lt;/div&gt;
+        &lt;!--end::Modal body--&gt;
+        &lt;!--begin::Modal footer--&gt;
+        &lt;div class=&quot;modal-footer&quot;&gt;
+          &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+          &lt;button data-on-save-change type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;!--end::Modal footer--&gt;
+      &lt;/div&gt;
+      &lt;!--end::Modal content--&gt;
+    &lt;/div&gt;
+    &lt;!--end::Modal dialog--&gt;
+  &lt;/div&gt;`;
+}</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public show()</code>
+            </td>
+            <td>
+              Show Modal. Initially, the init method of the subclass is executed.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>...params: any[]</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Any parameter required in the initial processing of the modal. This is passed to the init method implemented in the subclass.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;any&gt;</code> Returns a response when the modal is closed.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public hide()</code>
+            </td>
+            <td>
+              Hide Modal.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>response?: any</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Response value to the process that opened the modal.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public isShowing()</code>
+            </td>
+            <td>
+              Get modal show/hide status.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>boolean</code> Modal show/hide status (true: show, false: hide).</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected afterShown()</code>
+            </td>
+            <td>
+              If there is processing to be performed immediately after the modal opens, implement it in a subclass.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected afterHidden()</code>
+            </td>
+            <td>
+              If there is a process to be executed immediately after the modal is closed, implement it in a subclass.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected enableEscapeKey()</code>
+            </td>
+            <td>
+              Enables the ability to close the modal by pressing the escape key.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected disableEscapeKey()</code>
+            </td>
+            <td>
+              Disables the ability to close the modal by pressing the escape key.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected showLoading()</code>
+            </td>
+            <td>
+              Show the loader in the modal.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>message: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Loading message.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected hideLoading()</code>
+            </td>
+            <td>
+              Hide modal loader.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected dispose()</code>
+            </td>
+            <td>
+              Destroy modal instances and elements.<br>
+              If additional processing is required, it can be overridden, but <code>super.dispose()</code> must be performed within the overridden method.
+              <!--begin::Block-->
+              <div class="pt-3">
+                <!--begin::Highlight-->
+                <div class="highlight">
+                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                   <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;button data-on-modal type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Launch demo modal&lt;/button&gt;</code>
+                    <pre class="language-javascript">
+                      <code class="language-javascript">dispose() {
+  // Perform some unique processing...
+
+  // Discard elements and instances of the modal.
+  super.dispose();
+}</code>
                     </pre>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="modalJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import DemoModal from &#039;~/modals/DemoModal&#039;;
+                <!--end::Highlight-->
+              </div>
+              <!--end::Block-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance properties</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>protected element: JQuery&lt;HTMLDivElement&gt;</code>
+            </td>
+            <td>
+              A jQuery object for a modal element. This is read-only.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected instance: bootstrap.Modal</code>
+            </td>
+            <td>
+              bootstrap.Modal instance. This is read-only.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected backdrop: boolean|&#039;static&#039;</code>
+            </td>
+            <td>
+              Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn&#039;t close the modal on click. Default is true.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected keyboard: boolean</code>
+            </td>
+            <td>
+              Closes the modal when escape key is pressed. Default is true.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected focus: boolean</code>
+            </td>
+            <td>
+              Puts the focus on the modal when initialized. Default is true.
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Click the toggle button below to display the modal.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Button-->
+      <button data-on-show-modal type="button" class="btn btn-primary">Launch Modal</button>
+      <!--end::Button-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleModalJsTab" role="tab">MODAL CLASS JS</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Button--&gt;
+&lt;button data-on-show-modal type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Launch Modal&lt;/button&gt;
+&lt;!--end::Button--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import ExampleModal from &#039;~/modals/ExampleModal&#039;;
 
-const demoModal = new DemoModal();
-$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-modal]&#039;, async () =&gt; {
-  const res = await demoModal.show(&#039;Modal title&#039;, &#039;Modal body text goes here.&#039;);
-  alert(`The modal response is ${res}`);
+// Initialize Modal.
+const exampleModal = new ExampleModal();
+
+// Initialize events.
+$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-modal]&#039;, async () =&gt; {
+  // Show Modal.
+  const res = await exampleModal.show(&#039;Modal title&#039;, &#039;Modal body text goes here&#039;);
+
+  // Check modal response. True if the &quot;Save changes&quot; button is clicked, false if the &quot;Cancel&quot; button is clicked.
+  console.log(`Response is ${res}`);
 });</code>
-                    </pre>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="modalItselfJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import hbs from &#039;handlebars-extd&#039;;
-import {Modal} from &#039;metronic-extension&#039;;
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleModalJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Modal} from &#039;metronic-extension&#039;;
+import hbs from &#039;handlebars-extd&#039;;
 
+/**
+ * Modal example.
+ */
 export default class extends Modal {
-  async init(title, message) {
-    const node = this.#render(title, message);
-    const instance = new bootstrap.Modal(node);
-    this.#initForm(node);
-    return [node, instance];
-  }
-
-  #initForm(node) {
-    node.on(&#039;click&#039;, &#039;[data-on-save-change]&#039;, () =&gt; {
+  /**
+   * Implement the initial processing required when the modal is opened in a subclass.
+   * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
+   * This is called after the render method is called when showing a modal in a superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;void&gt;|void}
+   */
+  init(...params) {
+  // async init(...params) {  // Async can be used if necessary.
+    // Define events.
+    this.element.on(&#039;click&#039;, &#039;[data-on-save-change]&#039;, () =&gt; {
+      // When the save button is clicked, close the modal and return true to the caller.
       super.hide(true);
     });
   }
 
-  #render(title, message) {
-    const html = hbs.compile(
+  /**
+   * Implement the process of returning the modal&#039;s HTML in a subclass.
+   * This is called first when showing a modal in the superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;string&gt;|string} Modal HTML.
+   */
+  render(...params) {
+  // async render(...params) {  // Async can be used if necessary.
+
+    // The title and text of the modal as passed by the caller in the show method.
+    const [title, message] = params;
+
+    // Returns a modal HTML string.
+    return hbs.compile(
       `&lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
         &lt;!--begin::Modal dialog--&gt;
-        &lt;div class=&quot;modal-dialog modal-dialog-centered modal-xl&quot;&gt;
-        {{!-- &lt;div class=&quot;modal-dialog modal-dialog-centered mw-900px&quot;&gt; --}}
+        &lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;
           &lt;!--begin::Modal content--&gt;
           &lt;div class=&quot;modal-content&quot;&gt;
             &lt;!--begin::Modal header--&gt;
@@ -119,13 +610,11 @@ export default class extends Modal {
             &lt;/div&gt;
             &lt;!--end::Modal header--&gt;
             &lt;!--begin::Modal body--&gt;
-            &lt;div class=&quot;modal-body py-lg-10 px-lg-10&quot;&gt;
-              {{message}}
-            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;{{message}}&lt;/div&gt;
             &lt;!--end::Modal body--&gt;
             &lt;!--begin::Modal footer--&gt;
             &lt;div class=&quot;modal-footer&quot;&gt;
-              &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
               &lt;button data-on-save-change type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
             &lt;/div&gt;
             &lt;!--end::Modal footer--&gt;
@@ -134,37 +623,596 @@ export default class extends Modal {
         &lt;/div&gt;
         &lt;!--end::Modal dialog--&gt;
       &lt;/div&gt;`)({title, message});
-    return $(html).appendTo(&#039;body&#039;);
   }
 }</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end::Highlight-->
+            </pre>
           </div>
-          <!--end::Code-->
         </div>
-        <!--end::Section-->
+        <!--end::Tab panel-->
       </div>
-      <!--end::Card Body-->
+      <!--end::Tab content-->
     </div>
-    <!--end::Card-->
+    <!--end::Highlight-->
   </div>
-  <!--end::Container-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/modal.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="fullscreenExample" data-kt-scroll-offset="100">
+    <a href="#fullscreenExample"></a>Fullscreen
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Add <code>.modal-fullscreen</code> class to enable a modal with fullscreen mode.<br>
+    Add <code>.bg-body</code> and <code>.shadow-none</code> classes to fix background color and unwanted shadow issue when modal has a long scrollable content.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Button-->
+      <button data-on-show-fullscreen-modal type="button" class="btn btn-primary">Launch Modal</button>
+      <!--end::Button-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#fullscreenExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#fullscreenExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#fullscreenExampleModalJsTab" role="tab">MODAL CLASS JS</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="fullscreenExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Button--&gt;
+&lt;button data-on-show-fullscreen-modal type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Launch Modal&lt;/button&gt;
+&lt;!--end::Button--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="fullscreenExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import ExampleFullscreenModal from &#039;~/modals/ExampleFullscreenModal&#039;;
+
+// Initialize Modal.
+const exampleFullscreenModal = new ExampleFullscreenModal();
+
+// Initialize events.
+$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-fullscreen-modal]&#039;, () =&gt; {
+  exampleFullscreenModal.show(&#039;Modal title&#039;, &#039;Modal body text goes here&#039;);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="fullscreenExampleModalJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Modal} from &#039;metronic-extension&#039;;
+import hbs from &#039;handlebars-extd&#039;;
+
+/**
+ * Modal example.
+ */
+export default class extends Modal {
+  /**
+   * Implement the initial processing required when the modal is opened in a subclass.
+   * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
+   * This is called after the render method is called when showing a modal in a superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;void&gt;|void}
+   */
+  init(...params) {
+    // Define events.
+    this.element.on(&#039;click&#039;, &#039;[data-on-save-change]&#039;, () =&gt; {
+      // When the save button is clicked, close the modal and return true to the caller.
+      super.hide(true);
+    });
+  }
+
+  /**
+   * Implement the process of returning the modal&#039;s HTML in a subclass.
+   * This is called first when showing a modal in the superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;string&gt;|string} Modal HTML.
+   */
+  render(...params) {
+    // The title and text of the modal as passed by the caller in the show method.
+    const [title, message] = params;
+
+    // Returns a modal HTML string.
+    return hbs.compile(
+      `&lt;div class=&quot;modal bg-body fade&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;!--begin::Modal dialog--&gt;
+        &lt;div class=&quot;modal-dialog modal-fullscreen&quot;&gt;
+          &lt;!--begin::Modal content--&gt;
+          &lt;div class=&quot;modal-content shadow-none&quot;&gt;
+            &lt;!--begin::Modal header--&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+              &lt;!--begin::Modal title--&gt;
+              &lt;h2&gt;{{title}}&lt;/h2&gt;
+              &lt;!--end::Modal title--&gt;
+              &lt;!--begin::Close--&gt;
+              &lt;div class=&quot;btn btn-sm btn-icon btn-active-color-primary&quot; data-bs-dismiss=&quot;modal&quot;&gt;
+                &lt;!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg--&gt;
+                &lt;span class=&quot;svg-icon svg-icon-1&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                  &lt;rect opacity=&quot;0.5&quot; x=&quot;6&quot; y=&quot;17.3137&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(-45 6 17.3137)&quot; fill=&quot;currentColor&quot; /&gt;
+                  &lt;rect x=&quot;7.41422&quot; y=&quot;6&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 7.41422 6)&quot; fill=&quot;currentColor&quot; /&gt;
+                &lt;/svg&gt;&lt;/span&gt;
+                &lt;!--end::Svg Icon--&gt;
+              &lt;/div&gt;
+              &lt;!--end::Close--&gt;
+            &lt;/div&gt;
+            &lt;!--end::Modal header--&gt;
+            &lt;!--begin::Modal body--&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;{{message}}&lt;/div&gt;
+            &lt;!--end::Modal body--&gt;
+            &lt;!--begin::Modal footer--&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+              &lt;button data-on-save-change type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!--end::Modal footer--&gt;
+          &lt;/div&gt;
+          &lt;!--end::Modal content--&gt;
+        &lt;/div&gt;
+        &lt;!--end::Modal dialog--&gt;
+      &lt;/div&gt;`)({title, message});
+  }
+}</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="scrollingLongContentExample" data-kt-scroll-offset="100">
+    <a href="#scrollingLongContentExample"></a>Scrolling Long Content
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    By adding <code>.modal-dialog-scrollable</code> to <code>.modal-dialog</code>, you can create a scrollable modal that can scroll the modal body.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Button-->
+      <button data-on-show-scrolling-long-content-modal type="button" class="btn btn-primary">Launch Modal</button>
+      <!--end::Button-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#scrollingLongContentExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#scrollingLongContentExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#scrollingLongContentExampleModalJsTab" role="tab">MODAL CLASS JS</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="scrollingLongContentExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Button--&gt;
+&lt;button data-on-show-scrolling-long-content-modal type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Launch Modal&lt;/button&gt;
+&lt;!--end::Button--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="scrollingLongContentExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import ExampleScrollingLongContentModal from &#039;~/modals/ExampleScrollingLongContentModal&#039;;
+
+// Initialize Modal.
+const exampleScrollingLongContentModal = new ExampleScrollingLongContentModal();
+
+// Initialize events.
+$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-scrolling-long-content-modal]&#039;, () =&gt; {
+  exampleScrollingLongContentModal.show(&#039;Modal title&#039;);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="scrollingLongContentExampleModalJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Modal} from &#039;metronic-extension&#039;;
+import hbs from &#039;handlebars-extd&#039;;
+
+/**
+ * Modal example.
+ */
+export default class extends Modal {
+  /**
+   * Implement the initial processing required when the modal is opened in a subclass.
+   * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
+   * This is called after the render method is called when showing a modal in a superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;void&gt;|void}
+   */
+  init(...params) {
+    // Define events.
+    this.element.on(&#039;click&#039;, &#039;[data-on-save-change]&#039;, () =&gt; {
+      // When the save button is clicked, close the modal and return true to the caller.
+      super.hide(true);
+    });
+  }
+
+  /**
+   * Implement the process of returning the modal&#039;s HTML in a subclass.
+   * This is called first when showing a modal in the superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;string&gt;|string} Modal HTML.
+   */
+  render(...params) {
+    // Title of the modal passed from the caller in the show method.
+    const [title] = params;
+
+    // Returns a modal HTML string.
+    return hbs.compile(
+      `&lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;!--begin::Modal dialog--&gt;
+        &lt;div class=&quot;modal-dialog modal-dialog-scrollable&quot;&gt;
+          &lt;!--begin::Modal content--&gt;
+          &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;!--begin::Modal header--&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+              &lt;!--begin::Modal title--&gt;
+              &lt;h2&gt;{{title}}&lt;/h2&gt;
+              &lt;!--end::Modal title--&gt;
+              &lt;!--begin::Close--&gt;
+              &lt;div class=&quot;btn btn-sm btn-icon btn-active-color-primary&quot; data-bs-dismiss=&quot;modal&quot;&gt;
+                &lt;!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg--&gt;
+                &lt;span class=&quot;svg-icon svg-icon-1&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                  &lt;rect opacity=&quot;0.5&quot; x=&quot;6&quot; y=&quot;17.3137&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(-45 6 17.3137)&quot; fill=&quot;currentColor&quot; /&gt;
+                  &lt;rect x=&quot;7.41422&quot; y=&quot;6&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 7.41422 6)&quot; fill=&quot;currentColor&quot; /&gt;
+                &lt;/svg&gt;&lt;/span&gt;
+                &lt;!--end::Svg Icon--&gt;
+              &lt;/div&gt;
+              &lt;!--end::Close--&gt;
+            &lt;/div&gt;
+            &lt;!--end::Modal header--&gt;
+            &lt;!--begin::Modal body--&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+              This is some placeholder content to show the scrolling behavior for modals. 
+              Instead of repeating the text the modal, we use an inline style set a minimum height, 
+              thereby extending the length of the overall modal and demonstrating the overflow scrolling. 
+              When content becomes longer than the height of the viewport, scrolling will move the modal as needed.
+            &lt;/div&gt;
+            &lt;!--end::Modal body--&gt;
+            &lt;!--begin::Modal footer--&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+              &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+              &lt;button data-on-save-change type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!--end::Modal footer--&gt;
+          &lt;/div&gt;
+          &lt;!--end::Modal content--&gt;
+        &lt;/div&gt;
+        &lt;!--end::Modal dialog--&gt;
+      &lt;/div&gt;`)({title});
+  }
+}</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="ajaxExample" data-kt-scroll-offset="100">
+    <a href="#ajaxExample"></a>Ajax
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    This is an example of getting the display data from the server side in the <code>render</code> method and sending the input data to the server side when the <code>Save changes</code> button is clicked.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Button-->
+      <button data-on-show-ajax-modal type="button" class="btn btn-primary">Launch Modal</button>
+      <!--end::Button-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#ajaxExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#ajaxExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#ajaxExampleModalJsTab" role="tab">MODAL CLASS JS</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="ajaxExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Button--&gt;
+&lt;button data-on-show-ajax-modal type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Launch Modal&lt;/button&gt;
+&lt;!--end::Button--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="ajaxExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import ExampleAjaxModal from &#039;~/modals/ExampleAjaxModal&#039;;
+
+// Initialize Modal.
+const exampleAjaxModal = new ExampleAjaxModal();
+
+// Initialize events.
+$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-ajax-modal]&#039;, () =&gt; {
+  exampleAjaxModal.show(&#039;Modal title&#039;);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="ajaxExampleModalJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Modal, Validation, Dialog} from &#039;metronic-extension&#039;;
+import hbs from &#039;handlebars-extd&#039;;
+
+/**
+ * Modal example.
+ */
+export default class extends Modal {
+  /**
+   * Includes a modal-backdrop element. Alternatively, specify &lt;code&gt;static&lt;/code&gt; for a backdrop which doesn&#039;t close the modal on click. Default is true.
+   * @type {boolean}
+   */
+  backdrop = &#039;static&#039;;
+
+  /**
+   * Closes the modal when escape key is pressed. Default is true.
+   * @type {boolean}
+   */
+  keyboard = false;
+
+  /**
+   * Implement the initial processing required when the modal is opened in a subclass.
+   * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
+   * This is called after the render method is called when showing a modal in a superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;void&gt;|void}
+   */
+  init(...params) {
+    // Initialize form validation.
+    const validation = new Validation(this.element.find(&#039;#form&#039;), {
+      name: {
+        validators: {
+          notEmpty: {message: &#039;Name is required.&#039;}
+        }
+      }
+    });
+
+    // If the form validation passes, the input data is sent to the server.
+    validation.onValid(async () =&gt; {
+      // Display the loader on the form.
+      validation.onIndicator();
+
+      // The example waits for 2 seconds without sending data to the server.
+      // In actuality, the process of sending data to the server should be described here.
+      await new Promise(resolve =&gt; setTimeout(resolve, 2000));
+
+      // Release the form loader.
+      validation.offIndicator();
+
+      // Show Success Dialog.
+      await Dialog.success(&#039;Data was successfully saved&#039;);
+
+      // Closes the modal and returns true to the caller.
+      super.hide(true);
+    });
+  }
+
+  /**
+   * If there is processing to be performed immediately after the modal opens, implement it in a subclass.
+   */
+  afterShown() {
+    // After opening the modal, focus on the name input field.
+    this.element.find(&#039;#name&#039;).focus();
+  }
+
+  /**
+   * Destroy modal instances and elements.
+   * If additional processing is required, it can be overridden, but &lt;code&gt;super.dispose()&lt;/code&gt; must be performed within the overridden method.
+   */
+  dispose() {
+    // Close the dialog.
+    Dialog.close();
+
+    // Discard elements and instances of the modal.
+    super.dispose();
+  }
+
+  /**
+   * Implement the process of returning the modal&#039;s HTML in a subclass.
+   * This is called first when showing a modal in the superclass.
+   * @abstract
+   * @param {...any} params The parameters received by the method that opens the modal (show method) are taken over as is.
+   * @return {Promise&lt;string&gt;|string} Modal HTML.
+   */
+  async render(...params) {
+    // Get display data from the server side.
+    const profile = await (await fetch(&#039;/json/profile.json&#039;)).json();
+
+    // Returns a modal HTML string.
+    return hbs.compile(
+      `&lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;!--begin::Modal dialog--&gt;
+        &lt;div class=&quot;modal-dialog modal-dialog-centered mw-650px&quot;&gt;
+          &lt;!--begin::Modal content--&gt;
+          &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;!--begin::Form--&gt;
+            &lt;form id=&quot;form&quot; action=&quot;#&quot;&gt;
+              &lt;!--begin::Modal header--&gt;
+              &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;!--begin::Modal title--&gt;
+                &lt;h2&gt;Profile&lt;/h2&gt;
+                &lt;!--end::Modal title--&gt;
+                &lt;!--begin::Close--&gt;
+                &lt;div class=&quot;btn btn-sm btn-icon btn-active-color-primary&quot; data-bs-dismiss=&quot;modal&quot;&gt;
+                  &lt;!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg--&gt;
+                  &lt;span class=&quot;svg-icon svg-icon-1&quot;&gt;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;rect opacity=&quot;0.5&quot; x=&quot;6&quot; y=&quot;17.3137&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(-45 6 17.3137)&quot; fill=&quot;currentColor&quot; /&gt;
+                    &lt;rect x=&quot;7.41422&quot; y=&quot;6&quot; width=&quot;16&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 7.41422 6)&quot; fill=&quot;currentColor&quot; /&gt;
+                  &lt;/svg&gt;&lt;/span&gt;
+                  &lt;!--end::Svg Icon--&gt;
+                &lt;/div&gt;
+                &lt;!--end::Close--&gt;
+              &lt;/div&gt;
+              &lt;!--end::Modal header--&gt;
+              &lt;!--begin::Modal body--&gt;
+              &lt;div class=&quot;modal-body&quot;&gt;
+                &lt;!--begin::Input group--&gt;
+                &lt;div class=&quot;fv-row mb-7&quot;&gt;
+                    &lt;!--begin::Label--&gt;
+                    &lt;label class=&quot;required fs-6 fw-semibold mb-2&quot;&gt;Name&lt;/label&gt;
+                    &lt;!--end::Label--&gt;
+                    &lt;!--begin::Input--&gt;
+                    &lt;input id=&quot;name&quot; type=&quot;text&quot; class=&quot;form-control form-control-solid&quot; name=&quot;name&quot; value=&quot;{{profile.name}}&quot; /&gt;
+                    &lt;!--end::Input--&gt;
+                &lt;/div&gt;
+                &lt;!--end::Input group--&gt;
+              &lt;/div&gt;
+              &lt;!--end::Modal body--&gt;
+              &lt;!--begin::Modal footer--&gt;
+              &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot; data-bs-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;
+                  &lt;span class=&quot;indicator-label&quot;&gt;Save changes&lt;/span&gt;
+                  &lt;span class=&quot;indicator-progress&quot;&gt;Sending... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;!--end::Modal footer--&gt;
+            &lt;/form&gt;
+            &lt;!--end::Form--&gt;
+          &lt;/div&gt;
+          &lt;!--end::Modal content--&gt;
+        &lt;/div&gt;
+        &lt;!--end::Modal dialog--&gt;
+      &lt;/div&gt;`)({profile});
+  }
+}</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

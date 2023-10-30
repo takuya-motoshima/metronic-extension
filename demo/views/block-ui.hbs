@@ -1,127 +1,329 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>BlockUI - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">BlockUI</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
-          </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">Click the below button to block the below content area:</div>
-          <!--end::Block-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <div data-ref="target" class="mb-10">
-              <div class="rounded border p-10 scroll-y h-100px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Inceptos imperdiet magna! Sed fusce fames tempus litora venenatis.
-                Ac aliquet leo hendrerit taciti viverra? Nisl suscipit potenti accumsan quis ipsum purus cursus.
-                Suspendisse ultrices morbi in purus lectus dictum porta; Commodo penatibus nec.
-              </div>
-            </div>
-            <button data-on-block data-ref="block" type="button" class="btn btn-primary">Block</button>
-          </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#blockUiHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#blockUiJsTabPane" role="tab">JAVASCRIPT</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="blockUiHtmlTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;div data-ref=&quot;target&quot; class=&quot;mb-10&quot;&gt;
-        &lt;div class=&quot;rounded border p-10 scroll-y h-100px&quot;&gt;
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Inceptos imperdiet magna! Sed fusce fames tempus litora venenatis.
-          Ac aliquet leo hendrerit taciti viverra? Nisl suscipit potenti accumsan quis ipsum purus cursus.
-          Suspendisse ultrices morbi in purus lectus dictum porta; Commodo penatibus nec.
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;button data-on-block data-ref=&quot;block&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Block&lt;/button&gt;</code>
-                    </pre>
+{{!< default}}
+{{#contentFor 'title'}}BlockUI{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/block-ui.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">BlockUI blocks elements with overlays and loading indicators.</div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the BlockUI class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLElement selector, element, or JQuery object.
                   </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>message: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Message displayed during blocking.
+                  </div>                  
+                </li>
+                <li class="py-2"><code>firstBlock: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, it is blocked immediately after instance creation. Default is true.
+                  </div>
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {BlockUI} from &#039;metronic-extension&#039;;
+
+// Block#target element.
+const blockUI = new BlockUI(document.getElementById(&#039;target&#039;), &#039;Loading...&#039;);
+
+// Block #target element. Do not block initially.
+const initiallyHiddenBlockUI = new BlockUI(document.getElementById(&#039;target2&#039;), &#039;Loading...&#039;, false);</code>
+                  </pre>
                 </div>
-                <div class="tab-pane fade" id="blockUiJsTabPane" role="tabpanel">
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public block()</code>
+            </td>
+            <td>
+              Block.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>BlockUI</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">blockUI.block();</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public release()</code>
+            </td>
+            <td>
+              Unblock.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>BlockUI</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">blockUI.release();</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public isBlocked()</code>
+            </td>
+            <td>
+              Check if it is blocking.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>boolean</code> True if currently blocking, false if not.</li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">blockUI.isBlocked();</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public destroy()</code>
+            </td>
+            <td>
+              Discard the loading indicator.
+              <!--begin::Block-->
+              <div class="pt-3">
+                <!--begin::Highlight-->
+                <div class="highlight">
+                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                   <div class="highlight-code">
                     <pre class="language-javascript">
-                      <code class="language-javascript">import {BlockUI, selectRef} from &#039;metronic-extension&#039;;
-
-const ref = selectRef();
-const blockUI = new BlockUI(ref.target, &#039;Loading...&#039;, false);
-$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-block]&#039;, () =&gt; {
-  if (blockUI.isBlocked()) {
-    blockUI.release();
-    ref.block.text(&#039;Block&#039;);
-  } else {
-    blockUI.block();
-    ref.block.text(&#039;Release&#039;);
-  }
-});</code>
+                      <code class="language-javascript">blockUI.destroy();</code>
                     </pre>
                   </div>
                 </div>
+                <!--end::Highlight-->
               </div>
-            </div>
-            <!--end::Highlight-->
-          </div>
-          <!--end::Code-->
-        </div>
-        <!--end::Section-->
-      </div>
-      <!--end::Card Body-->
+              <!--end::Block-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
     </div>
-    <!--end::Card-->
+    <!--end::Table wrapper-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance properties</div>
+    <!--end::Heading-->
   </div>
-  <!--end::Container-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/block-ui.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Click the below button to block the below content area.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div data-ref="target" class="rounded border p-10 mb-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Inceptos imperdiet magna! Sed fusce fames tempus litora venenatis.
+      Ac aliquet leo hendrerit taciti viverra? Nisl suscipit potenti accumsan quis ipsum purus cursus. 
+      Suspendisse ultrices morbi in purus lectus dictum porta; Commodo penatibus nec.
+    </div>
+    <button data-on-block data-ref="blockButton" type="button" class="btn btn-primary">Block</button>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div data-ref=&quot;target&quot; class=&quot;rounded border p-10 mb-10&quot;&gt;
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Inceptos imperdiet magna! Sed fusce fames tempus litora venenatis.
+  Ac aliquet leo hendrerit taciti viverra? Nisl suscipit potenti accumsan quis ipsum purus cursus. 
+  Suspendisse ultrices morbi in purus lectus dictum porta; Commodo penatibus nec.
+&lt;/div&gt;
+&lt;button data-on-block data-ref=&quot;blockButton&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Block&lt;/button&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {BlockUI, selectRef} from &#039;metronic-extension&#039;;
+
+// Search for elements.
+const ref = selectRef();
+
+// Initialize loader.
+const blockUI = new BlockUI(ref.target, &#039;Loading...&#039;, false);
+
+// Initialize events.
+$(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-block]&#039;, () =&gt; {
+  if (blockUI.isBlocked()) {
+    // If currently blocking, unblock.
+    blockUI.release();
+
+    // Changed block button text.
+    ref.blockButton.text(&#039;Block&#039;);
+  } else {
+    // If not currently blocking, block.
+    blockUI.block();
+
+    // Changed block button text.
+    ref.blockButton.text(&#039;Release&#039;);
+  }
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

@@ -1,0 +1,309 @@
+{{!< default}}
+{{#contentFor 'title'}}Borders{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#borderStyles" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Border Styles</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#hover" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Hover State</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#active" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Active State</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#transparent" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Transparent Border</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#borderGrayColors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Border Gray Colors</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is a border utility class added by extending <a href="https://getbootstrap.com/docs/5.2/utilities/borders/" target="_blank">Bootstrap Borders</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="borderStyles" data-kt-scroll-offset="100">
+    <a href="#borderStyles"></a>Border Styles
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.border-dashed</code> or <code>.border-dotted</code> classes to set an element's border style.
+    For border directions use <code>.border-{direction}-dashed</code> or <code>.border-{direction}-dotted</code> classes format.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Where <code>direction</code> is one of:
+    <ul class="pt-3">
+      <li class="py-2"><code>top</code> - for classes that set border top style</li>
+      <li class="py-2"><code>bottom</code> - for classes that set border bottom style</li>
+      <li class="py-2"><code>end</code> - for classes that set border right style</li>
+      <li class="py-2"><code>start</code> - for classes that set border start style</li>            
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex flex-wrap align-items-center">
+      <div class="border w-125px h-125px d-flex flex-center me-5 mb-5 fw-semibold">default style</div>
+      <div class="border-gray-300 border-dotted w-125px h-125px d-flex flex-center me-5 mb-5 fw-semibold">.border-dotted</div>
+      <div class="border-gray-300 border-dashed w-125px h-125px d-flex flex-center me-5 mb-5 fw-semibold">.border-dashed</div>
+      <div class="border-gray-300 border-bottom-dashed w-125px h-125px d-flex flex-center me-5 mb-5 fw-semibold">.border-bottom-dashed</div>
+      <div class="border-gray-300 border-end-dashed w-125px h-125px d-flex flex-center me-5 mb-5 fw-semibold">.border-end-dashed</div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;border&quot;&gt;default style&lt;/div&gt;
+&lt;div class=&quot;border-gray-300 border-dotted&quot;&gt;.border-dotted&lt;/div&gt;
+&lt;div class=&quot;border-gray-300 border-dashed&quot;&gt;.border-dashed&lt;/div&gt;
+&lt;div class=&quot;border-gray-300 border-bottom-dashed&quot;&gt;.border-bottom-dashed&lt;/div&gt;
+&lt;div class=&quot;border-gray-300 border-end-dashed&quot;&gt;.border-end-dashed&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="hover" data-kt-scroll-offset="100">
+    <a href="#hover"></a>Hover State
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.border-hover</code> to display an element's border on hover. 
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex flex-wrap align-items-center">
+      <div class="border border-hover w-125px h-125px  d-flex flex-center me-5 mb-5 fw-semibold">default</div>
+      <div class="border border-gray-500 border-hover w-125px h-125px  d-flex flex-center me-5 mb-5 fw-semibold">gray-500</div>
+      <div class="border border-primary border-hover w-125px h-125px  d-flex flex-center me-5 mb-5 fw-semibold">primary</div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;border border-hover&quot;&gt;default&lt;/div&gt;
+&lt;div class=&quot;border border-gray-500 border-hover&quot;&gt;gray-500&lt;/div&gt;
+&lt;div class=&quot;border border-primary border-hover&quot;&gt;primary&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="active" data-kt-scroll-offset="100">
+    <a href="#active"></a>Active State
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.border-active</code> to display an element's border when <code>.active</code> class applied. 
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex flex-wrap align-items-center">
+      <div class="border border-active active w-125px h-125px  d-flex flex-center me-5 mb-5 fw-semibold">default</div>
+      <div class="border border-gray-500 border-active active w-125px h-125px  d-flex flex-center me-5 mb-5 fw-semibold">gray-500</div>
+      <div class="border border-primary border-active active w-125px h-125px  d-flex flex-center me-5 mb-5 fw-semibold">primary</div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;border border-active active&quot;&gt;default&lt;/div&gt;
+&lt;div class=&quot;border border-gray-500 border-active active&quot;&gt;gray-500&lt;/div&gt;
+&lt;div class=&quot;border border-primary border-active active&quot;&gt;primary&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="transparent" data-kt-scroll-offset="100">
+    <a href="#transparent"></a>Transparent Border
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.border-transparent</code> to set an element's border color to tranparent. 
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex flex-wrap align-items-center">
+      <div class="border border-transparent bg-light w-125px h-125px d-flex flex-center me-5 fw-semibold">tranparent<br/>border</div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;border border-transparent&quot;&gt;default&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="borderGrayColors" data-kt-scroll-offset="100">
+    <a href="#borderGrayColors"></a>Border Gray Colors
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.border-gray-{100, 200, 300, 400, 500, 600, 700, 800, 900}</code> to set an element's border color.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex flex-wrap align-items-center">
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-100">.border-gray-100</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-200">.border-gray-200</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-300">.border-gray-300</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-400">.border-gray-400</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-500">.border-gray-500</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-600">.border-gray-600</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-700">.border-gray-700</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-800">.border-gray-800</div>
+      <div class="w-125px h-125px d-flex flex-center p-3 me-5 mb-5 fw-semibold border border-gray-900">.border-gray-900</div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;border border-gray-100&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-200&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-300&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-400&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-500&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-600&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-700&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-800&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;border border-gray-900&quot;&gt;&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

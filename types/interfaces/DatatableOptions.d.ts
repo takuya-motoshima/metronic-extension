@@ -1,6 +1,6 @@
 /// <reference types="datatables.net" />
 /**
- * DataTable options.
+ * DataTable options. This inherits from DataTables.Settings (https://datatables.net/reference/option/) and adds a dedicated item.
  */
 export default interface DatatableOptions extends DataTables.Settings {
     /**

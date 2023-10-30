@@ -1,455 +1,671 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Tagify - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body data-bs-spy="scroll" data-bs-target="#sidebarNav" id="kt_body" class="app-blank">
-  <!--begin::Root-->
-  <div class="d-flex flex-column flex-root" id="kt_app_root">
-    <!--begin::Content-->
-    <div class="d-flex flex-column flex-column-fluid">
-      <!--begin::Container-->
-      <div class="container d-flex flex-column flex-lg-row">
-        <!--begin::Card-->
-        <div class="card flex-row-fluid mb-2">
-          <!--begin::Card Body-->
-          <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-            <!--begin::Section-->
-            <div class="pb-10">
+{{!< default}}
+{{#contentFor 'title'}}Tagify{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/tagify.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#readonlyExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Read-only</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#inlineSuggestionsExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Inline Suggestions</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#listSuggestionsExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">List Suggestions</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">Tag input component based on <a href="https://yaireo.github.io/tagify/" target="_blank">tagify</a>.</div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the Tagify class.<br>
+              See <a href="https://yaireo.github.io/tagify/" target="_blank">tagify documentation</a> for options not listed here.
               <!--begin::Heading-->
-              <div class="d-flex flex-stack">
-                <!--begin::Title-->
-                <h1 class="anchor fw-bold mb-5" id="basicTagify" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                  <a href="#basicTagify"></a>Basic Tagify
-                </h1>
-                <!--end::Title-->
-                <!--begin::Actions-->
-                <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-                <!--end::Actions-->
-              </div>
+              <div class="py-3 text-gray-700">Parameters:</div>
               <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="py-5">Transforms an input field or a textarea into a Tags component, in an easy, customizable way, with great performance and small code footprint, exploded with features For full documentation please check the <a href="https://yaireo.github.io/tagify/" target="_blank" class="fw-semibold">plugin's site</a>.</div>
-              <!--end::Block-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <input data-ref="basicTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicTagifyJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicTagifyHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="basicTagifyJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;input data-ref=&quot;basicTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="basicTagifyHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {Tagify, selectRef} from &#039;metronic-extension&#039;;
-
-const ref = selectRef();
-const basicTagify = new Tagify(ref.basicTagify);</code>
-                        </pre>
-                      </div>
-                    </div>
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLInputElement|HTMLTextAreaElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLInputElement or HTMLTextAreaElement selector, element, or JQuery object.
                   </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->             
-              <h1 class="anchor fw-bold mb-5" id="readonlyTagify" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#readonlyTagify"></a>Read-only Tagify
-              </h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <input data-ref="readonlyTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#readonlyTagifyJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#readonlyTagifyHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="readonlyTagifyJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;input data-ref=&quot;readonlyTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="readonlyTagifyHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {Tagify, selectRef} from &#039;metronic-extension&#039;;
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.maxChars?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Maximum length of tag input. This is a proprietary option and not a tagify option. The default is no limit (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.readonly?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Read-only. This is a proprietary option, not a tagify option. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-const readonlyTagify = new Tagify(ref.readonlyTagify, {
-  readonly: true,
+// Initialize Tagify.
+new Tagify(document.getElementById(&#039;basicTagify&#039;));
+
+// Read-only.
+new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});
+
+// Inline Suggestions.
+new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
+  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
+  dropdown: {
+    maxItems: 20,
+    classname: &#039;tagify__inline__suggestions&#039;,
+  }
+});
+
+// List Suggestions.
+new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
+  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
+  dropdown: {maxItems: 20},
 });</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
+                  </pre>
                 </div>
-                <!--end::Highlight-->
               </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public addTags()</code>
+            </td>
+            <td>
+              Add one or more tags.
               <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="maxlenTagify" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#maxlenTagify"></a>Maximum length of tag entry characters
-              </h1>
+              <div class="py-3 text-gray-700">Parameters:</div>
               <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">In this example, the tag can contain up to 10 characters.</div>
-              <!--end::Block-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <input data-ref="maxlenTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#maxlenTagifyJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#maxlenTagifyHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="maxlenTagifyJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;input data-ref=&quot;maxlenTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="maxlenTagifyHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {Tagify, selectRef} from &#039;metronic-extension&#039;;
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>tags: string|string[]|T[]</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Tags to add. When a string, it can be either a single word or multiple words separated with a delimiter.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>clearInput?: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, the input&#039;s value gets cleared after adding tags. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>skipInvalid?: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, do not add, mark &amp; remove invalid tags. Default is true.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>HTMLElement[]</code> List of HTML elements representing the tags that were added.</li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Add one tag.
+tagify.addTags(&#039;tag4&#039;);
 
-const ref = selectRef();
-const maxlenTagify = new Tagify(ref.maxlenTagify, {
-  maxChars: 10,
+// Add multiple tags at once.
+tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public removeAllTags()</code>
+            </td>
+            <td>
+              Removes all tags and resets the original input tag's value property.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public setReadonly()</code>
+            </td>
+            <td>
+              Switches read-only mode on or off.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>readonly: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    true to switch the tagify instance to read-only mode, false to switch off read-only mode.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onAddTag()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when a tag is added.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: Tagify.AddEventData) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tagify</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">tagify.onAddTag(evnt =&gt; {
+  console.log(&#039;Tag added&#039;);
 });</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
+                  </pre>
                 </div>
-                <!--end::Highlight-->
               </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onRemoveTag()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when a tag is removed.
               <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="inlineSuggestionsTagify" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#inlineSuggestionsTagify"></a>Inline Suggestions
-              </h1>
+              <div class="py-3 text-gray-700">Parameters:</div>
               <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <input data-ref="inlineSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: Tagify.RemoveEventData) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tagify</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">tagify.onRemoveTag(evnt =&gt; {
+  console.log(&#039;Tag has been deleted&#039;);
+});</code>
+                  </pre>
+                </div>
               </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#inlineSuggestionsTagifyJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#inlineSuggestionsTagifyHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="inlineSuggestionsTagifyJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;input data-ref=&quot;inlineSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="inlineSuggestionsTagifyHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {Tagify, selectRef} from &#039;metronic-extension&#039;;
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onChangeTag()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when the tag is modified.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: Tagify.AddEventData|Tagify.RemoveEventData) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tagify</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">tagify.onChangeTag(evnt =&gt; {
+  console.log(&#039;Tag has been changed&#039;);
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public dispose()</code>
+            </td>
+            <td>
+              Reverts the input element back as it was before Tagify was applied.
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Basic example of Tagify attached to an input element.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Tagify-->
+      <input id="basicTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+      <!--end::Tagify-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Tagify--&gt;
+&lt;input id=&quot;basicTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;
+&lt;!--end::Tagify--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-const inlineSuggestionsTagify = new Tagify(ref.inlineSuggestionsTagify, {
+// Initialize Tagify.
+const basicTagify = new Tagify(document.getElementById(&#039;basicTagify&#039;));
+
+// Set callback functions for various operations.
+basicTagify
+  .onAddTag(evnt =&gt; {
+    // Tag added.
+    console.log(&#039;Tag added&#039;);
+  })
+  .onRemoveTag(evnt =&gt; {
+    // Tag removed.
+    console.log(&#039;Tag has been deleted&#039;);
+  })
+  .onChangeTag(evnt =&gt; {
+    // Tag was changed.
+    console.log(&#039;Tag has been changed&#039;);
+  });</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="readonlyExample" data-kt-scroll-offset="100">
+    <a href="#readonlyExample"></a>Read-only
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">If the <code>readonly</code> option is set to <code>true</code>, the Tagify will be read-only.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <input id="readonlyTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#readonlyExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#readonlyExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="readonlyExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;input id=&quot;readonlyTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="readonlyExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+
+// Read-only.
+new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="inlineSuggestionsExample" data-kt-scroll-offset="100">
+    <a href="#inlineSuggestionsExample"></a>Inline Suggestions
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">When Tagify has the focus, inline-style suggestions appear immediately.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <input id="inlineSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#inlineSuggestionsExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#inlineSuggestionsExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="inlineSuggestionsExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;input id=&quot;inlineSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="inlineSuggestionsExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+
+// Inline Suggestions.
+new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
   whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
   dropdown: {
     maxItems: 20,
     classname: &#039;tagify__inline__suggestions&#039;,
   }
 });</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="listSuggestionsTagify" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#listSuggestionsTagify"></a>List Suggestions
-              </h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <input data-ref="listSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#listSuggestionsTagifyJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#listSuggestionsTagifyHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="listSuggestionsTagifyJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;input data-ref=&quot;listSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="listSuggestionsTagifyHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {Tagify, selectRef} from &#039;metronic-extension&#039;;
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="listSuggestionsExample" data-kt-scroll-offset="100">
+    <a href="#listSuggestionsExample"></a>List Suggestions
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">When Tagify has the focus, list-style suggestions appear immediately.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <input id="listSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#listSuggestionsExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#listSuggestionsExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="listSuggestionsExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;input id=&quot;listSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="listSuggestionsExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-const listSuggestionsTagify = new Tagify(ref.listSuggestionsTagify, {
+// List Suggestions.
+new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
   whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
   dropdown: {maxItems: 20},
 });</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="eventTagify" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#eventTagify"></a>Handle events (add and delete tags)
-              </h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <input data-ref="eventTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#eventTagifyJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#eventTagifyHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="eventTagifyJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;input data-ref=&quot;eventTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="eventTagifyHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {Tagify, selectRef} from &#039;metronic-extension&#039;;
-
-const ref = selectRef();
-const eventTagify = new Tagify(ref.eventTagify, {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
-  dropdown: {maxItems: 20},
-});
-eventTagify
-  .onAddTag(evnt =&gt; alert(&#039;Add tag&#039;))
-  .onRemoveTag(evnt =&gt; alert(&#039;Delete tag&#039;))
-  .onChangeTag(evnt =&gt; alert(&#039;Change (add or remove) a tag&#039;));</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
+            </pre>
           </div>
-          <!--end::Card Body-->
         </div>
-        <!--end::Card-->
-        <!--begin::Sidebar wrapper-->
-        <div class="ms-7 flex-row-auto w-lg-200px">
-          <!--begin::Sidebar nav-->
-          <div class="card card-flush d-none d-lg-flex" data-kt-sticky="true" data-kt-sticky-name="sidebar-navs" data-kt-sticky-offset="{default: false, lg: 200}" data-kt-sticky-width="200px" data-kt-sticky-animation="false" data-kt-sticky-left="auto" data-kt-sticky-top="25px" data-kt-sticky-zindex="95">
-            <!--begin::Card body-->
-            <div class="card-body px-0 px-3 py-6">
-              <!--begin::Menu-->
-              <ul id="sidebarNav" class="nav nav-flush menu menu-column menu-title-gray-700 menu-bullet-gray-300 menu-state-primary fw-semibold fs-6">
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#basicTagify" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Basic Tagify</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#readonlyTagify" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Read-only</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#maxlenTagify" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Maximum length of tag entry characters</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#inlineSuggestionsTagify" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Inline Suggestions</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#listSuggestionsTagify" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">List Suggestions</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#eventTagify" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Handle events (add and delete tags)</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-              </ul>
-              <!--end::Menu-->
-            </div>
-            <!--end::Card body-->
-          </div>
-          <!--end::Sidebar nav-->
-        </div>
-        <!--end::Sidebar wrapper-->
+        <!--end::Tab panel-->
       </div>
-      <!--end::Container-->
+      <!--end::Tab content-->
     </div>
-    <!--end::Content-->
+    <!--end::Highlight-->
   </div>
-  <!--end::Root-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/datatables/datatables.bundle.js"></script>
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/tagify.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

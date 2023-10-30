@@ -1,30 +1,41 @@
 import {Datatable, selectRef} from 'metronic-extension';
-import highlight from '~/shared/highlight';
 
 function initBasicTable() {
   return new Datatable(ref.basicTable, {
+    columnDefs: [
+      {targets: 0, data: 'name', name: 'name'},
+      {targets: 1, data: 'position', name: 'position'},
+      {targets: 2, data: 'office', name: 'office'},
+      {targets: 3, data: 'age', name: 'age'},
+      {targets: 4, data: 'startDate', name: 'startDate'},
+      {targets: 5, data: 'salary', name: 'salary'},
+    ],
+    pageLength: 3
+  });
+}
+
+function initServerSideProcessingTable() {
+  return new Datatable(ref.serverSideProcessingTable, {
     ajax: {
-      url: '/api/persons',
+      url: '/api/persons/pages',
       data: d => {
-        d.search = {searchWord: ref.searchWord.val()};
+        d.search = {keyword: ref.serverSideProcessingTableKeyword.val()};
       }
     },
-    dom: `<'row'<'col-12 dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
     columnDefs: [
       {targets: 0, data: 'name'},
       {targets: 1, data: 'position'},
       {targets: 2, data: 'office'},
       {targets: 3, data: 'age'},
       {targets: 4, data: 'startDate'},
-      {targets: 5, data: 'salary'}
+      {targets: 5, data: 'salary'},
     ],
-    pageLength: 4
+    pageLength: 3
   });
 }
 
-function initColvisTable() {
-  return new Datatable(ref.colvisTable, {
-    ajax: '/api/persons',
+function initColumnVisibilityTable() {
+  return new Datatable(ref.columnVisibilityTable, {
     dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
     columnDefs: [
       {targets: 0, data: 'name'},
@@ -32,17 +43,17 @@ function initColvisTable() {
       {targets: 2, data: 'office'},
       {targets: 3, data: 'age'},
       {targets: 4, data: 'startDate'},
-      {targets: 5, data: 'salary'}
+      {targets: 5, data: 'salary'},
     ],
-    pageLength: 4,
+    pageLength: 3,
     buttons: [
       {
         extend: 'colvis',
         text: 'Show / hide columns',
         // Columns selector that defines the columns to include in the column visibility button set.
         // CSS selectors, column indexes, etc. can be used to specify columns to switch visibility.
-        columns: ':eq(1),:eq(2),:eq(3),:eq(4)',
-        // columns: [1,2,3,4],
+        columns: ':eq(1),:eq(2),:eq(3),:eq(4),:eq(5)',
+        // columns: [1,2,3,4,5],
       }
     ],
     stateSave: true,// Save the column visibility in the browser.
@@ -80,32 +91,51 @@ function initColvisTable() {
   });
 }
 
-function initDisableFirstAjaxTable() {
-  return new Datatable(ref.disableFirstAjaxTable, {
+function initDisableFirstAjaxCallTable() {
+  return new Datatable(ref.disableFirstAjaxCallTable, {
     firstAjax: false,
-    ajax: '/api/persons',
-    dom: `<'row'<'col-12 dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
+    ajax: '/api/persons/pages',
     columnDefs: [
       {targets: 0, data: 'name'},
       {targets: 1, data: 'position'},
       {targets: 2, data: 'office'},
       {targets: 3, data: 'age'},
       {targets: 4, data: 'startDate'},
-      {targets: 5, data: 'salary'}
+      {targets: 5, data: 'salary'},
     ],
-    pageLength: 4
+    pageLength: 3
   });
 }
 
-function initForm() {
-  $('body')
-    .on('input', '[data-on-search-persons]', () => basicTable.reload())
-    .on('click', '[data-on-reload-disable-first-ajax-table]', () => disableFirstAjaxTable.reload());
+function initBasicTableSearchForm() {
+  $('body').on('input', '[data-on-search-basic-table]', () => {
+    // Filter data by keyword.
+    basicTable.filter('name:name', ref.basicTableKeyword.val());
+  });
 }
 
-highlight();
+function initServerSideProcessingTableSearchForm() {
+  $('body').on('input', '[data-on-search-server-side-processing-table]', () => {
+    // Reload when the filter is changed.
+    // The filter information is set in the parameters sent to the server from the ajax.data optional function.
+    serverSideProcessingTable.reload();
+  })
+}
+
+function initDisableFirstAjaxCallTableForm() {
+  $('body').on('click', '[data-on-load-disable-first-ajax-call-table]', () => disableFirstAjaxCallTable.reload());
+}
+
+// Search for elements.
 const ref = selectRef();
+
+// Initialize DataTable.
 const basicTable = initBasicTable();
-const colvisTable = initColvisTable();
-const disableFirstAjaxTable = initDisableFirstAjaxTable();
-initForm();
+const serverSideProcessingTable = initServerSideProcessingTable();
+const columnVisibilityTable = initColumnVisibilityTable();
+const disableFirstAjaxCallTable = initDisableFirstAjaxCallTable();
+
+// Initialize events, etc.
+initBasicTableSearchForm();
+initServerSideProcessingTableSearchForm();
+initDisableFirstAjaxCallTableForm();

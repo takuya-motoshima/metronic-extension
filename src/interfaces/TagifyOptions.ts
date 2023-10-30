@@ -5,12 +5,12 @@
  */
 export default interface TagifyOptions extends Tagify.TagifySettings {
   /**
-   * Maximum tag input length. This is a proprietary option, not a tagify options.
+   * Maximum length of tag input. This is a proprietary option and not a tagify option. The default is no limit (undefined).
    */
-  maxChars?: number,
+  maxChars?: number;
 
   /**
-   * Read-only. This is a proprietary option, not a tagify options.
+   * Read-only. This is a proprietary option, not a tagify option. Default is false.
    */
-  readonly?: boolean,
+  readonly?: boolean;
 }

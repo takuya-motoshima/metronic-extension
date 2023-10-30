@@ -1,2 +1,0 @@
-exports.FILE_NAME_MAXLENGTH = 20;
-exports.FOLDER_NAME_MAXLENGTH = 20;

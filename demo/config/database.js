@@ -5,7 +5,7 @@ module.exports = {
   development: {
     username: 'root',
     password: null,
-    database: 'metronic_extension_db',
+    database: 'metronic_db',
     host: 'localhost',
     port: undefined,
     dialect: 'mariadb',

@@ -1,55 +1,64 @@
-import {selectRef, Tree} from 'metronic-extension';
-import highlight from '~/shared/highlight';
-import NodeCreateModal from '~/modals/NodeCreateModal';
+import {Tree} from 'metronic-extension';
 
-highlight();
-const ref = selectRef();
-const nodeCreateModal = new NodeCreateModal();
-const tree = new Tree(ref.tree, {
-  folderMaxlen: 20,
-  fileMaxlen: 20,
+// Initialize Tree.
+const basicTree = new Tree(document.getElementById('basicTree'), {
+  ajax: {
+    children: node => {
+      // This is an example of simply retrieving tree data in JSON without using the server side.
+      if (node.id === '#')
+        // If the node ID is "#", the data of the root node itself is returned.
+        return '/json/root-itself.json';
+      else if (node.id == 1)
+        // If the node ID is "1", the data of the child node associated with the root node (ID=1) is returned.
+        return '/json/roots-children.json';
+      else if (node.id == 2)
+        // If the node ID is "2", the data of the child node (ID=2) associated with the child1 node is returned.
+        return '/json/child1s-children.json';
+    },
+    // children: '/api/tree/_PARENT_NODE_ID_',
+    // createFolder: '/api/tree/folder/_PARENT_NODE_ID_',
+    // deleteFolder: '/api/tree/folder/_CURRENT_NODE_ID_',
+    // renameFolder: '/api/tree/folder/_CURRENT_NODE_ID_',
+    // createFile: '/api/tree/file/_PARENT_NODE_ID_',
+    // deleteFile: '/api/tree/file/_CURRENT_NODE_ID_',
+    // renameFile: '/api/tree/file/_CURRENT_NODE_ID_',
+  },
+  readonly: true,
   nodeTypes: {
-    // folder: {
-    //   type: 'folder',
-    //   icon: 'fa fa-folder text-warning',
-    // },
     file: {
-      // type: 'file',
-      icon: 'fa-solid fa-computer text-white',
+      icon: 'fa-solid fa-computer text-white',// Changed file node icons.
     },
   },
-  api: {
-    getChildren: '/api/folders/_PARENT_FOLDER_ID_/children',
-    createFolder: '/api/folders/_PARENT_FOLDER_ID_',
-    deleteFolder: '/api/folders/_CURRENT_FOLDER_ID_',
-    renameFolder: '/api/folders/_CURRENT_FOLDER_ID_',
-    createFile: '/api/files/_PARENT_FOLDER_ID_',
-    deleteFile: '/api/files/_CURRENT_FILE_ID_',
-    renameFile: '/api/files/_CURRENT_FILE_ID_',
-  },
 });
-tree
-  .onCreateFileHook(async parent => {
-    const newNode = await nodeCreateModal.show(parent.id);
-    console.log('newNode=', newNode);
-    return newNode;
-  })
-  .onReady(evnt => {
-    console.log('ready event fires');
-  })
+
+// Set tree event.
+basicTree
   .onSelected((evnt, node) => {
-    console.log('selected event fires. node=', node);
-    ref.node.id.text(node.id);
-    ref.node.path.text(tree.getPath(node, '/'));
-    ref.node.text.text(node.text);
-    ref.node.type.text(node.type);
+    // Display selected node information.
+    document.getElementById('nodeId').textContent = node.id;
+    document.getElementById('nodePath').textContent = basicTree.getPath(node, '/');
+    document.getElementById('nodeText').textContent = node.text;
+    document.getElementById('nodeType').textContent = node.type;
   })
-  // .onFetch(nodeData => {
-  //   console.log('Fetched node data:', nodeData);
-  // })
   .onError(err => {
-    alert(err.message);
+    // Displays errors encountered in tree operations.
+    alert(err);
   });
 
-// Set a tree instance to a global variable for testing in the Developer Tools.
-globalThis.tree = tree;
+// Initialize Tree.
+const serverSideProcessingTree = new Tree(document.getElementById('serverSideProcessingTree'), {
+  ajax: {
+    children: '/api/tree/_PARENT_NODE_ID_',
+    createFolder: '/api/tree/folder/_PARENT_NODE_ID_',
+    deleteFolder: '/api/tree/folder/_CURRENT_NODE_ID_',
+    renameFolder: '/api/tree/folder/_CURRENT_NODE_ID_',
+    createFile: '/api/tree/file/_PARENT_NODE_ID_',
+    deleteFile: '/api/tree/file/_CURRENT_NODE_ID_',
+    renameFile: '/api/tree/file/_CURRENT_NODE_ID_',
+  },
+  nodeTypes: {
+    file: {
+      icon: 'fa-solid fa-computer text-white',// Changed file node icons.
+    },
+  },
+});

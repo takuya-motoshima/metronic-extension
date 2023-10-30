@@ -1,16 +1,65 @@
 // import moment from 'moment';
 import {merge} from 'deep-fusion';
 import DatePickerOptions from '~/interfaces/DatePickerOptions';
+import isString from '~/utils/isString';
 
 /**
- * Initialize the date picker.
+ * Initialize date range picker.
+ * @param {string|HTMLInputElement|JQuery} element HTMLInputElement selector, element, or JQuery object.
+ * @param {string} options.minDate? The earliest date a user may select. Default is none (undefined).
+ * @param {string} options.maxDate? The latest date a user may select. Default is none (undefined).
+ * @param {number} options.maxDays? Maximum number of days that can be selected. Default is indefinite (undefined).
+ * @param {string} options.locale? Language Code (ja, en, etc.). Default is none (undefined).
+ * @param {string} options.format? Date Format. Default is 'YYYY/M/D'.
+ * @param {string} options.language.applyLabel? Apply button text. Default is 'Apply'.
+ * @param {string} options.language.cancelLabel? Cancel button text. Default is 'Cancel'.
+ * @param {boolean} options.autoUpdateInput? Indicates whether the date range picker should automatically update the value of the <input> element it's attached to at initialization and when the selected dates change. Default is true.
+ * @return {daterangepicker} daterangepicker instance.
+ * @example
+ * HTML:
+ * ```html
+ * <!--begin::Input group-->
+ * <div>
+ *   <!--begin::Label-->
+ *   <label class="form-label">Basic example</label>
+ *   <!--end::Label-->
+ *   <!--begin::Input-->
+ *   <input id="dateRangePicker" class="form-control form-control-solid" placeholder="Pick date range">
+ *   <!--end::Input-->
+ * </div>
+ * <!--end::Input group-->
+ * ```
+ * 
+ * JS:
+ * ```js
+ * import {initDatepicker} from 'metronic-extension';
+ * 
+ * // Initialize date range picker.
+ * initDatepicker(document.getElementById('dateRangePicker'), {
+ *   // Available for selection after today.
+ *   minDate: moment().format('YYYY/M/D'),
+ *   // Selectable only for the current month.
+ *   maxDate: moment().endOf('month').format('YYYY/M/D'),
+ *   // Up to 7 days can be selected.
+ *   maxDays: 7,
+ *   // Language is English.
+ *   locale: 'en',
+ *   format: 'YYYY/M/D',
+ *   language: {
+ *     applyLabel: 'OK',
+ *     cancelLabel: 'Cancel',
+ *   }
+ * });
+ * ```
  */
-export default (input: HTMLInputElement|JQuery, options?: DatePickerOptions): daterangepicker => {
+export default (element: string|HTMLInputElement|JQuery, options?: DatePickerOptions): daterangepicker => {
   // Check parameters.
-  if (input instanceof HTMLInputElement)
-    input = $(input);
-  else if (!(input instanceof $))
-    throw new TypeError('The input parameter specifies an HTMLInputElement or a JQuery object of HTMLInputElement');
+  if (isString(element))
+    element = $(element as string);
+  else if (element instanceof HTMLInputElement)
+    element = $(element);
+  else if (!(element instanceof $))
+    throw new TypeError('element parameter should be HTMLInputElement selectors, elements, and JQuery object');
 
   // Initialize options.
   options = merge({
@@ -31,7 +80,7 @@ export default (input: HTMLInputElement|JQuery, options?: DatePickerOptions): da
     window.moment.locale(options?.locale);
 
   // Initialize Date Range Picker.
-  return (input as JQuery)
+  return (element as JQuery)
     .on('apply.daterangepicker', (evnt: Event, picker: daterangepicker.DateRangePicker) => {
       // Triggered when the apply button is clicked, or when a predefined range is clicked.
       if (!picker)

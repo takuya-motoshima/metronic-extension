@@ -1,3 +1,4 @@
+export { default as isDataURI } from '~/validators/isDataURI';
 export { default as isFQDN } from '~/validators/isFQDN';
 export { default as isFQDNorIP } from '~/validators/isFQDNorIP';
 export { default as isHTML } from '~/validators/isHTML';

@@ -1,0 +1,16 @@
+[
+  {
+    "parent": 1,
+    "type": "folder",
+    "text": "Child1",
+    "id": 2,
+    "children": 1
+  },
+  {
+    "parent": 1,
+    "type": "folder",
+    "text": "Child2",
+    "id": 3,
+    "children": 0
+  }
+]

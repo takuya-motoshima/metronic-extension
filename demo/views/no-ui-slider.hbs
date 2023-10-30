@@ -1,0 +1,440 @@
+{{!< default}}
+{{#contentFor 'title'}}noUiSlider{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/no-ui-slider.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#sizes" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Sizes</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#vertical" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Vertical</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#tooltip" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Tooltip</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#softLimits" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Soft Limits</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    noUiSlider is a lightweight range slider with multi-touch support and a ton of features. It supports non-linear ranges, 
+    requires no external dependencies, has keyboard support, and it works great in responsive designs.
+    For full documentation please check the <a href="https://refreshless.com/nouislider" target="_blank">plugin's site</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Basic example of range slider with full touch support.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-0">
+        <label class="form-label">Example</label>
+        <div id="basicSlider"></div>
+        <div class="pt-5">
+          <div class="fw-semibold mb-2">Min: <span id="basicSliderMin"></span></div>
+          <div class="fw-semibold mb-2">Max: <span id="basicSliderMax"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicSliderHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicSliderJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicSliderHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div class=&quot;mb-0&quot;&gt;
+  &lt;label class=&quot;form-label&quot;&gt;Example&lt;/label&gt;
+  &lt;div id=&quot;basicSlider&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;pt-5&quot;&gt;
+    &lt;div class=&quot;fw-semibold mb-2&quot;&gt;Min: &lt;span id=&quot;basicSliderMin&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;fw-semibold mb-2&quot;&gt;Max: &lt;span id=&quot;basicSliderMax&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicSliderJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Initialize basic slider.
+const slider = document.getElementById(&#039;basicSlider&#039;);
+const valueMin = document.getElementById(&#039;basicSliderMin&#039;);
+const valueMax = document.getElementById(&#039;basicSliderMax&#039;);
+
+noUiSlider.create(slider, {
+  start: [20, 80],
+  connect: true,
+  range: {
+    min: 0,
+    max: 100
+  }
+});
+
+slider.noUiSlider.on(&#039;update&#039;, (values, handle) =&gt; {
+  if (handle)
+    valueMax.innerHTML = values[handle];
+  else
+    valueMin.innerHTML = values[handle];
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="sizes" data-kt-scroll-offset="100">
+    <a href="#sizes"></a>Sizes
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Change the sliders default size by applying custom size classes <code>.noUi-sm</code> and <code>.noUi-lg</code>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-10">
+        <label class="form-label">Small size</label>
+        <div id="smallSlider" class="noUi-sm"></div>
+      </div>
+      <div class="mb-10">
+        <label class="form-label">Default size</label>
+        <div id="normalSizeSlider"></div>
+      </div>
+      <div class="mb-0">
+        <label class="form-label">Large size</label>
+        <div id="largeSlider" class="noUi-lg"></div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;smallSlider&quot; class=&quot;noUi-sm&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;normalSizeSlider&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;largeSlider&quot; class=&quot;noUi-lg&quot;&gt;&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="vertical" data-kt-scroll-offset="100">
+    <a href="#vertical"></a>Vertical
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Example of horizontal range slider.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-0">
+        <label class="form-label">Example</label>
+        <div id="verticalSlider"></div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#verticalSliderHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalSliderJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="verticalSliderHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div id=&quot;verticalSlider&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="verticalSliderJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Initialize vertical slider.
+const slider = document.getElementById(&#039;verticalSlider&#039;);
+
+noUiSlider.create(slider, {
+  start: [60, 160],
+  connect: true,
+  orientation: &#039;vertical&#039;,
+  range: {
+    min: 0,
+    max: 200
+  }
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="tooltip" data-kt-scroll-offset="100">
+    <a href="#tooltip"></a>Tooltip
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    noUiSlider can provide a basic tooltip using the tooltips option.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-0">
+        <div id="tooltipSlider"></div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tooltipSliderHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tooltipSliderJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="tooltipSliderHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div id=&quot;tooltipSlider&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="tooltipSliderJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Initialize tooltip slider.
+const slider = document.getElementById(&#039;tooltipSlider&#039;);
+
+noUiSlider.create(slider, {
+  start: [20, 80, 120],
+  tooltips: [false, wNumb({decimals: 1}), true],
+  range: {
+    min: 0,
+    max: 200
+  }
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="softLimits" data-kt-scroll-offset="100">
+    <a href="#softLimits"></a>Soft Limits
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    If you want to disable the edges of a slider, the set event can be used to reset the value if a limit is passed.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="py-10">
+        <div id="softLimitsSlider"></div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#softLimitsSliderHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#softLimitsSliderJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="softLimitsSliderHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div id=&quot;softLimitsSlider&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="softLimitsSliderJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Initialize soft limits slider.
+const slider = document.getElementById(&#039;softLimitsSlider&#039;);
+
+noUiSlider.create(slider, {
+  start: [50],
+  range: {
+    min: 0,
+    max: 100
+  },
+  pips: {
+    mode: &#039;values&#039;,
+    values: [20, 80],
+    density: 4
+  }
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

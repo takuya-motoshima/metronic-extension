@@ -1,123 +1,342 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Dropzone - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Dropzone</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
-          </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">Dropzone is a component that provides drag-and-drop file upload with image preview.</div>
-          <!--end::Block-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <!--begin::Dropzone-->
-            <div data-ref="dropzone"></div>
-            <!--end::Dropzone-->
-            <!--begin::DataURL of the selected file-->
-            <input data-ref="hidden" type="hidden">
-            <!--end::DataURL of the selected file-->
-          </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#dropzoneHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#dropzoneJsTabPane" role="tab">JAVASCRIPT</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="dropzoneHtmlTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;!--begin::Dropzone--&gt;
-&lt;div data-ref=&quot;dropzone&quot;&gt;&lt;/div&gt;
-&lt;!--end::Dropzone--&gt;
-&lt;!--begin::DataURL of the selected file--&gt;
-&lt;input data-ref=&quot;hidden&quot; type=&quot;hidden&quot;&gt;
-&lt;!--end::DataURL of the selected file--&gt;</code>
-                    </pre>
+{{!< default}}
+{{#contentFor 'title'}}Dropzone{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/dropzone.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">Dropzone is a component that provides drag-and-drop file upload with image preview.</div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the Dropzone class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLElement selector, element, or JQuery object.
                   </div>
-                </div>
-                <div class="tab-pane fade" id="dropzoneJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import {Dropzone, selectRef} from &#039;metronic-extension&#039;;
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.hiddenInputContent?: HTMLInputElement</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    hidden element to store the uploaded content. For media data such as images and PDFs, DataURL is set; for text data such as CSV, text data is set.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.acceptedFiles?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    A comma-separated list of MIME types or file extensions (e.g., &quot;image/*,application/pdf,.psd&quot;) for files that are allowed to be uploaded. Default is none (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.maxFilesize?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The maximum filesize (in bytes) that is allowed to be uploaded. Default is none (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.dictDefaultMessage?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Drop zone title text. Default is &quot;Drop files here to upload&quot;.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.dictDescriptionMessage?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Drop zone description text. Default is none (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.dictFileTooBig?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Error message to be displayed if the file size exceeds the allowable size. <br>
+                    Default is &quot;File is too big (\{{filesize}}MiB). Max filesize: \{{maxFilesize}}MiB.&quot;.<br>
+                    &quot;\{{filesize}}&quot; is set to the selected file size, and &quot;\{{maxFilesize}}&quot; is set to the file size that can be uploaded.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {Dropzone} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-const dropzone = new Dropzone(ref.dropzone, {
-  hiddenInputContent: ref.hidden.get(0),
+// Initializes Dropzone.
+const dropzone = new Dropzone(document.getElementById(&#039;myDropzone&#039;), {
+  hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
   maxFilesize: 10,
   dictDescriptionMessage: &#039;Files up to 10 MB can be uploaded&#039;,
+  acceptedFiles: &#039;image/jpeg,image/png,image/gif&#039;,
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onAddFile()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when a file is added. The callback function takes a file object.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (file: Dropzone.DropzoneFile) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>DropzoneComponent</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Called when a file is added.
+dropzone.onAddFile(file =&gt; {
+  alert(`From additional handlers. Select ${file.name}`);
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onCancelFile()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when an uploaded file is canceled.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: () =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>DropzoneComponent</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Called when an uploaded file is canceled.
+dropzone.onCancelFile(() =&gt; {
+  alert(&#039;Canceled file selection&#039;);
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Dropzone example with manual file attachment and upload controls.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Dropzone-->
+      <div id="myDropzone"></div>
+      <!--end::Dropzone-->
+      <!--begin::DataURL of the selected file-->
+      <input id="myFileContent" type="hidden">
+      <!--end::DataURL of the selected file-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Dropzone--&gt;
+&lt;div id=&quot;myDropzone&quot;&gt;&lt;/div&gt;
+&lt;!--end::Dropzone--&gt;
+&lt;!--begin::DataURL of the selected file--&gt;
+&lt;input id=&quot;myFileContent&quot; type=&quot;hidden&quot;&gt;
+&lt;!--end::DataURL of the selected file--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Dropzone} from &#039;metronic-extension&#039;;
+
+// Initializes Dropzone.
+const dropzone = new Dropzone(document.getElementById(&#039;myDropzone&#039;), {
+  hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
+  maxFilesize: 10,
+  dictDescriptionMessage: &#039;Files up to 10 MB can be uploaded&#039;,
+  acceptedFiles: &#039;image/jpeg,image/png,image/gif&#039;,
 });
+
+// Initialize drag &amp; drop events.
 dropzone
   .onAddFile(file =&gt; {
+    // Called when a file is added.
     alert(`From additional handlers. Select ${file.name}`);
   })
   .onCancelFile(() =&gt; {
+    // Called when an uploaded file is canceled.
     alert(&#039;Canceled file selection&#039;);
   });</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end::Highlight-->
+            </pre>
           </div>
-          <!--end::Code-->
         </div>
-        <!--end::Section-->
+        <!--end::Tab panel-->
       </div>
-      <!--end::Card Body-->
+      <!--end::Tab content-->
     </div>
-    <!--end::Card-->
+    <!--end::Highlight-->
   </div>
-  <!--end::Container-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/dropzone.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

@@ -1,0 +1,676 @@
+{{!< default}}
+{{#contentFor 'title'}}BarChart{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/barchart.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#horizontalBarChartExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Horizontal bar chart</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#verticalBarChartExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Vertical bar chart</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Bar chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the BarChart class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLElement selector, element, or JQuery object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options: BarChartOptions</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Chart options.
+                    <ul>
+                      <li class="py-2"><code>horizontal?: boolean</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          This option will turn a column chart into a horizontal bar chart. Default is false.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.method?: &#039;GET&#039;|&#039;POST&#039;|&#039;PUT&#039;</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          HTTP method of the request. Default is &quot;GET&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.url: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          URL to request. This option is required. The response must return an array of the following type. If it returns a different type, use the ajax.dataSrc option to convert it.
+                          <ul>
+                            <li class="py-2"><code>category: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Category name. Data will be grouped by category and each data will be displayed in the chart as a child of the category. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>name: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Data name. This value is used in tooltips and other displays. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>data: number</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Data Value. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>color?: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Bar color. Default is &quot;#50CD89&quot;.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                          </ul>
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.data?: (data: object) =&gt; object</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to add or change data to be sent to the server. Default is none (undefined).
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">data: data =&gt; {
+  data.extra = &#039;Extra&#039;;
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.dataSrc?: (data: BarChartResponse[]|any) =&gt; BarChartResponse[]</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to add or modify data retrieved from the server. Default is none (undefined).
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">dataSrc: data =&gt; {
+  // In this example, the data returned by the server is &quot;[{&quot;data&quot;:400, &quot;label&quot;: &quot;France&quot;},{&quot;data&quot;:430, &quot;label&quot;: &quot;Japan&quot;}]&quot;.
+  // Calculate and display data totals.
+  const total = data.reduce((total, item) =&gt; {
+    return total + item.data;
+  }, 0);
+  document.getElementById(&#039;total&#039;).textContent = total;
+
+  // Returns data to be drawn on the chart.
+  return data;
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>dataFormatter?: (value: string|number) =&gt; string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to change the value displayed for numeric data. This is the value of the X-axis for horizontal bars and the value of the Y-axis for vertical bars. Default is none (undefined), displaying the original value.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">dataFormatter: value =&gt; {
+  // Converts values to a locale-specific format and displays them.
+  return Number(value).toLocaleString();
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>dataLabelFormatter: (value: string|number) =&gt; string|number</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to change the value displayed on the bar. Default is none (undefined), displaying the original value.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">dataLabelFormatter: value =&gt; {
+  // Converts values to a locale-specific format and displays them.
+  return Number(value).toLocaleString();
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>tooltipDataFormatter?: (value: number) =&gt; string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          A callback function that changes the value displayed in the numeric data on the tooltip. Default is none (undefined), displaying the original value.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
+
+// Horizontal bar chart (horizontal option is true).
+const horizontalBarChart = new charts.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
+  horizontal: true,
+  ajax: {
+    url: &#039;https://example.com/charts&#039;
+  }
+});
+
+// Vertical bar chart (horizontal option is false).
+const verticalBarChart = new charts.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
+  horizontal: false,
+  ajax: {
+    url: &#039;https://example.com/charts&#039;
+  }
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public reload()</code>
+            </td>
+            <td>
+              Loads the drawing data and redraws the chart.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;void&gt;</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="horizontalBarChartExample" data-kt-scroll-offset="100">
+    <a href="#horizontalBarChartExample"></a>Horizontal bar chart
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Wrapper-->
+      <div class="d-flex flex-stack flex-wrap mb-5">
+        <!--begin::Search-->
+        <div class="d-flex align-items-center position-relative my-1 mb-2 mb-md-0">
+          <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+          <span class="svg-icon svg-icon-1 position-absolute ms-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+              <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+          <input id="horizontalBarChartKeyword" type="text" class="form-control form-control-solid w-250px ps-15" placeholder="Search by name" maxlength="20" />
+        </div>
+        <!--end::Search-->
+      </div>
+      <!--end::Wrapper-->
+      <!--begin::Chart-->
+      <div id="horizontalBarChart"></div>
+      <!--end::Chart-->
+    </div>
+  </div>  
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#horizontalBarExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#horizontalBarExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#horizontalBarExampleAjaxTab" role="tab">AJAX</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="horizontalBarExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Wrapper--&gt;
+&lt;div class=&quot;d-flex flex-stack flex-wrap mb-5&quot;&gt;
+  &lt;!--begin::Search--&gt;
+  &lt;div class=&quot;d-flex align-items-center position-relative my-1 mb-2 mb-md-0&quot;&gt;
+    &lt;!--begin::Svg Icon | path: icons/duotune/general/gen021.svg--&gt;
+    &lt;span class=&quot;svg-icon svg-icon-1 position-absolute ms-4&quot;&gt;
+      &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;rect opacity=&quot;0.5&quot; x=&quot;17.0365&quot; y=&quot;15.1223&quot; width=&quot;8.15546&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 17.0365 15.1223)&quot; fill=&quot;currentColor&quot; /&gt;
+        &lt;path d=&quot;M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z&quot; fill=&quot;currentColor&quot; /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;!--end::Svg Icon--&gt;
+    &lt;input id=&quot;horizontalBarChartKeyword&quot; type=&quot;text&quot; class=&quot;form-control form-control-solid w-250px ps-15&quot; placeholder=&quot;Search by name&quot; maxlength=&quot;20&quot; /&gt;
+  &lt;/div&gt;
+  &lt;!--end::Search--&gt;
+&lt;/div&gt;
+&lt;!--end::Wrapper--&gt;
+&lt;!--begin::Chart--&gt;
+&lt;div id=&quot;horizontalBarChart&quot;&gt;&lt;/div&gt;
+&lt;!--end::Chart--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="horizontalBarExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
+
+function initHorizontalBarChart() {
+  return new charts.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
+    horizontal: true,
+    ajax: {
+      url: &#039;/json/barchart.json&#039;,
+      dataSrc: data =&gt; {
+        // Filter chart data by categories matching the entered keywords.
+        // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
+        const keyword = horizontalBarChartKeyword.value.replace(/^[\s　]+|[\s　]+$/g, &#039;&#039;);
+        if (!keyword)
+          // If the keyword is empty, all data is displayed.
+          return data;
+
+        // Return only data with keywords in the name.
+        return data.filter(item =&gt; item.category.includes(keyword));
+      },
+    },
+    dataFormatter: value =&gt; {
+      // Comma-separate the values.
+      return Number(value).toLocaleString();
+    },
+    dataLabelFormatter: value =&gt; {
+      // Comma-separate the values and add units.
+      return `${Number(value).toLocaleString()} items`;
+    },
+    tooltipDataFormatter: value =&gt; {
+      // Comma-separate the values and add units.
+      return `${Number(value).toLocaleString()} items`;
+    },
+  });
+}
+
+function initHorizontalBarChartSearchForm() {
+  // Timer to prevent duplicate filtering runs.
+  let searchTimer;
+  horizontalBarChartKeyword.addEventListener(&#039;input&#039;, () =&gt; {
+    // Cancel a reserved filtering request.
+    if (searchTimer)
+      clearTimeout(searchTimer);
+
+    // Scheduled filtering runs.
+    searchTimer = setTimeout(() =&gt; {
+      // Filtering chart data.
+      horizontalBarChart.reload();
+    }, 1000);
+  });
+}
+
+// Search keyword input field.
+const horizontalBarChartKeyword = document.getElementById(&#039;horizontalBarChartKeyword&#039;);
+
+// Initialize chart.
+const horizontalBarChart = initHorizontalBarChart();
+
+// Initialize events, etc.
+initHorizontalBarChartSearchForm();</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="horizontalBarExampleAjaxTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
+  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
+  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
+  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
+  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
+  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580},
+  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 690},
+  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1100},
+  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 1200},
+  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1380}
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="verticalBarChartExample" data-kt-scroll-offset="100">
+    <a href="#verticalBarChartExample"></a>Vertical bar chart
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Wrapper-->
+      <div class="d-flex flex-stack flex-wrap mb-5">
+        <!--begin::Search-->
+        <div class="d-flex align-items-center position-relative my-1 mb-2 mb-md-0">
+          <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+          <span class="svg-icon svg-icon-1 position-absolute ms-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+              <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+          <input id="verticalBarChartKeyword" type="text" class="form-control form-control-solid w-250px ps-15" placeholder="Search by name" maxlength="20" />
+        </div>
+        <!--end::Search-->
+      </div>
+      <!--end::Wrapper-->
+      <!--begin::Chart-->
+      <div id="verticalBarChart" class="h-325px"></div>
+      <!--end::Chart-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#verticalBarExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalBarExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalBarExampleAjaxTab" role="tab">AJAX</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="verticalBarExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Wrapper--&gt;
+&lt;div class=&quot;d-flex flex-stack flex-wrap mb-5&quot;&gt;
+  &lt;!--begin::Search--&gt;
+  &lt;div class=&quot;d-flex align-items-center position-relative my-1 mb-2 mb-md-0&quot;&gt;
+    &lt;!--begin::Svg Icon | path: icons/duotune/general/gen021.svg--&gt;
+    &lt;span class=&quot;svg-icon svg-icon-1 position-absolute ms-4&quot;&gt;
+      &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;rect opacity=&quot;0.5&quot; x=&quot;17.0365&quot; y=&quot;15.1223&quot; width=&quot;8.15546&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 17.0365 15.1223)&quot; fill=&quot;currentColor&quot; /&gt;
+        &lt;path d=&quot;M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z&quot; fill=&quot;currentColor&quot; /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;!--end::Svg Icon--&gt;
+    &lt;input id=&quot;verticalBarChartKeyword&quot; type=&quot;text&quot; class=&quot;form-control form-control-solid w-250px ps-15&quot; placeholder=&quot;Search by name&quot; maxlength=&quot;20&quot; /&gt;
+  &lt;/div&gt;
+  &lt;!--end::Search--&gt;
+&lt;/div&gt;
+&lt;!--end::Wrapper--&gt;
+&lt;!--begin::Chart--&gt;
+&lt;div id=&quot;verticalBarChart&quot; class=&quot;h-325px&quot;&gt;&lt;/div&gt;
+&lt;!--end::Chart--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="verticalBarExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
+
+function initVerticalBarChart() {
+  return new charts.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
+    horizontal: false,
+    ajax: {
+      url: &#039;/json/barchart.json&#039;,
+      dataSrc: data =&gt; {
+        // Filter chart data by categories matching the entered keywords.
+        // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
+        const keyword = verticalBarChartKeyword.value.replace(/^[\s　]+|[\s　]+$/g, &#039;&#039;);
+        if (!keyword)
+          // If the keyword is empty, all data is displayed.
+          return data;
+
+        // Return only data with keywords in the name.
+        return data.filter(item =&gt; item.category.includes(keyword));
+      },
+    },
+    dataFormatter: value =&gt; {
+      // Comma-separate the values.
+      return Number(value).toLocaleString();
+    },
+    dataLabelFormatter: value =&gt; {
+      // Comma-separate the values.
+      return Number(value).toLocaleString();
+    },
+    tooltipDataFormatter: value =&gt; {
+      // Comma-separate the values.
+      return `${Number(value).toLocaleString()} items`;
+    },
+  });
+}
+
+function initVerticalBarChartSearchForm() {
+  // Timer to prevent duplicate filtering runs.
+ let searchTimer;
+  verticalBarChartKeyword.addEventListener(&#039;input&#039;, () =&gt; {
+    // Cancel a reserved filtering request.
+    if (searchTimer)
+      clearTimeout(searchTimer);
+
+    // Scheduled filtering runs.
+    searchTimer = setTimeout(() =&gt; {
+      // Filtering chart data.
+      verticalBarChart.reload();
+    }, 1000);
+  });
+}
+
+// Search keyword input field.
+const verticalBarChartKeyword = document.getElementById(&#039;verticalBarChartKeyword&#039;);
+
+// Initialize chart.
+const verticalBarChart = initVerticalBarChart();
+
+// Initialize events, etc.
+initVerticalBarChartSearchForm();</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="verticalBarExampleAjaxTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
+  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
+  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
+  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
+  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
+  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580},
+  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 690},
+  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1100},
+  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 1200},
+  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1380}
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

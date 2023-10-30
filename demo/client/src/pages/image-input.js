@@ -1,28 +1,26 @@
-import {ImageInput, selectRef} from 'metronic-extension';
-import highlight from '~/shared/highlight';
+import {ImageInput} from 'metronic-extension';
 
-highlight();
-const ref = selectRef();
-
-const basicImageInput = new ImageInput(ref.basicImageInput, {
-  // default: '/build/media/default-avatar.svg',
-  hiddenEl: ref.hidden.get(0),
+// Initialize ImageInput.
+const basicImageInput = new ImageInput(document.getElementById('basicImageInput'), {
+  default: '/img/avatar1.svg',
+  current: '/img/avatar2.png',
+  width: 125,
+  height: 125,
+  hiddenEl: document.getElementById('basicImageDataURL'),
+  language: {
+    change: 'Change this image',
+    remove: 'Delete this image',
+    cancel: 'Cancel changes to this image'
+  }
 });
 
-const registeredImageInput = new ImageInput(ref.registeredImageInput, {
-  default: '/build/media/default-avatar.svg',
-  current: '/build/media/avatar1.png',
-});
-
-const readonlyImageInput = new ImageInput(ref.readonlyImageInput, {
-  current: '/build/media/avatar2.png',
-  readonly: true,
-});
-
-const eventImageInput = new ImageInput(ref.eventImageInput, {
-  default: '/build/media/default-avatar.svg',
-  current: '/build/media/avatar3.png',
-});
-eventImageInput.onChange(dataUrl => {
+// Set callbacks for image changes.
+basicImageInput.onChange(dataURL => {
   alert('Changed image');
+});
+
+// Initialize ImageInput.
+const readonlyImageInput = new ImageInput(document.getElementById('readonlyImageInput'), {
+  current: '/img/avatar3.png',
+  readonly: true,
 });

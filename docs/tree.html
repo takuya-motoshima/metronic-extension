@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
   <!--end::Fonts-->
   <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="build/theme/plugins/custom/jstree/jstree.bundle.css" rel="stylesheet" type="text/css" />
   <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Vendor Stylesheets-->
@@ -16,246 +17,2136 @@
   <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Stylesheets Bundle-->
+  <!--begin::Custom Stylesheets(used by this page)-->
+  <link href="build/docs.css" rel="stylesheet" type="text/css" />
+  
+  <!--end::Custom Stylesheets-->
 </head>
 <!--end::Head-->
 <!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Tree</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
-          </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <!--begin::Information-->
-            <div class="d-flex align-items-center rounded py-5 px-5 bg-light-warning ">
-              <!--begin::Icon-->
-              <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
-              <span class="svg-icon svg-icon-3x svg-icon-warning me-5">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
-                  <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
-                  <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
-                </svg>
-              </span>
-              <!--end::Svg Icon-->
-              <!--end::Icon-->
-              <!--begin::Description-->
-              <div class="text-gray-700 fw-bold fs-6">Server required to run this demo. Please see this <a href="https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md" target="_blank">demo/README.md</a> for more information.</div>
-              <!--end::Description-->
+<body
+  id="kt_app_body"
+  data-kt-app-layout="dark-sidebar"
+  data-kt-app-header-fixed="true"
+  data-kt-app-sidebar-enabled="true"
+  data-kt-app-sidebar-fixed="true"
+  data-kt-app-sidebar-push-header="true"
+  data-bs-spy="scroll"
+  data-bs-target="#sidenav"
+  class="app-default">
+  <!--begin::App-->
+  <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+    <!--begin::Page-->
+    <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+      <!--begin::Header-->
+      <div id="kt_app_header" class="app-header">
+        <!--begin::Header container-->
+        <div class="app-container container d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
+          <!--begin::Sidebar mobile toggle-->
+          <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
+            <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+              <i class="ki-duotone ki-abstract-14 fs-2 fs-md-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
             </div>
-            <!--end::Information-->
           </div>
-          <!--end::Block-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <!--begin::Layout-->
-            <div class="d-flex flex-column flex-lg-row">
-              <!--begin::Sidebar-->
-              <div class="flex-column flex-lg-row-auto w-100 w-lg-300px w-xl-400px mb-10 mb-lg-0">
-                <!--begin::Card-->
-                <div class="card card-flush">
-                  <!--begin::Card body-->
-                  <div class="card-body pt-5" id="treeBody">
-                    <!--begin::Scroll-->
-                    <div
-                      class="scroll-y me-n5 pe-5 h-200px h-lg-auto"
-                      data-kt-scroll="true"
-                      data-kt-scroll-activate="{default: false, lg: true}"
-                      data-kt-scroll-max-height="auto"
-                      data-kt-scroll-dependencies="#header"
-                      data-kt-scroll-wrappers="#container, #treeBody"
-                      data-kt-scroll-offset="5px">
-                      <!--begin::Tree-->
-                      <div data-ref="tree"></div>
-                      <!--end::Tree-->
-                    </div>
-                    <!--end::Scroll-->
-                  </div>
-                  <!--end::Card body-->
-                </div>
-                <!--end::Card-->
+          <!--end::Sidebar mobile toggle-->
+          <!--begin::Header wrapper-->
+          <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+            <!--begin::Header title-->
+            <div class="d-flex align-items-center" id="kt_app_header_title">
+              <!--begin::Page title-->
+              <div class="page-title d-flex flex-column flex-lg-row align-items-lg-center py-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_content_container', 'lg': '#kt_app_header_title'}">
+                <!--begin::Title-->
+                <h1 class="d-flex align-items-center text-dark my-1 fs-4">
+                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v2.1.0</a>
+                </h1>
+                <!--end::Title-->
               </div>
-              <!--end::Sidebar-->
-              <!--begin::Content-->
-              <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
-                <!--begin::Card-->
-                <div class="card">
-                  <!--begin::Card header-->
-                  <div class="card-header" id="nodeHeader">
-                    <!--begin::Title-->
-                    <div class="card-title">Selection Node Details</div>
-                    <!--end::Title-->
-                  </div>
-                  <!--end::Card header-->
-                  <!--begin::Card body-->
-                  <div class="card-body" id="nodeBody">
-                    <!--begin::Scroll-->
-                    <div class="scroll-y me-n5 pe-5 h-300px h-lg-auto"
-                      data-kt-element="messages" data-kt-scroll="true"
-                      data-kt-scroll-activate="{default: false, lg: true}"
-                      data-kt-scroll-max-height="auto"
-                      data-kt-scroll-dependencies="#header, #nodeHeader"
-                      data-kt-scroll-wrappers="#container, #nodeBody"
-                      data-kt-scroll-offset="5px">
-                      <!--begin::Row-->
-                      <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Node ID</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                          <span data-ref="node.id" class="fw-bold fs-6 text-gray-800"></span>
-                        </div>
-                        <!--end::Col-->
-                      </div>
-                      <!--end::Row-->
-                      <!--begin::Row-->
-                      <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Full path</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                          <span data-ref="node.path" class="fw-bold fs-6 text-gray-800"></span>
-                        </div>
-                        <!--end::Col-->
-                      </div>
-                      <!--end::Row-->
-                      <!--begin::Row-->
-                      <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Display Name</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                          <span data-ref="node.text" class="fw-bold fs-6 text-gray-800"></span>
-                        </div>
-                        <!--end::Col-->
-                      </div>
-                      <!--end::Row-->
-                      <!--begin::Row-->
-                      <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Node type</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                          <span data-ref="node.type" class="fw-bold fs-6 text-gray-800"></span>
-                        </div>
-                        <!--end::Col-->
-                      </div>
-                      <!--end::Row-->
-                    </div>
-                    <!--end::Scroll-->
-                  </div>
-                  <!--end::Card body-->
-                </div>
-                <!--end::Card-->
-              </div>
-              <!--end::Content-->
+              <!--end::Page title-->
             </div>
-            <!--end::Layout-->
+            <!--end::Header title-->
           </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#treeHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#treeJsTabPane" role="tab">JAVASCRIPT</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="treeHtmlTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;!--begin::Tree--&gt;
-&lt;div data-ref=&quot;tree&quot;&gt;&lt;/div&gt;
-&lt;!--end::Tree--&gt;</code>
-                    </pre>
+          <!--end::Header wrapper-->
+        </div>
+        <!--end::Header container-->
+      </div>
+      <!--end::Header-->
+      <!--begin::Wrapper-->
+      <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+        <!--begin::Sidebar-->
+        <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+          <!--begin::Logo-->
+          <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
+            <!--begin::Logo image-->
+            <a href="/">
+              <img alt="Logo" src="/build/media/logos/default.svg" class="h-25px app-sidebar-logo-default" />
+              <img alt="Logo" src="/build/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
+            </a>
+            <!--end::Logo image-->
+          </div>
+          <!--end::Logo-->
+          <!--begin::sidebar menu-->
+          <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
+            <!--begin::Menu wrapper-->
+            <div
+              id="kt_app_sidebar_menu_wrapper"
+              class="app-sidebar-wrapper hover-scroll-overlay-y my-5"
+              data-kt-scroll="true"
+              data-kt-scroll-activate="true"
+              data-kt-scroll-height="auto"
+              data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+              data-kt-scroll-wrappers="#kt_app_sidebar_menu"
+              data-kt-scroll-offset="5px"
+              data-kt-scroll-save-state="true">
+              <!--begin::Menu-->
+              <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">Getting Started</span>
                   </div>
+                  <!--end:Menu content-->
                 </div>
-                <div class="tab-pane fade" id="treeJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import {selectRef, Tree} from &#039;metronic-extension&#039;;
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/server-side-processing.html">
+                    <span class="menu-title">Server-side processing</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">Components</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/api-client.html">
+                    <span class="menu-title">API Client</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/block-ui.html">
+                    <span class="menu-title">BlockUI</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
+                  <!--begin:Menu link-->
+                  <span class="menu-link">
+                    <span class="menu-title">Chart</span>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <!--end:Menu link-->
+                  <!--begin:Menu sub-->
+                  <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="/barchart.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">BarChart</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                  </div>
+                  <!--end:Menu sub-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/clipboard.html">
+                    <span class="menu-title">Clipboard</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/datatable.html">
+                    <span class="menu-title">DataTable</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/date-range-picker.html">
+                    <span class="menu-title">Date Range Picker</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/dialog.html">
+                    <span class="menu-title">Dialog</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/dropzone.html">
+                    <span class="menu-title">Dropzone</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/form-validation.html">
+                    <span class="menu-title">FormValidation</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/image-input.html">
+                    <span class="menu-title">ImageInput</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/modal.html">
+                    <span class="menu-title">Modal</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/password-toggle.html">
+                    <span class="menu-title">Password Toggle</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/select-elements.html">
+                    <span class="menu-title">Search for elements</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/tagify.html">
+                    <span class="menu-title">Tagify</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/toast.html">
+                    <span class="menu-title">Toast</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/toggle-button.html">
+                    <span class="menu-title">Toggle button</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/tooltip.html">
+                    <span class="menu-title">Tooltip</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link active" href="/tree.html">
+                    <span class="menu-title">Tree</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/utilities.html">
+                    <span class="menu-title">Utilities</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">HTML &amp; CSS</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/design-utility.html">
+                    <span class="menu-title">Utilities</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/flex-layouts.html">
+                    <span class="menu-title">Flex Layouts</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/text.html">
+                    <span class="menu-title">Text</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/background.html">
+                    <span class="menu-title">Background</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/borders.html">
+                    <span class="menu-title">Borders</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/opacity.html">
+                    <span class="menu-title">Opacity</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/buttons.html">
+                    <span class="menu-title">Buttons</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/cards.html">
+                    <span class="menu-title">Cards</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
+                  <!--begin:Menu link-->
+                  <span class="menu-link">
+                    <span class="menu-title">Forms</span>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <!--end:Menu link-->
+                  <!--begin:Menu sub-->
+                  <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="/form-controls.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Controls</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="/checks-radios.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Checks & Radios</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="/input-group.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Input Group</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="/floating-labels.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Floating Labels</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="/form-advanced.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Advanced</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                  </div>
+                  <!--end:Menu sub-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/symbol.html">
+                    <span class="menu-title">Symbol</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/no-ui-slider.html">
+                    <span class="menu-title">noUiSlider</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">Icons</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/keenicons.html">
+                    <span class="menu-title">KeenIcons</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/bootstrap-icons.html">
+                    <span class="menu-title">Bootstrap Icons</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="/font-awesome.html">
+                    <span class="menu-title">Font Awesome</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+              </div>
+              <!--end::Menu-->
+            </div>
+            <!--end::Menu wrapper-->
+          </div>
+          <!--end::sidebar menu-->
+          <!--begin::Footer-->
+          <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer"></div>
+          <!--end::Footer-->
+        </div>
+        <!--end::Sidebar-->
+        <!--begin::Main-->
+        <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+          <!--begin::Content wrapper-->
+          <div class="d-flex flex-column flex-column-fluid">
+            <!--begin::Content-->
+            <div id="kt_app_content" class="app-content flex-column-fluid">
+              <!--begin::Content container-->
+              <div class="app-container container-fluid py-3 py-lg-6">
+                <!--begin::Container-->
+                <div id="kt_app_content_container" class="container d-flex flex-column flex-lg-row">
+                  <!--begin::Card-->
+                  <div class="card flex-row-fluid mb-2">
+                    <!--begin::Card Body-->
+                    <div class="card-body py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+                      
 
-const ref = selectRef();
-const tree = new Tree(ref.tree, {
-  folderMaxlen: 20,
-  fileMaxlen: 20,
-  nodeTypes: {
-    // folder: {
-    //   type: &#039;folder&#039;,
-    //   icon: &#039;fa fa-folder text-warning&#039;,
-    // },
-    file: {
-      // type: &#039;file&#039;,
-      icon: &#039;fa-solid fa-computer text-white&#039;,
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <code>jsTree</code> plugin-based interactive tree component. For more info please visit the plugin's <a class="me-1" href="https://www.jstree.com/" target="_blank">Home</a> or <a href="https://github.com/vakata/jstree" target="_blank">Github Repo</a>.  
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the Tree class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLDivElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLDivElement selector, element, or JQuery object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.ajax: Record&lt;string, string|((node: any) =&gt; string)|TreeAjaxOptions&gt;</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Ajax options for creating, deleting, and renaming nodes. This option is required.
+                    <ul>
+                      <li class="py-2"><code>children: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to retrieve child nodes (GET).<br>
+                          The <code>_PARENT_NODE_ID_</code> in the URL is replaced by the currently selected folder node ID.<br>
+                          If you want to make the URL dynamic, use the callback function.<br>
+                          Also, use the <code>data</code> option if you want to add or change the data to be sent.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;GET /api/tree/:_PARENT_NODE_ID_&quot;
+children: &#039;/api/tree/_PARENT_NODE_ID_&#039;,
+
+// Dynamic URL generation.
+children: node =&gt; {
+  // This is an example of simply retrieving tree data in JSON without using the server side.
+  if (node.id === &#039;#&#039;)
+    // If the node ID is &quot;#&quot;, the data of the root node itself is returned.
+    return &#039;root-itself.json&#039;;
+  else if (node.id == 1)
+    // If the node ID is &quot;1&quot;, the data of the child node associated with the root node (ID=1) is returned.
+    return &#039;roots-children.json&#039;;
+  else if (node.id == 2)
+    // If the node ID is &quot;2&quot;, the data of the child node (ID=2) associated with the child1 node is returned.
+    return &#039;child1s-children.json&#039;;
+}
+
+// Added data to be sent.
+children: {
+  url: &#039;/api/tree/_PARENT_NODE_ID_&#039;,
+  data: (data, node) =&gt; {
+    data.extra = &#039;Extra&#039;;
+  }
+}
+
+// Dynamically generate URLs and add data to be sent.
+children: {
+  url: node =&gt; {
+    // This is an example of simply retrieving tree data in JSON without using the server side.
+    if (node.id === &#039;#&#039;)
+      // If the node ID is &quot;#&quot;, the data of the root node itself is returned.
+      return &#039;root-itself.json&#039;;
+    else if (node.id == 1)
+      // If the node ID is &quot;1&quot;, the data of the child node associated with the root node (ID=1) is returned.
+      return &#039;roots-children.json&#039;;
+    else if (node.id == 2)
+      // If the node ID is &quot;2&quot;, the data of the child node (ID=2) associated with the child1 node is returned.
+      return &#039;child1s-children.json&#039;;
+  }
+  data: (data, node) =&gt; {
+    data.extra = &#039;Extra&#039;;
+  }
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>createFolder: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to create a folder node (POST).<br>
+                          The <code>_PARENT_NODE_ID_</code> in the URL is replaced by the currently selected folder node ID.<br>
+                          The data to be sent is <code>{&quot;text&quot;: new node name}</code> but can be added or changed with the data option.<br>
+                          If you want to make the URL dynamic, use the callback function.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;POST /api/tree/folder/:_PARENT_NODE_ID_&quot;.
+createFolder: &#039;/api/tree/folder/_PARENT_NODE_ID_&#039;</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFolder: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to delete a folder node (DELETE).<br>
+                          URL to request. The <code>_CURRENT_NODE_ID_</code> in the URL will be replaced by the current node ID.<br>
+                          If you want to make the URL dynamic, use the callback function.<br>
+                          Also, use the data option if you want to add or change the data to be sent.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;DELETE /api/tree/folder/:_CURRENT_NODE_ID_&quot;.
+deleteFolder: &#039;/api/tree/folder/_CURRENT_NODE_ID_&#039;</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>renameFolder: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to rename a folder node (PUT).<br>
+                          The <code>_CURRENT_NODE_ID_</code> in the URL will be replaced by the current node ID.<br>
+                          The data to be sent is <code>{&quot;text&quot;: changed node name}</code>, but can be added or changed with the data option.<br>
+                          If you want to make the URL dynamic, use the callback function.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;PUT /api/tree/folder/:_CURRENT_NODE_ID_&quot;.
+renameFolder: &#039;/api/tree/folder/_CURRENT_NODE_ID_&#039;</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>createFile: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to create a file node (POST).<br>
+                          The <code>_PARENT_NODE_ID_</code> in the URL is replaced by the currently selected folder node ID.<br>
+                          The data to be sent is <code>{&quot;text&quot;: new node name}</code>, but can be added or changed with the data option.<br>
+                          If you want to make the URL dynamic, use the callback function.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;POST /api/tree/file/:_PARENT_NODE_ID_&quot;.
+createFile: &#039;/api/tree/file/_PARENT_NODE_ID_&#039;</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFile: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to delete a file node (DELETE).<br>
+                          The <code>_CURRENT_NODE_ID_</code> in the URL will be replaced by the current node ID.<br>
+                          If you want to make the URL dynamic, use the callback function.<br>
+                          Also, use the data option if you want to add or change the data to be sent.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;DELETE /api/tree/file/:_CURRENT_NODE_ID_&quot;.
+deleteFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>renameFile: string|((node: any) =&gt; string)|TreeAjaxOptions</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Ajax option to rename a file node (PUT).<br>
+                          The <code>_CURRENT_NODE_ID_</code> in the URL will be replaced by the current node ID.<br>
+                          The data to be sent is <code>{&quot;text&quot;: changed node name}</code>, but can be added or changed with the data option.<br>
+                          If you want to make the URL dynamic, use the callback function.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">// Send to &quot;PUT /api/tree/file/:_CURRENT_NODE_ID_&quot;.
+renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="py-2"><code>options.readonly?: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Read-only. If true, the context menu for changing nodes is not displayed. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.maxDepth?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Maximum number of levels in the tree. Default is 2.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.folderMaxlen?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Maximum length of folder node name. Default is 20.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.fileMaxlen?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Maximum length of file node name. Default is 20.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.nodeTypes?: Record&lt;string, {type: string, icon: string}&gt;</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Node type.
+                    <ul>
+                      <li class="py-2"><code>folder: {type: string, icon: string}</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node options.
+                          <ul>
+                            <li class="py-2"><code>type: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Folder node identifier. Default is &quot;folder&quot;.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>icon: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Folder node icons. Default is &quot;fa fa-folder text-warning&quot;.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                          </ul>
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>file: {type: string, icon: string}</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          File node options.
+                          <ul>
+                            <li class="py-2"><code>type: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                File node identifier. Default is &quot;file&quot;.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>icon: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                File node icons. Default is &quot;fa fa-file text-white&quot;.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                          </ul>
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.language?: Record&lt;string, string&gt;</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Strings used in the user interface.
+                    <ul>
+                      <li class="py-2"><code>createFolderMenu?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node creation menu. Default is &quot;Create folder&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>createFolderSuccessful?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node creation success message. The <code>_FOLDER_</code> in the text is set to the name of the created folder. Default is &quot;_FOLDER_ has been created.&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFolderMenu?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node deletion menu. Default is &quot;Delete folder&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFolderConfirmation?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node deletion confirmation message. The <code>_FOLDER_</code> in the text is set to the name of the folder to be deleted. Default is &quot;Are you sure you want to delete _FOLDER_?&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFolderButton?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node deletion confirmation OK button. Default is &quot;Delete the folder&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFolderCancelButton?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node deletion confirmation cancel button. Default is &quot;Cancel&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFolderSuccessful?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node deletion success message. The <code>_FOLDER_</code> in the text is set to the name of the folder to be deleted. Default is &quot;_FOLDER_ has been deleted.&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>renameFolderManu?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Folder node rename menu. Default is &quot;Rename folder&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>newFolderName?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Default new folder node name. Default is &quot;New Folder&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>createFileMenu?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          File node creation menu. Default is &quot;Create file&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>createFileSuccessful?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          File node creation success message. The <code>_FILE_</code> in the text is set to the name of the created file. Default is &quot;_FILE_ has been created.&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFileMenu?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          File node deletion menu. Default is &quot;Delete file&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFileConfirmation?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          File node deletion confirmation message. The <code>_FILE_</code> in the text is set to the name of the file to be deleted. Default is &quot;Are you sure you want to delete _FILE_?&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFileButton?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          OK button for file node deletion confirmation. Default is &quot;Delete file&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFileCancelButton?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Cancel button for confirming file node deletion. Default is &quot;Cancel&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>deleteFileSuccessful?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Success message for deleting a file node. The <code>_FILE_</code> in the text is set to the name of the file to be deleted. Default is &quot;_FILE_ has been deleted.&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>renameFileManu?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          File node rename menu. Default is &quot;Rename file&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>newFileName?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Default new file node name. Default is &quot;New File&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>unknownErrorTitle?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Unexpected error title. Default is &quot;An unexpected error has occurred.&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>unknownErrorMessage?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Unexpected error message. Default is &quot;The process was interrupted due to an error. Please try again.&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public refresh()</code>
+            </td>
+            <td>
+              Refresh the tree.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>skipLoading: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    An option to skip showing the loading indicator. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>forgetState: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If set to true state will not be reapplied, if set to a function (receiving the current state as argument) the result of that function will be used as state. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public refreshNode()</code>
+            </td>
+            <td>
+              Refresh a node in the tree (reload child nodes).
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>nodeObject: any</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The node.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onSelected()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when a node is selected. The callback function receives an event object and a node object.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: any, node: any) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onError()</code>
+            </td>
+            <td>
+              Sets the callback function to be called on error. The callback function receives an error object.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (err: any) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onFetch()</code>
+            </td>
+            <td>
+              Sets the callback function that will be called when a child node of the selected node is retrieved from the server side.<br>
+              The callback function receives the data retrieved from the server side and can modify or add data.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (nodeData: any) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onReady()</code>
+            </td>
+            <td>
+              Sets the callback function that will be called when the tree initialization is complete. The callback function receives an event object.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: any) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onCreateFileHook()</code>
+            </td>
+            <td>
+              Sets the function that hooks the operation to create a new node.<br>
+              If the hook is not set, the new node will be added to the tree immediately.<br>
+              The hook function you set must return the ID and text of the newly created node. Also, return false, null, or undefined if you want to cancel the creation.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>hook: (parent: any) =&gt; Promise&lt;{id: string|number, text: string, [key: string]: any}|null|undefined|false&gt;</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Hook function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getSelectedNodes()</code>
+            </td>
+            <td>
+              Get an array of all selected nodes.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>full: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    if set to true the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>index?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Index of the node to be acquired. Default is none and all nodes are retrieved.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>any|null</code> Selected node.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getSelectedNode()</code>
+            </td>
+            <td>
+              Get the first node among the selected.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>full: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    if set to true the returned array will consist of the full node objects, otherwise - only IDs will be returned.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>any|null</code> Selected node.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getPath()</code>
+            </td>
+            <td>
+              Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>nodeObject: any</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The node.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>glue: string|undefined</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If you want the path as a string - pass the glue here (for example &#039;/&#039;), if a falsy value is supplied here, an array is returned.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>ids: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If set to true build the path using ID, otherwise node text is used.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>string[]|string</code> Path of the node.</li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">tree.onSelected((evnt, node) =&gt; {
+  // Get the path of the node.
+  tree.getPath(node);// [&#039;Root&#039;, &#039;Folder#1&#039;, &#039;Folder#1_1&#039;]
+  tree.getPath(node, &#039;/&#039;);// &#039;Root/Folder#1/Folder#1_1&#039;
+  tree.getPath(node, &#039;/&#039;, true);// &#039;1/2/3&#039;
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getParentNode()</code>
+            </td>
+            <td>
+              Get parent node.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>nodeObject: any</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The node.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>any</code> Parent node.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public renameNode()</code>
+            </td>
+            <td>
+              Rename node.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>nodeObject: any</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The node, you can pass an array to rename multiple nodes to the same name.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>text: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    new text value.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Tree</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Here is an example of a read-only tree that does not use server-side processing and contains data via JSON.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Tree-->
+      <div id="basicTree"></div>
+      <!--end::Tree-->
+      <!--begin::Selected node information-->
+      <div class="pt-5">
+        <div class="mb-2">Node ID: <span id="nodeId" class="text-dark">-</span></div>
+        <div class="mb-2">Path: <span id="nodePath" class="text-dark">-</span></div>
+        <div class="mb-2">Text: <span id="nodeText" class="text-dark">-</span></div>
+        <div class="mb-2">Type: <span id="nodeType" class="text-dark">-</span></div>
+      </div>
+      <!--end::Selected node information-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleRootItselfJsonTab" role="tab">ROOT ITSELF JSON</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleRootChildrenJsonTab" role="tab">ROOT CHILDREN JSON</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleChild1ChildrenJsonTab" role="tab">CHILD1 CHILDREN JSON</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Tree--&gt;
+&lt;div id=&quot;basicTree&quot;&gt;&lt;/div&gt;
+&lt;!--end::Tree--&gt;
+&lt;!--begin::Selected node information--&gt;
+&lt;div class=&quot;pt-5&quot;&gt;
+  &lt;div class=&quot;mb-2&quot;&gt;Node ID: &lt;span id=&quot;nodeId&quot; class=&quot;text-dark&quot;&gt;-&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;mb-2&quot;&gt;Path: &lt;span id=&quot;nodePath&quot; class=&quot;text-dark&quot;&gt;-&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;mb-2&quot;&gt;Text: &lt;span id=&quot;nodeText&quot; class=&quot;text-dark&quot;&gt;-&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;mb-2&quot;&gt;Type: &lt;span id=&quot;nodeType&quot; class=&quot;text-dark&quot;&gt;-&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--end::Selected node information--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Tree} from &#039;metronic-extension&#039;;
+
+// Initialize Tree.
+const basicTree = new Tree(document.getElementById(&#039;basicTree&#039;), {
+  // Ajax Option.
+  ajax: {
+    children: node =&gt; {
+      // This is an example of simply retrieving tree data in JSON without using the server side.
+      if (node.id === &#039;#&#039;)
+        // If the node ID is &quot;#&quot;, the data of the root node itself is returned.
+        return &#039;/json/root-itself.json&#039;;
+      else if (node.id == 1)
+        // If the node ID is &quot;1&quot;, the data of the child node associated with the root node (ID=1) is returned.
+        return &#039;/json/roots-children.json&#039;;
+      else if (node.id == 2)
+        // If the node ID is &quot;2&quot;, the data of the child node (ID=2) associated with the child1 node is returned.
+        return &#039;/json/child1s-children.json&#039;;
     },
   },
-  api: {
-    getChildren: &#039;/api/folders/_PARENT_FOLDER_ID_/children&#039;,
-    createFolder: &#039;/api/folders/_PARENT_FOLDER_ID_&#039;,
-    deleteFolder: &#039;/api/folders/_CURRENT_FOLDER_ID_&#039;,
-    renameFolder: &#039;/api/folders/_CURRENT_FOLDER_ID_&#039;,
-    createFile: &#039;/api/files/_PARENT_FOLDER_ID_&#039;,
-    deleteFile: &#039;/api/files/_CURRENT_FILE_ID_&#039;,
-    renameFile: &#039;/api/files/_CURRENT_FILE_ID_&#039;,
+  readonly: true,
+  nodeTypes: {
+    file: {
+      icon: &#039;fa-solid fa-computer text-white&#039;,// Changed file node icons.
+    },
   },
 });
-tree
+
+// Set tree event.
+basicTree
   .onSelected((evnt, node) =&gt; {
-    alert(`selected event fires.
-      id: ${node.id}
-      path: ${tree.getPath(node, &#039;/&#039;)}
-      text: ${node.text}
-      type: ${node.type}`);
+    // Display selected node information.
+    document.getElementById(&#039;nodeId&#039;).textContent = node.id;
+    document.getElementById(&#039;nodePath&#039;).textContent = basicTree.getPath(node, &#039;/&#039;);
+    document.getElementById(&#039;nodeText&#039;).textContent = node.text;
+    document.getElementById(&#039;nodeType&#039;).textContent = node.type;
   })
   .onError(err =&gt; {
-    alert(err.message);
+    // Displays errors encountered in tree operations.
+    alert(err);
   });</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end::Highlight-->
+            </pre>
           </div>
-          <!--end::Code-->
         </div>
-        <!--end::Section-->
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleRootItselfJsonTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This root node of the tree loads data by Ajax (root-itself.json). The latest data that has been loaded is shown below. This data will update automatically as any additional data is loaded.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {
+    &quot;parent&quot;: &quot;#&quot;,
+    &quot;type&quot;: &quot;folder&quot;,
+    &quot;text&quot;: &quot;Root&quot;,
+    &quot;id&quot;: 1,
+    &quot;children&quot;: 1
+  }
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleRootChildrenJsonTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">Child nodes associated with the route of the tree loads data by Ajax (roots-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {
+    &quot;parent&quot;: 1,
+    &quot;type&quot;: &quot;folder&quot;,
+    &quot;text&quot;: &quot;Child1&quot;,
+    &quot;id&quot;: 2,
+    &quot;children&quot;: 1
+  },
+  {
+    &quot;parent&quot;: 1,
+    &quot;type&quot;: &quot;folder&quot;,
+    &quot;text&quot;: &quot;Child2&quot;,
+    &quot;id&quot;: 3,
+    &quot;children&quot;: 0
+  }
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleChild1ChildrenJsonTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">Child nodes associated with Child1 of the tree loads data by Ajax (child1s-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {
+    &quot;parent&quot;: 2,
+    &quot;type&quot;: &quot;file&quot;,
+    &quot;text&quot;: &quot;GrandChild1&quot;,
+    &quot;id&quot;: 1,
+    &quot;children&quot;: null
+  }
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
       </div>
-      <!--end::Card Body-->
+      <!--begin::Tab content-->
     </div>
-    <!--end::Card-->
+    <!--end::Highlight-->
   </div>
-  <!--end::Container-->
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="serverSideProcessingExample" data-kt-scroll-offset="100">
+    <a href="#serverSideProcessingExample"></a>Server-side processing
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    In this example, the tree data is retrieved from the server side.<br>
+    It also activates the context menu for creating, modifying, and deleting nodes, and requests the server-side to create, modify, and delete them.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <!--begin::Notice-->
+    <div class="notice d-flex align-items-center bg-light-primary rounded min-w-lg-600px flex-shrink-0 p-6">
+      <!--begin::Icon-->
+      <i class="ki-duotone ki-information-3 fs-2tx text-primary me-4">
+        <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+      </i>
+      <!--end::Icon-->
+      <!--begin::Description-->
+      <div class="text-gray-700 fw-bold fs-6">
+        Server-side processing is required to make this demo work. Click <a href="/server-side-processing.html">here</a> to learn how to build server-side processing.
+      </div>
+      <!--end::Description-->
+    </div>
+    <!--end::Notice-->  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Tree-->
+      <div id="serverSideProcessingTree"></div>
+      <!--end::Tree-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#serverSideProcessingExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleAjaxTab" role="tab">AJAX</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleRouteTab" role="tab">SERVER-SIDE ROUTE JS</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleFolderModelTab" role="tab">SERVER-SIDE FOLDER MODEL JS</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleFileModelTab" role="tab">SERVER-SIDE FILE MODEL JS</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="serverSideProcessingExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Tree--&gt;
+&lt;div id=&quot;serverSideProcessingTree&quot;&gt;&lt;/div&gt;
+&lt;!--end::Tree--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="serverSideProcessingExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Tree} from &#039;metronic-extension&#039;;
+
+// Initialize Tree.
+const serverSideProcessingTree = new Tree(document.getElementById(&#039;serverSideProcessingTree&#039;), {
+  ajax: {
+    children: &#039;/api/tree/_PARENT_NODE_ID_&#039;,
+    createFolder: &#039;/api/tree/folder/_PARENT_NODE_ID_&#039;,
+    deleteFolder: &#039;/api/tree/folder/_CURRENT_NODE_ID_&#039;,
+    renameFolder: &#039;/api/tree/folder/_CURRENT_NODE_ID_&#039;,
+    createFile: &#039;/api/tree/file/_PARENT_NODE_ID_&#039;,
+    deleteFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;,
+    renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;,
+  },
+  nodeTypes: {
+    file: {
+      icon: &#039;fa-solid fa-computer text-white&#039;,// Changed file node icons.
+    },
+  },
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="serverSideProcessingExampleAjaxTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This tree loads data by Ajax. The latest data that has been loaded is shown below. This data will update automatically as any additional data is loaded.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Send to &quot;GET /api/tree/%23&quot; and load the root&#039;s own data.
+[{&quot;parent&quot;: &quot;#&quot;, &quot;type&quot;: &quot;folder&quot;, &quot;text&quot;: &quot;Root&quot;, &quot;id&quot;: 1, &quot;children&quot;: 1}]
+
+// Send to &quot;GET /api/tree/1&quot; and load the data of the root&#039;s child nodes.
+[
+  {&quot;parent&quot;: 1, &quot;type&quot;: &quot;folder&quot;, &quot;text&quot;: &quot;Child1&quot;, &quot;id&quot;: 2, &quot;children&quot;: 1},
+  {&quot;parent&quot;: 1, &quot;type&quot;: &quot;folder&quot;, &quot;text&quot;: &quot;Child2&quot;, &quot;id&quot;: 3, &quot;children&quot;: 0}
+]
+
+// Send to &quot;GET /api/tree/2&quot; and load the data of Child1 node&#039;s child nodes.
+[{&quot;parent&quot;: 2, &quot;type&quot;: &quot;file&quot;, &quot;text&quot;: &quot;GrandChild1&quot;, &quot;id&quot;:1, &quot;children&quot;: null}]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="serverSideProcessingExampleRouteTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">
+            This is a route script used in server-side processing created with <a href="https://takuya-motoshima.github.io/express-sweet/" target="_blank">express-sweet</a>, which extends Node.js express.
+          </div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">const router = require(&#039;express&#039;).Router();
+const {body, validationResult} = require(&#039;express-validator&#039;);
+const FolderModel = require(&#039;../../models/FolderModel&#039;);
+const FileModel = require(&#039;../../models/FileModel&#039;);
+
+// Check validation results.
+function checkValidationResult(req, res, next) {
+  const result = validationResult(req);
+  if (result.isEmpty())
+    // If there are no errors, go to the next process.
+    next();
+  else
+    // If there is an error, return a 400 error.
+    res.status(400).send();
+}
+
+// Get node data. If the node ID of the parameter is &quot;#&quot;, the root node&#039;s own data is acquired; otherwise, the child nodes of the node corresponding to the ID are acquired.
+router.get(&#039;/:folderId(\\d+|%23)&#039;, async (req, res) =&gt; {
+  const children = await FolderModel.findChildren(req.params.folderId);
+  res.json(children);
+});
+
+// Create a node.
+router.post(&#039;/:type(folder|file)/:folderId(\\d+)&#039;, [
+  body(&#039;text&#039;).trim().not().isEmpty(),
+  checkValidationResult
+], async (req, res) =&gt; {
+  let newNode;
+  if (req.params.type === &#039;folder&#039;)
+    newNode = await FolderModel.createNode(req.params.folderId, req.body.text);
+  else
+    newNode = await FileModel.createNode(req.params.folderId, req.body.text);
+  res.json({id: newNode.id});
+});
+
+// Rename node.
+router.put(&#039;/:type(folder|file)/:nodeId(\\d+)&#039;, [
+  body(&#039;text&#039;).trim().not().isEmpty(),
+  checkValidationResult
+], async (req, res) =&gt; {
+  if (req.params.type === &#039;folder&#039;)
+    await FolderModel.renameNode(req.params.nodeId, req.body.text);
+  else
+    await FileModel.renameNode(req.params.nodeId, req.body.text);
+  res.json({});
+});
+
+// Delete node.
+router.delete(&#039;/:type(folder|file)/:nodeId(\\d+)&#039;, async (req, res) =&gt; {
+  if (req.params.type === &#039;folder&#039;)
+    await FolderModel.deleteNode(req.params.nodeId);
+  else
+    await FileModel.deleteNode(req.params.nodeId);
+  res.json({});
+});
+
+module.exports = router;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="serverSideProcessingExampleFolderModelTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">
+            This is a Model script used in server-side processing created with <a href="https://takuya-motoshima.github.io/express-sweet/" target="_blank">express-sweet</a>, which extends Node.js express.
+          </div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">const Model = require(&#039;express-sweet&#039;).database.Model;
+
+module.exports = class extends Model {
+  static get table() {
+    return &#039;folder&#039;;
+  }
+
+  static get attributes() {
+    return {
+      id: {
+        type: this.DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      parent: this.DataTypes.INTEGER,
+      text: this.DataTypes.STRING,
+    };
+  }
+
+  static async createNode(parent, text) {
+    return super.create({parent, text});
+  }
+
+  static async deleteNode(id) {
+    const node = await super.findOne({where: {id}});
+    if (!node)
+      throw new Error(&#039;Data not found&#039;);
+    return node.destroy();
+  }
+
+  static async renameNode(id, text) {
+    const node = await super.findOne({where: {id}});
+    if (!node)
+      throw new Error(&#039;Data not found&#039;);
+    node.text = text;
+    await node.save();
+  }
+
+  static async findChildren(parent) {
+    return parent === &#039;#&#039; ?
+        super.query(
+          `SELECT
+            &#039;#&#039; parent, &#039;folder&#039; type, \`text\`, id, if (counter.folderId IS NOT NULL, true, false) children
+          FROM
+            folder LEFT JOIN (
+              SELECT
+                folderId
+              FROM
+                (SELECT parent folderId FROM folder WHERE parent IS NOT NULL
+                  UNION ALL SELECT folderId FROM file) t
+              GROUP BY
+                folderId
+            ) counter ON folder.id = counter.folderId
+          WHERE
+            folder.parent is null`, {type: this.QueryTypes.SELECT}) :
+        super.query(
+          `SELECT
+            parent, &#039;folder&#039; type, \`text\`, id, if (counter.folderId IS NOT NULL, true, false) children
+          FROM
+            folder LEFT JOIN (
+              SELECT
+                folderId
+              FROM
+                (SELECT parent folderId FROM folder WHERE parent IS NOT NULL
+                  UNION ALL SELECT folderId FROM file) t
+              GROUP BY
+                folderId
+            ) counter ON folder.id = counter.folderId
+          WHERE
+            folder.parent = :parent
+          UNION ALL
+          SELECT
+            folderId parent, &#039;file&#039; type, \`text\`, id, NULl children
+          FROM
+            file
+          WHERE
+            folderId = :parent`, {type: this.QueryTypes.SELECT, replacements: {parent}});
+  }
+}</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="serverSideProcessingExampleFileModelTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">
+            This is a Model script used in server-side processing created with <a href="https://takuya-motoshima.github.io/express-sweet/" target="_blank">express-sweet</a>, which extends Node.js express.
+          </div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">const Model = require(&#039;express-sweet&#039;).database.Model;
+
+module.exports = class extends Model {
+  static get table() {
+    return &#039;file&#039;;
+  }
+
+  static get attributes() {
+    return {
+      id: {
+        type: this.DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      folderId: this.DataTypes.INTEGER,
+      text: this.DataTypes.STRING,
+    };
+  }
+
+  static async createNode(folderId, text) {
+    return super.create({folderId, text});
+  }
+
+  static async deleteNode(id) {
+    const node = await super.findOne({where: {id}});
+    if (!node)
+      throw new Error(&#039;Data not found&#039;);
+    return node.destroy();
+  }
+
+  static async renameNode(id, text) {
+    const node = await super.findOne({where: {id}});
+    if (!node)
+      throw new Error(&#039;Data not found&#039;);
+    node.text = text;
+    await node.save();
+  }
+}</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+                    </div>
+                    <!--end::Card Body-->
+                  </div>
+                  <!--end::Card-->
+                  <!--begin::Sidebar wrapper-->
+                  <div class="ms-7 flex-row-auto w-lg-200px">
+                    <!--begin::Sidebar nav-->
+                    <div
+                      class="card card-flush d-none d-lg-flex"
+                      data-kt-sticky="true"
+                      data-kt-sticky-name="sidebar-navs"
+                      data-kt-sticky-offset="{default: false, lg: 200}"
+                      data-kt-sticky-width="200px"
+                      data-kt-sticky-animation="false"
+                      data-kt-sticky-left="auto"
+                      data-kt-sticky-top="100px"
+                      data-kt-sticky-zindex="95">
+                      <!--begin::Card body-->
+                      <div class="card-body px-0 px-3 py-6">
+                        <!--begin::Menu-->
+                        <ul id="sidenav" class="nav nav-flush menu menu-column menu-title-gray-700 menu-bullet-gray-300 menu-state-primary fw-semibold fs-6">
+                          <!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#serverSideProcessingExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Server-side processing</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+
+                        </ul>
+                        <!--end::Menu-->
+                      </div>
+                      <!--end::Card body-->
+                    </div>
+                    <!--end::Sidebar nav-->
+                  </div>
+                  <!--end::Sidebar wrapper-->
+                </div>
+                <!--end::Container-->
+              </div>
+              <!--end::Content container-->
+            </div>
+            <!--end::Content-->
+          </div>
+          <!--end::Content wrapper-->
+          <!--begin::Footer-->
+          <div id="kt_app_footer" class="app-footer">
+            <!--begin::Footer container-->
+            <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+              <!--begin::Copyright-->
+              <div class="text-dark order-2 order-md-1">
+                <span class="text-muted fw-semibold me-1">2023&copy;</span>
+                <a href="/" class="text-gray-800 text-hover-primary">MetronicExtension</a>
+              </div>
+              <!--end::Copyright-->
+              <!--begin::Menu-->
+              <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                <li class="menu-item">
+                  <a href="https://www.npmjs.com/package/metronic-extension" target="_blank" class="menu-link px-2">NPM</a>
+                </li>
+                <li class="menu-item">
+                  <a href="https://github.com/takuya-motoshima/metronic-extension" target="_blank" class="menu-link px-2">GitHub</a>
+                </li>
+              </ul>
+              <!--end::Menu-->
+            </div>
+            <!--end::Footer container-->
+          </div>
+          <!--end::Footer-->
+        </div>
+        <!--end:::Main-->
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+  </div>
+  <!--end::App-->
   <!--begin::Javascript-->
   <!--begin::Global Javascript Bundle(used by all pages)-->
   <script src="build/theme/plugins/global/plugins.bundle.js"></script>
   <script src="build/theme/js/scripts.bundle.js"></script>
   <!--end::Global Javascript Bundle-->
   <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/datatables/datatables.bundle.js"></script>
   <script src="build/theme/plugins/custom/jstree/jstree.bundle.js"></script>
   <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
   <!--end::Vendors Javascript-->
   <!--begin::Custom Javascript(used by this page)-->
+  <script>
+    /** SQL highlighter for PrismJS <http://prismjs.com/>
+      * @author Petros Kyladitis */
+    Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
+  </script>
+  <script src="build/docs.js"></script>
   <script src="build/tree.js"></script>
   <!--end::Custom Javascript-->
   <!--end::Javascript-->

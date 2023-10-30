@@ -1,0 +1,495 @@
+{{!< default}}
+{{#contentFor 'title'}}Input Group{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#solidStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Solid Style</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#sizing" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Sizing</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#icons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Icons</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is an additional option that extends the <a href="https://getbootstrap.com/docs/5.2/forms/input-group/" target="_blank">Bootstrap Input Group</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Place one add-on or button on either side of an input. You may also place one on both sides of an input. Remember to place <code>&lt;label&gt;</code> outside the input group.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group has-validation mb-5">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control is-invalid" required />
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          Please choose a username.
+        </div>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+        <span class="input-group-text" id="basic-addon2">@example.com</span>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <label for="basic-url" class="form-label">Your vanity URL</label>
+      <div class="input-group mb-5">
+        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+        <span class="input-group-text">.00</span>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"/>
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="Server" aria-label="Server"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group">
+        <span class="input-group-text">With textarea</span>
+        <textarea class="form-control" aria-label="With textarea"></textarea>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon1&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot; aria-describedby=&quot;basic-addon1&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Recipient&#039;s username&quot; aria-label=&quot;Recipient&#039;s username&quot; aria-describedby=&quot;basic-addon2&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon2&quot;&gt;@example.com&lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;label for=&quot;basic-url&quot; class=&quot;form-label&quot;&gt;Your vanity URL&lt;/label&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon3&quot;&gt;https://example.com/users/&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;basic-url&quot; aria-describedby=&quot;basic-addon3&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;$&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Amount (to the nearest dollar)&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Server&quot; aria-label=&quot;Server&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;With textarea&lt;/span&gt;
+  &lt;textarea class=&quot;form-control&quot; aria-label=&quot;With textarea&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="solidStyle" data-kt-scroll-offset="100">
+    <a href="#solidStyle"></a>Solid Style
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.input-group-solid</code> custom class to use solid style input group.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="input-group input-group-solid mb-5">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group input-group-solid mb-5">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+        <span class="input-group-text" id="basic-addon2">@example.com</span>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <label for="basic-url" class="form-label">Your vanity URL</label>
+      <div class="input-group input-group-solid mb-5">
+        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group input-group-solid mb-5">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+        <span class="input-group-text">.00</span>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group input-group-solid mb-5">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"/>
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="Server" aria-label="Server"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group input-group-solid">
+        <span class="input-group-text">With textarea</span>
+        <textarea class="form-control" aria-label="With textarea"></textarea>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-solid mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon1&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot; aria-describedby=&quot;basic-addon1&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-solid mb-5&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Recipient&#039;s username&quot; aria-label=&quot;Recipient&#039;s username&quot; aria-describedby=&quot;basic-addon2&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon2&quot;&gt;@example.com&lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;label for=&quot;basic-url&quot; class=&quot;form-label&quot;&gt;Your vanity URL&lt;/label&gt;
+&lt;div class=&quot;input-group input-group-solid mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon3&quot;&gt;https://example.com/users/&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;basic-url&quot; aria-describedby=&quot;basic-addon3&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-solid mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;$&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Amount (to the nearest dollar)&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-solid mb-5&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Server&quot; aria-label=&quot;Server&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-solid&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;With textarea&lt;/span&gt;
+  &lt;textarea class=&quot;form-control&quot; aria-label=&quot;With textarea&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="sizing" data-kt-scroll-offset="100">
+    <a href="#sizing"></a>Sizing
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add the relative form sizing classes to the <code>.input-group</code> itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="input-group input-group-sm mb-5">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"/>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-sm mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-sm&quot;&gt;Small&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-sm&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-default&quot;&gt;Default&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-default&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group input-group-lg&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-lg&quot;&gt;Large&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-lg&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="icons" data-kt-scroll-offset="100">
+    <a href="#icons"></a>Icons
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <a href="/keenicons">Keenicons</a>,
+    <a href="/bootstrap-icons">Bootstrap Icons</a>,
+    <a href="/font-awesome">Font Awesome Icons</a>&nbsp;
+    with Input Group's <code>.input-group-text</code> element as shown below.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="ki-duotone ki-profile-circle fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+        <span class="input-group-text" id="basic-addon2">
+          <i class="ki-duotone ki-sms fs-4"><span class="path1"></span><span class="path2"></span></i>
+        </span>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <span class="input-group-text" id="basic-addon3">
+          <i class="ki-duotone ki-wallet fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+        </span>
+        <input type="text" class="form-control" id="basic-url"  placeholder="Website URL" aria-describedby="basic-addon3"/>
+      </div>
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="input-group mb-5">
+        <span class="input-group-text">
+          <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span class="path2"></span></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Amount (to the nearest dollar)"/>
+        <span class="input-group-text">.00</span>
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon1&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-profile-circle fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot; aria-describedby=&quot;basic-addon1&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Recipient&#039;s username&quot; aria-label=&quot;Recipient&#039;s username&quot; aria-describedby=&quot;basic-addon2&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon2&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-sms fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot; id=&quot;basic-addon3&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-wallet fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;basic-url&quot;  placeholder=&quot;Website URL&quot; aria-describedby=&quot;basic-addon3&quot;/&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;
+
+&lt;!--begin::Input group--&gt;
+&lt;div class=&quot;input-group mb-5&quot;&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-calendar fs-2&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Amount (to the nearest dollar)&quot;/&gt;
+  &lt;span class=&quot;input-group-text&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

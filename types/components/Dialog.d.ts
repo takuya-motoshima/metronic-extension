@@ -1,45 +1,60 @@
-import ConfirmDialogOptions from '~/interfaces/ConfirmDialogOptions';
-import SuccessDialogOptions from '~/interfaces/SuccessDialogOptions';
-import ErrorDialogOptions from '~/interfaces/ErrorDialogOptions';
-import WarningDialogOptions from '~/interfaces/WarningDialogOptions';
-import InfoDialogOptions from '~/interfaces/InfoDialogOptions';
-import LoadingDialogOptions from '~/interfaces/LoadingDialogOptions';
-import UnknownErrorDialogOptions from '~/interfaces/UnknownErrorDialogOptions';
+import { SweetAlertOptions } from 'sweetalert2';
 /**
- * Display various dialogs.
+ * Dialogue based on sweetalert2.
  */
 export default class {
     #private;
     /**
      * Show the confirm dialog.
+     * @param {string} message The modal's text.
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<boolean>} True if the confirmation button is clicked, false otherwise.
      */
-    static confirm(message: string, options?: ConfirmDialogOptions | undefined): Promise<boolean>;
+    static confirm(message: string, options?: SweetAlertOptions): Promise<boolean>;
     /**
      * Show the success dialog.
+     * @param {string} message The modal's text.
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<boolean>} True if the confirmation button is clicked, false otherwise.
      */
-    static success(message: string, options?: SuccessDialogOptions | undefined): Promise<boolean>;
+    static success(message: string, options?: SweetAlertOptions): Promise<boolean>;
     /**
      * Show the error dialog.
+     * @param {string} message The modal's text.
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<void>} Wait for the dialog to close.
      */
-    static error(message: string, options?: ErrorDialogOptions | undefined): Promise<void>;
+    static error(message: string, options?: SweetAlertOptions): Promise<void>;
     /**
      * Show the warning dialog.
+     * @param {string} message The modal's text.
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<void>} Wait for the dialog to close.
      */
-    static warning(message: string, options?: WarningDialogOptions | undefined): Promise<void>;
+    static warning(message: string, options?: SweetAlertOptions): Promise<void>;
     /**
      * Show the info dialog.
+     * @param {string} message The modal's text.
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<void>} Wait for the dialog to close.
      */
-    static info(message: string, options?: InfoDialogOptions | undefined): Promise<void>;
+    static info(message: string, options?: SweetAlertOptions): Promise<void>;
     /**
      * Show unknown error.
+     * @param {string} message The modal's text. The default is "The process was interrupted due to an error. Please try again.".
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<void>} Wait for the dialog to close.
      */
-    static unknownError(message?: string, options?: UnknownErrorDialogOptions | undefined): Promise<void>;
+    static unknownError(message?: string, options?: SweetAlertOptions): Promise<void>;
     /**
      * Show loading.
+     * @param {string} message The modal's text.
+     * @param {sweetalert2.SweetAlertOptions|undefined} options? Sweet Alert options.
+     * @return {Promise<void>} Wait for the dialog to close.
      */
-    static loading(message: string, options?: LoadingDialogOptions | undefined): Promise<void>;
+    static loading(message: string, options?: SweetAlertOptions): Promise<void>;
     /**
-     * Close.
+     * Closes all currently open dialogs.
      */
     static close(): void;
 }

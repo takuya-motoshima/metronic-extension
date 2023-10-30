@@ -1,371 +1,473 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Image Input - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body data-bs-spy="scroll" data-bs-target="#sidebarNav" id="kt_body" class="app-blank">
-  <!--begin::Root-->
-  <div class="d-flex flex-column flex-root" id="kt_app_root">
-    <!--begin::Content-->
-    <div class="d-flex flex-column flex-column-fluid">
-      <!--begin::Container-->
-      <div class="container d-flex flex-column flex-lg-row">
-        <!--begin::Card-->
-        <div class="card flex-row-fluid mb-2">
-          <!--begin::Card Body-->
-          <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-            <!--begin::Section-->
-            <div class="pb-10">
+{{!< default}}
+{{#contentFor 'title'}}ImageInput{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/image-input.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#readOnlyExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Read-only</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">Image Input is a component that allows for simple, lightweight image input fields.</div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the ImageInput class.
               <!--begin::Heading-->
-              <div class="d-flex flex-stack">
-                <!--begin::Title-->
-                <h1 class="anchor fw-bold mb-5" id="basicImageInput" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                  <a href="#basicImageInput"></a>Basic Image Input
-                </h1>
-                <!--end::Title-->
-                <!--begin::Actions-->
-                <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-                <!--end::Actions-->
-              </div>
+              <div class="py-3 text-gray-700">Parameters:</div>
               <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="py-5">
-                <!--begin::Information-->
-                <div class="d-flex align-items-center rounded py-5 px-5 bg-light-warning ">
-                  <!--begin::Icon-->
-                  <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
-                  <span class="svg-icon svg-icon-3x svg-icon-warning me-5">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
-                      <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
-                      <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
-                    </svg>
-                  </span>
-                  <!--end::Svg Icon-->
-                  <!--end::Icon-->
-                  <!--begin::Description-->
-                  <div class="text-gray-700 fw-bold fs-6">Server required to run this demo. Please see this <a href="https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md" target="_blank">demo/README.md</a> for more information.</div>
-                  <!--end::Description-->
-                </div>
-                <!--end::Information-->
-              </div>
-              <!--end::Block-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <!--begin::Image input-->
-                <div data-ref="basicImageInput"></div>
-                <!--end::Image input-->
-                <!--begin::DataURL of the selected image-->
-                <input data-ref="hidden" type="hidden">
-                <!--end::DataURL of the selected image-->
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicImageInputJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicImageInputHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="basicImageInputJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;!--begin::Image input--&gt;
-&lt;div data-ref=&quot;basicImageInput&quot;&gt;&lt;/div&gt;
-&lt;!--end::Image input--&gt;
-&lt;!--begin::DataURL of the selected image--&gt;
-&lt;input data-ref=&quot;hidden&quot; type=&quot;hidden&quot;&gt;
-&lt;!--end::DataURL of the selected image--&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="basicImageInputHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {ImageInput, selectRef} from &#039;metronic-extension&#039;;
-
-const ref = selectRef();
-const basicImageInput = new ImageInput(ref.basicImageInput, {
-  default: &#039;/build/media/default-avatar.svg&#039;,
-  hiddenEl: ref.hidden.get(0),
-});</code>
-                        </pre>
-                      </div>
-                    </div>
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLDivElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLDivElement selector, element, or JQuery object.
                   </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="registeredImageInput" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#registeredImageInput"></a>Registered Image Input
-              </h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <!--begin::Image input-->
-                <div data-ref="registeredImageInput"></div>
-                <!--end::Image input-->
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#registeredImageInputJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#registeredImageInputHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="registeredImageInputJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;!--begin::Image input--&gt;
-&lt;div data-ref=&quot;registeredImageInput&quot;&gt;&lt;/div&gt;
-&lt;!--end::Image input--&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="registeredImageInputHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {ImageInput, selectRef} from &#039;metronic-extension&#039;;
-
-const ref = selectRef();
-const registeredImageInput = new ImageInput(ref.registeredImageInput, {
-  default: &#039;/build/media/default-avatar.svg&#039;,
-  current: &#039;/build/media/avatar1.png&#039;,
-});</code>
-                        </pre>
-                      </div>
-                    </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.default?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The path or Data URL of the image to display by default if no image is selected; default is none (undefined).
                   </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="readonlyImageInput" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#readonlyImageInput"></a>Read-only Image Input
-              </h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <!--begin::Image input-->
-                <div data-ref="readonlyImageInput"></div>
-                <!--end::Image input-->
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#readonlyImageInputJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#readonlyImageInputHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="readonlyImageInputJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;!--begin::Image input--&gt;
-&lt;div data-ref=&quot;readonlyImageInput&quot;&gt;&lt;/div&gt;
-&lt;!--end::Image input--&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="readonlyImageInputHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {ImageInput, selectRef} from &#039;metronic-extension&#039;;
-
-const ref = selectRef();
-const readonlyImageInput = new ImageInput(ref.readonlyImageInput, {
-  current: &#039;/build/media/avatar2.png&#039;,
-  readonly: true,
-});</code>
-                        </pre>
-                      </div>
-                    </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.current?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Path or Data URL of the current image, default is none (undefined).
                   </div>
-                </div>
-                <!--end::Highlight-->
-              </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-            <!--begin::Section-->
-            <div class="py-10">
-              <!--begin::Heading-->
-              <h1 class="anchor fw-bold mb-5" id="eventImageInput" data-kt-scroll-offset="50" tabindex="-1" style="outline: none;">
-                <a href="#eventImageInput"></a>Image change event
-              </h1>
-              <!--end::Heading-->
-              <!--begin::Block-->
-              <div class="my-5">
-                <!--begin::Image input-->
-                <div data-ref="eventImageInput"></div>
-                <!--end::Image input-->
-              </div>
-              <!--end::Block-->
-              <!--begin::Code-->
-              <div class="py-5">
-                <!--begin::Highlight-->
-                <div class="highlight">
-                  <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                  <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#eventImageInputJsTabPane" role="tab">HTML</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#eventImageInputHtmlTab" role="tab">JAVASCRIPT</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane fade show active" id="eventImageInputJsTabPane" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-html" style="max-height:400px">
-                          <code class="language-html">&lt;!--begin::Image input--&gt;
-&lt;div data-ref=&quot;eventImageInput&quot;&gt;&lt;/div&gt;
-&lt;!--end::Image input--&gt;</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="eventImageInputHtmlTab" role="tabpanel">
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">import {ImageInput, selectRef} from &#039;metronic-extension&#039;;
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.hiddenEl?: HTMLInputElement</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    A hidden element that sets the Data URL for the currently selected image. Default is none (undefined).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.width?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Width of the image preview area in pixels. Default is 125.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.height?: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Height of the image preview area in pixels. Default is 125.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.readonly?: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, read-only. Default is false (editable).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.cancelable?: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, the Cancel Change (Undo) button is displayed. Default is false (cancel button is hidden).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.accept?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    A comma-separated list of MIME types or file extensions (e.g., &quot;image/*,application/pdf,.psd&quot;) for files that are allowed to be uploaded. Default is &quot;.png,.jpg,.jpeg,.svg&quot;.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options.language?: Record&lt;string, string&gt;</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Strings used in the user interface.
+                    <ul>
+                      <li class="py-2"><code>change?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Tooltip for the change button. Default is &quot;Change&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>remove?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Delete button tooltip. Default is &quot;Delete&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>cancel?: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Tooltip for the Cancel Change button. Default is &quot;Cancel and undo changes&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {ImageInput} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-const eventImageInput = new ImageInput(ref.eventImageInput, {
-  default: &#039;/build/media/default-avatar.svg&#039;,
-  current: &#039;/build/media/avatar3.png&#039;,
-});
-eventImageInput.onChange(dataUrl =&gt; {
+// Initialize ImageInput.
+const imageInput = new ImageInput(document.getElementById(&#039;myImageInput&#039;), {
+  default: &#039;/img/avatar1.svg&#039;,
+  current: &#039;/img/avatar2.png&#039;,
+  width: 125,
+  height: 125,
+  hiddenEl: document.getElementById(&#039;myImageDataURL&#039;),
+  language: {
+    change: &#039;Change this image&#039;,
+    remove: &#039;Delete this image&#039;,
+    cancel: &#039;Cancel changes to this image&#039;
+  }
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onChange()</code>
+            </td>
+            <td>
+              Sets the callback function that will be called when an image is modified. The callback function receives the Data URL of the image.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (dataURL: string|null) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>ImageInput</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Set callbacks for image changes.
+imageInput.onChange(dataURL =&gt; {
   alert(&#039;Changed image&#039;);
 });</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
+                  </pre>
                 </div>
-                <!--end::Highlight-->
               </div>
-              <!--end::Code-->
-            </div>
-            <!--end::Section-->
-          </div>
-          <!--end::Card Body-->
-        </div>
-        <!--end::Card-->
-        <!--begin::Sidebar wrapper-->
-        <div class="ms-7 flex-row-auto w-lg-200px">
-          <!--begin::Sidebar nav-->
-          <div class="card card-flush d-none d-lg-flex" data-kt-sticky="true" data-kt-sticky-name="sidebar-navs" data-kt-sticky-offset="{default: false, lg: 200}" data-kt-sticky-width="200px" data-kt-sticky-animation="false" data-kt-sticky-left="auto" data-kt-sticky-top="25px" data-kt-sticky-zindex="95">
-            <!--begin::Card body-->
-            <div class="card-body px-0 px-3 py-6">
-              <!--begin::Menu-->
-              <ul id="sidebarNav" class="nav nav-flush menu menu-column menu-title-gray-700 menu-bullet-gray-300 menu-state-primary fw-semibold fs-6">
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#basicImageInput" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Basic Image Input</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#registeredImageInput" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Registered Image Input</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#readonlyImageInput" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Read-only Image Input</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="menu-item py-2 px-3">
-                  <!--begin::Link-->
-                  <a href="#eventImageInput" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Image change event</span>
-                  </a>
-                  <!--end::Link-->
-                </li>
-                <!--end::Item-->
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public download()</code>
+            </td>
+            <td>
+              Downloading the image under selection.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getInputElement()</code>
+            </td>
+            <td>
+              Get input element.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>HTMLInputElement</code> Input Element.</li>
               </ul>
-              <!--end::Menu-->
-            </div>
-            <!--end::Card body-->
-          </div>
-          <!--end::Sidebar nav-->
-        </div>
-        <!--end::Sidebar wrapper-->
-      </div>
-      <!--end::Container-->
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getImage()</code>
+            </td>
+            <td>
+              Get Data URL of selected image.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>string|null</code> Data URL.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getHiddenElement()</code>
+            </td>
+            <td>
+              Get the hidden element that contains the Data URL of the selected image.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>HTMLInputElement|null</code> Hidden Element.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
     </div>
-    <!--end::Content-->
+    <!--end::Table wrapper-->
   </div>
-  <!--end::Root-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/image-input.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::ImageInput-->
+      <div id="basicImageInput"></div>
+      <!--end::ImageInput-->
+      <!--begin::Image data URL-->
+      <input id="basicImageDataURL" type="hidden">
+      <!--end::Image data URL-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::ImageInput--&gt;
+&lt;div id=&quot;basicImageInput&quot;&gt;&lt;/div&gt;
+&lt;!--end::ImageInput--&gt;
+&lt;!--begin::Image data URL--&gt;
+&lt;input id=&quot;basicImageDataURL&quot; type=&quot;hidden&quot;&gt;
+&lt;!--end::Image data URL--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {ImageInput} from &#039;metronic-extension&#039;;
+
+// Initialize ImageInput.
+const basicImageInput = new ImageInput(document.getElementById(&#039;basicImageInput&#039;), {
+  default: &#039;/img/avatar1.svg&#039;,
+  current: &#039;/img/avatar2.png&#039;,
+  width: 125,
+  height: 125,
+  hiddenEl: document.getElementById(&#039;basicImageDataURL&#039;),
+  language: {
+    change: &#039;Change this image&#039;,
+    remove: &#039;Delete this image&#039;,
+    cancel: &#039;Cancel changes to this image&#039;
+  }
+});
+
+// Set callbacks for image changes.
+basicImageInput.onChange(dataURL =&gt; {
+  alert(&#039;Changed image&#039;);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="readOnlyExample" data-kt-scroll-offset="100">
+    <a href="#readOnlyExample"></a>Read-only
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::ImageInput-->
+      <div id="readonlyImageInput"></div>
+      <!--end::ImageInput-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#readOnlyExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#readOnlyExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="readOnlyExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::ImageInput--&gt;
+&lt;div id=&quot;readonlyImageInput&quot;&gt;&lt;/div&gt;
+&lt;!--end::ImageInput--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="readOnlyExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {ImageInput} from &#039;metronic-extension&#039;;
+
+// Initialize ImageInput.
+const readonlyImageInput = new ImageInput(document.getElementById(&#039;readonlyImageInput&#039;), {
+  current: &#039;/img/avatar3.png&#039;,
+  readonly: true,
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

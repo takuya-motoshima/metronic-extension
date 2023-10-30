@@ -1,0 +1,433 @@
+{{!< default}}
+{{#contentFor 'title'}}API Client{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/api-client.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    API client based on <a href="https://axios-http.com/" target="_blank">Axios</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the API client class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>path: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Base path of the request URL. For example, &quot;/person&quot;
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>origin?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Request URL origin. For example, &quot;https://example.com&quot;. Default is the current origin (location.origin).
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options?: axios.AxiosRequestConfig</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Request Config. See <a href="https://axios-http.com/docs/req_config">here</a> for more details on options. The options default to the following.
+                    <ul>
+                      <li class="py-2"><code>baseURL: string</code> URL with a combination of path and origin parameters.</li>
+                      <li class="py-2"><code>timeout: number</code> 60000</li>
+                      <li class="py-2"><code>responseType: string</code> json</li>
+                      <li class="py-2"><code>withCredentials: boolean</code> true</li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {Api} from &#039;metronic-extension&#039;;
+
+// If the second parameter origin is omitted, the current origin (location.origin) is used in the request URL.
+class PersonApi extends Api {
+  constructor() {
+    super(&#039;/api/persons&#039;);
+  }
+}
+
+// The second parameter sets the origin of any request URL.
+class CustomerApi extends Api {
+  constructor() {
+    super(&#039;/api/customers&#039;, &#039;https://example.com&#039;);
+  }
+}
+
+// The third parameter allows you to set the request configuration.
+class OrderApi extends Api {
+  constructor() {
+    super(&#039;/api/orders&#039;, &#039;https://example.com&#039;, {
+      headers: {
+        &#039;X-Requested-With&#039;: &#039;XMLHttpRequest&#039;
+      }
+    });
+  }
+}</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected beforeRequestHook()</code>
+            </td>
+            <td>
+              Called just before the request. This function receives the request configuration object (axios.AxiosRequestConfig).
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>config: axios.AxiosRequestConfig</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Request Config.
+                  </div>
+                  <!--end::Block-->                  
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">beforeRequestHook(config) {
+  // Set a token in the request header.
+  config.headers.Authorization = &#039;Bearer AbCdEf123456&#039;;
+}</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected afterResponseHook()</code>
+            </td>
+            <td>
+              Called immediately after the response. The function receives the response object (axios.AxiosResponse).
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>res: axios.AxiosResponse</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Response object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">afterResponseHook(res) {
+  if (response.status === 401)
+    // Alerts when an authentication error occurs.
+    alert(&#039;You are not authorized&#039;);
+}</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>protected errorHook()</code>
+            </td>
+            <td>
+              Called on request errors. This function receives a request error object (axios.AxiosError).
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>httpStatusCode: number</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTTP status code.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>err: axios.AxiosError</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Request error object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">errorHook(httpStatusCode, err) {
+  if (httpStatusCode === 403)
+    // Redirect in case of authentication error (403).
+    location.replace(&#039;/&#039;);
+}</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getCancelToken()</code>
+            </td>
+            <td>
+              Get a token to cancel the request.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>axios.CancelTokenSource</code> A cancellation token.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public isCancel()</code>
+            </td>
+            <td>
+              Checks the RequestError object to see if the error is due to the request being canceled.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>thrown: any</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Request Error object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>boolean</code> True if the error is due to cancellation of the request.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance properties</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>protected client: axios.AxiosInstance</code>
+            </td>
+            <td>
+              Axios Instance.
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Create a Person API to retrieve a person with an arbitrary ID.
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-javascript">
+          <code class="language-javascript">import {Api} from &#039;metronic-extension&#039;;
+
+class PersonApi extends Api {
+  constructor() {
+    super(&#039;/api/persons&#039;, &#039;https://example.com&#039;);
+  }
+
+  /**
+   * Create person (POST https://example.com/api/persons).
+   * @param {FormData} formData
+   */
+  async createPerson(formData) {
+    return this.client.post(&#039;/&#039;, formData);
+  }
+
+  /**
+   * Update person (PUT https://example.com/api/persons/:id).
+   * @param {number} personId
+   * @param {FormData} formData
+   */
+  async updatePerson(personId, formData) {
+    return this.client.put(`/${personId}`, formData);
+  }
+
+  /**
+   * Get person (GET https://example.com/api/persons/:id).
+   * @param {number} personId
+   */
+  async getPerson(personId) {
+    return this.client.get(`/${personId}`);
+  }
+
+  /**
+   * Delete person (DELETE https://example.com/api/persons/:id).
+   * @param {number} personId
+   */
+  async deletePerson(personId) {
+    return this.client.delete(`/${personId}`);
+  }
+}
+
+// Create an API client instance.
+const personApi = new PersonApi();
+
+// Get person.
+const personId = 1;
+await personApi.get(personId);</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

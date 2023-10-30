@@ -1,106 +1,334 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Date Range Picker - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Date Range Picker</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
+{{!< default}}
+{{#contentFor 'title'}}Date Range Picker{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/date-range-picker.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#noInitialValueExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">No initial value</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">Date range picker with <a href="https://www.daterangepicker.com/" target="_blank">daterangepicker plugin</a> as core.</div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Parameters:</div>
+    <!--end::Heading-->
+    <!--begin::Parameters-->
+    <ul>
+      <li class="py-2"><code>element: string|HTMLInputElement|JQuery</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          HTMLInputElement selector, element, or JQuery object.
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.minDate?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          The earliest date a user may select. Default is none (undefined).
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.maxDate?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          The latest date a user may select. Default is none (undefined).
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.maxDays?: number</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Maximum number of days that can be selected. Default is indefinite (undefined).
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.locale?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Language Code (ja, en, etc.). Default is none (undefined).
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.format?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Date Format. Default is &#039;YYYY/M/D&#039;.
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.language?: Record&lt;string, string&gt;</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Strings used in the user interface.
+          <ul>
+            <li class="py-2"><code>applyLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Apply button text. Default is &#039;Apply&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>cancelLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Cancel button text. Default is &#039;Cancel&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="py-2"><code>options.autoUpdateInput?: boolean</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Indicates whether the date range picker should automatically update the value of the &lt;input&gt; element it&#039;s attached to at initialization and when the selected dates change. Default is true.
+        </div>
+        <!--end::Block-->
+      </li>
+    </ul>
+    <!--end::Parameters-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Return value:</div>
+    <!--end::Heading-->
+    <!--begin::Return-->
+    <ul class="list-style-none">
+      <li class="py-2"><code>daterangepicker</code> daterangepicker instance.</li>
+    </ul>
+    <!--end::Return-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Basic example of Date Range Picker attached to an input element.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div>
+        <!--begin::Label-->
+        <label class="form-label">Basic example</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <input id="dateRangePicker" class="form-control form-control-solid" placeholder="Pick date range">
+        <!--end::Input-->
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div&gt;
+  &lt;!--begin::Label--&gt;
+  &lt;label class=&quot;form-label&quot;&gt;Basic example&lt;/label&gt;
+  &lt;!--end::Label--&gt;
+  &lt;!--begin::Input--&gt;
+  &lt;input id=&quot;dateRangePicker&quot; class=&quot;form-control form-control-solid&quot; placeholder=&quot;Pick date range&quot;&gt;
+  &lt;!--end::Input--&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+            </pre>
           </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <input data-ref="dateRangePicker" class="form-control" placeholder="Pick date range">
-          </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#dateRangePickerHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#dateRangePickerJsTabPane" role="tab">JAVASCRIPT</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="dateRangePickerHtmlTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;input data-ref=&quot;dateRangePicker&quot; class=&quot;form-control&quot; placeholder=&quot;Pick date range&quot;&gt;</code>
-                    </pre>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="dateRangePickerJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import {initDatepicker, selectRef} from &#039;metronic-extension&#039;;
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {initDatepicker} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-initDatepicker(ref.dateRangePicker, {
+// Initialize date range picker.
+initDatepicker(document.getElementById(&#039;dateRangePicker&#039;), {
+  // Available for selection after today.
   minDate: moment().format(&#039;YYYY/M/D&#039;),
+  // Selectable only for the current month.
+  maxDate: moment().endOf(&#039;month&#039;).format(&#039;YYYY/M/D&#039;),
+  // Up to 7 days can be selected.
+  maxDays: 7,
+  // Language is English.
   locale: &#039;en&#039;,
+  format: &#039;YYYY/M/D&#039;,
   language: {
     applyLabel: &#039;OK&#039;,
     cancelLabel: &#039;Cancel&#039;,
   }
 });</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end::Highlight-->
+            </pre>
           </div>
-          <!--end::Code-->
         </div>
-        <!--end::Section-->
+        <!--end::Tab panel-->
       </div>
-      <!--end::Card Body-->
+      <!--begin::Tab content-->
     </div>
-    <!--end::Card-->
+    <!--end::Highlight-->
   </div>
-  <!--end::Container-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/date-range-picker.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="noInitialValueExample" data-kt-scroll-offset="100">
+    <a href="#noInitialValueExample"></a>No initial value
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Empty the initial input value for the date range picker.
+    To empty the initial input value, simply set the <code>autoUpdateInput</code> option to <code>false</code>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div>
+        <!--begin::Label-->
+        <label class="form-label">No initial value Example</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <input id="noInitialValueDateRangePicker" class="form-control form-control-solid" placeholder="Pick date range">
+        <!--end::Input-->
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#noInitialValueExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#noInitialValueExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="noInitialValueExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Input group--&gt;
+&lt;div&gt;
+  &lt;!--begin::Label--&gt;
+  &lt;label class=&quot;form-label&quot;&gt;No initial value Example&lt;/label&gt;
+  &lt;!--end::Label--&gt;
+  &lt;!--begin::Input--&gt;
+  &lt;input id=&quot;noInitialValueDateRangePicker&quot; class=&quot;form-control form-control-solid&quot; placeholder=&quot;Pick date range&quot;&gt;
+  &lt;!--end::Input--&gt;
+&lt;/div&gt;
+&lt;!--end::Input group--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="noInitialValueExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {initDatepicker} from &#039;metronic-extension&#039;;
+
+// No initial value Initialize date range picker.
+initDatepicker(document.getElementById(&#039;noInitialValueDateRangePicker&#039;), {
+  // If the &quot;autoUpdateInput&quot; option is set to false, the initial input value will be empty.
+  autoUpdateInput: false,
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--begin::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

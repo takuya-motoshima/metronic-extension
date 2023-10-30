@@ -1,23 +1,15 @@
 # metronic-extension
-Extension package for the Metronic WEB theme.   
-
-A demo of this package is included.  
-For more information on how to use the demo, please see this [demo/README.md](https://github.com/takuya-motoshima/metronic-extension/blob/main/demo/README.md).  
-
-Click [here](https://takuya-motoshima.github.io/metronic-extension/) to see a demo now.  
-![index.png](demo/client/src/media/demos/index.png)
+Extension package for the Metronic WEB theme.
 
 ## Documentation
-* [Changelog](CHANGELOG.md)
+Metronic Extension documentation can be found [here](https://takuya-motoshima.github.io/metronic-extension/).
+
+Also, [here](CHANGELOG.md) are the changes for each version.
 
 ## Installation
 ```sh
 npm install --save metronic-extension
 ```
-<!-- ```sh
-PAT=ghp_lEk*********************************
-npm install --save https://${PAT}:x-oauth-basic@github.com/takuya-motoshima/metronic-extension.git
-``` -->
 
 ## Testing
 With [npm](http://npmjs.org) do:
@@ -26,11 +18,11 @@ With [npm](http://npmjs.org) do:
 npm test
 ```
 
-## For developers of this package
-Update docs.
+## Testing
+With [npm](http://npmjs.org) do:
+
 ```sh
-cd docs
-npm run update-docs
+npm test
 ```
 
 ## Author

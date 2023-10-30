@@ -21,9 +21,9 @@ export default interface DatePickerOptions {
     /**
       * Date Format. Default is 'YYYY/M/D'.
       */
-    format: string;
+    format?: string;
     /**
-     * Allows you to provide localized strings for buttons and labels, customize the date format, and change the first day of week for the calendars.
+     * Strings used in the user interface.
      */
     language?: {
         /**
@@ -38,5 +38,5 @@ export default interface DatePickerOptions {
     /**
       * Indicates whether the date range picker should automatically update the value of the <input> element it's attached to at initialization and when the selected dates change. Default is true.
       */
-    autoUpdateInput: boolean;
+    autoUpdateInput?: boolean;
 }

@@ -1,460 +1,1195 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<!--begin::Head-->
-<head>
-  <title>Form Validation - Metronic Extension</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--begin::Fonts-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-  <!--end::Fonts-->
-  <!--begin::Vendor Stylesheets(used for this page only)-->
-  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Vendor Stylesheets-->
-  <!--begin::Global Stylesheets Bundle(used by all pages)-->
-  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body" class="app-blank">
-  <!--begin::Container-->
-  <div class="container pt-5">
-    <!--begin::Card-->
-    <div class="card flex-row-fluid mb-2">
-      <!--begin::Card Body-->
-      <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-        <!--begin::Section-->
-        <div class="pb-10">
-          <!--begin::Heading-->
-          <div class="d-flex flex-stack">
-            <!--begin::Title-->
-            <h1 class="fw-bold mb-5">Form Validation</h1>
-            <!--end::Title-->
-            <!--begin::Actions-->
-            <a href="./" class="btn btn-sm fw-bold btn-primary">Back to Index</a>
-            <!--end::Actions-->
-          </div>
-          <!--end::Heading-->
-          <!--begin::Block-->
-          <div class="py-5">
-            <!--begin::Form-->
-            <form data-ref="form" autocomplete="off">
-              <!--begin::Row-->
-              <div class="row g-9 mb-8">
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">CIDR</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="ipRange" class="form-control" placeholder="172.16.0.9, 172.16.0.0/16" value="172.16.0.0/16">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">File Path</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="filePath" class="form-control" placeholder="/dir" value="/dir">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-              </div>
-              <!--end::Row-->
-              <!--begin::Row-->
-              <div class="row g-9 mb-8">
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Host Name</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="fqdn" class="form-control" placeholder="example.com" value="example.com">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Host name or IP address</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="fqdnOrIp" class="form-control" placeholder="example.com, 172.16.0.9" value="172.16.0.9">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-              </div>
-              <!--end::Row-->
-              <!--begin::Row-->
-              <div class="row g-9 mb-8">
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">IP address</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="ip" class="form-control" placeholder="172.16.0.9" value="172.16.0.9">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Katakana</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="kana" class="form-control" placeholder="ヤマダ タロウ" value="ヤマダ タロウ">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-              </div>
-              <!--end::Row-->
-              <!--begin::Row-->
-              <div class="row g-9 mb-8">
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Port number</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="port" class="form-control" placeholder="80" value="80">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">UNIX user name</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="unixUserName" class="form-control" placeholder="tiger" value="tiger">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-              </div>
-              <!--end::Row-->
-              <!--begin::Row-->
-              <div class="row g-9 mb-8">
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Japanese phone number</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="phoneNumberJp" class="form-control" placeholder="06-6012-3456" value="06-6012-3456">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="col-md-6 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">Integer from 1 to 99</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <input name="numericRange" class="form-control" placeholder="99" value="99">
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-              </div>
-              <!--end::Row-->
-              <!--begin::Row-->
-              <div class="row g-9 mb-8">
-                <!--begin::Input group-->
-                <div class="col-md-12 fv-row">
-                  <!--begin::Label-->
-                  <label class="fw-semibold fs-6 mb-2 required">HTML string</label>
-                  <!--end::Label-->
-                  <!--begin::Input-->
-                  <textarea name="html" data-kt-autosize="true" class="form-control">&lt;div&gt;Hello world&lt;/div&gt;</textarea>
-                  <!--end::Input-->
-                </div>
-                <!--end::Input group-->
-              </div>
-              <!--end::Row-->
-              <!--begin::Actions-->
-              <button type="submit" class="btn btn-primary">Validation Form</button>
-              <!--end::Actions-->
-            </form>
-            <!--end::Form-->
-          </div>
-          <!--end::Block-->
-          <!--begin::Code-->
-          <div class="py-5">
-            <!--begin::Highlight-->
-            <div class="highlight">
-              <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-              <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#formValidationHtmlTabPane" role="tab">HTML</a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#formValidationJsTabPane" role="tab">JAVASCRIPT</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="formValidationHtmlTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-html" style="max-height:400px">
-                      <code class="language-html">&lt;!--begin::Form--&gt;
-&lt;form data-ref=&quot;form&quot; autocomplete=&quot;off&quot;&gt;
-  &lt;!--begin::Row--&gt;
-  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;CIDR&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;ipRange&quot; class=&quot;form-control&quot; placeholder=&quot;172.16.0.9, 172.16.0.0/16&quot; value=&quot;172.16.0.0/16&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;File Path&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;filePath&quot; class=&quot;form-control&quot; placeholder=&quot;/dir&quot; value=&quot;/dir&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-  &lt;/div&gt;
-  &lt;!--end::Row--&gt;
-  &lt;!--begin::Row--&gt;
-  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Host Name&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;fqdn&quot; class=&quot;form-control&quot; placeholder=&quot;example.com&quot; value=&quot;example.com&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Host name or IP address&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;fqdnOrIp&quot; class=&quot;form-control&quot; placeholder=&quot;example.com, 172.16.0.9&quot; value=&quot;172.16.0.9&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-  &lt;/div&gt;
-  &lt;!--end::Row--&gt;
-  &lt;!--begin::Row--&gt;
-  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;IP address&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;ip&quot; class=&quot;form-control&quot; placeholder=&quot;172.16.0.9&quot; value=&quot;172.16.0.9&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Katakana&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;kana&quot; class=&quot;form-control&quot; placeholder=&quot;ヤマダ タロウ&quot; value=&quot;ヤマダ タロウ&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-  &lt;/div&gt;
-  &lt;!--end::Row--&gt;
-  &lt;!--begin::Row--&gt;
-  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Port number&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;port&quot; class=&quot;form-control&quot; placeholder=&quot;80&quot; value=&quot;80&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;UNIX user name&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;unixUserName&quot; class=&quot;form-control&quot; placeholder=&quot;tiger&quot; value=&quot;tiger&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-  &lt;/div&gt;
-  &lt;!--end::Row--&gt;
-  &lt;!--begin::Row--&gt;
-  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Japanese phone number&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;phoneNumberJp&quot; class=&quot;form-control&quot; placeholder=&quot;06-6012-3456&quot; value=&quot;06-6012-3456&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-6 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;Integer from 1 to 99&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;input name=&quot;numericRange&quot; class=&quot;form-control&quot; placeholder=&quot;99&quot; value=&quot;99&quot;&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-  &lt;/div&gt;
-  &lt;!--end::Row--&gt;
-  &lt;!--begin::Row--&gt;
-  &lt;div class=&quot;row g-9 mb-8&quot;&gt;
-    &lt;!--begin::Input group--&gt;
-    &lt;div class=&quot;col-md-12 fv-row&quot;&gt;
-      &lt;!--begin::Label--&gt;
-      &lt;label class=&quot;fw-semibold fs-6 mb-2 required&quot;&gt;HTML string&lt;/label&gt;
-      &lt;!--end::Label--&gt;
-      &lt;!--begin::Input--&gt;
-      &lt;textarea name=&quot;html&quot; data-kt-autosize=&quot;true&quot; class=&quot;form-control&quot;&gt;&amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;&lt;/textarea&gt;
-      &lt;!--end::Input--&gt;
-    &lt;/div&gt;
-    &lt;!--end::Input group--&gt;
-  &lt;/div&gt;
-  &lt;!--end::Row--&gt;
-  &lt;!--begin::Actions--&gt;
-  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Validation Form&lt;/button&gt;
-  &lt;!--end::Actions--&gt;
-&lt;/form&gt;
-&lt;!--end::Form--&gt;</code>
-                    </pre>
+{{!< default}}
+{{#contentFor 'title'}}FormValidation{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/form-validation.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#validators" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Validators</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic Example</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    A form validation class based on <a href="https://formvalidation.io/" target="_blank">formvalidation.io</a>.<br>
+    Note: The parent element of the validation item must have the fv-row CSS class to display error messages.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the FormValidation class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>form: string|HTMLFormElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLFormElement selector, element, or JQuery object.
                   </div>
-                </div>
-                <div class="tab-pane fade" id="formValidationJsTabPane" role="tabpanel">
-                  <div class="highlight-code">
-                    <pre class="language-javascript">
-                      <code class="language-javascript">import {Validation, Dialog, selectRef} from &#039;metronic-extension&#039;;
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>fields: FormValidation.core.FieldsOptions</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Validate Options.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>enableSubmitTrigger: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, validation is performed when the submit button is pressed. Default is true.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>enableSequence: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, if the validation fails, the remaining validators will not be run. Default is true.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>shouldFocus: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, focus on the first element of the form. Default is true.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">import {Validation} from &#039;metronic-extension&#039;;
 
-const ref = selectRef();
-const validation = new Validation(ref.form, {
-  ipRange: {
+// Initialize form validation.
+const validation = new Validation(document.getElementById(&#039;myForm&#039;), {
+  firstName: {
     validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isIP: {message: &#039;This is not correct.&#039;, allowIPRange: true}
+      notEmpty: {message: &#039;First name is required.&#039;},
     }
   },
-  filePath: {
+  lastName: {
     validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isPath: {message: &#039;This is not correct.&#039;}
+      notEmpty: {message: &#039;Last name is required.&#039;},
     }
   },
-  fqdn: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isFQDN: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  fqdnOrIp: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isFQDNorIP: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  ip: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isIP: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  kana: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isKana: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  port: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isPort: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  unixUserName: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isUnixUserName: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  phoneNumberJp: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isPhoneNumberJp: {message: &#039;This is not correct.&#039;}
-    }
-  },
-  numericRange: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isNumericRange: {
-        message: &#039;This is not correct.&#039;,
-        min: 1,
-        max: 99
-      }
-    }
-  },
-  html: {
-    validators: {
-      notEmpty: {message: &#039;Enter here.&#039;},
-      isHTML: {message: &#039;This is not correct.&#039;}
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public validate()</code>
+            </td>
+            <td>
+              Validate all fields. If it is valid, it returns true, if invalid, it returns false.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;boolean&gt;</code> true if the validation passes, false if it fails.</li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">await validation.validate();</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onValid()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when all fields pass validation.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: any) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.onValid(async evnt =&gt; {});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onInvalid()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when the validation fails.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (evnt: any) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.onInvalid(async evnt =&gt; {});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onFieldValid()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when the field passes validation. The callback function will receive the name of the field that passed validation.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (name: string) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.onFieldValid(name =&gt; {});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onFieldInvalid()</code>
+            </td>
+            <td>
+              Sets the callback function to be called when the field fails validation. The callback function will receive the name of the field that failed validation.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>handler: (name: string) =&gt; void</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Callback function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.onFieldInvalid(name =&gt; {});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public onIndicator()</code>
+            </td>
+            <td>
+              Display the loader on the form.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.onIndicator();</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public offIndicator()</code>
+            </td>
+            <td>
+              Release the form loader.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.offIndicator();</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public setError()</code>
+            </td>
+            <td>
+              Displays validation error messages for the specified fields.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>validator: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name of the validation rule.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.setError(&#039;firstName&#039;, &#039;notEmpty&#039;);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public enableValidator()</code>
+            </td>
+            <td>
+              Activates the validator rules for the field.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>validator?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name of the validation rule. The default is none (undefined). If none, all validator rules are active.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Activate all validator rules.
+validation.enableValidator(&#039;firstName&#039;);
+
+// Activate only mandatory check validator rules.
+validation.enableValidator(&#039;firstName&#039;, &#039;notEmpty&#039;);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public disableValidator()</code>
+            </td>
+            <td>
+              Deactivates the validator rule for the field.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>validator?: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name of the validation rule. Default is none (undefined). If none, all validator rules are deactivated.
+                  </div>
+                  <!--end::Block-->                  
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Deactivate all validator rules.
+validation.disableValidator(&#039;firstName&#039;);
+
+// Deactivate only mandatory check validator rules.
+validation.disableValidator(&#039;firstName&#039;, &#039;notEmpty&#039;);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public validateField()</code>
+            </td>
+            <td>
+              Validate a specific field.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->                  
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;boolean&gt;</code> true if the validation passes, false if it fails.</li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">await validation.validateField(&#039;firstName&#039;);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public resetField()</code>
+            </td>
+            <td>
+              Clears error messages in the field.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>reset: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, clears the input value of the field. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Clear error message.
+validation.resetField(&#039;firstName&#039;);
+
+// Clear error messages and input values.
+validation.resetField(&#039;firstName&#039;, true);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public resetForm()</code>
+            </td>
+            <td>
+              Clears error messages for all fields.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>reset: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    If true, clears the input value of the field. Default is false.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">// Clear error messages for all fields.
+validation.resetForm();
+
+// Clear error messages and input values for all fields.
+validation.resetForm(true);</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public addField()</code>
+            </td>
+            <td>
+              Adds a validator rule to the specified field.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>validators: {[validatorName: string]: FormValidation.core.ValidatorOptions}</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Validate Rule.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">validation.addField(`firstName`, {
+  notEmpty: {message: &#039;First name is required.&#039;},
+});</code>
+                  </pre>
+                </div>
+              </div>
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public getFields()</code>
+            </td>
+            <td>
+              Get validate options for all fields.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>FormValidation.core.FieldsOptions</code> Validate Option.</li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public removeField()</code>
+            </td>
+            <td>
+              Remove fields from validation.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>field: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name attribute of the field.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public removeAllField()</code>
+            </td>
+            <td>
+              Remove all fields from validation.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public addRule()</code>
+            </td>
+            <td>
+              Add a new validation rule.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>validator: string</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    The name of the validation rule.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>func: () =&gt; FormValidation.core.ValidateFunction&lt;FormValidation.core.ValidateOptions&gt;</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Validate function.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Validation</code></li>
+              </ul>
+              <!--end::Return-->
+              <!--begin::Highlight-->
+              <div class="highlight">
+                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                <div class="highlight-code">
+                  <pre class="language-javascript">
+                    <code class="language-javascript">
+// Add the Validate rule.
+validation.addRule(`isNumber`, () =&gt; {
+  return {
+    validate: input =&gt; {
+      return {valid: !isNaN(input.value)};
     }
   }
 });
-validation
-  .onValid(async () =&gt; {
-    Dialog.success(&#039;Form has been successfully submitted!&#039;, {confirmButtonText: &#039;OK, got it!&#039;});
-  })
-  .onFieldValid(name =&gt; {
-    console.log(`${name} field is valid`);
-  })
-  .onFieldInvalid(name =&gt; {
-    console.log(`${name} field is invalid`);
-  });</code>
-                    </pre>
-                  </div>
+
+// Add a validator rule with options.
+validation.addRule(`isNumber`, () =&gt; {
+  return {
+    validate: input =&gt; {
+      // Check if it is numeric.
+      const valid = isNaN(input.value);
+      if (!valid || input.options.allowNegative)
+         // If negative numbers are allowed, return the result of the check.
+         return {valid};
+
+      // If negative numbers are not allowed, return pass only if greater than or equal to 0.
+      return {valid: input.value &gt; 0};
+    }
+  }
+});</code>
+                  </pre>
                 </div>
               </div>
-            </div>
-            <!--end::Highlight-->
-          </div>
-          <!--end::Code-->
-        </div>
-        <!--end::Section-->
-      </div>
-      <!--end::Card Body-->
+              <!--end::Highlight-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public destroy()</code>
+            </td>
+            <td>
+              Destroy validation.
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
     </div>
-    <!--end::Card-->
+    <!--end::Table wrapper-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance properties</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public form: HTMLFormElement</code>
+            </td>
+            <td>
+              Form Elements.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public submit: HTMLButtonElement|null</code>
+            </td>
+            <td>
+              A submit button element.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public fv: FormValidation.core.Core</code>
+            </td>
+            <td>
+              FormValidation instance.
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
   </div>
-  <!--end::Container-->
-  <!--begin::Javascript-->
-  <!--begin::Global Javascript Bundle(used by all pages)-->
-  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
-  <script src="build/theme/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Vendors Javascript(used for this page only)-->
-  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
-  <!--end::Vendors Javascript-->
-  <!--begin::Custom Javascript(used by this page)-->
-  <script src="build/form-validation.js"></script>
-  <!--end::Custom Javascript-->
-  <!--end::Javascript-->
-</body>
-<!--end::Body-->
-</html>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="validators" data-kt-scroll-offset="100">
+    <a href="#validators"></a>Validators
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Check the default validation <a href="https://formvalidation.io/guide/validators/" target="_blank">here</a>.<br>
+    Below is a custom validation we have added specifically for this package.
+  </div>
+  <!--end::Block-->
+  <!--begin::Table wrapper-->
+  <div class="table-responsive">
+    <!--begin::Table-->
+    <table class="table table-row-bordered mb-0 gy-5">
+      <!--begin::Head-->
+      <thead>
+        <tr class="p-6">
+          <th class="min-w-250px">Validator</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <!--end::Head-->
+      <!--begin::Body-->
+      <tbody>
+        <tr>
+          <td><code>isFQDN()</code></td>
+          <td>
+            Check if the domain name is fully qualified (e.g. domain.com).
+            <!--begin::Heading-->
+            <div class="py-3 text-gray-700">Options:</div>
+            <!--end::Heading-->
+            <!--begin::Parameters-->
+            <ul>
+              <li class="py-2"><code>requireFQDNTld: boolean</code> If true, the TLD is required. Default is true.</li>
+              <li class="py-2"><code>allowFQDNWildcard: boolean</code> If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
+            </ul>
+            <!--end::Parameters-->
+          </td>
+        </tr>
+        <tr>
+          <td><code>isFQDNorIP()</code></td>
+          <td>
+            Check for a fully qualified domain name (e.g. domain.com) or IP (version 4 or 6).
+            <!--begin::Heading-->
+            <div class="py-3 text-gray-700">Options:</div>
+            <!--end::Heading-->
+            <!--begin::Parameters-->
+            <ul>
+              <li class="py-2"><code>requireFQDNTld: boolean</code> If true, the TLD is required. Default is true.</li>
+              <li class="py-2"><code>allowFQDNWildcard: boolean</code> If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
+              <li class="py-2"><code>ipVersion: &#039;4&#039;|&#039;6&#039;|4|6</code> 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li class="py-2"><code>allowIPRange: boolean</code> If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+            </ul>
+            <!--end::Parameters-->
+          </td>
+        </tr>
+        <tr>
+          <td><code>isHTML()</code></td>
+          <td>
+            Check if it is HTML.
+          </td>
+        </tr>
+        <tr>
+          <td><code>isIP()</code></td>
+          <td>
+            Check for IP (version 4 or 6).
+            <!--begin::Heading-->
+            <div class="py-3 text-gray-700">Options:</div>
+            <!--end::Heading-->
+            <!--begin::Parameters-->
+            <ul>
+              <li class="py-2"><code>ipVersion: &#039;4&#039;|&#039;6&#039;|4|6</code> 4 or 6. The default is undefind (allows both versions 4 and 6).</li>
+              <li class="py-2"><code>allowIPRange: boolean</code> If true, allow IP range input (127.0.0.1/24, 2001::/128, etc.). Default is false.</li>
+            </ul>
+            <!--end::Parameters-->
+          </td>
+        </tr>
+        <tr>
+          <td><code>isKana()</code></td>
+          <td>
+            Check if it is katakana (half-width and full-width numbers are also permitted).
+          </td>
+        </tr>
+        <tr>
+          <td><code>isNumericRange()</code></td>
+          <td>
+            Check the range of numbers.
+            <!--begin::Heading-->
+            <div class="py-3 text-gray-700">Options:</div>
+            <!--end::Heading-->
+            <!--begin::Parameters-->
+            <ul>
+              <li class="py-2"><code>min: string|number</code> Minimum value of the range. Required.</li>
+              <li class="py-2"><code>max: string|number</code> Maximum value of the range. Required.</li>
+            </ul>
+            <!--end::Parameters-->
+          </td>
+        </tr>
+        <tr>
+          <td><code>isPath()</code></td>
+          <td>
+            Check if it is a file (directory) path
+          </td>
+        </tr>
+        <tr>
+          <td><code>isPhoneNumberJp()</code></td>
+          <td>
+            Check if it is a Japanese phone number.
+          </td>
+        </tr>
+        <tr>
+          <td><code>isPort()</code></td>
+          <td>
+            Check if it is a port number.
+          </td>
+        </tr>
+        <tr>
+          <td><code>isUnixUserName()</code></td>
+          <td>
+            Check if it is a unix user name.
+          </td>
+        </tr>
+        <tr>
+          <td><code>isURL()</code></td>
+          <td>
+            Check if it is a URL.
+            <!--begin::Heading-->
+            <div class="py-3 text-gray-700">Options:</div>
+            <!--end::Heading-->
+            <!--begin::Parameters-->
+            <ul>
+              <li class="py-2"><code>requireFQDNTld: boolean</code> If true, the TLD is required. Default is true.</li>
+              <li class="py-2"><code>allowFQDNWildcard: boolean</code> If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.</li>
+              <li class="py-2"><code>allowFragments: boolean</code> If true, allow fragment input. Default is false.</li>
+              <li class="py-2"><code>allowQueryComponents: boolean</code> If true, allow input of query string. Default is false.</li>
+            </ul>
+            <!--end::Parameters-->
+          </td>
+        </tr>
+      </tbody>
+      <!--end::Body-->
+    </table>
+    <!--end::Table-->
+  </div>
+  <!--end::Table wrapper-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
+    <a href="#basicExample"></a>Basic Example
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Form-->
+      <form data-ref="myForm">
+        <!--begin::Input group-->
+        <div class="fv-row mb-10">
+          <!--begin::Label-->
+          <label class="required fw-semibold fs-6 mb-2">First name</label>
+          <!--end::Label-->
+          <!--begin::Input-->
+          <input type="text" name="firstName" class="form-control form-control-solid" placeholder="Enter first name" />
+          <!--end::Input-->
+        </div>
+        <!--end::Input group-->
+        <!--begin::Actions-->
+        <button type="submit" class="btn btn-primary">
+          <span class="indicator-label">Validation Form</span>
+          <span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+        <!--end::Actions-->
+      </form>
+      <!--end::Form-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Form--&gt;
+&lt;form data-ref=&quot;myForm&quot;&gt;
+  &lt;!--begin::Input group--&gt;
+  &lt;div class=&quot;fv-row mb-10&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;label class=&quot;required fw-semibold fs-6 mb-2&quot;&gt;First name&lt;/label&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Input--&gt;
+    &lt;input type=&quot;text&quot; name=&quot;firstName&quot; class=&quot;form-control form-control-solid&quot; placeholder=&quot;Enter first name&quot; /&gt;
+    &lt;!--end::Input--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Input group--&gt;
+  &lt;!--begin::Actions--&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;
+    &lt;span class=&quot;indicator-label&quot;&gt;Validation Form&lt;/span&gt;
+    &lt;span class=&quot;indicator-progress&quot;&gt;Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;!--end::Actions--&gt;
+&lt;/form&gt;
+&lt;!--end::Form--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {Validation, selectRef, Dialog} from &#039;metronic-extension&#039;;
+
+// Search for elements.
+const ref = selectRef();
+
+// Initialize form validation.
+const validation = new Validation(ref.myForm, {
+  firstName: {
+    validators: {
+      notEmpty: {message: &#039;First name is required.&#039;},
+    }
+  },
+});
+
+// Set form validation events.
+validation.onValid(async () =&gt; {
+  // Show loader.
+  validation.onIndicator();
+
+  // Hide the loader after a certain time.
+  setTimeout(() =&gt; {
+    // Hide loader.
+    validation.offIndicator();
+
+    // Success Message.
+    Dialog.success(&#039;Form has been successfully submitted!&#039;, {confirmButtonText: &#039;OK, got it!&#039;});
+  }, 2000);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

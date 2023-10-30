@@ -1,20 +1,21 @@
 import {Toast} from 'metronic-extension';
-import highlight from '~/shared/highlight';
 
-highlight();
-$('body')
-  .on('click', '[data-on-success]', () => {
-    Toast.success('Hello, world! This is a toast message.');
-  })
-  .on('click', '[data-on-info]', () => {
-    Toast.info('Hello, world! This is a toast message.');
-  })
-  .on('click', '[data-on-warning]', () => {
-    Toast.warning('Hello, world! This is a toast message.');
-  })
-  .on('click', '[data-on-error]', () => {
-    Toast.error('Hello, world! This is a toast message.');
-  })
-  .on('click', '[data-on-with-title]', () => {
-    Toast.success('Hello, world! This is a toast message.', 'Title test.');
-  });
+// Toggle Success.
+$('[data-on-success]').on('click', () => {
+  Toast.success('This is a toast message', 'Toast Title');
+});
+
+// Toggle Error.
+$('[data-on-error]').on('click', () => {
+  Toast.error('This is a toast message', 'Toast Title');
+});
+
+// Toggle Warning.
+$('[data-on-warning]').on('click', () => {
+  Toast.warning('This is a toast message', 'Toast Title');
+});
+
+// Toggle Info.
+$('[data-on-info]').on('click', () => {
+  Toast.info('This is a toast message', 'Toast Title');
+});

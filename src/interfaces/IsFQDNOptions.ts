@@ -12,4 +12,3 @@ export default interface IsFQDNOptions {
     */
   allowFQDNWildcard?: boolean;
 }
-
