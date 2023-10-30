@@ -1,0 +1,497 @@
+{{!< default}}
+{{#contentFor 'title'}}Accordion{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#animatedIcon" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Animated Icon</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#collapseIcon" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Collapse Icon</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/accordion/" target="_blank">Bootstrap Accordion</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Click the accordions below to expand/collapse the accordion content.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="accordion" id="basicAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="basicAccordionHeader1">
+            <button class="accordion-button fs-4 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#basicAccordionBody1" aria-expanded="true" aria-controls="basicAccordionBody1">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="basicAccordionBody1" class="accordion-collapse collapse show" aria-labelledby="basicAccordionHeader1" data-bs-parent="#basicAccordion">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the 
+              appropriate classes that we use to style each element. These classes control the overall appearance, as well as the 
+              showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. 
+              It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="basicAccordionHeader2">
+            <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#basicAccordionBody2" aria-expanded="false" aria-controls="basicAccordionBody2">
+            Accordion Item #2
+            </button>
+          </h2>
+          <div id="basicAccordionBody2" class="accordion-collapse collapse" aria-labelledby="basicAccordionHeader2" data-bs-parent="#basicAccordion">
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the 
+              appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing 
+              and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. 
+              It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="basicAccordionHeader3">
+            <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#basicAccordionBody3" aria-expanded="false" aria-controls="basicAccordionBody3">
+            Accordion Item #3
+            </button>
+          </h2>
+          <div id="basicAccordionBody3" class="accordion-collapse collapse" aria-labelledby="basicAccordionHeader3" data-bs-parent="#basicAccordion">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate 
+              classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. 
+              You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any 
+              HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end::Accordion-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Accordion--&gt;
+&lt;div class=&quot;accordion&quot; id=&quot;basicAccordion&quot;&gt;
+  &lt;div class=&quot;accordion-item&quot;&gt;
+    &lt;h2 class=&quot;accordion-header&quot; id=&quot;basicAccordionHeader1&quot;&gt;
+      &lt;button class=&quot;accordion-button fs-4 fw-semibold&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#basicAccordionBody1&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;basicAccordionBody1&quot;&gt;
+        Accordion Item #1
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id=&quot;basicAccordionBody1&quot; class=&quot;accordion-collapse collapse show&quot; aria-labelledby=&quot;basicAccordionHeader1&quot; data-bs-parent=&quot;#basicAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-body&quot;&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;accordion-item&quot;&gt;
+    &lt;h2 class=&quot;accordion-header&quot; id=&quot;basicAccordionHeader2&quot;&gt;
+      &lt;button class=&quot;accordion-button fs-4 fw-semibold collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#basicAccordionBody2&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;basicAccordionBody2&quot;&gt;
+      Accordion Item #2
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id=&quot;basicAccordionBody2&quot; class=&quot;accordion-collapse collapse&quot; aria-labelledby=&quot;basicAccordionHeader2&quot; data-bs-parent=&quot;#basicAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-body&quot;&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;accordion-item&quot;&gt;
+    &lt;h2 class=&quot;accordion-header&quot; id=&quot;basicAccordionHeader3&quot;&gt;
+      &lt;button class=&quot;accordion-button fs-4 fw-semibold collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#basicAccordionBody3&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;basicAccordionBody3&quot;&gt;
+      Accordion Item #3
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id=&quot;basicAccordionBody3&quot; class=&quot;accordion-collapse collapse&quot; aria-labelledby=&quot;basicAccordionHeader3&quot; data-bs-parent=&quot;#basicAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-body&quot;&gt;
+         ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--end::Accordion--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="animatedIcon" data-kt-scroll-offset="100">
+    <a href="#animatedIcon"></a>Animated Icon
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.accordion-icon-toggle</code> class to add toggle based animated icon in header.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Accordion-->
+      <div class="accordion accordion-icon-toggle" id="animatedIconAccordion">
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex" data-bs-toggle="collapse" data-bs-target="#animatedIconAccordionItem1">
+            <span class="accordion-icon"><i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i></span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #1</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="animatedIconAccordionItem1" class="fs-6 collapse show ps-10" data-bs-parent="#animatedIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+              remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#animatedIconAccordionItem2">
+            <span class="accordion-icon"><i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i></span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #2</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="animatedIconAccordionItem2" class="collapse fs-6 ps-10" data-bs-parent="#animatedIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#animatedIconAccordionItem3">
+            <span class="accordion-icon"><i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i></span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #3</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="animatedIconAccordionItem3" class="collapse fs-6 ps-10" data-bs-parent="#animatedIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+      </div>
+      <!--end::Accordion-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Accordion--&gt;
+&lt;div class=&quot;accordion accordion-icon-toggle&quot; id=&quot;animatedIconAccordion&quot;&gt;
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#animatedIconAccordionItem1&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-arrow-right fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;The best way to quick start business&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;animatedIconAccordionItem1&quot; class=&quot;fs-6 collapse show ps-10&quot; data-bs-parent=&quot;#animatedIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#animatedIconAccordionItem2&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-arrow-right fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;How To Create Channel ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;animatedIconAccordionItem2&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#animatedIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#animatedIconAccordionItem3&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-arrow-right fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;What are the support terms &amp; conditions ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;animatedIconAccordionItem3&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#animatedIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+&lt;/div&gt;
+&lt;!--end::Accordion--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="collapseIcon" data-kt-scroll-offset="100">
+    <a href="#collapseIcon"></a>Collapse Icon
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.accordion-icon-collapse</code> class to add toggle based animated icon in header.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Accordion-->
+      <div class="accordion accordion-icon-collapse" id="collapseIconAccordion">
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex" data-bs-toggle="collapse" data-bs-target="#collapseIconAccordionItem1">
+            <span class="accordion-icon">
+              <i class="ki-duotone ki-plus-square fs-3 accordion-icon-off">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+              </i>
+              <i class="ki-duotone ki-minus-square fs-3 accordion-icon-on">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+            </span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #1</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="collapseIconAccordionItem1" class="fs-6 collapse show ps-10" data-bs-parent="#collapseIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#collapseIconAccordionItem2">
+            <span class="accordion-icon">
+              <i class="ki-duotone ki-plus-square fs-3 accordion-icon-off">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+              </i>
+              <i class="ki-duotone ki-minus-square fs-3 accordion-icon-on">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+            </span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #2</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="collapseIconAccordionItem2" class="collapse fs-6 ps-10" data-bs-parent="#collapseIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#collapseIconAccordionItem3">
+            <span class="accordion-icon">
+              <i class="ki-duotone ki-plus-square fs-3 accordion-icon-off"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+              <i class="ki-duotone ki-minus-square fs-3 accordion-icon-on"><span class="path1"></span><span class="path2"></span></i>
+            </span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #3</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="collapseIconAccordionItem3" class="collapse fs-6 ps-10" data-bs-parent="#collapseIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+      </div>
+      <!--end::Accordion-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Accordion--&gt;
+&lt;div class=&quot;accordion accordion-icon-collapse&quot; id=&quot;collapseIconAccordion&quot;&gt;
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseIconAccordionItem1&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-plus-square fs-3 accordion-icon-off&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+        &lt;i class=&quot;ki-duotone ki-minus-square fs-3 accordion-icon-on&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;The best way to quick start business&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;collapseIconAccordionItem1&quot; class=&quot;fs-6 collapse show ps-10&quot; data-bs-parent=&quot;#collapseIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseIconAccordionItem2&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+      &lt;i class=&quot;ki-duotone ki-plus-square fs-3 accordion-icon-off&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;i class=&quot;ki-duotone ki-minus-square fs-3 accordion-icon-on&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;How To Create Channel ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;collapseIconAccordionItem2&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#collapseIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseIconAccordionItem3&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+      &lt;i class=&quot;ki-duotone ki-plus-square fs-3 accordion-icon-off&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;i class=&quot;ki-duotone ki-minus-square fs-3 accordion-icon-on&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;What are the support terms &amp; conditions ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;collapseIconAccordionItem3&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#collapseIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+&lt;/div&gt;
+&lt;!--end::Accordion--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

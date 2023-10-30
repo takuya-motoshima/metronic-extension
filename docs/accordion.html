@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>noUiSlider - Metronic Extension</title>
+  <title>Accordion - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -392,7 +392,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="/metronic-extension/accordion.html">
+                  <a class="menu-link active" href="/metronic-extension/accordion.html">
                     <span class="menu-title">Accordion</span>
                   </a>
                   <!--end:Menu link-->
@@ -493,7 +493,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="/metronic-extension/no-ui-slider.html">
+                  <a class="menu-link " href="/metronic-extension/no-ui-slider.html">
                     <span class="menu-title">noUiSlider</span>
                   </a>
                   <!--end:Menu link-->
@@ -561,7 +561,6 @@
                     <!--begin::Card Body-->
                     <div class="card-body py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
                       
-
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
@@ -571,9 +570,7 @@
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    noUiSlider is a lightweight range slider with multi-touch support and a ton of features. It supports non-linear ranges, 
-    requires no external dependencies, has keyboard support, and it works great in responsive designs.
-    For full documentation please check the <a href="https://refreshless.com/nouislider" target="_blank">plugin's site</a>.
+    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/accordion/" target="_blank">Bootstrap Accordion</a>.
   </div>
   <!--end::Block-->
 </div>
@@ -587,113 +584,60 @@
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Basic example of range slider with full touch support.
+    Click the accordions below to expand/collapse the accordion content.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <div class="mb-0">
-        <label class="form-label">Example</label>
-        <div id="basicSlider"></div>
-        <div class="pt-5">
-          <div class="fw-semibold mb-2">Min: <span id="basicSliderMin"></span></div>
-          <div class="fw-semibold mb-2">Max: <span id="basicSliderMax"></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="py-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicSliderHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicSliderJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="basicSliderHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;div class=&quot;mb-0&quot;&gt;
-  &lt;label class=&quot;form-label&quot;&gt;Example&lt;/label&gt;
-  &lt;div id=&quot;basicSlider&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;pt-5&quot;&gt;
-    &lt;div class=&quot;fw-semibold mb-2&quot;&gt;Min: &lt;span id=&quot;basicSliderMin&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;fw-semibold mb-2&quot;&gt;Max: &lt;span id=&quot;basicSliderMax&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code>
-            </pre>
+      <div class="accordion" id="basicAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="basicAccordionHeader1">
+            <button class="accordion-button fs-4 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#basicAccordionBody1" aria-expanded="true" aria-controls="basicAccordionBody1">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="basicAccordionBody1" class="accordion-collapse collapse show" aria-labelledby="basicAccordionHeader1" data-bs-parent="#basicAccordion">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the 
+              appropriate classes that we use to style each element. These classes control the overall appearance, as well as the 
+              showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. 
+              It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
           </div>
         </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicSliderJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">// Initialize basic slider.
-const slider = document.getElementById(&#039;basicSlider&#039;);
-const valueMin = document.getElementById(&#039;basicSliderMin&#039;);
-const valueMax = document.getElementById(&#039;basicSliderMax&#039;);
-
-noUiSlider.create(slider, {
-  start: [20, 80],
-  connect: true,
-  range: {
-    min: 0,
-    max: 100
-  }
-});
-
-slider.noUiSlider.on(&#039;update&#039;, (values, handle) =&gt; {
-  if (handle)
-    valueMax.innerHTML = values[handle];
-  else
-    valueMin.innerHTML = values[handle];
-});</code>
-            </pre>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="basicAccordionHeader2">
+            <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#basicAccordionBody2" aria-expanded="false" aria-controls="basicAccordionBody2">
+            Accordion Item #2
+            </button>
+          </h2>
+          <div id="basicAccordionBody2" class="accordion-collapse collapse" aria-labelledby="basicAccordionHeader2" data-bs-parent="#basicAccordion">
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the 
+              appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing 
+              and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. 
+              It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
           </div>
         </div>
-        <!--end::Tab panel-->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="basicAccordionHeader3">
+            <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#basicAccordionBody3" aria-expanded="false" aria-controls="basicAccordionBody3">
+            Accordion Item #3
+            </button>
+          </h2>
+          <div id="basicAccordionBody3" class="accordion-collapse collapse" aria-labelledby="basicAccordionHeader3" data-bs-parent="#basicAccordion">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate 
+              classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. 
+              You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any 
+              HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
       </div>
-      <!--end::Tab content-->
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="sizes" data-kt-scroll-offset="100">
-    <a href="#sizes"></a>Sizes
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Change the sliders default size by applying custom size classes <code>.noUi-sm</code> and <code>.noUi-lg</code>.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block">
-      <div class="mb-10">
-        <label class="form-label">Small size</label>
-        <div id="smallSlider" class="noUi-sm"></div>
-      </div>
-      <div class="mb-10">
-        <label class="form-label">Default size</label>
-        <div id="normalSizeSlider"></div>
-      </div>
-      <div class="mb-0">
-        <label class="form-label">Large size</label>
-        <div id="largeSlider" class="noUi-lg"></div>
-      </div>
+      <!--end::Accordion-->
     </div>
   </div>
   <!--end::Block-->
@@ -704,9 +648,46 @@ slider.noUiSlider.on(&#039;update&#039;, (values, handle) =&gt; {
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
         <pre class="language-html">
-          <code class="language-html">&lt;div id=&quot;smallSlider&quot; class=&quot;noUi-sm&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;normalSizeSlider&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;largeSlider&quot; class=&quot;noUi-lg&quot;&gt;&lt;/div&gt;</code>
+          <code class="language-html">&lt;!--begin::Accordion--&gt;
+&lt;div class=&quot;accordion&quot; id=&quot;basicAccordion&quot;&gt;
+  &lt;div class=&quot;accordion-item&quot;&gt;
+    &lt;h2 class=&quot;accordion-header&quot; id=&quot;basicAccordionHeader1&quot;&gt;
+      &lt;button class=&quot;accordion-button fs-4 fw-semibold&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#basicAccordionBody1&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;basicAccordionBody1&quot;&gt;
+        Accordion Item #1
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id=&quot;basicAccordionBody1&quot; class=&quot;accordion-collapse collapse show&quot; aria-labelledby=&quot;basicAccordionHeader1&quot; data-bs-parent=&quot;#basicAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-body&quot;&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;accordion-item&quot;&gt;
+    &lt;h2 class=&quot;accordion-header&quot; id=&quot;basicAccordionHeader2&quot;&gt;
+      &lt;button class=&quot;accordion-button fs-4 fw-semibold collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#basicAccordionBody2&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;basicAccordionBody2&quot;&gt;
+      Accordion Item #2
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id=&quot;basicAccordionBody2&quot; class=&quot;accordion-collapse collapse&quot; aria-labelledby=&quot;basicAccordionHeader2&quot; data-bs-parent=&quot;#basicAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-body&quot;&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;accordion-item&quot;&gt;
+    &lt;h2 class=&quot;accordion-header&quot; id=&quot;basicAccordionHeader3&quot;&gt;
+      &lt;button class=&quot;accordion-button fs-4 fw-semibold collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#basicAccordionBody3&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;basicAccordionBody3&quot;&gt;
+      Accordion Item #3
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id=&quot;basicAccordionBody3&quot; class=&quot;accordion-collapse collapse&quot; aria-labelledby=&quot;basicAccordionHeader3&quot; data-bs-parent=&quot;#basicAccordion&quot;&gt;
+      &lt;div class=&quot;accordion-body&quot;&gt;
+         ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--end::Accordion--&gt;</code>
         </pre>
       </div>
     </div>
@@ -718,67 +699,142 @@ slider.noUiSlider.on(&#039;update&#039;, (values, handle) =&gt; {
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="vertical" data-kt-scroll-offset="100">
-    <a href="#vertical"></a>Vertical
+  <h1 class="anchor fw-bold mb-5" id="animatedIcon" data-kt-scroll-offset="100">
+    <a href="#animatedIcon"></a>Animated Icon
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Example of horizontal range slider.
+    Add <code>.accordion-icon-toggle</code> class to add toggle based animated icon in header.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <div class="mb-0">
-        <label class="form-label">Example</label>
-        <div id="verticalSlider"></div>
+      <!--begin::Accordion-->
+      <div class="accordion accordion-icon-toggle" id="animatedIconAccordion">
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex" data-bs-toggle="collapse" data-bs-target="#animatedIconAccordionItem1">
+            <span class="accordion-icon"><i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i></span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #1</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="animatedIconAccordionItem1" class="fs-6 collapse show ps-10" data-bs-parent="#animatedIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+              remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#animatedIconAccordionItem2">
+            <span class="accordion-icon"><i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i></span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #2</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="animatedIconAccordionItem2" class="collapse fs-6 ps-10" data-bs-parent="#animatedIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#animatedIconAccordionItem3">
+            <span class="accordion-icon"><i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i></span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #3</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="animatedIconAccordionItem3" class="collapse fs-6 ps-10" data-bs-parent="#animatedIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
       </div>
+      <!--end::Accordion-->
     </div>
   </div>
   <!--end::Block-->
   <!--begin::Code-->
-  <div class="py-5">
+  <div class="my-5">
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#verticalSliderHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalSliderJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="verticalSliderHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;div id=&quot;verticalSlider&quot;&gt;&lt;/div&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="verticalSliderJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">// Initialize vertical slider.
-const slider = document.getElementById(&#039;verticalSlider&#039;);
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Accordion--&gt;
+&lt;div class=&quot;accordion accordion-icon-toggle&quot; id=&quot;animatedIconAccordion&quot;&gt;
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#animatedIconAccordionItem1&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-arrow-right fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;The best way to quick start business&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;animatedIconAccordionItem1&quot; class=&quot;fs-6 collapse show ps-10&quot; data-bs-parent=&quot;#animatedIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
 
-noUiSlider.create(slider, {
-  start: [60, 160],
-  connect: true,
-  orientation: &#039;vertical&#039;,
-  range: {
-    min: 0,
-    max: 200
-  }
-});</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#animatedIconAccordionItem2&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-arrow-right fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;How To Create Channel ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;animatedIconAccordionItem2&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#animatedIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#animatedIconAccordionItem3&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-arrow-right fs-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;What are the support terms &amp; conditions ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;animatedIconAccordionItem3&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#animatedIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+&lt;/div&gt;
+&lt;!--end::Accordion--&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
     </div>
     <!--end::Highlight-->
   </div>
@@ -788,137 +844,162 @@ noUiSlider.create(slider, {
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="tooltip" data-kt-scroll-offset="100">
-    <a href="#tooltip"></a>Tooltip
+  <h1 class="anchor fw-bold mb-5" id="collapseIcon" data-kt-scroll-offset="100">
+    <a href="#collapseIcon"></a>Collapse Icon
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    noUiSlider can provide a basic tooltip using the tooltips option.
+    Add <code>.accordion-icon-collapse</code> class to add toggle based animated icon in header.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <div class="mb-0">
-        <div id="tooltipSlider"></div>
+      <!--begin::Accordion-->
+      <div class="accordion accordion-icon-collapse" id="collapseIconAccordion">
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex" data-bs-toggle="collapse" data-bs-target="#collapseIconAccordionItem1">
+            <span class="accordion-icon">
+              <i class="ki-duotone ki-plus-square fs-3 accordion-icon-off">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+              </i>
+              <i class="ki-duotone ki-minus-square fs-3 accordion-icon-on">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+            </span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #1</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="collapseIconAccordionItem1" class="fs-6 collapse show ps-10" data-bs-parent="#collapseIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#collapseIconAccordionItem2">
+            <span class="accordion-icon">
+              <i class="ki-duotone ki-plus-square fs-3 accordion-icon-off">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+              </i>
+              <i class="ki-duotone ki-minus-square fs-3 accordion-icon-on">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+            </span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #2</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="collapseIconAccordionItem2" class="collapse fs-6 ps-10" data-bs-parent="#collapseIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
+        <!--begin::Item-->
+        <div class="mb-5">
+          <!--begin::Header-->
+          <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse" data-bs-target="#collapseIconAccordionItem3">
+            <span class="accordion-icon">
+              <i class="ki-duotone ki-plus-square fs-3 accordion-icon-off"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+              <i class="ki-duotone ki-minus-square fs-3 accordion-icon-on"><span class="path1"></span><span class="path2"></span></i>
+            </span>
+            <h3 class="fs-4 fw-semibold mb-0 ms-4">Accordion Item #3</h3>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div id="collapseIconAccordionItem3" class="collapse fs-6 ps-10" data-bs-parent="#collapseIconAccordion">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Item-->
       </div>
+      <!--end::Accordion-->
     </div>
   </div>
   <!--end::Block-->
   <!--begin::Code-->
-  <div class="py-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tooltipSliderHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tooltipSliderJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="tooltipSliderHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;div id=&quot;tooltipSlider&quot;&gt;&lt;/div&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="tooltipSliderJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">// Initialize tooltip slider.
-const slider = document.getElementById(&#039;tooltipSlider&#039;);
-
-noUiSlider.create(slider, {
-  start: [20, 80, 120],
-  tooltips: [false, wNumb({decimals: 1}), true],
-  range: {
-    min: 0,
-    max: 200
-  }
-});</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-      </div>
-      <!--end::Tab content-->
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="softLimits" data-kt-scroll-offset="100">
-    <a href="#softLimits"></a>Soft Limits
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
   <div class="my-5">
-    If you want to disable the edges of a slider, the set event can be used to reset the value if a limit is passed.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block">
-      <div class="py-10">
-        <div id="softLimitsSlider"></div>
-      </div>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="py-5">
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#softLimitsSliderHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#softLimitsSliderJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="softLimitsSliderHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;div id=&quot;softLimitsSlider&quot;&gt;&lt;/div&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="softLimitsSliderJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">// Initialize soft limits slider.
-const slider = document.getElementById(&#039;softLimitsSlider&#039;);
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Accordion--&gt;
+&lt;div class=&quot;accordion accordion-icon-collapse&quot; id=&quot;collapseIconAccordion&quot;&gt;
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseIconAccordionItem1&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+        &lt;i class=&quot;ki-duotone ki-plus-square fs-3 accordion-icon-off&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+        &lt;i class=&quot;ki-duotone ki-minus-square fs-3 accordion-icon-on&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;The best way to quick start business&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;collapseIconAccordionItem1&quot; class=&quot;fs-6 collapse show ps-10&quot; data-bs-parent=&quot;#collapseIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
 
-noUiSlider.create(slider, {
-  start: [50],
-  range: {
-    min: 0,
-    max: 100
-  },
-  pips: {
-    mode: &#039;values&#039;,
-    values: [20, 80],
-    density: 4
-  }
-});</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseIconAccordionItem2&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+      &lt;i class=&quot;ki-duotone ki-plus-square fs-3 accordion-icon-off&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;i class=&quot;ki-duotone ki-minus-square fs-3 accordion-icon-on&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;How To Create Channel ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;collapseIconAccordionItem2&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#collapseIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+
+  &lt;!--begin::Item--&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;!--begin::Header--&gt;
+    &lt;div class=&quot;accordion-header py-3 d-flex collapsed&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapseIconAccordionItem3&quot;&gt;
+      &lt;span class=&quot;accordion-icon&quot;&gt;
+      &lt;i class=&quot;ki-duotone ki-plus-square fs-3 accordion-icon-off&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;i class=&quot;ki-duotone ki-minus-square fs-3 accordion-icon-on&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;h3 class=&quot;fs-4 fw-semibold mb-0 ms-4&quot;&gt;What are the support terms &amp; conditions ?&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;!--end::Header--&gt;
+    &lt;!--begin::Body--&gt;
+    &lt;div id=&quot;collapseIconAccordionItem3&quot; class=&quot;collapse fs-6 ps-10&quot; data-bs-parent=&quot;#collapseIconAccordion&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Body--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Item--&gt;
+&lt;/div&gt;
+&lt;!--end::Accordion--&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
     </div>
     <!--end::Highlight-->
   </div>
@@ -973,11 +1054,11 @@ noUiSlider.create(slider, {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#sizes" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#animatedIcon" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Sizes</span>
+    <span class="menu-title">Animated Icon</span>
   </a>
   <!--end::Link-->
 </li>
@@ -985,35 +1066,11 @@ noUiSlider.create(slider, {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#vertical" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#collapseIcon" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Vertical</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#tooltip" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Tooltip</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#softLimits" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Soft Limits</span>
+    <span class="menu-title">Collapse Icon</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1084,7 +1141,7 @@ noUiSlider.create(slider, {
     Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
   </script>
   <script src="build/docs.js"></script>
-  <script src="build/no-ui-slider.js"></script>
+  
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>
