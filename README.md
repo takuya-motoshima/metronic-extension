@@ -18,13 +18,6 @@ With [npm](http://npmjs.org) do:
 npm test
 ```
 
-## Testing
-With [npm](http://npmjs.org) do:
-
-```sh
-npm test
-```
-
 ## Author
 **Takuya Motoshima**
 
