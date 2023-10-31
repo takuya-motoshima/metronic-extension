@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Dropzone - Metronic Extension</title>
+  <title>Overlay - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -219,7 +219,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="dropzone.html">
+                  <a class="menu-link " href="dropzone.html">
                     <span class="menu-title">Dropzone</span>
                   </a>
                   <!--end:Menu link-->
@@ -471,7 +471,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="overlay.html">
+                  <a class="menu-link active" href="overlay.html">
                     <span class="menu-title">Overlay</span>
                   </a>
                   <!--end:Menu link-->
@@ -640,7 +640,6 @@
                     <!--begin::Card Body-->
                     <div class="card-body py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
                       
-
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
@@ -649,235 +648,79 @@
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="my-5">Dropzone is a component that provides drag-and-drop file upload with image preview.</div>
-  <!--end::Block-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="py-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
-    <a href="#reference"></a>Reference
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
   <div class="my-5">
-    <!--begin::Heading-->
-    <div class="fs-2 py-5">Instance methods</div>
-    <!--end::Heading-->
-    <!--begin::Table wrapper-->
-    <div class="table-responsive">
-      <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
-        <!--begin::Head-->
-        <thead>
-          <tr class="p-6">
-            <th class="min-w-250px">Name</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <!--end::Head-->
-        <!--begin::Body-->
-        <tbody>
-          <tr>
-            <td>
-              <code>public constructor()</code>
-            </td>
-            <td>
-              Create a new instance of the Dropzone class.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>element: string|HTMLElement|JQuery</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    HTMLElement selector, element, or JQuery object.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.hiddenInputContent?: HTMLInputElement</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    hidden element to store the uploaded content. For media data such as images and PDFs, DataURL is set; for text data such as CSV, text data is set.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.acceptedFiles?: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    A comma-separated list of MIME types or file extensions (e.g., &quot;image/*,application/pdf,.psd&quot;) for files that are allowed to be uploaded. Default is none (undefined).
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.maxFilesize?: number</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The maximum filesize (in bytes) that is allowed to be uploaded. Default is none (undefined).
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.dictDefaultMessage?: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Drop zone title text. Default is &quot;Drop files here to upload&quot;.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.dictDescriptionMessage?: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Drop zone description text. Default is none (undefined).
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.dictFileTooBig?: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Error message to be displayed if the file size exceeds the allowable size. <br>
-                    Default is &quot;File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.&quot;.<br>
-                    &quot;{{filesize}}&quot; is set to the selected file size, and &quot;{{maxFilesize}}&quot; is set to the file size that can be uploaded.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">import {Dropzone} from &#039;metronic-extension&#039;;
-
-// Initializes Dropzone.
-const dropzone = new Dropzone(document.getElementById(&#039;myDropzone&#039;), {
-  hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
-  maxFilesize: 10,
-  dictDescriptionMessage: &#039;Files up to 10 MB can be uploaded&#039;,
-  acceptedFiles: &#039;image/jpeg,image/png,image/gif&#039;,
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public onAddFile()</code>
-            </td>
-            <td>
-              Sets the callback function to be called when a file is added. The callback function takes a file object.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>handler: (file: Dropzone.DropzoneFile) =&gt; void</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Callback function.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>DropzoneComponent</code></li>
-              </ul>
-              <!--end::Return-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">// Called when a file is added.
-dropzone.onAddFile(file =&gt; {
-  alert(`From additional handlers. Select ${file.name}`);
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public onCancelFile()</code>
-            </td>
-            <td>
-              Sets the callback function to be called when an uploaded file is canceled.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>handler: () =&gt; void</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Callback function.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>DropzoneComponent</code></li>
-              </ul>
-              <!--end::Return-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">// Called when an uploaded file is canceled.
-dropzone.onCancelFile(() =&gt; {
-  alert(&#039;Canceled file selection&#039;);
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-        </tbody>
-        <!--end::Body-->
-      </table>
-      <!--end::Table-->
-    </div>
-    <!--end::Table wrapper-->
+    Overlay is a custom component to create an overlay effect on elements.
   </div>
   <!--end::Block-->
 </div>
 <!--end::Section-->
 <!--begin::Section-->
-<div class="py-10">
+<div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
-    <a href="#basicExample"></a>Basic Example
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="py-5">Dropzone example with manual file attachment and upload controls.</div>
+  <div class="my-5">
+    Use <code>.overlay</code> on an element and wrap the element's primary content with <code>.overlay-wrapper</code> and the overlay content with <code>.overlay-layer</code> 
+    and set the overlay backgroud color with opacity with <code>.bg-white .bg-opacity-5</code>.
+  </div>
   <!--end::Block-->
   <!--begin::Block-->
-  <div class="my-5">
+  <div class="py-5">
     <div class="demonstration-block">
-      <!--begin::Dropzone-->
-      <div id="myDropzone"></div>
-      <!--end::Dropzone-->
-      <!--begin::DataURL of the selected file-->
-      <input id="myFileContent" type="hidden">
-      <!--end::DataURL of the selected file-->
+      <div class="row">
+        <div class="col-lg-4">
+          <!--begin::Card-->
+          <div class="card  overlay">
+            <div class="card-body p-0">
+              <div class="overlay-wrapper">
+                <img src="build/theme/media/stock/600x400/img-1.jpg" alt="" class="w-100 card-rounded"/>
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+                <a href="#" class="btn btn-primary btn-shadow">Explore</a>
+                <a href="#" class="btn btn-light-primary btn-shadow ms-2">Purchase</a>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+        <div class="col-lg-4">
+          <!--begin::Card-->
+          <div class="card overlay">
+            <div class="card-body p-0">
+              <div class="overlay-wrapper">
+                <img src="build/theme/media/stock/600x400/img-2.jpg" alt="" class="w-100 card-rounded"/>
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-25 align-items-end justify-content-center">
+                <div class="d-flex flex-grow-1 flex-center  py-5">
+                  <a href="#" class="btn btn-primary btn-shadow">Explore</a>
+                  <a href="#" class="btn btn-light-primary btn-shadow ms-2">Purchase</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+        <div class="col-lg-4">
+          <!--begin::Card-->
+          <div class="card overlay">
+            <div class="card-body p-0">
+              <div class="overlay-wrapper">
+                <img src="build/theme/media/stock/600x400/img-3.jpg" alt="" class="w-100 card-rounded"/>
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-25 align-items-start justify-content-center">
+                <div class="d-flex flex-grow-1 flex-center py-5">
+                  <a href="#" class="btn btn-primary btn-shadow">Explore</a>
+                  <a href="#" class="btn btn-light-primary btn-shadow ms-2">Purchase</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+      </div>
     </div>
   </div>
   <!--end::Block-->
@@ -886,56 +729,448 @@ dropzone.onCancelFile(() =&gt; {
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;!--begin::Dropzone--&gt;
-&lt;div id=&quot;myDropzone&quot;&gt;&lt;/div&gt;
-&lt;!--end::Dropzone--&gt;
-&lt;!--begin::DataURL of the selected file--&gt;
-&lt;input id=&quot;myFileContent&quot; type=&quot;hidden&quot;&gt;
-&lt;!--end::DataURL of the selected file--&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">import {Dropzone} from &#039;metronic-extension&#039;;
-
-// Initializes Dropzone.
-const dropzone = new Dropzone(document.getElementById(&#039;myDropzone&#039;), {
-  hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
-  maxFilesize: 10,
-  dictDescriptionMessage: &#039;Files up to 10 MB can be uploaded&#039;,
-  acceptedFiles: &#039;image/jpeg,image/png,image/gif&#039;,
-});
-
-// Initialize drag &amp; drop events.
-dropzone
-  .onAddFile(file =&gt; {
-    // Called when a file is added.
-    alert(`From additional handlers. Select ${file.name}`);
-  })
-  .onCancelFile(() =&gt; {
-    // Called when an uploaded file is canceled.
-    alert(&#039;Canceled file selection&#039;);
-  });</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-4&quot;&gt;
+    &lt;!--begin::Card--&gt;
+    &lt;div class=&quot;card  overlay overflow-hidden&quot;&gt;
+      &lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;overlay-wrapper&quot;&gt;
+          &lt;img src=&quot;build/theme/media/stock/600x400/img-1.jpg&quot; alt=&quot;&quot; class=&quot;w-100 rounded&quot;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;overlay-layer bg-dark bg-opacity-25&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-shadow&quot;&gt;Explore&lt;/a&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary btn-shadow ms-2&quot;&gt;Purchase&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--end::Card--&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-4&quot;&gt;
+    &lt;!--begin::Card--&gt;
+    &lt;div class=&quot;card  overlay overflow-hidden&quot;&gt;
+      &lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;overlay-wrapper&quot;&gt;
+          &lt;img src=&quot;build/theme/media/stock/600x400/img-2.jpg&quot; alt=&quot;&quot; class=&quot;w-100 rounded&quot;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;overlay-layer bg-dark bg-opacity-25 align-items-end justify-content-center&quot;&gt;
+          &lt;div class=&quot;d-flex flex-grow-1 flex-center  py-5&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-shadow&quot;&gt;Explore&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary btn-shadow ms-2&quot;&gt;Purchase&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--end::Card--&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-4&quot;&gt;
+    &lt;!--begin::Card--&gt;
+    &lt;div class=&quot;card  overlay overflow-hidden&quot;&gt;
+      &lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;overlay-wrapper&quot;&gt;
+          &lt;img src=&quot;build/theme/media/stock/600x400/img-3.jpg&quot; alt=&quot;&quot; class=&quot;w-100 rounded&quot;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;overlay-layer bg-dark bg-opacity-25 align-items-start justify-content-center&quot;&gt;
+          &lt;div class=&quot;d-flex flex-grow-1 flex-center py-5&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-shadow&quot;&gt;Explore&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary btn-shadow ms-2&quot;&gt;Purchase&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--end::Card--&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="defaultShown" data-kt-scroll-offset="100">
+    <a href="#defaultShown"></a>Default Shown
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.overlay-block</code> on an element to display its overlay content by default.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="row">
+        <div class="col-lg-4">
+          <!--begin::Card-->
+          <div class="card overlay overlay-block">
+            <div class="card-body p-0">
+              <div class="overlay-wrapper">
+                <img src="build/theme/media/stock/600x400/img-1.jpg" alt="" class="w-100 card-rounded"/>
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+                <img src="build/theme/media/svg/misc/video-play.svg"  class="h-60px" alt=""/>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+        <div class="col-lg-4">
+          <!--begin::Card-->
+          <div class="card overlay overlay-block">
+            <div class="card-body p-0">
+              <div class="overlay-wrapper">
+                <img src="build/theme/media/stock/600x400/img-2.jpg" alt="" class="w-100 card-rounded"/>
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-25 align-items-end justify-content-center">
+                <div class="d-flex flex-grow-1 flex-center  py-5">
+                  <img src="build/theme/media/svg/misc/video-play.svg"  class="h-60px" alt=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+        <div class="col-lg-4">
+          <!--begin::Card-->
+          <div class="card overlay overlay-block">
+            <div class="card-body p-0">
+              <div class="overlay-wrapper">
+                <img src="build/theme/media/stock/600x400/img-3.jpg" alt="" class="w-100 card-rounded"/>
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-25 align-items-start justify-content-center">
+                <div class="d-flex flex-grow-1 flex-center py-5">
+                  <img src="build/theme/media/svg/misc/video-play.svg"  class="h-60px" alt=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-4&quot;&gt;
+    &lt;!--begin::Card--&gt;
+    &lt;div class=&quot;card overlay overlay-block&quot;&gt;
+      &lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;overlay-wrapper&quot;&gt;
+          &lt;img src=&quot;build/theme/media/stock/600x400/img-1.jpg&quot; alt=&quot;&quot; class=&quot;w-100 card-rounded&quot;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;overlay-layer card-rounded bg-dark bg-opacity-25&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-shadow&quot;&gt;Explore&lt;/a&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary btn-shadow ms-2&quot;&gt;Purchase&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--end::Card--&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-4&quot;&gt;
+    &lt;!--begin::Card--&gt;
+    &lt;div class=&quot;card  overlay overflow-hidden&quot;&gt;
+      &lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;overlay-wrapper&quot;&gt;
+          &lt;img src=&quot;build/theme/media/stock/600x400/img-2.jpg&quot; alt=&quot;&quot; class=&quot;w-100 card-rounded&quot;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;overlay-layer card-rounded bg-dark bg-opacity-25 align-items-end justify-content-center&quot;&gt;
+          &lt;div class=&quot;d-flex flex-grow-1 flex-center  py-5&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-shadow&quot;&gt;Explore&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary btn-shadow ms-2&quot;&gt;Purchase&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--end::Card--&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-lg-4&quot;&gt;
+    &lt;!--begin::Card--&gt;
+    &lt;div class=&quot;card  overlay overflow-hidden&quot;&gt;
+      &lt;div class=&quot;card-body p-0&quot;&gt;
+        &lt;div class=&quot;overlay-wrapper&quot;&gt;
+          &lt;img src=&quot;build/theme/media/stock/600x400/img-3.jpg&quot; alt=&quot;&quot; class=&quot;w-100 card-rounded&quot;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;overlay-layer card-rounded bg-dark bg-opacity-25 align-items-start justify-content-center&quot;&gt;
+          &lt;div class=&quot;d-flex flex-grow-1 flex-center py-5&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-shadow&quot;&gt;Explore&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary btn-shadow ms-2&quot;&gt;Purchase&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--end::Card--&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="contentBlocking" data-kt-scroll-offset="100">
+    <a href="#contentBlocking"></a>Content Blocking
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.overlay-block</code> class for blocking an element content.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="row">
+        <div class="col-lg-6">
+          <!--begin::Card-->
+          <div class="card shadow">
+            <div class="card-header">
+              <h3 class="card-title">Content Blocking</h3>
+            </div>
+            <div class="card-body">
+              <div class="overlay overlay-block card-rounded">
+                <div class="overlay-wrapper p-5">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                  when an unknown printer took a galley of type and scrambled it to.
+                </div>
+                <div class="overlay-layer card-rounded bg-dark bg-opacity-5">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;card shadow&quot;&gt;
+  &lt;div class=&quot;card-header&quot;&gt;
+    &lt;h3 class=&quot;card-title&quot;&gt;Content Blocking&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;div class=&quot;overlay overlay-block card-rounded&quot;&gt;
+      &lt;div class=&quot;overlay-wrapper p-5&quot;&gt;
+        Lorem Ipsum is simply dummy text...
+      &lt;/div&gt;
+      &lt;div class=&quot;overlay-layer card-rounded bg-dark bg-opacity-5&quot;&gt;
+        &lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;
+          &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="cardBlocking" data-kt-scroll-offset="100">
+    <a href="#cardBlocking"></a>Card Blocking
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.overlay-block</code> class for blocking card element.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="row">
+        <div class="col-lg-6">
+          <!--begin::Card-->
+          <div class="card card-border overlay overlay-block">
+            <div class="card-header">
+              <h3 class="card-title">Card Blocking</h3>
+            </div>
+            <div class="card-body">
+              <div class="overlay-wrapper p-5">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to.
+              </div>
+              <div class="overlay-layer card-rounded bg-dark bg-opacity-5">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Card-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;card card-border overlay overlay-block&quot;&gt;
+  &lt;div class=&quot;card-header&quot;&gt;
+    &lt;h3 class=&quot;card-title&quot;&gt;Card Blocking&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;div class=&quot;overlay-wrapper p-5&quot;&gt;
+      Lorem Ipsum is simply dummy text....
+    &lt;/div&gt;
+    &lt;div class=&quot;overlay-layer card-rounded bg-dark bg-opacity-5&quot;&gt;
+      &lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;
+        &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="modalBlocking" data-kt-scroll-offset="100">
+    <a href="#modalBlocking"></a>Modal Blocking
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.overlay-block</code> class block a modal's content.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="row">
+        <div class="col-lg-6">
+          <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch modal</button>
+          <!--begin::Modal Body Overlay-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                   <!--begin::Close-->
+                   <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                  </div>
+                  <!--end::Close-->
+                </div>
+                <!--begin::Overlay-->
+                <div class="modal-body overlay overlay-block">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                  when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  It has survived not only five centuries, but also the leap into electronic typesetting,
+                  remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                  <!--begin::Overlay Layer-->
+                  <div class="overlay-layer bg-dark bg-opacity-5">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                  <!--end::Overlay Layer-->
+                </div>
+                <!--end::Overlay-->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light-primary fw-semibold" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary ">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Modal Body Overlay-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-2&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#exampleModal&quot;&gt;Launch modal&lt;/button&gt;
+
+&lt;!--begin::Modal Body Overlay--&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;exampleModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;modal-dialog modal-dialog-centered&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Modal Title&lt;/h5&gt;
+        &lt;!--begin::Close--&gt;
+        &lt;div class=&quot;btn btn-icon btn-sm btn-active-light-primary ms-2&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;
+          &lt;i class=&quot;ki-duotone ki-cross fs-2x&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;!--end::Close--&gt;
+      &lt;/div&gt;
+      &lt;!--begin::Overlay--&gt;
+      &lt;div class=&quot;modal-body overlay overlay-block&quot;&gt;
+        Lorem Ipsum is simply dummy text ...
+        &lt;!--begin::Overlay Layer--&gt;
+        &lt;div class=&quot;overlay-layer bg-dark bg-opacity-5&quot;&gt;
+          &lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;
+            &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--end::Overlay Layer--&gt;
+      &lt;/div&gt;
+      &lt;!--end::Overlay--&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-light-primary fw-semibold&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary &quot;&gt;Ok&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--end::Modal Body Overlay--&gt;</code>
+        </pre>
+      </div>
     </div>
     <!--end::Highlight-->
   </div>
@@ -978,11 +1213,11 @@ dropzone
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Reference</span>
+    <span class="menu-title">Basic</span>
   </a>
   <!--end::Link-->
 </li>
@@ -990,11 +1225,47 @@ dropzone
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#defaultShown" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Basic Example</span>
+    <span class="menu-title">Default Shown</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#contentBlocking" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Content Blocking</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#cardBlocking" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Card Blocking</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#modalBlocking" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Modal Blocking</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1065,7 +1336,7 @@ dropzone
     Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
   </script>
   <script src="build/docs.js"></script>
-  <script src="build/dropzone.js"></script>
+  
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>
