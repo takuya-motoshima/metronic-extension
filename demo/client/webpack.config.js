@@ -37,6 +37,7 @@ module.exports = {
     keenicons: './src/pages/keenicons.js',
     'form-advanced': './src/pages/form-advanced.js',
     'no-ui-slider': './src/pages/no-ui-slider.js',
+    indicator: './src/pages/indicator.js',
   },
 
   // File output settings.

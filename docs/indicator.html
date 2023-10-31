@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Dialog - Metronic Extension</title>
+  <title>Indicator - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -210,7 +210,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="dialog.html">
+                  <a class="menu-link " href="dialog.html">
                     <span class="menu-title">Dialog</span>
                   </a>
                   <!--end:Menu link-->
@@ -462,7 +462,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="indicator.html">
+                  <a class="menu-link active" href="indicator.html">
                     <span class="menu-title">Indicator</span>
                   </a>
                   <!--end:Menu link-->
@@ -632,496 +632,106 @@
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    This is a component created by extending <a href="https://sweetalert2.github.io/" target="_blank">SweetAlert</a> that displays a dialog for the intended use.
+    Indicator is a custom component used in combination with <a href="https://getbootstrap.com/docs/5.2/components/buttons/" target="_blank">Bootstrap Spinners</a>, 
+    <a href="https://getbootstrap.com/docs/5.2/components/spinners/" target="_blank">Bootstrap Spinners</a>&nbsp; 
+    and other components to provide a progress indication toggling for a user action.
   </div>
   <!--end::Block-->
 </div>
 <!--end::Section-->
 <!--begin::Section-->
-<div class="py-10">
+<div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
-    <a href="#reference"></a>Reference
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    <!--begin::Heading-->
-    <div class="fs-2 py-5">Class methods</div>
-    <!--end::Heading-->
-    <!--begin::Table wrapper-->
-    <div class="table-responsive">
-      <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
-        <!--begin::Head-->
-        <thead>
-          <tr class="p-6">
-            <th class="min-w-250px">Name</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <!--end::Head-->
-        <!--begin::Body-->
-        <tbody>
-          <tr>
-            <td>
-              <code>public static confirm()</code>
-            </td>
-            <td>
-              Show the confirm dialog.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  icon: &#039;question&#039;,
-  confirmButtonText: &#039;OK&#039;,
-  cancelButtonText: &#039;Cancel&#039;,
-  showCancelButton: true,
-  buttonsStyling: false,
-  customClass: {
-    htmlContainer: &#039;overflow-hidden&#039;,
-    confirmButton: `btn btn-primary fw-bolder`,
-    cancelButton: &#039;btn btn-light fw-bolder&#039;,
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;boolean&gt;</code> True if the confirmation button is clicked, false otherwise.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static success()</code>
-            </td>
-            <td>
-              Show the success dialog.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  icon: &#039;success&#039;,
-  confirmButtonText: &#039;OK&#039;,
-  cancelButtonText: &#039;Cancel&#039;,
-  showCancelButton: false,
-  buttonsStyling: false,
-  customClass: {
-    confirmButton: `btn btn-primary fw-bolder`,
-    cancelButton: &#039;btn btn-light fw-bolder&#039;,
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;boolean&gt;</code> True if the confirmation button is clicked, false otherwise.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static error()</code>
-            </td>
-            <td>
-              Show the error dialog.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  icon: &#039;error&#039;,
-  confirmButtonText: &#039;OK&#039;,
-  buttonsStyling: false,
-  customClass: {
-    confirmButton: `btn btn-danger fw-bolder`,
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;void&gt;</code> Wait for the dialog to close.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static warning()</code>
-            </td>
-            <td>
-              Show the warning dialog.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  icon: &#039;warning&#039;,
-  confirmButtonText: &#039;OK&#039;,
-  buttonsStyling: false,
-  customClass: {
-    confirmButton: `btn btn-warning fw-bolder`,
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;void&gt;</code> Wait for the dialog to close.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static info()</code>
-            </td>
-            <td>
-              Show the info dialog.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  icon: &#039;info&#039;,
-  confirmButtonText: &#039;OK&#039;,
-  buttonsStyling: false,
-  customClass: {
-    confirmButton: `btn btn-primary fw-bolder`,
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;void&gt;</code> Wait for the dialog to close.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static unknownError()</code>
-            </td>
-            <td>
-              Show unknown error.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  title: &#039;An unexpected error has occurred.&#039;,
-  icon: &#039;error&#039;,
-  confirmButtonText: &#039;OK&#039;,
-  buttonsStyling: false,
-  customClass: {
-    confirmButton: `btn btn-danger fw-bolder`,
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;void&gt;</code> Wait for the dialog to close.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static loading()</code>
-            </td>
-            <td>
-              Show loading.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>message: string</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    The modal&#039;s text.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options?: sweetalert2.SweetAlertOptions|undefined</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Sweet Alert options. The following options apply by default.
-                  </div>
-                  <!--end::Block-->
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    <!--begin::Highlight-->
-                    <div class="highlight">
-                      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                      <div class="highlight-code">
-                        <pre class="language-javascript">
-                          <code class="language-javascript">{
-  html: message,
-  allowEscapeKey: false,
-  allowOutsideClick: false,
-  didOpen: () =&gt; {
-    window.Swal.showLoading()
-  }
-}</code>
-                        </pre>
-                      </div>
-                    </div>
-                    <!--end::Highlight-->
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Promise&lt;void&gt;</code> Wait for the dialog to close.</li>
-              </ul>
-              <!--end::Return-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public static close()</code>
-            </td>
-            <td>
-              Closes all currently open dialogs.
-            </td>
-          </tr>
-        </tbody>
-        <!--end::Body-->
-      </table>
-      <!--end::Table-->
-    </div>
-    <!--end::Table wrapper-->
+    Use <code>.indication</code> class on a button and specify the button's label and progress message and toggle the indicator state with <code>data-kt-indicator="on"</code> custom HTML attribute.
   </div>
-  <!--end::Block-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="py-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="allStatesExample" data-kt-scroll-offset="100">
-    <a href="#allStatesExample"></a>All States
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="py-5">Here is an example of each dialog.</div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
-    <div class="demonstration-block">
-      <button data-on-confirm type="button" class="btn btn-primary m-1">Toggle Confirm</button>
-      <button data-on-success type="button" class="btn btn-success m-1">Toggle Success</button>
-      <button data-on-success-with-cancel-button type="button" class="btn btn-success m-1">Toggle Success with cancel button</button>
-      <button data-on-error type="button" class="btn btn-danger m-1">Toggle Error</button>
-      <button data-on-unknown-error type="button" class="btn btn-danger m-1">Toggle Unknown error</button>
-      <button data-on-warning type="button" class="btn btn-warning m-1">Toggle Warning</button>
-      <button data-on-info type="button" class="btn btn-info m-1">Toggle Info</button>
-      <button data-on-loading type="button" class="btn btn-secondary m-1">Toggle Loading</button>
+    <div class="demonstration-block d-flex gap-4">
+      <button type="button" class="btn btn-primary">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+      <button type="button" class="btn btn-primary" data-kt-indicator="on">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button> 
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!-- Default state --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-10&quot;&gt;
+  &lt;span class=&quot;indicator-label&quot;&gt;Submit&lt;/span&gt;
+  &lt;span class=&quot;indicator-progress&quot;&gt;
+    Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Progress enabled state --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-kt-indicator=&quot;on&quot;&gt;
+  &lt;span class=&quot;indicator-label&quot;&gt;Submit&lt;/span&gt;
+  &lt;span class=&quot;indicator-progress&quot;&gt;
+    Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="toggle" data-kt-scroll-offset="100">
+    <a href="#toggle"></a>Toggle
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Click on the below buttons to check toggling indicator state with a simple Javascript code.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex gap-4">
+      <button type="button" class="btn btn-primary" id="button1">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+      <button type="button" class="btn btn-success" id="button2">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+      <button type="button" class="btn btn-danger" id="button3">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
     </div>
   </div>
   <!--end::Block-->
@@ -1131,74 +741,41 @@
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#allStatesExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#allStatesExampleJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#toggleIndicatorHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#toggleIndicatorJsTab" role="tab">JAVASCRIPT</a></li>
       </ul>
       <!--begin::Tab content-->
       <div class="tab-content">
         <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="allStatesExampleHtmlTab" role="tabpanel">
+        <div class="tab-pane fade show active" id="toggleIndicatorHtmlTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">&lt;button data-on-confirm type=&quot;button&quot; class=&quot;btn btn-primary m-1&quot;&gt;Toggle Confirm&lt;/button&gt;
-&lt;button data-on-success type=&quot;button&quot; class=&quot;btn btn-success m-1&quot;&gt;Toggle Success&lt;/button&gt;
-&lt;button data-on-success-with-cancel-button type=&quot;button&quot; class=&quot;btn btn-success m-1&quot;&gt;Toggle Success with cancel button&lt;/button&gt;
-&lt;button data-on-error type=&quot;button&quot; class=&quot;btn btn-danger m-1&quot;&gt;Toggle Error&lt;/button&gt;
-&lt;button data-on-unknown-error type=&quot;button&quot; class=&quot;btn btn-danger m-1&quot;&gt;Toggle Unknown error&lt;/button&gt;
-&lt;button data-on-warning type=&quot;button&quot; class=&quot;btn btn-warning m-1&quot;&gt;Toggle Warning&lt;/button&gt;
-&lt;button data-on-info type=&quot;button&quot; class=&quot;btn btn-info m-1&quot;&gt;Toggle Info&lt;/button&gt;
-&lt;button data-on-loading type=&quot;button&quot; class=&quot;btn btn-secondary m-1&quot;&gt;Toggle Loading&lt;/button&gt;</code>
+              <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-10&quot; id=&quot;button1&quot;&gt;
+  &lt;span class=&quot;indicator-label&quot;&gt;Submit&lt;/span&gt;
+  &lt;span class=&quot;indicator-progress&quot;&gt;
+    Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code>
             </pre>
           </div>
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="allStatesExampleJsTab" role="tabpanel">
+        <div class="tab-pane fade" id="toggleIndicatorJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Dialog} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">// Handle button click event.
+document.getElementById(&#039;button1&#039;).addEventListener(&#039;click&#039;, evnt =&gt; {
+  // Element to indecate.
+  const button = evnt.currentTarget;
 
-// Toggle Confirm.
-$(&#039;[data-on-confirm]&#039;).on(&#039;click&#039;, async() =&gt; {
-  const isConfirmed = await Dialog.confirm(&quot;Here&#039;s an example of confirm dialog.&quot;, {confirmButtonText: &#039;Yes&#039;, cancelButtonText: &#039;No&#039;});
-  alert(`Response is ${isConfirmed}`);
-});
+  // Activate indicator.
+  button.setAttribute(&#039;data-kt-indicator&#039;, &#039;on&#039;);
 
-// Toggle Success.
-$(&#039;[data-on-success]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.success(&quot;Here&#039;s an example of success dialog.&quot;);
-});
-
-// Toggle Success with cancel button.
-$(&#039;[data-on-success-with-cancel-button]&#039;).on(&#039;click&#039;, async () =&gt; {
-  const isConfirmed = await Dialog.success(&quot;Here&#039;s an example of success dialog.&quot;, {showCancelButton: true});
-  alert(`Response is ${isConfirmed}`);
-});
-
-// Toggle Error.
-$(&#039;[data-on-error]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.error(&quot;Here&#039;s an example of error dialog.&quot;);
-});
-
-// Toggle Unknown error.
-$(&#039;[data-on-unknown-error]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.unknownError();
-});
-
-// Toggle Warning.
-$(&#039;[data-on-warning]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.warning(&quot;Here&#039;s an example of warning dialog.&quot;);
-});
-
-// Toggle Info.
-$(&#039;[data-on-info]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.info(&quot;Here&#039;s an example of info dialog.&quot;);
-});
-
-// Toggle Loading.
-$(&#039;[data-on-loading]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.loading(&quot;Here&#039;s an example of loading dialog.&quot;);
-  setTimeout(() =&gt; Dialog.close(), 2000);
+  // Disable indicator after 3 seconds.
+  setTimeout(function() {
+    button.removeAttribute(&#039;data-kt-indicator&#039;);
+  }, 3000);
 });</code>
             </pre>
           </div>
@@ -1248,11 +825,11 @@ $(&#039;[data-on-loading]&#039;).on(&#039;click&#039;, () =&gt; {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Reference</span>
+    <span class="menu-title">Basic</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1260,11 +837,11 @@ $(&#039;[data-on-loading]&#039;).on(&#039;click&#039;, () =&gt; {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#allStatesExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#toggle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">All States</span>
+    <span class="menu-title">Toggle</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1335,7 +912,7 @@ $(&#039;[data-on-loading]&#039;).on(&#039;click&#039;, () =&gt; {
     Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
   </script>
   <script src="build/docs.js"></script>
-  <script src="build/dialog.js"></script>
+  <script src="build/indicator.js"></script>
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>

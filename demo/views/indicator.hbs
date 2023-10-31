@@ -1,0 +1,207 @@
+{{!< default}}
+{{#contentFor 'title'}}Indicator{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/indicator.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#toggle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Toggle</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Indicator is a custom component used in combination with <a href="https://getbootstrap.com/docs/5.2/components/buttons/" target="_blank">Bootstrap Spinners</a>, 
+    <a href="https://getbootstrap.com/docs/5.2/components/spinners/" target="_blank">Bootstrap Spinners</a>&nbsp; 
+    and other components to provide a progress indication toggling for a user action.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.indication</code> class on a button and specify the button's label and progress message and toggle the indicator state with <code>data-kt-indicator="on"</code> custom HTML attribute.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex gap-4">
+      <button type="button" class="btn btn-primary">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+      <button type="button" class="btn btn-primary" data-kt-indicator="on">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button> 
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!-- Default state --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-10&quot;&gt;
+  &lt;span class=&quot;indicator-label&quot;&gt;Submit&lt;/span&gt;
+  &lt;span class=&quot;indicator-progress&quot;&gt;
+    Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Progress enabled state --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-kt-indicator=&quot;on&quot;&gt;
+  &lt;span class=&quot;indicator-label&quot;&gt;Submit&lt;/span&gt;
+  &lt;span class=&quot;indicator-progress&quot;&gt;
+    Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="toggle" data-kt-scroll-offset="100">
+    <a href="#toggle"></a>Toggle
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Click on the below buttons to check toggling indicator state with a simple Javascript code.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex gap-4">
+      <button type="button" class="btn btn-primary" id="button1">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+      <button type="button" class="btn btn-success" id="button2">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+      <button type="button" class="btn btn-danger" id="button3">
+        <span class="indicator-label">Submit</span>
+        <span class="indicator-progress">
+          Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#toggleIndicatorHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#toggleIndicatorJsTab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="toggleIndicatorHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-10&quot; id=&quot;button1&quot;&gt;
+  &lt;span class=&quot;indicator-label&quot;&gt;Submit&lt;/span&gt;
+  &lt;span class=&quot;indicator-progress&quot;&gt;
+    Please wait... &lt;span class=&quot;spinner-border spinner-border-sm align-middle ms-2&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="toggleIndicatorJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Handle button click event.
+document.getElementById(&#039;button1&#039;).addEventListener(&#039;click&#039;, evnt =&gt; {
+  // Element to indecate.
+  const button = evnt.currentTarget;
+
+  // Activate indicator.
+  button.setAttribute(&#039;data-kt-indicator&#039;, &#039;on&#039;);
+
+  // Disable indicator after 3 seconds.
+  setTimeout(function() {
+    button.removeAttribute(&#039;data-kt-indicator&#039;);
+  }, 3000);
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
