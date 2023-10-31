@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Server-side processing - Metronic Extension</title>
+  <title>Carousel - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -121,7 +121,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="server-side-processing.html">
+                  <a class="menu-link " href="server-side-processing.html">
                     <span class="menu-title">Server-side processing</span>
                   </a>
                   <!--end:Menu link-->
@@ -453,7 +453,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="carousel.html">
+                  <a class="menu-link active" href="carousel.html">
                     <span class="menu-title">Carousel</span>
                   </a>
                   <!--end:Menu link-->
@@ -616,488 +616,340 @@
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="serverSideProcessingQuickStart" data-kt-scroll-offset="100">
-    <a href="#serverSideProcessingQuickStart"></a>Server-side processing Quick Start
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    The sample server-side processing uses the <a href="https://expressjs.com/" target="_blank">Express</a> framework and a <a href="https://mariadb.com/kb/ja/documentation/" target="_blank">MariaDB</a> database.
+    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/carousel/" target="_blank">Bootstrap Carousel</a>.
   </div>
   <!--end::Block-->
-  <!--begin::List-->
-  <ol class="py-5">
-    <li class="py-2">Download the latest server-side processing <a href="sample-server.zip" download="sample-server.zip">here</a>.</li>
-    <li class="py-2">
-      Unzip the downloaded <code>sample-server.zip</code>.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-bash">
-              <code class="language-bash">unzip sample-server.zip</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-    <li class="py-2">
-      Go to the unzipped <code>sample-server</code> directory and install the dependent packages.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-bash">
-              <code class="language-bash">cd sample-server/
-npm install</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-    <li class="py-2">
-      After building the MariaDB database, set the DB connection user and password in the <code>sample-server/.env</code> file.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-bash">
-              <code class="language-bash">PORT=3000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-    <li class="py-2">
-      Create a database and tables in MariaDB.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-sql">
-              <code class="language-sql">CREATE DATABASE IF NOT EXISTS metronic_db DEFAULT CHARACTER SET utf8mb4;
-USE metronic_db;
-
-CREATE TABLE folder (
-  id int unsigned NOT NULL AUTO_INCREMENT,
-  parent int unsigned DEFAULT NULL COMMENT &#039;For the root folder, it is NULL because there is no parent folder.&#039;,
-  `text` varchar(20) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY ukFolderText (parent, `text`),
-  CONSTRAINT fkFolderParent FOREIGN KEY (parent) REFERENCES folder (id) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE file (
-  id int unsigned NOT NULL AUTO_INCREMENT,
-  folderId int unsigned NOT NULL,
-  `text` varchar(20) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY ukFileText (folderId, `text`),
-  CONSTRAINT fkFileFolder FOREIGN KEY (folderId) REFERENCES folder (id) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE person (
-  id int unsigned NOT NULL AUTO_INCREMENT,
-  name varchar(20) NOT NULL,
-  position varchar(50) NOT NULL,
-  office varchar(50) NOT NULL,
-  age tinyint unsigned NOT NULL,
-  startDate date NOT NULL,
-  salary decimal(10,2) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-    <li class="py-2">
-      Add sample data for the <code>Tree</code> component to the <code>folder</code> and <code>file</code> tables.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-sql">
-              <code class="language-sql">INSERT INTO folder(id, parent, `text`) VALUES
-  (1, NULL, &#039;Root&#039;),
-  (2, 1, &#039;Child1&#039;),
-  (3, 1, &#039;Child2&#039;);
-
-INSERT INTO file(folderId, `text`) VALUES
-  (2, &#039;GrandChild1&#039;);</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-      <!--begin::Block-->
-      <div class="py-5">
-        The following <code>Tree</code> structure appears in the tree component.
-      </div>
-      <!--end::Block-->
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-bash">
-              <code class="language-bash">Root/
-├── Child1
-│   └── GrandChild1
-└── Child2</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-    <li class="py-2">
-      Add sample data for the <code>DataTable</code> to the <code>person</code> table.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-sql">
-              <code class="language-sql">INSERT INTO person(name, position, office, age, startDate, salary) VALUES
-  (&#039;Tiger Nixon&#039;,&#039;System Architect&#039;,&#039;Edinburgh&#039;,61,&#039;2011/04/25&#039;,320800),
-  (&#039;Garrett Winters&#039;,&#039;Accountant&#039;,&#039;Tokyo&#039;,63,&#039;2011/07/25&#039;,170750),
-  (&#039;Ashton Cox&#039;,&#039;Junior Technical Author&#039;,&#039;San Francisco&#039;,66,&#039;2009/01/12&#039;,86000),
-  (&#039;Cedric Kelly&#039;,&#039;Senior Javascript Developer&#039;,&#039;Edinburgh&#039;,22,&#039;2012/03/29&#039;,433060),
-  (&#039;Airi Satou&#039;,&#039;Accountant&#039;,&#039;Tokyo&#039;,33,&#039;2008/11/28&#039;,162700),
-  (&#039;Brielle Williamson&#039;,&#039;Integration Specialist&#039;,&#039;New York&#039;,61,&#039;2012/12/02&#039;,372000),
-  (&#039;Herrod Chandler&#039;,&#039;Sales Assistant&#039;,&#039;San Francisco&#039;,59,&#039;2012/08/06&#039;,137500),
-  (&#039;Rhona Davidson&#039;,&#039;Integration Specialist&#039;,&#039;Tokyo&#039;,55,&#039;2010/10/14&#039;,327900),
-  (&#039;Colleen Hurst&#039;,&#039;Javascript Developer&#039;,&#039;San Francisco&#039;,39,&#039;2009/09/15&#039;,205500),
-  (&#039;Sonya Frost&#039;,&#039;Software Engineer&#039;,&#039;Edinburgh&#039;,23,&#039;2008/12/13&#039;,103600),
-  (&#039;Jena Gaines&#039;,&#039;Office Manager&#039;,&#039;London&#039;,30,&#039;2008/12/19&#039;,90560),
-  (&#039;Quinn Flynn&#039;,&#039;Support Lead&#039;,&#039;Edinburgh&#039;,22,&#039;2013/03/03&#039;,342000),
-  (&#039;Charde Marshall&#039;,&#039;Regional Director&#039;,&#039;San Francisco&#039;,36,&#039;2008/10/16&#039;,470600),
-  (&#039;Haley Kennedy&#039;,&#039;Senior Marketing Designer&#039;,&#039;London&#039;,43,&#039;2012/12/18&#039;,313500),
-  (&#039;Tatyana Fitzpatrick&#039;,&#039;Regional Director&#039;,&#039;London&#039;,19,&#039;2010/03/17&#039;,385750),
-  (&#039;Michael Silva&#039;,&#039;Marketing Designer&#039;,&#039;London&#039;,66,&#039;2012/11/27&#039;,198500),
-  (&#039;Paul Byrd&#039;,&#039;Chief Financial Officer (CFO)&#039;,&#039;New York&#039;,64,&#039;2010/06/09&#039;,725000),
-  (&#039;Gloria Little&#039;,&#039;Systems Administrator&#039;,&#039;New York&#039;,59,&#039;2009/04/10&#039;,237500),
-  (&#039;Bradley Greer&#039;,&#039;Software Engineer&#039;,&#039;London&#039;,41,&#039;2012/10/13&#039;,132000),
-  (&#039;Dai Rios&#039;,&#039;Personnel Lead&#039;,&#039;Edinburgh&#039;,35,&#039;2012/09/26&#039;,217500),
-  (&#039;Jenette Caldwell&#039;,&#039;Development Lead&#039;,&#039;New York&#039;,30,&#039;2011/09/03&#039;,345000),
-  (&#039;Yuri Berry&#039;,&#039;Chief Marketing Officer (CMO)&#039;,&#039;New York&#039;,40,&#039;2009/06/25&#039;,675000),
-  (&#039;Caesar Vance&#039;,&#039;Pre-Sales Support&#039;,&#039;New York&#039;,21,&#039;2011/12/12&#039;,106450),
-  (&#039;Doris Wilder&#039;,&#039;Sales Assistant&#039;,&#039;Sydney&#039;,23,&#039;2010/09/20&#039;,85600),
-  (&#039;Angelica Ramos&#039;,&#039;Chief Executive Officer (CEO)&#039;,&#039;London&#039;,47,&#039;2009/10/09&#039;,1200000),
-  (&#039;Gavin Joyce&#039;,&#039;Developer&#039;,&#039;Edinburgh&#039;,42,&#039;2010/12/22&#039;,92575),
-  (&#039;Jennifer Chang&#039;,&#039;Regional Director&#039;,&#039;Singapore&#039;,28,&#039;2010/11/14&#039;,357650),
-  (&#039;Brenden Wagner&#039;,&#039;Software Engineer&#039;,&#039;San Francisco&#039;,28,&#039;2011/06/07&#039;,206850),
-  (&#039;Fiona Green&#039;,&#039;Chief Operating Officer (COO)&#039;,&#039;San Francisco&#039;,48,&#039;2010/03/11&#039;,850000),
-  (&#039;Shou Itou&#039;,&#039;Regional Marketing&#039;,&#039;Tokyo&#039;,20,&#039;2011/08/14&#039;,163000),
-  (&#039;Michelle House&#039;,&#039;Integration Specialist&#039;,&#039;Sydney&#039;,37,&#039;2011/06/02&#039;,95400),
-  (&#039;Suki Burks&#039;,&#039;Developer&#039;,&#039;London&#039;,53,&#039;2009/10/22&#039;,114500),
-  (&#039;Prescott Bartlett&#039;,&#039;Technical Author&#039;,&#039;London&#039;,27,&#039;2011/05/07&#039;,145000),
-  (&#039;Gavin Cortez&#039;,&#039;Team Leader&#039;,&#039;San Francisco&#039;,22,&#039;2008/10/26&#039;,235500),
-  (&#039;Martena Mccray&#039;,&#039;Post-Sales support&#039;,&#039;Edinburgh&#039;,46,&#039;2011/03/09&#039;,324050),
-  (&#039;Unity Butler&#039;,&#039;Marketing Designer&#039;,&#039;San Francisco&#039;,47,&#039;2009/12/09&#039;,85675),
-  (&#039;Howard Hatfield&#039;,&#039;Office Manager&#039;,&#039;San Francisco&#039;,51,&#039;2008/12/16&#039;,164500),
-  (&#039;Hope Fuentes&#039;,&#039;Secretary&#039;,&#039;San Francisco&#039;,41,&#039;2010/02/12&#039;,109850),
-  (&#039;Vivian Harrell&#039;,&#039;Financial Controller&#039;,&#039;San Francisco&#039;,62,&#039;2009/02/14&#039;,452500),
-  (&#039;Timothy Mooney&#039;,&#039;Office Manager&#039;,&#039;London&#039;,37,&#039;2008/12/11&#039;,136200),
-  (&#039;Jackson Bradshaw&#039;,&#039;Director&#039;,&#039;New York&#039;,65,&#039;2008/09/26&#039;,645750),
-  (&#039;Olivia Liang&#039;,&#039;Support Engineer&#039;,&#039;Singapore&#039;,64,&#039;2011/02/03&#039;,234500),
-  (&#039;Bruno Nash&#039;,&#039;Software Engineer&#039;,&#039;London&#039;,38,&#039;2011/05/03&#039;,163500),
-  (&#039;Sakura Yamamoto&#039;,&#039;Support Engineer&#039;,&#039;Tokyo&#039;,37,&#039;2009/08/19&#039;,139575),
-  (&#039;Thor Walton&#039;,&#039;Developer&#039;,&#039;New York&#039;,61,&#039;2013/08/11&#039;,98540),
-  (&#039;Finn Camacho&#039;,&#039;Support Engineer&#039;,&#039;San Francisco&#039;,47,&#039;2009/07/07&#039;,87500),
-  (&#039;Serge Baldwin&#039;,&#039;Data Coordinator&#039;,&#039;Singapore&#039;,64,&#039;2012/04/09&#039;,138575),
-  (&#039;Zenaida Frank&#039;,&#039;Software Engineer&#039;,&#039;New York&#039;,63,&#039;2010/01/04&#039;,125250),
-  (&#039;Zorita Serrano&#039;,&#039;Software Engineer&#039;,&#039;San Francisco&#039;,56,&#039;2012/06/01&#039;,115000),
-  (&#039;Jennifer Acosta&#039;,&#039;Junior Javascript Developer&#039;,&#039;Edinburgh&#039;,43,&#039;2013/02/01&#039;,75650),
-  (&#039;Cara Stevens&#039;,&#039;Sales Assistant&#039;,&#039;New York&#039;,46,&#039;2011/12/06&#039;,145600),
-  (&#039;Hermione Butler&#039;,&#039;Regional Director&#039;,&#039;London&#039;,47,&#039;2011/03/21&#039;,356250),
-  (&#039;Lael Greer&#039;,&#039;Systems Administrator&#039;,&#039;London&#039;,21,&#039;2009/02/27&#039;,103500),
-  (&#039;Jonas Alexander&#039;,&#039;Developer&#039;,&#039;San Francisco&#039;,30,&#039;2010/07/14&#039;,86500),
-  (&#039;Shad Decker&#039;,&#039;Regional Director&#039;,&#039;Edinburgh&#039;,51,&#039;2008/11/13&#039;,183000),
-  (&#039;Michael Bruce&#039;,&#039;Javascript Developer&#039;,&#039;Singapore&#039;,29,&#039;2011/06/27&#039;,183000),
-  (&#039;Donna Snider&#039;,&#039;Customer Support&#039;,&#039;New York&#039;,27,&#039;2011/01/25&#039;,112000);</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-    <li class="py-2">
-      Start the local host server. The server will continue to run on port <code>3000</code>. To stop, press <code>Ctrl+C</code>.
-      <!--begin::Code-->
-      <div class="pt-3">
-        <!--begin::Highlight-->
-        <div class="highlight">
-          <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-          <div class="highlight-code">
-            <pre class="language-bash">
-              <code class="language-bash">npm start</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Highlight-->
-      </div>
-      <!--end::Code-->
-    </li>
-  </ol>
-  <!--end::List-->
 </div>
 <!--end::Section-->
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="serverSideApiReference" data-kt-scroll-offset="100">
-    <a href="#serverSideApiReference"></a>Server Side API Reference
+  <h1 class="anchor fw-bold mb-5" id="dotsIndicators" data-kt-scroll-offset="100">
+    <a href="#dotsIndicators"></a>Dots Indicators
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    API provided by the sample server-side processing.
+    Add <code>.carousel-custom</code> and <code>.carousel-indicators-dots</code> classes for a custom carousel with dots indicators style.
   </div>
   <!--end::Block-->
-  <!--begin::Table wrapper-->
-  <div class="table-responsive">
-    <!--begin::Table-->
-    <table class="table table-row-bordered mb-0 gy-5">
-      <!--begin::Head-->
-      <thead>
-        <tr class="p-6">
-          <th>HTTP Method</th>
-          <th>Endpoint</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <!--end::Head-->
-      <!--begin::Body-->
-      <tbody>
-        <tr>
-          <td><code>GET</code></td>
-          <td><code>/api/tree/:parent_folder_id</code></td>
-          <td>
-            Get a list of folders in the tree.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>parent_folder_id: number|&#039;#&#039;</code> Parent folder ID, &quot;#&quot; if the parent folder is the root node.</li>
-            </ul>
-            <!--end::Path Parameters-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Response Body:</div>
-            <!--end::Heading-->
-            <!--begin::Response Body-->
-            <ul>
-              <li class="py-2"><code>parent: number|&#039;#&#039;|null</code> Parent folder ID, &#039;#&#039; if the parent folder is the root node. If it is the root node itself, it is null because there is no parent folder.</li>
-              <li class="py-2"><code>type: &#039;folder&#039;|&#039;file&#039;</code> The node type (folder or file).</li>
-              <li class="py-2"><code>text: string</code> Node Name.</li>
-              <li class="py-2"><code>id: number</code> Node ID.</li>
-              <li class="py-2"><code>children: boolean|1|0|&#039;1&#039;|&#039;0&#039;</code> True if there is a child node, false if there is not. Also, a numeric or letter &#039;1&#039; is treated as true and a &#039;0&#039; as false in the Tree component.</li>
-            </ul>
-            <!--end::Response Body-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>POST</code></td>
-          <td><code>/api/tree/folder/:parent_folder_id</code></td>
-          <td>
-            Create a folder in the tree.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>parent_folder_id: number</code> Parent folder ID.</li>
-            </ul>
-            <!--end::Path Parameters-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Request Body:</div>
-            <!--end::Heading-->
-            <!--begin::Request Body-->
-            <ul>
-              <li class="py-2"><code>text: string</code> Folder Name.</li>
-            </ul>
-            <!--end::Request Body-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Response Body:</div>
-            <!--end::Heading-->
-            <!--begin::Response Body-->
-            <ul>
-              <li class="py-2"><code>id: number</code> ID of the created folder.</li>
-            </ul>
-            <!--end::Response Body-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>DELETE</code></td>
-          <td><code>/api/tree/folder/:folder_id</code></td>
-          <td>
-            Delete a folder in the tree.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>folder_id: number</code> Folder ID.</li>
-            </ul>
-            <!--end::Path Parameters-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>PUT</code></td>
-          <td><code>/api/tree/folder/:folder_id</code></td>
-          <td>
-            Rename a folder in the tree.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>folder_id: number</code> Folder ID.</li>
-            </ul>
-            <!--end::Path Parameters-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Request Body:</div>
-            <!--end::Heading-->
-            <!--begin::Request Body-->
-            <ul>
-              <li class="py-2"><code>text: string</code> Folder Name.</li>
-            </ul>
-            <!--end::Request Body-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>POST</code></td>
-          <td><code>/api/tree/file/:parent_folder_id</code></td>
-          <td>
-            Create an element in a tree folder.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>parent_folder_id: number</code> Parent folder ID.</li>
-            </ul>
-            <!--end::Path Parameters-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Request Body:</div>
-            <!--end::Heading-->
-            <!--begin::Request Body-->
-            <ul>
-              <li class="py-2"><code>text: string</code> File Name.</li>
-            </ul>
-            <!--end::Request Body-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Response Body:</div>
-            <!--end::Heading-->
-            <!--begin::Response Body-->
-            <ul>
-              <li class="py-2"><code>id: number</code> ID of the file node created.</li>
-            </ul>
-            <!--end::Response Body-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>DELETE</code></td>
-          <td><code>/api/tree/file/:file_id</code></td>
-          <td>
-            Delete an element in a tree folder.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>file_id: number</code> File node ID.</li>
-            </ul>
-            <!--end::Path Parameters-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>PUT</code></td>
-          <td><code>/api/tree/file/:file_id</code></td>
-          <td>
-            Rename an element in a tree folder.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Path Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Path Parameters-->
-            <ul>
-              <li class="py-2"><code>file_id: number</code> File node ID.</li>
-            </ul>
-            <!--end::Path Parameters-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Request Body:</div>
-            <!--end::Heading-->
-            <!--begin::Request Body-->
-            <ul>
-              <li class="py-2"><code>text: string</code> File Name.</li>
-            </ul>
-            <!--end::Request Body-->
-          </td>
-        </tr>
-        <tr>
-          <td><code>GET</code></td>
-          <td><code>/api/persons/pages</code></td>
-          <td>
-            Get person page data.
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Query Parameters:</div>
-            <!--end::Heading-->
-            <!--begin::Query Parameters-->
-            <ul>
-              <li class="py-2"><code>start: number</code> Starting point of the current data set (0 index base, i.e., 0 is the first record).</li>
-              <li class="py-2"><code>length: number</code> The number of records the table can display.</li>
-              <li class="py-2"><code>order: string</code> Columns to be ordered.</li>
-              <li class="py-2"><code>dir: string</code> Direction of sorting. It will be asc or desc, indicating ascending or descending order, respectively.</li>
-              <li class="py-2"><code>draw: number</code> A drawing counter. Used to ensure that responses from the server are drawn in sequence.</li>
-            </ul>
-            <!--end::Query Parameters-->
-            <!--begin::Heading-->
-            <div class="py-3 text-gray-700">Response Body:</div>
-            <!--end::Heading-->
-            <!--begin::Response Body-->
-            <ul>
-              <li class="py-2"><code>data: object[]</code> The data to be displayed in the table.</li>
-              <li class="py-2"><code>recordsTotal: number</code> Total records, before filtering.</li>
-              <li class="py-2"><code>recordsFiltered: number</code> Total records, after filtering.</li>
-              <li class="py-2"><code>draw: number</code> Draw counter sent by the client.</li>
-            </ul>
-            <!--end::Response Body-->
-          </td>
-        </tr>
-      </tbody>
-      <!--end::Body-->
-    </table>
-    <!--end::Table-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div id="dotsIndicatorsCarousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <!--begin::Heading-->
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <!--begin::Label-->
+          <span class="fs-4 fw-bold pe-2">Title</span>
+          <!--end::Label-->
+          <!--begin::Carousel Indicators-->
+          <ol class="p-0 m-0 carousel-indicators carousel-indicators-dots">
+            <li data-bs-target="#dotsIndicatorsCarousel" data-bs-slide-to="0" class="ms-1 active"></li>
+            <li data-bs-target="#dotsIndicatorsCarousel" data-bs-slide-to="1" class="ms-1"></li>
+            <li data-bs-target="#dotsIndicatorsCarousel" data-bs-slide-to="2" class="ms-1"></li>
+          </ol>
+          <!--end::Carousel Indicators-->
+        </div>
+        <!--end::Heading-->
+        <!--begin::Carousel-->
+        <div class="carousel-inner pt-8">
+          <!--begin::Item-->
+          <div class="carousel-item active">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+        </div>
+        <!--end::Carousel-->
+      </div>
+    </div>
   </div>
-  <!--end::Table wrapper-->
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;dotsIndicatorsCarousel&quot; class=&quot;carousel carousel-custom slide&quot; data-bs-ride=&quot;carousel&quot; data-bs-interval=&quot;8000&quot;&gt;
+  &lt;!--begin::Heading--&gt;
+  &lt;div class=&quot;d-flex align-items-center justify-content-between flex-wrap&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;span class=&quot;fs-4 fw-bold pe-2&quot;&gt;Title&lt;/span&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Carousel Indicators--&gt;
+    &lt;ol class=&quot;p-0 m-0 carousel-indicators carousel-indicators-dots&quot;&gt;
+      &lt;li data-bs-target=&quot;#dotsIndicatorsCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;ms-1 active&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#dotsIndicatorsCarousel&quot; data-bs-slide-to=&quot;1&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#dotsIndicatorsCarousel&quot; data-bs-slide-to=&quot;2&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--end::Carousel Indicators--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Heading--&gt;
+  &lt;!--begin::Carousel--&gt;
+  &lt;div class=&quot;carousel-inner pt-8&quot;&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Carousel--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="bulletIndicators" data-kt-scroll-offset="100">
+    <a href="#bulletIndicators"></a>Bullet Indicators
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.carousel-custom</code> and <code>.carousel-indicators-bullet</code> 
+    classes for a custom carousel with bullet indicators style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div id="bulletIndicatorsCarousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <!--begin::Heading-->
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <!--begin::Label-->
+          <span class="fs-4 fw-bold pe-2">Title</span>
+          <!--end::Label-->
+          <!--begin::Carousel Indicators-->
+          <ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet">
+            <li data-bs-target="#bulletIndicatorsCarousel" data-bs-slide-to="0" class="ms-1 active"></li>
+            <li data-bs-target="#bulletIndicatorsCarousel" data-bs-slide-to="1" class="ms-1"></li>
+            <li data-bs-target="#bulletIndicatorsCarousel" data-bs-slide-to="2" class="ms-1"></li>
+          </ol>
+          <!--end::Carousel Indicators-->
+        </div>
+        <!--end::Heading-->
+        <!--begin::Carousel-->
+        <div class="carousel-inner pt-8">
+          <!--begin::Item-->
+          <div class="carousel-item active">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+        </div>
+        <!--end::Carousel-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;bulletIndicatorsCarousel&quot; class=&quot;carousel carousel-custom slide&quot; data-bs-ride=&quot;carousel&quot; data-bs-interval=&quot;8000&quot;&gt;
+  &lt;!--begin::Heading--&gt;
+  &lt;div class=&quot;d-flex align-items-center justify-content-between flex-wrap&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;span class=&quot;fs-4 fw-bold pe-2&quot;&gt;Title&lt;/span&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Carousel Indicators--&gt;
+    &lt;ol class=&quot;p-0 m-0 carousel-indicators carousel-indicators-bullet&quot;&gt;
+      &lt;li data-bs-target=&quot;#bulletIndicatorsCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;ms-1 active&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#bulletIndicatorsCarousel&quot; data-bs-slide-to=&quot;1&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#bulletIndicatorsCarousel&quot; data-bs-slide-to=&quot;2&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--end::Carousel Indicators--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Heading--&gt;
+  &lt;!--begin::Carousel--&gt;
+  &lt;div class=&quot;carousel-inner pt-8&quot;&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Carousel--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="themeColors" data-kt-scroll-offset="100">
+    <a href="#themeColors"></a>Theme Colors
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Color can be set for active indicators by adding <code>.carousel-custom</code> and <code>carousel-indicators-active-{color}</code>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div id="themeColorsCarousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <!--begin::Heading-->
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <!--begin::Label-->
+          <span class="fs-4 fw-bold pe-2">Title</span>
+          <!--end::Label-->
+          <!--begin::Carousel Indicators-->
+          <ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary">
+            <li data-bs-target="#themeColorsCarousel" data-bs-slide-to="0" class="ms-1 active"></li>
+            <li data-bs-target="#themeColorsCarousel" data-bs-slide-to="1" class="ms-1"></li>
+            <li data-bs-target="#themeColorsCarousel" data-bs-slide-to="2" class="ms-1"></li>
+          </ol>
+          <!--end::Carousel Indicators-->
+        </div>
+        <!--end::Heading-->
+        <!--begin::Carousel-->
+        <div class="carousel-inner pt-8">
+          <!--begin::Item-->
+          <div class="carousel-item active">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+        </div>
+        <!--end::Carousel-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;themeColorsCarousel&quot; class=&quot;carousel carousel-custom slide&quot; data-bs-ride=&quot;carousel&quot; data-bs-interval=&quot;8000&quot;&gt;
+  &lt;!--begin::Heading--&gt;
+  &lt;div class=&quot;d-flex align-items-center justify-content-between flex-wrap&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;span class=&quot;fs-4 fw-bold pe-2&quot;&gt;Title&lt;/span&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Carousel Indicators--&gt;
+    &lt;ol class=&quot;p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary&quot;&gt;
+      &lt;li data-bs-target=&quot;#themeColorsCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;ms-1 active&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#themeColorsCarousel&quot; data-bs-slide-to=&quot;1&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#themeColorsCarousel&quot; data-bs-slide-to=&quot;2&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--end::Carousel Indicators--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Heading--&gt;
+  &lt;!--begin::Carousel--&gt;
+  &lt;div class=&quot;carousel-inner pt-8&quot;&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Carousel--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
 </div>
 <!--end::Section-->
                     </div>
@@ -1124,11 +976,11 @@ INSERT INTO file(folderId, `text`) VALUES
                           <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#serverSideProcessingQuickStart" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Server-side processing Quick Start</span>
+    <span class="menu-title">Overview</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1136,11 +988,35 @@ INSERT INTO file(folderId, `text`) VALUES
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#serverSideApiReference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#dotsIndicators" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Server Side API Reference</span>
+    <span class="menu-title">Dots Indicators</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#bulletIndicators" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Bullet Indicators</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#themeColors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Theme Colors</span>
   </a>
   <!--end::Link-->
 </li>

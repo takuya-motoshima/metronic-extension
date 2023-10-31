@@ -21,7 +21,7 @@
   <link href="build/docs.css" rel="stylesheet" type="text/css" />
   <style>
 /*Hide side navigation*/
-#kt_app_content_container > div:nth-child(2) {
+#kt_app_sidebar_navs {
   display: none;
 }
 </style>
@@ -457,6 +457,15 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="carousel.html">
+                    <span class="menu-title">Carousel</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
                   <!--begin:Menu link-->
                   <span class="menu-link">
@@ -628,7 +637,7 @@
                   </div>
                   <!--end::Card-->
                   <!--begin::Sidebar wrapper-->
-                  <div class="ms-7 flex-row-auto w-lg-200px">
+                  <div class="ms-7 flex-row-auto w-lg-200px" id="kt_app_sidebar_navs">
                     <!--begin::Sidebar nav-->
                     <div
                       class="card card-flush d-none d-lg-flex"

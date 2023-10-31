@@ -1,0 +1,391 @@
+{{!< default}}
+{{#contentFor 'title'}}Carousel{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#dotsIndicators" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Dots Indicators</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#bulletIndicators" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Bullet Indicators</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#themeColors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Theme Colors</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/carousel/" target="_blank">Bootstrap Carousel</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="dotsIndicators" data-kt-scroll-offset="100">
+    <a href="#dotsIndicators"></a>Dots Indicators
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.carousel-custom</code> and <code>.carousel-indicators-dots</code> classes for a custom carousel with dots indicators style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div id="dotsIndicatorsCarousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <!--begin::Heading-->
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <!--begin::Label-->
+          <span class="fs-4 fw-bold pe-2">Title</span>
+          <!--end::Label-->
+          <!--begin::Carousel Indicators-->
+          <ol class="p-0 m-0 carousel-indicators carousel-indicators-dots">
+            <li data-bs-target="#dotsIndicatorsCarousel" data-bs-slide-to="0" class="ms-1 active"></li>
+            <li data-bs-target="#dotsIndicatorsCarousel" data-bs-slide-to="1" class="ms-1"></li>
+            <li data-bs-target="#dotsIndicatorsCarousel" data-bs-slide-to="2" class="ms-1"></li>
+          </ol>
+          <!--end::Carousel Indicators-->
+        </div>
+        <!--end::Heading-->
+        <!--begin::Carousel-->
+        <div class="carousel-inner pt-8">
+          <!--begin::Item-->
+          <div class="carousel-item active">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+        </div>
+        <!--end::Carousel-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;dotsIndicatorsCarousel&quot; class=&quot;carousel carousel-custom slide&quot; data-bs-ride=&quot;carousel&quot; data-bs-interval=&quot;8000&quot;&gt;
+  &lt;!--begin::Heading--&gt;
+  &lt;div class=&quot;d-flex align-items-center justify-content-between flex-wrap&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;span class=&quot;fs-4 fw-bold pe-2&quot;&gt;Title&lt;/span&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Carousel Indicators--&gt;
+    &lt;ol class=&quot;p-0 m-0 carousel-indicators carousel-indicators-dots&quot;&gt;
+      &lt;li data-bs-target=&quot;#dotsIndicatorsCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;ms-1 active&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#dotsIndicatorsCarousel&quot; data-bs-slide-to=&quot;1&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#dotsIndicatorsCarousel&quot; data-bs-slide-to=&quot;2&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--end::Carousel Indicators--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Heading--&gt;
+  &lt;!--begin::Carousel--&gt;
+  &lt;div class=&quot;carousel-inner pt-8&quot;&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Carousel--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="bulletIndicators" data-kt-scroll-offset="100">
+    <a href="#bulletIndicators"></a>Bullet Indicators
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.carousel-custom</code> and <code>.carousel-indicators-bullet</code> 
+    classes for a custom carousel with bullet indicators style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div id="bulletIndicatorsCarousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <!--begin::Heading-->
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <!--begin::Label-->
+          <span class="fs-4 fw-bold pe-2">Title</span>
+          <!--end::Label-->
+          <!--begin::Carousel Indicators-->
+          <ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet">
+            <li data-bs-target="#bulletIndicatorsCarousel" data-bs-slide-to="0" class="ms-1 active"></li>
+            <li data-bs-target="#bulletIndicatorsCarousel" data-bs-slide-to="1" class="ms-1"></li>
+            <li data-bs-target="#bulletIndicatorsCarousel" data-bs-slide-to="2" class="ms-1"></li>
+          </ol>
+          <!--end::Carousel Indicators-->
+        </div>
+        <!--end::Heading-->
+        <!--begin::Carousel-->
+        <div class="carousel-inner pt-8">
+          <!--begin::Item-->
+          <div class="carousel-item active">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+        </div>
+        <!--end::Carousel-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;bulletIndicatorsCarousel&quot; class=&quot;carousel carousel-custom slide&quot; data-bs-ride=&quot;carousel&quot; data-bs-interval=&quot;8000&quot;&gt;
+  &lt;!--begin::Heading--&gt;
+  &lt;div class=&quot;d-flex align-items-center justify-content-between flex-wrap&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;span class=&quot;fs-4 fw-bold pe-2&quot;&gt;Title&lt;/span&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Carousel Indicators--&gt;
+    &lt;ol class=&quot;p-0 m-0 carousel-indicators carousel-indicators-bullet&quot;&gt;
+      &lt;li data-bs-target=&quot;#bulletIndicatorsCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;ms-1 active&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#bulletIndicatorsCarousel&quot; data-bs-slide-to=&quot;1&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#bulletIndicatorsCarousel&quot; data-bs-slide-to=&quot;2&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--end::Carousel Indicators--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Heading--&gt;
+  &lt;!--begin::Carousel--&gt;
+  &lt;div class=&quot;carousel-inner pt-8&quot;&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Carousel--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="themeColors" data-kt-scroll-offset="100">
+    <a href="#themeColors"></a>Theme Colors
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Color can be set for active indicators by adding <code>.carousel-custom</code> and <code>carousel-indicators-active-{color}</code>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div id="themeColorsCarousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <!--begin::Heading-->
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <!--begin::Label-->
+          <span class="fs-4 fw-bold pe-2">Title</span>
+          <!--end::Label-->
+          <!--begin::Carousel Indicators-->
+          <ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary">
+            <li data-bs-target="#themeColorsCarousel" data-bs-slide-to="0" class="ms-1 active"></li>
+            <li data-bs-target="#themeColorsCarousel" data-bs-slide-to="1" class="ms-1"></li>
+            <li data-bs-target="#themeColorsCarousel" data-bs-slide-to="2" class="ms-1"></li>
+          </ol>
+          <!--end::Carousel Indicators-->
+        </div>
+        <!--end::Heading-->
+        <!--begin::Carousel-->
+        <div class="carousel-inner pt-8">
+          <!--begin::Item-->
+          <div class="carousel-item active">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          </div>
+          <!--end::Item-->
+          <!--begin::Item-->
+          <div class="carousel-item">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </div>
+          <!--end::Item-->
+        </div>
+        <!--end::Carousel-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div id=&quot;themeColorsCarousel&quot; class=&quot;carousel carousel-custom slide&quot; data-bs-ride=&quot;carousel&quot; data-bs-interval=&quot;8000&quot;&gt;
+  &lt;!--begin::Heading--&gt;
+  &lt;div class=&quot;d-flex align-items-center justify-content-between flex-wrap&quot;&gt;
+    &lt;!--begin::Label--&gt;
+    &lt;span class=&quot;fs-4 fw-bold pe-2&quot;&gt;Title&lt;/span&gt;
+    &lt;!--end::Label--&gt;
+    &lt;!--begin::Carousel Indicators--&gt;
+    &lt;ol class=&quot;p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary&quot;&gt;
+      &lt;li data-bs-target=&quot;#themeColorsCarousel&quot; data-bs-slide-to=&quot;0&quot; class=&quot;ms-1 active&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#themeColorsCarousel&quot; data-bs-slide-to=&quot;1&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+      &lt;li data-bs-target=&quot;#themeColorsCarousel&quot; data-bs-slide-to=&quot;2&quot; class=&quot;ms-1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--end::Carousel Indicators--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Heading--&gt;
+  &lt;!--begin::Carousel--&gt;
+  &lt;div class=&quot;carousel-inner pt-8&quot;&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+    &lt;!--begin::Item--&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!--end::Item--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Carousel--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
