@@ -1,0 +1,250 @@
+{{!< default}}
+{{#contentFor 'title'}}Breadcrumb{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#lineSeparator" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Line Separator</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#dotSeparator" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Dot Separator</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#withoutSeparator" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Without Separator</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/breadcrumb/" target="_blank">Bootstrap Breadcrumb</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use an ordered or unordered list with linked list items to create a minimally styled breadcrumb. Use our utilities to add additional styles as desired.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <ol class="breadcrumb text-muted fs-6 fw-semibold">
+        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
+        <li class="breadcrumb-item text-muted">Active</li>
+      </ol>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;ol class=&quot;breadcrumb text-muted fs-6 fw-semibold&quot;&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
+&lt;/ol&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="lineSeparator" data-kt-scroll-offset="100">
+    <a href="#lineSeparator"></a>Line Separator
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.breadcrumb-line</code> to enable line separator style for a breadcrumb.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <ol class="breadcrumb breadcrumb-line text-muted fs-6 fw-semibold">
+        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
+        <li class="breadcrumb-item text-muted">Active</li>
+      </ol>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;ol class=&quot;breadcrumb breadcrumb-line text-muted fs-6 fw-semibold&quot;&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
+&lt;/ol&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="dotSeparator" data-kt-scroll-offset="100">
+    <a href="#dotSeparator"></a>Dot Separator
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.breadcrumb-dot</code> to enable dot separator style for a breadcrumb.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <ol class="breadcrumb breadcrumb-dot text-muted fs-6 fw-semibold">
+        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
+        <li class="breadcrumb-item text-muted">Active</li>
+      </ol>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;ol class=&quot;breadcrumb breadcrumb-dot text-muted fs-6 fw-semibold&quot;&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
+&lt;/ol&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="withoutSeparator" data-kt-scroll-offset="100">
+    <a href="#withoutSeparator"></a>Without Separator
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add <code>.breadcrumb-separatorless</code> to remove the separator.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <ol class="breadcrumb breadcrumb-separatorless text-muted fs-6 fw-semibold">
+        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
+        <li class="breadcrumb-item text-muted">Active</li>
+      </ol>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;ol class=&quot;breadcrumb breadcrumb-separatorless text-muted fs-6 fw-semibold&quot;&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
+&lt;/ol&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
