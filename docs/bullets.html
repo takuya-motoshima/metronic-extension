@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Breadcrumb - Metronic Extension</title>
+  <title>Bullets - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -426,7 +426,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="breadcrumb.html">
+                  <a class="menu-link " href="breadcrumb.html">
                     <span class="menu-title">Breadcrumb</span>
                   </a>
                   <!--end:Menu link-->
@@ -435,7 +435,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="bullets.html">
+                  <a class="menu-link active" href="bullets.html">
                     <span class="menu-title">Bullets</span>
                   </a>
                   <!--end:Menu link-->
@@ -613,7 +613,7 @@
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/breadcrumb/" target="_blank">Bootstrap Breadcrumb</a>.
+    Bullet is a custom component used with combination with other components to display a pointer to an item in the list or navigation.
   </div>
   <!--end::Block-->
 </div>
@@ -627,17 +627,29 @@
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Use an ordered or unordered list with linked list items to create a minimally styled breadcrumb. Use our utilities to add additional styles as desired.
+    Use <code>.bullet</code> in a list or navigation items as a pointer.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <ol class="breadcrumb text-muted fs-6 fw-semibold">
-        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
-        <li class="breadcrumb-item text-muted">Active</li>
-      </ol>
+      <div class="d-flex flex-column">
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet me-5"></span> Item 1
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet me-5"></span> Item 2
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet me-5"></span> Item 3
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet me-5"></span> Item 4
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet me-5"></span> Item 5
+        </li>
+      </div>
     </div>
   </div>
   <!--end::Block-->
@@ -648,11 +660,23 @@
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
         <pre class="language-html">
-          <code class="language-html">&lt;ol class=&quot;breadcrumb text-muted fs-6 fw-semibold&quot;&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
-&lt;/ol&gt;</code>
+          <code class="language-html">&lt;div class=&quot;d-flex flex-column&quot;&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet me-5&quot;&gt;&lt;/span&gt; Item 1
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet me-5&quot;&gt;&lt;/span&gt; Item 2
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet me-5&quot;&gt;&lt;/span&gt; Item 3
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet me-5&quot;&gt;&lt;/span&gt; Item 4
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet me-5&quot;&gt;&lt;/span&gt; Item 5
+  &lt;/li&gt;
+&lt;/div&gt;</code>
         </pre>
       </div>
     </div>
@@ -664,23 +688,44 @@
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="lineSeparator" data-kt-scroll-offset="100">
-    <a href="#lineSeparator"></a>Line Separator
+  <h1 class="anchor fw-bold mb-5" id="colors" data-kt-scroll-offset="100">
+    <a href="#colors"></a>Colors
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Add <code>.breadcrumb-line</code> to enable line separator style for a breadcrumb.
+    Use <code>.bg-{color}</code> class to set a bullets background color.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <ol class="breadcrumb breadcrumb-line text-muted fs-6 fw-semibold">
-        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
-        <li class="breadcrumb-item text-muted">Active</li>
-      </ol>
+      <div class="d-flex flex-column">
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-light me-5"></span> light
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-primary me-5"></span> primary
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-secondary me-5"></span> secondary
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-success me-5"></span> success
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-info me-5"></span> info
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-warning me-5"></span> warning
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-danger me-5"></span> danger
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bg-dark me-5"></span> dark
+        </li>
+      </div>
     </div>
   </div>
   <!--end::Block-->
@@ -691,11 +736,32 @@
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
         <pre class="language-html">
-          <code class="language-html">&lt;ol class=&quot;breadcrumb breadcrumb-line text-muted fs-6 fw-semibold&quot;&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
-&lt;/ol&gt;</code>
+          <code class="language-html">&lt;div class=&quot;d-flex flex-column&quot;&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-light&quot;&gt;&lt;/span&gt; light
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-primary&quot;&gt;&lt;/span&gt; primary
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-secondary&quot;&gt;&lt;/span&gt; secondary
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-success&quot;&gt;&lt;/span&gt; success
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-info&quot;&gt;&lt;/span&gt; info
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-warning&quot;&gt;&lt;/span&gt; warning
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-danger&quot;&gt;&lt;/span&gt; danger
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bg-dark&quot;&gt;&lt;/span&gt; dark
+  &lt;/li&gt;
+&lt;/div&gt;</code>
         </pre>
       </div>
     </div>
@@ -707,23 +773,35 @@
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="dotSeparator" data-kt-scroll-offset="100">
-    <a href="#dotSeparator"></a>Dot Separator
+  <h1 class="anchor fw-bold mb-5" id="dotStyle" data-kt-scroll-offset="100">
+    <a href="#dotStyle"></a>Dot Style
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Add <code>.breadcrumb-dot</code> to enable dot separator style for a breadcrumb.
+    Use <code>.bullet-dot</code> to apply a dot style bullet.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <ol class="breadcrumb breadcrumb-dot text-muted fs-6 fw-semibold">
-        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
-        <li class="breadcrumb-item text-muted">Active</li>
-      </ol>
+      <div class="d-flex flex-column">
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-dot me-5"></span> Item 1
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-dot bg-danger me-5"></span> Item 2
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-dot bg-success me-5"></span> Item 3
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-dot bg-info me-5"></span> Item 4
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-dot bg-primary me-5"></span> Item 5
+        </li>
+      </div>
     </div>
   </div>
   <!--end::Block-->
@@ -734,11 +812,23 @@
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
         <pre class="language-html">
-          <code class="language-html">&lt;ol class=&quot;breadcrumb breadcrumb-dot text-muted fs-6 fw-semibold&quot;&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
-&lt;/ol&gt;</code>
+          <code class="language-html">&lt;div class=&quot;d-flex flex-column&quot;&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-dot me-5&quot;&gt;&lt;/span&gt; Item 1
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-dot bg-danger me-5&quot;&gt;&lt;/span&gt; Item 2
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-dot bg-success me-5&quot;&gt;&lt;/span&gt; Item 3
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-dot bg-info me-5&quot;&gt;&lt;/span&gt; Item 4
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-dot bg-primary me-5&quot;&gt;&lt;/span&gt; Item 5
+  &lt;/li&gt;
+&lt;/div&gt;</code>
         </pre>
       </div>
     </div>
@@ -750,23 +840,35 @@
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="withoutSeparator" data-kt-scroll-offset="100">
-    <a href="#withoutSeparator"></a>Without Separator
+  <h1 class="anchor fw-bold mb-5" id="verticalStyle" data-kt-scroll-offset="100">
+    <a href="#verticalStyle"></a>Vertical Style
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Add <code>.breadcrumb-separatorless</code> to remove the separator.
+    Use <code>.bullet-vertical</code> to apply vertical style bullet.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <ol class="breadcrumb breadcrumb-separatorless text-muted fs-6 fw-semibold">
-        <li class="breadcrumb-item"><a href="#" class="">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="">Library</a></li>
-        <li class="breadcrumb-item text-muted">Active</li>
-      </ol>
+      <div class="d-flex flex-column">
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-vertical me-5"></span> Item 1
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-vertical bg-danger me-5"></span> Item 2
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-vertical bg-success me-5"></span> Item 3
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-vertical bg-info me-5"></span> Item 4
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-vertical bg-primary me-5"></span> Item 5
+        </li>
+      </div>
     </div>
   </div>
   <!--end::Block-->
@@ -777,11 +879,172 @@
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
         <pre class="language-html">
-          <code class="language-html">&lt;ol class=&quot;breadcrumb breadcrumb-separatorless text-muted fs-6 fw-semibold&quot;&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;breadcrumb-item text-muted&quot;&gt;Active&lt;/li&gt;
-&lt;/ol&gt;</code>
+          <code class="language-html">&lt;div class=&quot;d-flex flex-column&quot;&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-vertical me-5&quot;&gt;&lt;/span&gt; Item 1
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-vertical bg-danger me-5&quot;&gt;&lt;/span&gt; Item 2
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-vertical bg-success me-5&quot;&gt;&lt;/span&gt; Item 3
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-vertical bg-info me-5&quot;&gt;&lt;/span&gt; Item 4
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-vertical bg-primary me-5&quot;&gt;&lt;/span&gt; Item 5
+  &lt;/li&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="lineStyle" data-kt-scroll-offset="100">
+    <a href="#lineStyle"></a>Line Style
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.bullet-line</code> to apply a line style bullet.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="d-flex flex-column">
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-line me-5"></span> Item 1
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-line bg-danger me-5"></span> Item 2
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-line bg-success me-5"></span> Item 3
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-line bg-info me-5"></span> Item 4
+        </li>
+        <li class="d-flex align-items-center py-2">
+          <span class="bullet bullet-line bg-primary me-5"></span> Item 5
+        </li>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;d-flex flex-column&quot;&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-line me-5&quot;&gt;&lt;/span&gt; Item 1
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-line bg-danger me-5&quot;&gt;&lt;/span&gt; Item 2
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-line bg-success me-5&quot;&gt;&lt;/span&gt; Item 3
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-line bg-info me-5&quot;&gt;&lt;/span&gt; Item 4
+  &lt;/li&gt;
+  &lt;li class=&quot;d-flex align-items-center py-2&quot;&gt;
+    &lt;span class=&quot;bullet bullet-line bg-primary me-5&quot;&gt;&lt;/span&gt; Item 5
+  &lt;/li&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="sizes" data-kt-scroll-offset="100">
+    <a href="#sizes"></a>Sizes
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <a href="design-utility.html#widthAndHeight" target="_blank">Custom Size Classes</a>&nbsp; 
+    for bullets to set custom width and height.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex flex-column flex-wrap">
+      <div class="d-flex gap-10">
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bg-primary h-15px w-25px mb-5"></span>
+          .h-15px .w-25px  
+        </div>
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bg-primary h-20px w-30px mb-5"></span>
+          .h-20px .w-30px  
+        </div>
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bg-primary h-30px w-50px mb-5"></span>
+          .h-30px .w-50px   
+        </div>
+      </div>
+
+      <div class="separator my-10"></div>
+
+      <div class="d-flex gap-10">
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bullet-dot bg-primary h-15px w-15px mb-5"></span>
+          .h-15px .w-15px  
+        </div>
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bullet-dot bg-primary h-20px w-20px mb-5"></span>
+          .h-20px .w-20px  
+        </div>
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bullet-dot bg-primary h-30px w-30px mb-5"></span>
+          .h-30px .w-30px   
+        </div>
+      </div>
+
+      <div class="separator my-10"></div>
+
+      <div class="d-flex gap-10">
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bullet-vertical bg-primary h-25px w-15px mb-5"></span>.h-25px .w-15px
+        </div>
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bullet-vertical bg-primary h-30px w-20px mb-5"></span>.h-30px .w-20px
+        </div>
+        <div class="d-flex flex-column flex-center">
+          <span class="bullet bullet-vertical bg-primary h-50px w-30px mb-5"></span>.h-50px .w-30px
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;bullet bg-primary h-15px w-25px&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;bullet bullet-dot bg-primary h-15px w-15px&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;bullet bullet-vertical bg-primary h-25px w-15px&quot;&gt;&lt;/span&gt;</code>
         </pre>
       </div>
     </div>
@@ -838,11 +1101,11 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#lineSeparator" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#colors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Line Separator</span>
+    <span class="menu-title">Colors</span>
   </a>
   <!--end::Link-->
 </li>
@@ -850,11 +1113,11 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#dotSeparator" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#dotStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Dot Separator</span>
+    <span class="menu-title">Dot Style</span>
   </a>
   <!--end::Link-->
 </li>
@@ -862,11 +1125,35 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#withoutSeparator" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#verticalStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Without Separator</span>
+    <span class="menu-title">Vertical Style</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#lineStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Line Style</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#sizes" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Sizes</span>
   </a>
   <!--end::Link-->
 </li>

@@ -6,7 +6,11 @@ const fse = require('fs-extra');
 const {File} = require('nodejs-shared');
 const hbs = require('express-hbs-compile');
 
-// Generate page link replacement RegExp.
+/**
+ * Generate page link replacement RegExp.
+ * @param {string[]} templates List of template (.hbs) paths.
+ * @return {RegExp} Regular expressions to replace page links.
+ */
 function generatePageLinkReplacementRegexp(templates) {
   // A regular expression that replaces page links in the template.
   const basenames = templates.map(template => {
@@ -16,18 +20,29 @@ function generatePageLinkReplacementRegexp(templates) {
     // Escapes regular expression characters in base names.
     return basename.replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   });
-  return new RegExp(`href="/(${basenames.join('|')})"`, 'g');
+
+  // Find links matching href="/page" and href="/page#section".
+  return new RegExp(`href="/(${basenames.join('|')})(#[A-Za-z]+[\\w\\-\\:\\.]*)?"`, 'g');
+  // return new RegExp(`href="/(${basenames.join('|')})"`, 'g');
 }
 
-// Replace page links.
+/**
+ * Replace page links. For example, a link would be replaced by the following.
+ * - href="/page"         to href="/page.html"
+ * - href="/page#section" to href="/page.html#section"
+ * @param {string} content Template Content.
+ * @param {RegExp} re Regular expressions to replace page links.
+ * @return {string} Content with page links replaced.
+ */
 function replacePageLinks(content, re) {
   return content.replace(re, (match, capture) => {
-    return match.replace(capture, 'metronic-extension/' + capture + '.html');
-    // return match.replace(capture, capture + '.html');
+    return match.replace('/' + capture, capture + '.html');
   });
 }
 
-// Copy asset files.
+/**
+ * Copy asset files.
+ */
 function copyAssetFiles() {
   for (let subdirectory of ['build', 'img', 'json']) {
     const src = path.join(__dirname, `demo/public/${subdirectory}`);
