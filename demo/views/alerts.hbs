@@ -1,0 +1,689 @@
+{{!< default}}
+{{#contentFor 'title'}}Alerts{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#solidColors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Solid Colors</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#lightColors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Light Colors</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#borderOptions" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Border Options</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#richContent" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Rich Content</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Additional options to extend <a href="https://getbootstrap.com/docs/5.2/components/alerts/" target="_blank">Bootstrap Alerts</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Alert styles are set in the <code>.alert</code> and <code>.alert-{color}</code> classes.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-column">
+      <div class="alert alert-primary d-flex align-items-center p-5 mb-10">
+        <i class="ki-duotone ki-shield-tick fs-2hx text-primary me-4"><span class="path1"></span><span class="path2"></span></i>
+        <div class="d-flex flex-column">
+          <h4 class="mb-1 text-primary">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+      </div>
+      <div class="alert alert-success d-flex align-items-center p-5 mb-10">
+        <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4"><span class="path1"></span><span class="path2"></span></i>
+        <div class="d-flex flex-column">
+          <h4 class="mb-1 text-success">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+      </div>
+      <div class="alert alert-info d-flex align-items-center p-5 mb-10">
+        <i class="ki-duotone ki-shield-tick fs-2hx text-info me-4"><span class="path1"></span><span class="path2"></span></i>
+        <div class="d-flex flex-column">
+          <h4 class="mb-1 text-info">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+      </div>
+      <div class="alert alert-warning d-flex align-items-center p-5 mb-10">
+        <i class="ki-duotone ki-shield-tick fs-2hx text-warning me-4"><span class="path1"></span><span class="path2"></span></i>
+        <div class="d-flex flex-column">
+          <h4 class="mb-1 text-warning">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+      </div>
+      <div class="alert alert-danger d-flex align-items-center p-5 mb-10">
+        <i class="ki-duotone ki-shield-tick fs-2hx text-danger me-4"><span class="path1"></span><span class="path2"></span></i>
+        <div class="d-flex flex-column">
+          <h4 class="mb-1 text-danger">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Alert--&gt;
+&lt;div class=&quot;alert alert-primary d-flex align-items-center p-5&quot;&gt;
+  &lt;!--begin::Icon--&gt;
+  &lt;i class=&quot;ki-duotone ki-shield-tick fs-2hx text-success me-4&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;!--end::Icon--&gt;
+  &lt;!--begin::Wrapper--&gt;
+  &lt;div class=&quot;d-flex flex-column&quot;&gt;
+    &lt;!--begin::Title--&gt;
+    &lt;h4 class=&quot;mb-1 text-dark&quot;&gt;This is an alert&lt;/h4&gt;
+    &lt;!--end::Title--&gt;
+    &lt;!--begin::Content--&gt;
+    &lt;span&gt;The alert component can be used to highlight certain parts of your page for higher content visibility.&lt;/span&gt;
+    &lt;!--end::Content--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Wrapper--&gt;
+&lt;/div&gt;
+&lt;!--end::Alert--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="solidColors" data-kt-scroll-offset="100">
+    <a href="#solidColors"></a>Solid Colors
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.alert</code> with <code>.bg-{color}</code> classes to set the alert's style with a solid color. 
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add the class <code>.alert-dismissible</code> to the parent <code>.alert</code> wrapper and <code>data-bs-dismiss="alert"</code> 
+    to the close button to allow dismissing alerts. Please take note of the HTML markup sample below for all required responsive classes.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-column">
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-primary d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-search-list fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+          <h4 class="mb-2 text-light">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-2x text-light"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-danger d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-message-text-2 fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+          <h4 class="mb-2 text-light">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-2x text-light"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-success d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-pencil fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+          <h4 class="mb-2 text-light">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-2x text-light"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-info d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-notification-bing fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+          <h4 class="mb-2 text-light">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-2x text-light"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Alert--&gt;
+&lt;div class=&quot;alert alert-dismissible bg-primary d-flex flex-column flex-sm-row p-5 mb-10&quot;&gt;
+  &lt;!--begin::Icon--&gt;
+  &lt;i class=&quot;ki-duotone ki-search-list fs-2hx text-light me-4 mb-5 mb-sm-0&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;!--end::Icon--&gt;
+
+  &lt;!--begin::Wrapper--&gt;
+  &lt;div class=&quot;d-flex flex-column text-light pe-0 pe-sm-10&quot;&gt;
+    &lt;!--begin::Title--&gt;
+    &lt;h4 class=&quot;mb-2 light&quot;&gt;This is an alert&lt;/h4&gt;
+    &lt;!--end::Title--&gt;
+
+    &lt;!--begin::Content--&gt;
+    &lt;span&gt;The alert component can be used to highlight certain parts of your page for higher content visibility.&lt;/span&gt;
+    &lt;!--end::Content--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Wrapper--&gt;
+
+  &lt;!--begin::Close--&gt;
+  &lt;button type=&quot;button&quot; class=&quot;position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto&quot; data-bs-dismiss=&quot;alert&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-cross fs-1 text-light&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;!--end::Close--&gt;
+&lt;/div&gt;
+&lt;!--end::Alert--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="lightColors" data-kt-scroll-offset="100">
+    <a href="#lightColors"></a>Light Colors
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.alert</code> with <code>.bg-light-{color}</code> classes to set the alert's style with a light color.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Add the class <code>.alert-dismissible</code> to the parent <code>.alert</code> wrapper and <code>data-bs-dismiss="alert"</code> to the close button to allow dismissing alerts. Please take note of the HTML markup sample below for all required responsive classes.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-primary d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-search-list fs-2hx text-primary me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h4 class="fw-semibold">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-danger d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-message-text-2 fs-2hx text-danger me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h4 class="fw-semibold">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-danger"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-success d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-pencil fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h4 class="fw-semibold">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-success"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-info d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-notification-bing fs-2hx text-info me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h4 class="fw-semibold">This is an alert</h4>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-info"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Alert--&gt;
+&lt;div class=&quot;alert alert-dismissible bg-light-primary d-flex flex-column flex-sm-row p-5 mb-10&quot;&gt;
+  &lt;!--begin::Icon--&gt;
+  &lt;i class=&quot;ki-duotone ki-notification-bing fs-2hx text-primary me-4 mb-5 mb-sm-0&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;!--end::Icon--&gt;
+
+  &lt;!--begin::Wrapper--&gt;
+  &lt;div class=&quot;d-flex flex-column pe-0 pe-sm-10&quot;&gt;
+    &lt;!--begin::Title--&gt;
+    &lt;h4 class=&quot;fw-semibold&quot;&gt;This is an alert&lt;/h4&gt;
+    &lt;!--end::Title--&gt;
+
+    &lt;!--begin::Content--&gt;
+    &lt;span&gt;The alert component can be used to highlight certain parts of your page for higher content visibility.&lt;/span&gt;
+    &lt;!--end::Content--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Wrapper--&gt;
+
+  &lt;!--begin::Close--&gt;
+  &lt;button type=&quot;button&quot; class=&quot;position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto&quot; data-bs-dismiss=&quot;alert&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-cross fs-1 text-primary&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;!--end::Close--&gt;
+&lt;/div&gt;
+&lt;!--end::Alert--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="borderOptions" data-kt-scroll-offset="100">
+    <a href="#borderOptions"></a>Border Options
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.alert</code> with <code>.bg-light-{color}</code> and <code>.border</code> classes to set the alert's style with borders. 
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Add the class <code>.alert-dismissible</code> to the parent <code>.alert</code> wrapper and <code>data-bs-dismiss="alert"</code> 
+    to the close button to allow dismissing alerts. Please take note of the HTML markup sample below for all required responsive classes.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-primary border border-primary  d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-search-list fs-2hx text-primary me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h5 class="mb-1">This is an alert with a basic border</h5>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-danger border border-danger border-dashed d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-message-text-2 fs-2hx text-danger me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h5 class="mb-1">This is an alert with a dashed border</h5>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-danger"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-success border border-success border-3 d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-pencil fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h5 class="mb-1">This is an alert with a thick border</h5>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-success"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-info border border-info border-3 border-dashed d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-notification-bing fs-2hx text-info me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <h5 class="mb-1">This is an alert with a thick dashed border</h5>
+          <span>The alert component can be used to highlight certain parts of your page for higher content visibility.</span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1 text-info"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Alert--&gt;
+&lt;div class=&quot;alert alert-dismissible bg-light-primary border border-primary d-flex flex-column flex-sm-row p-5 mb-10&quot;&gt;
+  &lt;!--begin::Icon--&gt;
+  &lt;i class=&quot;ki-duotone ki-search-list fs-2hx text-success me-4 mb-5 mb-sm-0&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;!--end::Icon--&gt;
+
+  &lt;!--begin::Wrapper--&gt;
+  &lt;div class=&quot;d-flex flex-column pe-0 pe-sm-10&quot;&gt;
+    &lt;!--begin::Title--&gt;
+    &lt;h5 class=&quot;mb-1&quot;&gt;This is an alert&lt;/h5&gt;
+    &lt;!--end::Title--&gt;
+
+    &lt;!--begin::Content--&gt;
+    &lt;span&gt;The alert component can be used to highlight certain parts of your page for higher content visibility.&lt;/span&gt;
+    &lt;!--end::Content--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Wrapper--&gt;
+
+  &lt;!--begin::Close--&gt;
+  &lt;button type=&quot;button&quot; class=&quot;position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto&quot; data-bs-dismiss=&quot;alert&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-cross fs-1 text-success&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;!--end::Close--&gt;
+&lt;/div&gt;
+&lt;!--end::Alert--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="richContent" data-kt-scroll-offset="100">
+    <a href="#richContent"></a>Rich Content
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Here's a sample of an alert with rich content elements inside it. Please take note of the HTML markup sample below for all required classes.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-column flex-center">
+      <div class="alert alert-dismissible bg-light-danger d-flex flex-center flex-column py-10 px-10 px-lg-20 mb-10">
+        <!--begin::Close-->
+        <button type="button" class="position-absolute top-0 end-0 m-2 btn btn-icon btn-icon-danger" data-bs-dismiss="alert">
+          <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+        </button>
+        <!--end::Close-->
+        <!--begin::Icon-->
+        <i class="ki-duotone ki-information-5 fs-5tx text-danger mb-5"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="text-center text-dark">
+          <h1 class="fw-bold mb-5">This is an alert</h1>
+          <div class="separator separator-dashed border-danger opacity-25 mb-5"></div>
+          <div class="mb-9">
+            The alert component can be used to highlight certain parts of your page for <strong>higher content visibility</strong>.<br/>
+            Please read our <a href="#" class="fw-bold me-1">Terms and Conditions</a> for more info.
+          </div>
+          <!--begin::Buttons-->
+          <div class="d-flex flex-center flex-wrap">
+            <a href="#" class="btn btn-outline btn-outline-danger btn-active-danger m-2">Cancel</a>
+            <a href="#" class="btn btn-danger m-2">Ok, I got it</a>
+          </div>
+          <!--end::Buttons-->
+        </div>
+        <!--end::Content-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Alert--&gt;
+&lt;div class=&quot;alert alert-dismissible bg-light-danger d-flex flex-center flex-column py-10 px-10 px-lg-20 mb-10&quot;&gt;
+  &lt;!--begin::Close--&gt;
+  &lt;button type=&quot;button&quot; class=&quot;position-absolute top-0 end-0 m-2 btn btn-icon btn-icon-danger&quot; data-bs-dismiss=&quot;alert&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-cross fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;!--end::Close--&gt;
+
+  &lt;!--begin::Icon--&gt;
+  &lt;i class=&quot;ki-duotone ki-information-5 fs-5tx text-danger mb-5&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+  &lt;!--end::Icon--&gt;
+
+  &lt;!--begin::Wrapper--&gt;
+  &lt;div class=&quot;text-center&quot;&gt;
+    &lt;!--begin::Title--&gt;
+    &lt;h1 class=&quot;fw-bold mb-5&quot;&gt;This is an alert&lt;/h1&gt;
+    &lt;!--end::Title--&gt;
+
+    &lt;!--begin::Separator--&gt;
+    &lt;div class=&quot;separator separator-dashed border-danger opacity-25 mb-5&quot;&gt;&lt;/div&gt;
+    &lt;!--end::Separator--&gt;
+
+    &lt;!--begin::Content--&gt;
+    &lt;div class=&quot;mb-9 text-dark&quot;&gt;
+      The alert component can be used to highlight certain parts of your page for &lt;strong&gt;higher content visibility&lt;/strong&gt;.&lt;br/&gt;
+      Please read our &lt;a href=&quot;#&quot; class=&quot;fw-bold me-1&quot;&gt;Terms and Conditions&lt;/a&gt; for more info.
+    &lt;/div&gt;
+    &lt;!--end::Content--&gt;
+
+    &lt;!--begin::Buttons--&gt;
+    &lt;div class=&quot;d-flex flex-center flex-wrap&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-danger btn-active-danger m-2&quot;&gt;Cancel&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-danger m-2&quot;&gt;Ok, I got it&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!--end::Buttons--&gt;
+  &lt;/div&gt;
+  &lt;!--end::Wrapper--&gt;
+&lt;/div&gt;
+&lt;!--end::Alert--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
