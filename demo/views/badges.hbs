@@ -1,0 +1,555 @@
+{{!< default}}
+{{#contentFor 'title'}}Badges{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#lightStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Light Style</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#squareBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Square Badge</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#circleBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Circle Badge</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#outlineBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Outline Badge</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#sizeOptions" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Size Options</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#bootstrapButtons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Bootstrap Buttons</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#insideButton" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Inside Button</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Additional options to extend <a href="https://getbootstrap.com/docs/5.2/components/badges/" target="_blank">Bootstrap Badges</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Badge styles are set in the <code>.badge</code> and <code>.badge-{color}</code> classes.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap">
+      <span class="badge badge-light me-10 mb-10">New</span>
+      <span class="badge badge-primary me-10 mb-10">New</span>
+      <span class="badge badge-secondary me-10 mb-10">New</span>
+      <span class="badge badge-success me-10 mb-10">New</span>
+      <span class="badge badge-info me-10 mb-10">New</span>
+      <span class="badge badge-warning me-10 mb-10">New</span>
+      <span class="badge badge-danger me-10 mb-10">New</span>
+      <span class="badge badge-dark me-10 mb-10">New</span>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-light&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-secondary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-success&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-info&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-warning&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-danger&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-dark&quot;&gt;New&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="lightStyle" data-kt-scroll-offset="100">
+    <a href="#lightStyle"></a>Light Style
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use the <code>.badge</code> and <code>.badge-light-{color}</code> classes to set the light style for the badge.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap">
+      <span class="badge badge-light-primary me-10 mb-10">New</span>
+      <span class="badge badge-light-secondary me-10 mb-10">New</span>
+      <span class="badge badge-light-success me-10 mb-10">New</span>
+      <span class="badge badge-light-info me-10 mb-10">New</span>
+      <span class="badge badge-light-warning me-10 mb-10">New</span>
+      <span class="badge badge-light-danger me-10 mb-10">New</span>
+      <span class="badge badge-light-dark me-10 mb-10">New</span>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-light-primary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-secondary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-success&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-info&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-warning&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-danger&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-dark&quot;&gt;New&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="squareBadge" data-kt-scroll-offset="100">
+    <a href="#squareBadge"></a>Square Badge
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.badge-square</code> class to use a badge with same width and height.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap align-items-center">
+      <span class="badge badge-square badge-light me-10 mb-10">5</span>
+      <span class="badge badge-square badge-primary me-10 mb-10">5</span>
+      <span class="badge badge-square badge-secondary me-10 mb-10">5</span>
+      <span class="badge badge-square badge-success me-10 mb-10">5</span>
+      <span class="badge badge-square badge-info me-10 mb-10">5</span>
+      <span class="badge badge-square badge-warning me-10 mb-10">5</span>
+      <span class="badge badge-square badge-danger me-10 mb-10">5</span>
+      <span class="badge badge-square badge-dark me-10 mb-10">5</span>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-square badge-light&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-secondary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-success&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-info&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-dark&quot;&gt;5&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="circleBadge" data-kt-scroll-offset="100">
+    <a href="#circleBadge"></a>Circle Badge
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.badge-circle</code> class to use a badge with circle style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap align-items-center">
+      <span class="badge badge-circle badge-outline badge-primary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-secondary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-success border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-info border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-warning border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-danger border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-dark border-2 me-10 mb-10">5</span>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-circle badge-light&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-secondary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-success&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-info&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-dark&quot;&gt;5&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="outlineBadge" data-kt-scroll-offset="100">
+    <a href="#outlineBadge"></a>Outline Badge
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.badge-outline</code> class to use a badge with circle style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block p-10 pb-0 d-flex flex-wrap align-items-center">
+      <span class="badge badge-circle badge-outline badge-primary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-secondary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-success border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-info border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-warning border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-danger border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-dark border-2 me-10 mb-10">5</span>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-circle badge-outline badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-secondary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-success&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-info&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-dark&quot;&gt;5&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="sizeOptions" data-kt-scroll-offset="100">
+    <a href="#sizeOptions"></a>Size Options
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.badge-sm</code> or <code>.badge-lg</code> to change Badge size according to the Bootstrap standards.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="d-flex gap-2">
+        <span class="badge badge-primary badge-sm">New</span>
+        <span class="badge badge-primary badge-circle badge-sm">3</span>
+        <span class="badge badge-primary badge-square badge-sm">4</span>
+      </div>
+      <div class="separator separator-dashed my-5"></div>
+      <div class="d-flex gap-2">
+        <span class="badge badge-primary badge">New</span>
+        <span class="badge badge-primary badge-circle">3</span>
+        <span class="badge badge-primary badge-square ">4</span>
+      </div>
+      <div class="separator separator-dashed my-5"></div>
+      <div class="d-flex gap-2">
+        <span class="badge badge-primary badge-lg">New</span>
+        <span class="badge badge-primary badge-circle badge-lg">3</span>
+        <span class="badge badge-primary badge-square badge-lg">4</span>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-primary badge-sm&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-circle badge-sm&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-square badge-sm&quot;&gt;4&lt;/span&gt;
+
+&lt;span class=&quot;badge badge-primary badge&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-circle&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-square &quot;&gt;4&lt;/span&gt;
+
+&lt;span class=&quot;badge badge-primary badge-lg&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-circle badge-lg&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-square badge-lg&quot;&gt;4&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="bootstrapButtons" data-kt-scroll-offset="100">
+    <a href="#bootstrapButtons"></a>Bootstrap Buttons
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use a badge with <code>.badge-circle</code> class in a Bootstrap Button element.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button class="btn btn-primary position-relative me-5">
+        Button
+        <span class="position-absolute top-0 start-0 translate-middle  badge badge-circle badge-danger">5</span>
+      </button>
+      <button class="btn btn-success position-relative me-5">
+        Button
+        <span class="position-absolute top-100 start-0 translate-middle  badge badge-circle badge-warning">5</span>
+      </button>
+      <button class="btn btn-danger position-relative me-5">
+        Button
+        <span class="position-absolute top-0 start-100 translate-middle  badge badge-circle badge-primary">5</span>
+      </button>
+      <button class="btn btn-warning position-relative">
+        Button
+        <span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">5</span>
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button class=&quot;btn btn-primary position-relative me-5&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-0 start-0 translate-middle  badge badge-circle badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-success position-relative me-5&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-100 start-0 translate-middle  badge badge-circle badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-danger position-relative me-5&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-0 start-100 translate-middle  badge badge-circle badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-warning position-relative&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="insideButton" data-kt-scroll-offset="100">
+    <a href="#insideButton"></a>Inside Button
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use a badge with <code>.badge-circle</code> classes inside button.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button class="btn btn-primary me-5">
+        Notifications
+        <span class="badge badge-circle badge-warning ms-2">5</span>
+      </button>
+      <button class="btn btn-success me-5">
+        Messages
+        <span class="badge badge-circle badge-danger ms-2">4</span>
+      </button>
+      <button class="btn btn-danger me-5">
+        Orders
+        <span class="badge badge-circle badge-primary ms-2">7</span>
+      </button>
+      <button class="btn btn-dark me-5">
+        Profile
+        <span class="badge badge-circle badge-success ms-2">3</span>
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button class=&quot;btn btn-primary me-5&quot;&gt;
+  Notifications &lt;span class=&quot;badge badge-circle badge-warning ms-2&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-success me-5&quot;&gt;
+  Messages &lt;span class=&quot;badge badge-circle badge-danger ms-2&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-danger me-5&quot;&gt;
+  Orders &lt;span class=&quot;badge badge-circle badge-primary ms-2&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-danger me-5&quot;&gt;
+  Profile &lt;span class=&quot;badge badge-circle badge-success ms-2&quot;&gt;3&lt;/span&gt;
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

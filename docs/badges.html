@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Tagify - Metronic Extension</title>
+  <title>Badges - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -273,7 +273,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="/metronic-extension/tagify.html">
+                  <a class="menu-link " href="/metronic-extension/tagify.html">
                     <span class="menu-title">Tagify</span>
                   </a>
                   <!--end:Menu link-->
@@ -417,7 +417,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="/metronic-extension/badges.html">
+                  <a class="menu-link active" href="/metronic-extension/badges.html">
                     <span class="menu-title">Badges</span>
                   </a>
                   <!--end:Menu link-->
@@ -586,7 +586,6 @@
                     <!--begin::Card Body-->
                     <div class="card-body py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
                       
-
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
@@ -595,352 +594,35 @@
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="my-5">Tag input component based on <a href="https://yaireo.github.io/tagify/" target="_blank">tagify</a>.</div>
-  <!--end::Block-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="py-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
-    <a href="#reference"></a>Reference
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
   <div class="my-5">
-    <!--begin::Heading-->
-    <div class="fs-2 py-5">Instance methods</div>
-    <!--end::Heading-->
-    <!--begin::Table wrapper-->
-    <div class="table-responsive">
-      <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
-        <!--begin::Head-->
-        <thead>
-          <tr class="p-6">
-            <th class="min-w-250px">Name</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <!--end::Head-->
-        <!--begin::Body-->
-        <tbody>
-          <tr>
-            <td>
-              <code>public constructor()</code>
-            </td>
-            <td>
-              Create a new instance of the Tagify class.<br>
-              See <a href="https://yaireo.github.io/tagify/" target="_blank">tagify documentation</a> for options not listed here.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>element: string|HTMLInputElement|HTMLTextAreaElement|JQuery</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    HTMLInputElement or HTMLTextAreaElement selector, element, or JQuery object.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.maxChars?: number</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Maximum length of tag input. This is a proprietary option and not a tagify option. The default is no limit (undefined).
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>options.readonly?: number</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Read-only. This is a proprietary option, not a tagify option. Default is false.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
-
-// Initialize Tagify.
-new Tagify(document.getElementById(&#039;basicTagify&#039;));
-
-// Read-only.
-new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});
-
-// Inline Suggestions.
-new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
-  dropdown: {
-    maxItems: 20,
-    classname: &#039;tagify__inline__suggestions&#039;,
-  }
-});
-
-// List Suggestions.
-new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
-  dropdown: {maxItems: 20},
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public addTags()</code>
-            </td>
-            <td>
-              Add one or more tags.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>tags: string|string[]|T[]</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Tags to add. When a string, it can be either a single word or multiple words separated with a delimiter.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>clearInput?: boolean</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    If true, the input&#039;s value gets cleared after adding tags. Default is false.
-                  </div>
-                  <!--end::Block-->
-                </li>
-                <li class="py-2"><code>skipInvalid?: boolean</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    If true, do not add, mark &amp; remove invalid tags. Default is true.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>HTMLElement[]</code> List of HTML elements representing the tags that were added.</li>
-              </ul>
-              <!--end::Return-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">// Add one tag.
-tagify.addTags(&#039;tag4&#039;);
-
-// Add multiple tags at once.
-tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public removeAllTags()</code>
-            </td>
-            <td>
-              Removes all tags and resets the original input tag's value property.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public setReadonly()</code>
-            </td>
-            <td>
-              Switches read-only mode on or off.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>readonly: boolean</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    true to switch the tagify instance to read-only mode, false to switch off read-only mode.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public onAddTag()</code>
-            </td>
-            <td>
-              Sets the callback function to be called when a tag is added.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>handler: (evnt: Tagify.AddEventData) =&gt; void</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Callback function.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Tagify</code></li>
-              </ul>
-              <!--end::Return-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">tagify.onAddTag(evnt =&gt; {
-  console.log(&#039;Tag added&#039;);
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public onRemoveTag()</code>
-            </td>
-            <td>
-              Sets the callback function to be called when a tag is removed.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>handler: (evnt: Tagify.RemoveEventData) =&gt; void</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Callback function.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Tagify</code></li>
-              </ul>
-              <!--end::Return-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">tagify.onRemoveTag(evnt =&gt; {
-  console.log(&#039;Tag has been deleted&#039;);
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public onChangeTag()</code>
-            </td>
-            <td>
-              Sets the callback function to be called when the tag is modified.
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Parameters:</div>
-              <!--end::Heading-->
-              <!--begin::Parameters-->
-              <ul>
-                <li class="py-2"><code>handler: (evnt: Tagify.AddEventData|Tagify.RemoveEventData) =&gt; void</code>
-                  <!--begin::Block-->
-                  <div class="pt-3">
-                    Callback function.
-                  </div>
-                  <!--end::Block-->
-                </li>
-              </ul>
-              <!--end::Parameters-->
-              <!--begin::Heading-->
-              <div class="py-3 text-gray-700">Return value:</div>
-              <!--end::Heading-->
-              <!--begin::Return-->
-              <ul class="list-style-none">
-                <li class="py-2"><code>Tagify</code></li>
-              </ul>
-              <!--end::Return-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">tagify.onChangeTag(evnt =&gt; {
-  console.log(&#039;Tag has been changed&#039;);
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>public dispose()</code>
-            </td>
-            <td>
-              Reverts the input element back as it was before Tagify was applied.
-            </td>
-          </tr>
-        </tbody>
-        <!--end::Body-->
-      </table>
-      <!--end::Table-->
-    </div>
-    <!--end::Table wrapper-->
+    Additional options to extend <a href="https://getbootstrap.com/docs/5.2/components/badges/" target="_blank">Bootstrap Badges</a>.
   </div>
   <!--end::Block-->
 </div>
 <!--end::Section-->
 <!--begin::Section-->
-<div class="py-10">
+<div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
-    <a href="#basicExample"></a>Basic Example
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="py-5">Basic example of Tagify attached to an input element.</div>
+  <div class="my-5">
+    Badge styles are set in the <code>.badge</code> and <code>.badge-{color}</code> classes.
+  </div>
   <!--end::Block-->
   <!--begin::Block-->
-  <div class="my-5">
-    <div class="demonstration-block">
-      <!--begin::Tagify-->
-      <input id="basicTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
-      <!--end::Tagify-->
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap">
+      <span class="badge badge-light me-10 mb-10">New</span>
+      <span class="badge badge-primary me-10 mb-10">New</span>
+      <span class="badge badge-secondary me-10 mb-10">New</span>
+      <span class="badge badge-success me-10 mb-10">New</span>
+      <span class="badge badge-info me-10 mb-10">New</span>
+      <span class="badge badge-warning me-10 mb-10">New</span>
+      <span class="badge badge-danger me-10 mb-10">New</span>
+      <span class="badge badge-dark me-10 mb-10">New</span>
     </div>
   </div>
   <!--end::Block-->
@@ -949,52 +631,18 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;!--begin::Tagify--&gt;
-&lt;input id=&quot;basicTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;
-&lt;!--end::Tagify--&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
-
-// Initialize Tagify.
-const basicTagify = new Tagify(document.getElementById(&#039;basicTagify&#039;));
-
-// Set callback functions for various operations.
-basicTagify
-  .onAddTag(evnt =&gt; {
-    // Tag added.
-    console.log(&#039;Tag added&#039;);
-  })
-  .onRemoveTag(evnt =&gt; {
-    // Tag removed.
-    console.log(&#039;Tag has been deleted&#039;);
-  })
-  .onChangeTag(evnt =&gt; {
-    // Tag was changed.
-    console.log(&#039;Tag has been changed&#039;);
-  });</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-light&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-secondary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-success&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-info&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-warning&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-danger&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-dark&quot;&gt;New&lt;/span&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
     </div>
     <!--end::Highlight-->
   </div>
@@ -1002,19 +650,27 @@ basicTagify
 </div>
 <!--end::Section-->
 <!--begin::Section-->
-<div class="py-10">
+<div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="readonlyExample" data-kt-scroll-offset="100">
-    <a href="#readonlyExample"></a>Read-only
+  <h1 class="anchor fw-bold mb-5" id="lightStyle" data-kt-scroll-offset="100">
+    <a href="#lightStyle"></a>Light Style
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="py-5">If the <code>readonly</code> option is set to <code>true</code>, the Tagify will be read-only.</div>
+  <div class="my-5">
+    Use the <code>.badge</code> and <code>.badge-light-{color}</code> classes to set the light style for the badge.
+  </div>
   <!--end::Block-->
   <!--begin::Block-->
-  <div class="my-5">
-    <div class="demonstration-block">
-      <input id="readonlyTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap">
+      <span class="badge badge-light-primary me-10 mb-10">New</span>
+      <span class="badge badge-light-secondary me-10 mb-10">New</span>
+      <span class="badge badge-light-success me-10 mb-10">New</span>
+      <span class="badge badge-light-info me-10 mb-10">New</span>
+      <span class="badge badge-light-warning me-10 mb-10">New</span>
+      <span class="badge badge-light-danger me-10 mb-10">New</span>
+      <span class="badge badge-light-dark me-10 mb-10">New</span>
     </div>
   </div>
   <!--end::Block-->
@@ -1023,35 +679,17 @@ basicTagify
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#readonlyExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#readonlyExampleJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="readonlyExampleHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;input id=&quot;readonlyTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="readonlyExampleJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
-
-// Read-only.
-new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-light-primary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-secondary&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-success&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-info&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-warning&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-danger&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-light-dark&quot;&gt;New&lt;/span&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
     </div>
     <!--end::Highlight-->
   </div>
@@ -1059,19 +697,28 @@ new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true}
 </div>
 <!--end::Section-->
 <!--begin::Section-->
-<div class="py-10">
+<div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="inlineSuggestionsExample" data-kt-scroll-offset="100">
-    <a href="#inlineSuggestionsExample"></a>Inline Suggestions
+  <h1 class="anchor fw-bold mb-5" id="squareBadge" data-kt-scroll-offset="100">
+    <a href="#squareBadge"></a>Square Badge
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="py-5">When Tagify has the focus, inline-style suggestions appear immediately.</div>
+  <div class="my-5">
+    Use <code>.badge-square</code> class to use a badge with same width and height.
+  </div>
   <!--end::Block-->
   <!--begin::Block-->
-  <div class="my-5">
-    <div class="demonstration-block">
-      <input id="inlineSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap align-items-center">
+      <span class="badge badge-square badge-light me-10 mb-10">5</span>
+      <span class="badge badge-square badge-primary me-10 mb-10">5</span>
+      <span class="badge badge-square badge-secondary me-10 mb-10">5</span>
+      <span class="badge badge-square badge-success me-10 mb-10">5</span>
+      <span class="badge badge-square badge-info me-10 mb-10">5</span>
+      <span class="badge badge-square badge-warning me-10 mb-10">5</span>
+      <span class="badge badge-square badge-danger me-10 mb-10">5</span>
+      <span class="badge badge-square badge-dark me-10 mb-10">5</span>
     </div>
   </div>
   <!--end::Block-->
@@ -1080,41 +727,18 @@ new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true}
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#inlineSuggestionsExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#inlineSuggestionsExampleJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="inlineSuggestionsExampleHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;input id=&quot;inlineSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="inlineSuggestionsExampleJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
-
-// Inline Suggestions.
-new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
-  dropdown: {
-    maxItems: 20,
-    classname: &#039;tagify__inline__suggestions&#039;,
-  }
-});</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-square badge-light&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-secondary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-success&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-info&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-square badge-dark&quot;&gt;5&lt;/span&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
     </div>
     <!--end::Highlight-->
   </div>
@@ -1122,19 +746,27 @@ new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
 </div>
 <!--end::Section-->
 <!--begin::Section-->
-<div class="py-10">
+<div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="listSuggestionsExample" data-kt-scroll-offset="100">
-    <a href="#listSuggestionsExample"></a>List Suggestions
+  <h1 class="anchor fw-bold mb-5" id="circleBadge" data-kt-scroll-offset="100">
+    <a href="#circleBadge"></a>Circle Badge
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
-  <div class="py-5">When Tagify has the focus, list-style suggestions appear immediately.</div>
+  <div class="my-5">
+    Use <code>.badge-circle</code> class to use a badge with circle style.
+  </div>
   <!--end::Block-->
   <!--begin::Block-->
-  <div class="my-5">
-    <div class="demonstration-block">
-      <input id="listSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3" />
+  <div class="py-5">
+    <div class="demonstration-block pb-0 d-flex flex-wrap align-items-center">
+      <span class="badge badge-circle badge-outline badge-primary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-secondary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-success border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-info border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-warning border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-danger border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-dark border-2 me-10 mb-10">5</span>
     </div>
   </div>
   <!--end::Block-->
@@ -1143,38 +775,254 @@ new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
     <!--begin::Highlight-->
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#listSuggestionsExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#listSuggestionsExampleJsTab" role="tab">JAVASCRIPT</a></li>
-      </ul>
-      <!--begin::Tab content-->
-      <div class="tab-content">
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="listSuggestionsExampleHtmlTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-html">
-              <code class="language-html">&lt;input id=&quot;listSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="listSuggestionsExampleJsTab" role="tabpanel">
-          <div class="highlight-code">
-            <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
-
-// List Suggestions.
-new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
-  dropdown: {maxItems: 20},
-});</code>
-            </pre>
-          </div>
-        </div>
-        <!--end::Tab panel-->
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-circle badge-light&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-secondary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-success&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-info&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-dark&quot;&gt;5&lt;/span&gt;</code>
+        </pre>
       </div>
-      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="outlineBadge" data-kt-scroll-offset="100">
+    <a href="#outlineBadge"></a>Outline Badge
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.badge-outline</code> class to use a badge with circle style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block p-10 pb-0 d-flex flex-wrap align-items-center">
+      <span class="badge badge-circle badge-outline badge-primary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-secondary border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-success border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-info border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-warning border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-danger border-2 me-10 mb-10">5</span>
+      <span class="badge badge-circle badge-outline badge-dark border-2 me-10 mb-10">5</span>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-circle badge-outline badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-secondary&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-success&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-info&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;badge badge-circle badge-outline badge-dark&quot;&gt;5&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="sizeOptions" data-kt-scroll-offset="100">
+    <a href="#sizeOptions"></a>Size Options
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.badge-sm</code> or <code>.badge-lg</code> to change Badge size according to the Bootstrap standards.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="d-flex gap-2">
+        <span class="badge badge-primary badge-sm">New</span>
+        <span class="badge badge-primary badge-circle badge-sm">3</span>
+        <span class="badge badge-primary badge-square badge-sm">4</span>
+      </div>
+      <div class="separator separator-dashed my-5"></div>
+      <div class="d-flex gap-2">
+        <span class="badge badge-primary badge">New</span>
+        <span class="badge badge-primary badge-circle">3</span>
+        <span class="badge badge-primary badge-square ">4</span>
+      </div>
+      <div class="separator separator-dashed my-5"></div>
+      <div class="d-flex gap-2">
+        <span class="badge badge-primary badge-lg">New</span>
+        <span class="badge badge-primary badge-circle badge-lg">3</span>
+        <span class="badge badge-primary badge-square badge-lg">4</span>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;span class=&quot;badge badge-primary badge-sm&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-circle badge-sm&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-square badge-sm&quot;&gt;4&lt;/span&gt;
+
+&lt;span class=&quot;badge badge-primary badge&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-circle&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-square &quot;&gt;4&lt;/span&gt;
+
+&lt;span class=&quot;badge badge-primary badge-lg&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-circle badge-lg&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;badge badge-primary badge-square badge-lg&quot;&gt;4&lt;/span&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="bootstrapButtons" data-kt-scroll-offset="100">
+    <a href="#bootstrapButtons"></a>Bootstrap Buttons
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use a badge with <code>.badge-circle</code> class in a Bootstrap Button element.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button class="btn btn-primary position-relative me-5">
+        Button
+        <span class="position-absolute top-0 start-0 translate-middle  badge badge-circle badge-danger">5</span>
+      </button>
+      <button class="btn btn-success position-relative me-5">
+        Button
+        <span class="position-absolute top-100 start-0 translate-middle  badge badge-circle badge-warning">5</span>
+      </button>
+      <button class="btn btn-danger position-relative me-5">
+        Button
+        <span class="position-absolute top-0 start-100 translate-middle  badge badge-circle badge-primary">5</span>
+      </button>
+      <button class="btn btn-warning position-relative">
+        Button
+        <span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">5</span>
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button class=&quot;btn btn-primary position-relative me-5&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-0 start-0 translate-middle  badge badge-circle badge-danger&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-success position-relative me-5&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-100 start-0 translate-middle  badge badge-circle badge-warning&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-danger position-relative me-5&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-0 start-100 translate-middle  badge badge-circle badge-primary&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-warning position-relative&quot;&gt;
+  Button &lt;span class=&quot;position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="insideButton" data-kt-scroll-offset="100">
+    <a href="#insideButton"></a>Inside Button
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use a badge with <code>.badge-circle</code> classes inside button.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button class="btn btn-primary me-5">
+        Notifications
+        <span class="badge badge-circle badge-warning ms-2">5</span>
+      </button>
+      <button class="btn btn-success me-5">
+        Messages
+        <span class="badge badge-circle badge-danger ms-2">4</span>
+      </button>
+      <button class="btn btn-danger me-5">
+        Orders
+        <span class="badge badge-circle badge-primary ms-2">7</span>
+      </button>
+      <button class="btn btn-dark me-5">
+        Profile
+        <span class="badge badge-circle badge-success ms-2">3</span>
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button class=&quot;btn btn-primary me-5&quot;&gt;
+  Notifications &lt;span class=&quot;badge badge-circle badge-warning ms-2&quot;&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-success me-5&quot;&gt;
+  Messages &lt;span class=&quot;badge badge-circle badge-danger ms-2&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-danger me-5&quot;&gt;
+  Orders &lt;span class=&quot;badge badge-circle badge-primary ms-2&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-danger me-5&quot;&gt;
+  Profile &lt;span class=&quot;badge badge-circle badge-success ms-2&quot;&gt;3&lt;/span&gt;
+&lt;/button&gt;</code>
+        </pre>
+      </div>
     </div>
     <!--end::Highlight-->
   </div>
@@ -1217,11 +1065,11 @@ new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Reference</span>
+    <span class="menu-title">Basic</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1229,11 +1077,11 @@ new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#lightStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Basic Example</span>
+    <span class="menu-title">Light Style</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1241,11 +1089,11 @@ new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#readonlyExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#squareBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Read-only</span>
+    <span class="menu-title">Square Badge</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1253,11 +1101,11 @@ new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#inlineSuggestionsExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#circleBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Inline Suggestions</span>
+    <span class="menu-title">Circle Badge</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1265,11 +1113,47 @@ new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#listSuggestionsExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#outlineBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">List Suggestions</span>
+    <span class="menu-title">Outline Badge</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#sizeOptions" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Size Options</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#bootstrapButtons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Bootstrap Buttons</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#insideButton" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Inside Button</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1340,7 +1224,7 @@ new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
     Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
   </script>
   <script src="build/docs.js"></script>
-  <script src="build/tagify.js"></script>
+  
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>
