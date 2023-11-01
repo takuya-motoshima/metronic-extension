@@ -1,0 +1,288 @@
+{{!< default}}
+{{#contentFor 'title'}}Popovers{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#inverse" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Inverse</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#delayOptions" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Delay Options</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#dismiss" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Dismiss</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is an additional option that extends <a href="https://getbootstrap.com/docs/5.2/components/popovers/" target="_blank">Bootstrap Popover</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use the  <code>data-bs-toggle="popover"</code>  HTML attribute to initialize the popover.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-placement="top" title="Popover on top" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on top
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-placement="right" title="Popover on right" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on right
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-placement="bottom" title="Popover on bottom" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on bottom
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-placement="left" title="Popover on left" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on left
+      </button>
+      <button type="button" class="btn btn-secondary my-2" data-bs-toggle="popover" data-bs-html="true" title="<span><em>Popover</em> <u>title with</u> <b>HTML</b></span>" data-bs-content="And here's some amazing content. It's very <b class='text-danger'>engaging</b>. Right?">
+        Popover with HTML
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;top&quot; title=&quot;Popover on top&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on top
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;right&quot; title=&quot;Popover on right&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on right
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Popover on bottom&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on bottom
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;left&quot; title=&quot;Popover on left&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on left
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2&quot; data-bs-toggle=&quot;popover&quot; data-bs-html=&quot;true&quot; title=&quot;&lt;span&gt;&lt;em&gt;Popover&lt;/em&gt; &lt;u&gt;title with&lt;/u&gt; &lt;b&gt;HTML&lt;/b&gt;&lt;/span&gt;&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very &lt;b class=&#039;text-danger&#039;&gt;engaging&lt;/b&gt;. Right?&quot;&gt;
+  Popover with HTML
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="inverse" data-kt-scroll-offset="100">
+    <a href="#inverse"></a>Inverse
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>data-bs-custom-class="popover-inverse"</code> HTML attribute to initialize a popover with inverse style.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-custom-class="popover-inverse" data-bs-placement="top" title="Popover on top" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on top
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-custom-class="popover-inverse" data-bs-placement="right" title="Popover on right" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on right
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-custom-class="popover-inverse" data-bs-placement="bottom" title="Popover on bottom" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on bottom
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-custom-class="popover-inverse" data-bs-placement="left" title="Popover on left" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Popover on left
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-toggle=&quot;popover&quot; data-bs-custom-class=&quot;popover-inverse&quot; data-bs-placement=&quot;top&quot; title=&quot;Popover on top&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on top
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-toggle=&quot;popover&quot; data-bs-custom-class=&quot;popover-inverse&quot; data-bs-placement=&quot;right&quot; title=&quot;Popover on right&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on right
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-toggle=&quot;popover&quot; data-bs-custom-class=&quot;popover-inverse&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Popover on bottom&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on bottom
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-toggle=&quot;popover&quot; data-bs-custom-class=&quot;popover-inverse&quot; data-bs-placement=&quot;left&quot; title=&quot;Popover on left&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Popover on left
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="delayOptions" data-kt-scroll-offset="100">
+    <a href="#delayOptions"></a>Delay Options
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use custom <code>data-bs-delay-show</code> and <code>data-bs-delay-hide</code> HTML attributes to initialize a popover with showing and hiding delay(ms).
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-delay-show="1000" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Show delay: 1000ms 
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-delay-hide="1000" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Hide delay: 1000ms 
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-delay-show=&quot;1000&quot; title=&quot;Popover title&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Show delay: 1000ms
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-delay-hide=&quot;1000&quot; title=&quot;Popover title&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Hide delay: 1000ms
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="dismiss" data-kt-scroll-offset="100">
+    <a href="#dismiss"></a>Dismiss
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use custom <code>data-bs-dismiss="true"</code> HTML attribute to initialize a popover with showing and hiding delay(ms).
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-dismiss="true" title="Dismissable popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Default Mode
+      </button>
+      <button type="button" class="btn btn-secondary my-2 me-5" data-bs-toggle="popover" data-bs-dismiss="true" data-bs-custom-class="popover-inverse" title="Dismissable popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+        Dark Mode
+      </button>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-dismiss=&quot;true&quot; title=&quot;Dismissable popover&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Dismiss for default mode
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary my-2 me-5&quot; data-bs-toggle=&quot;popover&quot; data-bs-dismiss=&quot;true&quot; title=&quot;Dismissable popover&quot; data-bs-content=&quot;And here&#039;s some amazing content. It&#039;s very engaging. Right?&quot;&gt;
+  Dismiss for dark mode
+&lt;/button&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
