@@ -1,0 +1,536 @@
+{{!< default}}
+{{#contentFor 'title'}}Rating{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#bootstrapIcons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Bootstrap Icons</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#starStates" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Star States</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#editMode" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Edit Mode</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Rating is a custom component that can be used to display and edit star based rating.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.rating</code> and <code>.rating-label</code> classes for displaying star based ratings. 
+    This examples uses a star icon from <a href="/keenicons">Keenicons</a>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="rating">
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;rating&quot;&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="bootstrapIcons" data-kt-scroll-offset="100">
+    <a href="#bootstrapIcons"></a>Bootstrap Icons
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    As a star icon any font icons can be used as well. 
+    This examples uses a star icon from <a href="/bootstrap-icons">Bootstrap Icons</a>. 
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="rating">
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-1"></i>
+        </div>
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-1"></i>
+        </div>
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-1"></i>
+        </div>
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-1"></i>
+        </div>
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-1"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;rating&quot;&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="starStates" data-kt-scroll-offset="100">
+    <a href="#starStates"></a>Star States
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    By default each star's state is unchecked and to mark them as checked just use  <code>.checked</code> class for <code>.rating-label</code> element.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="rating">
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label checked">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+        <div class="rating-label">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </div>
+      </div>
+      <div class="separator my-10"></div>
+      <div class="rating">
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-2"></i>
+        </div>
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-2"></i>
+        </div>
+        <div class="rating-label me-2 checked">
+          <i class="bi bi-star fs-2"></i>
+        </div>
+        <div class="rating-label me-2">
+          <i class="bi bi-star fs-2"></i>
+        </div>
+        <div class="rating-label me-2">
+          <i class="bi bi-star fs-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;rating&quot;&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label checked&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;rating&quot;&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-2&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-2&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2 checked&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-2&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-2&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rating-label me-2&quot;&gt;
+    &lt;i class=&quot;bi bi-star fs-2&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="editMode" data-kt-scroll-offset="100">
+    <a href="#editMode"></a>Edit Mode
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Enable editable rating with Label and Radio input elements. Hover and click on the below rating to set a rating value that can be submitted along with attached radio inputs.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="rating">
+        <!--begin::Reset rating-->
+        <label class="btn btn-light fw-bold btn-sm rating-label me-3" for="ratingInput0">
+          Reset
+        </label>
+        <input class="rating-input" name="rating" value="0" checked type="radio" id="ratingInput0"/>
+        <!--end::Reset rating-->
+        <!--begin::Star 1-->
+        <label class="rating-label" for="ratingInput1">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating" value="1" type="radio" id="ratingInput1"/>
+        <!--end::Star 1-->
+        <!--begin::Star 2-->
+        <label class="rating-label" for="ratingInput2">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating" value="2" type="radio" id="ratingInput2"/>
+        <!--end::Star 2-->
+        <!--begin::Star 3-->
+        <label class="rating-label" for="ratingInput3">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating" value="3" type="radio" id="ratingInput3"/>
+        <!--end::Star 3-->
+        <!--begin::Star 4-->
+        <label class="rating-label" for="ratingInput4">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating" value="4" type="radio" id="ratingInput4"/>
+        <!--end::Star 4-->
+        <!--begin::Star 5-->
+        <label class="rating-label" for="ratingInput5">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating" value="5" type="radio" id="ratingInput5"/>
+        <!--end::Star 5-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;rating&quot;&gt;
+  &lt;!--begin::Reset rating--&gt;
+  &lt;label class=&quot;btn btn-light fw-bold btn-sm rating-label me-3&quot; for=&quot;ratingInput0&quot;&gt;
+    Reset
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating&quot; value=&quot;0&quot; checked type=&quot;radio&quot; id=&quot;ratingInput0&quot;/&gt;
+  &lt;!--end::Reset rating--&gt;
+
+  &lt;!--begin::Star 1--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;ratingInput1&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating&quot; value=&quot;1&quot; type=&quot;radio&quot; id=&quot;ratingInput1&quot;/&gt;
+  &lt;!--end::Star 1--&gt;
+
+  &lt;!--begin::Star 2--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;ratingInput2&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating&quot; value=&quot;2&quot; type=&quot;radio&quot; id=&quot;ratingInput2&quot;/&gt;
+  &lt;!--end::Star 2--&gt;
+
+  &lt;!--begin::Star 3--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;ratingInput3&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating&quot; value=&quot;3&quot; type=&quot;radio&quot; id=&quot;ratingInput3&quot;/&gt;
+  &lt;!--end::Star 3--&gt;
+
+  &lt;!--begin::Star 4--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;ratingInput4&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating&quot; value=&quot;4&quot; type=&quot;radio&quot; id=&quot;ratingInput4&quot;/&gt;
+  &lt;!--end::Star 4--&gt;
+
+  &lt;!--begin::Star 5--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;ratingInput5&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating&quot; value=&quot;5&quot; type=&quot;radio&quot; id=&quot;ratingInput5&quot;/&gt;
+  &lt;!--end::Star 5--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+  <!--begin::Block-->
+  <div class="pt-15 pb-5">
+    Rating with default value can be setup through a radio input's <code>checked="checked"</code> state. This examples shows a rating with 3 stars default value.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="rating">
+        <!--begin::Reset rating-->
+        <label class="btn btn-light fw-bold btn-sm rating-label me-3" for="rating2input0">
+          Reset
+        </label>
+        <input class="rating-input" name="rating2" value="0" checked type="radio" id="rating2input0"/>
+        <!--end::Reset rating-->
+        <!--begin::Star 1-->
+        <label class="rating-label" for="rating2input1">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating2" value="1" type="radio" id="rating2input1"/>
+        <!--end::Star 1-->
+        <!--begin::Star 2-->
+        <label class="rating-label" for="rating2input2">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating2" value="2" type="radio" id="rating2input2"/>
+        <!--end::Star 2-->
+        <!--begin::Star 3-->
+        <label class="rating-label" for="rating2input3">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating2" value="3" type="radio" checked="checked" id="rating2input3"/>
+        <!--end::Star 3-->
+        <!--begin::Star 4-->
+        <label class="rating-label" for="rating2input4">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating2" value="4" type="radio" id="rating2input4"/>
+        <!--end::Star 4-->
+        <!--begin::Star 5-->
+        <label class="rating-label" for="rating2input5">
+          <i class="ki-duotone ki-star fs-1"></i>
+        </label>
+        <input class="rating-input" name="rating2" value="5" type="radio" id="rating2input5"/>
+        <!--end::Star 5-->
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;rating&quot;&gt;
+  &lt;!--begin::Reset rating--&gt;
+  &lt;label class=&quot;btn btn-light fw-bold btn-sm rating-label me-3&quot; for=&quot;rating2input0&quot;&gt;
+    Reset
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating2&quot; value=&quot;0&quot; checked type=&quot;radio&quot; id=&quot;rating2input0&quot;/&gt;
+  &lt;!--end::Reset rating--&gt;
+
+  &lt;!--begin::Star 1--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;rating2input1&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating2&quot; value=&quot;1&quot; type=&quot;radio&quot; id=&quot;rating2input1&quot;/&gt;
+  &lt;!--end::Star 1--&gt;
+
+  &lt;!--begin::Star 2--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;rating2input2&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating2&quot; value=&quot;2&quot; type=&quot;radio&quot; id=&quot;rating2input2&quot;/&gt;
+  &lt;!--end::Star 2--&gt;
+
+  &lt;!--begin::Star 3--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;rating2input3&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating2&quot; value=&quot;3&quot; type=&quot;radio&quot; checked=&quot;checked&quot; id=&quot;rating2input3&quot;/&gt;
+  &lt;!--end::Star 3--&gt;
+
+  &lt;!--begin::Star 4--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;rating2input4&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating2&quot; value=&quot;4&quot; type=&quot;radio&quot; id=&quot;rating2input4&quot;/&gt;
+  &lt;!--end::Star 4--&gt;
+
+  &lt;!--begin::Star 5--&gt;
+  &lt;label class=&quot;rating-label&quot; for=&quot;rating2input5&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-star fs-1&quot;&gt;&lt;/i&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;rating-input&quot; name=&quot;rating2&quot; value=&quot;5&quot; type=&quot;radio&quot; id=&quot;rating2input5&quot;/&gt;
+  &lt;!--end::Star 5--&gt;
+&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
