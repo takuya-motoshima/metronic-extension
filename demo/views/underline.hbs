@@ -1,0 +1,314 @@
+{{!< default}}
+{{#contentFor 'title'}}Underline{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#sizes" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Sizes</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#colors" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Colors</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Underline is a set of grouped Bootstrap5 components to include a modern stylised underline for text or labels.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    This underline comes in 3 parts.
+    <ol class="py-2">
+      <li class="py-2">The wrapper</li>
+      <li class="py-2">The label</li>
+      <li class="py-2">The line</li>
+    </ol>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Underline-->
+      <span class="d-inline-block position-relative ms-2">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2tx fw-bold text-gray-900">
+          Sample Text
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-success translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Underline--&gt;
+&lt;span class=&quot;d-inline-block position-relative ms-2&quot;&gt;
+  &lt;!--begin::Label--&gt;
+  &lt;span class=&quot;d-inline-block mb-2 fs-2tx fw-bold&quot;&gt;
+    Sample Text
+  &lt;/span&gt;
+  &lt;!--end::Label--&gt;
+  &lt;!--begin::Line--&gt;
+  &lt;span class=&quot;d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-success translate rounded&quot;&gt;&lt;/span&gt;
+  &lt;!--end::Line--&gt;
+&lt;/span&gt;
+&lt;!--end::Underline--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="sizes" data-kt-scroll-offset="100">
+    <a href="#sizes"></a>Sizes
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Modify the <code>h-8px</code> CSS class within the Line element to adjust the underline's thickness.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex gap-5 flex-wrap">
+      <!--begin::Underline-->
+      <span class="d-inline-block position-relative">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2tx fw-bold text-gray-900">
+          Sample Text
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-3px bottom-0 end-0 start-0 bg-success translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+      <!--begin::Underline-->
+      <span class="d-inline-block position-relative">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2tx fw-bold text-gray-900">
+          Sample Text
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-10px bottom-0 end-0 start-0 bg-success translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Underline--&gt;
+&lt;span class=&quot;d-inline-block position-relative ms-2&quot;&gt;
+  &lt;!--begin::Label--&gt;
+  &lt;span class=&quot;d-inline-block mb-2 fs-2tx fw-bold&quot;&gt;
+    Sample Text
+  &lt;/span&gt;
+  &lt;!--end::Label--&gt;
+  &lt;!--begin::Line--&gt;
+  &lt;span class=&quot;d-inline-block position-absolute h-3px bottom-0 end-0 start-0 bg-success translate rounded&quot;&gt;&lt;/span&gt;
+  &lt;!--end::Line--&gt;
+&lt;/span&gt;
+&lt;!--end::Underline--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="colors" data-kt-scroll-offset="100">
+    <a href="#colors"></a>Colors
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Modify the <code>.bg-success</code> CSS class within the Line element to change the line's color.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block d-flex">
+      <!--begin::Underline-->
+      <span class="d-flex position-relative me-10">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2x fw-bold text-gray-900">
+          Primary
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+      <!--begin::Underline-->
+      <span class="d-flex position-relative me-10">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2x fw-bold text-gray-900">
+          Secondary
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-secondary translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+      <!--begin::Underline-->
+      <span class="d-flex position-relative me-10">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2x fw-bold text-gray-900">
+          Success
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-success translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+      <!--begin::Underline-->
+      <span class="d-flex position-relative me-10">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2x fw-bold text-gray-900">
+          Warning
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-warning translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+      <!--begin::Underline-->
+      <span class="d-flex position-relative me-10">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2x fw-bold text-gray-900">
+          Danger
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-danger translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+      <!--begin::Underline-->
+      <span class="d-flex position-relative me-10">
+        <!--begin::Label-->
+        <span class="d-inline-block mb-2 fs-2x fw-bold text-gray-900">
+          Info
+        </span>
+        <!--end::Label-->
+        <!--begin::Line-->
+        <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-info translate rounded"></span>
+        <!--end::Line-->
+      </span>
+      <!--end::Underline-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;!--begin::Underline--&gt;
+&lt;span class=&quot;d-flex position-relative&quot;&gt;
+  &lt;!--begin::Label--&gt;
+  &lt;span class=&quot;d-inline-block mb-2 fs-2x fw-bold text-gray-900&quot;&gt;
+    Sample Text
+  &lt;/span&gt;
+  &lt;!--end::Label--&gt;
+  &lt;!--begin::Line--&gt;
+  &lt;span class=&quot;d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded&quot;&gt;&lt;/span&gt;
+  &lt;!--end::Line--&gt;
+&lt;/span&gt;
+&lt;!--end::Underline--&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
