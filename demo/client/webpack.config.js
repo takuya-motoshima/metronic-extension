@@ -38,6 +38,7 @@ module.exports = {
     'form-advanced': './src/pages/form-advanced.js',
     'no-ui-slider': './src/pages/no-ui-slider.js',
     indicator: './src/pages/indicator.js',
+    inputmask: './src/pages/inputmask.js',
   },
 
   // File output settings.

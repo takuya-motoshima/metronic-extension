@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="dark">
 <!--begin::Head-->
 <head>
-  <title>Badges - Metronic Extension</title>
+  <title>Inputmask - Metronic Extension</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--begin::Fonts-->
@@ -255,7 +255,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link " href="inputmask.html">
+                  <a class="menu-link active" href="inputmask.html">
                     <span class="menu-title">Inputmask</span>
                   </a>
                   <!--end:Menu link-->
@@ -390,7 +390,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                   <!--begin:Menu link-->
-                  <a class="menu-link active" href="badges.html">
+                  <a class="menu-link " href="badges.html">
                     <span class="menu-title">Badges</span>
                   </a>
                   <!--end:Menu link-->
@@ -703,6 +703,7 @@
                     <!--begin::Card Body-->
                     <div class="card-body py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
                       
+
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
@@ -712,7 +713,8 @@
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Additional options to extend <a href="https://getbootstrap.com/docs/5.2/components/badges/" target="_blank">Bootstrap Badges</a>.
+    Inputmask is a javascript library that creates an input mask. Inputmask can run against vanilla javascript, jQuery, and jqlite.
+    For full documentation please check the <a href="https://github.com/RobinHerbots/Inputmask" target="_blank">plugin's documentation</a>.
   </div>
   <!--end::Block-->
 </div>
@@ -720,274 +722,96 @@
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
-    <a href="#basic"></a>Basic
+  <h1 class="anchor fw-bold mb-5" id="initialization" data-kt-scroll-offset="100">
+    <a href="#initialization"></a>Initialization
   </h1>
   <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Badge styles are set in the <code>.badge</code> and <code>.badge-{color}</code> classes.
-  </div>
-  <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
-    <div class="demonstration-block pb-0 d-flex flex-wrap">
-      <span class="badge badge-light me-10 mb-10">New</span>
-      <span class="badge badge-primary me-10 mb-10">New</span>
-      <span class="badge badge-secondary me-10 mb-10">New</span>
-      <span class="badge badge-success me-10 mb-10">New</span>
-      <span class="badge badge-info me-10 mb-10">New</span>
-      <span class="badge badge-warning me-10 mb-10">New</span>
-      <span class="badge badge-danger me-10 mb-10">New</span>
-      <span class="badge badge-dark me-10 mb-10">New</span>
-    </div>
+    <ul class="py-0">
+      <li class="py-2">
+        Inputmask instances can be initialized via <code>new Inputmask()</code> class as explained in the 
+        <a href="https://github.com/RobinHerbots/Inputmask#via-inputmask-class" target="_blank">Documentation</a>.
+      </li>
+      <li class="py-2">
+        Inputmask instances can be initialized via <code>data-inputmask</code> HTML attribute as explained in the
+        <a href="https://github.com/RobinHerbots/Inputmask#via-data-inputmask-attribute" target="_blank">Documentation</a>.
+      </li>
+    </ul>
   </div>
   <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;span class=&quot;badge badge-light&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-secondary&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-success&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-info&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-warning&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-danger&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-dark&quot;&gt;New&lt;/span&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
 </div>
 <!--end::Section-->
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="lightStyle" data-kt-scroll-offset="100">
-    <a href="#lightStyle"></a>Light Style
+  <h1 class="anchor fw-bold mb-5" id="examples" data-kt-scroll-offset="100">
+    <a href="#examples"></a>Examples
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
   <div class="my-5">
-    Use the <code>.badge</code> and <code>.badge-light-{color}</code> classes to set the light style for the badge.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block pb-0 d-flex flex-wrap">
-      <span class="badge badge-light-primary me-10 mb-10">New</span>
-      <span class="badge badge-light-secondary me-10 mb-10">New</span>
-      <span class="badge badge-light-success me-10 mb-10">New</span>
-      <span class="badge badge-light-info me-10 mb-10">New</span>
-      <span class="badge badge-light-warning me-10 mb-10">New</span>
-      <span class="badge badge-light-danger me-10 mb-10">New</span>
-      <span class="badge badge-light-dark me-10 mb-10">New</span>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;span class=&quot;badge badge-light-primary&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-light-secondary&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-light-success&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-light-info&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-light-warning&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-light-danger&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-light-dark&quot;&gt;New&lt;/span&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="squareBadge" data-kt-scroll-offset="100">
-    <a href="#squareBadge"></a>Square Badge
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Use <code>.badge-square</code> class to use a badge with same width and height.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block pb-0 d-flex flex-wrap align-items-center">
-      <span class="badge badge-square badge-light me-10 mb-10">5</span>
-      <span class="badge badge-square badge-primary me-10 mb-10">5</span>
-      <span class="badge badge-square badge-secondary me-10 mb-10">5</span>
-      <span class="badge badge-square badge-success me-10 mb-10">5</span>
-      <span class="badge badge-square badge-info me-10 mb-10">5</span>
-      <span class="badge badge-square badge-warning me-10 mb-10">5</span>
-      <span class="badge badge-square badge-danger me-10 mb-10">5</span>
-      <span class="badge badge-square badge-dark me-10 mb-10">5</span>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;span class=&quot;badge badge-square badge-light&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-primary&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-secondary&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-success&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-info&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-warning&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-danger&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-square badge-dark&quot;&gt;5&lt;/span&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="circleBadge" data-kt-scroll-offset="100">
-    <a href="#circleBadge"></a>Circle Badge
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Use <code>.badge-circle</code> class to use a badge with circle style.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block pb-0 d-flex flex-wrap align-items-center">
-      <span class="badge badge-circle badge-outline badge-primary border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-secondary border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-success border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-info border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-warning border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-danger border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-dark border-2 me-10 mb-10">5</span>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;span class=&quot;badge badge-circle badge-light&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-primary&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-secondary&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-success&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-info&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-warning&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-danger&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-dark&quot;&gt;5&lt;/span&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="outlineBadge" data-kt-scroll-offset="100">
-    <a href="#outlineBadge"></a>Outline Badge
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Use <code>.badge-outline</code> class to use a badge with circle style.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block p-10 pb-0 d-flex flex-wrap align-items-center">
-      <span class="badge badge-circle badge-outline badge-primary border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-secondary border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-success border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-info border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-warning border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-danger border-2 me-10 mb-10">5</span>
-      <span class="badge badge-circle badge-outline badge-dark border-2 me-10 mb-10">5</span>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;span class=&quot;badge badge-circle badge-outline badge-primary&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-outline badge-secondary&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-outline badge-success&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-outline badge-info&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-outline badge-warning&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-outline badge-danger&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;badge badge-circle badge-outline badge-dark&quot;&gt;5&lt;/span&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="sizeOptions" data-kt-scroll-offset="100">
-    <a href="#sizeOptions"></a>Size Options
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Use <code>.badge-sm</code> or <code>.badge-lg</code> to change Badge size according to the Bootstrap standards.
+    Some examples of using Inputmaks with variouse options.
   </div>
   <!--end::Block-->
   <!--begin::Block-->
   <div class="py-5">
     <div class="demonstration-block">
-      <div class="d-flex gap-2">
-        <span class="badge badge-primary badge-sm">New</span>
-        <span class="badge badge-primary badge-circle badge-sm">3</span>
-        <span class="badge badge-primary badge-square badge-sm">4</span>
+      <div class="mb-10">
+        <label for="" class="form-label">Date</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask1"/>
+        <div class="form-text">
+          Custom date format: <code>mm/dd/yyyy</code>
+        </div>
       </div>
-      <div class="separator separator-dashed my-5"></div>
-      <div class="d-flex gap-2">
-        <span class="badge badge-primary badge">New</span>
-        <span class="badge badge-primary badge-circle">3</span>
-        <span class="badge badge-primary badge-square ">4</span>
+      <div class="mb-10">
+        <label for="" class="form-label">Phone number</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask2"/>
+        <div class="form-text">
+          Phone number format: <code>(999) 999-9999</code>
+        </div>
       </div>
-      <div class="separator separator-dashed my-5"></div>
-      <div class="d-flex gap-2">
-        <span class="badge badge-primary badge-lg">New</span>
-        <span class="badge badge-primary badge-circle badge-lg">3</span>
-        <span class="badge badge-primary badge-square badge-lg">4</span>
+      <div class="mb-10">
+        <label for="" class="form-label">Plaeholder</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask3"/>
+        <div class="form-text">
+          Phone number format with placeholder: <code>(999) 999-9999</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Repeating mask</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask4"/>
+        <div class="form-text">
+          Mask  <code>9 </code>,  <code>99 </code> or  ... <code>9999999999</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Right aligned</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask5"/>
+        <div class="form-text">
+          Numeric format
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Currency</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask6"/>
+        <div class="form-text">
+          Currency format: <code>€ ___.__1.234,56</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">IP Address</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask7"/>
+        <div class="form-text">
+          Custom format: <code>999.999.999.999</code>
+        </div>
+      </div>
+      <div class="mb-0">
+        <label for="" class="form-label">Email Address</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask8"/>
+        <div class="form-text">
+          Custom format: <code>_@_</code>
+        </div>
       </div>
     </div>
   </div>
@@ -998,146 +822,60 @@
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;span class=&quot;badge badge-primary badge-sm&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary badge-circle badge-sm&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary badge-square badge-sm&quot;&gt;4&lt;/span&gt;
+        <pre class="language-javascript">
+          <code class="language-javascript">// Date.
+Inputmask({
+  mask: &#039;99/99/9999&#039;
+}).mask(&#039;#inputmask1&#039;);
 
-&lt;span class=&quot;badge badge-primary badge&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary badge-circle&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary badge-square &quot;&gt;4&lt;/span&gt;
+// Phone.
+Inputmask({
+  mask: &#039;(999) 999-9999&#039;
+}).mask(&#039;#inputmask2&#039;);
 
-&lt;span class=&quot;badge badge-primary badge-lg&quot;&gt;New&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary badge-circle badge-lg&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;badge badge-primary badge-square badge-lg&quot;&gt;4&lt;/span&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="bootstrapButtons" data-kt-scroll-offset="100">
-    <a href="#bootstrapButtons"></a>Bootstrap Buttons
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Use a badge with <code>.badge-circle</code> class in a Bootstrap Button element.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block">
-      <button class="btn btn-primary position-relative me-5">
-        Button
-        <span class="position-absolute top-0 start-0 translate-middle  badge badge-circle badge-danger">5</span>
-      </button>
-      <button class="btn btn-success position-relative me-5">
-        Button
-        <span class="position-absolute top-100 start-0 translate-middle  badge badge-circle badge-warning">5</span>
-      </button>
-      <button class="btn btn-danger position-relative me-5">
-        Button
-        <span class="position-absolute top-0 start-100 translate-middle  badge badge-circle badge-primary">5</span>
-      </button>
-      <button class="btn btn-warning position-relative">
-        Button
-        <span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">5</span>
-      </button>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;button class=&quot;btn btn-primary position-relative me-5&quot;&gt;
-  Button &lt;span class=&quot;position-absolute top-0 start-0 translate-middle  badge badge-circle badge-danger&quot;&gt;5&lt;/span&gt;
-&lt;/button&gt;
+// Placeholder.
+Inputmask({
+  mask: &#039;(999) 999-9999&#039;,
+  placeholder: &#039;(999) 999-9999&#039;
+}).mask(&#039;#inputmask3&#039;);
 
-&lt;button class=&quot;btn btn-success position-relative me-5&quot;&gt;
-  Button &lt;span class=&quot;position-absolute top-100 start-0 translate-middle  badge badge-circle badge-warning&quot;&gt;5&lt;/span&gt;
-&lt;/button&gt;
+// Repeating.
+Inputmask({
+  mask: &#039;9&#039;,
+  repeat: 10,
+  greedy: !1
+}).mask(&#039;#inputmask4&#039;);
 
-&lt;button class=&quot;btn btn-danger position-relative me-5&quot;&gt;
-  Button &lt;span class=&quot;position-absolute top-0 start-100 translate-middle  badge badge-circle badge-primary&quot;&gt;5&lt;/span&gt;
-&lt;/button&gt;
+// Right aligned.
+Inputmask(&#039;decimal&#039;, {
+  rightAlignNumerics: !1
+}).mask(&#039;#inputmask5&#039;);
 
-&lt;button class=&quot;btn btn-warning position-relative&quot;&gt;
-  Button &lt;span class=&quot;position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success&quot;&gt;5&lt;/span&gt;
-&lt;/button&gt;</code>
-        </pre>
-      </div>
-    </div>
-    <!--end::Highlight-->
-  </div>
-  <!--end::Code-->
-</div>
-<!--end::Section-->
-<!--begin::Section-->
-<div class="pb-10">
-  <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="insideButton" data-kt-scroll-offset="100">
-    <a href="#insideButton"></a>Inside Button
-  </h1>
-  <!--end::Heading-->
-  <!--begin::Block-->
-  <div class="my-5">
-    Use a badge with <code>.badge-circle</code> classes inside button.
-  </div>
-  <!--end::Block-->
-  <!--begin::Block-->
-  <div class="py-5">
-    <div class="demonstration-block">
-      <button class="btn btn-primary me-5">
-        Notifications
-        <span class="badge badge-circle badge-warning ms-2">5</span>
-      </button>
-      <button class="btn btn-success me-5">
-        Messages
-        <span class="badge badge-circle badge-danger ms-2">4</span>
-      </button>
-      <button class="btn btn-danger me-5">
-        Orders
-        <span class="badge badge-circle badge-primary ms-2">7</span>
-      </button>
-      <button class="btn btn-dark me-5">
-        Profile
-        <span class="badge badge-circle badge-success ms-2">3</span>
-      </button>
-    </div>
-  </div>
-  <!--end::Block-->
-  <!--begin::Code-->
-  <div class="my-5">
-    <!--begin::Highlight-->
-    <div class="highlight">
-      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-      <div class="highlight-code">
-        <pre class="language-html">
-          <code class="language-html">&lt;button class=&quot;btn btn-primary me-5&quot;&gt;
-  Notifications &lt;span class=&quot;badge badge-circle badge-warning ms-2&quot;&gt;5&lt;/span&gt;
-&lt;/button&gt;
+// Currency.
+Inputmask(&#039;€ 999.999.999,99&#039;, {
+  numericInput: !0
+}).mask(&#039;#inputmask6&#039;);
 
-&lt;button class=&quot;btn btn-success me-5&quot;&gt;
-  Messages &lt;span class=&quot;badge badge-circle badge-danger ms-2&quot;&gt;4&lt;/span&gt;
-&lt;/button&gt;
+// Ip address.
+Inputmask({
+  mask: &#039;999.999.999.999&#039;
+}).mask(&#039;#inputmask7&#039;);
 
-&lt;button class=&quot;btn btn-danger me-5&quot;&gt;
-  Orders &lt;span class=&quot;badge badge-circle badge-primary ms-2&quot;&gt;4&lt;/span&gt;
-&lt;/button&gt;
-
-&lt;button class=&quot;btn btn-danger me-5&quot;&gt;
-  Profile &lt;span class=&quot;badge badge-circle badge-success ms-2&quot;&gt;3&lt;/span&gt;
-&lt;/button&gt;</code>
+// Email address.
+Inputmask({
+  mask: &#039;*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]&#039;,
+  greedy: !1,
+  onBeforePaste: function(a, t) {
+    return (a = a.toLowerCase()).replace(&#039;mailto:&#039;, &#039;&#039;)
+  },
+  definitions: {
+    &#039;*&#039;: {
+      validator: &#039;[0-9A-Za-z!#$%&amp;&quot;*+/=?^_`{|}~\-]&#039;,
+      cardinality: 1,
+      casing: &#039;lower&#039;
+    }
+  }
+}).mask(&#039;#inputmask8&#039;);</code>
         </pre>
       </div>
     </div>
@@ -1182,11 +920,11 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#initialization" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Basic</span>
+    <span class="menu-title">Initialization</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1194,83 +932,11 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#lightStyle" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#examples" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Light Style</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#squareBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Square Badge</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#circleBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Circle Badge</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#outlineBadge" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Outline Badge</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#sizeOptions" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Size Options</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#bootstrapButtons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Bootstrap Buttons</span>
-  </a>
-  <!--end::Link-->
-</li>
-<!--end::Item-->
-<!--begin::Item-->
-<li class="menu-item py-2 px-3">
-  <!--begin::Link-->
-  <a href="#insideButton" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
-    <span class="menu-bullet">
-      <span class="bullet bullet-dot"></span>
-    </span>
-    <span class="menu-title">Inside Button</span>
+    <span class="menu-title">Examples</span>
   </a>
   <!--end::Link-->
 </li>
@@ -1341,7 +1007,7 @@
     Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
   </script>
   <script src="build/docs.js"></script>
-  
+  <script src="build/inputmask.js"></script>
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>

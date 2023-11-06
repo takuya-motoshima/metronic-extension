@@ -1,0 +1,221 @@
+{{!< default}}
+{{#contentFor 'title'}}Inputmask{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/inputmask.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#initialization" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Initialization</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#examples" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Examples</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Inputmask is a javascript library that creates an input mask. Inputmask can run against vanilla javascript, jQuery, and jqlite.
+    For full documentation please check the <a href="https://github.com/RobinHerbots/Inputmask" target="_blank">plugin's documentation</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="initialization" data-kt-scroll-offset="100">
+    <a href="#initialization"></a>Initialization
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <ul class="py-0">
+      <li class="py-2">
+        Inputmask instances can be initialized via <code>new Inputmask()</code> class as explained in the 
+        <a href="https://github.com/RobinHerbots/Inputmask#via-inputmask-class" target="_blank">Documentation</a>.
+      </li>
+      <li class="py-2">
+        Inputmask instances can be initialized via <code>data-inputmask</code> HTML attribute as explained in the
+        <a href="https://github.com/RobinHerbots/Inputmask#via-data-inputmask-attribute" target="_blank">Documentation</a>.
+      </li>
+    </ul>
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="examples" data-kt-scroll-offset="100">
+    <a href="#examples"></a>Examples
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Some examples of using Inputmaks with variouse options.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="mb-10">
+        <label for="" class="form-label">Date</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask1"/>
+        <div class="form-text">
+          Custom date format: <code>mm/dd/yyyy</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Phone number</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask2"/>
+        <div class="form-text">
+          Phone number format: <code>(999) 999-9999</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Plaeholder</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask3"/>
+        <div class="form-text">
+          Phone number format with placeholder: <code>(999) 999-9999</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Repeating mask</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask4"/>
+        <div class="form-text">
+          Mask  <code>9 </code>,  <code>99 </code> or  ... <code>9999999999</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Right aligned</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask5"/>
+        <div class="form-text">
+          Numeric format
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">Currency</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask6"/>
+        <div class="form-text">
+          Currency format: <code>€ ___.__1.234,56</code>
+        </div>
+      </div>
+      <div class="mb-10">
+        <label for="" class="form-label">IP Address</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask7"/>
+        <div class="form-text">
+          Custom format: <code>999.999.999.999</code>
+        </div>
+      </div>
+      <div class="mb-0">
+        <label for="" class="form-label">Email Address</label>
+        <input class="form-control form-control-solid" placeholder="" id="inputmask8"/>
+        <div class="form-text">
+          Custom format: <code>_@_</code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-javascript">
+          <code class="language-javascript">// Date.
+Inputmask({
+  mask: &#039;99/99/9999&#039;
+}).mask(&#039;#inputmask1&#039;);
+
+// Phone.
+Inputmask({
+  mask: &#039;(999) 999-9999&#039;
+}).mask(&#039;#inputmask2&#039;);
+
+// Placeholder.
+Inputmask({
+  mask: &#039;(999) 999-9999&#039;,
+  placeholder: &#039;(999) 999-9999&#039;
+}).mask(&#039;#inputmask3&#039;);
+
+// Repeating.
+Inputmask({
+  mask: &#039;9&#039;,
+  repeat: 10,
+  greedy: !1
+}).mask(&#039;#inputmask4&#039;);
+
+// Right aligned.
+Inputmask(&#039;decimal&#039;, {
+  rightAlignNumerics: !1
+}).mask(&#039;#inputmask5&#039;);
+
+// Currency.
+Inputmask(&#039;€ 999.999.999,99&#039;, {
+  numericInput: !0
+}).mask(&#039;#inputmask6&#039;);
+
+// Ip address.
+Inputmask({
+  mask: &#039;999.999.999.999&#039;
+}).mask(&#039;#inputmask7&#039;);
+
+// Email address.
+Inputmask({
+  mask: &#039;*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]&#039;,
+  greedy: !1,
+  onBeforePaste: function(a, t) {
+    return (a = a.toLowerCase()).replace(&#039;mailto:&#039;, &#039;&#039;)
+  },
+  definitions: {
+    &#039;*&#039;: {
+      validator: &#039;[0-9A-Za-z!#$%&amp;&quot;*+/=?^_`{|}~\-]&#039;,
+      cardinality: 1,
+      casing: &#039;lower&#039;
+    }
+  }
+}).mask(&#039;#inputmask8&#039;);</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
