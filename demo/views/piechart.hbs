@@ -1,0 +1,314 @@
+{{!< default}}
+{{#contentFor 'title'}}PieChart{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/piechart.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Pie chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the PieChart class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLElement selector, element, or JQuery object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options: PieChartOptions</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Chart options.
+                    <ul>
+                      <li class="py-2"><code>width?: number</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Width of the chart in pixels. Default is 250.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.method?: &#039;GET&#039;|&#039;POST&#039;|&#039;PUT&#039;</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          HTTP method of the request. Default is &quot;GET&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.url: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          URL to request. This option is required. The response must return an array of the following type. If it returns a different type, use the ajax.dataSrc option to convert it.
+                          <ul>
+                            <li class="py-2"><code>name: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Data name. This value is used in tooltips and other displays. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>data: number</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Data Value. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>color: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Color of slice. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                          </ul>
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.data?: (data: object) =&gt; object</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to add or change data to be sent to the server. Default is none (undefined).
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">data: data =&gt; {
+  data.extra = &#039;Extra&#039;;
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.dataSrc?: (data: PieChartResponse[]|any) =&gt; PieChartResponse[]</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to add or modify data retrieved from the server. Default is none (undefined).
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">dataSrc: data =&gt; {
+  // Calculate and display data totals.
+  const total = data.reduce((total, item) =&gt; {
+    return total + item.data;
+  }, 0);
+  document.getElementById(&#039;total&#039;).textContent = total;
+
+  // Returns data to be drawn on the chart.
+  return data;
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public reload()</code>
+            </td>
+            <td>
+              Redraw the chart.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;void&gt;</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Chart-->
+      <div id="piechart" class="mx-auto"></div>
+      <!--end::Chart-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#verticalHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalAjaxTab" role="tab">AJAX</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="verticalHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div id=&quot;piechart&quot; class=&quot;mx-auto&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="verticalJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
+
+// Initialize chart.
+const piechart = new charts.PieChart(document.getElementById(&#039;piechart&#039;), {
+  width: 400,
+  ajax: {
+    url: &#039;json/pie-chart.json&#039;
+  },
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="verticalAjaxTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {&quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 44},
+  {&quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 55},
+  {&quot;name&quot;: &quot;series-3&quot;, &quot;color&quot;: &quot;#009ef7&quot;, &quot;data&quot;: 41},
+  {&quot;name&quot;: &quot;series-4&quot;, &quot;color&quot;: &quot;#f1416c&quot;, &quot;data&quot;: 17}
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

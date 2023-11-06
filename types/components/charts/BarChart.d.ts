@@ -11,7 +11,7 @@ export default class {
      */
     constructor(element: string | HTMLElement | JQuery, options: BarChartOptions);
     /**
-     * Loads the drawing data and redraws the chart.
+     * Redraw the chart.
      */
     reload(): Promise<void>;
 }

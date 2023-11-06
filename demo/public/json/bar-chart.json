@@ -1,0 +1,8 @@
+[
+  {"category": "category-1", "name": "series-1", "color": "#50cd89", "data": 400},
+  {"category": "category-1", "name": "series-2", "color": "#7239ea", "data": 430},
+  {"category": "category-2", "name": "series-1", "color": "#50cd89", "data": 448},
+  {"category": "category-2", "name": "series-2", "color": "#7239ea", "data": 470},
+  {"category": "category-3", "name": "series-1", "color": "#50cd89", "data": 540},
+  {"category": "category-3", "name": "series-2", "color": "#7239ea", "data": 580}
+]

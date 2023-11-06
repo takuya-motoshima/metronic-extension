@@ -185,6 +185,18 @@
                       <!--end:Menu link-->
                     </div>
                     <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="piechart.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">PieChart</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
                   </div>
                   <!--end:Menu sub-->
                 </div>
@@ -1648,8 +1660,8 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
 <!--begin::Section-->
 <div class="py-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="basicExample" data-kt-scroll-offset="100">
-    <a href="#basicExample"></a>Basic Example
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
@@ -1678,16 +1690,16 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleJsTab" role="tab">JAVASCRIPT</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleRootItselfJsonTab" role="tab">ROOT ITSELF JSON</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleRootChildrenJsonTab" role="tab">ROOT CHILDREN JSON</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicExampleChild1ChildrenJsonTab" role="tab">CHILD1 CHILDREN JSON</a></li>
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basicHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicRootItselfJsonTab" role="tab">ROOT ITSELF JSON</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicRootChildrenJsonTab" role="tab">ROOT CHILDREN JSON</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basicChild1ChildrenJsonTab" role="tab">CHILD1 CHILDREN JSON</a></li>
       </ul>
       <!--begin::Tab content-->
       <div class="tab-content">
         <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="basicExampleHtmlTab" role="tabpanel">
+        <div class="tab-pane fade show active" id="basicHtmlTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
               <code class="language-html">&lt;!--begin::Tree--&gt;
@@ -1706,7 +1718,7 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicExampleJsTab" role="tabpanel">
+        <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">import {Tree} from &#039;metronic-extension&#039;;
@@ -1754,7 +1766,7 @@ basicTree
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicExampleRootItselfJsonTab" role="tabpanel">
+        <div class="tab-pane fade" id="basicRootItselfJsonTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">This root node of the tree loads data by Ajax (root-itself.json). The latest data that has been loaded is shown below. This data will update automatically as any additional data is loaded.</div>
           <!--end::Block-->
@@ -1774,7 +1786,7 @@ basicTree
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicExampleRootChildrenJsonTab" role="tabpanel">
+        <div class="tab-pane fade" id="basicRootChildrenJsonTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">Child nodes associated with the route of the tree loads data by Ajax (roots-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
           <!--end::Block-->
@@ -1801,7 +1813,7 @@ basicTree
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="basicExampleChild1ChildrenJsonTab" role="tabpanel">
+        <div class="tab-pane fade" id="basicChild1ChildrenJsonTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">Child nodes associated with Child1 of the tree loads data by Ajax (child1s-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
           <!--end::Block-->
@@ -1831,8 +1843,8 @@ basicTree
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="serverSideProcessingExample" data-kt-scroll-offset="100">
-    <a href="#serverSideProcessingExample"></a>Server-side processing
+  <h1 class="anchor fw-bold mb-5" id="serverSideProcessing" data-kt-scroll-offset="100">
+    <a href="#serverSideProcessing"></a>Server-side processing
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
@@ -1873,17 +1885,17 @@ basicTree
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#serverSideProcessingExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleJsTab" role="tab">JAVASCRIPT</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleAjaxTab" role="tab">AJAX</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleRouteTab" role="tab">SERVER-SIDE ROUTE JS</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleFolderModelTab" role="tab">SERVER-SIDE FOLDER MODEL JS</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingExampleFileModelTab" role="tab">SERVER-SIDE FILE MODEL JS</a></li>
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#serverSideProcessingHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingAjaxTab" role="tab">AJAX</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingRouteTab" role="tab">SERVER-SIDE ROUTE JS</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingFolderModelTab" role="tab">SERVER-SIDE FOLDER MODEL JS</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#serverSideProcessingFileModelTab" role="tab">SERVER-SIDE FILE MODEL JS</a></li>
       </ul>
       <!--begin::Tab content-->
       <div class="tab-content">
         <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="serverSideProcessingExampleHtmlTab" role="tabpanel">
+        <div class="tab-pane fade show active" id="serverSideProcessingHtmlTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
               <code class="language-html">&lt;!--begin::Tree--&gt;
@@ -1894,7 +1906,7 @@ basicTree
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="serverSideProcessingExampleJsTab" role="tabpanel">
+        <div class="tab-pane fade" id="serverSideProcessingJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">import {Tree} from &#039;metronic-extension&#039;;
@@ -1921,7 +1933,7 @@ const serverSideProcessingTree = new Tree(document.getElementById(&#039;serverSi
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="serverSideProcessingExampleAjaxTab" role="tabpanel">
+        <div class="tab-pane fade" id="serverSideProcessingAjaxTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">This tree loads data by Ajax. The latest data that has been loaded is shown below. This data will update automatically as any additional data is loaded.</div>
           <!--end::Block-->
@@ -1943,7 +1955,7 @@ const serverSideProcessingTree = new Tree(document.getElementById(&#039;serverSi
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="serverSideProcessingExampleRouteTab" role="tabpanel">
+        <div class="tab-pane fade" id="serverSideProcessingRouteTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">
             This is a route script used in server-side processing created with <a href="https://takuya-motoshima.github.io/express-sweet/" target="_blank">express-sweet</a>, which extends Node.js express.
@@ -2013,7 +2025,7 @@ module.exports = router;</code>
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="serverSideProcessingExampleFolderModelTab" role="tabpanel">
+        <div class="tab-pane fade" id="serverSideProcessingFolderModelTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">
             This is a Model script used in server-side processing created with <a href="https://takuya-motoshima.github.io/express-sweet/" target="_blank">express-sweet</a>, which extends Node.js express.
@@ -2105,7 +2117,7 @@ module.exports = class extends Model {
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="serverSideProcessingExampleFileModelTab" role="tabpanel">
+        <div class="tab-pane fade" id="serverSideProcessingFileModelTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">
             This is a Model script used in server-side processing created with <a href="https://takuya-motoshima.github.io/express-sweet/" target="_blank">express-sweet</a>, which extends Node.js express.
@@ -2211,11 +2223,11 @@ module.exports = class extends Model {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#basicExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Basic Example</span>
+    <span class="menu-title">Basic</span>
   </a>
   <!--end::Link-->
 </li>
@@ -2223,7 +2235,7 @@ module.exports = class extends Model {
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#serverSideProcessingExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#serverSideProcessing" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>

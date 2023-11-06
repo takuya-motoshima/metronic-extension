@@ -14,7 +14,7 @@ export default class {
   //  * Read-only ApexCharts instance.
   //  * @type {ApexCharts}
   //  */
-  // get chart(): ApexCharts|undefined {
+  // get instance(): ApexCharts|undefined {
   //   return this.#chart;
   // }
 
@@ -71,7 +71,7 @@ export default class {
   }
 
   /**
-   * Loads the drawing data and redraws the chart.
+   * Redraw the chart.
    */
   public reload(): Promise<void> {
     // Redraw the chart.
@@ -257,27 +257,27 @@ export default class {
    * ```js
    * // Chart data retrieved from the server.
    * const data = [
-   *   {category: 'Category1', name: 'Series1', color: '#50cd89', data: 1},
-   *   {category: 'Category1', name: 'Series2', color: '#f1416c', data: 2},
-   *   {category: 'Category2', name: 'Series1', color: '#50cd89', data: 3},
-   *   {category: 'Category2', name: 'Series2', color: '#f1416c', data: 4},
+   *   {category: 'category-1', name: 'series-1', color: '#50cd89', data: 1},
+   *   {category: 'category-1', name: 'series-2', color: '#f1416c', data: 2},
+   *   {category: 'category-2', name: 'series-1', color: '#50cd89', data: 3},
+   *   {category: 'category-2', name: 'series-2', color: '#f1416c', data: 4},
    * ];
    * 
    * // Chart data retrieved from the server is grouped by category.
    * const categorized = this.#categorizeData(data);
    * // categorized: [
    * //   {
-   * //     category: 'Category1',
+   * //     category: 'category-1',
    * //     data: [
-   * //       {name: 'Series1', color: '#50cd89', data: 1},
-   * //       {name: 'Series2', color: '#f1416c', data: 2}
+   * //       {name: 'series-1', color: '#50cd89', data: 1},
+   * //       {name: 'series-2', color: '#f1416c', data: 2}
    * //     ]
    * //   },
    * //   {
-   * //     category: 'Category2',
+   * //     category: 'category-2',
    * //     data: [
-   * //       {name: 'Series1', color: '#50cd89', data: 3},
-   * //       {name: 'Series2', color: '#f1416c', data: 4}
+   * //       {name: 'series-1', color: '#50cd89', data: 3},
+   * //       {name: 'series-2', color: '#f1416c', data: 4}
    * //     ]
    * //   }
    * // ]
@@ -329,17 +329,17 @@ export default class {
    * // Chart data grouped by category.
    * const categorized = [
    *   {
-   *     category: 'Category1',
+   *     category: 'category-1',
    *     data: [
-   *       {name: 'Series1', color: '#50cd89', data: 1},
-   *       {name: 'Series2', color: '#f1416c', data: 2}
+   *       {name: 'series-1', color: '#50cd89', data: 1},
+   *       {name: 'series-2', color: '#f1416c', data: 2}
    *     ]
    *   },
    *   {
-   *     category: 'Category2',
+   *     category: 'category-2',
    *     data: [
-   *       {name: 'Series1', color: '#50cd89', data: 3},
-   *       {name: 'Series2', color: '#f1416c', data: 4}
+   *       {name: 'series-1', color: '#50cd89', data: 3},
+   *       {name: 'series-2', color: '#f1416c', data: 4}
    *     ]
    *   }
    * ];
@@ -348,11 +348,11 @@ export default class {
    * const series = this.#createSeriesData(categorized);
    * // series: [
    * //   {
-   * //     name: 'Series1',
+   * //     name: 'series-1',
    * //     color: '#50cd89',
    * //     data: [1, 3]
    * //   }, {
-   * //     name: 'Series2',
+   * //     name: 'series-2',
    * //     color: '#f1416c',
    * //     data: [2, 4]
    * //   }

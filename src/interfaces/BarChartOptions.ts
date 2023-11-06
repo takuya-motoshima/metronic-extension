@@ -41,7 +41,6 @@ export default interface BarChartOptions {
      * @example
      * ```js
      * dataSrc: data => {
-     *   // In this example, the data returned by the server is "[{"data":400, "label": "France"},{"data":430, "label": "Japan"}]".
      *   // Calculate and display data totals.
      *   const total = data.reduce((total, item) => {
      *     return total + item.data;

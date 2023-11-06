@@ -29,11 +29,11 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#horizontalBarChartExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#horizontal" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Horizontal bar chart</span>
+    <span class="menu-title">Horizontal</span>
   </a>
   <!--end::Link-->
 </li>
@@ -41,11 +41,11 @@
 <!--begin::Item-->
 <li class="menu-item py-2 px-3">
   <!--begin::Link-->
-  <a href="#verticalBarChartExample" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+  <a href="#vertical" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
     <span class="menu-bullet">
       <span class="bullet bullet-dot"></span>
     </span>
-    <span class="menu-title">Vertical bar chart</span>
+    <span class="menu-title">Vertical</span>
   </a>
   <!--end::Link-->
 </li>
@@ -202,7 +202,6 @@
                             <div class="highlight-code">
                               <pre class="language-javascript">
                                 <code class="language-javascript">dataSrc: data =&gt; {
-  // In this example, the data returned by the server is &quot;[{&quot;data&quot;:400, &quot;label&quot;: &quot;France&quot;},{&quot;data&quot;:430, &quot;label&quot;: &quot;Japan&quot;}]&quot;.
   // Calculate and display data totals.
   const total = data.reduce((total, item) =&gt; {
     return total + item.data;
@@ -280,32 +279,6 @@
                 </li>
               </ul>
               <!--end::Parameters-->
-              <!--begin::Highlight-->
-              <div class="highlight">
-                <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
-                <div class="highlight-code">
-                  <pre class="language-javascript">
-                    <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
-
-// Horizontal bar chart (horizontal option is true).
-const horizontalBarChart = new charts.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
-  horizontal: true,
-  ajax: {
-    url: &#039;https://example.com/charts&#039;
-  }
-});
-
-// Vertical bar chart (horizontal option is false).
-const verticalBarChart = new charts.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
-  horizontal: false,
-  ajax: {
-    url: &#039;https://example.com/charts&#039;
-  }
-});</code>
-                  </pre>
-                </div>
-              </div>
-              <!--end::Highlight-->
             </td>
           </tr>
           <tr>
@@ -313,7 +286,7 @@ const verticalBarChart = new charts.BarChart(document.getElementById(&#039;verti
               <code>public reload()</code>
             </td>
             <td>
-              Loads the drawing data and redraws the chart.
+              Redraw the chart.
               <!--begin::Heading-->
               <div class="py-3 text-gray-700">Return value:</div>
               <!--end::Heading-->
@@ -337,8 +310,8 @@ const verticalBarChart = new charts.BarChart(document.getElementById(&#039;verti
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="horizontalBarChartExample" data-kt-scroll-offset="100">
-    <a href="#horizontalBarChartExample"></a>Horizontal bar chart
+  <h1 class="anchor fw-bold mb-5" id="horizontal" data-kt-scroll-offset="100">
+    <a href="#horizontal"></a>Horizontal
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
@@ -373,14 +346,14 @@ const verticalBarChart = new charts.BarChart(document.getElementById(&#039;verti
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#horizontalBarExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#horizontalBarExampleJsTab" role="tab">JAVASCRIPT</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#horizontalBarExampleAjaxTab" role="tab">AJAX</a></li>
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#horizontalHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#horizontalJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#horizontalAjaxTab" role="tab">AJAX</a></li>
       </ul>
       <!--begin::Tab content-->
       <div class="tab-content">
         <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="horizontalBarExampleHtmlTab" role="tabpanel">
+        <div class="tab-pane fade show active" id="horizontalHtmlTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
               <code class="language-html">&lt;!--begin::Wrapper--&gt;
@@ -408,7 +381,7 @@ const verticalBarChart = new charts.BarChart(document.getElementById(&#039;verti
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="horizontalBarExampleJsTab" role="tabpanel">
+        <div class="tab-pane fade" id="horizontalJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
@@ -417,7 +390,7 @@ function initHorizontalBarChart() {
   return new charts.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
     horizontal: true,
     ajax: {
-      url: &#039;json/barchart.json&#039;,
+      url: &#039;json/bar-chart.json&#039;,
       dataSrc: data =&gt; {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -474,23 +447,19 @@ initHorizontalBarChartSearchForm();</code>
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="horizontalBarExampleAjaxTab" role="tabpanel">
+        <div class="tab-pane fade" id="horizontalAjaxTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
           <!--end::Block-->
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">[
-  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
-  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
-  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
-  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
-  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
-  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580},
-  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 690},
-  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1100},
-  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 1200},
-  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1380}
+  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
+  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
+  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
+  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
+  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
+  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580}
 ]</code>
             </pre>
           </div>
@@ -507,8 +476,8 @@ initHorizontalBarChartSearchForm();</code>
 <!--begin::Section-->
 <div class="py-10">
   <!--begin::Heading-->
-  <h1 class="anchor fw-bold mb-5" id="verticalBarChartExample" data-kt-scroll-offset="100">
-    <a href="#verticalBarChartExample"></a>Vertical bar chart
+  <h1 class="anchor fw-bold mb-5" id="vertical" data-kt-scroll-offset="100">
+    <a href="#vertical"></a>Vertical
   </h1>
   <!--end::Heading-->
   <!--begin::Block-->
@@ -543,14 +512,14 @@ initHorizontalBarChartSearchForm();</code>
     <div class="highlight">
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <ul class="nav nav-pills" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#verticalBarExampleHtmlTab" role="tab">HTML</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalBarExampleJsTab" role="tab">JAVASCRIPT</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalBarExampleAjaxTab" role="tab">AJAX</a></li>
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#verticalHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#verticalAjaxTab" role="tab">AJAX</a></li>
       </ul>
       <!--begin::Tab content-->
       <div class="tab-content">
         <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="verticalBarExampleHtmlTab" role="tabpanel">
+        <div class="tab-pane fade show active" id="verticalHtmlTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
               <code class="language-html">&lt;!--begin::Wrapper--&gt;
@@ -578,7 +547,7 @@ initHorizontalBarChartSearchForm();</code>
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="verticalBarExampleJsTab" role="tabpanel">
+        <div class="tab-pane fade" id="verticalJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">import {charts} from &#039;metronic-extension&#039;;
@@ -587,7 +556,7 @@ function initVerticalBarChart() {
   return new charts.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
     horizontal: false,
     ajax: {
-      url: &#039;json/barchart.json&#039;,
+      url: &#039;json/bar-chart.json&#039;,
       dataSrc: data =&gt; {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -644,23 +613,19 @@ initVerticalBarChartSearchForm();</code>
         </div>
         <!--end::Tab panel-->
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="verticalBarExampleAjaxTab" role="tabpanel">
+        <div class="tab-pane fade" id="verticalAjaxTab" role="tabpanel">
           <!--begin::Block-->
           <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
           <!--end::Block-->
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">[
-  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
-  {&quot;category&quot;: &quot;Japan&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
-  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
-  {&quot;category&quot;: &quot;United States&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
-  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
-  {&quot;category&quot;: &quot;Canada&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580},
-  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 690},
-  {&quot;category&quot;: &quot;Italy&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1100},
-  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 1200},
-  {&quot;category&quot;: &quot;Germany&quot;, &quot;name&quot;: &quot;Series2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 1380}
+  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
+  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
+  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
+  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
+  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
+  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580}
 ]</code>
             </pre>
           </div>

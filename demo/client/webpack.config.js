@@ -39,6 +39,7 @@ module.exports = {
     'no-ui-slider': './src/pages/no-ui-slider.js',
     indicator: './src/pages/indicator.js',
     inputmask: './src/pages/inputmask.js',
+    piechart: './src/pages/piechart.js',
   },
 
   // File output settings.

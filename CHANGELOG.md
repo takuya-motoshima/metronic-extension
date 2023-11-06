@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.1.1] - 2023/11/6
+### Added
+- Added Pie Chart component. Click <a hrerf="https://takuya-motoshima.github.io/metronic-extension/piechart.html" target="_blank">here</a> to learn how to use it.
+
+    ![PieChart.jpg](screencaps/PieChart.jpg)
+
 ## [2.1.0] - 2023/10/30
 ### Added
 - An extended bar chart component based on <a href="https://apexcharts.com/" target="_blank">Apexcharts</a> has been added.  
