@@ -14,6 +14,23 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [2.1.2] - 2023/11/7
+    - Added getter method for ApexCharts instances to BarChart and PieChart.
+        See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
+
+        ```js
+        import {charts} from 'metronic-extension';
+
+        // Initialize chart.
+        const piechart = new charts.PieChart(document.getElementById('piechart'), {
+        ajax: {
+            url: 'json/pie-chart.json'
+        },
+        });
+
+        // Chart Instance.
+        piechart.instance;
+        ```
 - [2.1.1] - 2023/11/6
     - Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/piechart.html) to learn how to use it.
 

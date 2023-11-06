@@ -8,19 +8,19 @@ import PieChartResponse from '~/interfaces/PieChartResponse';
  * Pie chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.
  */
 export default class {
-  // /**
-  //  * Read-only ApexCharts instance.
-  //  * @type {ApexCharts}
-  //  */
-  // get instance(): ApexCharts|undefined {
-  //   return this.#chart;
-  // }
+  /**
+   * Read-only ApexCharts instance.
+   * @type {ApexCharts|undefined}
+   */
+  get instance(): ApexCharts|undefined {
+    return this.#instance;
+  }
 
   /**
    * ApexCharts instance.
    * @type {ApexCharts|undefined}
    */
-  #chart: ApexCharts|undefined;
+  #instance: ApexCharts|undefined;
 
   /**
    * Finalized options.
@@ -98,11 +98,11 @@ export default class {
     const data: PieChartResponse[] = this.#options.ajax.dataSrc ? this.#options.ajax.dataSrc(res.data) : res.data;
 
     // Destroy drawn chart object.
-    if (this.#chart)
-      this.#chart.destroy();
+    if (this.#instance)
+      this.#instance.destroy();
 
     // Drawing a chart.
-    this.#chart = new ApexCharts(this.#element, {
+    this.#instance = new ApexCharts(this.#element, {
       series: data.map(({data}) => data),
       chart: {
         fontFamily: 'inherit',
@@ -133,6 +133,6 @@ export default class {
         type: 'false',
       }
     });
-    this.#chart.render();
+    this.#instance.render();
   }
 }

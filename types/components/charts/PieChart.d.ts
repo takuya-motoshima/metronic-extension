@@ -5,6 +5,11 @@ import PieChartOptions from '~/interfaces/PieChartOptions';
 export default class {
     #private;
     /**
+     * Read-only ApexCharts instance.
+     * @type {ApexCharts|undefined}
+     */
+    get instance(): ApexCharts | undefined;
+    /**
      * Create a new instance of the PieChart class.
      * @param {string|HTMLElement|JQuery} element HTMLElement selector, element, or JQuery object.
      * @param {PieChartOptions} options Chart options.

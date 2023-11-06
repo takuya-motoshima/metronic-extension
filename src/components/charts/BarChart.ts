@@ -10,19 +10,19 @@ import BarChartSeries from '~/interfaces/BarChartSeries';
  * Bar chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.
  */
 export default class {
-  // /**
-  //  * Read-only ApexCharts instance.
-  //  * @type {ApexCharts}
-  //  */
-  // get instance(): ApexCharts|undefined {
-  //   return this.#chart;
-  // }
+  /**
+   * Read-only ApexCharts instance.
+   * @type {ApexCharts|undefined}
+   */
+  get instance(): ApexCharts|undefined {
+    return this.#instance;
+  }
 
   /**
    * ApexCharts instance.
    * @type {ApexCharts|undefined}
    */
-  #chart: ApexCharts|undefined;
+  #instance: ApexCharts|undefined;
 
   /**
    * Finalized options.
@@ -121,8 +121,8 @@ export default class {
     }
 
     // Destroy drawn chart object.
-    if (this.#chart)
-      this.#chart.destroy();
+    if (this.#instance)
+      this.#instance.destroy();
 
     // Chart data retrieved from the server is grouped by category.
     const categorized = this.#categorizeData(data);
@@ -147,7 +147,7 @@ export default class {
       columnWidth = Math.min(Math.round((30 / (this.#element.clientWidth / data.length)) * 100), 100);
 
     // Drawing a chart.
-    this.#chart = new ApexCharts(this.#element, {
+    this.#instance = new ApexCharts(this.#element, {
       series: series.map(({name, data}) => ({name, data})),
       chart: {
         fontFamily: 'inherit',
@@ -245,9 +245,8 @@ export default class {
         }
       },
     });
-    this.#chart.render();
+    this.#instance.render();
   }
-
 
   /**
    * Chart data retrieved from the server is grouped by category.
