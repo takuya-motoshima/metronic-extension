@@ -14,15 +14,13 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
-- ### [2.1.1] - 2023/11/6
-    #### Added
-    - Added Pie Chart component. Click <a hrerf="https://takuya-motoshima.github.io/metronic-extension/piechart.html" target="_blank">here</a> to learn how to use it.
+- [2.1.1] - 2023/11/6
+    - Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/piechart.html) to learn how to use it.
 
         ![PieChart.jpg](screencaps/PieChart.jpg)
-- ### [2.1.0] - 2023/10/30
-    #### Added
-    - An extended bar chart component based on <a href="https://apexcharts.com/" target="_blank">Apexcharts</a> has been added.  
-        To learn how to use the added components, please click <a hrerf="https://takuya-motoshima.github.io/metronic-extension/barchart.html" target="_blank">here</a>.
+- [2.1.0] - 2023/10/30
+    - An extended bar chart component based on [Apexcharts](https://apexcharts.com/) has been added.  
+        To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/barchart.html).
 
         ![BarChart.jpg](screencaps/BarChart.jpg)
 
