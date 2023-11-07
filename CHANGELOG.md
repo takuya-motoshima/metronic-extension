@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<!-- ## [3.0.0] - 2023/11/7
+### Changed
+- Fixed namespace for classes and functions.  
+    Import statements must be changed when updating to version 3. -->
+
 ## [2.1.2] - 2023/11/7
 ### Changed
 - Added getter method for ApexCharts instances to BarChart and PieChart.
@@ -424,3 +429,6 @@ All notable changes to this project will be documented in this file.
 [2.0.29]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.28...v2.0.29
 [2.0.30]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.29...v2.0.30
 [2.0.31]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.30...v2.0.31
+[2.1.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.31...v2.1.0
+[2.1.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.0...v2.1.1
+[2.1.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.1...v2.1.2
