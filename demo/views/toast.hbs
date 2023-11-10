@@ -280,26 +280,26 @@
         <div class="tab-pane fade" id="allStatesJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Toast} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Toggle Success.
 $(&#039;[data-on-success]&#039;).on(&#039;click&#039;, () =&gt; {
-  Toast.success(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+  components.Toast.success(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
 });
 
 // Toggle Error.
 $(&#039;[data-on-error]&#039;).on(&#039;click&#039;, () =&gt; {
-  Toast.error(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+  components.Toast.error(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
 });
 
 // Toggle Warning.
 $(&#039;[data-on-warning]&#039;).on(&#039;click&#039;, () =&gt; {
-  Toast.warning(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+  components.Toast.warning(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
 });
 
 // Toggle Info.
 $(&#039;[data-on-info]&#039;).on(&#039;click&#039;, () =&gt; {
-  Toast.info(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
+  components.Toast.info(&#039;This is a toast message&#039;, &#039;Toast Title&#039;);
 });</code>
             </pre>
           </div>

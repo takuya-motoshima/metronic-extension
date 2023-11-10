@@ -116,13 +116,13 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {BlockUI} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Block#target element.
-const blockUI = new BlockUI(document.getElementById(&#039;target&#039;), &#039;Loading...&#039;);
+const blockUI = new components.BlockUI(document.getElementById(&#039;target&#039;), &#039;Loading...&#039;);
 
 // Block #target element. Do not block initially.
-const initiallyHiddenBlockUI = new BlockUI(document.getElementById(&#039;target2&#039;), &#039;Loading...&#039;, false);</code>
+const initiallyHiddenBlockUI = new components.BlockUI(document.getElementById(&#039;target2&#039;), &#039;Loading...&#039;, false);</code>
                   </pre>
                 </div>
               </div>
@@ -290,13 +290,13 @@ const initiallyHiddenBlockUI = new BlockUI(document.getElementById(&#039;target2
         <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {BlockUI, selectRef} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize loader.
-const blockUI = new BlockUI(ref.target, &#039;Loading...&#039;, false);
+const blockUI = new components.BlockUI(ref.target, &#039;Loading...&#039;, false);
 
 // Initialize events.
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-block]&#039;, () =&gt; {

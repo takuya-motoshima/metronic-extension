@@ -1,4 +1,4 @@
-import urlToMime from '~/utils/urlToMime';
+import * as utils from '~/utils';
 
 describe('Should be able to get the MIME type from the filename in the URL', () => {
   test.each([
@@ -7,7 +7,7 @@ describe('Should be able to get the MIME type from the filename in the URL', () 
     ['https://example.com/sample.txt', 'text/plain'],
     ['https://example.com/sample.jpg', 'image/jpeg'],
     ['https://example.com/dir/sample.txt', 'text/plain'],
-  ])('urlToMime("%s") = "%s"', (a, expected) => {
-    expect(urlToMime(a)).toBe(expected);
+  ])('utils.urlToMime("%s") = "%s"', (a, expected) => {
+    expect(utils.urlToMime(a)).toBe(expected);
   });
 });

@@ -1,7 +1,7 @@
-import {charts} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 function initHorizontalBarChart() {
-  return new charts.BarChart(document.getElementById('horizontalBarChart'), {
+  return new components.BarChart(document.getElementById('horizontalBarChart'), {
     horizontal: true,
     ajax: {
       url: 'json/bar-chart.json',
@@ -33,7 +33,7 @@ function initHorizontalBarChart() {
 }
 
 function initVerticalBarChart() {
-  return new charts.BarChart(document.getElementById('verticalBarChart'), {
+  return new components.BarChart(document.getElementById('verticalBarChart'), {
     horizontal: false,
     ajax: {
       url: 'json/bar-chart.json',

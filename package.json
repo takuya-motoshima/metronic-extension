@@ -13,7 +13,7 @@
     "prebuild": "rimraf dist types",
     "test": "jest",
     "compile-documentation": "node compile-documentation",
-    "precompile-documentation": "rimraf docs"
+    "//precompile-documentation": "rimraf docs"
   },
   "repository": {
     "type": "git",

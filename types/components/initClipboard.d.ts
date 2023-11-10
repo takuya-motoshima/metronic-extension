@@ -21,10 +21,10 @@
  *
  * JS:
  * ```js
- * import {initClipboard} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  *
  * // Initialize clipboard.
- * initClipboard(document.getElementById('button'));
+ * components.initClipboard(document.getElementById('button'));
  * ```
  */
 declare const _default: (context: string | HTMLElement | JQuery, delay?: number) => void;

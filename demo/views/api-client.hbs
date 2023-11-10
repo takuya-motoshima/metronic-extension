@@ -124,24 +124,24 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {Api} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // If the second parameter origin is omitted, the current origin (location.origin) is used in the request URL.
-class PersonApi extends Api {
+class PersonApi extends components.Api {
   constructor() {
     super(&#039;/api/persons&#039;);
   }
 }
 
 // The second parameter sets the origin of any request URL.
-class CustomerApi extends Api {
+class CustomerApi extends components.Api {
   constructor() {
     super(&#039;/api/customers&#039;, &#039;https://example.com&#039;);
   }
 }
 
 // The third parameter allows you to set the request configuration.
-class OrderApi extends Api {
+class OrderApi extends components.Api {
   constructor() {
     super(&#039;/api/orders&#039;, &#039;https://example.com&#039;, {
       headers: {
@@ -376,9 +376,9 @@ class OrderApi extends Api {
       <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
       <div class="highlight-code">
         <pre class="language-javascript">
-          <code class="language-javascript">import {Api} from &#039;metronic-extension&#039;;
+          <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-class PersonApi extends Api {
+class PersonApi extends components.Api {
   constructor() {
     super(&#039;/api/persons&#039;, &#039;https://example.com&#039;);
   }

@@ -1,4 +1,4 @@
-import getExtensionFromDataUrl from '~/utils/getExtensionFromDataUrl';
+import * as utils from '~/utils';
 
 describe('Should be able to get the extension from a valid Data URL', () => {
   test.each([
@@ -7,7 +7,7 @@ describe('Should be able to get the extension from a valid Data URL', () => {
     ['data:image/png;base64,iVBORw0KGg', 'png'],
     ['data:image/svg+xml;base64,PHN2Zy', 'svg'],
     ['data:application/pdf;base64,JVBE', 'pdf'],
-  ])('getExtensionFromDataUrl("%s") = "%s"', (a, expected) => {
-    expect(getExtensionFromDataUrl(a)).toBe(expected);
+  ])('utils.getExtensionFromDataUrl("%s") = "%s"', (a, expected) => {
+    expect(utils.getExtensionFromDataUrl(a)).toBe(expected);
   });
 });

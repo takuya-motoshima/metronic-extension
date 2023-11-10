@@ -1,7 +1,7 @@
-import {Tagify} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize Tagify.
-const basicTagify = new Tagify(document.getElementById('basicTagify'));
+const basicTagify = new components.Tagify(document.getElementById('basicTagify'));
 
 // Set callback functions for various operations.
 basicTagify
@@ -19,10 +19,10 @@ basicTagify
   });
 
 // Read-only.
-new Tagify(document.getElementById('readonlyTagify'), {readonly: true});
+new components.Tagify(document.getElementById('readonlyTagify'), {readonly: true});
 
 // Inline Suggestions.
-new Tagify(document.getElementById('inlineSuggestionsTagify'), {
+new components.Tagify(document.getElementById('inlineSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {
     maxItems: 20,
@@ -31,7 +31,7 @@ new Tagify(document.getElementById('inlineSuggestionsTagify'), {
 });
 
 // List Suggestions.
-new Tagify(document.getElementById('listSuggestionsTagify'), {
+new components.Tagify(document.getElementById('listSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {maxItems: 20},
 });

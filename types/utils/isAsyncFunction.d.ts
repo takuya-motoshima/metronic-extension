@@ -4,20 +4,20 @@
  * @return {boolean} True for asynchronous functions, false otherwise.
  * @example
  * ```js
- * import {isAsyncFunction} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  *
- * isAsyncFunction(async function asyncFunction() {});// -> true
- * isAsyncFunction(function func() {});// -> false
- * isAsyncFunction(true);// -> false
- * isAsyncFunction(false);// -> false
- * isAsyncFunction(null);// -> false
- * isAsyncFunction(undefined);// -> false
- * isAsyncFunction({});// -> false
- * isAsyncFunction([]);// -> false
- * isAsyncFunction(/a/g);// -> false
- * isAsyncFunction('string');// -> false
- * isAsyncFunction(42);// -> false
- * isAsyncFunction(new Date());// -> false
+ * utils.isAsyncFunction(async function asyncFunction() {});// -> true
+ * utils.isAsyncFunction(function func() {});// -> false
+ * utils.isAsyncFunction(true);// -> false
+ * utils.isAsyncFunction(false);// -> false
+ * utils.isAsyncFunction(null);// -> false
+ * utils.isAsyncFunction(undefined);// -> false
+ * utils.isAsyncFunction({});// -> false
+ * utils.isAsyncFunction([]);// -> false
+ * utils.isAsyncFunction(/a/g);// -> false
+ * utils.isAsyncFunction('string');// -> false
+ * utils.isAsyncFunction(42);// -> false
+ * utils.isAsyncFunction(new Date());// -> false
  * ```
  */
 declare const _default: (payload: any) => boolean;

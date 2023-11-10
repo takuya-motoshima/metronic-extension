@@ -1,10 +1,10 @@
-import isFunction from '~/utils/isFunction';
+import * as utils from '~/utils';
 
 describe('Function should be true', () => {
   test.each([
     [function func() {}, true],
-  ])('isFunction(%s) = %s', (a, expected) => {
-    expect(isFunction(a)).toBe(expected);
+  ])('utils.isFunction(%s) = %s', (a, expected) => {
+    expect(utils.isFunction(a)).toBe(expected);
   });
 });
 
@@ -21,7 +21,7 @@ describe('Non-functions should be false', () => {
     ['string', false],
     [42, false],
     [new Date(), false],
-  ])('isFunction(%s) = %s', (a, expected) => {
-    expect(isFunction(a)).toBe(expected);
+  ])('utils.isFunction(%s) = %s', (a, expected) => {
+    expect(utils.isFunction(a)).toBe(expected);
   });
 });

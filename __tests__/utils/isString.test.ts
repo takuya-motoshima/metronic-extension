@@ -1,11 +1,11 @@
-import isString from '~/utils/isString';
+import * as utils from '~/utils';
 
 describe('String should be true', () => {
   test.each([
     ['a', true],
     [Object('a'), true],
-  ])('isString(%s) = %s', (a, expected) => {
-    expect(isString(a)).toBe(expected);
+  ])('utils.isString(%s) = %s', (a, expected) => {
+    expect(utils.isString(a)).toBe(expected);
   });
 });
 
@@ -19,7 +19,7 @@ describe('Non-string should be false', () => {
     [1, false],
     [/x/, false],
     [Symbol('a'), false],
-  ])('isString(%s) = %s', (a, expected) => {
-    expect(isString(a)).toBe(expected);
+  ])('utils.isString(%s) = %s', (a, expected) => {
+    expect(utils.isString(a)).toBe(expected);
   });
 });

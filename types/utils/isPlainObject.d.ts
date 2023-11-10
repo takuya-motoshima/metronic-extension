@@ -4,28 +4,28 @@
  * @return {boolean} True for function, false otherwise.
  * @example
  * ```js
- * import {isPlainObject} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  *
- * isPlainObject({});// -> true
- * isPlainObject({foo: true});// -> true
- * isPlainObject(new Object());// -> true
+ * utils.isPlainObject({});// -> true
+ * utils.isPlainObject({foo: true});// -> true
+ * utils.isPlainObject(new Object());// -> true
  *
- * isPlainObject(['foo', 'bar']);// -> false
- * isPlainObject(new class Foo{});// -> false
- * isPlainObject(Math);// -> false
- * isPlainObject(JSON);// -> false
- * isPlainObject(Atomics);// -> false
- * isPlainObject(Error);// -> false
- * isPlainObject(() => {});// -> false
- * isPlainObject(/./);// -> false
- * isPlainObject(null);// -> false
- * isPlainObject(undefined);// -> false
- * isPlainObject(Number.NaN);// -> false
- * isPlainObject('');// -> false
- * isPlainObject(0);// -> false
- * isPlainObject(false);// -> false
- * isPlainObject(Object.create({}));// -> false
- * isPlainObject(Object.create(null));// -> false
+ * utils.isPlainObject(['foo', 'bar']);// -> false
+ * utils.isPlainObject(new class Foo{});// -> false
+ * utils.isPlainObject(Math);// -> false
+ * utils.isPlainObject(JSON);// -> false
+ * utils.isPlainObject(Atomics);// -> false
+ * utils.isPlainObject(Error);// -> false
+ * utils.isPlainObject(() => {});// -> false
+ * utils.isPlainObject(/./);// -> false
+ * utils.isPlainObject(null);// -> false
+ * utils.isPlainObject(undefined);// -> false
+ * utils.isPlainObject(Number.NaN);// -> false
+ * utils.isPlainObject('');// -> false
+ * utils.isPlainObject(0);// -> false
+ * utils.isPlainObject(false);// -> false
+ * utils.isPlainObject(Object.create({}));// -> false
+ * utils.isPlainObject(Object.create(null));// -> false
  * ```
  */
 declare const _default: (payload: any) => boolean;

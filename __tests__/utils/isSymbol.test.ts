@@ -1,11 +1,11 @@
-import isSymbol from '~/utils/isSymbol';
+import * as utils from '~/utils';
 
 describe('Symbol should be true', () => {
   test.each([
     [Symbol('a'), true],
     [Object(Symbol('a')), true],
-  ])('isSymbol(%s) = %s', (a, expected) => {
-    expect(isSymbol(a)).toBe(expected);
+  ])('utils.isSymbol(%s) = %s', (a, expected) => {
+    expect(utils.isSymbol(a)).toBe(expected);
   });
 });
 
@@ -19,7 +19,7 @@ describe('Non-symbol should be false', () => {
     [1, false],
     [/x/, false],
     ['a', false],
-  ])('isSymbol(%s) = %s', (a, expected) => {
-    expect(isSymbol(a)).toBe(expected);
+  ])('utils.isSymbol(%s) = %s', (a, expected) => {
+    expect(utils.isSymbol(a)).toBe(expected);
   });
 });

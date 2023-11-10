@@ -155,16 +155,16 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize Tagify.
-new Tagify(document.getElementById(&#039;basicTagify&#039;));
+new components.Tagify(document.getElementById(&#039;basicTagify&#039;));
 
 // Read-only.
-new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});
+new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});
 
 // Inline Suggestions.
-new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
+new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
   whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
   dropdown: {
     maxItems: 20,
@@ -173,7 +173,7 @@ new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
 });
 
 // List Suggestions.
-new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
+new components.Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
   whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
   dropdown: {maxItems: 20},
 });</code>
@@ -460,10 +460,10 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
         <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize Tagify.
-const basicTagify = new Tagify(document.getElementById(&#039;basicTagify&#039;));
+const basicTagify = new components.Tagify(document.getElementById(&#039;basicTagify&#039;));
 
 // Set callback functions for various operations.
 basicTagify
@@ -532,10 +532,10 @@ basicTagify
         <div class="tab-pane fade" id="readonlyJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Read-only.
-new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});</code>
+new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});</code>
             </pre>
           </div>
         </div>
@@ -589,10 +589,10 @@ new Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true}
         <div class="tab-pane fade" id="inlineSuggestionsJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Inline Suggestions.
-new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
+new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
   whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
   dropdown: {
     maxItems: 20,
@@ -652,10 +652,10 @@ new Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
         <div class="tab-pane fade" id="listSuggestionsJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Tagify} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // List Suggestions.
-new Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
+new components.Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
   whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
   dropdown: {maxItems: 20},
 });</code>

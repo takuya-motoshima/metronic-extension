@@ -1,5 +1,5 @@
 /**
- * Compile the templates in the demo/ directory and output them as HTML in the docs/ directory.
+ * Compile the templates in the demo/ directory and output them as HTML in the docs/v3 directory.
  */
 const path = require('path');
 const fse = require('fs-extra');
@@ -43,10 +43,10 @@ function replacePageLinks(content, re) {
 /**
  * Copy asset files.
  */
-function copyAssetFiles() {
+function copyAssetFiles(version) {
   for (let subdirectory of ['build', 'img', 'json']) {
     const src = path.join(__dirname, `demo/public/${subdirectory}`);
-    const dest = path.join(__dirname, `docs/${subdirectory}`);
+    const dest = path.join(__dirname, `docs/${version}/${subdirectory}`);
     fse.copySync(src, dest);
     console.log(`Write ${dest}`);
   }
@@ -67,10 +67,11 @@ const render = hbs({
   extname: '.hbs',
 });
 
-// If the docs/ directory does not exist, create it.
-File.makeDirectory(path.join(__dirname, 'docs'));
+// // If the docs/ directory does not exist, create it.
+// File.makeDirectory(path.join(__dirname, 'docs'));
 
 (async () => {
+  const version = 'v3';
   let i = 0;
   for (let template of templates) {
     // Compile template.
@@ -78,12 +79,11 @@ File.makeDirectory(path.join(__dirname, 'docs'));
       currentPath: `/${File.basename(template)}`,
     });
 
-
     // Add HTML extensions to the end of page links.
     content = replacePageLinks(content, re);
 
     // HTML file path.
-    const html = path.join(__dirname, `docs/${File.basename(template)}.html`)
+    const html = path.join(__dirname, `docs/${version}/${File.basename(template)}.html`)
 
     // Write HTML file.
     File.write(html, content);
@@ -91,6 +91,5 @@ File.makeDirectory(path.join(__dirname, 'docs'));
   }
 
   // Copy asset files.
-  copyAssetFiles();
+  copyAssetFiles(version);
 })();
-

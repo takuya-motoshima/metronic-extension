@@ -1,4 +1,4 @@
-import isPort from '~/validators/isPort';
+import * as validators from '~/validators';
 
 describe('Valid port should be true', () => {
   test.each([
@@ -9,8 +9,8 @@ describe('Valid port should be true', () => {
     ['3000', true],
     ['8080', true],
     ['65535', true],
-  ])('isPort("%s") = %s', (a, expected) => {
-    expect(isPort(a)).toBe(expected);
+  ])('validators.isPort("%s") = %s', (a, expected) => {
+    expect(validators.isPort(a)).toBe(expected);
   });
 });
 
@@ -19,7 +19,7 @@ describe('Invalid port should be false', () => {
     ['', false],
     ['-1', false],
     ['65536', false],
-  ])('isPort("%s") = %s', (a, expected) => {
-    expect(isPort(a)).toBe(expected);
+  ])('validators.isPort("%s") = %s', (a, expected) => {
+    expect(validators.isPort(a)).toBe(expected);
   });
 });

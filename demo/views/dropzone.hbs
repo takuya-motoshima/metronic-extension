@@ -148,10 +148,10 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {Dropzone} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initializes Dropzone.
-const dropzone = new Dropzone(document.getElementById(&#039;myDropzone&#039;), {
+const dropzone = new components.Dropzone(document.getElementById(&#039;myDropzone&#039;), {
   hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
   maxFilesize: 10,
   dictDescriptionMessage: &#039;Files up to 10 MB can be uploaded&#039;,
@@ -310,10 +310,10 @@ dropzone.onCancelFile(() =&gt; {
         <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Dropzone} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initializes Dropzone.
-const dropzone = new Dropzone(document.getElementById(&#039;myDropzone&#039;), {
+const dropzone = new components.Dropzone(document.getElementById(&#039;myDropzone&#039;), {
   hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
   maxFilesize: 10,
   dictDescriptionMessage: &#039;Files up to 10 MB can be uploaded&#039;,

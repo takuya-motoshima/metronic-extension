@@ -6,20 +6,20 @@ import getType from "~/utils/getType";
  * @return {boolean} True for function, false otherwise.
  * @example
  * ```js
- * import {isFunction} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  * 
- * isFunction(function func() {});// -> true
- * isFunction(async function func() {});// -> false
- * isFunction(true);// -> false
- * isFunction(false);// -> false
- * isFunction(null);// -> false
- * isFunction(undefined);// -> false
- * isFunction({});// -> false
- * isFunction([]);// -> false
- * isFunction(/a/g);// -> false
- * isFunction('string');// -> false
- * isFunction(42);// -> false
- * isFunction(new Date());// -> false
+ * utils.isFunction(function func() {});// -> true
+ * utils.isFunction(async function func() {});// -> false
+ * utils.isFunction(true);// -> false
+ * utils.isFunction(false);// -> false
+ * utils.isFunction(null);// -> false
+ * utils.isFunction(undefined);// -> false
+ * utils.isFunction({});// -> false
+ * utils.isFunction([]);// -> false
+ * utils.isFunction(/a/g);// -> false
+ * utils.isFunction('string');// -> false
+ * utils.isFunction(42);// -> false
+ * utils.isFunction(new Date());// -> false
  * ```
  */
 export default (payload: any): boolean => {

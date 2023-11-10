@@ -1,4 +1,4 @@
-import isEmpty from '~/utils/isEmpty';
+import * as utils from '~/utils';
 
 describe('Should be true if the value is empty', () => {
   test.each([
@@ -13,8 +13,8 @@ describe('Should be true if the value is empty', () => {
     [new Map(), true],
     [new Map(), true],
     [new File([''], 'foo.txt'), true],
-  ])('isEmpty(%s) = %s', (a, expected) => {
-    expect(isEmpty(a)).toBe(expected);
+  ])('utils.isEmpty(%s) = %s', (a, expected) => {
+    expect(utils.isEmpty(a)).toBe(expected);
   });
 });
 
@@ -31,7 +31,7 @@ describe('Should be false if the value is not empty', () => {
     [new Set([1,2,3]), false],
     [new Map([['key', 'value']]), false],
     [new File(['bar'], 'bar.txt'), false],
-  ])('isEmpty(%s) = %s', (a, expected) => {
-    expect(isEmpty(a)).toBe(expected);
+  ])('utils.isEmpty(%s) = %s', (a, expected) => {
+    expect(utils.isEmpty(a)).toBe(expected);
   });
 });

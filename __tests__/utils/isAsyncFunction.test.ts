@@ -1,10 +1,10 @@
-import isAsyncFunction from '~/utils/isAsyncFunction';
+import * as utils from '~/utils';
 
 describe('Asynchronous functions should be true', () => {
   test.each([
     [async function func() {}, true],
-  ])('isAsyncFunction(%s) = %s', (a, expected) => {
-    expect(isAsyncFunction(a)).toBe(expected);
+  ])('utils.isAsyncFunction(%s) = %s', (a, expected) => {
+    expect(utils.isAsyncFunction(a)).toBe(expected);
   });
 });
 
@@ -21,7 +21,7 @@ describe('Non-asynchronous functions should be false', () => {
     ['string', false],
     [42, false],
     [new Date(), false],
-  ])('isAsyncFunction(%s) = %s', (a, expected) => {
-    expect(isAsyncFunction(a)).toBe(expected);
+  ])('utils.isAsyncFunction(%s) = %s', (a, expected) => {
+    expect(utils.isAsyncFunction(a)).toBe(expected);
   });
 });

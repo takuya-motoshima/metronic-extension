@@ -1,7 +1,7 @@
 // import Tagify, {TagData} from '@yaireo/tagify';
 import {merge} from 'deep-fusion';
-import TagifyOptions from '~/interfaces/TagifyOptions';
 import isString from '~/utils/isString';
+import TagifyOptions from '~/interfaces/TagifyOptions';
 
 /**
  * Tag input component based on <a href="https://yaireo.github.io/tagify/" target="_blank">tagify</a>.

@@ -572,49 +572,49 @@
         <div class="tab-pane fade" id="allStatesJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Dialog} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Toggle Confirm.
 $(&#039;[data-on-confirm]&#039;).on(&#039;click&#039;, async() =&gt; {
-  const isConfirmed = await Dialog.confirm(&quot;Here&#039;s an example of confirm dialog.&quot;, {confirmButtonText: &#039;Yes&#039;, cancelButtonText: &#039;No&#039;});
+  const isConfirmed = await components.Dialog.confirm(&quot;Here&#039;s an example of confirm dialog.&quot;, {confirmButtonText: &#039;Yes&#039;, cancelButtonText: &#039;No&#039;});
   alert(`Response is ${isConfirmed}`);
 });
 
 // Toggle Success.
 $(&#039;[data-on-success]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.success(&quot;Here&#039;s an example of success dialog.&quot;);
+  components.Dialog.success(&quot;Here&#039;s an example of success dialog.&quot;);
 });
 
 // Toggle Success with cancel button.
 $(&#039;[data-on-success-with-cancel-button]&#039;).on(&#039;click&#039;, async () =&gt; {
-  const isConfirmed = await Dialog.success(&quot;Here&#039;s an example of success dialog.&quot;, {showCancelButton: true});
+  const isConfirmed = await components.Dialog.success(&quot;Here&#039;s an example of success dialog.&quot;, {showCancelButton: true});
   alert(`Response is ${isConfirmed}`);
 });
 
 // Toggle Error.
 $(&#039;[data-on-error]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.error(&quot;Here&#039;s an example of error dialog.&quot;);
+  components.Dialog.error(&quot;Here&#039;s an example of error dialog.&quot;);
 });
 
 // Toggle Unknown error.
 $(&#039;[data-on-unknown-error]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.unknownError();
+  components.Dialog.unknownError();
 });
 
 // Toggle Warning.
 $(&#039;[data-on-warning]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.warning(&quot;Here&#039;s an example of warning dialog.&quot;);
+  components.Dialog.warning(&quot;Here&#039;s an example of warning dialog.&quot;);
 });
 
 // Toggle Info.
 $(&#039;[data-on-info]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.info(&quot;Here&#039;s an example of info dialog.&quot;);
+  components.Dialog.info(&quot;Here&#039;s an example of info dialog.&quot;);
 });
 
 // Toggle Loading.
 $(&#039;[data-on-loading]&#039;).on(&#039;click&#039;, () =&gt; {
-  Dialog.loading(&quot;Here&#039;s an example of loading dialog.&quot;);
-  setTimeout(() =&gt; Dialog.close(), 2000);
+  components.Dialog.loading(&quot;Here&#039;s an example of loading dialog.&quot;);
+  setTimeout(() =&gt; components.Dialog.close(), 2000);
 });</code>
             </pre>
           </div>

@@ -6,10 +6,10 @@
  * @throws {TypeError} Value is not a string.
  * @example
  * ```js
- * import {trim} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  *
- * trim('  foo bar  ');// -> 'foo bar'
- * trim('\n\n\nfoo bar\n\r\n\n');// -> 'foo bar'
+ * utils.trim('  foo bar  ');// -> 'foo bar'
+ * utils.trim('\n\n\nfoo bar\n\r\n\n');// -> 'foo bar'
  * ```
  */
 declare const _default: (str: string | null | undefined, toLower?: boolean) => string | null | undefined;

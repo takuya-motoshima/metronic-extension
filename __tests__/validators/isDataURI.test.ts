@@ -1,4 +1,4 @@
-import isDataURI from '~/validators/isDataURI';
+import * as validators from '~/validators';
 
 describe('Valid Data URL should be true', () => {
   test.each([
@@ -15,8 +15,8 @@ describe('Valid Data URL should be true', () => {
     ['data:,A%20brief%20note', true],
     ['data:text/html;charset=US-ASCII,%3Ch1%3EHello!%3C%2Fh1%3E', true],
     ['data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,dGVzdC5kb2N4', true],
-  ])('isDataURI("%s") = %s', (a, expected) => {
-    expect(isDataURI(a)).toBe(expected);
+  ])('validators.isDataURI("%s") = %s', (a, expected) => {
+    expect(validators.isDataURI(a)).toBe(expected);
   });
 });
 
@@ -33,7 +33,7 @@ describe('Invalid Data URL should be false', () => {
     ['http://wikipedia.org', false],
     ['base64', false],
     ['iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC', false],
-  ])('isDataURI("%s") = %s', (a, expected) => {
-    expect(isDataURI(a)).toBe(expected);
+  ])('validators.isDataURI("%s") = %s', (a, expected) => {
+    expect(validators.isDataURI(a)).toBe(expected);
   });
 });

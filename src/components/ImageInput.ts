@@ -1,12 +1,12 @@
 import hbs from 'handlebars-extd';
 import {merge} from 'deep-fusion';
 import compare from 'compare-img';
-import initTooltip from '~/components/initTooltip';
-import fetchDataUrl from '~/utils/fetchDataUrl';
-import ImageInputOptions from '~/interfaces/ImageInputOptions';
-import isDataURI from '~/validators/isDataURI';
-import getExtensionFromDataUrl from '~/utils/getExtensionFromDataUrl';
 import isString from '~/utils/isString';
+import fetchDataUrl from '~/utils/fetchDataUrl';
+import getExtensionFromDataUrl from '~/utils/getExtensionFromDataUrl';
+import isDataURI from '~/validators/isDataURI';
+import initTooltip from '~/components/initTooltip';
+import ImageInputOptions from '~/interfaces/ImageInputOptions';
 
 /**
  * Image input field component.
@@ -23,10 +23,10 @@ import isString from '~/utils/isString';
  * 
  * JS:
  * ```js
- * import {ImageInput} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  * 
  * // Initialize ImageInput.
- * const imageInput =  new ImageInput(document.getElementById('myImageInput'), {
+ * const imageInput =  new components.ImageInput(document.getElementById('myImageInput'), {
  *   default: '/img/avatar1.svg',
  *   current: '/img/avatar2.png',
  *   width: 125,

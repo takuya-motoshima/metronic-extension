@@ -107,10 +107,10 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {escapeHtml} from 'metronic-extension';
+                    <code class="language-javascript">import {utils} from 'metronic-extension';
 
-escapeHtml('I <b>think</b> this is good.');// -> I <b>think</b> this is good.
-escapeHtml('John "Johnny" Smith');// -> John "Johnny" Smith</code>
+utils.escapeHtml('I <b>think</b> this is good.');// -> I <b>think</b> this is good.
+utils.escapeHtml('John "Johnny" Smith');// -> John "Johnny" Smith</code>
                   </pre>
                 </div>
               </div>
@@ -148,10 +148,10 @@ escapeHtml('John "Johnny" Smith');// -> John "Johnny" Smith</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {fetchDataUrl} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-await fetchDataUrl(&#039;/img/sample.png&#039;);// -&gt; data:image/png;base64,iVBORw0K...
-await fetchDataUrl(&#039;/img/sample.svg&#039;);// -&gt; data:image/svg+xml;utf8,%3Csvg...</code>
+await utils.fetchDataUrl(&#039;/img/sample.png&#039;);// -&gt; data:image/png;base64,iVBORw0K...
+await utils.fetchDataUrl(&#039;/img/sample.svg&#039;);// -&gt; data:image/svg+xml;utf8,%3Csvg...</code>
                   </pre>
                 </div>
               </div>
@@ -189,9 +189,9 @@ await fetchDataUrl(&#039;/img/sample.svg&#039;);// -&gt; data:image/svg+xml;utf8
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {fetchImage} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-await fetchImage(&#039;/img/1.png&#039;);// -&gt; &lt;img crossorigin=&quot;use-credentials&quot; src=&quot;/img/1.png&quot;&gt;</code>
+await utils.fetchImage(&#039;/img/1.png&#039;);// -&gt; &lt;img crossorigin=&quot;use-credentials&quot; src=&quot;/img/1.png&quot;&gt;</code>
                   </pre>
                 </div>
               </div>
@@ -239,14 +239,14 @@ await fetchImage(&#039;/img/1.png&#039;);// -&gt; &lt;img crossorigin=&quot;use-
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {formatBytes} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-formatBytes(435, 2, true);// -&gt; 435 Bytes
-formatBytes(490398, 2, true);// -&gt; 478.9 KB
-formatBytes(23483023, 2, true);// -&gt; 22.4 MB
-formatBytes(30498505889, 2, true);// -&gt; 28.4 GB
-formatBytes(9485039485039445, 2, true);// -&gt; 8.42 PB
-formatBytes(9485039485039445);// -&gt; {val: 8.42, unit: &#039;PB&#039;}</code>
+utils.formatBytes(435, 2, true);// -&gt; 435 Bytes
+utils.formatBytes(490398, 2, true);// -&gt; 478.9 KB
+utils.formatBytes(23483023, 2, true);// -&gt; 22.4 MB
+utils.formatBytes(30498505889, 2, true);// -&gt; 28.4 GB
+utils.formatBytes(9485039485039445, 2, true);// -&gt; 8.42 PB
+utils.formatBytes(9485039485039445);// -&gt; {val: 8.42, unit: &#039;PB&#039;}</code>
                   </pre>
                 </div>
               </div>
@@ -284,13 +284,13 @@ formatBytes(9485039485039445);// -&gt; {val: 8.42, unit: &#039;PB&#039;}</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {getExtensionFromDataUrl} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-getExtensionFromDataUrl(&#039;data:text/html,Hello%2C%20World!&#039;);// -&gt; html
-getExtensionFromDataUrl(&#039;data:image/jpeg;base64,/9j/4AAQS&#039;);// -&gt; jpeg
-getExtensionFromDataUrl(&#039;data:image/png;base64,iVBORw0KGg&#039;);// -&gt; png
-getExtensionFromDataUrl(&#039;data:image/svg+xml;base64,PHN2Zy&#039;);// -&gt; svg
-getExtensionFromDataUrl(&#039;data:application/pdf;base64,JVBE&#039;);// -&gt; pdf</code>
+utils.getExtensionFromDataUrl(&#039;data:text/html,Hello%2C%20World!&#039;);// -&gt; html
+utils.getExtensionFromDataUrl(&#039;data:image/jpeg;base64,/9j/4AAQS&#039;);// -&gt; jpeg
+utils.getExtensionFromDataUrl(&#039;data:image/png;base64,iVBORw0KGg&#039;);// -&gt; png
+utils.getExtensionFromDataUrl(&#039;data:image/svg+xml;base64,PHN2Zy&#039;);// -&gt; svg
+utils.getExtensionFromDataUrl(&#039;data:application/pdf;base64,JVBE&#039;);// -&gt; pdf</code>
                   </pre>
                 </div>
               </div>
@@ -328,29 +328,29 @@ getExtensionFromDataUrl(&#039;data:application/pdf;base64,JVBE&#039;);// -&gt; p
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {getType} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-getType(3);// -&gt; Number
-getType(3.4);// -&gt; Number
-getType(NaN);// -&gt; Number
-getType(&#039;ram&#039;);// -&gt; String
-getType(new String(&#039;ram&#039;));// -&gt; String
-getType(new Date());// -&gt; Date
-getType(true);// -&gt; Boolean
-getType(false);// -&gt; Boolean
-getType(new Boolean(true));// -&gt; Boolean
-getType({});// -&gt; Object
-getType(Object.create(null));// -&gt; Object
-getType({name: &#039;Narendra&#039;});// -&gt; Object
-getType(new class Person{});// -&gt; Object
-getType([]);// -&gt; Array
-getType(new Array(3, 4));// -&gt; Array
-getType([3, 4]);// -&gt; Array
-getType(parseFloat);// -&gt; Function
-getType(function(){});// -&gt; Function
-getType(Symbol(&#039;foo&#039;));// -&gt; Symbol
-getType(null);// -&gt; Null
-getType(undefined);// -&gt; Undefined</code>
+utils.getType(3);// -&gt; Number
+utils.getType(3.4);// -&gt; Number
+utils.getType(NaN);// -&gt; Number
+utils.getType(&#039;ram&#039;);// -&gt; String
+utils.getType(new String(&#039;ram&#039;));// -&gt; String
+utils.getType(new Date());// -&gt; Date
+utils.getType(true);// -&gt; Boolean
+utils.getType(false);// -&gt; Boolean
+utils.getType(new Boolean(true));// -&gt; Boolean
+utils.getType({});// -&gt; Object
+utils.getType(Object.create(null));// -&gt; Object
+utils.getType({name: &#039;Narendra&#039;});// -&gt; Object
+utils.getType(new class Person{});// -&gt; Object
+utils.getType([]);// -&gt; Array
+utils.getType(new Array(3, 4));// -&gt; Array
+utils.getType([3, 4]);// -&gt; Array
+utils.getType(parseFloat);// -&gt; Function
+utils.getType(function(){});// -&gt; Function
+utils.getType(Symbol(&#039;foo&#039;));// -&gt; Symbol
+utils.getType(null);// -&gt; Null
+utils.getType(undefined);// -&gt; Undefined</code>
                   </pre>
                 </div>
               </div>
@@ -388,20 +388,20 @@ getType(undefined);// -&gt; Undefined</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {isAsyncFunction} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-isAsyncFunction(async function func() {});// -&gt; true
-isAsyncFunction(function func() {});// -&gt; false
-isAsyncFunction(true);// -&gt; false
-isAsyncFunction(false);// -&gt; false
-isAsyncFunction(null);// -&gt; false
-isAsyncFunction(undefined);// -&gt; false
-isAsyncFunction({});// -&gt; false
-isAsyncFunction([]);// -&gt; false
-isAsyncFunction(/a/g);// -&gt; false
-isAsyncFunction(&#039;string&#039;);// -&gt; false
-isAsyncFunction(42);// -&gt; false
-isAsyncFunction(new Date());// -&gt; false</code>
+utils.isAsyncFunction(async function func() {});// -&gt; true
+utils.isAsyncFunction(function func() {});// -&gt; false
+utils.isAsyncFunction(true);// -&gt; false
+utils.isAsyncFunction(false);// -&gt; false
+utils.isAsyncFunction(null);// -&gt; false
+utils.isAsyncFunction(undefined);// -&gt; false
+utils.isAsyncFunction({});// -&gt; false
+utils.isAsyncFunction([]);// -&gt; false
+utils.isAsyncFunction(/a/g);// -&gt; false
+utils.isAsyncFunction(&#039;string&#039;);// -&gt; false
+utils.isAsyncFunction(42);// -&gt; false
+utils.isAsyncFunction(new Date());// -&gt; false</code>
                   </pre>
                 </div>
               </div>
@@ -439,31 +439,31 @@ isAsyncFunction(new Date());// -&gt; false</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {isEmpty} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-isEmpty(&#039;&#039;);// -&gt; true
-isEmpty(&#039; &#039;);// -&gt; true
-isEmpty(null);// -&gt; true
-isEmpty(undefined);// -&gt; true
-isEmpty(NaN);// -&gt; true
-isEmpty([]);// -&gt; true
-isEmpty({});// -&gt; true
-isEmpty(new Set());// -&gt; true
-isEmpty(new Map());// -&gt; true
-isEmpty(new Map());// -&gt; true
-isEmpty(new File([&#039;&#039;], &#039;foo.txt&#039;));// -&gt; true
+utils.isEmpty(&#039;&#039;);// -&gt; true
+utils.isEmpty(&#039; &#039;);// -&gt; true
+utils.isEmpty(null);// -&gt; true
+utils.isEmpty(undefined);// -&gt; true
+utils.isEmpty(NaN);// -&gt; true
+utils.isEmpty([]);// -&gt; true
+utils.isEmpty({});// -&gt; true
+utils.isEmpty(new Set());// -&gt; true
+utils.isEmpty(new Map());// -&gt; true
+utils.isEmpty(new Map());// -&gt; true
+utils.isEmpty(new File([&#039;&#039;], &#039;foo.txt&#039;));// -&gt; true
 
-isEmpty(&#039;string&#039;);// -&gt; false
-isEmpty([&#039;a&#039;, &#039;b&#039;]);// -&gt; false
-isEmpty({a: &#039;b&#039;});// -&gt; false
-isEmpty(0);// -&gt; false
-isEmpty(42);// -&gt; false
-isEmpty(function() {});// -&gt; false
-isEmpty(false);// -&gt; false
-isEmpty(true);// -&gt; false
-isEmpty(new Set([1,2,3]));// -&gt; false
-isEmpty(new Map([[&#039;key&#039;, &#039;value&#039;]]));// -&gt; false
-isEmpty(new File([&#039;bar&#039;], &#039;bar.txt&#039;));// -&gt; false</code>
+utils.isEmpty(&#039;string&#039;);// -&gt; false
+utils.isEmpty([&#039;a&#039;, &#039;b&#039;]);// -&gt; false
+utils.isEmpty({a: &#039;b&#039;});// -&gt; false
+utils.isEmpty(0);// -&gt; false
+utils.isEmpty(42);// -&gt; false
+utils.isEmpty(function() {});// -&gt; false
+utils.isEmpty(false);// -&gt; false
+utils.isEmpty(true);// -&gt; false
+utils.isEmpty(new Set([1,2,3]));// -&gt; false
+utils.isEmpty(new Map([[&#039;key&#039;, &#039;value&#039;]]));// -&gt; false
+utils.isEmpty(new File([&#039;bar&#039;], &#039;bar.txt&#039;));// -&gt; false</code>
                   </pre>
                 </div>
               </div>
@@ -501,20 +501,20 @@ isEmpty(new File([&#039;bar&#039;], &#039;bar.txt&#039;));// -&gt; false</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {isFunction} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-isFunction(function func() {});// -&gt; true
-isFunction(async function func() {});// -&gt; false
-isFunction(true);// -&gt; false
-isFunction(false);// -&gt; false
-isFunction(null);// -&gt; false
-isFunction(undefined);// -&gt; false
-isFunction({});// -&gt; false
-isFunction([]);// -&gt; false
-isFunction(/a/g);// -&gt; false
-isFunction(&#039;string&#039;);// -&gt; false
-isFunction(42);// -&gt; false
-isFunction(new Date());// -&gt; false</code>
+utils.isFunction(function func() {});// -&gt; true
+utils.isFunction(async function func() {});// -&gt; false
+utils.isFunction(true);// -&gt; false
+utils.isFunction(false);// -&gt; false
+utils.isFunction(null);// -&gt; false
+utils.isFunction(undefined);// -&gt; false
+utils.isFunction({});// -&gt; false
+utils.isFunction([]);// -&gt; false
+utils.isFunction(/a/g);// -&gt; false
+utils.isFunction(&#039;string&#039;);// -&gt; false
+utils.isFunction(42);// -&gt; false
+utils.isFunction(new Date());// -&gt; false</code>
                   </pre>
                 </div>
               </div>
@@ -552,28 +552,28 @@ isFunction(new Date());// -&gt; false</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {isPlainObject} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-isPlainObject({});// -&gt; true
-isPlainObject({foo: true});// -&gt; true
-isPlainObject(new Object());// -&gt; true
+utils.isPlainObject({});// -&gt; true
+utils.isPlainObject({foo: true});// -&gt; true
+utils.isPlainObject(new Object());// -&gt; true
 
-isPlainObject([&#039;foo&#039;, &#039;bar&#039;]);// -&gt; false
-isPlainObject(new class Foo{});// -&gt; false
-isPlainObject(Math);// -&gt; false
-isPlainObject(JSON);// -&gt; false
-isPlainObject(Atomics);// -&gt; false
-isPlainObject(Error);// -&gt; false
-isPlainObject(() =&gt; {});// -&gt; false
-isPlainObject(/./);// -&gt; false
-isPlainObject(null);// -&gt; false
-isPlainObject(undefined);// -&gt; false
-isPlainObject(Number.NaN);// -&gt; false
-isPlainObject(&#039;&#039;);// -&gt; false
-isPlainObject(0);// -&gt; false
-isPlainObject(false);// -&gt; false
-isPlainObject(Object.create({}));// -&gt; false
-isPlainObject(Object.create(null));// -&gt; false</code>
+utils.isPlainObject([&#039;foo&#039;, &#039;bar&#039;]);// -&gt; false
+utils.isPlainObject(new class Foo{});// -&gt; false
+utils.isPlainObject(Math);// -&gt; false
+utils.isPlainObject(JSON);// -&gt; false
+utils.isPlainObject(Atomics);// -&gt; false
+utils.isPlainObject(Error);// -&gt; false
+utils.isPlainObject(() =&gt; {});// -&gt; false
+utils.isPlainObject(/./);// -&gt; false
+utils.isPlainObject(null);// -&gt; false
+utils.isPlainObject(undefined);// -&gt; false
+utils.isPlainObject(Number.NaN);// -&gt; false
+utils.isPlainObject(&#039;&#039;);// -&gt; false
+utils.isPlainObject(0);// -&gt; false
+utils.isPlainObject(false);// -&gt; false
+utils.isPlainObject(Object.create({}));// -&gt; false
+utils.isPlainObject(Object.create(null));// -&gt; false</code>
                   </pre>
                 </div>
               </div>
@@ -611,19 +611,19 @@ isPlainObject(Object.create(null));// -&gt; false</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {isString} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-isString(&#039;a&#039;);// -&gt; true
-isString(Object(&#039;a&#039;));// -&gt; true
+utils.isString(&#039;a&#039;);// -&gt; true
+utils.isString(Object(&#039;a&#039;));// -&gt; true
 
-isString([1, 2, 3]);// -&gt; false
-isString(true);// -&gt; false
-isString(new Date());// -&gt; false
-isString(new Error());// -&gt; false
-isString({0: 1, length: 1});// -&gt; false
-isString(1);// -&gt; false
-isString(/x/);// -&gt; false
-isString(Symbol(&#039;a&#039;));// -&gt; false</code>
+utils.isString([1, 2, 3]);// -&gt; false
+utils.isString(true);// -&gt; false
+utils.isString(new Date());// -&gt; false
+utils.isString(new Error());// -&gt; false
+utils.isString({0: 1, length: 1});// -&gt; false
+utils.isString(1);// -&gt; false
+utils.isString(/x/);// -&gt; false
+utils.isString(Symbol(&#039;a&#039;));// -&gt; false</code>
                   </pre>
                 </div>
               </div>
@@ -632,7 +632,7 @@ isString(Symbol(&#039;a&#039;));// -&gt; false</code>
           </tr>
           <tr>
             <td>
-              <code>isSymbol()</code>
+              <code>utils.isSymbol()</code>
             </td>
             <td>
               Checks if the type is Symbol.
@@ -661,19 +661,19 @@ isString(Symbol(&#039;a&#039;));// -&gt; false</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {isSymbol} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-isSymbol(Symbol(&#039;a&#039;));// -&gt; true
-isSymbol(Object(Symbol(&#039;a&#039;)));// -&gt; true
+utils.isSymbol(Symbol(&#039;a&#039;));// -&gt; true
+utils.isSymbol(Object(Symbol(&#039;a&#039;)));// -&gt; true
 
-isSymbol([1, 2, 3]);// -&gt; false
-isSymbol(true);// -&gt; false
-isSymbol(new Date());// -&gt; false
-isSymbol(new Error());// -&gt; false
-isSymbol({0: 1, length: 1});// -&gt; false
-isSymbol(1);// -&gt; false
-isSymbol(/x/);// -&gt; false
-isSymbol(&#039;a&#039;);// -&gt; false</code>
+utils.isSymbol([1, 2, 3]);// -&gt; false
+utils.isSymbol(true);// -&gt; false
+utils.isSymbol(new Date());// -&gt; false
+utils.isSymbol(new Error());// -&gt; false
+utils.isSymbol({0: 1, length: 1});// -&gt; false
+utils.isSymbol(1);// -&gt; false
+utils.isSymbol(/x/);// -&gt; false
+utils.isSymbol(&#039;a&#039;);// -&gt; false</code>
                   </pre>
                 </div>
               </div>
@@ -711,20 +711,20 @@ isSymbol(&#039;a&#039;);// -&gt; false</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {numberFormat} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-numberFormat(1234);// -&gt; &#039;1,234&#039;
-numberFormat(1234.5);// -&gt; &#039;1,234.5&#039;
-numberFormat(0);// -&gt; &#039;0&#039;
-numberFormat(.0);// -&gt; &#039;0&#039;
-numberFormat(-1234);// -&gt; &#039;-1,234&#039;
-numberFormat(-1234.5);// -&gt; &#039;-1,234.5&#039;
-numberFormat(&#039;1234&#039;);// -&gt; &#039;1,234&#039;
-numberFormat(&#039;1234.5&#039;);// -&gt; &#039;1,234.5&#039;
-numberFormat(&#039;0&#039;);// -&gt; &#039;0&#039;
-numberFormat(&#039;.0&#039;);// -&gt; &#039;0&#039;
-numberFormat(&#039;-1234&#039;);// -&gt; &#039;-1,234&#039;
-numberFormat(&#039;-1234.5&#039;);// -&gt; &#039;-1,234.5&#039;</code>
+utils.numberFormat(1234);// -&gt; &#039;1,234&#039;
+utils.numberFormat(1234.5);// -&gt; &#039;1,234.5&#039;
+utils.numberFormat(0);// -&gt; &#039;0&#039;
+utils.numberFormat(.0);// -&gt; &#039;0&#039;
+utils.numberFormat(-1234);// -&gt; &#039;-1,234&#039;
+utils.numberFormat(-1234.5);// -&gt; &#039;-1,234.5&#039;
+utils.numberFormat(&#039;1234&#039;);// -&gt; &#039;1,234&#039;
+utils.numberFormat(&#039;1234.5&#039;);// -&gt; &#039;1,234.5&#039;
+utils.numberFormat(&#039;0&#039;);// -&gt; &#039;0&#039;
+utils.numberFormat(&#039;.0&#039;);// -&gt; &#039;0&#039;
+utils.numberFormat(&#039;-1234&#039;);// -&gt; &#039;-1,234&#039;
+utils.numberFormat(&#039;-1234.5&#039;);// -&gt; &#039;-1,234.5&#039;</code>
                   </pre>
                 </div>
               </div>
@@ -767,10 +767,10 @@ numberFormat(&#039;-1234.5&#039;);// -&gt; &#039;-1,234.5&#039;</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {trim} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-trim(&#039;  foo bar  &#039;);// -&gt; &#039;foo bar&#039;
-trim(&#039;\n\n\nfoo bar\n\r\n\n&#039;);// -&gt; &#039;foo bar&#039;</code>
+utils.trim(&#039;  foo bar  &#039;);// -&gt; &#039;foo bar&#039;
+utils.trim(&#039;\n\n\nfoo bar\n\r\n\n&#039;);// -&gt; &#039;foo bar&#039;</code>
                   </pre>
                 </div>
               </div>
@@ -808,13 +808,13 @@ trim(&#039;\n\n\nfoo bar\n\r\n\n&#039;);// -&gt; &#039;foo bar&#039;</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {urlToMime} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {utils} from &#039;metronic-extension&#039;;
 
-urlToMime(&#039;https://example.com/sample.js&#039;);// -&gt; application/javascript
-urlToMime(&#039;https://example.com/sample.json&#039;);// -&gt; application/json
-urlToMime(&#039;https://example.com/sample.txt&#039;);// -&gt; text/plain
-urlToMime(&#039;https://example.com/sample.jpg&#039;);// -&gt; image/jpeg
-urlToMime(&#039;https://example.com/dir/sample.txt&#039;);// -&gt; text/plain</code>
+utils.urlToMime(&#039;https://example.com/sample.js&#039;);// -&gt; application/javascript
+utils.urlToMime(&#039;https://example.com/sample.json&#039;);// -&gt; application/json
+utils.urlToMime(&#039;https://example.com/sample.txt&#039;);// -&gt; text/plain
+utils.urlToMime(&#039;https://example.com/sample.jpg&#039;);// -&gt; image/jpeg
+utils.urlToMime(&#039;https://example.com/dir/sample.txt&#039;);// -&gt; text/plain</code>
                   </pre>
                 </div>
               </div>

@@ -1,12 +1,12 @@
-import isPlainObject from '~/utils/isPlainObject';
+import * as utils from '~/utils';
 
 describe('Plain objects should be true', () => {
   test.each([
     [{}, true],
     [{foo: true}, true],
     [new Object(), true],
-  ])('isPlainObject(%s) = %s', (a, expected) => {
-    expect(isPlainObject(a)).toBe(expected);
+  ])('utils.isPlainObject(%s) = %s', (a, expected) => {
+    expect(utils.isPlainObject(a)).toBe(expected);
   });
 });
 
@@ -28,7 +28,7 @@ describe('Non-plain objects should be false', () => {
     [false, false],
     [Object.create({}), false],
     [Object.create(null), false],
-  ])('isPlainObject(%s) = %s', (a, expected) => {
-    expect(isPlainObject(a)).toBe(expected);
+  ])('utils.isPlainObject(%s) = %s', (a, expected) => {
+    expect(utils.isPlainObject(a)).toBe(expected);
   });
 });

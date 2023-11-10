@@ -1,7 +1,7 @@
-import {initPasswordToggle} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize password toggle.
-initPasswordToggle(document.getElementById('password'));
+components.initPasswordToggle(document.getElementById('password'));
 
 // Initializes the password toggle for all password input elements in the wrapper element.
-initPasswordToggle(document.getElementById('wrapper'));
+components.initPasswordToggle(document.getElementById('wrapper'));

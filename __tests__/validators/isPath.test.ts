@@ -1,4 +1,4 @@
-import isPath from '~/validators/isPath';
+import * as validators from '~/validators';
 
 describe('Valid File (directory) path should be true', () => {
   test.each([
@@ -26,8 +26,8 @@ describe('Valid File (directory) path should be true', () => {
     ['usr/lib/yum-plugins/', true],
     ['usr/lib/node_modules/', true],
     ['usr/123/', true],
-  ])('isPath("%s") = %s', (a, expected) => {
-    expect(isPath(a)).toBe(expected);
+  ])('validators.isPath("%s") = %s', (a, expected) => {
+    expect(validators.isPath(a)).toBe(expected);
   });
 });
 
@@ -39,7 +39,7 @@ describe('Invalid File (directory) path should be false', () => {
     ['/usr//lib', false],
     ['/ドキュメント', false],
     ['/usr/ドキュメント', false],
-  ])('isPath("%s") = %s', (a, expected) => {
-    expect(isPath(a)).toBe(expected);
+  ])('validators.isPath("%s") = %s', (a, expected) => {
+    expect(validators.isPath(a)).toBe(expected);
   });
 });

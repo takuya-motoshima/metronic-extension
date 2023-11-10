@@ -1,4 +1,4 @@
-import formatBytes from '~/utils/formatBytes';
+import * as utils from '~/utils';
 
 describe('Should be able to convert byte values to values in the appropriate units', () => {
   test.each([
@@ -8,10 +8,10 @@ describe('Should be able to convert byte values to values in the appropriate uni
     [30498505889, 2, true, '28.4 GB'],
     [9485039485039445, 2, true, '8.42 PB'],
     [9485039485039445, 2, false, {val: 8.42, unit: 'PB'}],
-  ])('formatBytes(%d, %d, %s) = "%s"', (a, b, c, expected) => {
+  ])('utils.formatBytes(%d, %d, %s) = "%s"', (a, b, c, expected) => {
     if (c)
-      expect(formatBytes(a, b, c)).toBe(expected);
+      expect(utils.formatBytes(a, b, c)).toBe(expected);
     else
-      expect(formatBytes(a, b, c)).toEqual(expected);
+      expect(utils.formatBytes(a, b, c)).toEqual(expected);
   });
 });

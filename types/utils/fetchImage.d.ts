@@ -4,9 +4,9 @@
  * @return {Promise<HTMLImageElement>} Image object.
  * @example
  * ```js
- * import {fetchImage} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  *
- * await fetchImage('/img/1.png');// -> <img crossorigin="use-credentials" src="/img/1.png">
+ * await utils.fetchImage('/img/1.png');// -> <img crossorigin="use-credentials" src="/img/1.png">
  * ```
  */
 declare const _default: (url: string) => Promise<HTMLImageElement>;

@@ -24,10 +24,10 @@ import isString from '~/utils/isString';
  * 
  * JS:
  * ```js
- * import {initClipboard} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  * 
  * // Initialize clipboard.
- * initClipboard(document.getElementById('button'));
+ * components.initClipboard(document.getElementById('button'));
  * ```
  */
 export default (context: string|HTMLElement|JQuery, delay: number = 3000): void => {

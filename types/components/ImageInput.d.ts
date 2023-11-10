@@ -14,10 +14,10 @@ import ImageInputOptions from '~/interfaces/ImageInputOptions';
  *
  * JS:
  * ```js
- * import {ImageInput} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  *
  * // Initialize ImageInput.
- * const imageInput =  new ImageInput(document.getElementById('myImageInput'), {
+ * const imageInput =  new components.ImageInput(document.getElementById('myImageInput'), {
  *   default: '/img/avatar1.svg',
  *   current: '/img/avatar2.png',
  *   width: 125,

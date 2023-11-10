@@ -1,4 +1,4 @@
-import {selectRef} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();

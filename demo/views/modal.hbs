@@ -546,13 +546,13 @@ $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-modal]&#039;, asyn
         <div class="tab-pane fade" id="basicModalJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Modal} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 import hbs from &#039;handlebars-extd&#039;;
 
 /**
  * Modal example.
  */
-export default class extends Modal {
+export default class extends components.Modal {
   /**
    * Implement the initial processing required when the modal is opened in a subclass.
    * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
@@ -701,13 +701,13 @@ $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-fullscreen-modal]&
         <div class="tab-pane fade" id="fullscreenModalJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Modal} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 import hbs from &#039;handlebars-extd&#039;;
 
 /**
  * Modal example.
  */
-export default class extends Modal {
+export default class extends components.Modal {
   /**
    * Implement the initial processing required when the modal is opened in a subclass.
    * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
@@ -852,13 +852,13 @@ $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-scrolling-long-con
         <div class="tab-pane fade" id="scrollingLongContentModalJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Modal} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 import hbs from &#039;handlebars-extd&#039;;
 
 /**
  * Modal example.
  */
-export default class extends Modal {
+export default class extends components.Modal {
   /**
    * Implement the initial processing required when the modal is opened in a subclass.
    * Within this process, the modal&#039;s jQuery object (this.element) and instance (this.instance) are accessible.
@@ -1044,13 +1044,13 @@ $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-ajax-modal]&#039;,
         <div class="tab-pane fade" id="ajaxModalJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Modal, Validation, Dialog} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 import hbs from &#039;handlebars-extd&#039;;
 
 /**
  * Modal example.
  */
-export default class extends Modal {
+export default class extends components.Modal {
   /**
    * Includes a modal-backdrop element. Alternatively, specify &lt;code&gt;static&lt;/code&gt; for a backdrop which doesn&#039;t close the modal on click. Default is true.
    * @type {boolean}
@@ -1073,7 +1073,7 @@ export default class extends Modal {
    */
   init(...params) {
     // Initialize form validation.
-    const validation = new Validation(this.element.find(&#039;#form&#039;), {
+    const validation = new components.Validation(this.element.find(&#039;#form&#039;), {
       name: {
         validators: {
           notEmpty: {message: &#039;Name is required.&#039;}
@@ -1094,7 +1094,7 @@ export default class extends Modal {
       validation.offIndicator();
 
       // Show Success Dialog.
-      await Dialog.success(&#039;Data was successfully saved&#039;);
+      await components.Dialog.success(&#039;Data was successfully saved&#039;);
 
       // Closes the modal and returns true to the caller.
       super.hide(true);
@@ -1115,7 +1115,7 @@ export default class extends Modal {
    */
   dispose() {
     // Close the dialog.
-    Dialog.close();
+    components.Dialog.close();
 
     // Discard elements and instances of the modal.
     super.dispose();

@@ -1,7 +1,7 @@
 import hbs from 'handlebars-extd';
 import bootstrap from '~/utils/bootstrap';
-import isAsyncFunction from '~/utils/isAsyncFunction';
 import isFunction from '~/utils/isFunction';
+import isAsyncFunction from '~/utils/isAsyncFunction';
 
 /**
  * Abstract class for a modal that extends <a href="https://getbootstrap.com/docs/5.2/components/modal/" target="_blank">Bootstrap Modal</a>.

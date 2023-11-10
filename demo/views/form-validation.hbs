@@ -145,10 +145,10 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {Validation} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize form validation.
-const validation = new Validation(document.getElementById(&#039;myForm&#039;), {
+const validation = new components.Validation(document.getElementById(&#039;myForm&#039;), {
   firstName: {
     validators: {
       notEmpty: {message: &#039;First name is required.&#039;},
@@ -1153,13 +1153,13 @@ validation.addRule(`isNumber`, () =&gt; {
         <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Validation, selectRef, Dialog} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize form validation.
-const validation = new Validation(ref.myForm, {
+const validation = new components.Validation(ref.myForm, {
   firstName: {
     validators: {
       notEmpty: {message: &#039;First name is required.&#039;},
@@ -1178,7 +1178,7 @@ validation.onValid(async () =&gt; {
     validation.offIndicator();
 
     // Success Message.
-    Dialog.success(&#039;Form has been successfully submitted!&#039;, {confirmButtonText: &#039;OK, got it!&#039;});
+    components.Dialog.success(&#039;Form has been successfully submitted!&#039;, {confirmButtonText: &#039;OK, got it!&#039;});
   }, 2000);
 });</code>
             </pre>

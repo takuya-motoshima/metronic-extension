@@ -1,10 +1,10 @@
-import {Modal, Validation, Dialog} from 'metronic-extension';
+import {components} from 'metronic-extension';
 import hbs from 'handlebars-extd';
 
 /**
  * Modal example.
  */
-export default class extends Modal {
+export default class extends components.Modal {
   /**
    * Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click. Default is true.
    * @type {boolean}
@@ -27,7 +27,7 @@ export default class extends Modal {
    */
   init(...params) {
     // Initialize form validation.
-    const validation = new Validation(this.element.find('#form'), {
+    const validation = new components.Validation(this.element.find('#form'), {
       name: {
         validators: {
           notEmpty: {message: 'Name is required.'}
@@ -48,7 +48,7 @@ export default class extends Modal {
       validation.offIndicator();
 
       // Show Success Dialog.
-      await Dialog.success('Data was successfully saved');
+      await components.Dialog.success('Data was successfully saved');
 
       // Closes the modal and returns true to the caller.
       super.hide(true);
@@ -69,7 +69,7 @@ export default class extends Modal {
    */
   dispose() {
     // Close the dialog.
-    Dialog.close();
+    components.Dialog.close();
 
     // Discard elements and instances of the modal.
     super.dispose();

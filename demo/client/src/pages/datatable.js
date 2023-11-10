@@ -1,7 +1,7 @@
-import {Datatable, selectRef} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 function initBasicTable() {
-  return new Datatable(ref.basicTable, {
+  return new components.Datatable(ref.basicTable, {
     columnDefs: [
       {targets: 0, data: 'name', name: 'name'},
       {targets: 1, data: 'position', name: 'position'},
@@ -15,7 +15,7 @@ function initBasicTable() {
 }
 
 function initServerSideProcessingTable() {
-  return new Datatable(ref.serverSideProcessingTable, {
+  return new components.Datatable(ref.serverSideProcessingTable, {
     ajax: {
       url: '/api/persons/pages',
       data: d => {
@@ -35,7 +35,7 @@ function initServerSideProcessingTable() {
 }
 
 function initColumnVisibilityTable() {
-  return new Datatable(ref.columnVisibilityTable, {
+  return new components.Datatable(ref.columnVisibilityTable, {
     dom: `<'row align-items-center'<'col-auto'B><'col dataTables_pager'p>><'row'<'col-12'tr>><'row'<'col-12 dataTables_pager'p>>`,
     columnDefs: [
       {targets: 0, data: 'name'},
@@ -92,7 +92,7 @@ function initColumnVisibilityTable() {
 }
 
 function initDisableFirstAjaxCallTable() {
-  return new Datatable(ref.disableFirstAjaxCallTable, {
+  return new components.Datatable(ref.disableFirstAjaxCallTable, {
     firstAjax: false,
     ajax: '/api/persons/pages',
     columnDefs: [
@@ -127,7 +127,7 @@ function initDisableFirstAjaxCallTableForm() {
 }
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize DataTable.
 const basicTable = initBasicTable();

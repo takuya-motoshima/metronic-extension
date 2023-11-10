@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Utilities - Metronic Extension</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="build/media/logos/favicon.svg" type="image/svg+xml"/>
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Vendor Stylesheets(used for this page only)-->
+  <link href="build/theme/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/plugins/custom/jstree/jstree.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="build/theme/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+  <link href="build/theme/css/style.bundle.css" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+  <!--begin::Custom Stylesheets(used by this page)-->
+  <link href="build/docs.css" rel="stylesheet" type="text/css" />
+  
+  <!--end::Custom Stylesheets-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body
+  id="kt_app_body"
+  data-kt-app-layout="dark-sidebar"
+  data-kt-app-header-fixed="true"
+  data-kt-app-sidebar-enabled="true"
+  data-kt-app-sidebar-fixed="true"
+  data-kt-app-sidebar-push-header="true"
+  data-bs-spy="scroll"
+  data-bs-target="#sidenav"
+  class="app-default">
+  <!--begin::App-->
+  <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+    <!--begin::Page-->
+    <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+      <!--begin::Header-->
+      <div id="kt_app_header" class="app-header">
+        <!--begin::Header container-->
+        <div class="app-container container d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
+          <!--begin::Sidebar mobile toggle-->
+          <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
+            <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+              <i class="ki-duotone ki-abstract-14 fs-2 fs-md-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+            </div>
+          </div>
+          <!--end::Sidebar mobile toggle-->
+          <!--begin::Mobile logo-->
+          <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+            <a href="index.html" class="d-lg-none">
+              <img alt="Logo" src="build/media/logos/default-small.svg" class="h-25px" />
+            </a>
+          </div>
+          <!--end::Mobile logo-->
+          <!--begin::Header wrapper-->
+          <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+            <!--begin::Header title-->
+            <div class="d-flex align-items-center" id="kt_app_header_title">
+              <!--begin::Page title-->
+              <div class="page-title d-flex flex-column flex-lg-row align-items-lg-center py-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_content_container', 'lg': '#kt_app_header_title'}">
+                <!--begin::Title-->
+                <h1 class="d-flex align-items-center text-dark my-1 fs-4">
+                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.0</a>
+                </h1>
+                <!--end::Title-->
+              </div>
+              <!--end::Page title-->
+            </div>
+            <!--end::Header title-->
+          </div>
+          <!--end::Header wrapper-->
+        </div>
+        <!--end::Header container-->
+      </div>
+      <!--end::Header-->
+      <!--begin::Wrapper-->
+      <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+        <!--begin::Sidebar-->
+        <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+          <!--begin::Logo-->
+          <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
+            <!--begin::Logo image-->
+            <a href="index.html">
+              <img alt="Logo" src="build/media/logos/default.svg" class="h-25px app-sidebar-logo-default" />
+              <img alt="Logo" src="build/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
+            </a>
+            <!--end::Logo image-->
+          </div>
+          <!--end::Logo-->
+          <!--begin::sidebar menu-->
+          <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
+            <!--begin::Menu wrapper-->
+            <div
+              id="kt_app_sidebar_menu_wrapper"
+              class="app-sidebar-wrapper hover-scroll-overlay-y my-5"
+              data-kt-scroll="true"
+              data-kt-scroll-activate="true"
+              data-kt-scroll-height="auto"
+              data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+              data-kt-scroll-wrappers="#kt_app_sidebar_menu"
+              data-kt-scroll-offset="5px"
+              data-kt-scroll-save-state="true">
+              <!--begin::Menu-->
+              <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">Getting Started</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="index.html">
+                    <span class="menu-title">Overview</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="server-side-processing.html">
+                    <span class="menu-title">Server-side processing</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">Components</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="api-client.html">
+                    <span class="menu-title">API Client</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="block-ui.html">
+                    <span class="menu-title">BlockUI</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
+                  <!--begin:Menu link-->
+                  <span class="menu-link">
+                    <span class="menu-title">Chart</span>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <!--end:Menu link-->
+                  <!--begin:Menu sub-->
+                  <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="barchart.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">BarChart</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="piechart.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">PieChart</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                  </div>
+                  <!--end:Menu sub-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="clipboard.html">
+                    <span class="menu-title">Clipboard</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="datatable.html">
+                    <span class="menu-title">DataTable</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="date-range-picker.html">
+                    <span class="menu-title">Date Range Picker</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="dialog.html">
+                    <span class="menu-title">Dialog</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="dropzone.html">
+                    <span class="menu-title">Dropzone</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="form-validation.html">
+                    <span class="menu-title">FormValidation</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="image-input.html">
+                    <span class="menu-title">ImageInput</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="inputmask.html">
+                    <span class="menu-title">Inputmask</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="modal.html">
+                    <span class="menu-title">Modal</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="password-toggle.html">
+                    <span class="menu-title">Password Toggle</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="select-elements.html">
+                    <span class="menu-title">Search for elements</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="tagify.html">
+                    <span class="menu-title">Tagify</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="toast.html">
+                    <span class="menu-title">Toast</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="toggle-button.html">
+                    <span class="menu-title">Toggle button</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="tooltip.html">
+                    <span class="menu-title">Tooltip</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="tree.html">
+                    <span class="menu-title">Tree</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="utilities.html">
+                    <span class="menu-title">Utilities</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">HTML &amp; CSS</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="accordion.html">
+                    <span class="menu-title">Accordion</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="alerts.html">
+                    <span class="menu-title">Alerts</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="background.html">
+                    <span class="menu-title">Background</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="badges.html">
+                    <span class="menu-title">Badges</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="borders.html">
+                    <span class="menu-title">Borders</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="breadcrumb.html">
+                    <span class="menu-title">Breadcrumb</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="bullets.html">
+                    <span class="menu-title">Bullets</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="buttons.html">
+                    <span class="menu-title">Buttons</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="cards.html">
+                    <span class="menu-title">Cards</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="carousel.html">
+                    <span class="menu-title">Carousel</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="flex-layouts.html">
+                    <span class="menu-title">Flex Layouts</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
+                  <!--begin:Menu link-->
+                  <span class="menu-link">
+                    <span class="menu-title">Forms</span>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <!--end:Menu link-->
+                  <!--begin:Menu sub-->
+                  <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="form-controls.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Controls</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="checks-radios.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Checks & Radios</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="input-group.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Input Group</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="floating-labels.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Floating Labels</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                      <!--begin:Menu link-->
+                      <a class="menu-link " href="form-advanced.html">
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Advanced</span>
+                      </a>
+                      <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                  </div>
+                  <!--end:Menu sub-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="indicator.html">
+                    <span class="menu-title">Indicator</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="opacity.html">
+                    <span class="menu-title">Opacity</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="overlay.html">
+                    <span class="menu-title">Overlay</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="popovers.html">
+                    <span class="menu-title">Popovers</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="rating.html">
+                    <span class="menu-title">Rating</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->               
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="separator.html">
+                    <span class="menu-title">Separator</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="symbol.html">
+                    <span class="menu-title">Symbol</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="tables.html">
+                    <span class="menu-title">Tables</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="tabs.html">
+                    <span class="menu-title">Tabs</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="text.html">
+                    <span class="menu-title">Text</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="underline.html">
+                    <span class="menu-title">Underline</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link active" href="design-utility.html">
+                    <span class="menu-title">Utilities</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="no-ui-slider.html">
+                    <span class="menu-title">noUiSlider</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                  <!--begin:Menu content-->
+                  <div class="menu-content">
+                    <span class="menu-heading fw-bold fs-7 text-uppercase">Icons</span>
+                  </div>
+                  <!--end:Menu content-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="keenicons.html">
+                    <span class="menu-title">KeenIcons</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="bootstrap-icons.html">
+                    <span class="menu-title">Bootstrap Icons</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                  <!--begin:Menu link-->
+                  <a class="menu-link " href="font-awesome.html">
+                    <span class="menu-title">Font Awesome</span>
+                  </a>
+                  <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+              </div>
+              <!--end::Menu-->
+            </div>
+            <!--end::Menu wrapper-->
+          </div>
+          <!--end::sidebar menu-->
+          <!--begin::Footer-->
+          <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer"></div>
+          <!--end::Footer-->
+        </div>
+        <!--end::Sidebar-->
+        <!--begin::Main-->
+        <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+          <!--begin::Content wrapper-->
+          <div class="d-flex flex-column flex-column-fluid">
+            <!--begin::Content-->
+            <div id="kt_app_content" class="app-content flex-column-fluid">
+              <!--begin::Content container-->
+              <div class="app-container container-fluid py-3 py-lg-6">
+                <!--begin::Container-->
+                <div id="kt_app_content_container" class="container d-flex flex-column flex-lg-row">
+                  <!--begin::Card-->
+                  <div class="card flex-row-fluid mb-2">
+                    <!--begin::Card Body-->
+                    <div class="card-body py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+                      
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    This is a design system utility class based on and extending the <a href="https://getbootstrap.com/docs/5.2/utilities/api/" target="_blank">Bootstrap Utility API</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="lineHeight" data-kt-scroll-offset="100">
+    <a href="#lineHeight"></a>Line Height
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Additional line height options that extend the <a href="https://getbootstrap.com/docs/5.2utilities/text/#line-height" target="_blank">Bootstrap Line Height Classes</a>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.lh-{value}</code> class to set an element's line height where <code>value</code> is one of.
+    <ul class="pt-3 pb-5">
+      <li class="py-2"><code>1</code> - for classes that set line height to <code>1</code></li>
+      <li class="py-2"><code>sm</code> - for classes that set line height to <code>1.25</code></li>
+      <li class="py-2"><code>base</code> - for classes that set line height to <code>1.5</code></li>
+      <li class="py-2"><code>lg</code> - for classes that set line height to <code>1.75</code></li>
+      <li class="py-2"><code>xl</code> - for classes that set line height to <code>2</code></li>
+      <li class="py-2"><code>xxl</code> - for classes that set line height to <code>2.25</code></li>
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="lh-1 py-5">Example text <br/> for <code>.lh-1</code></div>
+      <div class="lh-sm py-5">Example text <br/> for <code>.lh-sm</code></div>
+      <div class="lh-base py-5">Example text <br/> for <code>.lh-base</code></div>
+      <div class="lh-lg py-5">Example text <br/> for <code>.lh-lg</code></div>
+      <div class="lh-xl py-5">Example text <br/> for <code>.lh-xl</code></div>
+      <div class="lh-xxl py-5">Example text <br/> for <code>.lh-xxl</code></div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;lh-1&quot;&gt;Example text for .lh-1&lt;/div&gt;
+&lt;div class=&quot;lh-sm&quot;&gt;Example text for .lh-sm&lt;/div&gt;
+&lt;div class=&quot;lh-base&quot;&gt;Example text for .lh-base&lt;/div&gt;
+&lt;div class=&quot;lh-lg&quot;&gt;Example text for .lh-lg&lt;/div&gt;
+&lt;div class=&quot;lh-xl&quot;&gt;Example text for .lh-xl&lt;/div&gt;
+&lt;div class=&quot;lh-xxl&quot;&gt;Example text for .lh-xxl&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="letterSpacing" data-kt-scroll-offset="100">
+    <a href="#letterSpacing"></a>Letter Spacing
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.ls-{value}</code> class to set an element's letter spacing where <code>value</code> is one of:
+    <ul class="pt-3 pb-5">
+      <li class="py-2"><code>1</code> - for classes that set letter spacing to <code>0.1rem</code></li>
+      <li class="py-2"><code>2</code> - for classes that set letter spacing to <code>0.115rem</code></li>
+      <li class="py-2"><code>3</code> - for classes that set letter spacing to <code>0.125rem</code></li>
+      <li class="py-2"><code>4</code> - for classes that set letter spacing to <code>0.25rem</code></li>
+      <li class="py-2"><code>5</code> - for classes that set letter spacing to <code>0.5rem</code></li>
+      <li class="py-2"><code>n1</code> - for classes that set letter spacing to <code>-0.1rem</code></li>
+      <li class="py-2"><code>n2</code> - for classes that set letter spacing to <code>-0.115rem</code></li>
+      <li class="py-2"><code>n3</code> - for classes that set letter spacing to <code>-0.125rem</code></li>
+      <li class="py-2"><code>n4</code> - for classes that set letter spacing to <code>-0.25rem</code></li>
+      <li class="py-2"><code>n5</code> - for classes that set letter spacing to <code>-0.5rem</code></li>
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="ls-1 py-5">Example text for <code>.ls-1</code></div>
+      <div class="ls-2 py-5">Example text for <code>.ls-2</code></div>
+      <div class="ls-3 py-5">Example text for <code>.ls-3</code></div>
+      <div class="ls-4 py-5">Example text for <code>.ls-4</code></div>
+      <div class="ls-5 py-5">Example text for <code>.ls-5</code></div>
+      <div class="ls-n1 py-5">Example text for <code>.ls-n1</code></div>
+      <div class="ls-n2 py-5">Example text for <code>.ls-n2</code></div>
+      <div class="ls-n3 py-5">Example text for <code>.ls-n3</code></div>
+      <div class="ls-n4 py-5">Example text for <code>.ls-n4</code></div>
+      <div class="ls-n5 py-5">Example text for <code>.ls-n5</code></div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;ls-1&quot;&gt;Example text for .ls-1&lt;/div&gt;
+&lt;div class=&quot;ls-2&quot;&gt;Example text for .ls-2&lt;/div&gt;
+&lt;div class=&quot;ls-3&quot;&gt;Example text for .ls-3&lt;/div&gt;
+&lt;div class=&quot;ls-4&quot;&gt;Example text for .ls-4&lt;/div&gt;
+&lt;div class=&quot;ls-5&quot;&gt;Example text for .ls-5&lt;/div&gt;
+&lt;div class=&quot;ls-n1&quot;&gt;Example text for .ls-n1&lt;/div&gt;
+&lt;div class=&quot;ls-n2&quot;&gt;Example text for .ls-n2&lt;/div&gt;
+&lt;div class=&quot;ls-n3&quot;&gt;Example text for .ls-n3&lt;/div&gt;
+&lt;div class=&quot;ls-n4&quot;&gt;Example text for .ls-n4&lt;/div&gt;
+&lt;div class=&quot;ls-n5&quot;&gt;Example text for .ls-n5&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="widthAndHeight" data-kt-scroll-offset="100">
+    <a href="#widthAndHeight"></a>Width & Height
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Assign responsive-friendly <code>height</code>, <code>min-height</code>, <code>max-height</code>, <code>width</code> , <code>min-with</code> and 
+    <code>max-width</code> values to an element with shorthand classes.
+    The classes are named using the format <code>{property}-{size}</code> for <code>xs</code> and <code>{property}-{breakpoint}-{size}</code> 
+    for <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, and <code>xxl</code>.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Where <code>property</code> is one of:
+    <ul class="pt-3">
+      <li class="py-2"><code>h</code> - for classes that set height</li>
+      <li class="py-2"><code>mh</code> - for classes that set max height</li>
+      <li class="py-2"><code>min-h</code> - for classes that set min height</li>
+      <li class="py-2"><code>w</code> - for classes that set width</li>
+      <li class="py-2"><code>mw</code> - for classes that set max width</li>
+      <li class="py-2"><code>min-w</code> - for classes that set min width</li>
+    </ul>
+  </div>
+  <!--end::Block-->
+   <!--begin::Block-->
+  <div class="py-5">
+    Where <code>size</code> defined with <code>$custom-sizes</code> variable in <code>sass/_variables.scss</code> is one of-
+    <ul class="pt-3">
+      <li class="py-2"><code>25</code> - for 25%</li>
+      <li class="py-2"><code>50</code> - for 50%</li>
+      <li class="py-2"><code>75</code> - for 75%</li>
+      <li class="py-2"><code>100</code> - for 100%</li>
+      <li class="py-2"><code>auto</code> - for auto</li>
+      <li class="py-2"><code>1px</code></li>
+      <li class="py-2"><code>2px</code></li>
+      <li class="py-2"><code>3px</code></li>
+      <li class="py-2"><code>4px</code></li>
+      <li class="py-2"><code>5px</code></li>
+      <li class="py-2"><code>6px</code></li>
+      <li class="py-2"><code>7px</code></li>
+      <li class="py-2"><code>8px</code></li>
+      <li class="py-2"><code>9px</code></li>
+      <li class="py-2"><code>10px</code></li>
+      <li class="py-2"><code>15px</code></li>
+      <li class="py-2"><code>20px</code></li>
+      <li class="py-2"><code>25px</code></li>
+      <li class="py-2"><code>30px</code></li>
+      <li class="py-2"><code>35px</code></li>
+      <li class="py-2"><code>40px</code></li>
+      <li class="py-2"><code>45px</code></li>
+      <li class="py-2"><code>50px</code></li>
+      <li class="py-2"><code>55px</code></li>
+      <li class="py-2"><code>60px</code></li>
+      <li class="py-2"><code>65px</code></li>
+      <li class="py-2"><code>70px</code></li>
+      <li class="py-2"><code>75px</code></li>
+      <li class="py-2"><code>80px</code></li>
+      <li class="py-2"><code>85px</code></li>
+      <li class="py-2"><code>90px</code></li>
+      <li class="py-2"><code>95px</code></li>
+      <li class="py-2"><code>100px</code></li>
+      <li class="py-2"><code>125px</code></li>
+      <li class="py-2"><code>150px</code></li>
+      <li class="py-2"><code>175px</code></li>
+      <li class="py-2"><code>200px</code></li>
+      <li class="py-2"><code>225px</code></li>
+      <li class="py-2"><code>250px</code></li>
+      <li class="py-2"><code>275px</code></li>
+      <li class="py-2"><code>300px</code></li>
+      <li class="py-2"><code>325px</code></li>
+      <li class="py-2"><code>350px</code></li>
+      <li class="py-2"><code>375px</code></li>
+      <li class="py-2"><code>400px</code></li>
+      <li class="py-2"><code>425px</code></li>
+      <li class="py-2"><code>450px</code></li>
+      <li class="py-2"><code>475px</code></li>
+      <li class="py-2"><code>500px</code></li>
+      <li class="py-2"><code>550px</code></li>
+      <li class="py-2"><code>600px</code></li>
+      <li class="py-2"><code>650px</code></li>
+      <li class="py-2"><code>700px</code></li>
+      <li class="py-2"><code>750px</code></li>
+      <li class="py-2"><code>800px</code></li>
+      <li class="py-2"><code>850px</code></li>
+      <li class="py-2"><code>900px</code></li>
+      <li class="py-2"><code>950px</code></li>
+      <li class="py-2"><code>1000px</code></li>
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <div class="d-flex flex-wrap align-items-center">
+        <div class="w-100px h-100px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold ">w-100px<br>h-100px</div>
+        <div class="w-150px h-150px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold ">w-150px<br>h-150px</div>
+        <div class="w-200px h-200px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold ">w-200px<br>h-200px</div>
+        <div class="w-250px h-250px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold ">w-250px<br>h-250px</div>
+      </div>
+      <div class="separator border-solid mt-10 mb-12"></div>
+      <div class="d-flex flex-wrap align-items-center">
+        <div class="min-w-100px min-h-100px mw-100px mh-100px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold">min-w-100px<br>min-h-100px<br>mw-100px<br>mh-100px</div>
+        <div class="min-w-150px min-h-150px mw-150px mh-150px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold">min-w-150px<br>min-h-150px<br>mw-150px<br>mh-150px</div>
+        <div class="min-w-200px min-h-200px mw-200px mh-200px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold">min-w-200px<br>min-h-200px<br>mw-200px<br>mh-200px</div>
+        <div class="min-w-250px min-h-250px mw-250px mh-250px d-flex flex-column flex-center me-5 mb-5 bg-light   fw-semibold">min-w-250px<br>min-h-250px<br>mw-250px<br>mh-250px</div>
+      </div>
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;w-100px h-100px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;w-150px h-150px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;w-200px h-200px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;w-250px h-250px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;min-w-100px min-h-100px mw-100px mh-100px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;min-w-150px min-h-150px mw-150px mh-150px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;min-w-200px min-h-200px mw-200px mh-200px&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;min-w-250px min-h-250px mw-250px mh-250px&quot;&gt;&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="zIndex" data-kt-scroll-offset="100">
+    <a href="#zIndex"></a>Z-Index
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Use <code>.z-index-{value}</code> class to set an element's z-index.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Where <code>value</code> is one of:
+    <ul class="pt-3">
+      <li class="py-2"><code>n1</code> - for classes that set z-index <code>n1</code></li>
+      <li class="py-2"><code>n2</code> - for classes that set z-index <code>n2</code></li>
+      <li class="py-2"><code>0</code> - for classes that set z-index <code>0</code></li>
+      <li class="py-2"><code>1</code> - for classes that set z-index <code>1</code></li>
+      <li class="py-2"><code>2</code> - for classes that set z-index <code>2</code></li>
+      <li class="py-2"><code>3</code> - for classes that set z-index <code>3</code></li>
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-html">
+          <code class="language-html">&lt;div class=&quot;z-index-n1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;z-index-n2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;z-index-0&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;z-index-1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;z-index-2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;z-index-3&quot;&gt;&lt;/div&gt;</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="cssVariables" data-kt-scroll-offset="100">
+    <a href="#cssVariables"></a>CSS Variables
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Additional custom CSS variables. Below is a list of available CSS variables.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <ul class="py-0">
+      <li class="py-2"><code>--bs-primary</code> - Primary color hex value.</li>
+      <li class="py-2"><code>--bs-success</code> - Success color hex value.</li>
+      <li class="py-2"><code>--bs-info</code> - Info color hex value.</li>
+      <li class="py-2"><code>--bs-danger</code> - Danger color hex value.</li>
+      <li class="py-2"><code>--bs-warning</code> - Warning color hex value.</li>
+      <li class="py-2"><code>--bs-dark</code> - Dark color hex value.</li>
+      <li class="py-2"><code>--bs-light</code> - Light color hex value.</li>
+      <li class="py-2"><code>--bs-gray-100</code> - Gray 100 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-200</code> - Gray 200 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-300</code> - Gray 300 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-400</code> - Gray 400 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-500</code> - Gray 500 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-600</code> - Gray 600 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-700</code> - Gray 700 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-800</code> - Gray 800 color hex value.</li>
+      <li class="py-2"><code>--bs-gray-900</code> - Gray 900 color hex value.</li>
+      <li class="py-2"><code>--bs-xs</code> - Extra small breakpoint width value - 0.</li>
+      <li class="py-2"><code>--bs-sm</code> - Extra small breakpoint width value - 576px.</li>
+      <li class="py-2"><code>--bs-md</code> - Medium small breakpoint width value - 768px.</li>
+      <li class="py-2"><code>--bs-lg</code> - Large small breakpoint width value - 992px.</li>
+      <li class="py-2"><code>--bs-xl</code> - Extra large small breakpoint width value - 1200px.</li>
+      <li class="py-2"><code>--bs-xxl</code> - Double extra large breakpoint width value - 1400px.</li>
+      <li class="py-2"><code>--bs-font-sans-serif</code> - Main font family. E.g: <code>"Roboto", sans-serif</code>.</li>
+    </ul>
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="py-5">Javascript can also be used to access these variables.</div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <div class="highlight-code">
+        <pre class="language-javascript">
+          <code class="language-javascript">const primaryColor = KTUtil.getCssVariableValue(&#039;--bs-primary&#039;);
+const breakpointLg = KTUtil.getCssVariableValue(&#039;--bs-lg&#039;);
+const fontFamily = KTUtil.getCssVariableValue(&#039;--bs-font-sans-serif&#039;);</code>
+        </pre>
+      </div>
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+                    </div>
+                    <!--end::Card Body-->
+                  </div>
+                  <!--end::Card-->
+                  <!--begin::Sidebar wrapper-->
+                  <div class="ms-7 flex-row-auto w-lg-200px" id="kt_app_sidebar_navs">
+                    <!--begin::Sidebar nav-->
+                    <div
+                      class="card card-flush d-none d-lg-flex"
+                      data-kt-sticky="true"
+                      data-kt-sticky-name="sidebar-navs"
+                      data-kt-sticky-offset="{default: false, lg: 200}"
+                      data-kt-sticky-width="200px"
+                      data-kt-sticky-animation="false"
+                      data-kt-sticky-left="auto"
+                      data-kt-sticky-top="100px"
+                      data-kt-sticky-zindex="95">
+                      <!--begin::Card body-->
+                      <div class="card-body px-0 px-3 py-6">
+                        <!--begin::Menu-->
+                        <ul id="sidenav" class="nav nav-flush menu menu-column menu-title-gray-700 menu-bullet-gray-300 menu-state-primary fw-semibold fs-6">
+                          <!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#lineHeight" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Line Height</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#letterSpacing" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Letter Spacing</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#widthAndHeight" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Width & Height</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#zIndex" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Z-Index</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#cssVariables" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">CSS Variables</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+
+                        </ul>
+                        <!--end::Menu-->
+                      </div>
+                      <!--end::Card body-->
+                    </div>
+                    <!--end::Sidebar nav-->
+                  </div>
+                  <!--end::Sidebar wrapper-->
+                </div>
+                <!--end::Container-->
+              </div>
+              <!--end::Content container-->
+            </div>
+            <!--end::Content-->
+          </div>
+          <!--end::Content wrapper-->
+          <!--begin::Footer-->
+          <div id="kt_app_footer" class="app-footer">
+            <!--begin::Footer container-->
+            <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+              <!--begin::Copyright-->
+              <div class="text-dark order-2 order-md-1">
+                <span class="text-muted fw-semibold me-1">2023&copy;</span>
+                <a href="index.html" class="text-gray-800 text-hover-primary">MetronicExtension</a>
+              </div>
+              <!--end::Copyright-->
+              <!--begin::Menu-->
+              <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                <li class="menu-item">
+                  <a href="https://www.npmjs.com/package/metronic-extension" target="_blank" class="menu-link px-2">NPM</a>
+                </li>
+                <li class="menu-item">
+                  <a href="https://github.com/takuya-motoshima/metronic-extension" target="_blank" class="menu-link px-2">GitHub</a>
+                </li>
+              </ul>
+              <!--end::Menu-->
+            </div>
+            <!--end::Footer container-->
+          </div>
+          <!--end::Footer-->
+        </div>
+        <!--end:::Main-->
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+  </div>
+  <!--end::App-->
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="build/theme/plugins/global/plugins.bundle.js"></script>
+  <script src="build/theme/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Vendors Javascript(used for this page only)-->
+  <script src="build/theme/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script src="build/theme/plugins/custom/jstree/jstree.bundle.js"></script>
+  <script src="build/theme/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  <!--end::Vendors Javascript-->
+  <!--begin::Custom Javascript(used by this page)-->
+  <script>
+    /** SQL highlighter for PrismJS <http://prismjs.com/>
+      * @author Petros Kyladitis */
+    Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
+  </script>
+  <script src="build/docs.js"></script>
+  
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

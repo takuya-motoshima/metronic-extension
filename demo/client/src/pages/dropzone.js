@@ -1,7 +1,7 @@
-import {Dropzone} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initializes Dropzone.
-const dropzone = new Dropzone(document.getElementById('myDropzone'), {
+const dropzone = new components.Dropzone(document.getElementById('myDropzone'), {
   hiddenInputContent: document.getElementById('myFileContent'),
   maxFilesize: 10,
   dictDescriptionMessage: 'Files up to 10 MB can be uploaded',

@@ -6,20 +6,20 @@ import isString from '~/utils/isString';
  * @return {string} Formatted number.
  * @example
  * ```js
- * import {numberFormat} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  * 
- * numberFormat(1234);// -> '1,234'
- * numberFormat(1234.5);// -> '1,234.5'
- * numberFormat(0);// -> '0'
- * numberFormat(.0);// -> '0'
- * numberFormat(-1234);// -> '-1,234'
- * numberFormat(-1234.5);// -> '-1,234.5'
- * numberFormat('1234');// -> '1,234'
- * numberFormat('1234.5');// -> '1,234.5'
- * numberFormat('0');// -> '0'
- * numberFormat('.0');// -> '0'
- * numberFormat('-1234');// -> '-1,234'
- * numberFormat('-1234.5');// -> '-1,234.5'
+ * utils.numberFormat(1234);// -> '1,234'
+ * utils.numberFormat(1234.5);// -> '1,234.5'
+ * utils.numberFormat(0);// -> '0'
+ * utils.numberFormat(.0);// -> '0'
+ * utils.numberFormat(-1234);// -> '-1,234'
+ * utils.numberFormat(-1234.5);// -> '-1,234.5'
+ * utils.numberFormat('1234');// -> '1,234'
+ * utils.numberFormat('1234.5');// -> '1,234.5'
+ * utils.numberFormat('0');// -> '0'
+ * utils.numberFormat('.0');// -> '0'
+ * utils.numberFormat('-1234');// -> '-1,234'
+ * utils.numberFormat('-1234.5');// -> '-1,234.5'
  * ```
  */
 export default (num: string|number): string => {

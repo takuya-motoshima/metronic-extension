@@ -13,13 +13,13 @@
  *
  * JS:
  * ```js
- * import {BlockUI, selectRef} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  *
  * // Search for elements.
- * const ref = selectRef();
+ * const ref = components.selectRef();
  *
  * // Block #target element. Do not block initially.
- * const blockUI = new BlockUI(ref.target, 'Loading...', false);
+ * const blockUI = new components.BlockUI(ref.target, 'Loading...', false);
  *
  * // Initialize events.
  * $('body').on('click', '[data-on-block]', () => {

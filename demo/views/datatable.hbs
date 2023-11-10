@@ -181,10 +181,10 @@
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">import {Datatable} from &#039;metronic-extension&#039;;
+                    <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize DataTable.
-const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
+const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
     {targets: 0, data: &#039;name&#039;},
     {targets: 1, data: &#039;position&#039;},
@@ -192,7 +192,7 @@ const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
 });
 
 // Retrieve table data from the server via Ajax request
-const myTableWithAjax = new Datatable(document.getElementById(&#039;myTableWithAjax&#039;), {
+const myTableWithAjax = new components.Datatable(document.getElementById(&#039;myTableWithAjax&#039;), {
   ajax: {
     url: &#039;/api/persons/pages&#039;
   },
@@ -318,10 +318,10 @@ const myTableWithAjax = new Datatable(document.getElementById(&#039;myTableWithA
                   <div class="tab-pane fade" id="filterExampleJsTab" role="tabpanel">
                     <div class="highlight-code">
                       <pre class="language-javascript">
-                        <code class="language-javascript">import {Datatable} from &#039;metronic-extension&#039;;
+                        <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize DataTable.
-const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
+const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
     {targets: 0, name: &#039;name&#039;},
     {targets: 1, name: &#039;position&#039;},
@@ -477,10 +477,10 @@ myTable.filter(&#039;position:name&#039;, &#039;CEO&#039;);</code>
                   <div class="tab-pane fade" id="createRowExampleJsTab" role="tabpanel">
                     <div class="highlight-code">
                       <pre class="language-javascript">
-                        <code class="language-javascript">import {Datatable} from &#039;metronic-extension&#039;;
+                        <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize DataTable.
-const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
+const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
     {targets: 0, data: &#039;name&#039;},
     {targets: 1, data: &#039;position&#039;},
@@ -574,10 +574,10 @@ myTable.createRow(row);</code>
                   <div class="tab-pane fade" id="deleteRowExampleJsTab" role="tabpanel">
                     <div class="highlight-code">
                       <pre class="language-javascript">
-                        <code class="language-javascript">import {Datatable} from &#039;metronic-extension&#039;;
+                        <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize DataTable.
-const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
+const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
     {targets: 0, data: &#039;name&#039;},
     {targets: 1, data: &#039;position&#039;},
@@ -690,10 +690,10 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-delete]&#039;
                   <div class="tab-pane fade" id="updateRowExampleJsTab" role="tabpanel">
                     <div class="highlight-code">
                       <pre class="language-javascript">
-                        <code class="language-javascript">import {Datatable} from &#039;metronic-extension&#039;;
+                        <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize DataTable.
-const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
+const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
     {targets: 0, data: &#039;name&#039;},
     {targets: 1, data: &#039;position&#039;},
@@ -792,10 +792,10 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;
                   <div class="tab-pane fade" id="getRowDataExampleJsTab" role="tabpanel">
                     <div class="highlight-code">
                       <pre class="language-javascript">
-                        <code class="language-javascript">import {Datatable} from &#039;metronic-extension&#039;;
+                        <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize DataTable.
-const myTable = new Datatable(document.getElementById(&#039;myTable&#039;), {
+const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
     {targets: 0, data: &#039;name&#039;},
     {targets: 1, data: &#039;position&#039;},
@@ -1219,10 +1219,10 @@ myTable.getRowCount();</code>
         <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Datatable, selectRef} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 function initBasicTable() {
-  return new Datatable(ref.basicTable, {
+  return new components.Datatable(ref.basicTable, {
     columnDefs: [
       {targets: 0, data: &#039;name&#039;, name: &#039;name&#039;},
       {targets: 1, data: &#039;position&#039;, name: &#039;position&#039;},
@@ -1243,7 +1243,7 @@ function initBasicTableSearchForm() {
 }
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize DataTable.
 const basicTable = initBasicTable();
@@ -1370,10 +1370,10 @@ initBasicTableSearchForm();</code>
         <div class="tab-pane fade" id="serverSideProcessingJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Datatable, selectRef} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 function initServerSideProcessingTable() {
-  return new Datatable(ref.serverSideProcessingTable, {
+  return new components.Datatable(ref.serverSideProcessingTable, {
     ajax: {
       url: &#039;/api/persons/pages&#039;,
       data: d =&gt; {
@@ -1401,7 +1401,7 @@ function initServerSideProcessingTableSearchForm() {
 }
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize DataTable.
 const serverSideProcessingTable = initServerSideProcessingTable();
@@ -1717,10 +1717,10 @@ module.exports = class extends Model {
         <div class="tab-pane fade" id="columnVisibilityJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Datatable, selectRef} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 function initColumnVisibilityTable() {
-  return new Datatable(ref.columnVisibilityTable, {
+  return new components.Datatable(ref.columnVisibilityTable, {
     dom: `&lt;&#039;row align-items-center&#039;&lt;&#039;col-auto&#039;B&gt;&lt;&#039;col dataTables_pager&#039;p&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12&#039;tr&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;`,
     columnDefs: [
       {targets: 0, data: &#039;name&#039;},
@@ -1777,7 +1777,7 @@ function initColumnVisibilityTable() {
 }
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize DataTable.
 const columnVisibilityTable = initColumnVisibilityTable();</code>
@@ -1890,10 +1890,10 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
         <div class="tab-pane fade" id="disableFirstAjaxCallJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Datatable, selectRef} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 function initDisableFirstAjaxCallTable() {
-  return new Datatable(ref.disableFirstAjaxCallTable, {
+  return new components.Datatable(ref.disableFirstAjaxCallTable, {
     firstAjax: false,
     ajax: &#039;/api/persons/pages&#039;,
     columnDefs: [
@@ -1913,7 +1913,7 @@ function initDisableFirstAjaxCallTableForm() {
 }
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize DataTable.
 const disableFirstAjaxCallTable = initDisableFirstAjaxCallTable();

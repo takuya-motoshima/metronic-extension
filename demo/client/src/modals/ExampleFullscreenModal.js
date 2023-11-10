@@ -1,10 +1,10 @@
-import {Modal} from 'metronic-extension';
+import {components} from 'metronic-extension';
 import hbs from 'handlebars-extd';
 
 /**
  * Modal example.
  */
-export default class extends Modal {
+export default class extends components.Modal {
   /**
    * Implement the initial processing required when the modal is opened in a subclass.
    * Within this process, the modal's jQuery object (this.element) and instance (this.instance) are accessible.

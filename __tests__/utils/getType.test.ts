@@ -1,4 +1,4 @@
-import getType from '~/utils/getType';
+import * as utils from '~/utils';
 
 describe('Should be able to get type names from variables of various types', () => {
   test.each([
@@ -23,7 +23,7 @@ describe('Should be able to get type names from variables of various types', () 
     [Symbol('foo'), 'Symbol'],
     [null, 'Null'],
     [undefined, 'Undefined'],
-  ])('getType(%s) = "%s"', (a, expected) => {
-    expect(getType(a)).toBe(expected);
+  ])('utils.getType(%s) = "%s"', (a, expected) => {
+    expect(utils.getType(a)).toBe(expected);
   });
 });

@@ -6,10 +6,10 @@ import isString from '~/utils/isString';
  * @return {Promise<string>} Data URL.
  * @example
  * ```js
- * import {fetchDataUrl} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  * 
- * await fetchDataUrl('/img/sample.png');// -> data:image/png;base64,iVBORw0K...
- * await fetchDataUrl('/img/sample.svg');// -> data:image/svg+xml;utf8,%3Csvg...
+ * await utils.fetchDataUrl('/img/sample.png');// -> data:image/png;base64,iVBORw0K...
+ * await utils.fetchDataUrl('/img/sample.svg');// -> data:image/svg+xml;utf8,%3Csvg...
  * ```
  */
 export default async (url: string|URL): Promise<string> => {

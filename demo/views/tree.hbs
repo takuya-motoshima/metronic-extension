@@ -1056,10 +1056,10 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
         <div class="tab-pane fade" id="basicJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Tree} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize Tree.
-const basicTree = new Tree(document.getElementById(&#039;basicTree&#039;), {
+const basicTree = new components.Tree(document.getElementById(&#039;basicTree&#039;), {
   // Ajax Option.
   ajax: {
     children: node =&gt; {
@@ -1232,10 +1232,10 @@ basicTree
         <div class="tab-pane fade" id="serverSideProcessingJsTab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">import {Tree} from &#039;metronic-extension&#039;;
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Initialize Tree.
-const serverSideProcessingTree = new Tree(document.getElementById(&#039;serverSideProcessingTree&#039;), {
+const serverSideProcessingTree = new components.Tree(document.getElementById(&#039;serverSideProcessingTree&#039;), {
   ajax: {
     children: &#039;/api/tree/_PARENT_NODE_ID_&#039;,
     createFolder: &#039;/api/tree/folder/_PARENT_NODE_ID_&#039;,

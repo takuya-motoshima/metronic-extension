@@ -167,10 +167,10 @@ export default class Datatable {
    * 
    * JS:
    * ```js
-   * import {Datatable} from 'metronic-extension';
+   * import {components} from 'metronic-extension';
    * 
    * // Initialize DataTable.
-   * const myTable = new Datatable(document.getElementById('myTable'), {
+   * const myTable = new components.Datatable(document.getElementById('myTable'), {
    *   columnDefs: [
    *     {targets: 0, name: 'name'},
    *     {targets: 1, name: 'position'},
@@ -261,10 +261,10 @@ export default class Datatable {
    * 
    * JS:
    * ```js
-   * import {Datatable} from 'metronic-extension';
+   * import {components} from 'metronic-extension';
    * 
    * // Initialize DataTable.
-   * const myTable = new Datatable(document.getElementById('myTable'), {
+   * const myTable = new components.Datatable(document.getElementById('myTable'), {
    *   columnDefs: [
    *     {targets: 0, data: 'name'},
    *     {targets: 1, data: 'position'},
@@ -319,10 +319,10 @@ export default class Datatable {
    * 
    * JS:
    * ```js
-   * import {Datatable} from 'metronic-extension';
+   * import {components} from 'metronic-extension';
    * 
    * // Initialize DataTable.
-   * const myTable = new Datatable(document.getElementById('myTable'), {
+   * const myTable = new components.Datatable(document.getElementById('myTable'), {
    *   columnDefs: [
    *     {targets: 0, data: 'name'},
    *     {targets: 1, data: 'position'},
@@ -389,10 +389,10 @@ export default class Datatable {
    * 
    * JS:
    * ```js
-   * import {Datatable} from 'metronic-extension';
+   * import {components} from 'metronic-extension';
    * 
    * // Initialize DataTable.
-   * const myTable = new Datatable(document.getElementById('myTable'), {
+   * const myTable = new components.Datatable(document.getElementById('myTable'), {
    *   columnDefs: [
    *     {targets: 0, data: 'name'},
    *     {targets: 1, data: 'position'},
@@ -453,10 +453,10 @@ export default class Datatable {
    * 
    * JS:
    * ```js
-   * import {Datatable} from 'metronic-extension';
+   * import {components} from 'metronic-extension';
    * 
    * // Initialize DataTable.
-   * const myTable = new Datatable(document.getElementById('myTable'), {
+   * const myTable = new components.Datatable(document.getElementById('myTable'), {
    *   columnDefs: [
    *     {targets: 0, data: 'name'},
    *     {targets: 1, data: 'position'},

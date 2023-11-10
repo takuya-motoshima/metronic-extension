@@ -1,7 +1,7 @@
-import {Tree} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize Tree.
-const basicTree = new Tree(document.getElementById('basicTree'), {
+const basicTree = new components.Tree(document.getElementById('basicTree'), {
   ajax: {
     children: node => {
       // This is an example of simply retrieving tree data in JSON without using the server side.
@@ -46,7 +46,7 @@ basicTree
   });
 
 // Initialize Tree.
-const serverSideProcessingTree = new Tree(document.getElementById('serverSideProcessingTree'), {
+const serverSideProcessingTree = new components.Tree(document.getElementById('serverSideProcessingTree'), {
   ajax: {
     children: '/api/tree/_PARENT_NODE_ID_',
     createFolder: '/api/tree/folder/_PARENT_NODE_ID_',

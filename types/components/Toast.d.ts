@@ -2,19 +2,19 @@
  * Send push notifications to visitors using toast.
  * @example
  * ```js
- * import {Toast} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  *
  * // Show success toast message.
- * Toast.success('This is a toast message');
+ * components.Toast.success('This is a toast message');
  *
  * // Show info toast message.
- * Toast.info('This is a toast message');
+ * components.Toast.info('This is a toast message');
  *
  * // Show error toast message.
- * Toast.error('This is a toast message');
+ * components.Toast.error('This is a toast message');
  *
  * // Show warning toast message.
- * Toast.warning('This is a toast message');
+ * components.Toast.warning('This is a toast message');
  * ```
  */
 export default class {

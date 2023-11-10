@@ -1,4 +1,4 @@
-import isUnixUserName from '~/validators/isUnixUserName';
+import * as validators from '~/validators';
 
 describe('Valid unix user name should be true', () => {
   test.each([
@@ -7,8 +7,8 @@ describe('Valid unix user name should be true', () => {
     ['user$', true],
     ['user123', true],
     ['_user', true],
-  ])('isUnixUserName("%s") = %s', (a, expected) => {
-    expect(isUnixUserName(a)).toBe(expected);
+  ])('validators.isUnixUserName("%s") = %s', (a, expected) => {
+    expect(validators.isUnixUserName(a)).toBe(expected);
   });
 });
 
@@ -18,7 +18,7 @@ describe('Invalid unix user name should be false', () => {
     ['$', false],
     ['-', false],
     ['user12345678901234567890123456789', false],
-  ])('isUnixUserName("%s") = %s', (a, expected) => {
-    expect(isUnixUserName(a)).toBe(expected);
+  ])('validators.isUnixUserName("%s") = %s', (a, expected) => {
+    expect(validators.isUnixUserName(a)).toBe(expected);
   });
 });

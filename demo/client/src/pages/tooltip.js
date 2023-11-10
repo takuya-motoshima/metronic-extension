@@ -1,4 +1,4 @@
-import {initTooltip} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize tooltips for dynamically added elements.
-initTooltip(document.body);
+components.initTooltip(document.body);

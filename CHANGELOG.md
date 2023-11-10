@@ -1,10 +1,218 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-<!-- ## [3.0.0] - 2023/11/7
+## [3.0.0] - 2023/11/10
 ### Changed
-- Fixed namespace for classes and functions.  
-    Import statements must be changed when updating to version 3. -->
+- Version 3 has a clearer namespace.  
+    If you are updating from version 2 to 3, please change the Import statement.
+
+    For example, in the case of the escapeHtml() function, V3 imports as follows.
+    ```js
+    import {utils} from 'metronic-extension';
+    utils.escapeHtml('I think this is good.');// -> I think this is good.
+    ```
+
+    In V2, the import was as follows.
+    ```js
+    import escapeHtml from 'metronic-extension';
+    escapeHtml('I think this is good.');// -> I think this is good.
+    ```
+
+    All changes are as follows.
+
+    <table>
+      <thead>
+        <tr>
+          <th>Version 2 or lower</th>
+          <th>Version 3</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="3">components</td>
+        </tr>
+        <tr>
+          <td>Api</td>
+          <td>components.Api</td>
+          <td>API client based on <a href="https://axios-http.com/" target="_blank">Axios</a>.</td>
+        </tr>
+        <tr>
+          <td>charts.BarChart</td>
+          <td>components.BarChart</td>
+          <td>Bar chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.</td>
+        </tr>
+        <tr>
+          <td>BlockUI</td>
+          <td>components.BlockUI</td>
+          <td>BlockUI blocks elements with overlays and loading indicators.</td>
+        </tr>
+        <tr>
+          <td>Datatable</td>
+          <td>components.Datatable</td>
+          <td>DataTable component based on <a href="https://datatables.net/" target="_blank">datatables.net</a> with advanced instructions.</td>
+        </tr>
+        <tr>
+          <td>Dialog</td>
+          <td>components.Dialog</td>
+          <td>This is a component created by extending <a href="https://sweetalert2.github.io/" target="_blank">SweetAlert</a> that displays a dialog for the intended use.</td>
+        </tr>
+        <tr>
+          <td>Dropzone</td>
+          <td>components.Dropzone</td>
+          <td>Dropzone is a component that provides drag-and-drop file upload with image preview.</td>
+        </tr>
+        <tr>
+          <td>ImageInput</td>
+          <td>components.ImageInput</td>
+          <td>Image Input is a component that allows for simple, lightweight image input fields.</td>
+        </tr>
+        <tr>
+          <td>initClipboard</td>
+          <td>components.initClipboard</td>
+          <td>
+            Initializes a component that copies the text of the element corresponding to the selector specified in the <code>data-clipboard-target</code> attribute to the clipboard.<br>
+            The actual process for copying text to the clipboard is handled by <a href="https://clipboardjs.com/" target="_blank">clipboard.js</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>initDatepicker</td>
+          <td>components.initDatepicker</td>
+          <td>Date range picker with <a href="https://www.daterangepicker.com/" target="_blank">daterangepicker plugin</a> as core.</td>
+        </tr>
+        <tr>
+          <td>initPasswordToggle</td>
+          <td>components.initPasswordToggle</td>
+          <td>Implements a password toggle for the password input element specified by the <code>data-password-toggle</code> attribute.</td>
+        </tr>
+        <tr>
+          <td>initToggleButton</td>
+          <td>components.initToggleButton</td>
+          <td>Initializes the toggle for button group elements that have the dynamically added <code>[data-kt-buttons="true"]</code> attribute.</td>
+        </tr>
+        <tr>
+          <td>initTooltip</td>
+          <td>components.initTooltip</td>
+          <td>Initialize tooltips for dynamically added elements using <a href="https://getbootstrap.com/docs/5.2/components/tooltips/" target="_blank">Bootstrap Tooltips</a>.</td>
+        </tr>
+        <tr>
+          <td>Modal</td>
+          <td>components.Modal</td>
+          <td>Abstract class for a modal that extends <a href="https://getbootstrap.com/docs/5.2/components/modal/" target="_blank">Bootstrap Modal</a>.</td>
+        </tr>
+        <tr>
+          <td>charts.PieChart</td>
+          <td>components.PieChart</td>
+          <td>Pie chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.</td>
+        </tr>
+        <tr>
+          <td>selectRef</td>
+          <td>components.selectRef</td>
+          <td>
+            Searches for HTML elements with the <code>data-ref</code> attribute.<br>
+            Returns an object whose key is the <code>data-ref</code> attribute value and whose value is the HTML element.
+          </td>
+        </tr>
+        <tr>
+          <td>Tagify</td>
+          <td>components.Tagify</td>
+          <td>Tag input component based on <a href="https://yaireo.github.io/tagify/" target="_blank">tagify</a>.</td>
+        </tr>
+        <tr>
+          <td>Toast</td>
+          <td>components.Toast</td>
+          <td>Send push notifications to visitors using toast.</td>
+        </tr>
+        <tr>
+          <td>Tree</td>
+          <td>components.Tree</td>
+          <td><code>jsTree</code> plugin-based interactive tree component. For more info please visit the plugin's <a class="me-1" href="https://www.jstree.com/" target="_blank">Home</a> or <a href="https://github.com/vakata/jstree" target="_blank">Github Repo</a>.</td>
+        </tr>
+        <tr>
+          <td>Validation</td>
+          <td>components.Validation</td>
+          <td>A form validation class based on <a href="https://formvalidation.io/" target="_blank">formvalidation.io</a>.</td>
+        </tr>
+        <tr>
+          <td colspan="3">utils</td>
+        </tr>
+        <tr>
+          <td>escapeHtml</td>
+          <td>utils.escapeHtml</td>
+          <td>Escapes HTML special characters (&amp;&#039;`&quot;&lt;&gt;).</td>
+        </tr>
+        <tr>
+          <td>fetchDataUrl</td>
+          <td>utils.fetchDataUrl</td>
+          <td>Get the fetched result as a Data URL.</td>
+        </tr>
+        <tr>
+          <td>fetchImage</td>
+          <td>utils.fetchImage</td>
+          <td>Get the fetched result as an Image object.</td>
+        </tr>
+        <tr>
+          <td>formatBytes</td>
+          <td>utils.formatBytes</td>
+          <td>Convert bytes to strings with units (KB, MB, GB, etc.).</td>
+        </tr>
+        <tr>
+          <td>getExtensionFromDataUrl</td>
+          <td>utils.getExtensionFromDataUrl</td>
+          <td>Get extension from Data URL.</td>
+        </tr>
+        <tr>
+          <td>getType</td>
+          <td>utils.getType</td>
+          <td>Get type name.</td>
+        </tr>
+        <tr>
+          <td>isAsyncFunction</td>
+          <td>utils.isAsyncFunction</td>
+          <td>Check if it is an asynchronous function.</td>
+        </tr>
+        <tr>
+          <td>isEmpty</td>
+          <td>utils.isEmpty</td>
+          <td>Check if the value is empty.</td>
+        </tr>
+        <tr>
+          <td>isFunction</td>
+          <td>utils.isFunction</td>
+          <td>Check if it is a function.</td>
+        </tr>
+        <tr>
+          <td>isPlainObject</td>
+          <td>utils.isPlainObject</td>
+          <td>Check if it is a plain object created by &quot;{}&quot; or &quot;new Object()&quot;.</td>
+        </tr>
+        <tr>
+          <td>isString</td>
+          <td>utils.isString</td>
+          <td>Check if it is a string.</td>
+        </tr>
+        <tr>
+          <td>isSymbol</td>
+          <td>utils.isSymbol</td>
+          <td>Checks if the type is Symbol.</td>
+        </tr>
+        <tr>
+          <td>numberFormat</td>
+          <td>utils.numberFormat</td>
+          <td>Number Format (Comma Separation) as per locale.</td>
+        </tr>
+        <tr>
+          <td>trim</td>
+          <td>utils.trim</td>
+          <td>Trim blanks before and after.</td>
+        </tr>
+        <tr>
+          <td>urlToMime</td>
+          <td>utils.urlToMime</td>
+          <td>Get the MIME type inferred from the extension at the end of the URL.</td>
+        </tr>
+      </tbody>
+    </table>
 
 ## [2.1.2] - 2023/11/7
 ### Changed
@@ -12,10 +220,12 @@ All notable changes to this project will be documented in this file.
     See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
 
     ```js
-    import {charts} from 'metronic-extension';
+    import {components} from 'metronic-extension';// Version 3 or higher.
+    // import {charts} from 'metronic-extension';// Version 2 or lower.
 
     // Initialize chart.
-    const piechart = new charts.PieChart(document.getElementById('piechart'), {
+    const piechart = new components.PieChart(document.getElementById('piechart'), {// Version 3 or higher.
+    // const piechart = new charts.PieChart(document.getElementById('piechart'), {// Version 2 or lower.
       ajax: {
         url: 'json/pie-chart.json'
       },
@@ -27,14 +237,14 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.1] - 2023/11/6
 ### Added
-- Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/piechart.html) to learn how to use it.
+- Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/v3/piechart.html) to learn how to use it.
 
     ![PieChart.jpg](screencaps/PieChart.jpg)
 
 ## [2.1.0] - 2023/10/30
 ### Added
 - An extended bar chart component based on [Apexcharts](https://apexcharts.com/) has been added.  
-    To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/barchart.html).
+    To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/v3/barchart.html).
 
     ![BarChart.jpg](screencaps/BarChart.jpg)
 
@@ -123,7 +333,7 @@ All notable changes to this project will be documented in this file.
     </table>
 
 ### Added
-- Added a validator function that can be used independently. Click [here](https://takuya-motoshima.github.io/metronic-extension/utilities.html#validatorFunctions) for details.
+- Added a validator function that can be used independently. Click [here](https://takuya-motoshima.github.io/metronic-extension/v3/utilities.html#validatorFunctions) for details.
 
 ## [2.0.25] - 2023/8/15
 ### Changed
@@ -432,3 +642,4 @@ All notable changes to this project will be documented in this file.
 [2.1.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.0.31...v2.1.0
 [2.1.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.0...v2.1.1
 [2.1.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.1...v2.1.2
+[3.0.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.2...v3.0.0

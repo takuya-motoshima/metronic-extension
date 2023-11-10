@@ -1,7 +1,7 @@
 import {merge} from 'deep-fusion';
 import hbs from 'handlebars-extd';
-import DropzoneOptions from '~/interfaces/DropzoneOptions';
 import isString from '~/utils/isString';
+import DropzoneOptions from '~/interfaces/DropzoneOptions';
 
 /**
  * Drag-and-drop file upload component with image preview.
@@ -18,10 +18,10 @@ import isString from '~/utils/isString';
  * 
  * JS:
  * ```js
- * import {Dropzone} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  * 
  * // Initializes Dropzone.
- * const dropzone = new Dropzone(document.getElementById('myDropzone'), {
+ * const dropzone = new components.Dropzone(document.getElementById('myDropzone'), {
  *   hiddenInputContent: document.getElementById('myFileContent'),
  *   maxFilesize: 10,
  *   dictDescriptionMessage: 'Files up to 10 MB can be uploaded',

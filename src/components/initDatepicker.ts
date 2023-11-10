@@ -1,7 +1,7 @@
 // import moment from 'moment';
 import {merge} from 'deep-fusion';
-import DatePickerOptions from '~/interfaces/DatePickerOptions';
 import isString from '~/utils/isString';
+import DatePickerOptions from '~/interfaces/DatePickerOptions';
 
 /**
  * Initialize date range picker.
@@ -32,10 +32,10 @@ import isString from '~/utils/isString';
  * 
  * JS:
  * ```js
- * import {initDatepicker} from 'metronic-extension';
+ * import {components} from 'metronic-extension';
  * 
  * // Initialize date range picker.
- * initDatepicker(document.getElementById('dateRangePicker'), {
+ * components.initDatepicker(document.getElementById('dateRangePicker'), {
  *   // Available for selection after today.
  *   minDate: moment().format('YYYY/M/D'),
  *   // Selectable only for the current month.

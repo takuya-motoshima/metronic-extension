@@ -1,13 +1,13 @@
-import {selectRef} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize icon preview modal.
 const iconPreviewModal = new bootstrap.Modal(ref.iconPreviewModal.get(0));
 
 // Escape HTML special characters.
-const escapeHtmlSpecialCharacters = html => {
+const escapeHTMLSpecialChars = html => {
   if (html == null)
     return '';
   return String(html)
@@ -41,12 +41,12 @@ $('body')
     let code;
     if (style === 'duotone') {
       const paths = parseInt(button.attr('data-icon-paths'));
-      code = escapeHtmlSpecialCharacters(`<i class="ki-duotone ki-${name}">`);
+      code = escapeHTMLSpecialChars(`<i class="ki-duotone ki-${name}">`);
       for (let i = 1; i <= paths; i++)
-        code += escapeHtmlSpecialCharacters(`\n <span class="path${i}"></span>`);
-      code += escapeHtmlSpecialCharacters("\n</i>")
+        code += escapeHTMLSpecialChars(`\n <span class="path${i}"></span>`);
+      code += escapeHTMLSpecialChars("\n</i>")
     } else
-      code = escapeHtmlSpecialCharacters(`<i class="ki-${style} ki-${name}"></i>`);
+      code = escapeHTMLSpecialChars(`<i class="ki-${style} ki-${name}"></i>`);
 
     // Set the icon name and code for the icon preview modal.
     ref.useTitle.text(name);

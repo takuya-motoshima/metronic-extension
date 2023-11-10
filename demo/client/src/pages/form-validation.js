@@ -1,10 +1,10 @@
-import {Validation, selectRef, Dialog} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Search for elements.
-const ref = selectRef();
+const ref = components.selectRef();
 
 // Initialize form validation.
-const validation = new Validation(ref.myForm, {
+const validation = new components.Validation(ref.myForm, {
   firstName: {
     validators: {
       notEmpty: {message: 'First name is required.'},
@@ -23,6 +23,6 @@ validation.onValid(async () => {
     validation.offIndicator();
 
     // Success Message.
-    Dialog.success('Form has been successfully submitted!', {confirmButtonText: 'OK, got it!'});
+    components.Dialog.success('Form has been successfully submitted!', {confirmButtonText: 'OK, got it!'});
   }, 2000);
 });

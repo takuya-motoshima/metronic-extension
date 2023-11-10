@@ -8,14 +8,14 @@ import isString from '~/utils/isString';
  * @return {string|{val: number, unit: string}} Value with units.
  * @example
    * ```js
- * import {formatBytes} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  * 
- * formatBytes(435, 2, true);// -> 435 Bytes
- * formatBytes(490398, 2, true);// -> 478.9 KB
- * formatBytes(23483023, 2, true);// -> 22.4 MB
- * formatBytes(30498505889, 2, true);// -> 28.4 GB
- * formatBytes(9485039485039445, 2, true);// -> 8.42 PB
- * formatBytes(9485039485039445);// -> {val: 8.42, unit: 'PB'}
+ * utils.formatBytes(435, 2, true);// -> 435 Bytes
+ * utils.formatBytes(490398, 2, true);// -> 478.9 KB
+ * utils.formatBytes(23483023, 2, true);// -> 22.4 MB
+ * utils.formatBytes(30498505889, 2, true);// -> 28.4 GB
+ * utils.formatBytes(9485039485039445, 2, true);// -> 8.42 PB
+ * utils.formatBytes(9485039485039445);// -> {val: 8.42, unit: 'PB'}
  * ```
  */
 export default (bytes: string|number, decimals: number = 2, asString: boolean = false): string|{val: number, unit: string} => {

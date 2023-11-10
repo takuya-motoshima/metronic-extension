@@ -4,19 +4,19 @@
  * @return {boolean} True if string, false otherwise.
  * @example
  * ```js
- * import {isString} from 'metronic-extension';
+ * import {utils} from 'metronic-extension';
  * 
- * isString('a');// -> true
- * isString(Object('a'));// -> true
+ * utils.isString('a');// -> true
+ * utils.isString(Object('a'));// -> true
  * 
- * isString([1, 2, 3]);// -> false
- * isString(true);// -> false
- * isString(new Date());// -> false
- * isString(new Error());// -> false
- * isString({0: 1, length: 1});// -> false
- * isString(1);// -> false
- * isString(/x/);// -> false
- * isString(Symbol('a'));// -> false
+ * utils.isString([1, 2, 3]);// -> false
+ * utils.isString(true);// -> false
+ * utils.isString(new Date());// -> false
+ * utils.isString(new Error());// -> false
+ * utils.isString({0: 1, length: 1});// -> false
+ * utils.isString(1);// -> false
+ * utils.isString(/x/);// -> false
+ * utils.isString(Symbol('a'));// -> false
  * ```
  */
 export default (payload: any): boolean => {

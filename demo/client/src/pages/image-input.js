@@ -1,7 +1,7 @@
-import {ImageInput} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize ImageInput.
-const basicImageInput = new ImageInput(document.getElementById('basicImageInput'), {
+const basicImageInput = new components.ImageInput(document.getElementById('basicImageInput'), {
   default: 'img/avatar1.svg',
   current: 'img/avatar2.png',
   width: 125,
@@ -20,7 +20,7 @@ basicImageInput.onChange(dataURL => {
 });
 
 // Initialize ImageInput.
-const readonlyImageInput = new ImageInput(document.getElementById('readonlyImageInput'), {
+const readonlyImageInput = new components.ImageInput(document.getElementById('readonlyImageInput'), {
   current: 'img/avatar3.png',
   readonly: true,
 });

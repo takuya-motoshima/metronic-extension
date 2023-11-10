@@ -1,7 +1,7 @@
-import {initDatepicker} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize date range picker.
-initDatepicker(document.getElementById('dateRangePicker'), {
+components.initDatepicker(document.getElementById('dateRangePicker'), {
   // Available for selection after today.
   minDate: moment().format('YYYY/M/D'),
   // Selectable only for the current month.
@@ -18,7 +18,7 @@ initDatepicker(document.getElementById('dateRangePicker'), {
 });
 
 // No initial value Initialize date range picker.
-initDatepicker(document.getElementById('noInitialValueDateRangePicker'), {
+components.initDatepicker(document.getElementById('noInitialValueDateRangePicker'), {
   // If the "autoUpdateInput" option is set to false, the initial input value will be empty.
   autoUpdateInput: false,
 });

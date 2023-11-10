@@ -1,4 +1,4 @@
-import isPhoneNumberJp from '~/validators/isPhoneNumberJp';
+import * as validators from '~/validators';
 
 describe('Valid Japanese phone numbers should be true', () => {
   test.each([
@@ -8,8 +8,8 @@ describe('Valid Japanese phone numbers should be true', () => {
     ['03-1111-1111', true],
     ['03-11111111', true],
     ['0311111111', true],
-  ])('isPhoneNumberJp("%s") = %s', (a, expected) => {
-    expect(isPhoneNumberJp(a)).toBe(expected);
+  ])('validators.isPhoneNumberJp("%s") = %s', (a, expected) => {
+    expect(validators.isPhoneNumberJp(a)).toBe(expected);
   });
 });
 
@@ -21,7 +21,7 @@ describe('Invalid Japanese phone numbers should be false', () => {
     ['03-1111-111111', false],
     ['03-11111111111', false],
     ['03111111111111', false],
-  ])('isPhoneNumberJp("%s") = %s', (a, expected) => {
-    expect(isPhoneNumberJp(a)).toBe(expected);
+  ])('validators.isPhoneNumberJp("%s") = %s', (a, expected) => {
+    expect(validators.isPhoneNumberJp(a)).toBe(expected);
   });
 });

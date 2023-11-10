@@ -1,5 +1,5 @@
 /**+
  * Package Version.
  */
-const version = '2.1.0';
+const version = '3.0.0';
 export default version;

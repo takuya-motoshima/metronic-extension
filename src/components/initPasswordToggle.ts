@@ -1,6 +1,6 @@
 import {merge} from 'deep-fusion';
-import PasswordToggleOptions from '~/interfaces/PasswordToggleOptions';
 import isString from '~/utils/isString';
+import PasswordToggleOptions from '~/interfaces/PasswordToggleOptions';
 
 /**
  * Set the password display toggle process to the click event of the action button.

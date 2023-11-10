@@ -1,4 +1,4 @@
-import isKana from '~/validators/isKana';
+import * as validators from '~/validators';
 
 describe('Valid katakana should be true', () => {
   test.each([
@@ -6,8 +6,8 @@ describe('Valid katakana should be true', () => {
     ['ﾄｳｷｮｳﾀﾜｰ', true],
     ['トウキョウﾀﾜｰ', true],
     ['トウキョウ タワー', true],
-  ])('isKana("%s") = %s', (a, expected) => {
-    expect(isKana(a)).toBe(expected);
+  ])('validators.isKana("%s") = %s', (a, expected) => {
+    expect(validators.isKana(a)).toBe(expected);
   });
 });
 
@@ -15,7 +15,7 @@ describe('Invalid katakana should be false', () => {
   test.each([
     ['東京タワー', false],
     ['トウキョウたわー', false],
-  ])('isKana("%s") = %s', (a, expected) => {
-    expect(isKana(a)).toBe(expected);
+  ])('validators.isKana("%s") = %s', (a, expected) => {
+    expect(validators.isKana(a)).toBe(expected);
   });
 });

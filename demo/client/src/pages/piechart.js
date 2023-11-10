@@ -1,7 +1,7 @@
-import {charts} from 'metronic-extension';
+import {components} from 'metronic-extension';
 
 // Initialize chart.
-const piechart = new charts.PieChart(document.getElementById('piechart'), {
+const piechart = new components.PieChart(document.getElementById('piechart'), {
   width: 400,
   ajax: {
     url: 'json/pie-chart.json'
