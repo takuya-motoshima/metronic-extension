@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 
     In V2, the import was as follows.
     ```js
-    import escapeHtml from 'metronic-extension';
+    import {escapeHtml} from 'metronic-extension';
     escapeHtml('I think this is good.');// -> I think this is good.
     ```
 
