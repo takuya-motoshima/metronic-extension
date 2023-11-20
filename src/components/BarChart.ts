@@ -88,7 +88,7 @@ export default class {
       method: this.#options.ajax.method,
       url: this.#options.ajax.url,
       // If the HTTP method is GET, set parameters in the query string; if POST or PUT, set parameters in the request body.
-      [this.#options.ajax.method === 'GET' ? 'data' : 'params']: this.#options.ajax.data ?
+      [this.#options.ajax.method === 'GET' ? 'params' : 'data']: this.#options.ajax.data ?
         (() => {
           // Execute if there is a callback set up that returns data to be sent to the server.
           const data = {};

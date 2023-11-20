@@ -14,6 +14,8 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.1] - 2023/11/20
+    - Fixed a bug that the parameters specified in the `data` option of `BarChart` and `PieChart` were not sent to the server.
 - [3.0.0] - 2023/11/10
     - Version 3 has a clearer namespace.  
         If you are updating from version 2 to 3, please change the Import statement.  

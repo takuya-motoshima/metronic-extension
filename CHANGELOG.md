@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.1] - 2023/11/20
+### Fixed
+- Fixed a bug that the parameters specified in the `data` option of `BarChart` and `PieChart` were not sent to the server.
+
 ## [3.0.0] - 2023/11/10
 ### Changed
 - Version 3 has a clearer namespace.  
@@ -643,3 +647,4 @@ All notable changes to this project will be documented in this file.
 [2.1.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.0...v2.1.1
 [2.1.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.1...v2.1.2
 [3.0.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.2...v3.0.0
+[3.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.0...v3.0.1
