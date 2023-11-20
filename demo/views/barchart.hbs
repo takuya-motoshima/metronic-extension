@@ -218,10 +218,11 @@
                         </div>
                         <!--end::Block-->
                       </li>
-                      <li class="py-2"><code>dataFormatter?: (value: string|number) =&gt; string</code>
+                      <li class="py-2"><code>xAxisFormatter?: (value: string|number) =&gt; string</code>
                         <!--begin::Block-->
                         <div class="pt-3">
-                          Callback function to change the value displayed for numeric data. This is the value of the X-axis for horizontal bars and the value of the Y-axis for vertical bars. Default is none (undefined), displaying the original value.
+                          Callback function to change the display value of the X-axis label.<br>
+                          The default is none (undefined), which displays the original value.
                         </div>
                         <!--end::Block-->
                         <!--begin::Block-->
@@ -231,7 +232,32 @@
                             <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                             <div class="highlight-code">
                               <pre class="language-javascript">
-                                <code class="language-javascript">dataFormatter: value =&gt; {
+                                <code class="language-javascript">xAxisFormatter: value =&gt; {
+  // Converts values to a locale-specific format and displays them.
+  return Number(value).toLocaleString();
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>yAxisFormatter?: (value: string|number) =&gt; string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to change the display value of the Y-axis label.<br>
+                          The default is none (undefined), which displays the original value.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">yAxisFormatter: value =&gt; {
   // Converts values to a locale-specific format and displays them.
   return Number(value).toLocaleString();
 }</code>
@@ -434,7 +460,7 @@ function initHorizontalBarChart() {
         return data.filter(item =&gt; item.category.includes(keyword));
       },
     },
-    dataFormatter: value =&gt; {
+    xAxisFormatter: value =&gt; {
       // Comma-separate the values.
       return Number(value).toLocaleString();
     },
@@ -600,7 +626,7 @@ function initVerticalBarChart() {
         return data.filter(item =&gt; item.category.includes(keyword));
       },
     },
-    dataFormatter: value =&gt; {
+    yAxisFormatter: value =&gt; {
       // Comma-separate the values.
       return Number(value).toLocaleString();
     },

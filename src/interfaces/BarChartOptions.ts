@@ -56,35 +56,47 @@ export default interface BarChartOptions {
   };
 
   /**
-    * Callback function to change the value displayed for numeric data.
-    * This is the value of the X-axis for horizontal bars and the value of the Y-axis for vertical bars.
-    * Default is none (undefined), displaying the original value.
-    * @example
-    * ```js
-    * dataFormatter: value => {
-    *   // Converts values to a locale-specific format and displays them.
-    *   return Number(value).toLocaleString();
-    * }
-    * ```
-    */
-  dataFormatter?: (value: string|number) => string;
+   * Callback function to change the display value of the X-axis label.
+   * The default is none (undefined), which displays the original value.
+   * @example
+   * ```js
+   * xAxisFormatter: value => {
+   *   // Converts values to a locale-specific format and displays them.
+   *   return Number(value).toLocaleString();
+   * }
+   * ```
+   */
+  xAxisFormatter?: (value: string|number) => string;
 
   /**
-    * Callback function to change the value displayed on the bar.
-    * Default is none (undefined), displaying the original value.
-    * @example
-    * ```js
-    * dataLabelFormatter: value => {
-    *   // Converts values to a locale-specific format and displays them.
-    *   return Number(value).toLocaleString();
-    * }
-    * ```
-    */
+   * Callback function to change the display value of the Y-axis label.
+   * The default is none (undefined), which displays the original value.
+   * @example
+   * ```js
+   * yAxisFormatter: value => {
+   *   // Converts values to a locale-specific format and displays them.
+   *   return Number(value).toLocaleString();
+   * }
+   * ```
+   */
+  yAxisFormatter?: (value: string|number) => string;
+
+  /**
+   * Callback function to change the value displayed on the bar.
+   * Default is none (undefined), displaying the original value.
+   * @example
+   * ```js
+   * dataLabelFormatter: value => {
+   *   // Converts values to a locale-specific format and displays them.
+   *   return Number(value).toLocaleString();
+   * }
+   * ```
+   */
   dataLabelFormatter?: (value: string|number) => string|number;
 
   /**
-    * A callback function that changes the value displayed in the numeric data on the tooltip.
-    * Default is none (undefined), displaying the original value.
-    */
+   * A callback function that changes the value displayed in the numeric data on the tooltip.
+   * Default is none (undefined), displaying the original value.
+   */
   tooltipDataFormatter?: (value: number) => string;
 }

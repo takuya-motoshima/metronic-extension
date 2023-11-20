@@ -23,8 +23,8 @@ export default interface DatePickerOptions {
   locale?: string;
 
   /**
-    * Date Format. Default is 'YYYY/M/D'.
-    */
+   * Date Format. Default is 'YYYY/M/D'.
+   */
   format?: string;
 
   /**
@@ -43,7 +43,7 @@ export default interface DatePickerOptions {
   };
 
   /**
-    * Indicates whether the date range picker should automatically update the value of the <input> element it's attached to at initialization and when the selected dates change. Default is true.
-    */
+   * Indicates whether the date range picker should automatically update the value of the <input> element it's attached to at initialization and when the selected dates change. Default is true.
+   */
   autoUpdateInput?: boolean;
 }

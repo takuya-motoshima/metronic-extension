@@ -62,7 +62,8 @@ export default class {
         dataSrc: undefined,
       },
       dataLabelFormatter: (value: string|number) => value,
-      dataFormatter: (value: string|number) => value,
+      xAxisFormatter: (value: string|number) => value,
+      yAxisFormatter: (value: string|number) => value,
       tooltipDataFormatter: (value: number) => value.toString(),
     }, options);
 
@@ -205,7 +206,7 @@ export default class {
             fontWeight: 'normal',
             align: 'left',
           },
-          formatter: this.#options.horizontal ? this.#options.dataFormatter : undefined,
+          formatter: this.#options.xAxisFormatter,
         },
       },
       yaxis: {
@@ -217,7 +218,7 @@ export default class {
             fontSize: '13px',
             fontWeight: 'normal'
           },
-          formatter: !this.#options.horizontal ? this.#options.dataFormatter : undefined,
+          formatter: this.#options.yAxisFormatter,
           offsetY: this.#options.horizontal ? 2 : 0,
           align: this.#options.horizontal ? 'left' : 'right',
         }

@@ -14,6 +14,9 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.2] - 2023/11/20
+    - The `dataFormatter` (axis label format) option in `BarChart` has been removed.  
+        Use the `xAxisFormatter` (X axis label format) and `yAxisFormatter` (Y axis label format) options instead.
 - [3.0.1] - 2023/11/20
     - Fixed a bug that the parameters specified in the `data` option of `BarChart` and `PieChart` were not sent to the server.
 - [3.0.0] - 2023/11/10

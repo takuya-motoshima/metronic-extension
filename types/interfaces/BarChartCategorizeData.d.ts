@@ -19,9 +19,9 @@ export default interface BarChartCategorizeData {
          */
         data: number;
         /**
-        * Bar color.
-        * Default is "#50CD89".
-        */
+         * Bar color.
+         * Default is "#50CD89".
+         */
         color: string;
     }[];
 }

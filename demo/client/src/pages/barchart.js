@@ -17,7 +17,7 @@ function initHorizontalBarChart() {
         return data.filter(item => item.category.includes(keyword));
       },
     },
-    dataFormatter: value => {
+    xAxisFormatter: value => {
       // Comma-separate the values.
       return Number(value).toLocaleString();
     },
@@ -49,7 +49,7 @@ function initVerticalBarChart() {
         return data.filter(item => item.category.includes(keyword));
       },
     },
-    dataFormatter: value => {
+    yAxisFormatter: value => {
       // Comma-separate the values.
       return Number(value).toLocaleString();
     },

@@ -7,7 +7,7 @@ export default interface IsFQDNOptions {
      */
     requireFQDNTld?: boolean;
     /**
-      * If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.
-      */
+     * If true, the validator will allow domain starting with `*.` (e.g. `*.example.com` or `*.shop.example.com`). Default is false.
+     */
     allowFQDNWildcard?: boolean;
 }

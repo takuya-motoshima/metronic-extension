@@ -3,13 +3,13 @@
  */
 export default interface BarChartSeries {
   /**
-    * Data name.
-    */
+   * Data name.
+   */
   name: string;
 
   /**
-    * Category 1-N data.
-    */
+   * Category 1-N data.
+   */
   data: number[];
 
   /**
