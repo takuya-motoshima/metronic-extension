@@ -4,7 +4,7 @@ function initHorizontalBarChart() {
   return new components.BarChart(document.getElementById('horizontalBarChart'), {
     horizontal: true,
     ajax: {
-      url: 'json/bar-chart.json',
+      url: 'json/barchart.json',
       dataSrc: data => {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -36,7 +36,7 @@ function initVerticalBarChart() {
   return new components.BarChart(document.getElementById('verticalBarChart'), {
     horizontal: false,
     ajax: {
-      url: 'json/bar-chart.json',
+      url: 'json/barchart.json',
       dataSrc: data => {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.

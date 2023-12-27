@@ -1,0 +1,611 @@
+{{!< default}}
+{{#contentFor 'title'}}LineChart{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/linechart.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#singleLine" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Single Line Chart</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#multiLine" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Multi-line chart</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Line chart based on <a href="https://apexcharts.com/" target="_blank">ApexCharts</a>.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance methods</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public constructor()</code>
+            </td>
+            <td>
+              Create a new instance of the LineChart class.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Parameters:</div>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>element: string|HTMLElement|JQuery</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    HTMLElement selector, element, or JQuery object.
+                  </div>
+                  <!--end::Block-->
+                </li>
+                <li class="py-2"><code>options: LineChartOptions</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    Chart options.
+                    <ul>
+                      <li class="py-2"><code>ajax.method?: &#039;GET&#039;|&#039;POST&#039;|&#039;PUT&#039;</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          HTTP method of the request. Default is &quot;GET&quot;.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.url: string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          URL to request. This option is required. The response must return an array of the following type. If it returns a different type, use the ajax.dataSrc option to convert it.
+                          <ul>
+                            <li class="py-2"><code>name: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Data name. This value is used in tooltips and other displays. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>category: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Category name. Data will be grouped by category and each data will be displayed in the chart as a child of the category. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>data: number</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Data Value. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>color?: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Line color. Default is &quot;#009EF7&quot;.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                          </ul>
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.data?: (data: object) =&gt; object</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to add or change data to be sent to the server. Default is none (undefined).
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">data: data =&gt; {
+  data.extra = &#039;Extra&#039;;
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>ajax.dataSrc?: (data: LineChartResponse[]|any) =&gt; LineChartResponse[]</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to add or modify data retrieved from the server. Default is none (undefined).
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">dataSrc: data =&gt; {
+  // Calculate and display data totals.
+  const total = data.reduce((total, item) =&gt; {
+    return total + item.data;
+  }, 0);
+  document.getElementById(&#039;total&#039;).textContent = total;
+
+  // Returns data to be drawn on the chart.
+  return data;
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>xAxisFormatter?: (value: string|number) =&gt; string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to change the display value of the X-axis label.<br>
+                          The default is none (undefined), which displays the original value.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">xAxisFormatter: value =&gt; {
+  // Converts values to a locale-specific format and displays them.
+  return Number(value).toLocaleString();
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>yAxisFormatter?: (value: string|number) =&gt; string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          Callback function to change the display value of the Y-axis label.<br>
+                          The default is none (undefined), which displays the original value.
+                        </div>
+                        <!--end::Block-->
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          <!--begin::Highlight-->
+                          <div class="highlight">
+                            <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+                            <div class="highlight-code">
+                              <pre class="language-javascript">
+                                <code class="language-javascript">yAxisFormatter: value =&gt; {
+  // Converts values to a locale-specific format and displays them.
+  return Number(value).toLocaleString();
+}</code>
+                              </pre>
+                            </div>
+                          </div>
+                          <!--end::Highlight-->
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                      <li class="py-2"><code>tooltipDataFormatter?: (value: number) =&gt; string</code>
+                        <!--begin::Block-->
+                        <div class="pt-3">
+                          A callback function that changes the value displayed in the numeric data on the tooltip. Default is none (undefined), displaying the original value.
+                        </div>
+                        <!--end::Block-->
+                      </li>
+                    </ul>
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public reload()</code>
+            </td>
+            <td>
+              Redraw the chart.
+              <!--begin::Heading-->
+              <div class="py-3 text-gray-700">Return value:</div>
+              <!--end::Heading-->
+              <!--begin::Return-->
+              <ul class="list-style-none">
+                <li class="py-2"><code>Promise&lt;void&gt;</code></li>
+              </ul>
+              <!--end::Return-->
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Instance properties</div>
+    <!--end::Heading-->
+    <!--begin::Table wrapper-->
+    <div class="table-responsive">
+      <!--begin::Table-->
+      <table class="table table-row-bordered mb-0 gy-5">
+        <!--begin::Head-->
+        <thead>
+          <tr class="p-6">
+            <th class="min-w-250px">Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <!--end::Head-->
+        <!--begin::Body-->
+        <tbody>
+          <tr>
+            <td>
+              <code>public instance: ApexCharts|undefined</code>
+            </td>
+            <td>
+              Read-only ApexCharts instance.
+            </td>
+          </tr>
+        </tbody>
+        <!--end::Body-->
+      </table>
+      <!--end::Table-->
+    </div>
+    <!--end::Table wrapper-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="singleLine" data-kt-scroll-offset="100">
+    <a href="#singleLine"></a>Single Line Chart
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Chart-->
+      <div id="singleLineChart"></div>
+      <!--end::Chart-->
+    </div>
+  </div>  
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#singleLineChartHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#singleLineChartJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#singleLineChartAjaxTab" role="tab">AJAX</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="singleLineChartHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;div id=&quot;singleLineChart&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="singleLineChartJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
+
+// Initialize chart.
+const singleLineChart = new components.LineChart(document.getElementById(&#039;singleLineChart&#039;), {
+  ajax: {
+    url: &#039;json/single-linechart.json&#039;,
+  },
+  yAxisFormatter: value =&gt; {
+    // Comma-separate the values.
+    return `${Number(value).toLocaleString()} items`;
+  },
+  tooltipDataFormatter: value =&gt; {
+    // Comma-separate the values and add units.
+    return `${Number(value).toLocaleString()} items`;
+  },
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="singleLineChartAjaxTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 04&quot;, &quot;data&quot;: 190},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 05&quot;, &quot;data&quot;: 230},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 06&quot;, &quot;data&quot;: 230},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 09&quot;, &quot;data&quot;: 200},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 10&quot;, &quot;data&quot;: 200},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 12&quot;, &quot;data&quot;: 190},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 14&quot;, &quot;data&quot;: 190},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 17&quot;, &quot;data&quot;: 200},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 18&quot;, &quot;data&quot;: 200},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 20&quot;, &quot;data&quot;: 220},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 22&quot;, &quot;data&quot;: 220},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 24&quot;, &quot;data&quot;: 200},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 26&quot;, &quot;data&quot;: 200},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 28&quot;, &quot;data&quot;: 210},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;May 30&quot;, &quot;data&quot;: 210}
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="multiLine" data-kt-scroll-offset="100">
+    <a href="#multiLine"></a>Multi-line chart
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    <div class="demonstration-block">
+      <!--begin::Wrapper-->
+      <div class="d-flex flex-stack flex-wrap mb-5">
+        <!--begin::Search-->
+        <div class="d-flex align-items-center position-relative my-1 mb-2 mb-md-0">
+          <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+          <span class="svg-icon svg-icon-1 position-absolute ms-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+              <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+          <input id="multiLineChartKeyword" type="text" class="form-control form-control-solid w-300px ps-15" placeholder="Search by name e.g. Series1" maxlength="20" />
+        </div>
+        <!--end::Search-->
+      </div>
+      <!--end::Wrapper-->
+      <!--begin::Chart-->
+      <div id="multiLineChart"></div>
+      <!--end::Chart-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#multiLineChartHtmlTab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#multiLineChartJsTab" role="tab">JAVASCRIPT</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#multiLineChartAjaxTab" role="tab">AJAX</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="multiLineChartHtmlTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Wrapper--&gt;
+&lt;div class=&quot;d-flex flex-stack flex-wrap mb-5&quot;&gt;
+  &lt;!--begin::Search--&gt;
+  &lt;div class=&quot;d-flex align-items-center position-relative my-1 mb-2 mb-md-0&quot;&gt;
+    &lt;!--begin::Svg Icon | path: icons/duotune/general/gen021.svg--&gt;
+    &lt;span class=&quot;svg-icon svg-icon-1 position-absolute ms-4&quot;&gt;
+      &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;rect opacity=&quot;0.5&quot; x=&quot;17.0365&quot; y=&quot;15.1223&quot; width=&quot;8.15546&quot; height=&quot;2&quot; rx=&quot;1&quot; transform=&quot;rotate(45 17.0365 15.1223)&quot; fill=&quot;currentColor&quot; /&gt;
+        &lt;path d=&quot;M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z&quot; fill=&quot;currentColor&quot; /&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;!--end::Svg Icon--&gt;
+    &lt;input id=&quot;multiLineChartKeyword&quot; type=&quot;text&quot; class=&quot;form-control form-control-solid w-300px ps-15&quot; placeholder=&quot;Search by name e.g. Series1&quot; maxlength=&quot;20&quot; /&gt;
+  &lt;/div&gt;
+  &lt;!--end::Search--&gt;
+&lt;/div&gt;
+&lt;!--end::Wrapper--&gt;
+&lt;!--begin::Chart--&gt;
+&lt;div id=&quot;multiLineChart&quot;&gt;&lt;/div&gt;
+&lt;!--end::Chart--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="multiLineChartJsTab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
+
+function initMultiLineChart() {
+  return new components.LineChart(document.getElementById(&#039;multiLineChart&#039;), {
+    ajax: {
+      url: &#039;json/multi-linechart.json&#039;,
+      dataSrc: data =&gt; {
+        // Filter chart data by categories matching the entered keywords.
+        // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
+        const keyword = multiLineChartKeyword.value.replace(/^[\s　]+|[\s　]+$/g, &#039;&#039;);
+        if (!keyword)
+          // If the keyword is empty, all data is displayed.
+          return data;
+
+        // Return only data with keywords in the name.
+        return data.filter(item =&gt; item.name.includes(keyword));
+      },
+    },
+    yAxisFormatter: value =&gt; {
+      // Comma-separate the values.
+      return `${Number(value).toLocaleString()} items`;
+    },
+    tooltipDataFormatter: value =&gt; {
+      // Comma-separate the values and add units.
+      return `${Number(value).toLocaleString()} items`;
+    },
+  });
+}
+
+function initMultiLineChartSearchForm() {
+  // Timer to prevent duplicate filtering runs.
+ let searchTimer;
+  multiLineChartKeyword.addEventListener(&#039;input&#039;, () =&gt; {
+    // Cancel a reserved filtering request.
+    if (searchTimer)
+      clearTimeout(searchTimer);
+
+    // Scheduled filtering runs.
+    searchTimer = setTimeout(() =&gt; {
+      // Filtering chart data.
+      multiLineChart.reload();
+    }, 1000);
+  });
+}
+
+// Search keyword input field.
+const multiLineChartKeyword = document.getElementById(&#039;multiLineChartKeyword&#039;);
+
+// Initialize chart.
+const multiLineChart = initMultiLineChart();
+
+// Initialize events, etc.
+initMultiLineChartSearchForm();</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="multiLineChartAjaxTab" role="tabpanel">
+          <!--begin::Block-->
+          <div class="py-5">This chart loads data via Ajax. The latest data loaded is shown below.</div>
+          <!--end::Block-->
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">[
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;01:00&quot;, &quot;data&quot;: 50, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;02:00&quot;, &quot;data&quot;: 50, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;03:00&quot;, &quot;data&quot;: 100, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;04:00&quot;, &quot;data&quot;: 50, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;05:00&quot;, &quot;data&quot;: 50, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;06:00&quot;, &quot;data&quot;: 90, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;07:00&quot;, &quot;data&quot;: 70, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;08:00&quot;, &quot;data&quot;: 80, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;09:00&quot;, &quot;data&quot;: 70, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;10:00&quot;, &quot;data&quot;: 70, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;11:00&quot;, &quot;data&quot;: 60, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;12:00&quot;, &quot;data&quot;: 60, &quot;color&quot;: &quot;#009EF7&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;01:00&quot;, &quot;data&quot;: 20, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;02:00&quot;, &quot;data&quot;: 40, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;03:00&quot;, &quot;data&quot;: 30, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;04:00&quot;, &quot;data&quot;: 40, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;05:00&quot;, &quot;data&quot;: 30, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;06:00&quot;, &quot;data&quot;: 10, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;07:00&quot;, &quot;data&quot;: 20, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;08:00&quot;, &quot;data&quot;: 40, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;09:00&quot;, &quot;data&quot;: 10, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;10:00&quot;, &quot;data&quot;: 40, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;11:00&quot;, &quot;data&quot;: 10, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;12:00&quot;, &quot;data&quot;: 20, &quot;color&quot;: &quot;#50CD89&quot;}
+]</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

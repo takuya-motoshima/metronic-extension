@@ -132,7 +132,7 @@ export default class {
     const series = this.#createSeriesData(categorized);
 
     // Bar color.
-    const colors = series.map(({color}) => color);
+    const barColors = series.map(({color}) => color);
 
     // Category Name.
     const categories = categorized.map(({category}) => category);
@@ -185,7 +185,7 @@ export default class {
         },
         formatter: this.#options.dataLabelFormatter,
       },
-      colors,
+      colors: barColors,
       xaxis: {
         categories,
         axisBorder: {
@@ -257,36 +257,33 @@ export default class {
    * ```js
    * // Chart data retrieved from the server.
    * const data = [
-   *   {category: 'category-1', name: 'series-1', color: '#50cd89', data: 1},
-   *   {category: 'category-1', name: 'series-2', color: '#f1416c', data: 2},
-   *   {category: 'category-2', name: 'series-1', color: '#50cd89', data: 3},
-   *   {category: 'category-2', name: 'series-2', color: '#f1416c', data: 4},
+   *   {name: 'Series1', category: 'Category1', data: 1, color: '#50CD89'},
+   *   {name: 'Series2', category: 'Category1', data: 2, color: '#F1416C'},
+   *   {name: 'Series1', category: 'Category2', data: 3, color: '#50CD89'},
+   *   {name: 'Series2', category: 'Category2', data: 4, color: '#F1416C'},
    * ];
    * 
    * // Chart data retrieved from the server is grouped by category.
    * const categorized = this.#categorizeData(data);
    * // categorized: [
    * //   {
-   * //     category: 'category-1',
+   * //     category: 'Category1',
    * //     data: [
-   * //       {name: 'series-1', color: '#50cd89', data: 1},
-   * //       {name: 'series-2', color: '#f1416c', data: 2}
+   * //       {name: 'Series1', data: 1, color: '#50CD89'},
+   * //       {name: 'Series2', data: 2, color: '#F1416C'}
    * //     ]
    * //   },
    * //   {
-   * //     category: 'category-2',
+   * //     category: 'Category2',
    * //     data: [
-   * //       {name: 'series-1', color: '#50cd89', data: 3},
-   * //       {name: 'series-2', color: '#f1416c', data: 4}
+   * //       {name: 'Series1', data: 3, color: '#50CD89'},
+   * //       {name: 'Series2', data: 4, color: '#F1416C'}
    * //     ]
    * //   }
    * // ]
    * ```
    */
   #categorizeData(data: BarChartResponse[]): BarChartCategorizeData[] {
-    // Default bar color.
-    const defaultBarColor = '#50CD89';
-
     // Sort data in ascending order by category and name.
     data.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 
@@ -305,11 +302,14 @@ export default class {
       // Get the index of registered items that matches the current name.
       let nameIndex = categorized[categoryIndex].data.findIndex(item => item.name === raw.name);
       if (nameIndex === -1) {
+        // Default bar color.
+        const barColor = '#009EF7';
+
         // If there is no matching item, create it.
         categorized[categoryIndex].data.push({
           name: raw.name,
           data: 0,
-          color: raw.color || defaultBarColor,
+          color: raw.color || barColor,
         });
 
         // Get the index of the created item.
@@ -329,17 +329,17 @@ export default class {
    * // Chart data grouped by category.
    * const categorized = [
    *   {
-   *     category: 'category-1',
+   *     category: 'Category1',
    *     data: [
-   *       {name: 'series-1', color: '#50cd89', data: 1},
-   *       {name: 'series-2', color: '#f1416c', data: 2}
+   *       {name: 'Series1', data: 1, color: '#50CD89'},
+   *       {name: 'Series2', data: 2, color: '#F1416C'}
    *     ]
    *   },
    *   {
-   *     category: 'category-2',
+   *     category: 'Category2',
    *     data: [
-   *       {name: 'series-1', color: '#50cd89', data: 3},
-   *       {name: 'series-2', color: '#f1416c', data: 4}
+   *       {name: 'Series1', data: 3, color: '#50CD89'},
+   *       {name: 'Series2', data: 4, color: '#F1416C'}
    *     ]
    *   }
    * ];
@@ -348,13 +348,13 @@ export default class {
    * const series = this.#createSeriesData(categorized);
    * // series: [
    * //   {
-   * //     name: 'series-1',
-   * //     color: '#50cd89',
-   * //     data: [1, 3]
+   * //     name: 'Series1',
+   * //     data: [1, 3],
+   * //     color: '#50CD89'
    * //   }, {
-   * //     name: 'series-2',
-   * //     color: '#f1416c',
-   * //     data: [2, 4]
+   * //     name: 'Series2',
+   * //     data: [2, 4],
+   * //     color: '#F1416C'
    * //   }
    * // ]
    * ```

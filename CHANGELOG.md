@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.3] - 2023/12/27
+### Added
+- Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
+  
+    ![LineChart.jpg](screencaps/LineChart.jpg)
+
 ## [3.0.2] - 2023/11/20
 ### Changed
 - The `dataFormatter` (axis label format) option in `BarChart` has been removed.  
@@ -236,7 +242,7 @@ All notable changes to this project will be documented in this file.
     const piechart = new components.PieChart(document.getElementById('piechart'), {// Version 3 or higher.
     // const piechart = new charts.PieChart(document.getElementById('piechart'), {// Version 2 or lower.
       ajax: {
-        url: 'json/pie-chart.json'
+        url: 'json/piechart.json'
       },
     });
 
@@ -654,3 +660,4 @@ All notable changes to this project will be documented in this file.
 [3.0.0]: https://github.com/takuya-motoshima/metronic-extension/compare/v2.1.2...v3.0.0
 [3.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.0...v3.0.1
 [3.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.1...v3.0.2
+[3.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.2...v3.0.3

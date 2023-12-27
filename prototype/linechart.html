@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<!--begin::Head-->
+<head>
+  <title>Prototype line chart</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>      
+  <!--begin::Fonts(mandatory for all pages)-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>        <!--end::Fonts-->
+  <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+  <link href="plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+  <link href="css/style.bundle.css" rel="stylesheet" type="text/css"/>
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body>
+  <!--begin::Chart-->
+  <div id="chart1" class="h-300px w-100 min-h-auto"></div>
+  <!--end::Chart-->
+  <!--begin::Chart-->
+  <div id="chart2" class="h-300px w-100 min-h-auto"></div>
+  <!--end::Chart-->
+  <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+  <script src="plugins/global/plugins.bundle.js"></script>
+  <script src="js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Custom Javascript(used for this page only)-->
+  <script>
+    function initChart(element, data, options = null) {
+      // Initialize options.
+      options = Object.assign({
+        xAxisFormatter: value => value,
+        yAxisFormatter: value => value,
+        tooltipDataFormatter: value => value.toString(),
+      }, options);
+
+      // Get colors used in charts from theme CSS.
+      const labelColor = KTUtil.getCssVariableValue('--bs-gray-800');
+      const borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
+      const strokeColor = KTUtil.getCssVariableValue('--bs-gray-500');
+
+      // Chart Height.
+      const height = parseInt(getComputedStyle(element).getPropertyValue('height'), 10) || 300;
+
+      // Chart data retrieved from the server is grouped by category.
+      const categorized = categorizeData(data);
+
+      // Create series data.
+      const series = createSeriesData(categorized);
+      
+      // Line color.
+      const lineColors = series.map(({color}) => color);
+
+      // Category Name.
+      const categories = categorized.map(({category}) => category);
+
+      // Maximum and minimum values on the Y-axis.
+      const yAxisMax = Math.max(...data.map(({data}) => data));
+      const yAxisMin = Math.min(...data.map(({data}) => data));
+
+      // Drawing a chart.
+      const chart = new ApexCharts(element, {
+        series: series.map(({name, data}) => ({name, data})),
+        chart: {
+          fontFamily: 'inherit',
+          type: 'area',
+          height: height,
+          toolbar: {
+            show: false
+          }
+        },
+        legend: {
+          show: false
+        },
+        dataLabels: {
+          enabled: false
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.4,
+            opacityTo: 0,
+            // stops: []
+          }
+        },
+        stroke: {
+          curve: 'smooth',
+          show: true,
+          width: 3,
+          colors: lineColors,
+        },
+        xaxis: {
+          categories,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false
+          },
+          // Number of Tick Intervals to show.
+          tickAmount: categorized.length,
+          labels: {
+            rotate: -45,
+            rotateAlways: false,
+            style: {
+              colors: labelColor,
+              fontSize: '12px'
+            },
+            formatter: options.xAxisFormatter,
+          },
+          // Show crosshairs on x-axis when user moves the mouse over chart area.
+          crosshairs: {
+            position: 'front',
+            stroke: {
+              color: strokeColor,
+              width: 1,
+              dashArray: 3
+            }
+          },
+          tooltip: {
+            enabled: true,
+            formatter: undefined,
+            offsetY: 0,
+            style: {
+              fontSize: '12px'
+            }
+          }
+        },
+        yaxis: {
+          max: yAxisMax,
+          min: yAxisMin,
+          // If set to true, the y-axis scales are forced to generate nice looking rounded numbers even when min/max are provided. Turn this off if you manually set min/max and want it to be unchanged.
+          forceNiceScale: true,
+          // // Number of Tick Intervals to show. The number of labels to be displayed on the Y-axis is set to the result of the "chart height/Y-axis label height" calculation.
+          // tickAmount: Math.ceil(height / 22.4),
+          labels: {
+            style: {
+              colors: labelColor,
+              fontSize: '12px'
+            },
+            formatter: options.yAxisFormatter,
+          }
+        },
+        states: {
+          normal: {
+            filter: {
+              type: 'none',
+              value: 0
+            }
+          },
+          hover: {
+            filter: {
+              type: 'none',
+              value: 0
+            }
+          },
+          active: {
+            allowMultipleDataPointsSelection: false,
+            filter: {
+              type: 'none',
+              value: 0
+            }
+          }
+        },
+        tooltip: {
+          style: {
+            fontSize: '12px'
+          },
+          y: {
+            formatter: options.tooltipDataFormatter,
+          }
+        },
+        colors: lineColors,
+        grid: {
+          borderColor,
+          strokeDashArray: 4,
+          yaxis: {
+            lines: {
+              show: true
+            }
+          }
+        },
+        markers: {
+          strokeColor: lineColors,
+          strokeWidth: 3
+        },
+      });
+      chart.render();
+    }
+
+    function categorizeData(data) {
+      // Sort data in ascending order by category and name.
+      data.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+
+      // Grouping data by category.
+      return data.reduce((categorized, raw) => {
+        // Get an index of registered items that match the current category.
+        let categoryIndex = categorized.findIndex(item => item.category === raw.category);
+        if (categoryIndex === -1) {
+          // If there is no matching item, create it.
+          categorized.push({category: raw.category, data: []});
+
+          // Get the index of the created item.
+          categoryIndex = categorized.length - 1;
+        }
+
+        // Get the index of registered items that matches the current name.
+        let nameIndex = categorized[categoryIndex].data.findIndex(item => item.name === raw.name);
+        if (nameIndex === -1) {
+          // Default line color.
+          const lineColor = '#009EF7';
+
+          // If there is no matching item, create it.
+          categorized[categoryIndex].data.push({
+            name: raw.name,
+            data: 0,
+            color: raw.color || lineColor,
+          });
+
+          // Get the index of the created item.
+          nameIndex = categorized[categoryIndex].data.length - 1;
+        }
+        categorized[categoryIndex].data[nameIndex].data = raw.data;
+        return categorized;
+      }, []);
+    }
+
+    function createSeriesData(categorized) {
+      // Map to get name index.
+      const indexOfNames = categorized.reduce((indexOfNames, raw) => {
+        for (let data of raw.data)
+          if (!indexOfNames.hasOwnProperty(data.name))
+            indexOfNames[data.name] = {
+              index: Object.keys(indexOfNames).length,
+              color: data.color,
+            };
+        return indexOfNames;
+      }, {});
+
+      // Map to get category index.
+      const indexOfCategories = categorized.reduce((indexOfCategories, raw) => {
+        if (!indexOfCategories.hasOwnProperty(raw.category))
+          indexOfCategories[raw.category] = Object.keys(indexOfCategories).length;
+        return indexOfCategories;
+      }, {});
+
+      // Create chart drawing data.
+      const series = Object.entries(indexOfNames).map(([name, {index, color}]) => ({
+        name,
+        data: Array(Object.keys(indexOfCategories).length).fill(0),
+        color,
+      }));
+      for (let categoryItem of categorized)
+        for (let item of categoryItem.data)
+          series[indexOfNames[item.name].index].data[indexOfCategories[categoryItem.category]] = item.data;
+      return series;
+    }
+
+    initChart(
+      document.getElementById('chart1'),
+      [
+        {"name": "Series1", "category": "May 04", "data": 190},
+        {"name": "Series1", "category": "May 05", "data": 230},
+        {"name": "Series1", "category": "May 06", "data": 230},
+        {"name": "Series1", "category": "May 09", "data": 200},
+        {"name": "Series1", "category": "May 10", "data": 200},
+        {"name": "Series1", "category": "May 12", "data": 190},
+        {"name": "Series1", "category": "May 14", "data": 190},
+        {"name": "Series1", "category": "May 17", "data": 200},
+        {"name": "Series1", "category": "May 18", "data": 200},
+        {"name": "Series1", "category": "May 20", "data": 220},
+        {"name": "Series1", "category": "May 22", "data": 220},
+        {"name": "Series1", "category": "May 24", "data": 200},
+        {"name": "Series1", "category": "May 26", "data": 200},
+        {"name": "Series1", "category": "May 28", "data": 210},
+        {"name": "Series1", "category": "May 30", "data": 210},
+      ],
+      {
+        yAxisFormatter: value => {
+          return `${value} items`;
+        }
+      }
+    );
+    initChart(
+      document.getElementById('chart2'),
+      [
+        {"name": "Series1", "category": "01:00", "data": 50, "color": "#009EF7"},
+        {"name": "Series1", "category": "02:00", "data": 50, "color": "#009EF7"},
+        {"name": "Series1", "category": "03:00", "data": 100, "color": "#009EF7"},
+        {"name": "Series1", "category": "04:00", "data": 50, "color": "#009EF7"},
+        {"name": "Series1", "category": "05:00", "data": 50, "color": "#009EF7"},
+        {"name": "Series1", "category": "06:00", "data": 90, "color": "#009EF7"},
+        {"name": "Series1", "category": "07:00", "data": 70, "color": "#009EF7"},
+        {"name": "Series1", "category": "08:00", "data": 80, "color": "#009EF7"},
+        {"name": "Series1", "category": "09:00", "data": 70, "color": "#009EF7"},
+        {"name": "Series1", "category": "10:00", "data": 70, "color": "#009EF7"},
+        {"name": "Series1", "category": "11:00", "data": 60, "color": "#009EF7"},
+        {"name": "Series1", "category": "12:00", "data": 60, "color": "#009EF7"},
+        {"name": "Series2", "category": "01:00", "data": 20, "color": "#50CD89"},
+        {"name": "Series2", "category": "02:00", "data": 40, "color": "#50CD89"},
+        {"name": "Series2", "category": "03:00", "data": 30, "color": "#50CD89"},
+        {"name": "Series2", "category": "04:00", "data": 40, "color": "#50CD89"},
+        {"name": "Series2", "category": "05:00", "data": 30, "color": "#50CD89"},
+        {"name": "Series2", "category": "06:00", "data": 10, "color": "#50CD89"},
+        {"name": "Series2", "category": "07:00", "data": 20, "color": "#50CD89"},
+        {"name": "Series2", "category": "08:00", "data": 40, "color": "#50CD89"},
+        {"name": "Series2", "category": "09:00", "data": 10, "color": "#50CD89"},
+        {"name": "Series2", "category": "10:00", "data": 40, "color": "#50CD89"},
+        {"name": "Series2", "category": "11:00", "data": 10, "color": "#50CD89"},
+        {"name": "Series2", "category": "12:00", "data": 20, "color": "#50CD89"},
+      ],
+      {
+        yAxisFormatter: value => {
+          return `${value} items`;
+        },
+        tooltipDataFormatter: value => {
+          return `${value} items`;
+        },
+      }
+    );
+  </script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

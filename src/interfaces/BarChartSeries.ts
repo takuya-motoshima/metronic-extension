@@ -14,7 +14,7 @@ export default interface BarChartSeries {
 
   /**
    * Bar color.
-   * Default is "#50CD89".
+   * Default is "#009EF7".
    */
   color: string;
 }

@@ -138,13 +138,13 @@ children: node =&gt; {
   // This is an example of simply retrieving tree data in JSON without using the server side.
   if (node.id === &#039;#&#039;)
     // If the node ID is &quot;#&quot;, the data of the root node itself is returned.
-    return &#039;root-itself.json&#039;;
+    return &#039;tree-root-itself.json&#039;;
   else if (node.id == 1)
     // If the node ID is &quot;1&quot;, the data of the child node associated with the root node (ID=1) is returned.
-    return &#039;roots-children.json&#039;;
+    return &#039;tree-roots-children.json&#039;;
   else if (node.id == 2)
     // If the node ID is &quot;2&quot;, the data of the child node (ID=2) associated with the child1 node is returned.
-    return &#039;child1s-children.json&#039;;
+    return &#039;tree-child1s-children.json&#039;;
 }
 
 // Added data to be sent.
@@ -161,13 +161,13 @@ children: {
     // This is an example of simply retrieving tree data in JSON without using the server side.
     if (node.id === &#039;#&#039;)
       // If the node ID is &quot;#&quot;, the data of the root node itself is returned.
-      return &#039;root-itself.json&#039;;
+      return &#039;tree-root-itself.json&#039;;
     else if (node.id == 1)
       // If the node ID is &quot;1&quot;, the data of the child node associated with the root node (ID=1) is returned.
-      return &#039;roots-children.json&#039;;
+      return &#039;tree-roots-children.json&#039;;
     else if (node.id == 2)
       // If the node ID is &quot;2&quot;, the data of the child node (ID=2) associated with the child1 node is returned.
-      return &#039;child1s-children.json&#039;;
+      return &#039;tree-child1s-children.json&#039;;
   }
   data: (data, node) =&gt; {
     data.extra = &#039;Extra&#039;;
@@ -1066,13 +1066,13 @@ const basicTree = new components.Tree(document.getElementById(&#039;basicTree&#0
       // This is an example of simply retrieving tree data in JSON without using the server side.
       if (node.id === &#039;#&#039;)
         // If the node ID is &quot;#&quot;, the data of the root node itself is returned.
-        return &#039;json/root-itself.json&#039;;
+        return &#039;json/tree-root-itself.json&#039;;
       else if (node.id == 1)
         // If the node ID is &quot;1&quot;, the data of the child node associated with the root node (ID=1) is returned.
-        return &#039;json/roots-children.json&#039;;
+        return &#039;json/tree-roots-children.json&#039;;
       else if (node.id == 2)
         // If the node ID is &quot;2&quot;, the data of the child node (ID=2) associated with the child1 node is returned.
-        return &#039;json/child1s-children.json&#039;;
+        return &#039;json/tree-child1s-children.json&#039;;
     },
   },
   readonly: true,
@@ -1103,7 +1103,7 @@ basicTree
         <!--begin::Tab panel-->
         <div class="tab-pane fade" id="basicRootItselfJsonTab" role="tabpanel">
           <!--begin::Block-->
-          <div class="py-5">This root node of the tree loads data by Ajax (root-itself.json). The latest data that has been loaded is shown below. This data will update automatically as any additional data is loaded.</div>
+          <div class="py-5">This root node of the tree loads data by Ajax (tree-root-itself.json). The latest data that has been loaded is shown below. This data will update automatically as any additional data is loaded.</div>
           <!--end::Block-->
           <div class="highlight-code">
             <pre class="language-javascript">
@@ -1123,7 +1123,7 @@ basicTree
         <!--begin::Tab panel-->
         <div class="tab-pane fade" id="basicRootChildrenJsonTab" role="tabpanel">
           <!--begin::Block-->
-          <div class="py-5">Child nodes associated with the route of the tree loads data by Ajax (roots-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
+          <div class="py-5">Child nodes associated with the route of the tree loads data by Ajax (tree-roots-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
           <!--end::Block-->
           <div class="highlight-code">
             <pre class="language-javascript">
@@ -1150,7 +1150,7 @@ basicTree
         <!--begin::Tab panel-->
         <div class="tab-pane fade" id="basicChild1ChildrenJsonTab" role="tabpanel">
           <!--begin::Block-->
-          <div class="py-5">Child nodes associated with Child1 of the tree loads data by Ajax (child1s-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
+          <div class="py-5">Child nodes associated with Child1 of the tree loads data by Ajax (tree-child1s-children.json). The latest data that has been loaded is shown below. This data will update automatically as any additional </div>
           <!--end::Block-->
           <div class="highlight-code">
             <pre class="language-javascript">

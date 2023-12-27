@@ -3,18 +3,18 @@
  */
 export default interface BarChartResponse {
   /**
-   * Category name.
-   * Data will be grouped by category and each data will be displayed in the chart as a child of the category.
-   * This option is required.
-   */
-  category: string;
-
-  /**
    * Data name.
    * This value is used in tooltips and other displays.
    * This option is required.
    */
   name: string;
+
+  /**
+   * Category name.
+   * Data will be grouped by category and each data will be displayed in the chart as a child of the category.
+   * This option is required.
+   */
+  category: string;
 
   /**
    * Data Value.
@@ -24,7 +24,7 @@ export default interface BarChartResponse {
 
   /**
    * Bar color.
-   * Default is "#50CD89".
+   * Default is "#009EF7".
    */
   color?: string;
 };

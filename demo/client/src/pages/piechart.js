@@ -4,6 +4,6 @@ import {components} from 'metronic-extension';
 const piechart = new components.PieChart(document.getElementById('piechart'), {
   width: 400,
   ajax: {
-    url: 'json/pie-chart.json'
+    url: 'json/piechart.json'
   },
 });

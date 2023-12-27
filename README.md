@@ -14,6 +14,11 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.3] - 2023/12/27
+    - Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
+    
+        ![LineChart.jpg](screencaps/LineChart.jpg)
+
 - [3.0.2] - 2023/11/20
     - The `dataFormatter` (axis label format) option in `BarChart` has been removed.  
         Use the `xAxisFormatter` (X axis label format) and `yAxisFormatter` (Y axis label format) options instead.
@@ -36,7 +41,7 @@ All changes can be found [here](CHANGELOG.md).
         const piechart = new components.PieChart(document.getElementById('piechart'), {// Version 3 or higher.
         // const piechart = new charts.PieChart(document.getElementById('piechart'), {// Version 2 or lower.
           ajax: {
-            url: 'json/pie-chart.json'
+            url: 'json/piechart.json'
           },
         });
 

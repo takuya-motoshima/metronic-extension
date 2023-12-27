@@ -798,17 +798,17 @@
                         <div class="pt-3">
                           URL to request. This option is required. The response must return an array of the following type. If it returns a different type, use the ajax.dataSrc option to convert it.
                           <ul>
-                            <li class="py-2"><code>category: string</code>
-                              <!--begin::Block-->
-                              <div class="pt-3">
-                                Category name. Data will be grouped by category and each data will be displayed in the chart as a child of the category. This option is required.
-                              </div>
-                              <!--end::Block-->
-                            </li>
                             <li class="py-2"><code>name: string</code>
                               <!--begin::Block-->
                               <div class="pt-3">
                                 Data name. This value is used in tooltips and other displays. This option is required.
+                              </div>
+                              <!--end::Block-->
+                            </li>
+                            <li class="py-2"><code>category: string</code>
+                              <!--begin::Block-->
+                              <div class="pt-3">
+                                Category name. Data will be grouped by category and each data will be displayed in the chart as a child of the category. This option is required.
                               </div>
                               <!--end::Block-->
                             </li>
@@ -1086,7 +1086,7 @@ function initHorizontalBarChart() {
   return new charts.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
     horizontal: true,
     ajax: {
-      url: &#039;json/bar-chart.json&#039;,
+      url: &#039;json/barchart.json&#039;,
       dataSrc: data =&gt; {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -1150,12 +1150,12 @@ initHorizontalBarChartSearchForm();</code>
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">[
-  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
-  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
-  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
-  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
-  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
-  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580}
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;Category1&quot;, &quot;data&quot;: 400, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;Category2&quot;, &quot;data&quot;: 448, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;Category3&quot;, &quot;data&quot;: 540, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;Category1&quot;, &quot;data&quot;: 430, &quot;color&quot;: &quot;#7239EA&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;Category2&quot;, &quot;data&quot;: 470, &quot;color&quot;: &quot;#7239EA&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;Category3&quot;, &quot;data&quot;: 580, &quot;color&quot;: &quot;#7239EA&quot;}
 ]</code>
             </pre>
           </div>
@@ -1252,7 +1252,7 @@ function initVerticalBarChart() {
   return new charts.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
     horizontal: false,
     ajax: {
-      url: &#039;json/bar-chart.json&#039;,
+      url: &#039;json/barchart.json&#039;,
       dataSrc: data =&gt; {
         // Filter chart data by categories matching the entered keywords.
         // Normally, use the ajax.data option to set the keywords as request parameters and perform the filtering on the server side.
@@ -1316,12 +1316,12 @@ initVerticalBarChartSearchForm();</code>
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">[
-  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 400},
-  {&quot;category&quot;: &quot;category-1&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 430},
-  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 448},
-  {&quot;category&quot;: &quot;category-2&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 470},
-  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-1&quot;, &quot;color&quot;: &quot;#50cd89&quot;, &quot;data&quot;: 540},
-  {&quot;category&quot;: &quot;category-3&quot;, &quot;name&quot;: &quot;series-2&quot;, &quot;color&quot;: &quot;#7239ea&quot;, &quot;data&quot;: 580}
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;Category1&quot;, &quot;data&quot;: 400, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;Category2&quot;, &quot;data&quot;: 448, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series1&quot;, &quot;category&quot;: &quot;Category3&quot;, &quot;data&quot;: 540, &quot;color&quot;: &quot;#50CD89&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;Category1&quot;, &quot;data&quot;: 430, &quot;color&quot;: &quot;#7239EA&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;Category2&quot;, &quot;data&quot;: 470, &quot;color&quot;: &quot;#7239EA&quot;},
+  {&quot;name&quot;: &quot;Series2&quot;, &quot;category&quot;: &quot;Category3&quot;, &quot;data&quot;: 580, &quot;color&quot;: &quot;#7239EA&quot;}
 ]</code>
             </pre>
           </div>

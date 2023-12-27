@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! metronic-extension */ \"../../dist/build.js\");\n/* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n// Initialize chart.\r\nconst piechart = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.charts.PieChart(document.getElementById('piechart'), {\r\n  width: 400,\r\n  ajax: {\r\n    url: 'json/pie-chart.json'\r\n  },\r\n});\n\n//# sourceURL=webpack://demo/./src/pages/piechart.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! metronic-extension */ \"../../dist/build.js\");\n/* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n// Initialize chart.\r\nconst piechart = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.charts.PieChart(document.getElementById('piechart'), {\r\n  width: 400,\r\n  ajax: {\r\n    url: 'json/piechart.json'\r\n  },\r\n});\n\n//# sourceURL=webpack://demo/./src/pages/piechart.js?");
 
 /***/ }),
 

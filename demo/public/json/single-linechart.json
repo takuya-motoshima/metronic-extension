@@ -1,0 +1,17 @@
+[
+  {"name": "Series1", "category": "May 04", "data": 190},
+  {"name": "Series1", "category": "May 05", "data": 230},
+  {"name": "Series1", "category": "May 06", "data": 230},
+  {"name": "Series1", "category": "May 09", "data": 200},
+  {"name": "Series1", "category": "May 10", "data": 200},
+  {"name": "Series1", "category": "May 12", "data": 190},
+  {"name": "Series1", "category": "May 14", "data": 190},
+  {"name": "Series1", "category": "May 17", "data": 200},
+  {"name": "Series1", "category": "May 18", "data": 200},
+  {"name": "Series1", "category": "May 20", "data": 220},
+  {"name": "Series1", "category": "May 22", "data": 220},
+  {"name": "Series1", "category": "May 24", "data": 200},
+  {"name": "Series1", "category": "May 26", "data": 200},
+  {"name": "Series1", "category": "May 28", "data": 210},
+  {"name": "Series1", "category": "May 30", "data": 210}
+]

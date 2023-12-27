@@ -40,6 +40,7 @@ module.exports = {
     indicator: './src/pages/indicator.js',
     inputmask: './src/pages/inputmask.js',
     piechart: './src/pages/piechart.js',
+    linechart: './src/pages/linechart.js',
   },
 
   // File output settings.

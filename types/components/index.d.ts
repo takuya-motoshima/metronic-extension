@@ -10,6 +10,7 @@ export { default as initDatepicker } from '~/components/initDatepicker';
 export { default as initPasswordToggle } from '~/components/initPasswordToggle';
 export { default as initToggleButton } from '~/components/initToggleButton';
 export { default as initTooltip } from '~/components/initTooltip';
+export { default as LineChart } from '~/components/LineChart';
 export { default as Modal } from '~/components/Modal';
 export { default as PieChart } from '~/components/PieChart';
 export { default as selectRef } from '~/components/selectRef';

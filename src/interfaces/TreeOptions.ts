@@ -23,13 +23,13 @@ export default interface TreeOptions {
      *   // This is an example of simply retrieving tree data in JSON without using the server side.
      *   if (node.id === '#')
      *     // If the node ID is "#", the data of the root node itself is returned.
-     *     return 'root-itself.json';
+     *     return 'tree-root-itself.json';
      *   else if (node.id == 1)
      *     // If the node ID is "1", the data of the child node associated with the root node (ID=1) is returned.
-     *     return 'roots-children.json';
+     *     return 'tree-roots-children.json';
      *   else if (node.id == 2)
      *     // If the node ID is "2", the data of the child node (ID=2) associated with the child1 node is returned.
-     *     return 'child1s-children.json';
+     *     return 'tree-child1s-children.json';
      * }
      * 
      * // Added data to be sent.
@@ -46,13 +46,13 @@ export default interface TreeOptions {
      *     // This is an example of simply retrieving tree data in JSON without using the server side.
      *     if (node.id === '#')
      *       // If the node ID is "#", the data of the root node itself is returned.
-     *       return 'root-itself.json';
+     *       return 'tree-root-itself.json';
      *     else if (node.id == 1)
      *       // If the node ID is "1", the data of the child node associated with the root node (ID=1) is returned.
-     *       return 'roots-children.json';
+     *       return 'tree-roots-children.json';
      *     else if (node.id == 2)
      *       // If the node ID is "2", the data of the child node (ID=2) associated with the child1 node is returned.
-     *       return 'child1s-children.json';
+     *       return 'tree-child1s-children.json';
      *   }
      *   data: (data, node) => {
      *     data.extra = 'Extra';
