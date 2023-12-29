@@ -170,7 +170,7 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{#if (regexMatch currentPath "^/(barchart|piechart|linechart)$")}}here show{{/if}}">
                   <!--begin:Menu link-->
                   <span class="menu-link">
                     <span class="menu-title">Chart</span>
@@ -481,7 +481,7 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion here show">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{#if (regexMatch currentPath "^/(form-controls|checks-radios|input-group|floating-labels|form-advanced)$")}}here show{{/if}}">
                   <!--begin:Menu link-->
                   <span class="menu-link">
                     <span class="menu-title">Forms</span>
