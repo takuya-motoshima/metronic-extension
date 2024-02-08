@@ -13,6 +13,11 @@ export default interface ImageInputOptions {
   current?: string;
 
   /**
+   * Name attribute of the file input. The default is none (undefined).
+   */
+  name?: string; 
+
+  /**
    * A hidden element that sets the Data URL for the currently selected image. Default is none (undefined).
    */
   hiddenEl?: HTMLInputElement;

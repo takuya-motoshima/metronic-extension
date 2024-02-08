@@ -1,11 +1,29 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.4] - 2024/2/8
+### Changed
+- Added file input name attribute option to the image input component (`components.ImageInput`).  
+    ```js
+    import {components} from 'metronic-extension';
+    
+    new components.ImageInput(document.getElementById('imageInput'), {
+      name: 'image'
+    });
+    ```
+- Theme documentation now offers a choice of three themes.
+    - Light  
+        <img src="screencaps/light-theme.jpg" width="300">
+    - Dark  
+        <img src="screencaps/dark-theme.jpg" width="300">
+    - System  
+        <img src="screencaps/system-theme.jpg" width="300">
+
 ## [3.0.3] - 2023/12/27
 ### Added
 - Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
   
-    ![LineChart.jpg](screencaps/LineChart.jpg)
+    ![line-chart.jpg](screencaps/line-chart.jpg)
 
 ## [3.0.2] - 2023/11/20
 ### Changed
@@ -254,14 +272,14 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/v3/piechart.html) to learn how to use it.
 
-    ![PieChart.jpg](screencaps/PieChart.jpg)
+    ![pie-chart.jpg](screencaps/pie-chart.jpg)
 
 ## [2.1.0] - 2023/10/30
 ### Added
 - An extended bar chart component based on [Apexcharts](https://apexcharts.com/) has been added.  
     To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/v3/barchart.html).
 
-    ![BarChart.jpg](screencaps/BarChart.jpg)
+    ![bar-chart.jpg](screencaps/bar-chart.jpg)
 
 ### Changed
 - Fix API client class (`Api`).
@@ -661,3 +679,4 @@ All notable changes to this project will be documented in this file.
 [3.0.1]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.0...v3.0.1
 [3.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.1...v3.0.2
 [3.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.2...v3.0.3
+[3.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.3...v3.0.4

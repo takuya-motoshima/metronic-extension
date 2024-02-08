@@ -96,6 +96,7 @@ export default class ImageInput {
     options = merge({
       default: element.dataset.imageInputDefault,
       current: element.dataset.imageInputCurrent,
+      name: undefined,
       hiddenEl: undefined,
       width: 125,
       height: 125,
@@ -290,6 +291,10 @@ export default class ImageInput {
     // This prevents unintended data from being sent when the form is sent.
     imageInput.inputElement.removeAttribute('name');
     imageInput.hiddenElement.removeAttribute('name');
+
+    // If the name option is present, set it to the name attribute of the file's input.
+    if (options.name)
+      imageInput.inputElement.setAttribute('name', options.name);
     return imageInput;
   }
 

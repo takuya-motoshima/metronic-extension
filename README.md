@@ -14,11 +14,26 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.4] - 2024/2/8
+    - Added file input name attribute option to the image input component (`components.ImageInput`).  
+        ```js
+        import {components} from 'metronic-extension';
+        
+        new components.ImageInput(document.getElementById('imageInput'), {
+        name: 'image'
+        });
+        ```
+    - Theme documentation now offers a choice of three themes.
+        - Light  
+            <img src="screencaps/light-theme.jpg" width="300">
+        - Dark  
+            <img src="screencaps/dark-theme.jpg" width="300">
+        - System  
+            <img src="screencaps/system-theme.jpg" width="300">
 - [3.0.3] - 2023/12/27
     - Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
     
-        ![LineChart.jpg](screencaps/LineChart.jpg)
-
+        ![line-chart.jpg](screencaps/line-chart.jpg)
 - [3.0.2] - 2023/11/20
     - The `dataFormatter` (axis label format) option in `BarChart` has been removed.  
         Use the `xAxisFormatter` (X axis label format) and `yAxisFormatter` (Y axis label format) options instead.
@@ -29,34 +44,6 @@ All changes can be found [here](CHANGELOG.md).
         If you are updating from version 2 to 3, please change the Import statement.  
 
         See the [change history](CHANGELOG.md) for details.
-- [2.1.2] - 2023/11/7
-    - Added getter method for ApexCharts instances to BarChart and PieChart.
-        See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
-
-        ```js
-        import {components} from 'metronic-extension';// Version 3 or higher.
-        // import {charts} from 'metronic-extension';// Version 2 or lower.
-
-        // Initialize chart.
-        const piechart = new components.PieChart(document.getElementById('piechart'), {// Version 3 or higher.
-        // const piechart = new charts.PieChart(document.getElementById('piechart'), {// Version 2 or lower.
-          ajax: {
-            url: 'json/piechart.json'
-          },
-        });
-
-        // Chart Instance.
-        piechart.instance;
-        ```
-- [2.1.1] - 2023/11/6
-    - Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/v3/piechart.html) to learn how to use it.
-
-        ![PieChart.jpg](screencaps/PieChart.jpg)
-- [2.1.0] - 2023/10/30
-    - An extended bar chart component based on [Apexcharts](https://apexcharts.com/) has been added.  
-        To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/v3/barchart.html).
-
-        ![BarChart.jpg](screencaps/BarChart.jpg)
 
 ## Testing
 With [npm](http://npmjs.org) do:
