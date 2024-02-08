@@ -23,7 +23,7 @@ All changes can be found [here](CHANGELOG.md).
         name: 'image'
         });
         ```
-    - Theme documentation now offers a choice of three themes.
+    - [Theme documentation](https://takuya-motoshima.github.io/metronic-extension/v3/) now offers a choice of three themes.
         - Light  
             <img src="screencaps/light-theme.jpg" width="300">
         - Dark  
