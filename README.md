@@ -14,6 +14,11 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.5] - 2024/2/12
+    - An example has been added for switching the column display of a data table component (`components.ImageInput`) with an icon button.  
+        Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
+
+        <img src="screencaps/column-visibility-with-icon-button-table.jpg" width="600">
 - [3.0.4] - 2024/2/8
     - Added file input name attribute option to the image input component (`components.ImageInput`).  
         ```js

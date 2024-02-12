@@ -2491,6 +2491,7 @@ function initColumnVisibilityTable() {
     ],
     pageLength: 3,
     buttons: [
+      // Button to toggle column visibility.
       {
         extend: &#039;colvis&#039;,
         text: &#039;Show / hide columns&#039;,
@@ -2500,36 +2501,30 @@ function initColumnVisibilityTable() {
         // columns: [1,2,3,4,5],
       }
     ],
-    stateSave: true,// Save the column visibility in the browser.
+    // Save the column visibility in the browser.
+    stateSave: true,
+    /* Enable/Disable saving for various datatables elements. Delete any items you do not wish to save.
+        - data.columns.search: This option allows for the saving of the search applied to individual columns to be enabled or disabled.
+        - data.columns.visible: This option allows for the saving of the visibility of the columns to be enabled or disabled.
+        - data.length: This option allows for the saving of the page length to be enabled or disabled.
+        - data.order: This option allows for the saving of the tables column sorting to be enabled or disabled.
+        - data.paging: This option allows for the saving of the paging to be enabled or disabled.
+        - data.scroller: This option allows for the saving of the scroller position to be enabled or disabled.
+        - data.search: This option allows for the saving of the search to be enabled or disabled.
+        - data.searchBuilder: This option allows for the saving of the searchBuilder state to be enabled or disabled.
+        - data.searchPanes: This option allows for the saving of the searchPanes state to be enabled or-  disabled.
+        - data.select: This option allows for the saving of the select state to be enabled or disabled.
+    */
     stateSaveParams: (_, data) =&gt; {
-      // This option allows for the saving of the search applied to individual columns to be enabled or disabled.
       delete data.columns.search;
-
-      // This option allows for the saving of the visibility of the columns to be enabled or disabled.
       // delete data.columns.visible;
-
-      // This option allows for the saving of the page length to be enabled or disabled.
       delete data.length;
-
-      // This option allows for the saving of the tables column sorting to be enabled or disabled.
       delete data.order;
-
-      // This option allows for the saving of the paging to be enabled or disabled.
       delete data.paging;
-
-      // This option allows for the saving of the scroller position to be enabled or disabled.
       delete data.scroller;
-
-      // This option allows for the saving of the search to be enabled or disabled.
       delete data.search;
-
-      // This option allows for the saving of the searchBuilder state to be enabled or disabled. 
       delete data.searchBuilder;
-
-      // This option allows for the saving of the searchPanes state to be enabled or disabled. 
       delete data.searchPanes;
-
-      // This option allows for the saving of the select state to be enabled or disabled.
       delete data.select;
     }
   });
@@ -2540,6 +2535,107 @@ const ref = components.selectRef();
 
 // Initialize DataTable.
 const columnVisibilityTable = initColumnVisibilityTable();</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="column-visibility-with-icon-button" data-kt-scroll-offset="100">
+    <a href="#column-visibility-with-icon-button"></a>Column visibility with icon button
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">This is an example of using icon buttons to show/hide table columns.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Datatable-->
+      <table data-ref="columnVisibilityWithIconButtonTable" class="table table-row-bordered gy-5">
+        <thead>
+          <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011/04/25</td>
+            <td>320800</td>
+          </tr>
+          <tr>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>63</td>
+            <td>2011/07/25</td>
+            <td>170750</td>
+          </tr>
+          <tr>
+            <td>Ashton Cox</td>
+            <td>Junior Technical Author</td>
+            <td>San Francisco</td>
+            <td>66</td>
+            <td>2009/01/12</td>
+            <td>86000</td>
+          </tr>
+          <tr>
+            <td>Cedric Kelly</td>
+            <td>Senior Javascript Developer</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2012/03/29</td>
+            <td>433060</td>
+          </tr>
+        </tbody>
+      </table>
+      <!--end::Datatable-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#column-visibility-with-icon-button-html-tab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#column-visibility-with-icon-button-js-tab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="column-visibility-with-icon-button-html-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">xxx</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="column-visibility-with-icon-button-js-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">xxx</code>
             </pre>
           </div>
         </div>
@@ -2897,6 +2993,18 @@ module.exports = class extends Model {
       <span class="bullet bullet-dot"></span>
     </span>
     <span class="menu-title">Column visibility integration</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#column-visibility-with-icon-button" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Column visibility with icon button</span>
   </a>
   <!--end::Link-->
 </li>

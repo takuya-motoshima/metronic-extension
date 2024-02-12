@@ -2376,6 +2376,7 @@ function initColumnVisibilityTable() {
     ],
     pageLength: 3,
     buttons: [
+      // Button to toggle column visibility.
       {
         extend: &#039;colvis&#039;,
         text: &#039;Show / hide columns&#039;,
@@ -2385,36 +2386,30 @@ function initColumnVisibilityTable() {
         // columns: [1,2,3,4,5],
       }
     ],
-    stateSave: true,// Save the column visibility in the browser.
+    // Save the column visibility in the browser.
+    stateSave: true,
+    /* Enable/Disable saving for various datatables elements. Delete any items you do not wish to save.
+        - data.columns.search: This option allows for the saving of the search applied to individual columns to be enabled or disabled.
+        - data.columns.visible: This option allows for the saving of the visibility of the columns to be enabled or disabled.
+        - data.length: This option allows for the saving of the page length to be enabled or disabled.
+        - data.order: This option allows for the saving of the tables column sorting to be enabled or disabled.
+        - data.paging: This option allows for the saving of the paging to be enabled or disabled.
+        - data.scroller: This option allows for the saving of the scroller position to be enabled or disabled.
+        - data.search: This option allows for the saving of the search to be enabled or disabled.
+        - data.searchBuilder: This option allows for the saving of the searchBuilder state to be enabled or disabled.
+        - data.searchPanes: This option allows for the saving of the searchPanes state to be enabled or-  disabled.
+        - data.select: This option allows for the saving of the select state to be enabled or disabled.
+    */
     stateSaveParams: (_, data) =&gt; {
-      // This option allows for the saving of the search applied to individual columns to be enabled or disabled.
       delete data.columns.search;
-
-      // This option allows for the saving of the visibility of the columns to be enabled or disabled.
       // delete data.columns.visible;
-
-      // This option allows for the saving of the page length to be enabled or disabled.
       delete data.length;
-
-      // This option allows for the saving of the tables column sorting to be enabled or disabled.
       delete data.order;
-
-      // This option allows for the saving of the paging to be enabled or disabled.
       delete data.paging;
-
-      // This option allows for the saving of the scroller position to be enabled or disabled.
       delete data.scroller;
-
-      // This option allows for the saving of the search to be enabled or disabled.
       delete data.search;
-
-      // This option allows for the saving of the searchBuilder state to be enabled or disabled. 
       delete data.searchBuilder;
-
-      // This option allows for the saving of the searchPanes state to be enabled or disabled. 
       delete data.searchPanes;
-
-      // This option allows for the saving of the select state to be enabled or disabled.
       delete data.select;
     }
   });

@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.5] - 2024/2/12
+### Changed
+- An example has been added for switching the column display of a data table component (`components.ImageInput`) with an icon button.  
+    Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
+
+    <img src="screencaps/column-visibility-with-icon-button-table.jpg" width="600">
+
 ## [3.0.4] - 2024/2/8
 ### Changed
 - Added file input name attribute option to the image input component (`components.ImageInput`).  
@@ -680,3 +687,4 @@ All notable changes to this project will be documented in this file.
 [3.0.2]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.1...v3.0.2
 [3.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.2...v3.0.3
 [3.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.3...v3.0.4
+[3.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.4...v3.0.5
