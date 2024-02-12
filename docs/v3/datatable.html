@@ -2626,7 +2626,54 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
         <div class="tab-pane fade show active" id="column-visibility-with-icon-button-html-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">xxx</code>
+              <code class="language-html">&lt;!--begin::Datatable--&gt;
+&lt;table data-ref=&quot;columnVisibilityWithIconButtonTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Position&lt;/th&gt;
+      &lt;th&gt;Office&lt;/th&gt;
+      &lt;th&gt;Age&lt;/th&gt;
+      &lt;th&gt;Start date&lt;/th&gt;
+      &lt;th&gt;Salary&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tiger Nixon&lt;/td&gt;
+      &lt;td&gt;System Architect&lt;/td&gt;
+      &lt;td&gt;Edinburgh&lt;/td&gt;
+      &lt;td&gt;61&lt;/td&gt;
+      &lt;td&gt;2011/04/25&lt;/td&gt;
+      &lt;td&gt;320800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Garrett Winters&lt;/td&gt;
+      &lt;td&gt;Accountant&lt;/td&gt;
+      &lt;td&gt;Tokyo&lt;/td&gt;
+      &lt;td&gt;63&lt;/td&gt;
+      &lt;td&gt;2011/07/25&lt;/td&gt;
+      &lt;td&gt;170750&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ashton Cox&lt;/td&gt;
+      &lt;td&gt;Junior Technical Author&lt;/td&gt;
+      &lt;td&gt;San Francisco&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+      &lt;td&gt;2009/01/12&lt;/td&gt;
+      &lt;td&gt;86000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cedric Kelly&lt;/td&gt;
+      &lt;td&gt;Senior Javascript Developer&lt;/td&gt;
+      &lt;td&gt;Edinburgh&lt;/td&gt;
+      &lt;td&gt;22&lt;/td&gt;
+      &lt;td&gt;2012/03/29&lt;/td&gt;
+      &lt;td&gt;433060&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--end::Datatable--&gt;</code>
             </pre>
           </div>
         </div>
@@ -2635,7 +2682,81 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
         <div class="tab-pane fade" id="column-visibility-with-icon-button-js-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-javascript">
-              <code class="language-javascript">xxx</code>
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
+
+function initColumnVisibilityWithIconButtonTable() {
+  return new components.Datatable(ref.columnVisibilityWithIconButtonTable, {
+    dom: `&lt;&#039;row align-items-center&#039;&lt;&#039;col dataTables_pager&#039;p&gt;&lt;&#039;col-auto&#039;B&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12&#039;tr&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;`,
+    columnDefs: [
+      {targets: 0, data: &#039;name&#039;},
+      {targets: 1, data: &#039;position&#039;},
+      {targets: 2, data: &#039;office&#039;},
+      {targets: 3, data: &#039;age&#039;},
+      {targets: 4, data: &#039;startDate&#039;},
+      {targets: 5, data: &#039;salary&#039;},
+    ],
+    pageLength: 3,
+    buttons: {
+      dom: {
+        button: {
+          // Disable the default button class (btn btn-secondary) to set the icon button (btn-icon).
+          className: null,
+        },
+        buttonLiner: {
+          // By default, a span element is added within the button, so disable it.
+          tag: null,
+        }
+      },
+      buttons: [
+        // Button to toggle column visibility.
+        {
+          extend: &#039;colvis&#039;,
+          columns: &#039;:eq(1),:eq(2),:eq(3),:eq(4),:eq(5)&#039;,
+          text: &#039;&lt;i class=&quot;ki-solid ki-gear fs-1&quot;&gt;&lt;/i&gt;&#039;,
+
+          // Icon button style. Switch between them as you wish.
+          // className: &#039;btn btn-sm btn-icon btn-color-primary btn-active-light-primary&#039;,
+          className: &#039;btn btn-icon btn-color-gray-500 btn-active-color-primary&#039;,
+
+          // Display column drop-downs inside the table container. If this is not set, the column dropdowns will overflow the table container.
+          align: &#039;container&#039;,
+        }
+      ],
+    },
+    // Save the column visibility in the browser.
+    stateSave: true,
+    /* Enable/Disable saving for various datatables elements. Delete any items you do not wish to save.
+        - data.columns.search: This option allows for the saving of the search applied to individual columns to be enabled or disabled.
+        - data.columns.visible: This option allows for the saving of the visibility of the columns to be enabled or disabled.
+        - data.length: This option allows for the saving of the page length to be enabled or disabled.
+        - data.order: This option allows for the saving of the tables column sorting to be enabled or disabled.
+        - data.paging: This option allows for the saving of the paging to be enabled or disabled.
+        - data.scroller: This option allows for the saving of the scroller position to be enabled or disabled.
+        - data.search: This option allows for the saving of the search to be enabled or disabled.
+        - data.searchBuilder: This option allows for the saving of the searchBuilder state to be enabled or disabled.
+        - data.searchPanes: This option allows for the saving of the searchPanes state to be enabled or-  disabled.
+        - data.select: This option allows for the saving of the select state to be enabled or disabled.
+    */
+    stateSaveParams: (_, data) =&gt; {
+      delete data.columns.search;
+      // delete data.columns.visible;
+      delete data.length;
+      delete data.order;
+      delete data.paging;
+      delete data.scroller;
+      delete data.search;
+      delete data.searchBuilder;
+      delete data.searchPanes;
+      delete data.select;
+    }
+  });
+}
+
+// Search for elements.
+const ref = components.selectRef();
+
+// Initialize DataTable.
+const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTable();</code>
             </pre>
           </div>
         </div>
