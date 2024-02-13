@@ -11,7 +11,7 @@ export default interface ImageInputOptions {
      */
     current?: string;
     /**
-     * Name attribute of the file input. The default is none.
+     * Name attribute of the file input. The default is none (undefined).
      */
     name?: string;
     /**

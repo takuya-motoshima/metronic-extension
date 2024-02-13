@@ -60,13 +60,13 @@ export default class ImageInput {
    * Data URL of the selected image.
    * @type {string|null}
    */
-  #imageDataURL: string|null = null;
+  #dataURL: string|null = null;
 
   /** 
    * A hidden element that stores the Data URL of the selected image.
    * @type {HTMLInputElement|null}
    */
-  #hiddenInput: HTMLInputElement|null = null;
+  #hidden: HTMLInputElement|null = null;
 
   /**
    * Create a new instance of the ImageInput class.
@@ -112,7 +112,7 @@ export default class ImageInput {
 
     // Save hidden elements as members.
     if (options.hiddenEl)
-      this.#hiddenInput = options.hiddenEl;
+      this.#hidden = options.hiddenEl;
 
     // Render the current and default images.
     (async () => {
@@ -123,21 +123,21 @@ export default class ImageInput {
 
       // If the current image is not a DataURL but a URL, it is loaded remotely.
       if (options.current)
-        this.#imageDataURL = isDataURI(options.current, 'image/*') ? options.current : await fetchDataUrl(options.current);
+        this.#dataURL = isDataURI(options.current, 'image/*') ? options.current : await fetchDataUrl(options.current);
 
       // If the current and the default image are the same, the image change cancel button is not displayed in the initial display.
       if (options.current && options.default && await compare(options.current, options.default))
         options.current = undefined;
 
       // If the current image and default image are specified, priority is given to saving and displaying the current image.
-      if (defaultImage || this.#imageDataURL) {
+      if (defaultImage || this.#dataURL) {
         // Set images for hidden elements.
-        if (this.#hiddenInput)
-          this.#hiddenInput.value = this.#imageDataURL || defaultImage as string;
+        if (this.#hidden)
+          this.#hidden.value = this.#dataURL || defaultImage as string;
 
         // If no image is currently available, the default image is saved.
-        if (!this.#imageDataURL)
-          this.#imageDataURL = defaultImage as string;
+        if (!this.#dataURL)
+          this.#dataURL = defaultImage as string;
       }
 
       // Rendering ImageInput UI.
@@ -172,12 +172,12 @@ export default class ImageInput {
    * Downloading the image under selection.
    */
   public download(): void {
-    if (!this.#imageDataURL)
+    if (!this.#dataURL)
       return;
     let link = document.createElement('a') as HTMLAnchorElement;
-    const extension = getExtensionFromDataUrl(this.#imageDataURL);
+    const extension = getExtensionFromDataUrl(this.#dataURL);
     link.download = `image.${extension}`;
-    link.href = this.#imageDataURL as string;
+    link.href = this.#dataURL as string;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -197,7 +197,7 @@ export default class ImageInput {
    * @return {string|null} Data URL.
    */
   public getImage(): string|null {
-    return this.#imageDataURL;
+    return this.#dataURL;
   }
 
   /**
@@ -205,7 +205,7 @@ export default class ImageInput {
    * @return {HTMLInputElement|null} Hidden Element.
    */
   public getHiddenElement(): HTMLInputElement|null {
-    return this.#hiddenInput;
+    return this.#hidden;
   }
 
   /**
@@ -250,8 +250,8 @@ export default class ImageInput {
         data-bs-dismiss="click"
         title="{{options.language.change}}">
         <i class="bi bi-pencil-fill fs-6"></i>
-        <input type="file" name="avatar" accept="{{options.accept}}" />
-        <input type="hidden" name="avatar_remove" />
+        <input type="file" name="avatar" accept="{{options.accept}}">
+        <input type="hidden" name="avatar_remove">
       </label>
       <!--end::Edit-->
       {{#if options.cancelable}}
@@ -316,19 +316,19 @@ export default class ImageInput {
       if (defaultImage) {
         // If there is a default image.
         // Set default image for hidden elements.
-        if (this.#hiddenInput)
-          this.#hiddenInput.value = defaultImage as string;
+        if (this.#hidden)
+          this.#hidden.value = defaultImage as string;
 
         // Set the data URL of the current image.
-        this.#imageDataURL = defaultImage as string;
+        this.#dataURL = defaultImage as string;
       } else {
         // If there is no default image.
         // Clear hidden elements.
-        if (this.#hiddenInput)
-          this.#hiddenInput.value = '';
+        if (this.#hidden)
+          this.#hidden.value = '';
 
         // Currently clearing the image.
-        this.#imageDataURL = null;
+        this.#dataURL = null;
       }
 
       // If cancellation is disabled, the delete button is forcibly hidden when deleting an image.
@@ -336,7 +336,7 @@ export default class ImageInput {
         input.removeElement.style.display = 'none';
 
       // Invoke change event.
-      this.#changeHandler(this.#imageDataURL);
+      this.#changeHandler(this.#dataURL);
     });
 
     // Unless it is read-only.
@@ -367,14 +367,14 @@ export default class ImageInput {
           continue;
 
         // Get current image.
-        this.#imageDataURL = isDataURI(matches[1], 'image/*') ? matches[1] : await fetchDataUrl(matches[1]);
+        this.#dataURL = isDataURI(matches[1], 'image/*') ? matches[1] : await fetchDataUrl(matches[1]);
 
         // Update on hidden elements.
-        if (this.#hiddenInput)
-          this.#hiddenInput.value = this.#imageDataURL as string;
+        if (this.#hidden)
+          this.#hidden.value = this.#dataURL as string;
 
         // Invoke change event.
-        this.#changeHandler(this.#imageDataURL);
+        this.#changeHandler(this.#dataURL);
       }
     });
     observer.observe(this.#imageInput.wrapperElement, {attributes: true, childList: false, characterData: true, attributeFilter: ['style']});

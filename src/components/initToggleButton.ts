@@ -14,7 +14,7 @@ import isString from '~/utils/isString';
  *     <label class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6" data-kt-button="true">
  *       <!--begin::Radio-->
  *       <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
- *         <input class="form-check-input" type="radio" name="type" value="1" checked="checked" />
+ *         <input class="form-check-input" type="radio" name="type" value="1" checked="checked">
  *       </span>
  *       <!--end::Radio-->
  *       <!--begin::Info-->
@@ -33,7 +33,7 @@ import isString from '~/utils/isString';
  *     <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
  *       <!--begin::Radio-->
  *       <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
- *         <input class="form-check-input" type="radio" name="type" value="2" />
+ *         <input class="form-check-input" type="radio" name="type" value="2">
  *       </span>
  *       <!--end::Radio-->
  *       <!--begin::Info-->

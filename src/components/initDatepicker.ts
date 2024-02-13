@@ -35,14 +35,10 @@ import DatePickerOptions from '~/interfaces/DatePickerOptions';
  * import {components} from 'metronic-extension';
  * 
  * // Initialize date range picker.
- * components.initDatepicker(document.getElementById('dateRangePicker'), {
- *   // Available for selection after today.
+ * const dateRangePicker = components.initDatepicker(document.getElementById('dateRangePicker'), {
  *   minDate: moment().format('YYYY/M/D'),
- *   // Selectable only for the current month.
  *   maxDate: moment().endOf('month').format('YYYY/M/D'),
- *   // Up to 7 days can be selected.
  *   maxDays: 7,
- *   // Language is English.
  *   locale: 'en',
  *   format: 'YYYY/M/D',
  *   language: {
@@ -75,9 +71,12 @@ export default (element: string|HTMLInputElement|JQuery, options?: DatePickerOpt
     autoUpdateInput: true,
   }, options);
 
+  // Get moment global object.
+  const moment = window.moment;
+
   // Set date locales.
   if (options!.locale)
-    window.moment.locale(options?.locale);
+    moment.locale(options?.locale);
 
   // Initialize Date Range Picker.
   return (element as JQuery)
@@ -104,8 +103,8 @@ export default (element: string|HTMLInputElement|JQuery, options?: DatePickerOpt
       maxSpan: options!.maxDays ? {days: options!.maxDays} : undefined,
       locale: {
         format: options!.format,
-        daysOfWeek: window.moment.weekdaysMin(),
-        monthNames: window.moment.monthsShort(),
+        daysOfWeek: moment.weekdaysMin(),
+        monthNames: moment.monthsShort(),
         applyLabel: options!.language!.applyLabel,
         cancelLabel: options!.language!.cancelLabel
       },

@@ -11,7 +11,7 @@ import isString from '~/utils/isString';
  * <!--begin::Input group-->
  * <div class="input-group">
  *   <!--begin::Input-->
- *   <input id="target" type="text" class="form-control" placeholder="name@example.com" value="name@example.com" />
+ *   <input id="target" type="text" class="form-control" placeholder="name@example.com" value="name@example.com">
  *   <!--end::Input-->
  *   <!--begin::Button-->
  *   <button id="button" class="btn btn-icon btn-light" data-clipboard-target="#target">

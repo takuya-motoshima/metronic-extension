@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<!--begin::Head-->
+<head>
+  <title>Date Range Menu prototype</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>      
+  <!--begin::Fonts(mandatory for all pages)-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
+  <!--end::Fonts-->
+  <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+  <link href="plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+  <link href="css/style.bundle.css" rel="stylesheet" type="text/css"/>
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body class="bg-white">
+  <!--begin::Container-->
+  <div class="container">
+    <!--begin::Section-->
+    <div class="py-10">
+      <!--begin::Date Range Menu-->
+      <div id="dateRangeMenu" class="btn btn-sm btn-light d-flex align-items-center px-4"></div>
+      <!--end::Date Range Menu-->
+    </div>
+    <!--end::Section-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+  <script src="plugins/global/plugins.bundle.js"></script>
+  <script src="js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Custom Javascript(used for this page only)-->
+  <script>
+    const element = document.getElementById('dateRangeMenu');
+
+    // Variable width depending on the length of the text.
+    element.style.width = 'fit-content';
+
+    // Draw the contents of the date picker.
+    element.insertAdjacentHTML('afterbegin', 
+      `<!--begin::Display range-->
+        <div class="text-gray-600 fw-bold"></div>
+        <!--end::Display range-->
+        <i class="ki-duotone ki-calendar-8 fs-1 ms-2 me-0">
+          <span class="path1"></span>
+          <span class="path2"></span>
+          <span class="path3"></span>
+          <span class="path4"></span>
+          <span class="path5"></span>
+          <span class="path6"></span>
+        </i>
+        <!--begin::Hidden input-->
+        <input name="picker" type="hidden">
+        <!--end::Hidden input-->`
+    );
+
+    // Find text display element.
+    const display = element.querySelector('div');
+
+    // Find hidden element.
+    const hidden = element.querySelector('[type="hidden"]');
+
+    // Decide on the first date to be displayed.
+    const range = 'today';
+    const format = 'YYYY/M/D';
+    let startDate = moment().subtract(29, 'days');
+    let endDate = moment();
+    if (range === 'today')
+      startDate = endDate = moment();
+
+    // Set date locales.
+    moment.locale('ja');
+
+    // Initialize date range picker.
+    const picker = $(element)
+      .on('apply.daterangepicker', evnt => {
+        // Get date picker instance.
+        const picker = $(evnt.currentTarget).data('daterangepicker');
+
+        // Triggered when the apply button is clicked, or when a predefined range is clicked.
+        // The display switches depending on whether the selected date is a single date or a range of dates.
+        const current = moment();
+        const value = current.isSame(picker.startDate, 'day') && current.isSame(picker.endDate, 'day')
+          ? picker.startDate.format(picker.locale.format)
+          : picker.startDate.format(picker.locale.format) + ' - ' + picker.endDate.format(picker.locale.format);
+
+        // Show selection value.
+        display.innerHTML = value;
+
+        // Set the selection value to a hidden element.
+        hidden.value = value;
+      })
+      .daterangepicker({
+        startDate,
+        endDate,
+        opens: 'left',
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        locale: {
+          // direction: 'ltr',
+          format,
+          // separator: ' - ',
+          applyLabel: 'Apply',
+          cancelLabel: 'Cancel',
+          // weekLabel: 'W',
+          customRangeLabel: 'Custom Range',
+          daysOfWeek: moment.weekdaysMin(),
+          monthNames: moment.monthsShort(),
+          // firstDay: moment.localeData().firstDayOfWeek(),
+        },
+      })
+      .data('daterangepicker');
+    picker.element.trigger('apply.daterangepicker');
+  </script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

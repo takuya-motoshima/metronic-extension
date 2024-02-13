@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<!--begin::Head-->
+<head>
+  <title>Date Range Picker prototype</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>      
+  <!--begin::Fonts(mandatory for all pages)-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
+  <!--end::Fonts-->
+  <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+  <link href="plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+  <link href="css/style.bundle.css" rel="stylesheet" type="text/css"/>
+  <!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body class="bg-white">
+  <!--begin::Container-->
+  <div class="container">
+    <!--begin::Section-->
+    <div class="py-10">
+      <!--begin::Daterangepicker-->
+      <input class="form-control form-control-solid w-100 mw-250px" placeholder="Pick date range" id="dateRangePicker">
+      <!--end::Daterangepicker-->
+    </div>
+    <!--end::Section-->
+  </div>
+  <!--end::Container-->
+  <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+  <script src="plugins/global/plugins.bundle.js"></script>
+  <script src="js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
+  <!--begin::Custom Javascript(used for this page only)-->
+  <script>
+    const element = document.getElementById('dateRangePicker');
+
+    // Set date locales.
+    moment.locale('ja');
+
+    // Initialize date range picker.
+    $(element).daterangepicker({
+      locale: {
+        format: 'YYYY/M/D',
+        daysOfWeek: moment.weekdaysMin(),
+        monthNames: moment.monthsShort(),
+        applyLabel: 'Apply',
+        cancelLabel: 'Cancel'
+      },
+    });
+  </script>
+  <!--end::Custom Javascript-->
+  <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

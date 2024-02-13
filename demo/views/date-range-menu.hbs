@@ -1,0 +1,276 @@
+{{!< default}}
+{{#contentFor 'title'}}Date Range Menu{{/contentFor}}
+{{#contentFor 'script'}}<script src="build/date-range-menu.js"></script>{{/contentFor}}
+{{#contentFor 'sidenav'}}
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#overview" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Overview</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#reference" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Reference</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#basic" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Basic</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
+{{/contentFor}}
+<!--begin::Section-->
+<div class="pb-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="overview" data-kt-scroll-offset="100">
+    <a href="#overview"></a>Overview
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    Date Range Menu with <a href="https://www.daterangepicker.com/" target="_blank">daterangepicker plugin</a> as core.
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="reference" data-kt-scroll-offset="100">
+    <a href="#reference"></a>Reference
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Parameters:</div>
+    <!--end::Heading-->
+    <!--begin::Parameters-->
+    <ul>
+      <li class="py-2"><code>element: string|HTMLDivElement|JQuery</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          HTMLDivElement selector, element, or JQuery object.
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.locale?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Language Code (ja, en, etc.). Default is none (undefined).
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.format?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Date Format. Default is &#039;YYYY/M/D&#039;.
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.initialRange?: &#039;today&#039;|&#039;last30days&#039;</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Date selection range for initial display.<br>
+          Can be either &quot;today&quot; (today) or &quot;last30days&quot; (last 30 days).<br>
+          The default is &#039;today&#039;.
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.name?: string</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          The name attribute of the hidden element that stores the date selection result.<br>
+          Default is none (undefined).
+        </div>
+        <!--end::Block-->
+      </li>
+      <li class="py-2"><code>options.language?: Record&lt;string, string&gt;</code>
+        <!--begin::Block-->
+        <div class="pt-3">
+          Strings used in the user interface.
+          <ul>
+            <li class="py-2"><code>applyLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Apply button text. Default is &#039;Apply&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>cancelLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Cancel button text. Default is &#039;Cancel&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>customRangeMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Custom Range menu label text. Default is &#039;Custom Range&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>todayMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Today menu label text. Default is &#039;Today&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>yesterdayMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Yesterday menu label text. Default is &#039;Yesterday&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>last7DaysMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Last 7 Days menu label text. Default is &#039;Last 7 Days&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>last30DaysMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Last 30 Days menu label text. Default is &#039;Last 30 Days&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>thisMonthMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                This Month menu label text. Default is &#039;This Month&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+            <li class="py-2"><code>lastMonthMenuLabel?: string</code>
+              <!--begin::Block-->
+              <div class="pt-3">
+                Last Month menu label text. Default is &#039;Last Month&#039;.
+              </div>
+              <!--end::Block-->
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <!--end::Parameters-->
+    <!--begin::Heading-->
+    <div class="fs-2 py-5">Return value:</div>
+    <!--end::Heading-->
+    <!--begin::Return-->
+    <ul class="list-style-none">
+      <li class="py-2"><code>daterangepicker</code> daterangepicker instance.</li>
+    </ul>
+    <!--end::Return-->
+  </div>
+  <!--end::Block-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="basic" data-kt-scroll-offset="100">
+    <a href="#basic"></a>Basic
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">Basic example of a date range menu.</div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Input group-->
+      <div>
+        <!--begin::Label-->
+        <label class="form-label">Basic example</label>
+        <!--end::Label-->
+        <!--begin::Date Range Menu-->
+        <div id="dateRangeMenu" class="btn btn-sm btn-light d-flex align-items-center px-4"></div>
+        <!--end::Date Range Menu-->
+      </div>
+      <!--end::Input group-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="py-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#basic-html-tab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#basic-js-tab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="basic-html-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Date Range Menu--&gt;
+&lt;div id=&quot;dateRangeMenu&quot; class=&quot;btn btn-sm btn-light d-flex align-items-center px-4&quot;&gt;&lt;/div&gt;
+&lt;!--end::Date Range Menu--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="basic-js-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
+
+// Initialize date range menu.
+const dateRangePicker = components.initDaterangeMenu(document.getElementById(&#039;dateRangeMenu&#039;), {
+  locale: &#039;en&#039;,
+  format: &#039;YYYY/M/D&#039;,
+  initialRange: &#039;today&#039;,
+  name: &#039;date&#039;,
+  language: {
+    applyLabel: &#039;Apply&#039;,
+    cancelLabel: &#039;Cancel&#039;,
+    customRangeMenuLabel: &#039;Custom Range&#039;,
+    todayMenuLabel: &#039;Today&#039;,
+    yesterdayMenuLabel: &#039;Yesterday&#039;,
+    last7DaysMenuLabel: &#039;Last 7 Days&#039;,
+    last30DaysMenuLabel: &#039;Last 30 Days&#039;,
+    thisMonthMenuLabel: &#039;This Month&#039;,
+    lastMonthMenuLabel: &#039;Last Month&#039;,
+  },
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--begin::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->

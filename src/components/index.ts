@@ -7,6 +7,7 @@ export {default as Dropzone} from '~/components/Dropzone';
 export {default as ImageInput} from '~/components/ImageInput';
 export {default as initClipboard} from '~/components/initClipboard';
 export {default as initDatepicker} from '~/components/initDatepicker';
+export {default as initDaterangeMenu} from '~/components/initDaterangeMenu';
 export {default as initPasswordToggle} from '~/components/initPasswordToggle';
 export {default as initToggleButton} from '~/components/initToggleButton';
 export {default as initTooltip} from '~/components/initTooltip';

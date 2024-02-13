@@ -1,12 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.6] - 2024/2/13
+### Added
+- Added a date range menu component (`components.initDaterangeMenu`).  
+  Check [here](https://takuya-motoshima.github.io/metronic-extension/v3/date-range-menu.html) for usage and examples.  
+
+  <img src="screencaps/date-range-menu-1.jpg" width="300">
+  <img src="screencaps/date-range-menu-2.jpg" width="300">
+
 ## [3.0.5] - 2024/2/12
 ### Changed
 - An example has been added for switching the column display of a data table component (`components.ImageInput`) with an icon button.  
     Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
 
-    <img src="screencaps/column-visibility-with-icon-button-table.jpg" width="600">
+    <img src="screencaps/column-visibility-with-icon-button-table.jpg" width="500">
 
 ## [3.0.4] - 2024/2/8
 ### Changed
@@ -688,3 +696,4 @@ All notable changes to this project will be documented in this file.
 [3.0.3]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.2...v3.0.3
 [3.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.3...v3.0.4
 [3.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.4...v3.0.5
+[3.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.5...v3.0.6

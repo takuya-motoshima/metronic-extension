@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="light">
 <!--begin::Head-->
 <head>
-  <title>Prototype line chart</title>
+  <title>Line chart prototype</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>      
   <!--begin::Fonts(mandatory for all pages)-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>        <!--end::Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
+  <!--end::Fonts-->
   <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
   <link href="plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
   <link href="css/style.bundle.css" rel="stylesheet" type="text/css"/>
@@ -14,13 +15,25 @@
 </head>
 <!--end::Head-->
 <!--begin::Body-->
-<body>
-  <!--begin::Chart-->
-  <div id="chart1" class="h-300px w-100 min-h-auto"></div>
-  <!--end::Chart-->
-  <!--begin::Chart-->
-  <div id="chart2" class="h-300px w-100 min-h-auto"></div>
-  <!--end::Chart-->
+<body class="bg-white">
+  <!--begin::Container-->
+  <div class="container">
+    <!--begin::Section-->
+    <div class="py-10">
+      <!--begin::Chart-->
+      <div id="chart1" class="h-300px w-100 min-h-auto"></div>
+      <!--end::Chart-->
+    </div>
+    <!--end::Section-->
+    <!--begin::Section-->
+    <div class="py-10">
+      <!--begin::Chart-->
+      <div id="chart2" class="h-300px w-100 min-h-auto"></div>
+      <!--end::Chart-->
+    </div>
+    <!--end::Section-->
+  </div>
+  <!--end::Container-->
   <!--begin::Global Javascript Bundle(mandatory for all pages)-->
   <script src="plugins/global/plugins.bundle.js"></script>
   <script src="js/scripts.bundle.js"></script>

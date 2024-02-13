@@ -24,6 +24,7 @@ module.exports = {
     modal: './src/pages/modal.js',
     toast: './src/pages/toast.js',
     'date-range-picker': './src/pages/date-range-picker.js',
+    'date-range-menu': './src/pages/date-range-menu.js',
     'form-validation': './src/pages/form-validation.js',
     tagify: './src/pages/tagify.js',
     dropzone: './src/pages/dropzone.js',

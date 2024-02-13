@@ -120,7 +120,7 @@ export default class extends components.Modal {
                     <label class="required fs-6 fw-semibold mb-2">Name</label>
                     <!--end::Label-->
                     <!--begin::Input-->
-                    <input id="name" type="text" class="form-control form-control-solid" name="name" value="{{profile.name}}" />
+                    <input id="name" type="text" class="form-control form-control-solid" name="name" value="{{profile.name}}">
                     <!--end::Input-->
                 </div>
                 <!--end::Input group-->
