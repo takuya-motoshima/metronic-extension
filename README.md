@@ -18,13 +18,13 @@ All changes can be found [here](CHANGELOG.md).
     - Added a date range menu component (`components.initDaterangeMenu`).  
         Check [here](https://takuya-motoshima.github.io/metronic-extension/v3/date-range-menu.html) for usage and examples.  
 
-        <img src="screencaps/date-range-menu-1.jpg" width="300">
-        <img src="screencaps/date-range-menu-2.jpg" width="300">
+        <img src="screencaps/date-range-menu-1.jpg">
+        <img src="screencaps/date-range-menu-2.jpg">
 - [3.0.5] - 2024/2/12
     - An example has been added for switching the column display of a data table component (`components.ImageInput`) with an icon button.  
         Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
 
-        <img src="screencaps/column-visibility-with-icon-button-table.jpg" width="500">
+        <img src="screencaps/column-visibility-with-icon-button-table.jpg">
 - [3.0.4] - 2024/2/8
     - Added file input name attribute option to the image input component (`components.ImageInput`).  
         ```js
@@ -36,11 +36,11 @@ All changes can be found [here](CHANGELOG.md).
         ```
     - [Theme documentation](https://takuya-motoshima.github.io/metronic-extension/v3/) now offers a choice of three themes.
         - Light  
-            <img src="screencaps/light-theme.jpg" width="300">
+            <img src="screencaps/light-theme.jpg">
         - Dark  
-            <img src="screencaps/dark-theme.jpg" width="300">
+            <img src="screencaps/dark-theme.jpg">
         - System  
-            <img src="screencaps/system-theme.jpg" width="300">
+            <img src="screencaps/system-theme.jpg">
 - [3.0.3] - 2023/12/27
     - Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
     
