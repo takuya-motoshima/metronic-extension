@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.7] - 2024/2/16
+### Changed
+- Added the following options to the line chart component (`components.LineChart`).
+    - gradient: When enabled, the line is filled with a gradient. Default is true.
+    - lineWidth: The line width (in pixels). Default is 3.
+    - yAxisOpposite: When enabled, will draw the yaxis on the right side of the chart. Default is false.
+
+    See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
+
 ## [3.0.6] - 2024/2/13
 ### Added
 - Added a date range menu component (`components.initDaterangeMenu`).  
@@ -36,7 +45,8 @@ All notable changes to this project will be documented in this file.
 
 ## [3.0.3] - 2023/12/27
 ### Added
-- Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
+- Line chart component added.  
+    See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
   
     ![line-chart.jpg](screencaps/line-chart.jpg)
 
@@ -697,3 +707,4 @@ All notable changes to this project will be documented in this file.
 [3.0.4]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.3...v3.0.4
 [3.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.4...v3.0.5
 [3.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.5...v3.0.6
+[3.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.6...v3.0.7

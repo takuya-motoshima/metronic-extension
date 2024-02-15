@@ -14,6 +14,13 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.7] - 2024/2/16
+    - Added the following options to the line chart component (`components.LineChart`).
+        - gradient: When enabled, the line is filled with a gradient. Default is true.
+        - lineWidth: The line width (in pixels). Default is 3.
+        - yAxisOpposite: When enabled, will draw the yaxis on the right side of the chart. Default is false.
+
+        See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
 - [3.0.6] - 2024/2/13
     - Added a date range menu component (`components.initDaterangeMenu`).  
         Check [here](https://takuya-motoshima.github.io/metronic-extension/v3/date-range-menu.html) for usage and examples.  
@@ -42,19 +49,10 @@ All changes can be found [here](CHANGELOG.md).
         - System  
             <img src="screencaps/system-theme.jpg">
 - [3.0.3] - 2023/12/27
-    - Line chart component added. See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
+    - Line chart component added.  
+        See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
     
         ![line-chart.jpg](screencaps/line-chart.jpg)
-- [3.0.2] - 2023/11/20
-    - The `dataFormatter` (axis label format) option in `BarChart` has been removed.  
-        Use the `xAxisFormatter` (X axis label format) and `yAxisFormatter` (Y axis label format) options instead.
-- [3.0.1] - 2023/11/20
-    - Fixed a bug that the parameters specified in the `data` option of `BarChart` and `PieChart` were not sent to the server.
-- [3.0.0] - 2023/11/10
-    - Version 3 has a clearer namespace.  
-        If you are updating from version 2 to 3, please change the Import statement.  
-
-        See the [change history](CHANGELOG.md) for details.
 
 ## Testing
 With [npm](http://npmjs.org) do:

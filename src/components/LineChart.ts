@@ -60,6 +60,9 @@ export default class {
         data: undefined,
         dataSrc: undefined,
       },
+      gradient: true,
+      lineWidth: 3,
+      yAxisOpposite: false,
       xAxisFormatter: (value: string|number) => value,
       yAxisFormatter: (value: string|number) => value,
       tooltipDataFormatter: (value: number) => value.toString(),
@@ -146,7 +149,7 @@ export default class {
       dataLabels: {
         enabled: false
       },
-      fill: {
+      fill: this.#options.gradient ? {
         type: 'gradient',
         gradient: {
           shadeIntensity: 1,
@@ -154,11 +157,14 @@ export default class {
           opacityTo: 0,
           // stops: []
         }
+      } : {
+        type: 'solid',
+        opacity: 0,
       },
       stroke: {
         curve: 'smooth',
         show: true,
-        width: 3,
+        width: this.#options.lineWidth,
         colors: lineColors,
       },
       xaxis: {
@@ -199,6 +205,8 @@ export default class {
         }
       },
       yaxis: {
+        // When enabled, will draw the yaxis on the right side of the chart.
+        opposite: this.#options.yAxisOpposite,
         max: yAxisMax,
         min: yAxisMin,
         // If set to true, the y-axis scales are forced to generate nice looking rounded numbers even when min/max are provided. Turn this off if you manually set min/max and want it to be unchanged.
