@@ -59,6 +59,7 @@
     "fetch-mock": "^8.0.0",
     "jest": "^29.6.3",
     "jest-environment-jsdom": "^29.6.3",
+    "nodejs-shared": "^1.0.26",
     "rimraf": "^3.0.2",
     "rollup": "^2.60.1",
     "rollup-plugin-copy": "^3.5.0",

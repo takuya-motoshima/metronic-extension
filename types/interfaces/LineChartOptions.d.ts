@@ -53,9 +53,10 @@ export default interface LineChartOptions {
      */
     lineWidth?: number;
     /**
-     * When enabled, will draw the yaxis on the right side of the chart. Default is false.
+     * Number of Tick Intervals to show on the x-axis.
+     * Default is x-axis data counts.
      */
-    yAxisOpposite?: boolean;
+    xAxisTickAmount?: number;
     /**
      * Callback function to change the display value of the X-axis label.
      * The default is none (undefined), which displays the original value.
@@ -68,6 +69,10 @@ export default interface LineChartOptions {
      * ```
      */
     xAxisFormatter?: (value: string | number) => string;
+    /**
+     * When enabled, will draw the yaxis on the right side of the chart. Default is false.
+     */
+    yAxisOpposite?: boolean;
     /**
      * Callback function to change the display value of the Y-axis label.
      * The default is none (undefined), which displays the original value.

@@ -62,8 +62,9 @@ export default class {
       },
       gradient: true,
       lineWidth: 3,
-      yAxisOpposite: false,
+      xAxisTickAmount: undefined,
       xAxisFormatter: (value: string|number) => value,
+      yAxisOpposite: false,
       yAxisFormatter: (value: string|number) => value,
       tooltipDataFormatter: (value: number) => value.toString(),
     }, options);
@@ -176,7 +177,7 @@ export default class {
           show: false
         },
         // Number of Tick Intervals to show.
-        tickAmount: categorized.length,
+        tickAmount: this.#options.xAxisTickAmount ||categorized.length,
         labels: {
           rotate: -45,
           rotateAlways: false,

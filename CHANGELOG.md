@@ -1,8 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.0.8] - Release is undecided.
+## [3.0.8] - 2024/2/16
 ### Changed
+- Added an option to the line chart component (`components.LineChart`) for the number of tick intervals to be displayed on the x-axis (`xAxisTickAmount`).  
+    The default is the number of data on the x-axis.
+
+    See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
 - Added option (`xaxis.labels.hideOverlappingLabels`) to prevent overlapping X axis labels on line and bar charts (`components.LineChart`, `components.BarChart`).
 - The missing source map for the Metronic theme has been added to the dist.  
     If your theme does not have them, copy them into the theme directory and use them.  
@@ -10,7 +14,6 @@ All notable changes to this project will be documented in this file.
     However, a 404 network error will occur.
     - dist/sourcemaps/plugins/custom/datatables/pdfmake.min.js.map
     - dist/sourcemaps/plugins/global/toastr.js.map
-
 
 ## [3.0.7] - 2024/2/16
 ### Changed
@@ -719,3 +722,4 @@ All notable changes to this project will be documented in this file.
 [3.0.5]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.4...v3.0.5
 [3.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.5...v3.0.6
 [3.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.6...v3.0.7
+[3.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.7...v3.0.8
