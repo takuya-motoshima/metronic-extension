@@ -200,6 +200,8 @@ export default class {
           // Rotate if text does not fit into available width.
           rotate: -45,
           rotateAlways: false,
+          // When labels are too close and start to overlap on one another, this option prevents overlapping of the labels.
+          hideOverlappingLabels: true,
           style: {
             colors: labelColor,
             fontSize: '13px',

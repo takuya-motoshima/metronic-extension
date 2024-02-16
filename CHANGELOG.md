@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.8] - Release is undecided.
+### Changed
+- Added option (`xaxis.labels.hideOverlappingLabels`) to prevent overlapping X axis labels on line and bar charts (`components.LineChart`, `components.BarChart`).
+- The missing source map for the Metronic theme has been added to the dist.  
+    If your theme does not have them, copy them into the theme directory and use them.  
+    The source map is not necessarily required and the theme will work without it.  
+    However, a 404 network error will occur.
+    - dist/sourcemaps/plugins/custom/datatables/pdfmake.min.js.map
+    - dist/sourcemaps/plugins/global/toastr.js.map
+
+
 ## [3.0.7] - 2024/2/16
 ### Changed
 - Added the following options to the line chart component (`components.LineChart`).

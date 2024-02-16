@@ -4,6 +4,7 @@ import json from 'rollup-plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy'
 import pkg from './package.json';
 
 export default {
@@ -34,6 +35,12 @@ export default {
       // extract: path.resolve(`dist/${pkg.name}.css`),
       minimize: true,
     }),
+    copy({
+      targets: [
+        {src: 'src/sourcemaps/toastr.js.map', dest: 'dist/sourcemaps/plugins/global/'},
+        {src: 'src/sourcemaps/pdfmake.min.js.map', dest: 'dist/sourcemaps/plugins/custom/datatables/'},
+      ]
+    })
   ],
   output: [
     // ES module (for bundlers) build.

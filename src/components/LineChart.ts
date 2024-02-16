@@ -180,6 +180,8 @@ export default class {
         labels: {
           rotate: -45,
           rotateAlways: false,
+          // When labels are too close and start to overlap on one another, this option prevents overlapping of the labels.
+          hideOverlappingLabels: true,
           style: {
             colors: labelColor,
             fontSize: '12px'
