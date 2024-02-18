@@ -46,7 +46,7 @@ function toHtmlElements(reference: Reference, parentKey?: string): void {
 /**
  * Searches for HTML elements with the data-ref attribute.
  * Returns an object whose key is the data-ref attribute value and whose value is the HTML element.
- * @param {string|JQuery|HTMLElement} rootElement Selector, element, or jQuery object of the search source xxxx. Default is document.body.
+ * @param {string|JQuery|HTMLElement} rootElement Selector, element, or jQuery object of the search source context. Default is document.body.
  * @param {boolean} options.asHtmlElement? If true, the element collection is obtained as an HTML element; if false, the element collection is obtained as a JQuery object. Default is false.
  * @return {Reference|undefined} The key is the data-ref attribute value and the value is the HTML element object.
  */

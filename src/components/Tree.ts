@@ -58,7 +58,7 @@ export default class Tree {
 
   /**
    * Callback function to be called on error.
-   * @type {xxx}
+   * @type {(err: any) => void}
    */
   #errorHandler: (err: any) => void = (err: any) => {};
 
