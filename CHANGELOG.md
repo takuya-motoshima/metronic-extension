@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.9] - The release of the package has not yet been determined.
+### Added
+- Added Docker build and demo run environments.  
+    See the "How to build with Docker" and "How to start the demo with Docker" sections of [README.md](README.md) for details.
+
 ## [3.0.8] - 2024/2/16
 ### Changed
 - Added an option to the line chart component (`components.LineChart`) for the number of tick intervals to be displayed on the x-axis (`xAxisTickAmount`).  

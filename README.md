@@ -1,6 +1,16 @@
 # metronic-extension
 Extension package for the Metronic WEB theme.
 
+- [metronic-extension](#metronic-extension)
+    - [Documentation](#documentation)
+    - [Installation](#installation)
+    - [Release Notes](#release-notes)
+    - [Testing](#testing)
+    - [How to build with Docker](#how-to-build-with-docker)
+    - [How to start the demo with Docker](#how-to-start-the-demo-with-docker)
+    - [Author](#author)
+    - [License](#license)
+
 ## Documentation
 Metronic Extension V3 documentation can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/).
 
@@ -14,6 +24,9 @@ npm install --save metronic-extension
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.9] - The release of the package has not yet been determined.
+    - Added Docker build and demo run environments.  
+        See the "How to build with Docker" and "How to start the demo with Docker" sections of [README.md](README.md) for details.
 - [3.0.8] - 2024/2/16
     - Added an option to the line chart component (`components.LineChart`) for the number of tick intervals to be displayed on the x-axis (`xAxisTickAmount`).  
         The default is the number of data on the x-axis.
@@ -66,12 +79,43 @@ All changes can be found [here](CHANGELOG.md).
     
         ![line-chart.jpg](screencaps/line-chart.jpg)
 
+
 ## Testing
 With [npm](http://npmjs.org) do:
 
 ```sh
 npm test
 ```
+
+## How to build with Docker
+1. Start the container.
+    ```sh
+    docker-compose up -d
+    ```
+
+    Add the `--build` option to reflect Dockerfile updates.
+    ```sh
+    docker-compose up -d --build
+    ```
+
+    Use the `--no-cache` option to disable the cache at build time.  
+    When using the `--no-cache` option, it is necessary to execute the image build and container startup separately.
+    ```sh
+    docker-compose build --no-cache
+    docker-compose up -d
+    ```
+1. Connect to container.
+    ```sh
+    docker exec -it metronic_extension_app bash
+    ```
+1. Build the package (dist/ and types/ will be output).
+    ```sh
+    cd /usr/src/app
+    npm run build
+    ```
+
+## How to start the demo with Docker
+See [here](demo/README.md).
 
 ## Author
 **Takuya Motoshima**

@@ -1,0 +1,12 @@
+{
+  "watch": ["config", "models", "routes"],
+  "ext": "js",
+  "ignore": [
+    "client/",
+    "public/",
+    "volumes/",
+    "sql/"
+  ],
+  "delay": "3",
+  "verbose": true
+}

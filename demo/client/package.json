@@ -19,7 +19,7 @@
   "dependencies": {
     "deep-fusion": "^1.0.0",
     "handlebars-extd": "^1.0.4",
-    "metronic-extension": "^1.0.22",
+    "metronic-extension": "^3.0.8",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
