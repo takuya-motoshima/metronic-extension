@@ -69,3 +69,5 @@ Demo (. /demo) directory structure.
     ```sh
     npm start
     ```
+1. Open [http://localhost:3000/](http://localhost:3000/) in your browser.
+    
