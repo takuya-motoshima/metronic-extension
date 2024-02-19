@@ -55,7 +55,7 @@ export default interface LineChartOptions {
   gradient?: boolean;
 
   /**
-   * The line width (in pixels). Default is 3.
+   * The line width (in pixels). Default is 1.
    */
   lineWidth?: number;
 

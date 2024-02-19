@@ -25,8 +25,10 @@ npm install --save metronic-extension
 All changes can be found [here](CHANGELOG.md).
 
 - [3.0.9] - The release of the package has not yet been determined.
+    - Changed the default width of lines in the line chart component (`components.LineChart`) from 3px to 1px.
     - Added Docker build and demo run environments.  
         See the "How to build with Docker" and "How to start the demo with Docker" sections of [README.md](README.md) for details.
+    - Fixed a bug in the line chart component (`components.LineChart`) where the first tick of the X axis was missing when the option to display the y axis on the right side (`yAxisOpposite`) was enabled.
 - [3.0.8] - 2024/2/16
     - Added an option to the line chart component (`components.LineChart`) for the number of tick intervals to be displayed on the x-axis (`xAxisTickAmount`).  
         The default is the number of data on the x-axis.
@@ -57,28 +59,6 @@ All changes can be found [here](CHANGELOG.md).
         Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
 
         <img src="screencaps/column-visibility-with-icon-button-table.jpg">
-- [3.0.4] - 2024/2/8
-    - Added file input name attribute option to the image input component (`components.ImageInput`).  
-        ```js
-        import {components} from 'metronic-extension';
-        
-        new components.ImageInput(document.getElementById('imageInput'), {
-        name: 'image'
-        });
-        ```
-    - [Theme documentation](https://takuya-motoshima.github.io/metronic-extension/v3/) now offers a choice of three themes.
-        - Light  
-            <img src="screencaps/light-theme.jpg">
-        - Dark  
-            <img src="screencaps/dark-theme.jpg">
-        - System  
-            <img src="screencaps/system-theme.jpg">
-- [3.0.3] - 2023/12/27
-    - Line chart component added.  
-        See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
-    
-        ![line-chart.jpg](screencaps/line-chart.jpg)
-
 
 ## Testing
 With [npm](http://npmjs.org) do:

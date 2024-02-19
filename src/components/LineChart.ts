@@ -61,7 +61,7 @@ export default class {
         dataSrc: undefined,
       },
       gradient: true,
-      lineWidth: 3,
+      lineWidth: 1,
       xAxisTickAmount: undefined,
       xAxisFormatter: (value: string|number) => value,
       yAxisOpposite: false,
@@ -261,7 +261,15 @@ export default class {
           lines: {
             show: true
           }
-        }
+        },
+        // If the option to display the y-axis on the right side (`yAxisOpposite`) is enabled, add padding on the left side so that the first tick of the x-axis is not missed.
+        ...this.#options.yAxisOpposite
+          ? {
+            padding: {
+              left: 25,
+            }
+          }
+          : undefined,
       },
       markers: {
         strokeColor: lineColors,

@@ -2,9 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 ## [3.0.9] - The release of the package has not yet been determined.
+### Changed
+- Changed the default width of lines in the line chart component (`components.LineChart`) from 3px to 1px.
+
 ### Added
 - Added Docker build and demo run environments.  
     See the "How to build with Docker" and "How to start the demo with Docker" sections of [README.md](README.md) for details.
+
+### Fixed
+- Fixed a bug in the line chart component (`components.LineChart`) where the first tick of the X axis was missing when the option to display the y axis on the right side (`yAxisOpposite`) was enabled.
 
 ## [3.0.8] - 2024/2/16
 ### Changed
