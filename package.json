@@ -12,8 +12,8 @@
     "build": "rollup -c",
     "prebuild": "rimraf dist types",
     "test": "jest",
-    "compile-documentation": "node compile-documentation",
-    "//precompile-documentation": "rimraf docs"
+    "generate-documentation": "node generate-documentation",
+    "//pregenerate-documentation": "rimraf docs"
   },
   "repository": {
     "type": "git",
