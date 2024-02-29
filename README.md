@@ -18,7 +18,7 @@ If you are using Metronic Extension V2, please see the documentation [here](http
 
 ## Installation
 ```sh
-npm install --save handlebars-extd
+npm i metronic-extension
 ```
 
 ## Release Notes
