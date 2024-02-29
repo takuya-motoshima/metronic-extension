@@ -1,5 +1,5 @@
 import initCodeCopy from '~/shared/initCodeCopy';
-import '~/pages/docs.css';
+import '~/app.css';
 
 // Initialize the copy button on the code.
 initCodeCopy();

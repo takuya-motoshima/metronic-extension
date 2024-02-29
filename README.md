@@ -6,7 +6,6 @@ Extension package for the Metronic WEB theme.
     - [Installation](#installation)
     - [Release Notes](#release-notes)
     - [Testing](#testing)
-    - [How to build with Docker](#how-to-build-with-docker)
     - [How to start the demo with Docker](#how-to-start-the-demo-with-docker)
     - [Author](#author)
     - [License](#license)
@@ -66,33 +65,6 @@ With [npm](http://npmjs.org) do:
 ```sh
 npm test
 ```
-
-## How to build with Docker
-1. Start the container.
-    ```sh
-    docker-compose up -d
-    ```
-
-    Add the `--build` option to reflect Dockerfile updates.
-    ```sh
-    docker-compose up -d --build
-    ```
-
-    Use the `--no-cache` option to disable the cache at build time.  
-    When using the `--no-cache` option, it is necessary to execute the image build and container startup separately.
-    ```sh
-    docker-compose build --no-cache
-    docker-compose up -d
-    ```
-1. Connect to container.
-    ```sh
-    docker exec -it metronic_extension_app bash
-    ```
-1. Build the package (dist/ and types/ will be output).
-    ```sh
-    cd /usr/src/app
-    npm run build
-    ```
 
 ## How to start the demo with Docker
 See [here](demo/README.md).

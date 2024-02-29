@@ -47,7 +47,7 @@ var __webpack_exports__ = {};
     });
   }
 });
-;// CONCATENATED MODULE: ./src/pages/docs.js
+;// CONCATENATED MODULE: ./src/app.js
 
 
 

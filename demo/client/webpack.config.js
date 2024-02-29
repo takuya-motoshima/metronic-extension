@@ -14,7 +14,7 @@ module.exports = {
     ]
   },
   entry: {
-    docs: './src/pages/docs.js',
+    app: './src/app.js',
     'select-elements': './src/pages/select-elements.js',
     'api-client': './src/pages/api-client.js',
     'block-ui': './src/pages/block-ui.js',
