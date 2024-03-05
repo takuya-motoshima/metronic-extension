@@ -52,7 +52,7 @@ Demo (. /demo) directory structure.
     cd /usr/src/app/demo/client
     npm install
     ```
-1. The metronic-extension package on which the demo depends refers to a local package.
+1. The `metronic-extension` package on which the demo depends refers to a local package.
     ```sh
     npm link metronic-extension
     ```
