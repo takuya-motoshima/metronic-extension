@@ -1,7 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.0.9] - The release of the package has not yet been determined.
+## [3.0.10] - Release is undecided.
+### Fixed
+- Fixed a bug in the demo page where the source maps for some modules were missing.
+    Added the following
+    - demo/public/build/theme/plugins/global/toastr.js.map
+    - demo/public/build/theme/plugins/custom/datatables/pdfmake.min.js.map
+
+## [3.0.9] - 2024/2/19
 ### Changed
 - Changed the default width of lines in the line chart component (`components.LineChart`) from 3px to 1px.
 
@@ -734,3 +741,5 @@ All notable changes to this project will be documented in this file.
 [3.0.6]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.5...v3.0.6
 [3.0.7]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.6...v3.0.7
 [3.0.8]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.7...v3.0.8
+[3.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.8...v3.0.9
+[3.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.9...v3.0.10

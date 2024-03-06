@@ -60,6 +60,8 @@ module.exports = {
         {from: 'src/theme/metronic_8.1.8', to: 'theme'},
         // {from: 'src/theme/metronic_8.1.7', to: 'theme'},
         // {from: 'src/theme/metronic_8.1.2', to: 'theme'},
+        {from: 'node_modules/metronic-extension/dist/sourcemaps/plugins/global/toastr.js.map', to: 'theme/plugins/global/toastr.js.map'},
+        {from: 'node_modules/metronic-extension/dist/sourcemaps/plugins/custom/datatables/pdfmake.min.js.map', to: 'theme/plugins/custom/datatables/pdfmake.min.js.map'},
       ]
     })
   ],
