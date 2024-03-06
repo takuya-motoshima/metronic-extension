@@ -4,9 +4,9 @@ Extension package for the Metronic WEB theme.
 - [metronic-extension](#metronic-extension)
     - [Documentation](#documentation)
     - [Installation](#installation)
+    - [How to start the demo with Docker](#how-to-start-the-demo-with-docker)
     - [Release Notes](#release-notes)
     - [Testing](#testing)
-    - [How to start the demo with Docker](#how-to-start-the-demo-with-docker)
     - [Author](#author)
     - [License](#license)
 
@@ -19,6 +19,9 @@ If you are using Metronic Extension V2, please see the documentation [here](http
 ```sh
 npm i metronic-extension
 ```
+
+## How to start the demo with Docker
+See [here](demo/README.md).
 
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
@@ -65,9 +68,6 @@ With [npm](http://npmjs.org) do:
 ```sh
 npm test
 ```
-
-## How to start the demo with Docker
-See [here](demo/README.md).
 
 ## Author
 **Takuya Motoshima**
