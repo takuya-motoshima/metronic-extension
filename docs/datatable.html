@@ -3110,6 +3110,13 @@ module.exports = class extends Model {
             <th>Order ID</th>
             <th>Customer Name</th>
             <th>Order Date</th>
+            <th>Shipping Address</th>
+            <th>Payment Status</th>
+            <th>Delivery Date</th>
+            <th>Order Status</th>
+            <th>Order Type</th>
+            <th>Discount</th>
+            <th>Order Notes</th>
             <th class="text-end"></th>
           </tr>
         </thead>
@@ -3151,6 +3158,13 @@ module.exports = class extends Model {
             <td>1001</td>
             <td>John Smith</td>
             <td>2024-12-01</td>
+            <td>123 Main St, City</td>
+            <td>Paid</td>
+            <td>2024-12-05</td>
+            <td>Delivered</td>
+            <td>Online</td>
+            <td>0</td>
+            <td>No special instructions</td>
             <td class="text-end">
               <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
                 <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
@@ -3162,6 +3176,13 @@ module.exports = class extends Model {
             <td>1002</td>
             <td>Emily Johnson</td>
             <td>2024-12-15</td>
+            <td>456 Oak Rd, Town</td>
+            <td>Pending</td>
+            <td>2024-12-18</td>
+            <td>Processing</td>
+            <td>In-Store</td>
+            <td>5</td>
+            <td>Requires gift wrapping</td>
             <td class="text-end">
               <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
                 <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
@@ -3173,6 +3194,13 @@ module.exports = class extends Model {
             <td>1003</td>
             <td>Michael Brown</td>
             <td>2024-12-20</td>
+            <td>789 Pine Ave, City</td>
+            <td>Paid</td>
+            <td>2024-12-22</td>
+            <td>Shipped</td>
+            <td>Online</td>
+            <td>10</td>
+            <td>N/A</td>
             <td class="text-end">
               <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
                 <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
@@ -3208,6 +3236,13 @@ module.exports = class extends Model {
       &lt;th&gt;Order ID&lt;/th&gt;
       &lt;th&gt;Customer Name&lt;/th&gt;
       &lt;th&gt;Order Date&lt;/th&gt;
+      &lt;th&gt;Shipping Address&lt;/th&gt;
+      &lt;th&gt;Payment Status&lt;/th&gt;
+      &lt;th&gt;Delivery Date&lt;/th&gt;
+      &lt;th&gt;Order Status&lt;/th&gt;
+      &lt;th&gt;Order Type&lt;/th&gt;
+      &lt;th&gt;Discount&lt;/th&gt;
+      &lt;th&gt;Order Notes&lt;/th&gt;
       &lt;th class=&quot;text-end&quot;&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -3249,6 +3284,13 @@ module.exports = class extends Model {
       &lt;td&gt;1001&lt;/td&gt;
       &lt;td&gt;John Smith&lt;/td&gt;
       &lt;td&gt;2024-12-01&lt;/td&gt;
+      &lt;td&gt;123 Main St, City&lt;/td&gt;
+      &lt;td&gt;Paid&lt;/td&gt;
+      &lt;td&gt;2024-12-05&lt;/td&gt;
+      &lt;td&gt;Delivered&lt;/td&gt;
+      &lt;td&gt;Online&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;No special instructions&lt;/td&gt;
       &lt;td class=&quot;text-end&quot;&gt;
         &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
           &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
@@ -3260,6 +3302,13 @@ module.exports = class extends Model {
       &lt;td&gt;1002&lt;/td&gt;
       &lt;td&gt;Emily Johnson&lt;/td&gt;
       &lt;td&gt;2024-12-15&lt;/td&gt;
+      &lt;td&gt;456 Oak Rd, Town&lt;/td&gt;
+      &lt;td&gt;Pending&lt;/td&gt;
+      &lt;td&gt;2024-12-18&lt;/td&gt;
+      &lt;td&gt;Processing&lt;/td&gt;
+      &lt;td&gt;In-Store&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Requires gift wrapping&lt;/td&gt;
       &lt;td class=&quot;text-end&quot;&gt;
         &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
           &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
@@ -3271,6 +3320,13 @@ module.exports = class extends Model {
       &lt;td&gt;1003&lt;/td&gt;
       &lt;td&gt;Michael Brown&lt;/td&gt;
       &lt;td&gt;2024-12-20&lt;/td&gt;
+      &lt;td&gt;789 Pine Ave, City&lt;/td&gt;
+      &lt;td&gt;Paid&lt;/td&gt;
+      &lt;td&gt;2024-12-22&lt;/td&gt;
+      &lt;td&gt;Shipped&lt;/td&gt;
+      &lt;td&gt;Online&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
       &lt;td class=&quot;text-end&quot;&gt;
         &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
           &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
@@ -3298,11 +3354,19 @@ const ref = components.selectRef();
 const initSubtable = () =&gt; {
   let targetIndex = 0;
   return new components.Datatable(ref.subtable, {
+    responsive: true,
     columnDefs: [
-      {targets: targetIndex++, data: 'orderId', name: 'orderId'},
-      {targets: targetIndex++, data: 'customerName', name: 'customerName'},
+      {targets: targetIndex++, responsivePriority: 1, data: 'orderId', name: 'orderId'},
+      {targets: targetIndex++, responsivePriority: 2, data: 'customerName', name: 'customerName'},
       {targets: targetIndex++, data: 'orderDate', name: 'orderDate'},
-      {targets: targetIndex++, data: 'expandRow', name: 'expandRow'},
+      {targets: targetIndex++, data: 'shippingAddress', name: 'shippingAddress'},
+      {targets: targetIndex++, data: 'paymentStatus', name: 'paymentStatus'},
+      {targets: targetIndex++, data: 'deliveryDate', name: 'deliveryDate'},
+      {targets: targetIndex++, data: 'orderStatus', name: 'orderStatus'},
+      {targets: targetIndex++, data: 'orderType', name: 'orderType'},
+      {targets: targetIndex++, data: 'discount', name: 'discount'},
+      {targets: targetIndex++, data: 'orderNotes', name: 'orderNotes'},
+      {targets: targetIndex++, responsivePriority: 3, data: 'expandRow', name: 'expandRow'},
     ],
     pageLength: 3,
     drawCallback: settings =&gt; {
@@ -3342,10 +3406,24 @@ const handleRowExpand = () =&gt; {
   })
 }
 
-// Removes subtable rows associated with the given parent row.
+// Removes subtable rows associated with the given parent row, excluding rows with the 'child' class.
 const removeSubtableRows = parentRow =&gt; {
-  while (parentRow.nextSibling &amp;&amp; parentRow.nextSibling.getAttribute('data-is-subtable-row') === 'true')
-    parentRow.nextSibling.parentNode.removeChild(parentRow.nextSibling);
+  let nextRow = parentRow.nextSibling;
+
+  while (nextRow) {
+    // Store the next sibling before potentially removing nextRow.
+    const nextSibling = nextRow.nextSibling; 
+
+    if (nextRow.getAttribute('data-is-subtable-row') === 'true')
+      // Remove the subtable row.
+      nextRow.parentNode.removeChild(nextRow);
+      else if (!nextRow.classList.contains('child'))
+      // Stop if the next row is not a subtable row and doesn't have the 'child' class.
+      break;
+
+    // Move to the next sibling.
+    nextRow = nextSibling; // Update nextRow to the stored next sibling.
+  }
 }
 
 // Populates a subtable row with data and inserts it into the table.
@@ -3451,8 +3529,8 @@ const subtableData = [
     &quot;orderId&quot;: 1003,
     &quot;name&quot;: &quot;Office Chair&quot;,
     &quot;quantity&quot;: 1,
-    &quot;unitPrice&quot;: 120.00
-  },
+    &quot;unitPrice&quot;: 120.00,
+  }
 ];
 
 

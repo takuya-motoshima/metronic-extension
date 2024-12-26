@@ -7,11 +7,19 @@ const ref = components.selectRef();
 const initSubtable = () => {
   let targetIndex = 0;
   return new components.Datatable(ref.subtable, {
+    responsive: true,
     columnDefs: [
-      {targets: targetIndex++, data: 'orderId', name: 'orderId'},
-      {targets: targetIndex++, data: 'customerName', name: 'customerName'},
+      {targets: targetIndex++, responsivePriority: 1, data: 'orderId', name: 'orderId'},
+      {targets: targetIndex++, responsivePriority: 2, data: 'customerName', name: 'customerName'},
       {targets: targetIndex++, data: 'orderDate', name: 'orderDate'},
-      {targets: targetIndex++, data: 'expandRow', name: 'expandRow'},
+      {targets: targetIndex++, data: 'shippingAddress', name: 'shippingAddress'},
+      {targets: targetIndex++, data: 'paymentStatus', name: 'paymentStatus'},
+      {targets: targetIndex++, data: 'deliveryDate', name: 'deliveryDate'},
+      {targets: targetIndex++, data: 'orderStatus', name: 'orderStatus'},
+      {targets: targetIndex++, data: 'orderType', name: 'orderType'},
+      {targets: targetIndex++, data: 'discount', name: 'discount'},
+      {targets: targetIndex++, data: 'orderNotes', name: 'orderNotes'},
+      {targets: targetIndex++, responsivePriority: 3, data: 'expandRow', name: 'expandRow'},
     ],
     pageLength: 3,
     drawCallback: settings => {
@@ -51,10 +59,24 @@ const handleRowExpand = () => {
   })
 }
 
-// Removes subtable rows associated with the given parent row.
+// Removes subtable rows associated with the given parent row, excluding rows with the 'child' class.
 const removeSubtableRows = parentRow => {
-  while (parentRow.nextSibling && parentRow.nextSibling.getAttribute('data-is-subtable-row') === 'true')
-    parentRow.nextSibling.parentNode.removeChild(parentRow.nextSibling);
+  let nextRow = parentRow.nextSibling;
+
+  while (nextRow) {
+    // Store the next sibling before potentially removing nextRow.
+    const nextSibling = nextRow.nextSibling; 
+
+    if (nextRow.getAttribute('data-is-subtable-row') === 'true')
+      // Remove the subtable row.
+      nextRow.parentNode.removeChild(nextRow);
+      else if (!nextRow.classList.contains('child'))
+      // Stop if the next row is not a subtable row and doesn't have the 'child' class.
+      break;
+
+    // Move to the next sibling.
+    nextRow = nextSibling; // Update nextRow to the stored next sibling.
+  }
 }
 
 // Populates a subtable row with data and inserts it into the table.
