@@ -58,11 +58,12 @@ export default class Datatable {
      * ```js
      * import {components} from 'metronic-extension';
      *
-     * // Initialize DataTable.
+     * // Initialize the component and set up event listeners.
+     * let targetIndex = 0;
      * const myTable = new components.Datatable(document.getElementById('myTable'), {
      *   columnDefs: [
-     *     {targets: 0, name: 'name'},
-     *     {targets: 1, name: 'position'},
+     *     {targets: targetIndex++, name: 'name'},
+     *     {targets: targetIndex++, name: 'position'},
      *   ],
      * });
      *
@@ -118,11 +119,12 @@ export default class Datatable {
      * ```js
      * import {components} from 'metronic-extension';
      *
-     * // Initialize DataTable.
+     * // Initialize the component and set up event listeners.
+     * let targetIndex = 0;
      * const myTable = new components.Datatable(document.getElementById('myTable'), {
      *   columnDefs: [
-     *     {targets: 0, data: 'name'},
-     *     {targets: 1, data: 'position'},
+     *     {targets: targetIndex++, data: 'name'},
+     *     {targets: targetIndex++, data: 'position'},
      *   ],
      * });
      *
@@ -170,12 +172,13 @@ export default class Datatable {
      * ```js
      * import {components} from 'metronic-extension';
      *
-     * // Initialize DataTable.
+     * // Initialize the component and set up event listeners.
+     * let targetIndex = 0;
      * const myTable = new components.Datatable(document.getElementById('myTable'), {
      *   columnDefs: [
-     *     {targets: 0, data: 'name'},
-     *     {targets: 1, data: 'position'},
-     *     {targets: 2, data: 'actions'},
+     *     {targets: targetIndex++, data: 'name'},
+     *     {targets: targetIndex++, data: 'position'},
+     *     {targets: targetIndex++, data: 'actions'},
      *   ],
      * });
      *
@@ -183,9 +186,9 @@ export default class Datatable {
      * myTable.deleteRow(1);
      *
      * // Specify a row element to delete.
-     * $('#myTable tbody').on('click', '[data-on-delete]', evnt => {
+     * $('#myTable tbody').on('click', '[data-on-delete]', event => {
      *   // Get selection row.
-     *   const row = evnt.currentTarget.closest('tr');
+     *   const row = event.currentTarget.closest('tr');
      *
      *   // Delete row.
      *   myTable.deleteRow(row);
@@ -229,17 +232,17 @@ export default class Datatable {
      * ```js
      * import {components} from 'metronic-extension';
      *
-     * // Initialize DataTable.
+     * // Initialize the component and set up event listeners.
+     * let targetIndex = 0;
      * const myTable = new components.Datatable(document.getElementById('myTable'), {
      *   columnDefs: [
-     *     {targets: 0, data: 'name'},
-     *     {targets: 1, data: 'position'},
-     *     {targets: 2, data: 'actions'},
+     *     {targets: targetIndex++, data: 'name'},
+     *     {targets: targetIndex++, data: 'position'},
+     *     {targets: targetIndex++, data: 'actions'},
      *   ],
      * });
      *
-     * // Update button click event.
-     * $('#myTable tbody').on('click', '[data-on-update]', evnt => {
+     * $('#myTable tbody').on('click', '[data-on-update]', event => {
      *   // Display name input dialog.
      * 	const name = window.prompt('Please enter a new name.');
      *   if (!name)
@@ -247,7 +250,7 @@ export default class Datatable {
      *     return;
      *
      *   // Get selection row.
-     *   const row = evnt.currentTarget.closest('tr');
+     *   const row = event.currentTarget.closest('tr');
      *
      *   // Update the name column of row.
      *   myTable.updateRow(row, {name}, false);
@@ -256,9 +259,10 @@ export default class Datatable {
      */
     updateRow(rowSelector: any, data: any[] | object, redraw?: boolean): Datatable;
     /**
-     * Get single row or all rows of data
+     * Gets the data for a single row or all rows in the DataTable.
+     * You can access the column data in a row using the name specified in the `data` property during column definition.
      * @param {any} rowSelector Row selector. See <a href="https://datatables.net/reference/type/row-selector" target="_blank">here</a> for more information.
-     * @return {any[]|object} Row data.
+     * @return {any[]|object} An array of row data objects if no row selector is provided, or a single row data object if a selector is provided.
      * @example
      * HTML:
      * ```html
@@ -286,11 +290,12 @@ export default class Datatable {
      * ```js
      * import {components} from 'metronic-extension';
      *
-     * // Initialize DataTable.
+     * // Initialize the component and set up event listeners.
+     * let targetIndex = 0;
      * const myTable = new components.Datatable(document.getElementById('myTable'), {
      *   columnDefs: [
-     *     {targets: 0, data: 'name'},
-     *     {targets: 1, data: 'position'},
+     *     {targets: targetIndex++, data: 'name'},
+     *     {targets: targetIndex++, data: 'position'},
      *   ],
      * });
      *

@@ -75,9 +75,9 @@
 
     // Initialize date range picker.
     const picker = $(element)
-      .on('apply.daterangepicker', evnt => {
+      .on('apply.daterangepicker', event => {
         // Get date picker instance.
-        const picker = $(evnt.currentTarget).data('daterangepicker');
+        const picker = $(event.currentTarget).data('daterangepicker');
 
         // Triggered when the apply button is clicked, or when a predefined range is clicked.
         // The display switches depending on whether the selected date is a single date or a range of dates.

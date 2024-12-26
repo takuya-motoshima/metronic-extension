@@ -80,7 +80,7 @@ export default (element: string|HTMLInputElement|JQuery, options?: DatePickerOpt
 
   // Initialize Date Range Picker.
   return (element as JQuery)
-    .on('apply.daterangepicker', (evnt: Event, picker: daterangepicker.DateRangePicker) => {
+    .on('apply.daterangepicker', (event: Event, picker: daterangepicker.DateRangePicker) => {
       // Triggered when the apply button is clicked, or when a predefined range is clicked.
       if (!picker)
         return;
@@ -91,7 +91,7 @@ export default (element: string|HTMLInputElement|JQuery, options?: DatePickerOpt
         picker.element.val(`${picker.startDate.format(format)} - ${picker.endDate.format(format)}`);
       }
     })
-    .on('cancel.daterangepicker', (evnt: Event, picker: daterangepicker.DateRangePicker) => {
+    .on('cancel.daterangepicker', (event: Event, picker: daterangepicker.DateRangePicker) => {
       // After selecting the Cancel button, the input is cleared.
       picker.element.val('').trigger('apply.daterangepicker');
     })

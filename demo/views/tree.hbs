@@ -80,7 +80,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -647,7 +647,7 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
               <!--end::Heading-->
               <!--begin::Parameters-->
               <ul>
-                <li class="py-2"><code>handler: (evnt: any, node: any) =&gt; void</code>
+                <li class="py-2"><code>handler: (event: any, node: any) =&gt; void</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Callback function.
@@ -677,7 +677,7 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
               <!--end::Heading-->
               <!--begin::Parameters-->
               <ul>
-                <li class="py-2"><code>handler: (err: any) =&gt; void</code>
+                <li class="py-2"><code>handler: (error: any) =&gt; void</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Callback function.
@@ -738,7 +738,7 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
               <!--end::Heading-->
               <!--begin::Parameters-->
               <ul>
-                <li class="py-2"><code>handler: (evnt: any) =&gt; void</code>
+                <li class="py-2"><code>handler: (event: any) =&gt; void</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Callback function.
@@ -903,7 +903,7 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">tree.onSelected((evnt, node) =&gt; {
+                    <code class="language-javascript">tree.onSelected((event, node) =&gt; {
   // Get the path of the node.
   tree.getPath(node);// [&#039;Root&#039;, &#039;Folder#1&#039;, &#039;Folder#1_1&#039;]
   tree.getPath(node, &#039;/&#039;);// &#039;Root/Folder#1/Folder#1_1&#039;
@@ -1058,7 +1058,7 @@ renameFile: &#039;/api/tree/file/_CURRENT_NODE_ID_&#039;</code>
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize Tree.
+// Initialize the component and set up event listeners.
 const basicTree = new components.Tree(document.getElementById(&#039;basicTree&#039;), {
   // Ajax Option.
   ajax: {
@@ -1083,18 +1083,17 @@ const basicTree = new components.Tree(document.getElementById(&#039;basicTree&#0
   },
 });
 
-// Set tree event.
 basicTree
-  .onSelected((evnt, node) =&gt; {
+  .onSelected((event, node) =&gt; {
     // Display selected node information.
     document.getElementById(&#039;nodeId&#039;).textContent = node.id;
     document.getElementById(&#039;nodePath&#039;).textContent = basicTree.getPath(node, &#039;/&#039;);
     document.getElementById(&#039;nodeText&#039;).textContent = node.text;
     document.getElementById(&#039;nodeType&#039;).textContent = node.type;
   })
-  .onError(err =&gt; {
+  .onError(error =&gt; {
     // Displays errors encountered in tree operations.
-    alert(err);
+    alert(error);
   });</code>
             </pre>
           </div>
@@ -1234,7 +1233,7 @@ basicTree
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize Tree.
+// Initialize the component and set up event listeners.
 const serverSideProcessingTree = new components.Tree(document.getElementById(&#039;serverSideProcessingTree&#039;), {
   ajax: {
     children: &#039;/api/tree/_PARENT_NODE_ID_&#039;,
@@ -1292,7 +1291,7 @@ const FolderModel = require(&#039;../../models/FolderModel&#039;);
 const FileModel = require(&#039;../../models/FileModel&#039;);
 
 // Check validation results.
-function checkValidationResult(req, res, next) {
+const checkValidationResult = (req, res, next) =&gt; {
   const result = validationResult(req);
   if (result.isEmpty())
     // If there are no errors, go to the next process.

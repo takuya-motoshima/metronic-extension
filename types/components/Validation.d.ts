@@ -39,10 +39,10 @@
  *     // Hide loader.
  *     validation.offIndicator();
  *     alert('The request was successful.');
- *   } catch (err) {
+ *   } catch (error) {
  *     // Hide loader.
  *     validation.offIndicator();
- *     throw err;
+ *     throw error;
  *   }
  * });
  * ```
@@ -85,24 +85,24 @@ export default class Validation {
     validate(): Promise<boolean>;
     /**
      * Sets the callback function to be called when all fields pass validation.
-     * @param {(evnt: any) => void} handler Callback function.
+     * @param {(event: any) => void} handler Callback function.
      * @return {Validation}
      * @example
      * ```js
-     * validation.onValid(async evnt => {});
+     * validation.onValid(async event => {});
      * ```
      */
-    onValid(handler: (evnt: any) => void): Validation;
+    onValid(handler: (event: any) => void): Validation;
     /**
      * Sets the callback function to be called when the validation fails.
-     * @param {(evnt: any) => void} handler Callback function.
+     * @param {(event: any) => void} handler Callback function.
      * @return {Validation}
      * @example
      * ```js
-     * validation.onInvalid(async evnt => {});
+     * validation.onInvalid(async event => {});
      * ```
      */
-    onInvalid(handler: (evnt: any) => void): Validation;
+    onInvalid(handler: (event: any) => void): Validation;
     /**
      * Sets the callback function to be called when the field passes validation. The callback function will receive the name of the field that passed validation.
      * @param {(name: string) => void} handler Callback function.

@@ -23,9 +23,9 @@ function setToggleEvent(input: HTMLElement, options: Required<PasswordToggleOpti
   button.innerHTML = `<i class="${options.showButtonClass}"></i>`;
 
   // Set up password toggle processing for button element click events.
-  button.addEventListener('click', evnt => {
+  button.addEventListener('click', event => {
     // Get button element.
-    const button = evnt.currentTarget as HTMLButtonElement;
+    const button = event.currentTarget as HTMLButtonElement;
 
     // Get the icon element of the button.
     const icon = button.querySelector('i') as HTMLElement;

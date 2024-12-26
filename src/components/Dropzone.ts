@@ -107,8 +107,8 @@ export default class DropzoneComponent {
             this.removeFile(this.files[0]);
           if (options.hiddenInputContent) {
             const reader = new FileReader();
-            reader.onload = evnt => {
-              const dataURL = (<FileReader>evnt.target).result as string;
+            reader.onload = event => {
+              const dataURL = (<FileReader>event.target).result as string;
               (options.hiddenInputContent as HTMLInputElement).value = dataURL;
             };
             reader.readAsDataURL(file);

@@ -68,7 +68,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -118,7 +118,7 @@
                   <pre class="language-javascript">
                     <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Block#target element.
+// Initialize the component and set up event listeners.
 const blockUI = new components.BlockUI(document.getElementById(&#039;target&#039;), &#039;Loading...&#039;);
 
 // Block #target element. Do not block initially.
@@ -292,13 +292,12 @@ const initiallyHiddenBlockUI = new components.BlockUI(document.getElementById(&#
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize loader.
+// Initialize the component and set up event listeners.
 const blockUI = new components.BlockUI(ref.target, &#039;Loading...&#039;, false);
 
-// Initialize events.
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-block]&#039;, () =&gt; {
   if (blockUI.isBlocked()) {
     // If currently blocking, unblock.

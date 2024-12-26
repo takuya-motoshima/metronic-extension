@@ -40,22 +40,22 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     setReadonly(readonly?: boolean): void;
     /**
      * Sets the callback function to be called when a tag is added.
-     * @param {(evnt: Tagify.AddEventData) => void} handler Callback function.
+     * @param {(event: Tagify.AddEventData) => void} handler Callback function.
      * @return {Tagify}
      */
-    onAddTag(handler: (evnt: Tagify.AddEventData) => void): this;
+    onAddTag(handler: (event: Tagify.AddEventData) => void): this;
     /**
      * Sets the callback function to be called when a tag is removed.
-     * @param {(evnt: Tagify.RemoveEventData) => void} handler Callback function.
+     * @param {(event: Tagify.RemoveEventData) => void} handler Callback function.
      * @return {Tagify}
      */
-    onRemoveTag(handler: (evnt: Tagify.RemoveEventData) => void): this;
+    onRemoveTag(handler: (event: Tagify.RemoveEventData) => void): this;
     /**
      * Sets the callback function to be called when the tag is modified.
-     * @param {(evnt: Tagify.AddEventData|Tagify.RemoveEventData) => void} handler Callback function.
+     * @param {(event: Tagify.AddEventData|Tagify.RemoveEventData) => void} handler Callback function.
      * @return {Tagify}
      */
-    onChangeTag(handler: (evnt: Tagify.AddEventData | Tagify.RemoveEventData) => void): this;
+    onChangeTag(handler: (event: Tagify.AddEventData | Tagify.RemoveEventData) => void): this;
     /**
      * Reverts the input element back as it was before Tagify was applied.
      */

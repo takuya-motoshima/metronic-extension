@@ -165,8 +165,8 @@ export default class {
     toast.show();
 
     // Delete the element when you close the toast.
-    toastElement.on('hidden.bs.toast', (evnt: any) => {
-      $(evnt.currentTarget).remove();
+    toastElement.on('hidden.bs.toast', (event: any) => {
+      $(event.currentTarget).remove();
 
       // Delete the container if there is no toast element.
       if (!container.find('.toast').length)

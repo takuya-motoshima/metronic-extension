@@ -43,10 +43,10 @@ import ValidationOptions from '~/interfaces/ValidationOptions';
  *     // Hide loader.
  *     validation.offIndicator();
  *     alert('The request was successful.');
- *   } catch (err) {
+ *   } catch (error) {
  *     // Hide loader.
  *     validation.offIndicator();
- *     throw err;
+ *     throw error;
  *   }
  * });
  * ```
@@ -79,15 +79,15 @@ export default class Validation {
 
   /**
    * Callback function called when all fields pass validation.
-   * @type {(evnt: any) => void}
+   * @type {(event: any) => void}
    */
-  #formValidHandler: (evnt: any) => void = (evnt: any) => {};
+  #formValidHandler: (event: any) => void = (event: any) => {};
 
   /**
    * Callback function called when validation fails.
-   * @type {(evnt: any) => void}
+   * @type {(event: any) => void}
    */
-  #formInvalidHandler: (evnt: any) => void = (evnt: any) => {};
+  #formInvalidHandler: (event: any) => void = (event: any) => {};
 
   /**
    * Callback function called when a field passes validation.
@@ -142,11 +142,11 @@ export default class Validation {
 
     // Set event handler.
     this.fv
-      .on('core.form.valid', (evnt: any) => {
+      .on('core.form.valid', (event: any) => {
         // Triggered when the form is completely validated, and all fields are valid.
-        this.#formValidHandler(evnt);
+        this.#formValidHandler(event);
       })
-      .on('core.form.invalid', (evnt: any) => {
+      .on('core.form.invalid', (event: any) => {
         // Triggered when the form is completely validated, and all fields are invalid.
         if (this.#shouldFocus) {
           // Scroll to invalid element on submit.
@@ -159,7 +159,7 @@ export default class Validation {
         }
 
         // Invoke callback function.
-        this.#formInvalidHandler(evnt);
+        this.#formInvalidHandler(event);
       })
       .on('core.field.valid', (...arg: unknown[]) => {
         // Triggered after validating a field, and it is a valid field.
@@ -185,28 +185,28 @@ export default class Validation {
 
   /**
    * Sets the callback function to be called when all fields pass validation.
-   * @param {(evnt: any) => void} handler Callback function.
+   * @param {(event: any) => void} handler Callback function.
    * @return {Validation}
    * @example
    * ```js
-   * validation.onValid(async evnt => {});
+   * validation.onValid(async event => {});
    * ```
    */
-  public onValid(handler: (evnt: any) => void): Validation {
+  public onValid(handler: (event: any) => void): Validation {
     this.#formValidHandler = handler;
     return this;
   }
 
   /**
    * Sets the callback function to be called when the validation fails.
-   * @param {(evnt: any) => void} handler Callback function.
+   * @param {(event: any) => void} handler Callback function.
    * @return {Validation}
    * @example
    * ```js
-   * validation.onInvalid(async evnt => {});
+   * validation.onInvalid(async event => {});
    * ```
    */
-  public onInvalid(handler: (evnt: any) => void): Validation {
+  public onInvalid(handler: (event: any) => void): Validation {
     this.#formInvalidHandler = handler;
     return this;
   }

@@ -2,18 +2,16 @@
 Extension package for the Metronic WEB theme.
 
 - [metronic-extension](#metronic-extension)
-    - [Documentation](#documentation)
-    - [Installation](#installation)
-    - [How to start the demo with Docker](#how-to-start-the-demo-with-docker)
-    - [Release Notes](#release-notes)
-    - [Testing](#testing)
-    - [Author](#author)
-    - [License](#license)
+  - [Documentation](#documentation)
+  - [Installation](#installation)
+  - [How to start the demo with Docker](#how-to-start-the-demo-with-docker)
+  - [Release Notes](#release-notes)
+  - [Testing](#testing)
+  - [Author](#author)
+  - [License](#license)
 
 ## Documentation
-Metronic Extension V3 documentation can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/).
-
-If you are using Metronic Extension V2, please see the documentation [here](https://takuya-motoshima.github.io/metronic-extension/v2/).
+Metronic Extension documentation can be found [here](https://takuya-motoshima.github.io/metronic-extension/).
 
 ## Installation
 ```sh
@@ -35,7 +33,7 @@ All changes can be found [here](CHANGELOG.md).
     - Added an option to the line chart component (`components.LineChart`) for the number of tick intervals to be displayed on the x-axis (`xAxisTickAmount`).  
         The default is the number of data on the x-axis.
 
-        See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
+        See [here](https://takuya-motoshima.github.io/metronic-extension/linechart.html#reference) for more information.
     - Added option (`xaxis.labels.hideOverlappingLabels`) to prevent overlapping X axis labels on line and bar charts (`components.LineChart`, `components.BarChart`).
     - The missing source map for the Metronic theme has been added to the dist.  
         If your theme does not have them, copy them into the theme directory and use them.  
@@ -49,16 +47,16 @@ All changes can be found [here](CHANGELOG.md).
         - lineWidth: The line width (in pixels). Default is 3.
         - yAxisOpposite: When enabled, will draw the yaxis on the right side of the chart. Default is false.
 
-        See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
+        See [here](https://takuya-motoshima.github.io/metronic-extension/linechart.html#reference) for more information.
 - [3.0.6] - 2024/2/13
     - Added a date range menu component (`components.initDaterangeMenu`).  
-        Check [here](https://takuya-motoshima.github.io/metronic-extension/v3/date-range-menu.html) for usage and examples.  
+        Check [here](https://takuya-motoshima.github.io/metronic-extension/date-range-menu.html) for usage and examples.  
 
         <img src="screencaps/date-range-menu-1.jpg">
         <img src="screencaps/date-range-menu-2.jpg">
 - [3.0.5] - 2024/2/12
     - An example has been added for switching the column display of a data table component (`components.ImageInput`) with an icon button.  
-        Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
+        Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#column-visibility-with-icon-button).  
 
         <img src="screencaps/column-visibility-with-icon-button-table.jpg">
 

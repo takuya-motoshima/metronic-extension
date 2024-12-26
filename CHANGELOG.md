@@ -1,12 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.0.10] - Release is undecided.
+## [3.0.10] - 2024/12/27
+### Added
+- Add Sub Datatable Example [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#subtable).
+
+  ![subtable.jpg](screencaps/subtable.jpg)
+
 ### Fixed
 - Fixed a bug in the demo page where the source maps for some modules were missing.
     Added the following
     - demo/public/build/theme/plugins/global/toastr.js.map
     - demo/public/build/theme/plugins/custom/datatables/pdfmake.min.js.map
+
+### Changed
+- Merged docs/v2 and docs/v3 documentation into docs/. Old documents are available at [https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9](https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9).
 
 ## [3.0.9] - 2024/2/19
 ### Changed
@@ -24,7 +32,7 @@ All notable changes to this project will be documented in this file.
 - Added an option to the line chart component (`components.LineChart`) for the number of tick intervals to be displayed on the x-axis (`xAxisTickAmount`).  
     The default is the number of data on the x-axis.
 
-    See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
+    See [here](https://takuya-motoshima.github.io/metronic-extension/linechart.html#reference) for more information.
 - Added option (`xaxis.labels.hideOverlappingLabels`) to prevent overlapping X axis labels on line and bar charts (`components.LineChart`, `components.BarChart`).
 - The missing source map for the Metronic theme has been added to the dist.  
     If your theme does not have them, copy them into the theme directory and use them.  
@@ -40,12 +48,12 @@ All notable changes to this project will be documented in this file.
     - lineWidth: The line width (in pixels). Default is 3.
     - yAxisOpposite: When enabled, will draw the yaxis on the right side of the chart. Default is false.
 
-    See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html#reference) for more information.
+    See [here](https://takuya-motoshima.github.io/metronic-extension/linechart.html#reference) for more information.
 
 ## [3.0.6] - 2024/2/13
 ### Added
 - Added a date range menu component (`components.initDaterangeMenu`).  
-  Check [here](https://takuya-motoshima.github.io/metronic-extension/v3/date-range-menu.html) for usage and examples.  
+  Check [here](https://takuya-motoshima.github.io/metronic-extension/date-range-menu.html) for usage and examples.  
 
   <img src="screencaps/date-range-menu-1.jpg">
   <img src="screencaps/date-range-menu-2.jpg">
@@ -53,7 +61,7 @@ All notable changes to this project will be documented in this file.
 ## [3.0.5] - 2024/2/12
 ### Changed
 - An example has been added for switching the column display of a data table component (`components.ImageInput`) with an icon button.  
-    Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/v3/datatable.html#column-visibility-with-icon-button).  
+    Examples and codes can be found [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#column-visibility-with-icon-button).  
 
     <img src="screencaps/column-visibility-with-icon-button-table.jpg">
 
@@ -67,7 +75,7 @@ All notable changes to this project will be documented in this file.
       name: 'image'
     });
     ```
-- [Theme documentation](https://takuya-motoshima.github.io/metronic-extension/v3/) now offers a choice of three themes.
+- [Theme documentation](https://takuya-motoshima.github.io/metronic-extension/) now offers a choice of three themes.
     - Light  
         <img src="screencaps/light-theme.jpg">
     - Dark  
@@ -78,7 +86,7 @@ All notable changes to this project will be documented in this file.
 ## [3.0.3] - 2023/12/27
 ### Added
 - Line chart component added.  
-    See [here](https://takuya-motoshima.github.io/metronic-extension/v3/linechart.html) how to use it.
+    See [here](https://takuya-motoshima.github.io/metronic-extension/linechart.html) how to use it.
   
     ![line-chart.jpg](screencaps/line-chart.jpg)
 
@@ -306,35 +314,18 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.2] - 2023/11/7
 ### Changed
-- Added getter method for ApexCharts instances to BarChart and PieChart.
-    See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
-
-    ```js
-    import {components} from 'metronic-extension';// Version 3 or higher.
-    // import {charts} from 'metronic-extension';// Version 2 or lower.
-
-    // Initialize chart.
-    const piechart = new components.PieChart(document.getElementById('piechart'), {// Version 3 or higher.
-    // const piechart = new charts.PieChart(document.getElementById('piechart'), {// Version 2 or lower.
-      ajax: {
-        url: 'json/piechart.json'
-      },
-    });
-
-    // Chart Instance.
-    piechart.instance;
-    ```
+- Added getter method for ApexCharts instances to BarChart and PieChart. See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
 
 ## [2.1.1] - 2023/11/6
 ### Added
-- Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/v3/piechart.html) to learn how to use it.
+- Added Pie Chart component. Click [here](https://takuya-motoshima.github.io/metronic-extension/piechart.html) to learn how to use it.
 
     ![pie-chart.jpg](screencaps/pie-chart.jpg)
 
 ## [2.1.0] - 2023/10/30
 ### Added
 - An extended bar chart component based on [Apexcharts](https://apexcharts.com/) has been added.  
-    To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/v3/barchart.html).
+    To learn how to use the added components, please click [here](https://takuya-motoshima.github.io/metronic-extension/barchart.html).
 
     ![bar-chart.jpg](screencaps/bar-chart.jpg)
 
@@ -423,7 +414,7 @@ All notable changes to this project will be documented in this file.
     </table>
 
 ### Added
-- Added a validator function that can be used independently. Click [here](https://takuya-motoshima.github.io/metronic-extension/v3/utilities.html#validatorFunctions) for details.
+- Added a validator function that can be used independently. Click [here](https://takuya-motoshima.github.io/metronic-extension/utilities.html#validatorFunctions) for details.
 
 ## [2.0.25] - 2023/8/15
 ### Changed

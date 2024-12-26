@@ -8,9 +8,7 @@
     "deep-fusion": "^1.0.3",
     "express-sweet": "^1.0.44",
     "express-validator": "^6.14.3",
-    "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.3"
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.9"
   }
 }

@@ -52,15 +52,15 @@ export default class Tree {
 
   /**
    * Callback function called when a node is selected.
-   * @type {(evnt: any, node: any) => void}
+   * @type {(event: any, node: any) => void}
    */
-  #selectedHandler: (evnt: any, node: any) => void = (evnt: any, node: any) => {};
+  #selectedHandler: (event: any, node: any) => void = (event: any, node: any) => {};
 
   /**
    * Callback function to be called on error.
-   * @type {(err: any) => void}
+   * @type {(error: any) => void}
    */
-  #errorHandler: (err: any) => void = (err: any) => {};
+  #errorHandler: (error: any) => void = (error: any) => {};
 
   /**
    * Callback function to be called when a child node of the selected node is retrieved from the server side.
@@ -70,9 +70,9 @@ export default class Tree {
 
   /**
    * Callback function to be called when tree initialization is complete.
-   * @type {(evnt: any) => void}
+   * @type {(event: any) => void}
    */
-  #readyhHandler: (evnt: any) => void = (evnt: any) => {};
+  #readyhHandler: (event: any) => void = (event: any) => {};
 
   /**
    * Function to hook new node creation operations.
@@ -118,9 +118,9 @@ export default class Tree {
 
     // Initialize the tree.
     this.#instance = element
-      .on('focus', '.jstree-rename-input', evnt => {
+      .on('focus', '.jstree-rename-input', event => {
         // Set the maximum input length once the folder or file name input field is focused.
-        const input = evnt.currentTarget;
+        const input = event.currentTarget;
         const li = input.closest('li[data-node-type]');
         switch (li.dataset.nodeType) {
         case this.#options.nodeTypes.folder.type:
@@ -133,23 +133,23 @@ export default class Tree {
           break;
         }
       })
-      .on('state_ready.jstree refresh.jstree', (evnt: any) => {
+      .on('state_ready.jstree refresh.jstree', (event: any) => {
         // If there is no first selected node, the root node is made selected.
         if (!this.getSelectedNodes(true, 0))
           this.#selectNode(this.#getRootNode());
 
         // Triggers a ready event.
-        this.#readyhHandler(evnt);
+        this.#readyhHandler(event);
       })
-      // .on('after_close.jstree', (evnt, data) => {
+      // .on('after_close.jstree', (event, data) => {
       //   if (!this.#options.cacheLoadedChildren) {
       //     // Flag it to be reloaded on reopen.
       //     // FIXME: If the parent folder of a selected folder is closed and opened, the selection is removed.
       //     data.node.state.loaded = false;
       //   }
       // })
-      .on('select_node.jstree', (evnt: any, data: any) => {
-        this.#selectedHandler(evnt, data.node);
+      .on('select_node.jstree', (event: any, data: any) => {
+        this.#selectedHandler(event, data.node);
       })
       .jstree({
         core: {
@@ -275,13 +275,13 @@ export default class Tree {
                               .#setNodeID(newNode, nodeData.id)
                               .#selectNode(newNode);
                             Toast.success(this.#options.language.createFolderSuccessful!.replace('_FOLDER_', trim(newNode.text) as string));
-                          } catch (err) {
+                          } catch (error) {
                             await Dialog.unknownError(this.#options.language.unknownErrorMessage, {title: this.#options.language.unknownErrorTitle});
-                            this.#errorHandler(err);
-                            throw err;
+                            this.#errorHandler(error);
+                            throw error;
                           }
                         });
-                      // } catch (err) {
+                      // } catch (error) {
                       //   setTimeout(() => this.#instance.edit(newNode), 0);
                       // }
                     });
@@ -334,13 +334,13 @@ export default class Tree {
                               .#setNodeID(newNode, nodeData.id)
                               .#selectNode(newNode);
                             Toast.success(this.#options.language.createFileSuccessful!.replace('_FILE_', trim(newNode.text) as string));
-                          } catch (err) {
+                          } catch (error) {
                             await Dialog.unknownError(this.#options.language.unknownErrorMessage, {title: this.#options.language.unknownErrorTitle});
-                            this.#errorHandler(err);
-                            throw err;
+                            this.#errorHandler(error);
+                            throw error;
                           }
                         });
-                      // } catch (err) {
+                      // } catch (error) {
                       //   setTimeout(() => this.#instance.edit(newNode), 0);
                       // }
                     });
@@ -407,10 +407,10 @@ export default class Tree {
                         .#selectNode(this.getParentNode(currentNode));
                         // .#selectNode(this.#getRootNode());
                       Toast.success(this.#options.language.deleteFolderSuccessful!.replace('_FOLDER_', trim(currentNode.text) as string));
-                    } catch (err) {
+                    } catch (error) {
                       await Dialog.unknownError(this.#options.language.unknownErrorMessage, {title: this.#options.language.unknownErrorTitle});
-                      this.#errorHandler(err);
-                      throw err;
+                      this.#errorHandler(error);
+                      throw error;
                     }
                   },
                 };
@@ -443,10 +443,10 @@ export default class Tree {
                             return data;
                           })()
                         });
-                      } catch (err) {
+                      } catch (error) {
                         await Dialog.unknownError(this.#options.language.unknownErrorMessage, {title: this.#options.language.unknownErrorTitle});
-                        this.#errorHandler(err);
-                        throw err;
+                        this.#errorHandler(error);
+                        throw error;
                       }
                     });
                   },
@@ -488,10 +488,10 @@ export default class Tree {
                       .#deleteNode(currentNode)
                       .#selectNode(this.getParentNode(currentNode));
                     Toast.success(this.#options.language.deleteFileSuccessful!.replace('_FILE_', trim(currentNode.text) as string));
-                  } catch (err) {
+                  } catch (error) {
                     await Dialog.unknownError(this.#options.language.unknownErrorMessage, {title: this.#options.language.unknownErrorTitle});
-                    this.#errorHandler(err);
-                    throw err;
+                    this.#errorHandler(error);
+                    throw error;
                   }
                 },
               };
@@ -524,10 +524,10 @@ export default class Tree {
                           return data;
                         })()
                       });
-                    } catch (err) {
+                    } catch (error) {
                       await Dialog.unknownError(this.#options.language.unknownErrorMessage, {title: this.#options.language.unknownErrorTitle});
-                      this.#errorHandler(err);
-                      throw err;
+                      this.#errorHandler(error);
+                      throw error;
                     }
                   });
                 },
@@ -563,20 +563,20 @@ export default class Tree {
 
   /**
    * Sets the callback function to be called when a node is selected. The callback function receives an event object and a node object.
-   * @param {(evnt: any, node: any) => void} handler Callback function.
+   * @param {(event: any, node: any) => void} handler Callback function.
    * @return {Tree}
    */
-  public onSelected(handler: (evnt: any, node: any) => void): Tree {
+  public onSelected(handler: (event: any, node: any) => void): Tree {
     this.#selectedHandler = handler;
     return this;
   }
 
   /**
    * Sets the callback function to be called on error. The callback function receives an error object.
-   * @param {(err: any) => void} handler Callback function.
+   * @param {(error: any) => void} handler Callback function.
    * @return {Tree}
    */
-  public onError(handler: (err: any) => void): Tree {
+  public onError(handler: (error: any) => void): Tree {
     this.#errorHandler = handler;
     return this;
   }
@@ -594,10 +594,10 @@ export default class Tree {
 
   /**
    * Sets the callback function that will be called when the tree initialization is complete. The callback function receives an event object.
-   * @param {(evnt: any) => void} handler Callback function.
+   * @param {(event: any) => void} handler Callback function.
    * @return {Tree}
    */
-  public onReady(handler: (evnt: any) => void): Tree {
+  public onReady(handler: (event: any) => void): Tree {
     this.#readyhHandler = handler;
     return this;
   }
@@ -640,7 +640,7 @@ export default class Tree {
    * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
    * @example
    * ```js
-   * tree.onSelected((evnt, node) => {
+   * tree.onSelected((event, node) => {
    *   // Get the path of the node.
    *   tree.getPath(node);// ['Root', 'Folder#1', 'Folder#1_1']
    *   tree.getPath(node, '/');// 'Root/Folder#1/Folder#1_1'

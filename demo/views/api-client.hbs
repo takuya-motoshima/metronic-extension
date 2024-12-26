@@ -245,7 +245,7 @@ class OrderApi extends components.Api {
                   </div>
                   <!--end::Block-->
                 </li>
-                <li class="py-2"><code>err: axios.AxiosError</code>
+                <li class="py-2"><code>error: axios.AxiosError</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Request error object.
@@ -259,7 +259,7 @@ class OrderApi extends components.Api {
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">errorHook(httpStatusCode, err) {
+                    <code class="language-javascript">errorHook(httpStatusCode, error) {
   if (httpStatusCode === 403)
     // Redirect in case of authentication error (403).
     location.replace(&#039;/&#039;);

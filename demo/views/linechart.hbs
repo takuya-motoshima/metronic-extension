@@ -80,7 +80,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -333,7 +333,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -405,7 +405,7 @@
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const singleLineChart = new components.LineChart(document.getElementById(&#039;singleLineChart&#039;), {
   ajax: {
     url: &#039;json/single-linechart.json&#039;,
@@ -538,7 +538,7 @@ const singleLineChart = new components.LineChart(document.getElementById(&#039;s
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initMultiLineChart() {
+const initMultiLineChart = () =&gt; {
   return new components.LineChart(document.getElementById(&#039;multiLineChart&#039;), {
     ajax: {
       url: &#039;json/multi-linechart.json&#039;,
@@ -565,7 +565,7 @@ function initMultiLineChart() {
   });
 }
 
-function initMultiLineChartSearchForm() {
+const initMultiLineChartSearchForm = () =&gt; {
   // Timer to prevent duplicate filtering runs.
  let searchTimer;
   multiLineChartKeyword.addEventListener(&#039;input&#039;, () =&gt; {
@@ -584,10 +584,8 @@ function initMultiLineChartSearchForm() {
 // Search keyword input field.
 const multiLineChartKeyword = document.getElementById(&#039;multiLineChartKeyword&#039;);
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const multiLineChart = initMultiLineChart();
-
-// Initialize events, etc.
 initMultiLineChartSearchForm();</code>
             </pre>
           </div>

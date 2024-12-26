@@ -33,7 +33,7 @@
   <!--end::Global Javascript Bundle-->
   <!--begin::Custom Javascript(used for this page only)-->
   <script>
-    function initChart(element, data, options = null) {
+    const initChart = (element, data, options = null) => {
       // Initialize options.
       options = Object.assign({
         xAxisFormatter: value => value,
@@ -204,7 +204,7 @@
       chart.render();
     }
 
-    function categorizeData(data) {
+    const categorizeData = data => {
       // Sort data in ascending order by category and name.
       data.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 
@@ -241,7 +241,7 @@
       }, []);
     }
 
-    function createSeriesData(categorized) {
+    const createSeriesData = categorized => {
       // Map to get name index.
       const indexOfNames = categorized.reduce((indexOfNames, raw) => {
         for (let data of raw.data)

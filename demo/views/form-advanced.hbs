@@ -970,11 +970,10 @@
 const button = document.getElementById(&#039;copy&#039;);
 const input = document.getElementById(&#039;input&#039;);
 
-// Initialize clipboard.
+// Initialize the component and set up event listeners.
 const clipboard = new ClipboardJS(button);
 
-// Copy text to clipboard. For more info check the plugin&#039;s documentation: https://clipboardjs.com/.
-clipboard.on(&#039;success&#039;, evnt =&gt; {
+clipboard.on(&#039;success&#039;, event =&gt; {
   // Save the current caption of the button.
   const caption = button.innerHTML;
   
@@ -993,7 +992,7 @@ clipboard.on(&#039;success&#039;, evnt =&gt; {
   }, 3000);
 
   // Deselects the input element.
-  evnt.clearSelection();
+  event.clearSelection();
 });</code>
             </pre>
           </div>
@@ -1096,9 +1095,9 @@ const input = document.querySelector(&#039;[name=&quot;amount&quot;]&#039;);
 
 // The value selected in the button group is reflected in the input element.
 options.forEach(option =&gt; {
-  option.addEventListener(&#039;click&#039;, evnt =&gt; {
-    evnt.preventDefault();
-    input.value = evnt.target.innerText;
+  option.addEventListener(&#039;click&#039;, event =&gt; {
+    event.preventDefault();
+    input.value = event.target.innerText;
   });
 });</code>
             </pre>

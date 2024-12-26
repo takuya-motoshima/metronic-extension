@@ -15,13 +15,12 @@
  * ```js
  * import {components} from 'metronic-extension';
  *
- * // Search for elements.
+ * // Get DOM element references.
  * const ref = components.selectRef();
  *
- * // Block #target element. Do not block initially.
+ * // Initialize the component and set up event listeners.
  * const blockUI = new components.BlockUI(ref.target, 'Loading...', false);
  *
- * // Initialize events.
  * $('body').on('click', '[data-on-block]', () => {
  *   if (blockUI.isBlocked()) {
  *     // If currently blocking, unblock.

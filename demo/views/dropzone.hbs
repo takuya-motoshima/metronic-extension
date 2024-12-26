@@ -68,7 +68,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -150,7 +150,7 @@
                   <pre class="language-javascript">
                     <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initializes Dropzone.
+// Initialize the component and set up event listeners.
 const dropzone = new components.Dropzone(document.getElementById(&#039;myDropzone&#039;), {
   hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
   maxFilesize: 10,
@@ -312,7 +312,7 @@ dropzone.onCancelFile(() =&gt; {
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initializes Dropzone.
+// Initialize the component and set up event listeners.
 const dropzone = new components.Dropzone(document.getElementById(&#039;myDropzone&#039;), {
   hiddenInputContent: document.getElementById(&#039;myFileContent&#039;),
   maxFilesize: 10,
@@ -320,7 +320,6 @@ const dropzone = new components.Dropzone(document.getElementById(&#039;myDropzon
   acceptedFiles: &#039;image/jpeg,image/png,image/gif&#039;,
 });
 
-// Initialize drag &amp; drop events.
 dropzone
   .onAddFile(file =&gt; {
     // Called when a file is added.

@@ -121,9 +121,9 @@ export default (element: string|HTMLDivElement|JQuery, options?: DateRangeMenuOp
 
   // Initialize Date Range Picker.
   const picker = (element as JQuery)
-    .on('apply.daterangepicker', (evnt: Event) => {
+    .on('apply.daterangepicker', (event: Event) => {
       // Get date picker instance.
-      const picker = $(evnt.currentTarget as HTMLDivElement).data('daterangepicker') as unknown as daterangepicker.DateRangePicker;
+      const picker = $(event.currentTarget as HTMLDivElement).data('daterangepicker') as unknown as daterangepicker.DateRangePicker;
 
       // Triggered when the apply button is clicked, or when a predefined range is clicked.
       // The display switches depending on whether the selected date is a single date or a range of dates.
