@@ -87,7 +87,7 @@
               <div class="page-title d-flex flex-column flex-lg-row align-items-lg-center py-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_content_container', 'lg': '#kt_app_header_title'}">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center text-dark my-1 fs-4">
-                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.6</a>
+                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.10</a>
                 </h1>
                 <!--end::Title-->
               </div>
@@ -419,7 +419,7 @@
                 <div class="menu-item">
                   <!--begin:Menu link-->
                   <a class="menu-link " href="select-elements.html">
-                    <span class="menu-title">Search for elements</span>
+                    <span class="menu-title">Get DOM element references</span>
                   </a>
                   <!--end:Menu link-->
                 </div>
@@ -1687,11 +1687,10 @@
 const button = document.getElementById(&#039;copy&#039;);
 const input = document.getElementById(&#039;input&#039;);
 
-// Initialize clipboard.
+// Initialize the component and set up event listeners.
 const clipboard = new ClipboardJS(button);
 
-// Copy text to clipboard. For more info check the plugin&#039;s documentation: https://clipboardjs.com/.
-clipboard.on(&#039;success&#039;, evnt =&gt; {
+clipboard.on(&#039;success&#039;, event =&gt; {
   // Save the current caption of the button.
   const caption = button.innerHTML;
   
@@ -1710,7 +1709,7 @@ clipboard.on(&#039;success&#039;, evnt =&gt; {
   }, 3000);
 
   // Deselects the input element.
-  evnt.clearSelection();
+  event.clearSelection();
 });</code>
             </pre>
           </div>
@@ -1813,9 +1812,9 @@ const input = document.querySelector(&#039;[name=&quot;amount&quot;]&#039;);
 
 // The value selected in the button group is reflected in the input element.
 options.forEach(option =&gt; {
-  option.addEventListener(&#039;click&#039;, evnt =&gt; {
-    evnt.preventDefault();
-    input.value = evnt.target.innerText;
+  option.addEventListener(&#039;click&#039;, event =&gt; {
+    event.preventDefault();
+    input.value = event.target.innerText;
   });
 });</code>
             </pre>

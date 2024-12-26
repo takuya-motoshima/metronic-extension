@@ -116,10 +116,8 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize password toggle.
+// Initialize the component and set up event listeners.
 metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initPasswordToggle(document.getElementById('password'));
-
-// Initializes the password toggle for all password input elements in the wrapper element.
 metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initPasswordToggle(document.getElementById('wrapper'));
 })();
 

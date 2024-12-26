@@ -116,28 +116,25 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize Tagify.
+// Initialize the component and set up event listeners.
 const basicTagify = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tagify(document.getElementById('basicTagify'));
 
-// Set callback functions for various operations.
 basicTagify
-  .onAddTag(evnt => {
+  .onAddTag(event => {
     // Tag added.
     console.log('Tag added');
   })
-  .onRemoveTag(evnt => {
+  .onRemoveTag(event => {
     // Tag removed.
     console.log('Tag has been deleted');
   })
-  .onChangeTag(evnt => {
+  .onChangeTag(event => {
     // Tag was changed.
     console.log('Tag has been changed');
   });
 
-// Read-only.
 new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tagify(document.getElementById('readonlyTagify'), {readonly: true});
 
-// Inline Suggestions.
 new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tagify(document.getElementById('inlineSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {
@@ -146,7 +143,6 @@ new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tagify(document.g
   }
 });
 
-// List Suggestions.
 new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tagify(document.getElementById('listSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {maxItems: 20},

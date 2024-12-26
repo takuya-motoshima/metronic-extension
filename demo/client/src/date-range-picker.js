@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-// Initialize date range picker.
+// Initialize the component and set up event listeners.
 components.initDatepicker(document.getElementById('dateRangePicker'), {
   minDate: moment().format('YYYY/M/D'),
   maxDate: moment().endOf('month').format('YYYY/M/D'),
@@ -13,7 +13,6 @@ components.initDatepicker(document.getElementById('dateRangePicker'), {
   }
 });
 
-// No initial value Initialize date range picker.
 components.initDatepicker(document.getElementById('noInitialValueDateRangePicker'), {
   // If the "autoUpdateInput" option is set to false, the initial input value will be empty.
   autoUpdateInput: false,

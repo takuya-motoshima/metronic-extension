@@ -116,10 +116,10 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Search for elements.
+// Get DOM element references.
 const ref = metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.selectRef();
 
-// Initialize form validation.
+// Initialize the component and set up event listeners.
 const validation = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Validation(ref.myForm, {
   firstName: {
     validators: {
@@ -128,7 +128,6 @@ const validation = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.component
   },
 });
 
-// Set form validation events.
 validation.onValid(async () => {
   // Show loader.
   validation.onIndicator();

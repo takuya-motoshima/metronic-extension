@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-function initHorizontalBarChart() {
+const initHorizontalBarChart = () => {
   return new components.BarChart(document.getElementById('horizontalBarChart'), {
     horizontal: true,
     ajax: {
@@ -32,7 +32,7 @@ function initHorizontalBarChart() {
   });
 }
 
-function initVerticalBarChart() {
+const initVerticalBarChart = () => {
   return new components.BarChart(document.getElementById('verticalBarChart'), {
     horizontal: false,
     ajax: {
@@ -64,7 +64,7 @@ function initVerticalBarChart() {
   });
 }
 
-function initHorizontalBarChartSearchForm() {
+const initHorizontalBarChartSearchForm = () => {
   // Timer to prevent duplicate filtering runs.
   let searchTimer;
   horizontalBarChartKeyword.addEventListener('input', () => {
@@ -80,7 +80,7 @@ function initHorizontalBarChartSearchForm() {
   });
 }
 
-function initVerticalBarChartSearchForm() {
+const initVerticalBarChartSearchForm = () => {
   // Timer to prevent duplicate filtering runs.
  let searchTimer;
   verticalBarChartKeyword.addEventListener('input', () => {
@@ -100,10 +100,8 @@ function initVerticalBarChartSearchForm() {
 const horizontalBarChartKeyword = document.getElementById('horizontalBarChartKeyword');
 const verticalBarChartKeyword = document.getElementById('verticalBarChartKeyword');
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const horizontalBarChart = initHorizontalBarChart();
 const verticalBarChart = initVerticalBarChart();
-
-// Initialize events, etc.
 initHorizontalBarChartSearchForm();
 initVerticalBarChartSearchForm();

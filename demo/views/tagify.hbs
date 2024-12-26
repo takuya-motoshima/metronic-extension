@@ -104,7 +104,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -282,7 +282,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
               <!--end::Heading-->
               <!--begin::Parameters-->
               <ul>
-                <li class="py-2"><code>handler: (evnt: Tagify.AddEventData) =&gt; void</code>
+                <li class="py-2"><code>handler: (event: Tagify.AddEventData) =&gt; void</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Callback function.
@@ -304,7 +304,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">tagify.onAddTag(evnt =&gt; {
+                    <code class="language-javascript">tagify.onAddTag(event =&gt; {
   console.log(&#039;Tag added&#039;);
 });</code>
                   </pre>
@@ -324,7 +324,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
               <!--end::Heading-->
               <!--begin::Parameters-->
               <ul>
-                <li class="py-2"><code>handler: (evnt: Tagify.RemoveEventData) =&gt; void</code>
+                <li class="py-2"><code>handler: (event: Tagify.RemoveEventData) =&gt; void</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Callback function.
@@ -346,7 +346,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">tagify.onRemoveTag(evnt =&gt; {
+                    <code class="language-javascript">tagify.onRemoveTag(event =&gt; {
   console.log(&#039;Tag has been deleted&#039;);
 });</code>
                   </pre>
@@ -366,7 +366,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
               <!--end::Heading-->
               <!--begin::Parameters-->
               <ul>
-                <li class="py-2"><code>handler: (evnt: Tagify.AddEventData|Tagify.RemoveEventData) =&gt; void</code>
+                <li class="py-2"><code>handler: (event: Tagify.AddEventData|Tagify.RemoveEventData) =&gt; void</code>
                   <!--begin::Block-->
                   <div class="pt-3">
                     Callback function.
@@ -388,7 +388,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
                 <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
                 <div class="highlight-code">
                   <pre class="language-javascript">
-                    <code class="language-javascript">tagify.onChangeTag(evnt =&gt; {
+                    <code class="language-javascript">tagify.onChangeTag(event =&gt; {
   console.log(&#039;Tag has been changed&#039;);
 });</code>
                   </pre>
@@ -467,15 +467,15 @@ const basicTagify = new components.Tagify(document.getElementById(&#039;basicTag
 
 // Set callback functions for various operations.
 basicTagify
-  .onAddTag(evnt =&gt; {
+  .onAddTag(event =&gt; {
     // Tag added.
     console.log(&#039;Tag added&#039;);
   })
-  .onRemoveTag(evnt =&gt; {
+  .onRemoveTag(event =&gt; {
     // Tag removed.
     console.log(&#039;Tag has been deleted&#039;);
   })
-  .onChangeTag(evnt =&gt; {
+  .onChangeTag(event =&gt; {
     // Tag was changed.
     console.log(&#039;Tag has been changed&#039;);
   });</code>

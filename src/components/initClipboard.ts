@@ -45,9 +45,9 @@ export default (context: string|HTMLElement|JQuery, delay: number = 3000): void 
   // Set the copy event.
   for (let button of buttons) {
     const clipboard = new window.ClipboardJS(button);
-    clipboard.on('success', (evnt: any) => {
+    clipboard.on('success', (event: any) => {
       // Copy button element.
-      const button = evnt.trigger as HTMLElement;
+      const button = event.trigger as HTMLElement;
 
       // If the button does not have a clipboard-target attribute indicating the element to copy to, an error is returned.
       if (!button.dataset.clipboardTarget)

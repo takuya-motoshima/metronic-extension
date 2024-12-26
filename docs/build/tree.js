@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize Tree.
+// Initialize the component and set up event listeners.
 const basicTree = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tree(document.getElementById('basicTree'), {
   ajax: {
     children: node => {
@@ -147,21 +147,19 @@ const basicTree = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components
   },
 });
 
-// Set tree event.
 basicTree
-  .onSelected((evnt, node) => {
+  .onSelected((event, node) => {
     // Display selected node information.
     document.getElementById('nodeId').textContent = node.id;
     document.getElementById('nodePath').textContent = basicTree.getPath(node, '/');
     document.getElementById('nodeText').textContent = node.text;
     document.getElementById('nodeType').textContent = node.type;
   })
-  .onError(err => {
+  .onError(error => {
     // Displays errors encountered in tree operations.
-    alert(err);
+    alert(error);
   });
 
-// Initialize Tree.
 const serverSideProcessingTree = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Tree(document.getElementById('serverSideProcessingTree'), {
   ajax: {
     children: '/api/tree/_PARENT_NODE_ID_',

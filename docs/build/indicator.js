@@ -1,9 +1,9 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
 // Handle button click event.
-document.getElementById('button1').addEventListener('click', evnt => {
+document.getElementById('button1').addEventListener('click', event => {
   // Element to indecate.
-  const button = evnt.currentTarget;
+  const button = event.currentTarget;
 
   // Activate indicator.
   button.setAttribute('data-kt-indicator', 'on');
@@ -15,9 +15,9 @@ document.getElementById('button1').addEventListener('click', evnt => {
 });
 
 // Handle button click event.
-document.getElementById('button2').addEventListener('click', evnt => {
+document.getElementById('button2').addEventListener('click', event => {
   // Element to indecate.
-  const button = evnt.currentTarget;
+  const button = event.currentTarget;
 
   // Activate indicator.
   button.setAttribute('data-kt-indicator', 'on');
@@ -29,9 +29,9 @@ document.getElementById('button2').addEventListener('click', evnt => {
 });
 
 // Handle button click event.
-document.getElementById('button3').addEventListener('click', evnt => {
+document.getElementById('button3').addEventListener('click', event => {
   // Element to indecate.
-  const button = evnt.currentTarget;
+  const button = event.currentTarget;
 
   // Activate indicator.
   button.setAttribute('data-kt-indicator', 'on');

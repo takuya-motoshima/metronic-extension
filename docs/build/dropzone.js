@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initializes Dropzone.
+// Initialize the component and set up event listeners.
 const dropzone = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.Dropzone(document.getElementById('myDropzone'), {
   hiddenInputContent: document.getElementById('myFileContent'),
   maxFilesize: 10,
@@ -124,7 +124,6 @@ const dropzone = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.
   acceptedFiles: 'image/jpeg,image/png,image/gif',
 });
 
-// Initialize drag & drop events.
 dropzone
   .onAddFile(file => {
     // Called when a file is added.

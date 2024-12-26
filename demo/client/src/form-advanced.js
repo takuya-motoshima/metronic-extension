@@ -1,4 +1,4 @@
-function initClipboardButton() {
+const initClipboardButton = () => {
   // Copy button and the element to be copied.
   const button = document.getElementById('copy');
   const input = document.getElementById('input');
@@ -7,7 +7,7 @@ function initClipboardButton() {
   const clipboard = new ClipboardJS(button);
 
   // Copy text to clipboard. For more info check the plugin's documentation: https://clipboardjs.com/.
-  clipboard.on('success', evnt => {
+  clipboard.on('success', event => {
     // Save the current caption of the button.
     const caption = button.innerHTML;
     
@@ -26,25 +26,25 @@ function initClipboardButton() {
     }, 3000);
 
     // Deselects the input element.
-    evnt.clearSelection();
+    event.clearSelection();
   });
 }
 
-function initInteractiveButton() {
+const initInteractiveButton = () => {
   // Initialize Interactive Button.
   const options = document.querySelectorAll('[data-dvanced-forms="interactive"]');
   const input = document.querySelector('[name="amount"]');
 
   // The value selected in the button group is reflected in the input element.
   options.forEach(option => {
-    option.addEventListener('click', evnt => {
-      evnt.preventDefault();
-      input.value = evnt.target.innerText;
+    option.addEventListener('click', event => {
+      event.preventDefault();
+      input.value = event.target.innerText;
     });
   });
 }
 
-function initInteractiveSlider() {
+const initInteractiveSlider = () => {
   // Initialize Interactive Slider.
   var slider = document.getElementById('slider');
   var label = document.getElementById('sliderLabel');
@@ -64,11 +64,7 @@ function initInteractiveSlider() {
   });
 }
 
-// Initialize clipboard button.
+// Initialize the component and set up event listeners.
 initClipboardButton();
-
-// Initialize Interactive Button.
 initInteractiveButton();
-
-// Initialize Interactive Slider.
 initInteractiveSlider();

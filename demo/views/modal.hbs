@@ -104,7 +104,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -418,7 +418,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -527,10 +527,9 @@
             <pre class="language-javascript">
               <code class="language-javascript">import ExampleModal from &#039;~/modals/ExampleModal&#039;;
 
-// Initialize Modal.
+// Initialize the component and set up event listeners.
 const exampleModal = new ExampleModal();
 
-// Initialize events.
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-modal]&#039;, async () =&gt; {
   // Show Modal.
   const res = await exampleModal.show(&#039;Modal title&#039;, &#039;Modal body text goes here&#039;);
@@ -686,10 +685,9 @@ export default class extends components.Modal {
             <pre class="language-javascript">
               <code class="language-javascript">import ExampleFullscreenModal from &#039;~/modals/ExampleFullscreenModal&#039;;
 
-// Initialize Modal.
+// Initialize the component and set up event listeners.
 const exampleFullscreenModal = new ExampleFullscreenModal();
 
-// Initialize events.
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-fullscreen-modal]&#039;, () =&gt; {
   exampleFullscreenModal.show(&#039;Modal title&#039;, &#039;Modal body text goes here&#039;);
 });</code>
@@ -837,10 +835,9 @@ export default class extends components.Modal {
             <pre class="language-javascript">
               <code class="language-javascript">import ExampleScrollingLongContentModal from &#039;~/modals/ExampleScrollingLongContentModal&#039;;
 
-// Initialize Modal.
+// Initialize the component and set up event listeners.
 const exampleScrollingLongContentModal = new ExampleScrollingLongContentModal();
 
-// Initialize events.
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-scrolling-long-content-modal]&#039;, () =&gt; {
   exampleScrollingLongContentModal.show(&#039;Modal title&#039;);
 });</code>
@@ -1029,10 +1026,9 @@ export default class extends components.Modal {
             <pre class="language-javascript">
               <code class="language-javascript">import ExampleAjaxModal from &#039;~/modals/ExampleAjaxModal&#039;;
 
-// Initialize Modal.
+// Initialize the component and set up event listeners.
 const exampleAjaxModal = new ExampleAjaxModal();
 
-// Initialize events.
 $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-show-ajax-modal]&#039;, () =&gt; {
   exampleAjaxModal.show(&#039;Modal title&#039;);
 });</code>

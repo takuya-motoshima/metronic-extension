@@ -26,16 +26,16 @@ export default class Tree {
     refreshNode(nodeObject: any): Tree;
     /**
      * Sets the callback function to be called when a node is selected. The callback function receives an event object and a node object.
-     * @param {(evnt: any, node: any) => void} handler Callback function.
+     * @param {(event: any, node: any) => void} handler Callback function.
      * @return {Tree}
      */
-    onSelected(handler: (evnt: any, node: any) => void): Tree;
+    onSelected(handler: (event: any, node: any) => void): Tree;
     /**
      * Sets the callback function to be called on error. The callback function receives an error object.
-     * @param {(err: any) => void} handler Callback function.
+     * @param {(error: any) => void} handler Callback function.
      * @return {Tree}
      */
-    onError(handler: (err: any) => void): Tree;
+    onError(handler: (error: any) => void): Tree;
     /**
      * Sets the callback function that will be called when a child node of the selected node is retrieved from the server side.
      * The callback function receives the data retrieved from the server side and can modify or add data.
@@ -45,10 +45,10 @@ export default class Tree {
     onFetch(handler: (nodeData: any) => void): Tree;
     /**
      * Sets the callback function that will be called when the tree initialization is complete. The callback function receives an event object.
-     * @param {(evnt: any) => void} handler Callback function.
+     * @param {(event: any) => void} handler Callback function.
      * @return {Tree}
      */
-    onReady(handler: (evnt: any) => void): Tree;
+    onReady(handler: (event: any) => void): Tree;
     /**
      * Sets the function that hooks the operation to create a new node.
      * If the hook is not set, the new node will be added to the tree immediately.
@@ -78,7 +78,7 @@ export default class Tree {
      * Get the path to a node, either consisting of node texts, or of node IDs, optionally glued together (otherwise an array).
      * @example
      * ```js
-     * tree.onSelected((evnt, node) => {
+     * tree.onSelected((event, node) => {
      *   // Get the path of the node.
      *   tree.getPath(node);// ['Root', 'Folder#1', 'Folder#1_1']
      *   tree.getPath(node, '/');// 'Root/Folder#1/Folder#1_1'

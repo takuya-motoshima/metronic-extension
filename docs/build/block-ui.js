@@ -116,13 +116,12 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Search for elements.
+// Get DOM element references.
 const ref = metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.selectRef();
 
-// Initialize loader.
+// Initialize the component and set up event listeners.
 const blockUI = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.BlockUI(ref.target, 'Loading...', false);
 
-// Initialize events.
 $('body').on('click', '[data-on-block]', () => {
   if (blockUI.isBlocked()) {
     // If currently blocking, unblock.

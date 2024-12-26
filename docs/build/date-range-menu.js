@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize date range menu.
+// Initialize the component and set up event listeners.
 const dateRangePicker = metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initDaterangeMenu(document.getElementById('dateRangeMenu'), {
   locale: 'en',
   format: 'YYYY/M/D',

@@ -92,9 +92,9 @@ export default abstract class {
         throw new Error('Should implement modal HTML generation process (render method) in a subclass');
       else if (!isFunction(this.init) && !isAsyncFunction(this.init))
         throw new Error('Should implement initial processing (init method) in subclasses');
-    } catch (err: any) {
-      alert(err.message);
-      throw err;
+    } catch (error: any) {
+      alert(error.message);
+      throw error;
     }
   }
 

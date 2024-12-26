@@ -1,9 +1,9 @@
 import {components} from 'metronic-extension';
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize form validation.
+// Initialize the component and set up event listeners.
 const validation = new components.Validation(ref.myForm, {
   firstName: {
     validators: {
@@ -12,7 +12,6 @@ const validation = new components.Validation(ref.myForm, {
   },
 });
 
-// Set form validation events.
 validation.onValid(async () => {
   // Show loader.
   validation.onIndicator();

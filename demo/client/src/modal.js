@@ -3,13 +3,12 @@ import ExampleFullscreenModal from '~/modals/ExampleFullscreenModal';
 import ExampleScrollingLongContentModal from '~/modals/ExampleScrollingLongContentModal';
 import ExampleAjaxModal from '~/modals/ExampleAjaxModal';
 
-// Initialize Modal.
+// Initialize the component and set up event listeners.
 const exampleModal = new ExampleModal();
 const exampleFullscreenModal = new ExampleFullscreenModal();
 const exampleScrollingLongContentModal = new ExampleScrollingLongContentModal();
 const exampleAjaxModal = new ExampleAjaxModal();
 
-// Initialize events.
 $('body')
   .on('click', '[data-on-show-modal]', async () => {
     // Show Modal.

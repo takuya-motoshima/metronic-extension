@@ -4,8 +4,8 @@
   "ignore": [
     "client/",
     "public/",
-    "volumes/",
-    "sql/"
+    "sql/",
+    "views/"
   ],
   "delay": "3",
   "verbose": true

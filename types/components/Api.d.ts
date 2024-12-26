@@ -96,17 +96,17 @@ export default class Api {
      * Called on request errors.
      * This function receives a request error object (axios.AxiosError).
      * @param {number} httpStatusCode HTTP status code.
-     * @param {axios.AxiosError} err Request error object.
+     * @param {axios.AxiosError} error Request error object.
      * @example
      * ```js
-     * errorHook(httpStatusCode, err) {
+     * errorHook(httpStatusCode, error) {
      *   if (httpStatusCode === 403)
      *     // Redirect in case of authentication error (403).
      *     location.replace('/');
      * }
      * ```
      */
-    protected errorHook(httpStatusCode: number, err: AxiosError): void;
+    protected errorHook(httpStatusCode: number, error: AxiosError): void;
     /**
      * Get a token to cancel the request.
      * @return {axios.CancelTokenSource} A cancellation token.

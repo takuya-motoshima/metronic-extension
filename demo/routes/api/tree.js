@@ -4,7 +4,7 @@ const FolderModel = require('../../models/FolderModel');
 const FileModel = require('../../models/FileModel');
 
 // Check validation results.
-function checkValidationResult(req, res, next) {
+const checkValidationResult = (req, res, next) => {
   const result = validationResult(req);
   if (result.isEmpty())
     // If there are no errors, go to the next process.

@@ -80,7 +80,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -335,7 +335,7 @@
     <!--begin::Table wrapper-->
     <div class="table-responsive">
       <!--begin::Table-->
-      <table class="table table-row-bordered mb-0 gy-5">
+      <table class="table table-row-bordered gy-5">
         <!--begin::Head-->
         <thead>
           <tr class="p-6">
@@ -443,7 +443,7 @@
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initHorizontalBarChart() {
+const initHorizontalBarChart = () =&gt; {
   return new components.BarChart(document.getElementById(&#039;horizontalBarChart&#039;), {
     horizontal: true,
     ajax: {
@@ -475,7 +475,7 @@ function initHorizontalBarChart() {
   });
 }
 
-function initHorizontalBarChartSearchForm() {
+const initHorizontalBarChartSearchForm = () =&gt; {
   // Timer to prevent duplicate filtering runs.
   let searchTimer;
   horizontalBarChartKeyword.addEventListener(&#039;input&#039;, () =&gt; {
@@ -494,10 +494,8 @@ function initHorizontalBarChartSearchForm() {
 // Search keyword input field.
 const horizontalBarChartKeyword = document.getElementById(&#039;horizontalBarChartKeyword&#039;);
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const horizontalBarChart = initHorizontalBarChart();
-
-// Initialize events, etc.
 initHorizontalBarChartSearchForm();</code>
             </pre>
           </div>
@@ -609,7 +607,7 @@ initHorizontalBarChartSearchForm();</code>
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initVerticalBarChart() {
+const initVerticalBarChart = () =&gt; {
   return new components.BarChart(document.getElementById(&#039;verticalBarChart&#039;), {
     horizontal: false,
     ajax: {
@@ -641,7 +639,7 @@ function initVerticalBarChart() {
   });
 }
 
-function initVerticalBarChartSearchForm() {
+const initVerticalBarChartSearchForm = () =&gt; {
   // Timer to prevent duplicate filtering runs.
  let searchTimer;
   verticalBarChartKeyword.addEventListener(&#039;input&#039;, () =&gt; {
@@ -660,10 +658,8 @@ function initVerticalBarChartSearchForm() {
 // Search keyword input field.
 const verticalBarChartKeyword = document.getElementById(&#039;verticalBarChartKeyword&#039;);
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const verticalBarChart = initVerticalBarChart();
-
-// Initialize events, etc.
 initVerticalBarChartSearchForm();</code>
             </pre>
           </div>

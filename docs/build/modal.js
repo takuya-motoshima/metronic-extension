@@ -572,19 +572,18 @@ var dist_build_default = /*#__PURE__*/__webpack_require__.n(dist_build);
       </div>`)({profile});
   }
 });
-;// CONCATENATED MODULE: ./src/pages/modal.js
+;// CONCATENATED MODULE: ./src/modal.js
 
 
 
 
 
-// Initialize Modal.
+// Initialize the component and set up event listeners.
 const exampleModal = new ExampleModal();
 const exampleFullscreenModal = new ExampleFullscreenModal();
 const exampleScrollingLongContentModal = new ExampleScrollingLongContentModal();
 const exampleAjaxModal = new ExampleAjaxModal();
 
-// Initialize events.
 $('body')
   .on('click', '[data-on-show-modal]', async () => {
     // Show Modal.

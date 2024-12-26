@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-// Initializes Dropzone.
+// Initialize the component and set up event listeners.
 const dropzone = new components.Dropzone(document.getElementById('myDropzone'), {
   hiddenInputContent: document.getElementById('myFileContent'),
   maxFilesize: 10,
@@ -8,7 +8,6 @@ const dropzone = new components.Dropzone(document.getElementById('myDropzone'), 
   acceptedFiles: 'image/jpeg,image/png,image/gif',
 });
 
-// Initialize drag & drop events.
 dropzone
   .onAddFile(file => {
     // Called when a file is added.

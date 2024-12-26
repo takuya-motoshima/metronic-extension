@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize date range picker.
+// Initialize the component and set up event listeners.
 metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initDatepicker(document.getElementById('dateRangePicker'), {
   minDate: moment().format('YYYY/M/D'),
   maxDate: moment().endOf('month').format('YYYY/M/D'),
@@ -129,7 +129,6 @@ metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initDatepicker(docume
   }
 });
 
-// No initial value Initialize date range picker.
 metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initDatepicker(document.getElementById('noInitialValueDateRangePicker'), {
   // If the "autoUpdateInput" option is set to false, the initial input value will be empty.
   autoUpdateInput: false,

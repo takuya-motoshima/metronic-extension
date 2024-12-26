@@ -1,15 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.0.10] - Release is undecided.
-### Changed
-- Merged docs/v2 and docs/v3 documentation into docs/. Old documents are available at [https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9](https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9).
+## [3.0.10] - 2024/12/27
+### Added
+- Add Sub Datatable Example [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#subtable).
+
+  ![subtable.jpg](screencaps/subtable.jpg)
 
 ### Fixed
 - Fixed a bug in the demo page where the source maps for some modules were missing.
     Added the following
     - demo/public/build/theme/plugins/global/toastr.js.map
     - demo/public/build/theme/plugins/custom/datatables/pdfmake.min.js.map
+
+### Changed
+- Merged docs/v2 and docs/v3 documentation into docs/. Old documents are available at [https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9](https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9).
 
 ## [3.0.9] - 2024/2/19
 ### Changed
@@ -309,24 +314,7 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.2] - 2023/11/7
 ### Changed
-- Added getter method for ApexCharts instances to BarChart and PieChart.
-    See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
-
-    ```js
-    import {components} from 'metronic-extension';// Version 3 or higher.
-    // import {charts} from 'metronic-extension';// Version 2 or lower.
-
-    // Initialize chart.
-    const piechart = new components.PieChart(document.getElementById('piechart'), {// Version 3 or higher.
-    // const piechart = new charts.PieChart(document.getElementById('piechart'), {// Version 2 or lower.
-      ajax: {
-        url: 'json/piechart.json'
-      },
-    });
-
-    // Chart Instance.
-    piechart.instance;
-    ```
+- Added getter method for ApexCharts instances to BarChart and PieChart. See [here](https://apexcharts.com/docs/methods/#) for instructions on how to use the instance.
 
 ## [2.1.1] - 2023/11/6
 ### Added

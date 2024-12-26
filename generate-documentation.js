@@ -8,7 +8,7 @@ const hbs = require('express-hbs-compile');
  * @param {string[]} templates An array of template (.hbs) file paths.
  * @return {RegExp} The regular expression for replacing page links.
  */
-function generatePageLinkReplacementRegexp(templates) {
+const generatePageLinkReplacementRegexp = templates => {
   // Get the base names of the templates and escape RegExp special characters.
   const basenames = templates.map(template =>
     File.basename(template).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
@@ -27,7 +27,7 @@ function generatePageLinkReplacementRegexp(templates) {
  * @param {RegExp} regex The regular expression to replace page links.
  * @return {string} The content with replaced page links.
  */
-function replacePageLinks(content, regex) {
+const replacePageLinks = (content, regex) => {
   return content.replace(regex, (match, capture) => {
     return match.replace('/' + capture, capture + '.html');
   });
@@ -37,7 +37,7 @@ function replacePageLinks(content, regex) {
  * Copies asset files from the demo directory to the docs directory.
  * @param {string} [version] Optional version string to include in the destination path.
  */
-function copyAssetFiles(version = undefined) {
+const copyAssetFiles = (version = undefined) => {
   const subdirectories = ['build', 'img', 'json'];
 
   for (let subdir of subdirectories) {

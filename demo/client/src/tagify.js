@@ -1,27 +1,24 @@
 import {components} from 'metronic-extension';
 
-// Initialize Tagify.
+// Initialize the component and set up event listeners.
 const basicTagify = new components.Tagify(document.getElementById('basicTagify'));
 
-// Set callback functions for various operations.
 basicTagify
-  .onAddTag(evnt => {
+  .onAddTag(event => {
     // Tag added.
     console.log('Tag added');
   })
-  .onRemoveTag(evnt => {
+  .onRemoveTag(event => {
     // Tag removed.
     console.log('Tag has been deleted');
   })
-  .onChangeTag(evnt => {
+  .onChangeTag(event => {
     // Tag was changed.
     console.log('Tag has been changed');
   });
 
-// Read-only.
 new components.Tagify(document.getElementById('readonlyTagify'), {readonly: true});
 
-// Inline Suggestions.
 new components.Tagify(document.getElementById('inlineSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {
@@ -30,7 +27,6 @@ new components.Tagify(document.getElementById('inlineSuggestionsTagify'), {
   }
 });
 
-// List Suggestions.
 new components.Tagify(document.getElementById('listSuggestionsTagify'), {
   whitelist: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'],
   dropdown: {maxItems: 20},

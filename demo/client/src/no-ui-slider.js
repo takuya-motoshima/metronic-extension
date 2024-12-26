@@ -1,4 +1,4 @@
-function initBasicSlider() {
+const initBasicSlider = () => {
   // Initialize basic slider.
   const slider = document.getElementById('basicSlider');
   const valueMin = document.getElementById('basicSliderMin');
@@ -21,7 +21,7 @@ function initBasicSlider() {
   });
 }
 
-function initSmallSlider() {
+const initSmallSlider = () => {
   const slider = document.getElementById('smallSlider');
   noUiSlider.create(slider, {
     start: [20, 80],
@@ -33,7 +33,7 @@ function initSmallSlider() {
   });
 }
 
-function initNormalSizeSlider() {
+const initNormalSizeSlider = () => {
   const slider = document.getElementById('normalSizeSlider');
   noUiSlider.create(slider, {
     start: [20, 80],
@@ -45,7 +45,7 @@ function initNormalSizeSlider() {
   });
 }
 
-function initLargeSlider() {
+const initLargeSlider = () => {
   const slider = document.getElementById('largeSlider');
   noUiSlider.create(slider, {
     start: [20, 80],
@@ -57,7 +57,7 @@ function initLargeSlider() {
   });
 }
 
-function initVerticalSlider() {
+const initVerticalSlider = () => {
   // Initialize vertical slider.
   const slider = document.getElementById('verticalSlider');
   noUiSlider.create(slider, {
@@ -71,7 +71,7 @@ function initVerticalSlider() {
   });
 }
 
-function initTooltipSlider() {
+const initTooltipSlider = () => {
   // Initialize tooltip slider.
   const slider = document.getElementById('tooltipSlider');
   noUiSlider.create(slider, {
@@ -84,7 +84,7 @@ function initTooltipSlider() {
   });
 }
 
-function initSoftLimitsSlider() {
+const initSoftLimitsSlider = () => {
   // Initialize soft limits slider.
   const slider = document.getElementById('softLimitsSlider');
   noUiSlider.create(slider, {
@@ -101,23 +101,11 @@ function initSoftLimitsSlider() {
   });
 }
 
-// Initialize basic slider.
+// Initialize the component and set up event listeners.
 initBasicSlider();
-
-// Initialize small slider.
 initSmallSlider();
-
-// Initialize large slider.
 initNormalSizeSlider();
-
-// Initialize normal size slider.
 initLargeSlider();
-
-// Initialize vertical slider.
 initVerticalSlider();
-
-// Initialize tooltip slider.
 initTooltipSlider();
-
-// Initialize soft limits slider.
 initSoftLimitsSlider();

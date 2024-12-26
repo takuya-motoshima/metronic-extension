@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize tooltips for dynamically added elements.
+// Initialize the component and set up event listeners.
 metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.initTooltip(document.body);
 })();
 

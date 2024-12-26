@@ -29,12 +29,12 @@ export default () => {
           return highlightBlock.querySelector('.highlight-code');
       }
     });
-    clipboard.on('success', evnt => {
+    clipboard.on('success', event => {
       // After copying, switch the caption of the Copy button to Copied.
-      const copyButton = evnt.trigger;
+      const copyButton = event.trigger;
       const caption = copyButton.innerHTML;
       copyButton.innerHTML = 'copied';
-      evnt.clearSelection();
+      event.clearSelection();
       setTimeout(() => {
         // After a certain period of time, the caption of the copy button is switched from copied to original text.
         copyButton.innerHTML = caption;

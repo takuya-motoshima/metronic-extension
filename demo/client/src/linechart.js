@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-function initSingleLineChart() {
+const initSingleLineChart = () => {
   return new components.LineChart(document.getElementById('singleLineChart'), {
     ajax: {
       url: 'json/single-linechart.json',
@@ -16,7 +16,7 @@ function initSingleLineChart() {
   });
 }
 
-function initMultiLineChart() {
+const initMultiLineChart = () => {
   return new components.LineChart(document.getElementById('multiLineChart'), {
     ajax: {
       url: 'json/multi-linechart.json',
@@ -43,7 +43,7 @@ function initMultiLineChart() {
   });
 }
 
-function initMultiLineChartSearchForm() {
+const initMultiLineChartSearchForm = () => {
   // Timer to prevent duplicate filtering runs.
  let searchTimer;
   multiLineChartKeyword.addEventListener('input', () => {
@@ -62,9 +62,7 @@ function initMultiLineChartSearchForm() {
 // Search keyword input field.
 const multiLineChartKeyword = document.getElementById('multiLineChartKeyword');
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const singleLineChart = initSingleLineChart();
 const multiLineChart = initMultiLineChart();
-
-// Initialize events, etc.
 initMultiLineChartSearchForm();

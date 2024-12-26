@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function initSingleLineChart() {
+const initSingleLineChart = () => {
   return new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.LineChart(document.getElementById('singleLineChart'), {
     ajax: {
       url: 'json/single-linechart.json',
@@ -132,7 +132,7 @@ function initSingleLineChart() {
   });
 }
 
-function initMultiLineChart() {
+const initMultiLineChart = () => {
   return new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.LineChart(document.getElementById('multiLineChart'), {
     ajax: {
       url: 'json/multi-linechart.json',
@@ -159,7 +159,7 @@ function initMultiLineChart() {
   });
 }
 
-function initMultiLineChartSearchForm() {
+const initMultiLineChartSearchForm = () => {
   // Timer to prevent duplicate filtering runs.
  let searchTimer;
   multiLineChartKeyword.addEventListener('input', () => {
@@ -178,11 +178,9 @@ function initMultiLineChartSearchForm() {
 // Search keyword input field.
 const multiLineChartKeyword = document.getElementById('multiLineChartKeyword');
 
-// Initialize chart.
+// Initialize the component and set up event listeners.
 const singleLineChart = initSingleLineChart();
 const multiLineChart = initMultiLineChart();
-
-// Initialize events, etc.
 initMultiLineChartSearchForm();
 })();
 

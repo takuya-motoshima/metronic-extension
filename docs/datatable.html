@@ -87,7 +87,7 @@
               <div class="page-title d-flex flex-column flex-lg-row align-items-lg-center py-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_content_container', 'lg': '#kt_app_header_title'}">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center text-dark my-1 fs-4">
-                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.6</a>
+                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.10</a>
                 </h1>
                 <!--end::Title-->
               </div>
@@ -419,7 +419,7 @@
                 <div class="menu-item">
                   <!--begin:Menu link-->
                   <a class="menu-link " href="select-elements.html">
-                    <span class="menu-title">Search for elements</span>
+                    <span class="menu-title">Get DOM element references</span>
                   </a>
                   <!--end:Menu link-->
                 </div>
@@ -839,7 +839,6 @@
                     <!--begin::Card Body-->
                     <div class="card-body py-15 px-10 py-lg-15 px-lg-15">
                       
-
 <!--begin::Section-->
 <div class="pb-10">
   <!--begin::Heading-->
@@ -948,22 +947,23 @@
                   <pre class="language-javascript">
                     <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
+let targetIndex = 0;
 const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
-    {targets: 0, data: &#039;name&#039;},
-    {targets: 1, data: &#039;position&#039;},
+    {targets: targetIndex++, data: &#039;name&#039;},
+    {targets: targetIndex++, data: &#039;position&#039;},
   ]
 });
 
-// Retrieve table data from the server via Ajax request
+targetIndex = 0;
 const myTableWithAjax = new components.Datatable(document.getElementById(&#039;myTableWithAjax&#039;), {
   ajax: {
     url: &#039;/api/persons/pages&#039;
   },
   columnDefs: [
-    {targets: 0, data: &#039;name&#039;},
-    {targets: 1, data: &#039;position&#039;},
+    {targets: targetIndex++, data: &#039;name&#039;},
+    {targets: targetIndex++, data: &#039;position&#039;},
   ]
 });</code>
                   </pre>
@@ -1085,11 +1085,12 @@ const myTableWithAjax = new components.Datatable(document.getElementById(&#039;m
                       <pre class="language-javascript">
                         <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
+let targetIndex = 0;
 const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
-    {targets: 0, name: &#039;name&#039;},
-    {targets: 1, name: &#039;position&#039;},
+    {targets: targetIndex++, name: &#039;name&#039;},
+    {targets: targetIndex++, name: &#039;position&#039;},
   ],
 });
 
@@ -1244,11 +1245,12 @@ myTable.filter(&#039;position:name&#039;, &#039;CEO&#039;);</code>
                       <pre class="language-javascript">
                         <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
+let targetIndex = 0;
 const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
-    {targets: 0, data: &#039;name&#039;},
-    {targets: 1, data: &#039;position&#039;},
+    {targets: targetIndex++, data: &#039;name&#039;},
+    {targets: targetIndex++, data: &#039;position&#039;},
   ],
 });
 
@@ -1341,12 +1343,13 @@ myTable.createRow(row);</code>
                       <pre class="language-javascript">
                         <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
+let targetIndex = 0;
 const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
-    {targets: 0, data: &#039;name&#039;},
-    {targets: 1, data: &#039;position&#039;},
-    {targets: 2, data: &#039;actions&#039;},
+    {targets: targetIndex++, data: &#039;name&#039;},
+    {targets: targetIndex++, data: &#039;position&#039;},
+    {targets: targetIndex++, data: &#039;actions&#039;},
   ],
 });
 
@@ -1354,9 +1357,9 @@ const myTable = new components.Datatable(document.getElementById(&#039;myTable&#
 myTable.deleteRow(1);
 
 // Specify a row element to delete.
-$(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-delete]&#039;, evnt =&gt; {
+$(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-delete]&#039;, event =&gt; {
   // Get selection row.
-  const row = evnt.currentTarget.closest(&#039;tr&#039;);
+  const row = event.currentTarget.closest(&#039;tr&#039;);
 
   // Delete row.
   myTable.deleteRow(row);
@@ -1457,17 +1460,17 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-delete]&#039;
                       <pre class="language-javascript">
                         <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
+let targetIndex = 0;
 const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
-    {targets: 0, data: &#039;name&#039;},
-    {targets: 1, data: &#039;position&#039;},
-    {targets: 2, data: &#039;actions&#039;},
+    {targets: targetIndex++, data: &#039;name&#039;},
+    {targets: targetIndex++, data: &#039;position&#039;},
+    {targets: targetIndex++, data: &#039;actions&#039;},
   ],
 });
 
-// Update button click event.
-$(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;, evnt =&gt; {
+$(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;, event =&gt; {
   // Display name input dialog.
 	const name = window.prompt(&#039;Please enter a new name.&#039;);
   if (!name)
@@ -1475,7 +1478,7 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;
     return;
 
   // Get selection row.
-  const row = evnt.currentTarget.closest(&#039;tr&#039;);
+  const row = event.currentTarget.closest(&#039;tr&#039;);
 
   // Update the name column of row.
   myTable.updateRow(row, {name}, false);
@@ -1495,7 +1498,8 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;
               <code>public getRowData()</code>
             </td>
             <td>
-              Get single row or all rows of data
+              Gets the data for a single row or all rows in the DataTable.
+              You can access the column data in a row using the name specified in the <code>data</code> property during column definition.
               <!--begin::Heading-->
               <h5 class="py-2 mb-0">Parameters:</h5>
               <!--end::Heading-->
@@ -1515,7 +1519,7 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;
               <!--end::Heading-->
               <!--begin::Return-->
               <ul class="list-style-none">
-                <li class="py-2"><code>any[]|object</code> Row data.</li>
+                <li class="py-2"><code>any[]|object</code> An array of row data objects if no row selector is provided, or a single row data object if a selector is provided.</li>
               </ul>
               <!--end::Return-->
               <!--begin::Highlight-->
@@ -1559,11 +1563,12 @@ $(&#039;#myTable tbody&#039;).on(&#039;click&#039;, &#039;[data-on-update]&#039;
                       <pre class="language-javascript">
                         <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
+let targetIndex = 0;
 const myTable = new components.Datatable(document.getElementById(&#039;myTable&#039;), {
   columnDefs: [
-    {targets: 0, data: &#039;name&#039;},
-    {targets: 1, data: &#039;position&#039;},
+    {targets: targetIndex++, data: &#039;name&#039;},
+    {targets: targetIndex++, data: &#039;position&#039;},
   ],
 });
 
@@ -1845,7 +1850,7 @@ myTable.getRowCount();</code>
         <!--end::Search-->
       </div>
       <!--end::Wrapper-->
-      <!--begin::Datatable-->
+      <!--begin::Table-->
       <table data-ref="basicTable" class="table table-row-bordered gy-5">
         <thead>
           <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
@@ -1892,7 +1897,7 @@ myTable.getRowCount();</code>
           </tr>
         </tbody>
       </table>
-      <!--end::Datatable-->
+      <!--end::Table-->
     </div>
   </div>
   <!--end::Block-->
@@ -1928,7 +1933,7 @@ myTable.getRowCount();</code>
   &lt;!--end::Search--&gt;
 &lt;/div&gt;
 &lt;!--end::Wrapper--&gt;
-&lt;!--begin::Datatable--&gt;
+&lt;!--begin::Table--&gt;
 &lt;table data-ref=&quot;basicTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
   &lt;thead&gt;
     &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
@@ -1975,7 +1980,7 @@ myTable.getRowCount();</code>
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!--end::Datatable--&gt;</code>
+&lt;!--end::Table--&gt;</code>
             </pre>
           </div>
         </div>
@@ -1986,34 +1991,35 @@ myTable.getRowCount();</code>
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initBasicTable() {
+// Initialize the DataTable.
+const initBasicTable = () =&gt; {
+  let targetIndex = 0;
   return new components.Datatable(ref.basicTable, {
     columnDefs: [
-      {targets: 0, data: &#039;name&#039;, name: &#039;name&#039;},
-      {targets: 1, data: &#039;position&#039;, name: &#039;position&#039;},
-      {targets: 2, data: &#039;office&#039;, name: &#039;office&#039;},
-      {targets: 3, data: &#039;age&#039;, name: &#039;age&#039;},
-      {targets: 4, data: &#039;startDate&#039;, name: &#039;startDate&#039;},
-      {targets: 5, data: &#039;salary&#039;, name: &#039;salary&#039;},
+      {targets: targetIndex++, name: &#039;name&#039;},
+      {targets: targetIndex++, name: &#039;position&#039;},
+      {targets: targetIndex++, name: &#039;office&#039;},
+      {targets: targetIndex++, name: &#039;age&#039;},
+      {targets: targetIndex++, name: &#039;startDate&#039;},
+      {targets: targetIndex++, name: &#039;salary&#039;},
     ],
     pageLength: 3
   });
 }
 
-function initBasicTableSearchForm() {
+// Initialize the form.
+const initBasicTableSearchForm = () =&gt; {
   $(&#039;body&#039;).on(&#039;input&#039;, &#039;[data-on-search-basic-table]&#039;, () =&gt; {
     // Filter data by keyword.
     basicTable.filter(&#039;name:name&#039;, ref.basicTableKeyword.val());
   });
 }
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
 const basicTable = initBasicTable();
-
-// Initialize events, etc.
 initBasicTableSearchForm();</code>
             </pre>
           </div>
@@ -2071,7 +2077,7 @@ initBasicTableSearchForm();</code>
         <!--end::Search-->
       </div>
       <!--end::Wrapper-->
-      <!--begin::Datatable-->
+      <!--begin::Table-->
       <table data-ref="serverSideProcessingTable" class="table table-row-bordered gy-5">
         <thead>
           <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
@@ -2085,7 +2091,7 @@ initBasicTableSearchForm();</code>
         </thead>
         <tbody></tbody>
       </table>
-      <!--end::Datatable-->
+      <!--end::Table-->
     </div>
   </div>
   <!--end::Block-->
@@ -2124,7 +2130,7 @@ initBasicTableSearchForm();</code>
   &lt;!--end::Search--&gt;
 &lt;/div&gt;
 &lt;!--end::Wrapper--&gt;
-&lt;!--begin::Datatable--&gt;
+&lt;!--begin::Table--&gt;
 &lt;table data-ref=&quot;serverSideProcessingTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
   &lt;thead&gt;
     &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
@@ -2138,7 +2144,7 @@ initBasicTableSearchForm();</code>
   &lt;/thead&gt;
   &lt;tbody&gt;&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!--end::Datatable--&gt;</code>
+&lt;!--end::Table--&gt;</code>
             </pre>
           </div>
         </div>
@@ -2149,7 +2155,9 @@ initBasicTableSearchForm();</code>
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initServerSideProcessingTable() {
+// Initialize the DataTable.
+const initServerSideProcessingTable = () =&gt; {
+  let targetIndex = 0;
   return new components.Datatable(ref.serverSideProcessingTable, {
     ajax: {
       url: &#039;/api/persons/pages&#039;,
@@ -2158,18 +2166,19 @@ function initServerSideProcessingTable() {
       }
     },
     columnDefs: [
-      {targets: 0, data: &#039;name&#039;},
-      {targets: 1, data: &#039;position&#039;},
-      {targets: 2, data: &#039;office&#039;},
-      {targets: 3, data: &#039;age&#039;},
-      {targets: 4, data: &#039;startDate&#039;},
-      {targets: 5, data: &#039;salary&#039;},
+      {targets: targetIndex++, data: &#039;name&#039;},
+      {targets: targetIndex++, data: &#039;position&#039;},
+      {targets: targetIndex++, data: &#039;office&#039;},
+      {targets: targetIndex++, data: &#039;age&#039;},
+      {targets: targetIndex++, data: &#039;startDate&#039;},
+      {targets: targetIndex++, data: &#039;salary&#039;},
     ],
     pageLength: 3
   });
 }
 
-function initServerSideProcessingTableSearchForm() {
+// Initialize the form.
+const initServerSideProcessingTableSearchForm = () =&gt; {
   $(&#039;body&#039;).on(&#039;input&#039;, &#039;[data-on-search-server-side-processing-table]&#039;, () =&gt; {
     // Reload when the filter is changed.
     // The filter information is set in the parameters sent to the server from the ajax.data optional function.
@@ -2177,13 +2186,11 @@ function initServerSideProcessingTableSearchForm() {
   })
 }
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
 const serverSideProcessingTable = initServerSideProcessingTable();
-
-// Initialize events, etc.
 initServerSideProcessingTableSearchForm();</code>
             </pre>
           </div>
@@ -2372,7 +2379,7 @@ module.exports = class extends Model {
   <!--begin::Block-->
   <div class="my-5">
     <div class="demonstration-block">
-      <!--begin::Datatable-->
+      <!--begin::Table-->
       <table data-ref="columnVisibilityTable" class="table table-row-bordered gy-5">
         <thead>
           <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
@@ -2419,7 +2426,7 @@ module.exports = class extends Model {
           </tr>
         </tbody>
       </table>
-      <!--end::Datatable-->
+      <!--end::Table-->
     </div>
   </div>
   <!--end::Block-->
@@ -2438,7 +2445,7 @@ module.exports = class extends Model {
         <div class="tab-pane fade show active" id="column-visibility-html-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">&lt;!--begin::Datatable--&gt;
+              <code class="language-html">&lt;!--begin::Table--&gt;
 &lt;table data-ref=&quot;columnVisibilityTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
   &lt;thead&gt;
     &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
@@ -2485,7 +2492,7 @@ module.exports = class extends Model {
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!--end::Datatable--&gt;</code>
+&lt;!--end::Table--&gt;</code>
             </pre>
           </div>
         </div>
@@ -2496,16 +2503,18 @@ module.exports = class extends Model {
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initColumnVisibilityTable() {
+// Initialize the DataTable.
+const initColumnVisibilityTable = () =&gt; {
+  let targetIndex = 0;
   return new components.Datatable(ref.columnVisibilityTable, {
     dom: `&lt;&#039;row align-items-center&#039;&lt;&#039;col-auto&#039;B&gt;&lt;&#039;col dataTables_pager&#039;p&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12&#039;tr&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;`,
     columnDefs: [
-      {targets: 0, data: &#039;name&#039;},
-      {targets: 1, data: &#039;position&#039;},
-      {targets: 2, data: &#039;office&#039;},
-      {targets: 3, data: &#039;age&#039;},
-      {targets: 4, data: &#039;startDate&#039;},
-      {targets: 5, data: &#039;salary&#039;},
+      {targets: targetIndex++, data: &#039;name&#039;},
+      {targets: targetIndex++, data: &#039;position&#039;},
+      {targets: targetIndex++, data: &#039;office&#039;},
+      {targets: targetIndex++, data: &#039;age&#039;},
+      {targets: targetIndex++, data: &#039;startDate&#039;},
+      {targets: targetIndex++, data: &#039;salary&#039;},
     ],
     pageLength: 3,
     buttons: [
@@ -2548,10 +2557,10 @@ function initColumnVisibilityTable() {
   });
 }
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
 const columnVisibilityTable = initColumnVisibilityTable();</code>
             </pre>
           </div>
@@ -2578,7 +2587,7 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
   <!--begin::Block-->
   <div class="my-5">
     <div class="demonstration-block">
-      <!--begin::Datatable-->
+      <!--begin::Table-->
       <table data-ref="columnVisibilityWithIconButtonTable" class="table table-row-bordered gy-5">
         <thead>
           <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
@@ -2625,7 +2634,7 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
           </tr>
         </tbody>
       </table>
-      <!--end::Datatable-->
+      <!--end::Table-->
     </div>
   </div>
   <!--end::Block-->
@@ -2644,7 +2653,7 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
         <div class="tab-pane fade show active" id="column-visibility-with-icon-button-html-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">&lt;!--begin::Datatable--&gt;
+              <code class="language-html">&lt;!--begin::Table--&gt;
 &lt;table data-ref=&quot;columnVisibilityWithIconButtonTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
   &lt;thead&gt;
     &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
@@ -2691,7 +2700,7 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!--end::Datatable--&gt;</code>
+&lt;!--end::Table--&gt;</code>
             </pre>
           </div>
         </div>
@@ -2702,16 +2711,18 @@ const columnVisibilityTable = initColumnVisibilityTable();</code>
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initColumnVisibilityWithIconButtonTable() {
+// Initialize the DataTable.
+const initColumnVisibilityWithIconButtonTable = () =&gt; {
+  let targetIndex = 0;
   return new components.Datatable(ref.columnVisibilityWithIconButtonTable, {
     dom: `&lt;&#039;row align-items-center&#039;&lt;&#039;col dataTables_pager&#039;p&gt;&lt;&#039;col-auto&#039;B&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12&#039;tr&gt;&gt;&lt;&#039;row&#039;&lt;&#039;col-12 dataTables_pager&#039;p&gt;&gt;`,
     columnDefs: [
-      {targets: 0, data: &#039;name&#039;},
-      {targets: 1, data: &#039;position&#039;},
-      {targets: 2, data: &#039;office&#039;},
-      {targets: 3, data: &#039;age&#039;},
-      {targets: 4, data: &#039;startDate&#039;},
-      {targets: 5, data: &#039;salary&#039;},
+      {targets: targetIndex++, data: &#039;name&#039;},
+      {targets: targetIndex++, data: &#039;position&#039;},
+      {targets: targetIndex++, data: &#039;office&#039;},
+      {targets: targetIndex++, data: &#039;age&#039;},
+      {targets: targetIndex++, data: &#039;startDate&#039;},
+      {targets: targetIndex++, data: &#039;salary&#039;},
     ],
     pageLength: 3,
     buttons: {
@@ -2770,10 +2781,10 @@ function initColumnVisibilityWithIconButtonTable() {
   });
 }
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
 const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTable();</code>
             </pre>
           </div>
@@ -2829,7 +2840,7 @@ const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTa
         <!--end::Toolbar-->
       </div>
       <!--end::Wrapper-->
-      <!--begin::Datatable-->
+      <!--begin::Table-->
       <table data-ref="disableFirstAjaxCallTable" class="table table-row-bordered gy-5">
         <thead>
           <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
@@ -2843,7 +2854,7 @@ const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTa
         </thead>
         <tbody></tbody>
       </table>
-      <!--end::Datatable-->
+      <!--end::Table-->
     </div>
   </div>
   <!--end::Block-->
@@ -2873,7 +2884,7 @@ const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTa
   &lt;!--end::Toolbar--&gt;
 &lt;/div&gt;
 &lt;!--end::Wrapper--&gt;
-&lt;!--begin::Datatable--&gt;
+&lt;!--begin::Table--&gt;
 &lt;table data-ref=&quot;disableFirstAjaxCallTable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
   &lt;thead&gt;
     &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
@@ -2887,7 +2898,7 @@ const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTa
   &lt;/thead&gt;
   &lt;tbody&gt;&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!--end::Datatable--&gt;</code>
+&lt;!--end::Table--&gt;</code>
             </pre>
           </div>
         </div>
@@ -2898,33 +2909,34 @@ const columnVisibilityWithIconButtonTable = initColumnVisibilityWithIconButtonTa
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-function initDisableFirstAjaxCallTable() {
+// Initialize the DataTable.
+const initDisableFirstAjaxCallTable = () =&gt; {
+  let targetIndex = 0;
   return new components.Datatable(ref.disableFirstAjaxCallTable, {
     firstAjax: false,
     ajax: &#039;/api/persons/pages&#039;,
     columnDefs: [
-      {targets: 0, data: &#039;name&#039;},
-      {targets: 1, data: &#039;position&#039;},
-      {targets: 2, data: &#039;office&#039;},
-      {targets: 3, data: &#039;age&#039;},
-      {targets: 4, data: &#039;startDate&#039;},
-      {targets: 5, data: &#039;salary&#039;},
+      {targets: targetIndex++, data: &#039;name&#039;},
+      {targets: targetIndex++, data: &#039;position&#039;},
+      {targets: targetIndex++, data: &#039;office&#039;},
+      {targets: targetIndex++, data: &#039;age&#039;},
+      {targets: targetIndex++, data: &#039;startDate&#039;},
+      {targets: targetIndex++, data: &#039;salary&#039;},
     ],
     pageLength: 3
   });
 }
 
-function initDisableFirstAjaxCallTableForm() {
+// Initialize the form.
+const initDisableFirstAjaxCallTableForm = () =&gt; {
   $(&#039;body&#039;).on(&#039;click&#039;, &#039;[data-on-load-disable-first-ajax-call-table]&#039;, () =&gt; disableFirstAjaxCallTable.reload());
 }
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
-// Initialize DataTable.
+// Initialize the component and set up event listeners.
 const disableFirstAjaxCallTable = initDisableFirstAjaxCallTable();
-
-// Initialize events, etc.
 initDisableFirstAjaxCallTableForm();</code>
             </pre>
           </div>
@@ -3055,6 +3067,414 @@ module.exports = class extends Model {
   <!--end::Code-->
 </div>
 <!--end::Section-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="subtable" data-kt-scroll-offset="100">
+    <a href="#subtable"></a>Subtable
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    This example demonstrates expandable rows in a DataTables table.
+    Sub-row data is populated using DataTable's template methods with simple JS data objects, which can be generated locally or fetched from an API.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <!--begin::Table-->
+      <table data-ref="subtable" class="table table-row-bordered gy-5">
+        <thead>
+          <tr class="text-start text-gray-700 fw-bold fs-7 gs-0">
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Order Date</th>
+            <th class="text-end"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--begin::SubTable template-->
+          <template id="subtable-template">
+            <tr>
+              <td colspan="2">
+                <div class="d-flex align-items-center gap-3">
+                  <!--begin:Icon-->
+                  <span class="symbol symbol-40px">
+                    <span class="symbol-label bg-transparent">
+                      <i class="ki-duotone ki-plus-square fs-2x">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                        <span class="path3"></span>
+                      </i>
+                    </span>
+                  </span>
+                  <!--end:Icon-->
+                  <!--begin:Info-->
+                  <span class="fs-7 fw-bold" data-subtable-field="name">name</span>
+                  <!--end:Info-->
+                </div>
+              </td>
+              <td class="text-end">
+                <div class="text-gray-900 fs-7">Quantity</div>
+                <div class="fs-7 fw-bold" data-subtable-field="quantity">1</div>
+              </td>
+              <td class="text-end">
+                <div class="text-gray-900 fs-7">Unit Price</div>
+                <div class="fs-7 fw-bold" data-subtable-field="unit_price">1</div>
+              </td>
+            </tr>
+          </template>
+          <!--end::SubTable template-->
+
+          <tr>
+            <td>1001</td>
+            <td>John Smith</td>
+            <td>2024-12-01</td>
+            <td class="text-end">
+              <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
+                <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
+                <i class="ki-duotone ki-minus fs-3 m-0 toggle-on"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>1002</td>
+            <td>Emily Johnson</td>
+            <td>2024-12-15</td>
+            <td class="text-end">
+              <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
+                <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
+                <i class="ki-duotone ki-minus fs-3 m-0 toggle-on"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>1003</td>
+            <td>Michael Brown</td>
+            <td>2024-12-20</td>
+            <td class="text-end">
+              <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
+                <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
+                <i class="ki-duotone ki-minus fs-3 m-0 toggle-on"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--end::Table-->
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#subtable-html-tab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#subtable-js-tab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="subtable-html-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;!--begin::Table--&gt;
+&lt;table data-ref=&quot;subtable&quot; class=&quot;table table-row-bordered gy-5&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr class=&quot;text-start text-gray-700 fw-bold fs-7 gs-0&quot;&gt;
+      &lt;th&gt;Order ID&lt;/th&gt;
+      &lt;th&gt;Customer Name&lt;/th&gt;
+      &lt;th&gt;Order Date&lt;/th&gt;
+      &lt;th class=&quot;text-end&quot;&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;!--begin::SubTable template--&gt;
+    &lt;template id=&quot;subtable-template&quot;&gt;
+      &lt;tr&gt;
+        &lt;td colspan=&quot;2&quot;&gt;
+          &lt;div class=&quot;d-flex align-items-center gap-3&quot;&gt;
+            &lt;!--begin:Icon--&gt;
+            &lt;span class=&quot;symbol symbol-40px&quot;&gt;
+              &lt;span class=&quot;symbol-label bg-transparent&quot;&gt;
+                &lt;i class=&quot;ki-duotone ki-plus-square fs-2x&quot;&gt;
+                  &lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;
+                  &lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;
+                  &lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;
+                &lt;/i&gt;
+              &lt;/span&gt;
+            &lt;/span&gt;
+            &lt;!--end:Icon--&gt;
+            &lt;!--begin:Info--&gt;
+            &lt;span class=&quot;fs-7 fw-bold&quot; data-subtable-field=&quot;name&quot;&gt;name&lt;/span&gt;
+            &lt;!--end:Info--&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;text-end&quot;&gt;
+          &lt;div class=&quot;text-gray-900 fs-7&quot;&gt;Quantity&lt;/div&gt;
+          &lt;div class=&quot;fs-7 fw-bold&quot; data-subtable-field=&quot;quantity&quot;&gt;1&lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;text-end&quot;&gt;
+          &lt;div class=&quot;text-gray-900 fs-7&quot;&gt;Unit Price&lt;/div&gt;
+          &lt;div class=&quot;fs-7 fw-bold&quot; data-subtable-field=&quot;unit_price&quot;&gt;1&lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/template&gt;
+    &lt;!--end::SubTable template--&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;1001&lt;/td&gt;
+      &lt;td&gt;John Smith&lt;/td&gt;
+      &lt;td&gt;2024-12-01&lt;/td&gt;
+      &lt;td class=&quot;text-end&quot;&gt;
+        &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
+          &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
+          &lt;i class=&quot;ki-duotone ki-minus fs-3 m-0 toggle-on&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1002&lt;/td&gt;
+      &lt;td&gt;Emily Johnson&lt;/td&gt;
+      &lt;td&gt;2024-12-15&lt;/td&gt;
+      &lt;td class=&quot;text-end&quot;&gt;
+        &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
+          &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
+          &lt;i class=&quot;ki-duotone ki-minus fs-3 m-0 toggle-on&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1003&lt;/td&gt;
+      &lt;td&gt;Michael Brown&lt;/td&gt;
+      &lt;td&gt;2024-12-20&lt;/td&gt;
+      &lt;td class=&quot;text-end&quot;&gt;
+        &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
+          &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
+          &lt;i class=&quot;ki-duotone ki-minus fs-3 m-0 toggle-on&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--end::Table--&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="subtable-js-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">import {components} from 'metronic-extension';
+
+// Get DOM element references.
+const ref = components.selectRef();
+
+// Initialize the DataTable.
+const initSubtable = () =&gt; {
+  let targetIndex = 0;
+  return new components.Datatable(ref.subtable, {
+    columnDefs: [
+      {targets: targetIndex++, data: 'orderId', name: 'orderId'},
+      {targets: targetIndex++, data: 'customerName', name: 'customerName'},
+      {targets: targetIndex++, data: 'orderDate', name: 'orderDate'},
+      {targets: targetIndex++, data: 'expandRow', name: 'expandRow'},
+    ],
+    pageLength: 3,
+    drawCallback: settings =&gt; {
+      resetSubtable();
+    },
+  });
+}
+
+// Handles the row expand button click event.
+const handleRowExpand = () =&gt; {
+  $(subtableContainer).on('click', '[data-on-expand-row]', event =&gt; {
+    event.stopImmediatePropagation();
+    event.preventDefault();
+
+    const expandButton = event.currentTarget;
+    const row = expandButton.closest('tr');
+    const rowClasses = ['isOpen', 'border-bottom-0'];
+    
+    // Toggle subtable visibility.
+    if (row.classList.contains('isOpen')) {
+      // Close subtable.
+      removeSubtableRows(row);
+      row.classList.remove(...rowClasses);
+      expandButton.classList.remove('active');
+    } else {
+      // Open subtable.
+      const orderId = subtable.getRowData(row).orderId;
+      const subtableRows = subtableData.filter(data =&gt; data.orderId == orderId);
+      const subtableRowCount = subtableRows.length;
+
+      for (let [index, data] of Object.entries(subtableRows))
+        populateSubtableRow(data, row, index, subtableRowCount);
+
+      row.classList.add(...rowClasses);
+      expandButton.classList.add('active');
+    }
+  })
+}
+
+// Removes subtable rows associated with the given parent row.
+const removeSubtableRows = parentRow =&gt; {
+  while (parentRow.nextSibling &amp;&amp; parentRow.nextSibling.getAttribute('data-is-subtable-row') === 'true')
+    parentRow.nextSibling.parentNode.removeChild(parentRow.nextSibling);
+}
+
+// Populates a subtable row with data and inserts it into the table.
+const populateSubtableRow = (data, parentRow, index, subtableRowCount) =&gt; {
+  // Clone the template row.
+  const subRowFragment = subtableTemplate.content.cloneNode(true);
+  const subRow = subRowFragment.children[0]; 
+
+  // Set an attribute to identify the subtable row.
+  subRow.setAttribute('data-is-subtable-row', 'true');
+  
+  // Populate data fields in the subtable row.
+  const nameElement = subRow.querySelector('[data-subtable-field=&quot;name&quot;]');
+  const quantityElement = subRow.querySelector('[data-subtable-field=&quot;quantity&quot;]');
+  const unitPriceElement = subRow.querySelector('[data-subtable-field=&quot;unit_price&quot;]');
+
+  nameElement.innerText = data.name;
+  quantityElement.innerText = data.quantity;
+  unitPriceElement.innerText = data.unitPrice;
+
+  // Apply rounded corners based on row position.
+  applyRoundedCorners(subRow, index, subtableRowCount);
+
+  // Insert the new subtable row into the table.
+  const tbody = subtableContainer.querySelector('tbody');
+  tbody.insertBefore(subRow, parentRow.nextSibling);
+}
+
+// Applies rounded corners to the first and last rows of the subtable.
+const applyRoundedCorners = (subRow, index, subtableRowCount) =&gt; {
+  const columns = subRow.querySelectorAll('td');
+  const firstColumn = columns[0];
+  const lastColumn = columns[columns.length - 1];
+
+  if (subtableRowCount === 1) {
+    // Single row.
+    firstColumn.classList.add('rounded', 'rounded-end-0');
+    lastColumn.classList.add('rounded', 'rounded-start-0');
+    subRow.classList.add('border-bottom-0');
+  } else {
+    // Multiple rows.
+    if (index === 0) { // First row.
+      firstColumn.classList.add('rounded-start', 'rounded-top-0');
+      lastColumn.classList.add('rounded-end', 'rounded-top-0');
+      subRow.classList.add('border-bottom-0');
+    }
+    if (index === subtableRowCount - 1) { // Last row.
+      firstColumn.classList.add('rounded-start', 'rounded-bottom-0');
+      lastColumn.classList.add('rounded-end', 'rounded-bottom-0');
+    }
+  }
+}
+
+// Resets the subtable by removing all subtable rows and resetting row styles.
+const resetSubtable = () =&gt; {
+  const subtableRows = subtableContainer.querySelectorAll('[data-is-subtable-row=&quot;true&quot;]');
+  for (const subtableRow of subtableRows)
+    subtableRow.parentNode.removeChild(subtableRow);
+
+  const rows = subtableContainer.querySelectorAll('tbody tr');
+  for (const row of rows) {
+    row.classList.remove('isOpen');
+    const expandButton = row.querySelector('button[data-on-expand-row]');
+    if (expandButton) {
+      expandButton.classList.remove('active');
+    }
+  }
+}
+
+// Sample subtable data.
+const subtableData = [
+  {
+    &quot;orderId&quot;: 1001,
+    &quot;name&quot;: &quot;Wireless Mouse&quot;,
+    &quot;quantity&quot;: 1,
+    &quot;unitPrice&quot;: 25.99
+  },
+  {
+    &quot;orderId&quot;: 1001,
+    &quot;name&quot;: &quot;Keyboard&quot;,
+    &quot;quantity&quot;: 2,
+    &quot;unitPrice&quot;: 45.00
+  },
+  {
+    &quot;orderId&quot;: 1002,
+    &quot;name&quot;: &quot;Desk Lamp&quot;,
+    &quot;quantity&quot;: 1,
+    &quot;unitPrice&quot;: 34.50
+  },
+  {
+    &quot;orderId&quot;: 1002,
+    &quot;name&quot;: &quot;Notebook&quot;,
+    &quot;quantity&quot;: 3,
+    &quot;unitPrice&quot;: 12.00
+  },
+  {
+    &quot;orderId&quot;: 1002,
+    &quot;name&quot;: &quot;USB Hub&quot;,
+    &quot;quantity&quot;: 2,
+    &quot;unitPrice&quot;: 18.75
+  },
+  {
+    &quot;orderId&quot;: 1003,
+    &quot;name&quot;: &quot;Office Chair&quot;,
+    &quot;quantity&quot;: 1,
+    &quot;unitPrice&quot;: 120.00
+  },
+];
+
+
+// DOM element references.
+const subtableContainer = ref.subtable.get(0);
+const subtableTemplate = document.getElementById('subtable-template');// Get subtable template.
+
+// Initialize the component and set up event listeners.
+const subtable = initSubtable();
+handleRowExpand();</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
                     </div>
                     <!--end::Card Body-->
                   </div>
@@ -3160,6 +3580,18 @@ module.exports = class extends Model {
   <!--end::Link-->
 </li>
 <!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#subtable" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Subtable</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
 
                         </ul>
                         <!--end::Menu-->
@@ -3226,7 +3658,13 @@ module.exports = class extends Model {
     Prism.languages.sql={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)).*?(\r?\n|$))/g,lookbehind:!0},string: /("|')(\\?.)*?\1/g,keyword:/\b(ACTION|ADD|AFTER|ALGORITHM|ALTER|ANALYZE|APPLY|AS|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADE|CASCADED|CASE|CHAIN|CHAR VARYING|CHARACTER VARYING|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATA|DATABASE|DATABASES|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DOUBLE PRECISION|DROP|DUMMY|DUMP|DUMPFILE|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE|ESCAPED BY|EXCEPT|EXEC|EXECUTE|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR|FOR EACH ROW|FORCE|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GEOMETRY|GEOMETRYCOLLECTION|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY|IDENTITY_INSERT|IDENTITYCOL|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEY|KEYS|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONGBLOB|LONGTEXT|MATCH|MATCHED|MEDIUMBLOB|MEDIUMINT|MEDIUMTEXT|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTILINESTRING|MULTIPOINT|MULTIPOLYGON|NATIONAL|NATIONAL CHAR VARYING|NATIONAL CHARACTER|NATIONAL CHARACTER VARYING|NATIONAL VARCHAR|NATURAL|NCHAR|NCHAR VARCHAR|NEXT|NO|NO SQL|NOCHECK|NOCYCLE|NONCLUSTERED|NULLIF|NUMERIC|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUT|OUTER|OUTFILE|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC|PROCEDURE|PUBLIC|PURGE|QUICK|RAISERROR|READ|READS SQL DATA|READTEXT|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURN|RETURNS|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROWCOUNT|ROWGUIDCOL|ROWS?|RTREE|RULE|SAVE|SAVEPOINT|SCHEMA|SELECT|SERIAL|SERIALIZABLE|SESSION|SESSION_USER|SET|SETUSER|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START|STARTING BY|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLE|TABLES|TABLESPACE|TEMPORARY|TEMPTABLE|TERMINATED BY|TEXT|TEXTSIZE|THEN|TIMESTAMP|TINYBLOB|TINYINT|TINYTEXT|TO|TOP|TRAN|TRANSACTION|TRANSACTIONS|TRIGGER|TRUNCATE|TSEQUAL|TYPE|TYPES|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNPIVOT|UPDATE|UPDATETEXT|USAGE|USE|USER|USING|VALUE|VALUES|VARBINARY|VARCHAR|VARCHARACTER|VARYING|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH|WITH ROLLUP|WITHIN|WORK|WRITE|WRITETEXT)\b/gi,boolean:/\b(TRUE|FALSE|NULL)\b/gi,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/\b(ALL|AND|ANY|BETWEEN|EXISTS|IN|LIKE|NOT|OR|IS|UNIQUE|CHARACTER SET|COLLATE|DIV|OFFSET|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b|[-+]{1}|!|=?&lt;|=?&gt;|={1}|(&amp;){1,2}|\|?\||\?|\*|\//gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[;[\]()`,.]/g};
   </script>
   <script src="build/app.js"></script>
-  <script src="build/datatable.js"></script>
+  <script src="build/basic-table.js"></script>
+<script src="build/server-side-processing-table.js"></script>
+<script src="build/column-visibility-table.js"></script>
+<script src="build/column-visibility-with-icon-button-table.js"></script>
+<script src="build/disable-first-ajax-call-table.js"></script>
+<script src="build/subtable.js"></script>
+
   <!--end::Custom Javascript-->
   <!--end::Javascript-->
 </body>

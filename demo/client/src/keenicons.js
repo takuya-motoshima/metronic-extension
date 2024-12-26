@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();
 
 // Initialize icon preview modal.
@@ -18,18 +18,18 @@ const escapeHTMLSpecialChars = html => {
     .replace(/'/g, '&#039;');
 }
 
-// Initialize events.
+// Initialize the component and set up event listeners.
 $('body')
-  .on('click', '[data-on-change-style]', evnt => {
+  .on('click', '[data-on-change-style]', event => {
     // When the style radio button is clicked, the style of the icon list is toggled.
     ref.listing
       .removeClass('keenicons-solid keenicons-duotone keenicons-outline')
-      .addClass(`keenicons-${evnt.currentTarget.value}`);
+      .addClass(`keenicons-${event.currentTarget.value}`);
   })
-  .on('click', '[data-on-use-icon]', evnt => {
+  .on('click', '[data-on-use-icon]', event => {
     // Show the icon preview modal when the use button is clicked.
     // Clicked button element.
-    const button = $(evnt.currentTarget);
+    const button = $(event.currentTarget);
 
     // Style of the selected icon.
     const style = ref.style.filter(':checked').val();
@@ -56,7 +56,6 @@ $('body')
     iconPreviewModal.show();
   });
 
-// Initialize the process of copying the icon code.
 new ClipboardJS(ref.useCodeCopyButton.get(0), {
   target: ref.useCode.get(0),
   text: e =>  e.innerText,

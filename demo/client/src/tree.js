@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-// Initialize Tree.
+// Initialize the component and set up event listeners.
 const basicTree = new components.Tree(document.getElementById('basicTree'), {
   ajax: {
     children: node => {
@@ -31,21 +31,19 @@ const basicTree = new components.Tree(document.getElementById('basicTree'), {
   },
 });
 
-// Set tree event.
 basicTree
-  .onSelected((evnt, node) => {
+  .onSelected((event, node) => {
     // Display selected node information.
     document.getElementById('nodeId').textContent = node.id;
     document.getElementById('nodePath').textContent = basicTree.getPath(node, '/');
     document.getElementById('nodeText').textContent = node.text;
     document.getElementById('nodeType').textContent = node.type;
   })
-  .onError(err => {
+  .onError(error => {
     // Displays errors encountered in tree operations.
-    alert(err);
+    alert(error);
   });
 
-// Initialize Tree.
 const serverSideProcessingTree = new components.Tree(document.getElementById('serverSideProcessingTree'), {
   ajax: {
     children: '/api/tree/_PARENT_NODE_ID_',

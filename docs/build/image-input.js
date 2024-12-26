@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Initialize ImageInput.
+// Initialize the component and set up event listeners.
 const basicImageInput = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.ImageInput(document.getElementById('basicImageInput'), {
   default: 'img/avatar1.svg',
   current: 'img/avatar2.png',
@@ -130,12 +130,10 @@ const basicImageInput = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.comp
   }
 });
 
-// Set callbacks for image changes.
 basicImageInput.onChange(dataURL => {
   alert('Changed image');
 });
 
-// Initialize ImageInput.
 const readonlyImageInput = new metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.ImageInput(document.getElementById('readonlyImageInput'), {
   current: 'img/avatar3.png',
   readonly: true,

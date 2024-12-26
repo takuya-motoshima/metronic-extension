@@ -1,4 +1,4 @@
 import {components} from 'metronic-extension';
 
-// Search for elements.
+// Get DOM element references.
 const ref = components.selectRef();

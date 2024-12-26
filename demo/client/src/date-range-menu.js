@@ -1,6 +1,6 @@
 import {components} from 'metronic-extension';
 
-// Initialize date range menu.
+// Initialize the component and set up event listeners.
 const dateRangePicker = components.initDaterangeMenu(document.getElementById('dateRangeMenu'), {
   locale: 'en',
   format: 'YYYY/M/D',

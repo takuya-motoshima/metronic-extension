@@ -87,7 +87,7 @@
               <div class="page-title d-flex flex-column flex-lg-row align-items-lg-center py-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_content_container', 'lg': '#kt_app_header_title'}">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center text-dark my-1 fs-4">
-                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.6</a>
+                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.10</a>
                 </h1>
                 <!--end::Title-->
               </div>
@@ -419,7 +419,7 @@
                 <div class="menu-item">
                   <!--begin:Menu link-->
                   <a class="menu-link " href="select-elements.html">
-                    <span class="menu-title">Search for elements</span>
+                    <span class="menu-title">Get DOM element references</span>
                   </a>
                   <!--end:Menu link-->
                 </div>
@@ -982,9 +982,9 @@
           <div class="highlight-code">
             <pre class="language-javascript">
               <code class="language-javascript">// Handle button click event.
-document.getElementById(&#039;button1&#039;).addEventListener(&#039;click&#039;, evnt =&gt; {
+document.getElementById(&#039;button1&#039;).addEventListener(&#039;click&#039;, event =&gt; {
   // Element to indecate.
-  const button = evnt.currentTarget;
+  const button = event.currentTarget;
 
   // Activate indicator.
   button.setAttribute(&#039;data-kt-indicator&#039;, &#039;on&#039;);

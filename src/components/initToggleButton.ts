@@ -85,13 +85,13 @@ export default (element: string|HTMLElement|JQuery): void => {
     const buttons: HTMLElement[] = [].slice.call(group.querySelectorAll(buttoSelector));
 
     // Set up toggle processing for button click events.
-    $(group).on('click', buttoSelector, (evnt: any) => {
+    $(group).on('click', buttoSelector, (event: any) => {
       // Deactivate all buttons under the button group element.
       for (let button of buttons)
         button.classList.remove('active');
 
       // Activate clicked button.
-      evnt.currentTarget.classList.add('active');
+      event.currentTarget.classList.add('active');
     });
 
     // Set the toggle initialization completion attribute for the button group.
