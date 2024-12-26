@@ -24,6 +24,15 @@ See [here](demo/README.md).
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.10] - 2024/12/27
+    - Add Sub Datatable Example [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#subtable).
+
+        ![subtable.jpg](screencaps/subtable.jpg)
+    - Fixed a bug in the demo page where the source maps for some modules were missing.
+        Added the following
+        - demo/public/build/theme/plugins/global/toastr.js.map
+        - demo/public/build/theme/plugins/custom/datatables/pdfmake.min.js.map
+    - Merged docs/v2 and docs/v3 documentation into docs/. Old documents are available at [https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9](https://github.com/takuya-motoshima/metronic-extension/releases/tag/v3.0.9).
 - [3.0.9] - The release of the package has not yet been determined.
     - Changed the default width of lines in the line chart component (`components.LineChart`) from 3px to 1px.
     - Added Docker build and demo run environments.  
