@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [3.0.11] - Unreleased
 ### Changed
 - Added responsive support for subtables. You can check the updated subtable [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#subtable).
+- Added an example to the subtable demo where the expand button is not displayed for rows without subtable data.
 
 ## [3.0.10] - 2024/12/27
 ### Added

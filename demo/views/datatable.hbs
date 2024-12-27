@@ -2437,8 +2437,27 @@ module.exports = class extends Model {
               </button>
             </td>
           </tr>
+          <!-- This row has no subtable data -->
           <tr>
             <td>1003</td>
+            <td>Alice Johnson</td>
+            <td>2024-12-03</td>
+            <td>789 Oak St, Suburb</td>
+            <td>Unpaid</td>
+            <td>2024-12-07</td>
+            <td>Processing</td>
+            <td>Online</td>
+            <td>10%</td>
+            <td>Deliver during business hours</td>
+            <td class="text-end">
+              <button data-on-expand-row type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px">
+                <i class="ki-duotone ki-plus fs-3 m-0 toggle-off"></i>
+                <i class="ki-duotone ki-minus fs-3 m-0 toggle-on"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>1004</td>
             <td>Michael Brown</td>
             <td>2024-12-20</td>
             <td>789 Pine Ave, City</td>
@@ -2567,8 +2586,27 @@ module.exports = class extends Model {
         &lt;/button&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
+    &lt;!-- This row has no subtable data --&gt;
     &lt;tr&gt;
       &lt;td&gt;1003&lt;/td&gt;
+      &lt;td&gt;Alice Johnson&lt;/td&gt;
+      &lt;td&gt;2024-12-03&lt;/td&gt;
+      &lt;td&gt;789 Oak St, Suburb&lt;/td&gt;
+      &lt;td&gt;Unpaid&lt;/td&gt;
+      &lt;td&gt;2024-12-07&lt;/td&gt;
+      &lt;td&gt;Processing&lt;/td&gt;
+      &lt;td&gt;Online&lt;/td&gt;
+      &lt;td&gt;10%&lt;/td&gt;
+      &lt;td&gt;Deliver during business hours&lt;/td&gt;
+      &lt;td class=&quot;text-end&quot;&gt;
+        &lt;button data-on-expand-row type=&quot;button&quot; class=&quot;btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px&quot;&gt;
+          &lt;i class=&quot;ki-duotone ki-plus fs-3 m-0 toggle-off&quot;&gt;&lt;/i&gt;
+          &lt;i class=&quot;ki-duotone ki-minus fs-3 m-0 toggle-on&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1004&lt;/td&gt;
       &lt;td&gt;Michael Brown&lt;/td&gt;
       &lt;td&gt;2024-12-20&lt;/td&gt;
       &lt;td&gt;789 Pine Ave, City&lt;/td&gt;
@@ -2617,9 +2655,19 @@ const initSubtable = () =&gt; {
       {targets: targetIndex++, data: 'orderType', name: 'orderType'},
       {targets: targetIndex++, data: 'discount', name: 'discount'},
       {targets: targetIndex++, data: 'orderNotes', name: 'orderNotes'},
-      {targets: targetIndex++, responsivePriority: 3, data: 'expandRow', name: 'expandRow'},
+      {
+        targets: targetIndex++,
+        responsivePriority: 3,
+        data: 'showSubtable',
+        name: 'showSubtable', 
+        render: (data, type, row) =&gt; {
+          // Check if subtable data exists for this row.
+          const hasSubtableData = subtableData.some(item =&gt; item.orderId.toString() === row.orderId);
+          return hasSubtableData ? data : '';
+        },
+      },
     ],
-    pageLength: 3,
+    pageLength: 4,
     drawCallback: settings =&gt; {
       resetSubtable();
     },
@@ -2649,7 +2697,7 @@ const handleRowExpand = () =&gt; {
       const subtableRowCount = subtableRows.length;
 
       for (let [index, data] of Object.entries(subtableRows))
-        populateSubtableRow(data, row, index, subtableRowCount);
+        populateSubtableRow(data, row, parseInt(index, 10), subtableRowCount);
 
       row.classList.add(...rowClasses);
       expandButton.classList.add('active');
@@ -2777,7 +2825,7 @@ const subtableData = [
     &quot;unitPrice&quot;: 18.75
   },
   {
-    &quot;orderId&quot;: 1003,
+    &quot;orderId&quot;: 1004,
     &quot;name&quot;: &quot;Office Chair&quot;,
     &quot;quantity&quot;: 1,
     &quot;unitPrice&quot;: 120.00,

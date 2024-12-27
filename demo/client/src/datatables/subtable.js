@@ -19,9 +19,19 @@ const initSubtable = () => {
       {targets: targetIndex++, data: 'orderType', name: 'orderType'},
       {targets: targetIndex++, data: 'discount', name: 'discount'},
       {targets: targetIndex++, data: 'orderNotes', name: 'orderNotes'},
-      {targets: targetIndex++, responsivePriority: 3, data: 'expandRow', name: 'expandRow'},
+      {
+        targets: targetIndex++,
+        responsivePriority: 3,
+        data: 'showSubtable',
+        name: 'showSubtable', 
+        render: (data, type, row) => {
+          // Check if subtable data exists for this row.
+          const hasSubtableData = subtableData.some(item => item.orderId.toString() === row.orderId);
+          return hasSubtableData ? data : '';
+        },
+      },
     ],
-    pageLength: 3,
+    pageLength: 4,
     drawCallback: settings => {
       resetSubtable();
     },
@@ -51,7 +61,7 @@ const handleRowExpand = () => {
       const subtableRowCount = subtableRows.length;
 
       for (let [index, data] of Object.entries(subtableRows))
-        populateSubtableRow(data, row, index, subtableRowCount);
+        populateSubtableRow(data, row, parseInt(index, 10), subtableRowCount);
 
       row.classList.add(...rowClasses);
       expandButton.classList.add('active');
@@ -179,7 +189,7 @@ const subtableData = [
     "unitPrice": 18.75
   },
   {
-    "orderId": 1003,
+    "orderId": 1004,
     "name": "Office Chair",
     "quantity": 1,
     "unitPrice": 120.00,
