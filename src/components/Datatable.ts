@@ -623,8 +623,10 @@ export default class Datatable {
         sInfoThousands: ',',
         sLengthMenu: 'Show _MENU_ entries',
         sLoadingRecords: '&nbsp;',
-        sProcessing: '<div class="datatable-spinner"></div>',
-        //sLoadingRecords: Loading...',
+
+        // Commenting out sProcessing to fix a bug where the DataTable loading indicator is not displayed (2024/12/31)
+        // sProcessing: '<div class="datatable-spinner"></div>',
+        // sLoadingRecords: 'Loading...',
         sSearch: `<span class="svg-icon svg-icon-muted svg-icon-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                       <rect x="0" y="0" width="24" height="24"/>

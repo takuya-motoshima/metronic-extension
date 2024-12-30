@@ -24,6 +24,8 @@ See [here](demo/README.md).
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.12] - 2024/12/31
+    - Fixed a bug where the data table loading indicator was not displayed.
 - [3.0.11] - 2024/12/27
     - Added responsive support for subtables. You can check the updated subtable [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#subtable).
     - Added an example to the subtable demo where the expand button is not displayed for rows without subtable data.

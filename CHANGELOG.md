@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.12] - 2024/12/31
+### Fixed
+- Fixed a bug where the data table loading indicator was not displayed.
+
 ## [3.0.11] - 2024/12/27
 ### Changed
 - Added responsive support for subtables. You can check the updated subtable [here](https://takuya-motoshima.github.io/metronic-extension/datatable.html#subtable).
@@ -740,3 +744,4 @@ All notable changes to this project will be documented in this file.
 [3.0.9]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.8...v3.0.9
 [3.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.9...v3.0.10
 [3.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.10...v3.0.11
+[3.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.11...v3.0.12
