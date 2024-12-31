@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.13] - 2024/12/31
+### Fixed
+- Fixed a bug where the data table loading indicator was not displayed when the locale option was set to Japanese.
+
 ## [3.0.12] - 2024/12/31
 ### Fixed
 - Fixed a bug where the data table loading indicator was not displayed.
@@ -745,3 +749,4 @@ All notable changes to this project will be documented in this file.
 [3.0.10]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.9...v3.0.10
 [3.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.10...v3.0.11
 [3.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.11...v3.0.12
+[3.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.12...v3.0.13

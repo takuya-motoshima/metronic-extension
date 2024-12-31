@@ -655,7 +655,9 @@ export default class Datatable {
         sInfoThousands: ',',
         sLengthMenu: '_MENU_ 件表示',
         sLoadingRecords: '&nbsp;',
-        sProcessing: '<div class="datatable-spinner"></div>',
+
+        // Commenting out sProcessing to fix a bug where the DataTable loading indicator is not displayed (2024/12/31)
+        // sProcessing: '<div class="datatable-spinner"></div>',
         //sLoadingRecords: '読み込み中...',
         sSearch: `<span class="svg-icon svg-icon-muted svg-icon-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
