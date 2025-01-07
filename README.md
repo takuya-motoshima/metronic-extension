@@ -24,6 +24,15 @@ See [here](demo/README.md).
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.14] - 2025/1/7
+    - Added `setDisabled` method and a reference to the Tagify instance to the Tagify component.
+        ```js
+        // Disable input.
+        tagify.setDisabled(true);
+
+        // Reset the whitelist using the Tagify instance API.
+        tagify.api.whitelist = null;
+        ```
 - [3.0.13] - 2024/12/31
     - Fixed a bug where the data table loading indicator was not displayed when the locale option was set to Japanese.
 - [3.0.12] - 2024/12/31

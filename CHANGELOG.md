@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.14] - 2025/1/7
+### Changed
+- Added `setDisabled` method and a reference to the Tagify instance to the Tagify component.
+    ```js
+    // Disable input.
+    tagify.setDisabled(true);
+
+    // Reset the whitelist using the Tagify instance API.
+    tagify.api.whitelist = null;
+    ```
+
 ## [3.0.13] - 2024/12/31
 ### Fixed
 - Fixed a bug where the data table loading indicator was not displayed when the locale option was set to Japanese.
@@ -750,3 +761,4 @@ All notable changes to this project will be documented in this file.
 [3.0.11]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.10...v3.0.11
 [3.0.12]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.11...v3.0.12
 [3.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.12...v3.0.13
+[3.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.13...v3.0.14

@@ -8,6 +8,14 @@ import TagifyOptions from '~/interfaces/TagifyOptions';
  */
 export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
   /**
+   * Tagify instance. This is read-only.
+   * @type {typeof window.Tagify}
+   */
+  public get api(): typeof window.Tagify {
+    return this.#tagify;
+  }
+
+  /**
    * Tagify instance.
    * @type {Tagify}
    */
@@ -133,11 +141,19 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
   }
 
   /**
-   * Switches read-only mode on or off.
-   * @param {boolean} readonly true to switch the tagify instance to read-only mode, false to switch off read-only mode.
+   * Sets the read-only state of the Tagify instance.
+   * @param {boolean} readonly True to enable read-only mode, false to disable it.
    */
   public setReadonly(readonly: boolean = true): void {
     this.#tagify.setReadonly(readonly);
+  }
+
+  /**
+   * Sets the disabled state of the Tagify instance.
+   * @param {boolean} disabled True to enable disabled mode, false to disable it.
+   */
+  public setDisabled(disabled: boolean = true): void {
+    this.#tagify.setDisabled(disabled);
   }
 
   /**

@@ -6,6 +6,11 @@ import TagifyOptions from '~/interfaces/TagifyOptions';
 export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
     #private;
     /**
+     * Tagify instance. This is read-only.
+     * @type {typeof window.Tagify}
+     */
+    get api(): typeof window.Tagify;
+    /**
      * Create a new instance of the Tagify class.
      * See <a href="https://yaireo.github.io/tagify/" target="_blank">tagify documentation</a> for options not listed here.
      * @param {string|HTMLInputElement|HTMLTextAreaElement|JQuery} element HTMLInputElement or HTMLTextAreaElement selector, element, or JQuery object.
@@ -34,10 +39,15 @@ export default class<T extends Tagify.BaseTagData = Tagify.TagData> {
      */
     removeAllTags(): void;
     /**
-     * Switches read-only mode on or off.
-     * @param {boolean} readonly true to switch the tagify instance to read-only mode, false to switch off read-only mode.
+     * Sets the read-only state of the Tagify instance.
+     * @param {boolean} readonly True to enable read-only mode, false to disable it.
      */
     setReadonly(readonly?: boolean): void;
+    /**
+     * Sets the disabled state of the Tagify instance.
+     * @param {boolean} disabled True to enable disabled mode, false to disable it.
+     */
+    setDisabled(disabled?: boolean): void;
     /**
      * Sets the callback function to be called when a tag is added.
      * @param {(event: Tagify.AddEventData) => void} handler Callback function.

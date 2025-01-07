@@ -87,7 +87,7 @@
               <div class="page-title d-flex flex-column flex-lg-row align-items-lg-center py-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_app_content_container', 'lg': '#kt_app_header_title'}">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center text-dark my-1 fs-4">
-                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.13</a>
+                  Documentation <a href="#!" class="badge fw-semibold fs-9 px-2 ms-2 bg-body text-dark text-hover-primary shadow-sm">v3.0.14</a>
                 </h1>
                 <!--end::Title-->
               </div>
@@ -1019,7 +1019,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
               <code>public setReadonly()</code>
             </td>
             <td>
-              Switches read-only mode on or off.
+              Sets the read-only state of the Tagify instance.
               <!--begin::Heading-->
               <h5 class="py-2 mb-0">Parameters:</h5>
               <!--end::Heading-->
@@ -1028,7 +1028,29 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
                 <li class="py-2"><code>readonly: boolean</code>
                   <!--begin::Block-->
                   <div class="pt-3">
-                    true to switch the tagify instance to read-only mode, false to switch off read-only mode.
+                    True to enable read-only mode, false to disable it.
+                  </div>
+                  <!--end::Block-->
+                </li>
+              </ul>
+              <!--end::Parameters-->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>public setDisabled()</code>
+            </td>
+            <td>
+              Sets the disabled state of the Tagify instance.
+              <!--begin::Heading-->
+              <h5 class="py-2 mb-0">Parameters:</h5>
+              <!--end::Heading-->
+              <!--begin::Parameters-->
+              <ul>
+                <li class="py-2"><code>disabled: boolean</code>
+                  <!--begin::Block-->
+                  <div class="pt-3">
+                    True to enable disabled mode, false to disable it.
                   </div>
                   <!--end::Block-->
                 </li>
