@@ -53,10 +53,10 @@ module.exports = class extends Model {
       raw: true,
     });
 
-    // Get the total number of records.
+    // Calculate total records.
     const recordsTotal = await super.count();
 
-    // Get the number of filtered records.
+    // Calculate filtered records.
     const recordsFiltered = await super.count({where});
     return {data, recordsTotal, recordsFiltered};
   }
