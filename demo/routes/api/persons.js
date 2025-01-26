@@ -19,11 +19,11 @@ router.get('/pages', [
     return void res.status(400).end();
 
   // Get page data.
-  const paginate = await PersonModel.paginate(req.query);
+  const data = await PersonModel.paginate(req.query);
 
   // Set the received drawing count as-is in the response.
-  paginate.draw = req.query.draw;
-  res.json(paginate);
+  data.draw = req.query.draw;
+  res.json(data);
 });
 
 module.exports = router;

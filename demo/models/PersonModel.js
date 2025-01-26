@@ -25,9 +25,9 @@ module.exports = class extends Model {
   /**
    * Get page data.
    */
-  static async paginate(options) {
+  static async paginate(paginationOptions) {
     // Initialize options.
-    options = merge({
+    paginationOptions = merge({
       start: 0,
       length: 30,
       order: 'name',
@@ -35,19 +35,21 @@ module.exports = class extends Model {
       search: {
         keyword: null,
       },
-    }, options);
+    }, paginationOptions);
 
     // Filter conditions.
     const where = {};
-    if (options.search.keyword)
-      where.name = {[super.Op.like]: `%${options.search.keyword}%`};
+    if (paginationOptions.search.keyword)
+      where.name = {[super.Op.like]: `%${paginationOptions.search.keyword}%`};
 
     // Get page data.
     const data = await super.findAll({
       where,
-      offset: parseInt(options.start, 10),
-      limit: parseInt(options.length, 10),
-      order: [super.literal(`${options.order} ${options.dir}`)],
+      offset: parseInt(paginationOptions.start, 10),
+      limit: parseInt(paginationOptions.length, 10),
+      order: [
+        [super.col(paginationOptions.order), paginationOptions.dir],
+      ],
       raw: true,
     });
 
