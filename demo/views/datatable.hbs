@@ -1587,20 +1587,20 @@ module.exports = class extends Model {
       },
     }, paginationOptions);
 
-    // Filter conditions.
-    const where = {};
+    // Where clause for filtering data.
+    const whereClause = {};
     if (paginationOptions.search.keyword)
-      where.name = {[super.Op.like]: `%${paginationOptions.search.keyword}%`};
+      whereClause.name = {[super.Op.like]: `%${paginationOptions.search.keyword}%`};
 
     // Calculate total records.
     const recordsTotal = await super.count();
 
     // Calculate filtered records.
-    const recordsFiltered = await super.count({where});
+    const recordsFiltered = await super.count({where: whereClause});
 
     // Fetch paginated data.
     const data = await super.findAll({
-      where,
+      where: whereClause,
       offset: parseInt(paginationOptions.start, 10),
       limit: parseInt(paginationOptions.length, 10),
       order: [
@@ -2279,20 +2279,20 @@ module.exports = class extends Model {
       },
     }, paginationOptions);
 
-    // Filter conditions.
-    const where = {};
+    // Where clause for filtering data.
+    const whereClause = {};
     if (paginationOptions.search.keyword)
-      where.name = {[super.Op.like]: `%${paginationOptions.search.keyword}%`};
+      whereClause.name = {[super.Op.like]: `%${paginationOptions.search.keyword}%`};
 
     // Calculate total records.
     const recordsTotal = await super.count();
 
     // Calculate filtered records.
-    const recordsFiltered = await super.count({where});
+    const recordsFiltered = await super.count({where: whereClause});
 
     // Fetch paginated data.
     const data = await super.findAll({
-      where,
+      where: whereClause,
       offset: parseInt(paginationOptions.start, 10),
       limit: parseInt(paginationOptions.length, 10),
       order: [
