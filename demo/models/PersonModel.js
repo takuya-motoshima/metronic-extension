@@ -42,7 +42,13 @@ module.exports = class extends Model {
     if (paginationOptions.search.keyword)
       where.name = {[super.Op.like]: `%${paginationOptions.search.keyword}%`};
 
-    // Get page data.
+    // Calculate total records.
+    const recordsTotal = await super.count();
+
+    // Calculate filtered records.
+    const recordsFiltered = await super.count({where});
+
+    // Fetch paginated data.
     const data = await super.findAll({
       where,
       offset: parseInt(paginationOptions.start, 10),
@@ -53,11 +59,6 @@ module.exports = class extends Model {
       raw: true,
     });
 
-    // Calculate total records.
-    const recordsTotal = await super.count();
-
-    // Calculate filtered records.
-    const recordsFiltered = await super.count({where});
     return {data, recordsTotal, recordsFiltered};
   }
 }
