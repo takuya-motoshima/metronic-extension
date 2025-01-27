@@ -1,5 +1,5 @@
 {{!< default}}
-{{#contentFor 'title'}}Get DOM element references{{/contentFor}}
+{{#contentFor 'title'}}Fetch Data-ref Elements{{/contentFor}}
 {{#contentFor 'script'}}<script src="build/select-elements.js"></script>{{/contentFor}}
 {{#contentFor 'sidenav'}}
 <!--begin::Item-->
@@ -165,7 +165,7 @@
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Get DOM element references.
+// Get references to elements with data-ref attributes.
 const ref = components.selectRef();</code>
             </pre>
           </div>
@@ -240,7 +240,7 @@ const ref = components.selectRef();</code>
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Get DOM element references.
+// Get references to elements with data-ref attributes.
 const ref = components.selectRef(&#039;body&#039;, {asHtmlElement: true});</code>
             </pre>
           </div>
@@ -315,7 +315,7 @@ const ref = components.selectRef(&#039;body&#039;, {asHtmlElement: true});</code
             <pre class="language-javascript">
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
-// Get DOM element references.
+// Get references to elements with data-ref attributes.
 const ref = components.selectRef(&#039;#person&#039;);</code>
             </pre>
           </div>

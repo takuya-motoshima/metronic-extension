@@ -116,7 +116,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var metronic_extension__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(metronic_extension__WEBPACK_IMPORTED_MODULE_0__);
 
 
-// Get DOM element references.
+// Get references to elements with data-ref attributes.
 const ref = metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.selectRef();
 })();
 

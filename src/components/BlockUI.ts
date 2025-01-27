@@ -18,7 +18,7 @@ import isString from '~/utils/isString';
  * ```js
  * import {components} from 'metronic-extension';
  * 
- * // Get DOM element references.
+ * // Get references to elements with data-ref attributes.
  * const ref = components.selectRef();
  *
  * // Initialize the component and set up event listeners.

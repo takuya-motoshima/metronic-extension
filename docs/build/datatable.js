@@ -305,7 +305,7 @@ function initDisableFirstAjaxCallTableForm() {
   $('body').on('click', '[data-on-load-disable-first-ajax-call-table]', () => disableFirstAjaxCallTable.reload());
 }
 
-// Search for elements.
+// Get references to elements with data-ref attributes.
 const ref = metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.selectRef();
 
 // Initialize DataTable.

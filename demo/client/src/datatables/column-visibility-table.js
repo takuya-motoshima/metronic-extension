@@ -54,7 +54,7 @@ const initColumnVisibilityTable = () => {
   });
 }
 
-// Get DOM element references.
+// Get references to elements with data-ref attributes.
 const ref = components.selectRef();
 
 // Initialize the component and set up event listeners.

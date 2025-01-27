@@ -139,7 +139,7 @@ const initDisableFirstAjaxCallTableForm = () => {
   $('body').on('click', '[data-on-load-disable-first-ajax-call-table]', () => disableFirstAjaxCallTable.reload());
 }
 
-// Get DOM element references.
+// Get references to elements with data-ref attributes.
 const ref = metronic_extension__WEBPACK_IMPORTED_MODULE_0__.components.selectRef();
 
 // Initialize the component and set up event listeners.
