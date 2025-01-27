@@ -7,6 +7,7 @@ const initServerSideProcessingTable = () => {
     ajax: {
       url: '/api/persons/pages',
       data: d => {
+        // Set filter parameters.
         d.search = {keyword: ref.serverSideProcessingTableKeyword.val()};
       }
     },
