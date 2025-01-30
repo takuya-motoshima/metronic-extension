@@ -46,7 +46,7 @@ import {merge} from 'deep-fusion';
  *   }
  * }
  * 
- * // Create an API client instance.
+ * // API client.
  * const personApi = new PersonApi();
  * 
  * // Get person.
