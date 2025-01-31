@@ -161,3 +161,23 @@ table.dataTable > thead .sorting_asc:after {
     justify-content: flex-end !important;
   }
 }
+
+/* Prevent unnecessary margin below the input field in Tagify's single select mode (mode: 'select'). */
+.tagify.tagify--select {
+  gap: 0 !important;
+}
+
+  /* Increase the opacity of the toggle button in Tagify's single select mode (mode: 'select') for better visibility. */
+  .tagify--select::after {
+    opacity: 1;
+  }
+
+    /* Make the background of the remove button for selected tags transparent in Tagify's single select mode (mode: 'select'). */
+    .tagify.tagify--select .tagify__tag {
+      background-color: transparent;
+    }
+
+      /* Darken the color of the tag removal button in Tagify for better visibility. */
+      .tagify .tagify__tag .tagify__tag__removeBtn {
+        background-color: var(--bs-gray-800);
+      }

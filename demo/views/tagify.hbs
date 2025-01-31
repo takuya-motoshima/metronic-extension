@@ -74,6 +74,18 @@
   <!--end::Link-->
 </li>
 <!--end::Item-->
+<!--begin::Item-->
+<li class="menu-item py-2 px-3">
+  <!--begin::Link-->
+  <a href="#single-value-select" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+    <span class="menu-bullet">
+      <span class="bullet bullet-dot"></span>
+    </span>
+    <span class="menu-title">Single-Value Select</span>
+  </a>
+  <!--end::Link-->
+</li>
+<!--end::Item-->
 {{/contentFor}}
 <!--begin::Section-->
 <div class="pb-10">
@@ -165,7 +177,7 @@ new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {read
 
 // Inline Suggestions.
 new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
+  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;],
   dropdown: {
     maxItems: 20,
     classname: &#039;tagify__inline__suggestions&#039;,
@@ -174,7 +186,7 @@ new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039
 
 // List Suggestions.
 new components.Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
+  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;],
   dropdown: {maxItems: 20},
 });</code>
                   </pre>
@@ -451,7 +463,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
   <div class="my-5">
     <div class="demonstration-block">
       <!--begin::Tagify-->
-      <input id="basicTagify" class="form-control form-control-solid" value="tag1,tag2,tag3">
+      <input id="basicTagify" class="form-control form-control-solid" value="tag1">
       <!--end::Tagify-->
     </div>
   </div>
@@ -472,7 +484,7 @@ tagify.addTags([&#039;tag5&#039;, &#039;tag6&#039;]);</code>
           <div class="highlight-code">
             <pre class="language-html">
               <code class="language-html">&lt;!--begin::Tagify--&gt;
-&lt;input id=&quot;basicTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;
+&lt;input id=&quot;basicTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1&quot; /&gt;
 &lt;!--end::Tagify--&gt;</code>
             </pre>
           </div>
@@ -526,7 +538,7 @@ basicTagify
   <!--begin::Block-->
   <div class="my-5">
     <div class="demonstration-block">
-      <input id="readonlyTagify" class="form-control form-control-solid" value="tag1,tag2,tag3">
+      <input id="readonlyTagify" class="form-control form-control-solid" value="tag1">
     </div>
   </div>
   <!--end::Block-->
@@ -545,7 +557,7 @@ basicTagify
         <div class="tab-pane fade show active" id="readonly-html-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">&lt;input id=&quot;readonlyTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
+              <code class="language-html">&lt;input id=&quot;readonlyTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1&quot; /&gt;</code>
             </pre>
           </div>
         </div>
@@ -557,7 +569,9 @@ basicTagify
               <code class="language-javascript">import {components} from &#039;metronic-extension&#039;;
 
 // Read-only.
-new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {readonly: true});</code>
+new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {
+  readonly: true,
+});</code>
             </pre>
           </div>
         </div>
@@ -583,7 +597,7 @@ new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {read
   <!--begin::Block-->
   <div class="my-5">
     <div class="demonstration-block">
-      <input id="inlineSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3">
+      <input id="inlineSuggestionsTagify" class="form-control form-control-solid" value="tag1">
     </div>
   </div>
   <!--end::Block-->
@@ -602,7 +616,7 @@ new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {read
         <div class="tab-pane fade show active" id="inline-suggestions-html-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">&lt;input id=&quot;inlineSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
+              <code class="language-html">&lt;input id=&quot;inlineSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1&quot; /&gt;</code>
             </pre>
           </div>
         </div>
@@ -615,7 +629,7 @@ new components.Tagify(document.getElementById(&#039;readonlyTagify&#039;), {read
 
 // Inline Suggestions.
 new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
+  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;],
   dropdown: {
     maxItems: 20,
     classname: &#039;tagify__inline__suggestions&#039;,
@@ -646,7 +660,7 @@ new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039
   <!--begin::Block-->
   <div class="my-5">
     <div class="demonstration-block">
-      <input id="listSuggestionsTagify" class="form-control form-control-solid" value="tag1,tag2,tag3">
+      <input id="listSuggestionsTagify" class="form-control form-control-solid" value="tag1">
     </div>
   </div>
   <!--end::Block-->
@@ -665,7 +679,7 @@ new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039
         <div class="tab-pane fade show active" id="list-suggestions-html-tab" role="tabpanel">
           <div class="highlight-code">
             <pre class="language-html">
-              <code class="language-html">&lt;input id=&quot;listSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1,tag2,tag3&quot; /&gt;</code>
+              <code class="language-html">&lt;input id=&quot;listSuggestionsTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1&quot; /&gt;</code>
             </pre>
           </div>
         </div>
@@ -678,8 +692,77 @@ new components.Tagify(document.getElementById(&#039;inlineSuggestionsTagify&#039
 
 // List Suggestions.
 new components.Tagify(document.getElementById(&#039;listSuggestionsTagify&#039;), {
-  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;, &#039;tag4&#039;, &#039;tag5&#039;, &#039;tag6&#039;, &#039;tag7&#039;],
-  dropdown: {maxItems: 20},
+  whitelist: [&#039;tag1&#039;, &#039;tag2&#039;, &#039;tag3&#039;],
+  dropdown: {
+    maxItems: 20,
+  },
+});</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <!--end::Highlight-->
+  </div>
+  <!--end::Code-->
+</div>
+<!--end::Section-->
+<!--begin::Section-->
+<div class="py-10">
+  <!--begin::Heading-->
+  <h1 class="anchor fw-bold mb-5" id="single-value-select" data-kt-scroll-offset="100">
+    <a href="#single-value-select"></a>Single-Value Select
+  </h1>
+  <!--end::Heading-->
+  <!--begin::Block-->
+  <div class="py-5">
+    Similar to native <code>&lt;Select&gt;</code> element, but allows free text as value.<br>
+    If the `enforceWhitelist` setting is set to `true` and a tag is currently selected,<br>
+    user text input will be disabled, so altering the currently selected tag is forbidden.
+  </div>
+  <!--end::Block-->
+  <!--begin::Block-->
+  <div class="my-5">
+    <div class="demonstration-block">
+      <input id="singleValueSelectTagify" class="form-control form-control-solid" value="tag1">
+    </div>
+  </div>
+  <!--end::Block-->
+  <!--begin::Code-->
+  <div class="my-5">
+    <!--begin::Highlight-->
+    <div class="highlight">
+      <button class="highlight-copy btn" data-bs-toggle="tooltip" title="Copy code">copy</button>
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#single-value-select-html-tab" role="tab">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#single-value-select-js-tab" role="tab">JAVASCRIPT</a></li>
+      </ul>
+      <!--begin::Tab content-->
+      <div class="tab-content">
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade show active" id="single-value-select-html-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-html">
+              <code class="language-html">&lt;input id=&quot;singleValueSelectTagify&quot; class=&quot;form-control form-control-solid&quot; value=&quot;tag1&quot;&gt;</code>
+            </pre>
+          </div>
+        </div>
+        <!--end::Tab panel-->
+        <!--begin::Tab panel-->
+        <div class="tab-pane fade" id="single-value-select-js-tab" role="tabpanel">
+          <div class="highlight-code">
+            <pre class="language-javascript">
+              <code class="language-javascript">// Single-Value Select.
+new components.Tagify(document.getElementById('singleValueSelectTagify'), {
+  enforceWhitelist: true,
+  mode: 'select',
+  whitelist: ['tag1', 'tag2', 'tag3'],
+  dropdown: {
+    closeOnSelect: true, // Close the dropdown when a suggestion is selected
+    maxItems: Infinity,
+  },
 });</code>
             </pre>
           </div>
