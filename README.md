@@ -24,6 +24,12 @@ See [here](demo/README.md).
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.15] - 2025/1/31
+    - Changes to Tagify Component Styling (see demo [here](https://takuya-motoshima.github.io/metronic-extension/tagify#single-value-select)):
+        - Removed unnecessary margin below the input field in single select mode.
+        - Increased the opacity of the toggle button in single select mode for better visibility.
+        - Made the background of the remove button for selected tags transparent in single select mode.
+        - Darkened the color of the tag removal button for better visibility. 
 - [3.0.14] - 2025/1/7
     - Added `setDisabled` method and a reference to the Tagify instance to the Tagify component.
         ```js
