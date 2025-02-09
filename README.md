@@ -24,6 +24,8 @@ See [here](demo/README.md).
 ## Release Notes
 All changes can be found [here](CHANGELOG.md).
 
+- [3.0.16] - 2025/2/9
+    - Added CSS to reduce container padding on tablet and smaller screens, increasing content width on the login page.
 - [3.0.15] - 2025/1/31
     - Changes to Tagify Component Styling (see demo [here](https://takuya-motoshima.github.io/metronic-extension/tagify#single-value-select)):
         - Removed unnecessary margin below the input field in single select mode.

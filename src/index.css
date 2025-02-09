@@ -24,6 +24,16 @@
     background-color: var(--bs-scrollbar-color) !important;
   } */
 
+@media (max-width: 991.98px) {
+  /* Reduce container padding on tablet and smaller screens to increase content width */
+  .app-container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    /* padding-left: 20px !important;
+    padding-right: 20px !important; */
+  }
+}
+  
 /* Custom styling of jstree. */
 /* Context menu. */
 .vakata-context li > a {

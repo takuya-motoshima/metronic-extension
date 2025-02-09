@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.16] - 2025/2/9
+### Changed
+- Added CSS to reduce container padding on tablet and smaller screens, increasing content width on the login page.
+
 ## [3.0.15] - 2025/1/31
 ### Change
 - Changes to Tagify Component Styling (see demo [here](https://takuya-motoshima.github.io/metronic-extension/tagify#single-value-select)):
@@ -771,3 +775,4 @@ All notable changes to this project will be documented in this file.
 [3.0.13]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.12...v3.0.13
 [3.0.14]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.13...v3.0.14
 [3.0.15]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.14...v3.0.15
+[3.0.16]: https://github.com/takuya-motoshima/metronic-extension/compare/v3.0.14...v3.0.16
