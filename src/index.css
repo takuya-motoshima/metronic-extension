@@ -191,3 +191,8 @@ table.dataTable > thead .sorting_asc:after {
       .tagify .tagify__tag .tagify__tag__removeBtn {
         background-color: var(--bs-gray-800);
       }
+
+/* Darkened the text color within read-only Quill editor bodies for better readability. */
+.ql-editor[contenteditable="false"] {
+  color: var(--bs-text-gray-900);
+}
